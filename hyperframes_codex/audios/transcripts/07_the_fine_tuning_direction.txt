@@ -1,0 +1,9 @@
+Prompt engineering alone was not enough, so we moved to fine-tuning.
+
+One useful inspiration came from Cory Spencer's Monadical articles on Minecraft skin generation. The key idea is a composite target image: part of the output is the UV map, and another part is a 3D render of the same skin.
+
+That matters because training only on UV maps does not show the model enough 3D structure. Training only on rendered previews does not give it the actual usable texture file.
+
+By combining both, the target teaches the model: this flat texture corresponds to this 3D character.
+
+In our tests, that combined target was much more stable than either part alone.

@@ -1,0 +1,9 @@
+Minecraft skin generation looks small, but the real challenge is dense: the model must understand a 2D UV map, a 3D block body, inner and outer layers, transparency, and the identity of the reference image at the same time.
+
+The three most useful pieces in this experiment were composite target images, a high-quality data construction workflow, and Alpha Markers for transparent pixels.
+
+If those pieces keep improving, Minecraft skin generation becomes less like a one-off image trick and more like a sustainable engineering pipeline.
+
+We have open-sourced the models, dataset, and scripts. You can train or deploy everything locally, or try the free online generator at entropydrop.com. Model weights are available on Hugging Face under the EntropyDrop organization.
+
+Subscribe for more deep dives into open-source AI and creative engineering. Thanks for watching, and I'll see you in the next experiment!

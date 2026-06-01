@@ -1,0 +1,9 @@
+Rendering parameters became a surprisingly important part of dataset quality.
+
+Plane mode and voxel mode show the outer layer differently. Plane mode renders the outer layer as floating surfaces. Voxel mode renders outer pixels as small blocks. For Minecraft-style geometry, voxel mode can expose the raised structure more clearly.
+
+Perspective and orthographic projection also behave differently. Orthographic projection keeps sizes constant. Perspective projection gives near and far parts different visual sizes, which can provide extra depth cues.
+
+Lighting matters too. With lighting off, each pixel shows its original color, but adjacent blocks of the same color become hard to distinguish. With lighting on, shadows reveal form and make the mapping easier to learn, even though color accuracy can be affected in some highlights.
+
+The practical lesson is simple: the render is not just decoration. It is training information.

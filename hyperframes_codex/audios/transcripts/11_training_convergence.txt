@@ -1,0 +1,11 @@
+One useful way to understand this training process is to look at the intermediate outputs.
+
+At the beginning, around steps 500 to 2000, the visible outputs are still mostly blurry color blocks and chaotic lines. By step 2000, the rough composite structure starts to appear: UV map in one area, rendered character views in the others.
+
+Between about 2500 and 4000 steps, the structure becomes more recognizable. The head, torso, arms, and legs separate into clearer components, and the main clothing colors begin to land on the right body parts.
+
+From 6000 to 16K steps, more details become visible: facial features, accessories, hair layers, coat borders, and outer-layer geometry. The Alpha Marker pattern also becomes more regular, which matters later for transparency recovery.
+
+After step 18K, the image becomes noticeably sharper. Pixel boundaries are cleaner, character details fit the reference more closely, and the marker grid is easier to detect.
+
+These checkpoints do not prove a fixed learning order, but they make the progression easier to see: the visible output starts as noisy structure, then the layout, body parts, texture details, and marker patterns become clearer over time.

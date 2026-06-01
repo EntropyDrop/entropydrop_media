@@ -1,0 +1,9 @@
+For the reproducible setup, the base model was Flux2 Klein Base 4B, trained with ai-toolkit.
+
+The training resolution was 768 by 768. The dataset used 70 paired samples. Batch size was 1, gradient accumulation was 1, the optimizer was AdamW 8-bit, the learning rate was 1e-4, and the LoRA rank was 32.
+
+The run used 20,000 training steps on one RTX Pro 6000, taking about 6 hours.
+
+One important finding was that more data did not automatically mean better results. A carefully selected set of around 50 pairs could already produce usable outputs, while thousands of randomly selected pairs made quality worse.
+
+For this task, quality, diversity, and structural correctness were more important than raw dataset size.

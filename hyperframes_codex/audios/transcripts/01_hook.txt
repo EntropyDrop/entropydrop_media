@@ -1,0 +1,7 @@
+Imagine uploading a picture of any character, and getting a Minecraft version you can actually use in the game.
+
+That sounds like a simple image filter.
+
+But a Minecraft-style picture is not the same as a playable Minecraft character. In the game, the character is a 3D block model, and its appearance is defined by a specific 2D UV map layout wrapped around that model.
+
+So the real challenge is: can AI turn a normal reference image into that specific UV map, so it actually works as a Minecraft character?
