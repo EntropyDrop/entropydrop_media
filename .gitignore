@@ -1,0 +1,6 @@
+.minimax_api_key
+.hyperframes
+.thumbnails
+.waveform-cache
+renders
+__pycache__

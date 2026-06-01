@@ -1,0 +1,15 @@
+This redesigned dataset is built from paired control images and target images.
+
+The control image is the input. In the ideal case, it contains a front-facing full-body reference and a back-facing full-body reference. That gives the model enough information about clothing, hair, colors, and accessories.
+
+During inference, even if only the front view is available, the model can sometimes infer a reasonable back side. But the more complete the control image is, the stronger the training signal becomes.
+
+The target image is the output the model learns to generate. It includes a complete skin UV map, plus multiple 3D render views.
+
+The top-left area contains the real UV texture. The top-right area includes a main preview and enlarged details. The bottom area contains inner-layer and outer-layer views from multiple directions, plus close-ups of the head.
+
+To be clear, the Minecraft UV layout itself is fixed to the standard skin format, so we can extract a usable skin file reliably.
+
+What is flexible is how we arrange the different panels inside the training target image.
+
+The model cared less about whether the UV map was placed in the top-left or somewhere else, and more about how much useful information the target contained: the UV texture, rendered views, viewing-angle coverage, and clear UV-to-3D correspondence.

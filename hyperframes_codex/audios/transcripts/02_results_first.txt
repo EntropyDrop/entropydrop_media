@@ -1,0 +1,9 @@
+Here are results from the current image-to-skin model.
+
+The input can be a photo portrait, an anime drawing, an oil painting, a stylized character, a person, or even an animal. Each pair shows the same idea: reference image in, generated Minecraft skin out.
+
+These are not perfect, but they show the main goal: preserve the identity of the input image, compress it into a very small texture space.
+
+Finally, make it work on the Minecraft character model.
+
+That combination is much harder than ordinary image stylization.

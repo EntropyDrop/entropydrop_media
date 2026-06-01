@@ -1,0 +1,11 @@
+Target images are relatively easy to create once you have existing skin UV maps. You can render them with scripts.
+
+The harder part is getting matched realistic reference images.
+
+One strategy is reverse deduction. Start from an existing Minecraft skin and use a multimodal image model to infer a realistic full-body front and back reference.
+
+Another strategy is a self-evolving data synthesis loop.
+
+First, use an LLM to generate diverse character descriptions. Then use a text-to-image model to create realistic reference images. Then use the current image-to-skin model to generate target images. After that, filter, repair, and validate the outputs. High-quality pairs go back into the training set, while flawed outputs are repaired when possible, or studied to design targeted fixes.
+
+This turns dataset construction into an evolving system, not a one-time collection step.

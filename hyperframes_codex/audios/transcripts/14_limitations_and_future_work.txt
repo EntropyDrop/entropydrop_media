@@ -1,0 +1,13 @@
+The current method can generate usable examples, but it is not perfect.
+
+Multi-level transparency is still unsolved. Complex decorations can become blurry, broken, misplaced, or asymmetric.
+
+The next directions are clear.
+
+Another promising direction is to add Direct Preference Optimization, or DPO, on top of LoRA, so the model can better favor stable, high-quality generations.
+
+And larger base models may improve quality and generalization.
+
+Sub-style control could make the same reference image produce different Minecraft skin styles. For example, we can control the output style from abstract to detailed, or from realistic to science-fiction-like.
+
+A stronger self-evolving dataset loop could automatically find failure cases, repair what can be repaired, and turn recurring problems into targeted improvements.

@@ -1,0 +1,13 @@
+There is one more difference from the Monadical setup.
+
+Monadical's pipeline was mainly text-to-skin: describe a character in words, then generate a Minecraft skin target.
+
+We borrowed the useful composite target idea, but changed the input side.
+
+For most creators, the natural input is already an image: a drawing, a game character, an avatar, or a photo.
+
+So our direction is image-to-skin: reference image in, playable Minecraft skin out.
+
+To achieve this, we chose Flux2 Klein 4B base as our base model for its strong image understanding and generalization.
+
+But a great model is only half the battle. To maximize the training results, we completely redesigned our dataset.

@@ -1,0 +1,9 @@
+The strict mapping creates three problems.
+
+First, every pixel has a precise spatial meaning. If the arm texture drifts by even one pixel, the 3D character can look broken.
+
+Second, the model has to understand the relationship between the 2D UV map and the 3D body. A scarf, a coat, or a strand of hair might cross multiple components. If the model does not understand the geometry, the detail can appear on the wrong face or disappear entirely.
+
+Third, Minecraft skins depend on transparency. The alpha channel decides which outer-layer pixels should be visible. Most diffusion image models generate RGB images by default, not clean RGBA texture files.
+
+So the model is not just learning "Minecraft style." It is learning a constrained 2D-to-3D encoding system.

@@ -1,0 +1,1 @@
+Want to try it yourself? Visit entropydrop.com for the free online generator. We also open-sourced the training details and model weights, so you can train or deploy it locally.

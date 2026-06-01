@@ -1,0 +1,11 @@
+We tested general multimodal image models with explicit prompts, UV explanations, and reference images.
+
+The request sounds reasonable: generate a 64 by 64 Minecraft skin UV map for this character.
+
+But a usable skin is not judged by style alone. Every visible pixel has to snap to the exact 64 by 64 UV grid.
+
+The first two outputs look skin-like at a glance, but their pixels are not strictly aligned to the Minecraft layout. They may invent regions, shift faces, blur structural boundaries, ignore the inner and outer layer relationship, or fail to output transparency in a usable way.
+
+So the problem is not that these models cannot make attractive images. They can. The problem is that they do not consistently obey the exact schema of a Minecraft skin.
+
+For a normal image, approximate structure might be acceptable. For a game texture with strict UV coordinates, it breaks the asset.

@@ -1,0 +1,15 @@
+A Minecraft skin is not just a picture of a character. It is a texture map that Minecraft reads with fixed coordinates.
+
+The UV map tells the game where every rectangle goes: head, torso, arms, and legs. If one region moves, the texture lands on the wrong face of the 3D model.
+
+There is one more important idea: overlay. Many body parts have two texture layers. The inner layer is the base body. The overlay layer is for raised details, like hair, hats, sleeves, jackets, armor, or accessories.
+
+The overlay is still stored in the same 2D skin file, but Minecraft renders it on a slightly larger outer cube. Transparent overlay pixels stay invisible. Opaque overlay pixels become the raised detail.
+
+That is why RGBA matters. Color is not enough; the alpha channel tells Minecraft which overlay pixels should actually exist.
+
+The layer diagram shows another catch. The head overlay protrudes by about half a pixel in every direction, while the torso, arms, and legs use their own scaling. So even the layer geometry is not perfectly uniform.
+
+The folding animation makes the core idea visible: the flat UV layout wraps around a 3D block model, with both base and overlay textures landing on specific faces.
+
+So generating a usable Minecraft skin means producing the exact 2D UV layout, plus the overlay and transparency information the 3D character can read.

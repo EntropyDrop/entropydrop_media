@@ -1,0 +1,4373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>Can AI Turn a Picture into a Minecraft Character?</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <style>
+    :root {
+      --bg: #f3f4f1;
+      --paper: #fbfcfa;
+      --panel: #ffffff;
+      --panel-2: #ecefeb;
+      --line: #161a17;
+      --line-soft: #d7ddd5;
+      --line-strong: #161a17;
+      --green: #1d7a3b;
+      --green-dark: #0c4f27;
+      --green-soft: #e3f0e5;
+      --cyan: var(--green);
+      --amber: var(--green);
+      --coral: #111611;
+      --blue: #6b746c;
+      --ink: #111611;
+      --muted: #586159;
+      --dark: #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 1920px;
+      height: 1080px;
+      margin: 0;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, Arial, sans-serif;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(232, 236, 230, 0.42)),
+        linear-gradient(90deg, rgba(29, 122, 59, 0.035) 0 28%, transparent 28% 100%);
+      background-size: 100% 100%, 480px 100%;
+    }
+
+    .grid-bg,
+    .scanline,
+    .top-rule,
+    .progress {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .grid-bg {
+      inset: 0;
+      display: none;
+    }
+
+    .scanline {
+      inset: 0;
+      display: none;
+    }
+
+    .top-rule {
+      left: 82px;
+      right: 82px;
+      top: 34px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green) 0 18%, var(--line) 18% 100%);
+    }
+
+    .progress {
+      left: 82px;
+      right: 82px;
+      bottom: 25px;
+      height: 5px;
+      background: #d9dfd7;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--green);
+    }
+
+    .clip {
+      position: absolute;
+    }
+
+    .voiceover-track {
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .scene {
+      inset: 0;
+      padding: 72px 82px 82px;
+      opacity: 1;
+      visibility: hidden;
+    }
+
+    #scene-hook {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scene-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 1160px;
+      font-size: 74px;
+      line-height: 1.04;
+      font-weight: 860;
+      letter-spacing: 0;
+    }
+
+    #scene-hook h1 {
+      max-width: 1700px;
+      font-size: 64px;
+      white-space: nowrap;
+    }
+
+    h2 {
+      max-width: 1260px;
+      font-size: 54px;
+      line-height: 1.08;
+      font-weight: 840;
+      letter-spacing: 0;
+    }
+
+    #scene-results h2 {
+      max-width: 1640px;
+      font-size: 44px;
+      line-height: 1.04;
+    }
+
+    #scene-results>.scene-inner>.kicker,
+    #scene-results h2 {
+      display: none;
+    }
+
+    h3 {
+      font-size: 31px;
+      line-height: 1.16;
+      font-weight: 800;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--green-dark);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 760;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 28px;
+      height: 4px;
+      background: var(--green);
+    }
+
+    .subtitle {
+      max-width: 1040px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 29px;
+      line-height: 1.36;
+      font-weight: 560;
+    }
+
+    .hook-line {
+      max-width: 980px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 34px;
+      line-height: 1.24;
+      font-weight: 620;
+    }
+
+    .caption {
+      position: absolute;
+      right: 82px;
+      bottom: 152px;
+      width: 650px;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      border: 1px solid var(--line-soft);
+      border-left: 6px solid var(--green);
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      font-size: 24px;
+      line-height: 1.24;
+      font-weight: 720;
+      box-shadow: 0 18px 40px rgba(17, 22, 17, 0.08);
+    }
+
+    .caption strong,
+    .accent {
+      color: var(--amber);
+    }
+
+    .subtitle-line {
+      left: 300px;
+      right: 300px;
+      bottom: 54px;
+      z-index: 90;
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 28px;
+      border: 1px solid rgba(22, 26, 23, 0.16);
+      border-left: 7px solid var(--green);
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--line);
+      font-size: 31px;
+      line-height: 1.28;
+      font-weight: 760;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      box-shadow: 0 14px 34px rgba(17, 22, 17, 0.12);
+    }
+
+    .subtitle-copy {
+      display: block;
+      width: 100%;
+    }
+
+    .panel,
+    .soft-panel {
+      border: 1px solid var(--line-soft);
+      background: var(--panel);
+      box-shadow: 0 20px 48px rgba(17, 22, 17, 0.09);
+    }
+
+    .soft-panel {
+      background: var(--panel-2);
+      box-shadow: none;
+    }
+
+    .image-frame {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line-soft);
+      background-color: #eef1eb;
+    }
+
+    .image-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .source-url-note {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      padding: 9px 13px;
+      border-left: 4px solid var(--green);
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.16;
+      font-weight: 720;
+      box-shadow: 0 12px 30px rgba(17, 22, 17, 0.10);
+    }
+
+    .source-url-note strong {
+      color: var(--green-dark);
+    }
+
+    .square-media {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1;
+      overflow: hidden;
+      isolation: isolate;
+      border: 1px solid var(--line-soft);
+      border-width: 1px;
+      box-sizing: border-box;
+      background: #eef1eb;
+    }
+
+    .square-media::before {
+      content: "";
+      position: absolute;
+      inset: -34px;
+      z-index: 0;
+      background-image: var(--media-bg);
+      background-position: center;
+      background-size: cover;
+      filter: blur(24px) saturate(0.92);
+      opacity: 0.5;
+      transform: scale(1.05);
+    }
+
+    .square-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(239, 243, 237, 0.28)),
+        rgba(255, 255, 255, 0.08);
+    }
+
+    .square-media>img {
+      position: relative;
+      z-index: 2;
+      width: auto;
+      height: auto;
+      max-width: 92%;
+      max-height: 92%;
+      object-fit: contain;
+      object-position: center;
+      filter: drop-shadow(0 14px 24px rgba(17, 22, 17, 0.16));
+    }
+
+    .square-media:not(.generated)>img {
+      width: 92%;
+      height: 92%;
+      max-width: none;
+      max-height: none;
+    }
+
+    .square-media.generated>img {
+      max-width: 96%;
+      max-height: 96%;
+    }
+
+    .hook-visual {
+      position: absolute;
+      left: 295px;
+      top: 204px;
+      width: 1166px;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 500px 66px 500px;
+      justify-content: center;
+      gap: 26px;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .hook-visual .square-media {
+      width: 500px;
+      height: 500px;
+      background: #f8faf6;
+    }
+
+    .hook-card {
+      display: flex;
+      width: 500px;
+      min-width: 0;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hook-label {
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 760;
+    }
+
+    .hook-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 66px;
+      height: 66px;
+      border: 1px solid var(--line-soft);
+      background: var(--green);
+      color: #ffffff;
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 760;
+    }
+
+    .hero-grid {
+      position: absolute;
+      right: 0;
+      top: 120px;
+      width: 720px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .skin-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 11px;
+    }
+
+    .skin-pair img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      background: var(--panel-2);
+      border: 1px solid var(--line-soft);
+    }
+
+    .pair-name {
+      grid-column: 1 / -1;
+      color: var(--muted);
+      font-size: 18px;
+      font-weight: 700;
+      text-align: center;
+      text-transform: none;
+    }
+
+    .big-word {
+      position: absolute;
+      left: 0;
+      bottom: 144px;
+      color: rgba(17, 22, 17, 0.055);
+      font-size: 210px;
+      line-height: 0.8;
+      font-weight: 860;
+      letter-spacing: 0;
+    }
+
+    .showcase-stage {
+      position: absolute;
+      inset: 136px 0 126px;
+    }
+
+    .showcase-shot {
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+      padding: 24px;
+      border: 1px solid var(--line-soft);
+      background: var(--paper);
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(17, 22, 17, 0.08);
+    }
+
+    .video-placeholder::after {
+      content: none;
+      position: absolute;
+      inset: 0;
+      background: transparent;
+      transform: translateX(-120%);
+    }
+
+    .placeholder-media {
+      width: 610px;
+      height: 610px;
+      max-width: 100%;
+      justify-self: center;
+      align-self: center;
+      background: #f1f3ef;
+    }
+
+    .placeholder-media img {
+      filter: none;
+    }
+
+    .placeholder-media.square-media>img {
+      max-width: 562px;
+      max-height: 562px;
+    }
+
+    .placeholder-media.square-media:not(.generated)>img {
+      width: 562px;
+      height: 562px;
+    }
+
+    .placeholder-media.square-media.generated>img {
+      max-width: 586px;
+      max-height: 586px;
+    }
+
+    .placeholder-center {
+      min-height: 420px;
+      height: min(100%, 520px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 22px;
+      border: 1px dashed rgba(22, 26, 23, 0.32);
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .placeholder-center h3 {
+      max-width: 300px;
+      font-size: 36px;
+    }
+
+    .placeholder-center p {
+      max-width: 300px;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.3;
+      font-weight: 560;
+    }
+
+    .placeholder-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid rgba(29, 122, 59, 0.34);
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      font-size: 20px;
+      font-weight: 760;
+    }
+
+    .playbar {
+      width: 280px;
+      height: 6px;
+      background: #dfe4dc;
+      overflow: hidden;
+    }
+
+    .playbar-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--green);
+    }
+
+    .showcase-pair {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 24px;
+    }
+
+    .showcase-card {
+      width: 580px;
+      height: 580px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line-soft);
+      box-shadow: 0 24px 60px rgba(17, 22, 17, 0.08);
+      position: relative;
+    }
+
+    .showcase-card .square-media {
+      width: 450px;
+      height: 450px;
+      margin-top: 40px;
+    }
+
+    .showcase-label {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      padding: 6px 14px;
+      border: 1px solid var(--line-soft);
+      background: var(--paper);
+      color: var(--muted);
+      font-size: 20px;
+      font-weight: 760;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .showcase-arrow {
+      font-size: 64px;
+      color: var(--green);
+      font-weight: 800;
+      text-shadow: 0 4px 12px rgba(29, 122, 59, 0.15);
+      animation: pulseArrow 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseArrow {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    .showcase-grid {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .showcase-tile {
+      padding: 14px;
+      display: grid;
+      grid-template-rows: auto auto;
+      align-content: center;
+      gap: 12px;
+    }
+
+    .showcase-tile .tile-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .showcase-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .showcase-tile .square-media>img {
+      max-width: 94%;
+      max-height: 94%;
+    }
+
+    .showcase-tile .square-media:not(.generated)>img {
+      width: 94%;
+      height: 94%;
+    }
+
+    .showcase-tile .square-media.generated>img {
+      max-width: 97%;
+      max-height: 97%;
+    }
+
+    .showcase-tile p {
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.24;
+      font-weight: 650;
+      text-align: center;
+    }
+
+    .cta-card {
+      position: absolute;
+      inset: 90px 180px 90px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: center;
+      padding: 48px;
+      border: 1px solid var(--line-soft);
+      background: var(--panel);
+      box-shadow: 0 28px 70px rgba(17, 22, 17, 0.12);
+    }
+
+    .cta-url {
+      margin-top: 28px;
+      display: inline-block;
+      padding: 16px 22px;
+      border-radius: 4px;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 46px;
+      line-height: 1;
+      font-weight: 820;
+    }
+
+    .mock-browser {
+      height: 622px;
+      border: 1px solid var(--line-soft);
+      background: #f6f7f4;
+    }
+
+    .browser-bar {
+      height: 58px;
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      gap: 10px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .url-bar {
+      flex: 1;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      border: 1px solid var(--line-soft);
+      background: #ffffff;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 1px solid rgba(22, 26, 23, 0.18);
+      background: var(--green);
+    }
+
+    .dot:nth-child(2) {
+      background: #ffffff;
+    }
+
+    .dot:nth-child(3) {
+      background: var(--line);
+    }
+
+    .browser-body {
+      padding: 38px;
+    }
+
+    .upload-box {
+      height: 210px;
+      display: grid;
+      place-items: center;
+      border: 1px dashed rgba(22, 26, 23, 0.36);
+      color: var(--muted);
+      font-size: 28px;
+      font-weight: 650;
+    }
+
+    .preview-row {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .preview-tile {
+      height: 110px;
+      border: 1px solid var(--line-soft);
+      background: var(--green-soft);
+    }
+
+    .website-video-slot {
+      padding: 30px;
+    }
+
+    .video-slot-screen {
+      position: relative;
+      height: 504px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      border: 1px solid var(--line-soft);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(237, 241, 235, 0.96)),
+        linear-gradient(90deg, rgba(29, 122, 59, 0.08) 0 25%, transparent 25% 100%);
+      overflow: hidden;
+    }
+
+    .video-slot-screen::before {
+      content: "";
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      top: 34px;
+      height: 1px;
+      background: var(--line-soft);
+    }
+
+    .cta-demo-video {
+      position: absolute;
+      left: 944px;
+      top: 317px;
+      width: 636px;
+      height: 504px;
+      z-index: 35;
+      object-fit: cover;
+      background: #ffffff;
+      pointer-events: none;
+    }
+
+    .video-play-button {
+      position: relative;
+      width: 82px;
+      height: 82px;
+      border: 2px solid var(--green);
+      background: #ffffff;
+      z-index: 2;
+    }
+
+    .video-play-button::before {
+      content: "";
+      position: absolute;
+      left: 31px;
+      top: 23px;
+      width: 0;
+      height: 0;
+      border-top: 18px solid transparent;
+      border-bottom: 18px solid transparent;
+      border-left: 28px solid var(--green);
+    }
+
+    .video-slot-title {
+      color: var(--line);
+      font-size: 32px;
+      font-weight: 820;
+    }
+
+    .video-slot-subtitle {
+      color: var(--muted);
+      font-size: 21px;
+      font-weight: 640;
+    }
+
+    .video-slot-progress {
+      margin-top: 18px;
+      height: 6px;
+      background: #d9dfd7;
+    }
+
+    .video-slot-progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--green);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      height: 720px;
+      margin-top: 36px;
+    }
+
+    .two-col.narrow-left {
+      grid-template-columns: 0.86fr 1.14fr;
+    }
+
+    .two-col.narrow-right {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .fact {
+      padding: 22px 24px;
+      color: var(--ink);
+      font-size: 27px;
+      line-height: 1.3;
+      font-weight: 650;
+    }
+
+    .fact strong,
+    .metric strong {
+      color: var(--cyan);
+    }
+
+    .big-metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .metric {
+      min-height: 126px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .metric .value {
+      display: block;
+      color: var(--amber);
+      font-size: 39px;
+      line-height: 1;
+      font-weight: 820;
+    }
+
+    .metric span:last-child {
+      display: block;
+      margin-top: 11px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.18;
+    }
+
+    .structure-segment {
+      left: 0;
+      right: 0;
+      top: 152px;
+      height: 720px;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .structure-closeup {
+      display: grid;
+      grid-template-columns: 1.14fr 0.86fr;
+      gap: 32px;
+      height: 100%;
+    }
+
+    .structure-image-card,
+    .structure-copy-card,
+    .structure-video-card {
+      padding: 24px;
+    }
+
+    .structure-video-card {
+      height: 100%;
+    }
+
+    .structure-image-card .image-frame {
+      height: 100%;
+      background: #ffffff;
+    }
+
+    .structure-copy-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .structure-copy-card h3 {
+      color: var(--line);
+      font-size: 46px;
+      line-height: 1.08;
+      font-weight: 840;
+    }
+
+    .structure-bullet {
+      padding: 19px 22px;
+      border: 1px solid var(--line-soft);
+      border-left: 6px solid var(--green);
+      background: #ffffff;
+      color: var(--ink);
+      font-size: 26px;
+      line-height: 1.24;
+      font-weight: 680;
+    }
+
+    .structure-bullet strong {
+      color: var(--line);
+    }
+
+    #scene-skin-structure h2 {
+      max-width: 1500px;
+      font-size: 42px;
+      line-height: 1.06;
+    }
+
+    #scene-skin-structure .structure-segment {
+      top: 210px;
+      height: 630px;
+    }
+
+    #scene-skin-structure .structure-closeup {
+      grid-template-columns: 0.98fr 0.78fr;
+      grid-template-rows: 630px;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    #scene-skin-structure .structure-image-card,
+    #scene-skin-structure .structure-copy-card,
+    #scene-skin-structure .structure-video-card {
+      padding: 18px;
+      height: 630px;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    #scene-skin-structure .structure-image-card .image-frame {
+      height: 592px;
+      max-height: 592px;
+    }
+
+    #scene-skin-structure .structure-copy-card {
+      justify-content: center;
+      gap: 12px;
+    }
+
+    #scene-skin-structure .structure-copy-card h3 {
+      font-size: 34px;
+      line-height: 1.08;
+    }
+
+    #scene-skin-structure .structure-bullet {
+      padding: 14px 18px;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    #scene-skin-structure .layer-callout-grid {
+      gap: 10px;
+    }
+
+    #scene-skin-structure .layer-callout {
+      min-height: 90px;
+      padding: 13px;
+      font-size: 18px;
+      line-height: 1.14;
+    }
+
+    #scene-skin-structure .layer-callout strong {
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    #scene-skin-structure .uv-animation-screen {
+      height: 556px;
+    }
+
+    #skin-uv-closeup.structure-segment {
+      top: 190px;
+      height: 670px;
+    }
+
+    #skin-uv-closeup.structure-closeup {
+      grid-template-columns: 670px 500px;
+      grid-template-rows: 670px;
+      justify-content: center;
+      gap: 46px;
+    }
+
+    #skin-uv-closeup .structure-image-card {
+      width: 670px;
+      height: 670px;
+      padding: 8px;
+    }
+
+    #skin-uv-closeup .structure-image-card .image-frame {
+      width: 652px;
+      height: 652px;
+      max-height: 652px;
+    }
+
+    #skin-uv-closeup .uv-map-highlight {
+      z-index: 3;
+      border-width: 5px;
+      background: rgba(29, 122, 59, 0.16);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.72);
+    }
+
+    #skin-uv-closeup .uv-map-label {
+      z-index: 4;
+      padding: 6px 9px;
+      background: var(--green-dark);
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 1.06;
+      max-width: 136px;
+      box-shadow: 0 10px 22px rgba(17, 22, 17, 0.16);
+    }
+
+    #skin-uv-closeup .uv-map-label::before {
+      content: attr(data-label);
+    }
+
+    #skin-uv-closeup .structure-copy-card {
+      width: 500px;
+      height: 670px;
+      padding: 18px;
+    }
+
+    #skin-uv-closeup .structure-copy-card h3 {
+      font-size: 30px;
+      line-height: 1.08;
+    }
+
+    #skin-uv-closeup .structure-bullet {
+      padding: 12px 15px;
+      font-size: 20px;
+      line-height: 1.16;
+    }
+
+    #skin-fold-video.structure-segment {
+      top: 170px;
+      height: 700px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    #skin-fold-video .structure-video-card {
+      width: 698px;
+      height: 698px;
+      padding: 8px;
+    }
+
+    #skin-fold-video .uv-animation-screen {
+      width: 680px;
+      height: 680px;
+    }
+
+    #skin-fold-video .uv-slot-progress {
+      display: none;
+    }
+
+    #scene-skin-structure>.caption {
+      display: none;
+    }
+
+    .layer-callout-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .layer-callout {
+      min-height: 106px;
+      padding: 17px;
+      border: 1px solid var(--line-soft);
+      background: #ffffff;
+      color: var(--ink);
+      font-size: 20px;
+      line-height: 1.18;
+      font-weight: 700;
+    }
+
+    .layer-callout strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--green-dark);
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .uv-animation-screen {
+      position: relative;
+      height: 610px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      border: 1px solid var(--line-soft);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(238, 242, 236, 0.95)),
+        linear-gradient(90deg, rgba(29, 122, 59, 0.07) 0 34%, transparent 34% 100%);
+      overflow: hidden;
+    }
+
+    .uv-fold-video {
+      position: absolute;
+      left: 620px;
+      top: 250px;
+      width: 680px;
+      height: 680px;
+      z-index: 34;
+      object-fit: contain;
+      background: #ffffff;
+      pointer-events: none;
+    }
+
+    .uv-video-label {
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
+      padding: 12px 16px;
+      border: 1px solid var(--line-soft);
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--green-dark);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 760;
+      z-index: 38;
+    }
+
+    .uv-animation-screen::before,
+    .uv-animation-screen::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      border: 1px solid rgba(22, 26, 23, 0.12);
+    }
+
+    .uv-animation-screen::before {
+      left: 48px;
+      top: 48px;
+      width: 220px;
+      height: 220px;
+      background: rgba(255, 255, 255, 0.54);
+    }
+
+    .uv-animation-screen::after {
+      right: 62px;
+      top: 92px;
+      width: 210px;
+      height: 315px;
+      background: rgba(29, 122, 59, 0.08);
+    }
+
+    .uv-slot-title {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      color: var(--line);
+      font-size: 42px;
+      line-height: 1.08;
+      font-weight: 840;
+      text-align: center;
+    }
+
+    .uv-slot-subtitle {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 650;
+      text-align: center;
+    }
+
+    .uv-slot-arrow {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--green-dark);
+      font-size: 32px;
+      line-height: 1;
+      font-weight: 820;
+    }
+
+    .uv-slot-progress {
+      margin-top: 17px;
+      height: 7px;
+      background: #d9dfd7;
+    }
+
+    .uv-slot-progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--green);
+    }
+
+    .constraint-layout {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 34px;
+      height: 710px;
+      margin-top: 30px;
+    }
+
+    .constraint-visual {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 78px 1fr;
+      gap: 20px;
+      align-items: center;
+      padding: 26px;
+    }
+
+    .map-demo,
+    .body-demo {
+      height: 100%;
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .demo-label {
+      color: var(--green-dark);
+      font-size: 24px;
+      font-weight: 820;
+    }
+
+    .constraint-visual .image-frame {
+      height: 612px;
+      background: #f8faf6;
+    }
+
+    .map-demo .image-frame img {
+      image-rendering: pixelated;
+    }
+
+    .mapping-arrow-large {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 78px;
+      height: 78px;
+      border: 1px solid var(--line-soft);
+      background: var(--green);
+      color: #ffffff;
+      font-size: 46px;
+      line-height: 1;
+      font-weight: 820;
+    }
+
+    .uv-highlight {
+      position: absolute;
+      border: 4px solid var(--green);
+      background: rgba(29, 122, 59, 0.12);
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.95) inset;
+    }
+
+    .uv-highlight.arm {
+      left: 51%;
+      top: 42%;
+      width: 19%;
+      height: 37%;
+    }
+
+    .uv-highlight.head {
+      left: 32%;
+      top: 15%;
+      width: 25%;
+      height: 22%;
+      border-color: var(--line);
+      background: rgba(22, 26, 23, 0.08);
+    }
+
+    .constraint-list {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .constraint-card {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 20px;
+      align-items: start;
+      padding: 22px;
+      background: #ffffff;
+    }
+
+    .constraint-number {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 860;
+    }
+
+    .constraint-card h3 {
+      margin-bottom: 10px;
+      font-size: 30px;
+    }
+
+    .constraint-card p {
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.27;
+      font-weight: 620;
+    }
+
+    #scene-hard h2 {
+      max-width: 1280px;
+      font-size: 46px;
+      line-height: 1.06;
+    }
+
+    #scene-hard .constraint-layout {
+      grid-template-columns: 780px 650px;
+      justify-content: center;
+      gap: 42px;
+      height: 600px;
+      margin-top: 22px;
+    }
+
+    #scene-hard .constraint-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    #scene-hard .hard-video-frame {
+      position: relative;
+      width: 570px;
+      height: 570px;
+      background: transparent;
+      overflow: hidden;
+    }
+
+    .hard-fold-video {
+      left: 329px;
+      top: 202px;
+      width: 570px;
+      height: 570px;
+      z-index: 36;
+      border: 1px solid var(--line-soft);
+      object-fit: contain;
+      background: #ffffff;
+      pointer-events: none;
+    }
+
+    .hard-video-label {
+      left: 343px;
+      top: 216px;
+      z-index: 38;
+      padding: 10px 13px;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 820;
+    }
+
+    #scene-hard .map-demo,
+    #scene-hard .body-demo {
+      gap: 12px;
+      min-height: 0;
+    }
+
+    #scene-hard .demo-label {
+      font-size: 20px;
+    }
+
+    #scene-hard .constraint-visual .image-frame {
+      height: 528px;
+      min-height: 0;
+    }
+
+    #scene-hard .mapping-arrow-large {
+      width: 60px;
+      height: 60px;
+      font-size: 35px;
+    }
+
+    #scene-hard .constraint-list {
+      grid-template-rows: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      min-height: 0;
+    }
+
+    #scene-hard .constraint-card {
+      grid-template-columns: 54px 1fr;
+      gap: 16px;
+      padding: 18px;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    #scene-hard .constraint-number {
+      width: 46px;
+      height: 46px;
+      font-size: 23px;
+    }
+
+    #scene-hard .constraint-card h3 {
+      margin-bottom: 7px;
+      font-size: 26px;
+      line-height: 1.08;
+    }
+
+    #scene-hard .constraint-card p {
+      font-size: 20px;
+      line-height: 1.22;
+    }
+
+    #scene-hard>.caption {
+      display: none;
+    }
+
+    .failure-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-rows: 500px auto;
+      gap: 20px;
+      height: 675px;
+      margin-top: 30px;
+    }
+
+    .failure-card {
+      padding: 16px;
+    }
+
+    .failure-card .image-frame {
+      height: 402px;
+      margin-top: 13px;
+    }
+
+    .failure-card.expected {
+      border-color: rgba(78, 184, 92, 0.42);
+      box-shadow: 0 20px 52px rgba(78, 184, 92, 0.14);
+    }
+
+    .failure-card.expected .image-frame {
+      background:
+        linear-gradient(45deg, rgba(17, 22, 17, 0.06) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(17, 22, 17, 0.06) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(17, 22, 17, 0.06) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(17, 22, 17, 0.06) 75%),
+        #ffffff;
+      background-position: 0 0, 0 14px, 14px -14px, -14px 0;
+      background-size: 28px 28px;
+    }
+
+    .failure-card.expected .image-frame img {
+      image-rendering: pixelated;
+    }
+
+    .reason-list {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .reason {
+      padding: 18px 20px;
+      border-left: 5px solid var(--green);
+      background: var(--panel);
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1.22;
+      font-weight: 680;
+    }
+
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 38px;
+      height: 700px;
+      margin-top: 36px;
+    }
+
+    #scene-finetune h2 {
+      max-width: 1700px;
+      font-size: 50px;
+      white-space: nowrap;
+    }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: 0.82fr 90px 1.18fr;
+      align-items: center;
+      gap: 22px;
+      height: 650px;
+      margin-top: 30px;
+    }
+
+    .arrow {
+      color: var(--amber);
+      font-size: 48px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .target-wrap {
+      position: relative;
+      height: 650px;
+    }
+
+    .target-wrap .image-frame {
+      height: 100%;
+    }
+
+    #scene-dataset .pipeline {
+      grid-template-columns: 620px 66px 620px;
+      justify-content: center;
+      gap: 26px;
+      height: 620px;
+    }
+
+    #scene-dataset .pipeline>.image-frame,
+    #scene-dataset .target-wrap {
+      width: 620px;
+      height: 620px;
+      justify-self: center;
+    }
+
+    #scene-dataset .target-wrap .image-frame {
+      width: 100%;
+      height: 100%;
+    }
+
+    #scene-dataset>.caption {
+      display: none;
+    }
+
+    .highlight-box,
+    .highlight-label {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .highlight-box {
+      border: 4px solid var(--green);
+      background: rgba(31, 157, 69, 0.12);
+      box-shadow: none;
+    }
+
+    .highlight-label {
+      padding: 8px 12px;
+      border-radius: 3px;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 760;
+    }
+
+    #scene-image-to-skin h2 {
+      max-width: 1660px;
+      font-size: 48px;
+      line-height: 1.05;
+    }
+
+    .image-skin-bridge {
+      display: grid;
+      grid-template-columns: 610px 104px 780px;
+      justify-content: center;
+      align-items: stretch;
+      gap: 22px;
+      height: 610px;
+      margin-top: 26px;
+    }
+
+    .bridge-panel {
+      height: 100%;
+      min-height: 0;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .bridge-panel h3 {
+      color: var(--green-dark);
+      font-size: 31px;
+      line-height: 1.08;
+    }
+
+    .bridge-panel .model-badge {
+      display: inline-flex;
+      align-self: flex-start;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 4px;
+      background: var(--green-soft);
+      border: 1.5px solid var(--green);
+      color: var(--green-dark);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      line-height: 1;
+      margin-top: -4px;
+    }
+
+    .bridge-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.18;
+      font-weight: 640;
+    }
+
+    .bridge-panel .image-frame {
+      flex: 1;
+      min-height: 0;
+      background: #ffffff;
+    }
+
+    .bridge-switch {
+      display: grid;
+      place-items: center;
+      align-self: center;
+      gap: 14px;
+      color: var(--green-dark);
+      text-align: center;
+      font-weight: 820;
+    }
+
+    .bridge-switch .switch-arrow {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .bridge-switch span {
+      max-width: 104px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.14;
+    }
+
+    .bridge-comparison {
+      display: grid;
+      grid-template-columns: 324px 56px 324px;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 2px;
+    }
+
+    .bridge-media-label {
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 760;
+    }
+
+    .bridge-comparison .square-media {
+      width: 324px;
+      height: 324px;
+    }
+
+    .bridge-comparison .square-media>img {
+      max-width: 94%;
+      max-height: 94%;
+    }
+
+    .bridge-mini-arrow {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      align-self: center;
+      margin-top: 26px;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 34px;
+      font-weight: 900;
+    }
+
+    #scene-image-to-skin>.caption {
+      display: none;
+    }
+
+    .render-pair {
+      left: 0;
+      right: 0;
+      top: 222px;
+      height: 620px;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: 16px;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .render-pair-title {
+      color: var(--green-dark);
+      font-size: 26px;
+      line-height: 1;
+      font-weight: 820;
+    }
+
+    .render-pair-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px;
+      min-height: 0;
+    }
+
+    .render-layer-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .render-card {
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 18px;
+    }
+
+    .render-card .image-frame {
+      flex: 1;
+      min-height: 0;
+      background: #f8faf6;
+    }
+
+    .render-card p {
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.18;
+      font-weight: 620;
+      text-align: center;
+    }
+
+    .render-layer-grid .render-card p {
+      font-size: 22px;
+      line-height: 1.14;
+    }
+
+    #scene-rendering>.caption {
+      display: none;
+    }
+
+    #scene-training-convergence h2 {
+      max-width: 1480px;
+      font-size: 50px;
+      line-height: 1.08;
+    }
+
+    .training-phase {
+      left: 0;
+      right: 0;
+      top: 198px;
+      bottom: 40px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(0, 1fr) auto;
+      gap: 22px;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .training-phase-final {
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(0, 1fr) auto;
+    }
+
+    .training-media-panel,
+    .training-copy-panel {
+      min-height: 0;
+      padding: 20px;
+    }
+
+    .training-media-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: #fbfcf8;
+    }
+
+    .training-copy-panel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      border-left: 6px solid var(--green);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 247, 242, 0.96)),
+        linear-gradient(90deg, rgba(29, 122, 59, 0.06), transparent);
+    }
+
+    .training-phase-title {
+      color: var(--green-dark);
+      font-size: 26px;
+      line-height: 1;
+      font-weight: 840;
+    }
+
+    .training-copy-panel .training-phase-title {
+      grid-column: 1 / -1;
+    }
+
+    .checkpoint-grid {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      align-items: center;
+    }
+
+    .checkpoint-grid.two-up {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+    }
+
+    .checkpoint-card {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 12px;
+      background: #ffffff;
+    }
+
+    .checkpoint-card .image-frame {
+      aspect-ratio: 1;
+      min-height: 0;
+      background: #eef1eb;
+    }
+
+    .checkpoint-card img {
+      image-rendering: auto;
+    }
+
+    .checkpoint-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      color: var(--line);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 820;
+    }
+
+    .training-note {
+      display: flex;
+      align-items: center;
+      min-height: 104px;
+      padding: 19px 20px;
+      color: var(--line);
+      font-size: 27px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .training-note strong {
+      color: var(--amber);
+    }
+
+    .training-note.muted {
+      color: var(--muted);
+      font-size: 24px;
+      font-weight: 640;
+    }
+
+    .final-checkpoint-card {
+      width: min(560px, 100%);
+      justify-self: center;
+      padding: 18px;
+      background: #ffffff;
+    }
+
+    .final-checkpoint-card .image-frame {
+      aspect-ratio: 1;
+      min-height: 0;
+    }
+
+    .parameter-strip {
+      position: absolute;
+      right: 0;
+      bottom: 132px;
+      width: 760px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .parameter-strip .metric {
+      min-height: 112px;
+    }
+
+    .table {
+      display: grid;
+      border: 1px solid var(--line-soft);
+      background: var(--panel);
+    }
+
+    .table.row-2 {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .cell {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      padding: 13px 18px;
+      border-right: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
+      font-size: 23px;
+      line-height: 1.24;
+      font-weight: 650;
+    }
+
+    .head {
+      color: var(--amber);
+      font-weight: 780;
+    }
+
+    .data-method-layout {
+      display: grid;
+      grid-template-columns: 560px 1fr;
+      gap: 30px;
+      height: 650px;
+      margin-top: 34px;
+    }
+
+    .data-method {
+      position: relative;
+      min-height: 0;
+      padding: 24px;
+      overflow: hidden;
+      border-top: 6px solid var(--green);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(244, 247, 242, 0.96)),
+        linear-gradient(90deg, rgba(29, 122, 59, 0.06), transparent);
+    }
+
+    .method-kicker {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 12px;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 820;
+    }
+
+    .data-method h3 {
+      margin-top: 15px;
+      color: var(--line);
+      font-size: 34px;
+      line-height: 1.08;
+      font-weight: 840;
+    }
+
+    .method-note {
+      margin-top: 11px;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.3;
+      font-weight: 620;
+    }
+
+    .reverse-flow {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .reverse-node {
+      min-height: 86px;
+      display: grid;
+      grid-template-columns: 62px 1fr;
+      align-items: center;
+      gap: 16px;
+      padding: 12px;
+      border: 1px solid var(--line-soft);
+      background: #ffffff;
+    }
+
+    .node-icon {
+      display: grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      font-size: 23px;
+      font-weight: 880;
+    }
+
+    .reverse-node strong {
+      display: block;
+      color: var(--line);
+      font-size: 22px;
+      line-height: 1.1;
+      font-weight: 820;
+    }
+
+    .reverse-node span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.2;
+      font-weight: 620;
+    }
+
+    .flow-arrow-down {
+      color: var(--green);
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .loop {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .loop-step {
+      min-height: 258px;
+      padding: 20px 14px;
+      border-top: 4px solid rgba(29, 122, 59, 0.72);
+      background: #ffffff;
+      text-align: left;
+    }
+
+    .loop-step .step-num {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 19px;
+      line-height: 1;
+      font-weight: 860;
+    }
+
+    .loop-step h3 {
+      margin-top: 18px;
+      color: var(--line);
+      font-size: 24px;
+      line-height: 1.08;
+      font-weight: 830;
+    }
+
+    .loop-step p {
+      margin-top: 11px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.28;
+      font-weight: 620;
+    }
+
+    .loop-return {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-left: 6px solid var(--green);
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--line);
+      font-size: 24px;
+      line-height: 1.22;
+      font-weight: 780;
+    }
+
+    .alpha-grid {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 42px;
+      height: 680px;
+      margin-top: 38px;
+    }
+
+    #scene-alpha .image-frame img {
+      image-rendering: pixelated;
+    }
+
+    .alpha-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 17px;
+      justify-content: center;
+    }
+
+    .alpha-step {
+      padding: 23px;
+      border-left: 5px solid var(--green);
+      font-size: 27px;
+      line-height: 1.3;
+      font-weight: 650;
+    }
+
+    .limit-grid,
+    .future-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 17px;
+      margin-top: 38px;
+    }
+
+    .limit-card,
+    .future-card {
+      min-height: 128px;
+      padding: 24px;
+      border-left: 5px solid var(--green);
+      font-size: 26px;
+      line-height: 1.28;
+      font-weight: 650;
+    }
+
+    .future-card {
+      border-left-color: var(--amber);
+    }
+
+    .limits-screen,
+    .limits-next-screen {
+      position: absolute;
+      inset: 0;
+    }
+
+    .limits-next-screen {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    #scene-limits h2 {
+      max-width: 1560px;
+      font-size: 50px;
+      line-height: 1.08;
+    }
+
+    #scene-limits .limit-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 52px;
+    }
+
+    #scene-limits .limit-card {
+      min-height: 250px;
+      padding: 34px;
+      display: flex;
+      align-items: center;
+      font-size: 34px;
+      line-height: 1.24;
+      font-weight: 760;
+      background: #ffffff;
+    }
+
+    .future-grid {
+      grid-template-columns: 440px 1fr;
+      align-items: stretch;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .future-title {
+      color: var(--green-dark);
+      font-size: 25px;
+      line-height: 1.12;
+      font-weight: 840;
+    }
+
+    .future-copy {
+      margin-top: 12px;
+      color: var(--line);
+      font-size: 22px;
+      line-height: 1.22;
+      font-weight: 650;
+    }
+
+    .substyle-card {
+      padding: 22px 24px;
+    }
+
+    .substyle-flow {
+      display: grid;
+      grid-template-columns: 170px 42px 1fr;
+      align-items: center;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .fox-input-card {
+      height: 260px;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 10px;
+      border: 1px solid var(--line-soft);
+      background:
+        linear-gradient(145deg, rgba(29, 122, 59, 0.13), transparent 55%),
+        #ffffff;
+      color: var(--line);
+      text-align: center;
+    }
+
+    .fox-input-card strong {
+      display: block;
+      font-size: 25px;
+      line-height: 1.04;
+      font-weight: 860;
+    }
+
+    .fox-input-card span {
+      display: block;
+      max-width: 100px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.18;
+      font-weight: 680;
+    }
+
+    .substyle-arrow {
+      color: var(--green);
+      font-size: 35px;
+      line-height: 1;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .substyle-results {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .substyle-result {
+      min-width: 0;
+      padding: 10px;
+      border: 1px solid var(--line-soft);
+      background: #ffffff;
+    }
+
+    .substyle-result .image-frame {
+      height: 220px;
+      background: #f4f6f2;
+    }
+
+    .substyle-result img {
+      image-rendering: pixelated;
+    }
+
+    .substyle-result p {
+      margin-top: 9px;
+      color: var(--line);
+      font-size: 17px;
+      line-height: 1.12;
+      font-weight: 780;
+      text-align: center;
+    }
+
+    .future-direction-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .future-direction {
+      min-height: 108px;
+      padding: 20px 22px;
+      border-left: 5px solid var(--green);
+      background: #ffffff;
+      color: var(--line);
+      font-size: 24px;
+      line-height: 1.22;
+      font-weight: 720;
+    }
+
+    .future-direction strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--green-dark);
+      font-size: 21px;
+      line-height: 1.05;
+      font-weight: 850;
+    }
+
+    #scene-limits>.caption {
+      display: none;
+    }
+
+    #scene-closing h2 {
+      max-width: 1500px;
+      font-size: 48px;
+      line-height: 1.06;
+    }
+
+    .closing-screen {
+      position: absolute;
+      inset: 0;
+    }
+
+    .closing-resource-screen {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .takeaway-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 56px;
+      width: 1500px;
+    }
+
+    .takeaway-card {
+      min-height: 260px;
+      padding: 30px;
+      border: 1px solid var(--line-soft);
+      border-left: 7px solid var(--green);
+      background: var(--panel);
+      box-shadow: 0 18px 40px rgba(17, 22, 17, 0.08);
+    }
+
+    .takeaway-card h3 {
+      color: var(--green-dark);
+      font-size: 36px;
+      line-height: 1.05;
+    }
+
+    .takeaway-card p {
+      margin-top: 20px;
+      color: var(--ink);
+      font-size: 28px;
+      line-height: 1.24;
+      font-weight: 680;
+    }
+
+    .resource-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 560px;
+      gap: 28px;
+      margin-top: 36px;
+      align-items: stretch;
+    }
+
+    .resource-stack {
+      display: grid;
+      gap: 20px;
+    }
+
+    .resource-card {
+      min-height: 174px;
+      display: grid;
+      grid-template-columns: 78px minmax(0, 1fr);
+      align-items: center;
+      gap: 22px;
+      padding: 24px 28px;
+      border: 1px solid var(--line-soft);
+      border-left: 5px solid var(--green);
+      background: var(--panel);
+      color: var(--ink);
+      box-shadow: 0 18px 40px rgba(17, 22, 17, 0.08);
+    }
+
+    .resource-card.primary {
+      min-height: 206px;
+      border-left-width: 7px;
+    }
+
+    .resource-icon {
+      width: 70px;
+      height: 70px;
+      display: grid;
+      place-items: center;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 860;
+    }
+
+    .hf-icon {
+      background: #ffcc4d;
+      color: #111611;
+      font-size: 32px;
+    }
+
+    .resource-label {
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 760;
+    }
+
+    .resource-url {
+      margin-top: 12px;
+      color: var(--green-dark);
+      font-size: 34px;
+      line-height: 1.16;
+      font-weight: 820;
+      overflow-wrap: anywhere;
+    }
+
+    .subscribe-card {
+      min-height: 400px;
+      position: relative;
+      padding: 34px;
+      border: 1px solid var(--line-soft);
+      background: var(--panel);
+      box-shadow: 0 18px 40px rgba(17, 22, 17, 0.08);
+      overflow: hidden;
+    }
+
+    .youtube-logo {
+      width: 116px;
+      height: 80px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: #ff0033;
+    }
+
+    .youtube-logo::before {
+      content: "";
+      width: 0;
+      height: 0;
+      margin-left: 8px;
+      border-top: 17px solid transparent;
+      border-bottom: 17px solid transparent;
+      border-left: 27px solid #ffffff;
+    }
+
+    .subscribe-card h3 {
+      margin-top: 28px;
+      color: var(--green-dark);
+      font-size: 48px;
+      line-height: 1;
+    }
+
+    .subscribe-card p {
+      margin-top: 18px;
+      color: var(--ink);
+      font-size: 28px;
+      line-height: 1.22;
+      font-weight: 680;
+    }
+
+    .subscribe-pill {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 26px;
+      min-height: 52px;
+      padding: 0 20px;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 820;
+      box-shadow: 0 18px 40px rgba(17, 22, 17, 0.08);
+    }
+
+    #scene-closing>.caption {
+      display: none;
+    }
+
+    .code {
+      font-family: "JetBrains Mono", monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root" data-composition-id="main" data-start="0" data-duration="764.918" data-width="1920" data-height="1080">
+    <div class="grid-bg"></div>
+    <div class="scanline"></div>
+    <div class="top-rule"></div>
+    <div class="progress">
+      <div class="progress-fill"></div>
+    </div>
+
+    <video id="cta-demo-video" class="cta-demo-video clip" src="assets/dance.mp4" data-start="59.544"
+      data-duration="9.590" data-track-index="33" data-media-start="0" data-volume="0" muted playsinline
+      preload="auto"></video>
+
+    <video id="uv-fold-video" class="uv-fold-video clip" src="assets/transform_1x_vo04_loop.mp4" data-start="135.634"
+      data-duration="20.152" data-track-index="33" data-media-start="0" data-volume="0" muted playsinline
+      preload="auto"></video>
+
+    <video id="hard-fold-video" class="hard-fold-video clip" src="assets/transform_1x_vo05_loop.mp4"
+      data-start="155.786" data-duration="51.444" data-track-index="39" data-media-start="0" data-volume="0" muted
+      playsinline preload="auto"></video>
+    <div id="hard-video-label" class="hard-video-label clip" data-start="155.786" data-duration="51.444"
+      data-track-index="40">2D UV layout → 3D body</div>
+
+    <section id="scene-hook" class="scene clip" data-start="0.000" data-duration="29.988" data-track-index="1">
+      <div class="scene-inner">
+
+        <h1>Can AI Turn a Picture into a Minecraft Character?</h1>
+
+      </div>
+
+    </section>
+
+    <section id="scene-results" class="scene clip" data-start="0.000" data-duration="59.544" data-track-index="2">
+      <div class="scene-inner">
+        <div class="kicker">Generated examples</div>
+        <h2>Direct reference-to-skin generation results</h2>
+        <div class="showcase-stage" style="overflow: hidden;" data-layout-allow-overflow>
+          <div id="showcase-girl3" class="showcase-shot clip" data-start="0.000" data-duration="4.962"
+            data-track-index="20">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">Original</div>
+                <div class="square-media" style="--media-bg: url('assets/girl3_original.jpg')"><img
+                    src="assets/girl3_original.jpg" alt="Original Reference"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">Generated Skin</div>
+                <div class="square-media generated" style="--media-bg: url('assets/girl3_gen.jpg')"><img
+                    src="assets/girl3_gen.jpg" alt="Generated Skin"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-cat2" class="showcase-shot clip" data-start="4.962" data-duration="4.962"
+            data-track-index="21">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">Original</div>
+                <div class="square-media" style="--media-bg: url('assets/cat2_original.jpg')"><img
+                    src="assets/cat2_original.jpg" alt="Original Reference"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">Generated Skin</div>
+                <div class="square-media generated" style="--media-bg: url('assets/cat2_gen.jpg')"><img
+                    src="assets/cat2_gen.jpg" alt="Generated Skin"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-boy" class="showcase-shot clip" data-start="9.924" data-duration="4.962"
+            data-track-index="22">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">Original</div>
+                <div class="square-media" style="--media-bg: url('assets/boy_original.jpg')"><img
+                    src="assets/boy_original.jpg" alt="Original Reference"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">Generated Skin</div>
+                <div class="square-media generated" style="--media-bg: url('assets/boy_gen.jpg')"><img
+                    src="assets/boy_gen.jpg" alt="Generated Skin"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-girl" class="showcase-shot clip" data-start="14.886" data-duration="4.962"
+            data-track-index="23">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">Original</div>
+                <div class="square-media" style="--media-bg: url('assets/girl_original.jpg')"><img
+                    src="assets/girl_original.jpg" alt="Original Reference"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">Generated Skin</div>
+                <div class="square-media generated" style="--media-bg: url('assets/girl_gen.jpg')"><img
+                    src="assets/girl_gen.jpg" alt="Generated Skin"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-zx" class="showcase-shot clip" data-start="19.848" data-duration="4.962"
+            data-track-index="24">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">Original</div>
+                <div class="square-media" style="--media-bg: url('assets/zx_original.jpg')"><img
+                    src="assets/zx_original.jpg" alt="Original Reference"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">Generated Skin</div>
+                <div class="square-media generated" style="--media-bg: url('assets/zx_gen.jpg')"><img
+                    src="assets/zx_gen.jpg" alt="Generated Skin"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-boy2" class="showcase-shot clip" data-start="24.810" data-duration="4.962"
+            data-track-index="25">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">Original</div>
+                <div class="square-media" style="--media-bg: url('assets/boy2_original.jpg')"><img
+                    src="assets/boy2_original.jpg" alt="Original Reference"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">Generated Skin</div>
+                <div class="square-media generated" style="--media-bg: url('assets/boy2_gen.jpg')"><img
+                    src="assets/boy2_gen.jpg" alt="Generated Skin"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-linux" class="showcase-shot clip" data-start="29.772" data-duration="4.962"
+            data-track-index="26">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">Original</div>
+                <div class="square-media" style="--media-bg: url('assets/linux_original.jpg')"><img
+                    src="assets/linux_original.jpg" alt="Original Reference"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">Generated Skin</div>
+                <div class="square-media generated" style="--media-bg: url('assets/linux_gen.jpg')"><img
+                    src="assets/linux_gen.jpg" alt="Generated Skin"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-pink" class="showcase-shot clip" data-start="34.734" data-duration="4.962"
+            data-track-index="27">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">Original</div>
+                <div class="square-media" style="--media-bg: url('assets/pink_original.jpg')"><img
+                    src="assets/pink_original.jpg" alt="Original Reference"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">Generated Skin</div>
+                <div class="square-media generated" style="--media-bg: url('assets/pink_gen.jpg')"><img
+                    src="assets/pink_gen.jpg" alt="Generated Skin"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-beethoven" class="showcase-shot clip" data-start="39.696" data-duration="4.962"
+            data-track-index="28">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">Original</div>
+                <div class="square-media" style="--media-bg: url('assets/beethoven_original.jpg')"><img
+                    src="assets/beethoven_original.jpg" alt="Original Reference"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">Generated Skin</div>
+                <div class="square-media generated" style="--media-bg: url('assets/beethoven_gen.jpg')"><img
+                    src="assets/beethoven_gen.jpg" alt="Generated Skin"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-boy3" class="showcase-shot clip" data-start="44.658" data-duration="4.962"
+            data-track-index="29">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">Original</div>
+                <div class="square-media" style="--media-bg: url('assets/boy3_original.jpg')"><img
+                    src="assets/boy3_original.jpg" alt="Original Reference"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">Generated Skin</div>
+                <div class="square-media generated" style="--media-bg: url('assets/boy3_gen.jpg')"><img
+                    src="assets/boy3_gen.jpg" alt="Generated Skin"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-dog" class="showcase-shot clip" data-start="49.620" data-duration="4.962"
+            data-track-index="30">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">Original</div>
+                <div class="square-media" style="--media-bg: url('assets/dog_original.jpg')"><img
+                    src="assets/dog_original.jpg" alt="Original Reference"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">Generated Skin</div>
+                <div class="square-media generated" style="--media-bg: url('assets/dog_gen.jpg')"><img
+                    src="assets/dog_gen.jpg" alt="Generated Skin"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-cat" class="showcase-shot clip" data-start="54.582" data-duration="4.962"
+            data-track-index="31">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">Original</div>
+                <div class="square-media" style="--media-bg: url('assets/cat_original.jpg')"><img
+                    src="assets/cat_original.jpg" alt="Original Reference"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">Generated Skin</div>
+                <div class="square-media generated" style="--media-bg: url('assets/cat_gen.jpg')"><img
+                    src="assets/cat_gen.jpg" alt="Generated Skin"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-cta" class="scene clip" data-start="59.544" data-duration="9.590" data-track-index="3">
+      <div class="scene-inner">
+        <div class="cta-card">
+          <div>
+            <div class="kicker">Try it yourself</div>
+            <h2>Free online Minecraft skin generator</h2>
+            <p class="subtitle">Use it online, or train and deploy the open-source model locally.</p>
+            <div class="cta-url">entropydrop.com</div>
+          </div>
+          <div class="mock-browser">
+            <div class="browser-bar">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="url-bar">entropydrop.com</div>
+            </div>
+            <div class="website-video-slot">
+              <div class="video-slot-screen">
+                <div class="video-play-button"></div>
+              </div>
+              <div class="video-slot-progress">
+                <div class="video-slot-progress-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-skin-structure" class="scene clip" data-start="69.134" data-duration="86.652"
+      data-track-index="4">
+      <div class="scene-inner">
+        <div class="kicker">The hidden problem</div>
+        <h2>A playable Minecraft character is a 3D body wearing a specific 2D UV layout</h2>
+        <div id="skin-uv-closeup" class="structure-segment structure-closeup clip" data-start="69.134"
+          data-duration="53.000" data-track-index="30">
+          <div class="structure-image-card panel reveal-item">
+            <div class="image-frame"><img src="assets/skingen_uv_map.png" alt="Minecraft skin UV map">
+              <div id="uvmap-head-box" class="highlight-box uv-map-highlight"
+                style="left: 4.3%; top: 4.3%; width: 45.7%; height: 22.9%;"></div>
+              <div id="uvmap-head-overlay-box" class="highlight-box uv-map-highlight"
+                style="left: 50%; top: 4.3%; width: 45.7%; height: 22.9%;"></div>
+              <div id="uvmap-torso-box" class="highlight-box uv-map-highlight"
+                style="left: 27.1%; top: 27.1%; width: 34.3%; height: 22.9%;"></div>
+              <div id="uvmap-torso-overlay-box" class="highlight-box uv-map-highlight"
+                style="left: 27.1%; top: 50%; width: 34.3%; height: 22.9%;"></div>
+              <div id="uvmap-left-leg-box" class="highlight-box uv-map-highlight"
+                style="left: 27.1%; top: 72.9%; width: 22.9%; height: 22.9%;"></div>
+              <div id="uvmap-left-leg-overlay-box" class="highlight-box uv-map-highlight"
+                style="left: 4.3%; top: 72.9%; width: 22.9%; height: 22.9%;"></div>
+              <div id="uvmap-right-leg-box" class="highlight-box uv-map-highlight"
+                style="left: 4.3%; top: 27.1%; width: 22.9%; height: 22.9%;"></div>
+              <div id="uvmap-right-leg-overlay-box" class="highlight-box uv-map-highlight"
+                style="left: 4.3%; top: 50%; width: 22.9%; height: 22.9%;"></div>
+              <div id="uvmap-left-arm-box" class="highlight-box uv-map-highlight"
+                style="left: 50%; top: 72.9%; width: 22.9%; height: 22.9%;"></div>
+              <div id="uvmap-left-arm-overlay-box" class="highlight-box uv-map-highlight"
+                style="left: 72.9%; top: 72.9%; width: 22.9%; height: 22.9%;"></div>
+              <div id="uvmap-right-arm-box" class="highlight-box uv-map-highlight"
+                style="left: 61.4%; top: 27.1%; width: 22.9%; height: 22.9%;"></div>
+              <div id="uvmap-right-arm-overlay-box" class="highlight-box uv-map-highlight"
+                style="left: 61.4%; top: 50%; width: 22.9%; height: 22.9%;"></div>
+              <div id="uvmap-head-label" class="highlight-label uv-map-label" aria-hidden="true" data-label="Head"
+                style="left: 6%; top: 6%;"></div>
+              <div id="uvmap-head-overlay-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="Head overlay" style="left: 52%; top: 6%;"></div>
+              <div id="uvmap-torso-label" class="highlight-label uv-map-label" aria-hidden="true" data-label="Torso"
+                style="left: 29%; top: 29%;"></div>
+              <div id="uvmap-torso-overlay-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="Torso overlay" style="left: 29%; top: 52%;"></div>
+              <div id="uvmap-left-leg-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="Left leg" style="left: 29%; top: 74.4%;"></div>
+              <div id="uvmap-left-leg-overlay-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="Left leg overlay" style="left: 5.8%; top: 74.4%;"></div>
+              <div id="uvmap-right-leg-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="Right leg" style="left: 5.8%; top: 28.6%;"></div>
+              <div id="uvmap-right-leg-overlay-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="Right leg overlay" style="left: 5.8%; top: 51.5%;"></div>
+              <div id="uvmap-left-arm-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="Left arm" style="left: 51.5%; top: 74.4%;"></div>
+              <div id="uvmap-left-arm-overlay-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="Left arm overlay" style="left: 74.4%; top: 74.4%;"></div>
+              <div id="uvmap-right-arm-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="Right arm" style="left: 62.9%; top: 28.6%;"></div>
+              <div id="uvmap-right-arm-overlay-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="Right arm overlay" style="left: 62.9%; top: 51.5%;"></div>
+            </div>
+          </div>
+          <div class="structure-copy-card reveal-item">
+            <h3>Minecraft reads fixed UV coordinates</h3>
+            <div class="structure-bullet"><strong>Body regions:</strong> head, torso, arms, and legs each have a fixed
+              place.</div>
+            <div class="structure-bullet"><strong>Overlay regions:</strong> second-layer texture for hair, hats,
+              sleeves, and armor.</div>
+            <div class="structure-bullet"><strong>Alpha:</strong> transparent overlay pixels disappear; opaque pixels
+              become raised detail.
+            </div>
+          </div>
+        </div>
+        <div id="skin-layers-closeup" class="structure-segment structure-closeup clip" data-start="122.134"
+          data-duration="13.500" data-track-index="31">
+          <div class="structure-image-card panel reveal-item">
+            <div class="image-frame"><img src="assets/skingen_layers.png" alt="Minecraft inner and outer layers"></div>
+          </div>
+          <div class="structure-copy-card reveal-item">
+            <h3>Then Minecraft renders base and overlay as layered geometry</h3>
+            <div class="structure-bullet"><strong>Inner layer:</strong> the base body texture.</div>
+            <div class="structure-bullet"><strong>Overlay layer:</strong> slightly larger geometry for hair, hats,
+              coats, armor, and raised details.</div>
+            <div class="layer-callout-grid">
+              <div class="layer-callout"><strong>Head</strong>overlay cube protrudes about half a pixel.</div>
+              <div class="layer-callout"><strong>Torso</strong>overlay layer uses different scaling.</div>
+              <div class="layer-callout"><strong>Arms / legs</strong>raised details follow part-specific geometry.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="skin-fold-video" class="structure-segment clip" data-start="135.634" data-duration="20.152"
+          data-track-index="32">
+          <div class="structure-video-card panel reveal-item">
+            <div class="uv-animation-screen">
+              <div class="uv-video-label">2D UV layout → 3D block body</div>
+            </div>
+            <div class="uv-slot-progress">
+              <div class="uv-slot-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Read the UV map first, inspect the layers, then watch the layout wrap onto the 3D body.
+      </div>
+    </section>
+
+    <section id="scene-hard" class="scene clip" data-start="155.786" data-duration="51.444" data-track-index="5">
+      <div class="scene-inner">
+        <div class="kicker">Why it breaks</div>
+        <h2>The AI has to obey three Minecraft skin rules at once</h2>
+        <div class="constraint-layout">
+          <div class="constraint-visual panel">
+            <div class="hard-video-frame"></div>
+          </div>
+          <div class="constraint-list">
+            <div class="constraint-card soft-panel">
+              <div class="constraint-number">1</div>
+              <div>
+                <h3>Pixel placement</h3>
+                <p>One shifted region can put an arm, face, or clothing detail on the wrong body part.</p>
+              </div>
+            </div>
+            <div class="constraint-card soft-panel">
+              <div class="constraint-number">2</div>
+              <div>
+                <h3>UV to 3D geometry</h3>
+                <p>Hair, coats, and scarves must continue correctly across separate body regions.</p>
+              </div>
+            </div>
+            <div class="constraint-card soft-panel">
+              <div class="constraint-number">3</div>
+              <div>
+                <h3>Alpha visibility</h3>
+                <p>The outer layer needs transparency, but most image models output ordinary RGB pictures.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">This is not a style filter. It is a constrained 2D-to-3D texture encoding problem.</div>
+    </section>
+
+    <section id="scene-general-models" class="scene clip" data-start="207.230" data-duration="56.304"
+      data-track-index="6">
+      <div class="scene-inner">
+        <div class="kicker">The failure mode</div>
+        <h2>Looking like a skin is not enough. Every pixel must land on the 64x64 grid.</h2>
+        <div class="failure-grid">
+          <div class="failure-card panel">
+            <h3>Nano Banana 2</h3>
+            <div class="image-frame"><img src="assets/gemini_pro_nano_banana2.png" alt="Nano Banana 2 result"></div>
+          </div>
+          <div class="failure-card panel">
+            <h3>GPT Image2</h3>
+            <div class="image-frame"><img src="assets/gpt5_5_image2.png" alt="GPT Image2 result"></div>
+          </div>
+          <div class="failure-card panel expected">
+            <h3>Expected 64x64 skin</h3>
+            <div class="image-frame"><img src="assets/perfect_dracula.png" alt="Strictly aligned 64x64 Dracula skin">
+            </div>
+          </div>
+          <div class="reason-list">
+            <div class="reason soft-panel">The first two outputs resemble skins, but their pixels do not snap to the
+              exact UV cells.</div>
+            <div class="reason soft-panel">A valid skin must preserve the 64x64 layout: each face, limb, and overlay
+              region has a fixed position.</div>
+            <div class="reason soft-panel">The expected result is sparse but usable: every visible pixel is aligned to
+              the Minecraft grid.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-finetune" class="scene clip" data-start="263.534" data-duration="42.732" data-track-index="7">
+      <div class="scene-inner">
+        <div class="kicker">The trick</div>
+        <h2>Show the model both the flat skin and the 3D result</h2>
+        <div class="layout-grid">
+          <div class="stack">
+            <div class="fact soft-panel">UV map alone is too abstract.</div>
+            <div class="fact soft-panel">Render alone is not a usable file.</div>
+            <div class="fact soft-panel">Together: the model learns the mapping.</div>
+          </div>
+          <div class="image-frame panel"><img src="assets/monadical_20260519.png" alt="Monadical composite output idea">
+            <div class="source-url-note"><strong>Source:</strong> https://monadical.com/posts/minecraft-skins-part2.html
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-image-to-skin" class="scene clip" data-start="306.266" data-duration="41.724"
+      data-track-index="8">
+      <div class="scene-inner">
+        <div class="kicker">Input choice</div>
+        <h2>Monadical starts from text. We want image in, skin out.</h2>
+        <div class="image-skin-bridge">
+          <div class="bridge-panel panel">
+            <h3>Monadical inspiration</h3>
+            <div class="model-badge">Model: Stable Diffusion</div>
+            <p>Prompt + target pairs: text -> structured target</p>
+            <div class="image-frame"><img src="assets/monadical_20260519.png"
+                alt="Monadical text-to-skin composite target"></div>
+            <p>Paired target: UV map plus 3D render feedback.</p>
+          </div>
+          <div class="bridge-switch">
+            <span>Keep paired target training</span>
+            <div class="switch-arrow">-&gt;</div>
+            <span>Change text input to image input</span>
+          </div>
+          <div class="bridge-panel panel">
+            <h3>Our direction</h3>
+            <div class="model-badge">Model: Flux2 Klein 4B Base</div>
+            <p>Control image + target pairs: image -> structured target</p>
+            <div class="bridge-comparison">
+              <div>
+                <div class="bridge-media-label">Image input</div>
+                <div class="square-media" style="--media-bg: url('assets/dracula_original.png')"><img
+                    src="assets/dracula_original.png" alt="Reference image input"></div>
+              </div>
+              <div class="bridge-mini-arrow">-&gt;</div>
+              <div>
+                <div class="bridge-media-label">Skin output</div>
+                <div class="square-media generated" data-layout-allow-overflow
+                  style="--media-bg: url('assets/dracula_gen.png')"><img src="assets/dracula_gen.png"
+                    alt="Generated Minecraft skin output"></div>
+              </div>
+            </div>
+            <p>Post-processing extracts the usable 64x64 skin.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-dataset" class="scene clip" data-start="347.990" data-duration="77.004" data-track-index="9">
+      <div class="scene-inner">
+        <div class="kicker">Dataset design</div>
+        <h2>Control images provide the reference. Target images teach the structure.</h2>
+        <div class="pipeline">
+          <div class="image-frame panel"><img src="assets/8880005_control_img.png" alt="Control image example"></div>
+          <div class="arrow">-&gt;</div>
+          <div class="target-wrap">
+            <div class="image-frame panel"><img src="assets/8880005.png" alt="Target image example"></div>
+            <div id="uv-box" class="highlight-box" style="left: 0; top: 0; width: 50%; height: 50%;"></div>
+            <div id="preview-box" class="highlight-box" style="left: 50%; top: 0; width: 50%; height: 50%;"></div>
+            <div id="views-box" class="highlight-box" style="left: 0; top: 50%; width: 100%; height: 50%;"></div>
+            <div id="uv-label" class="highlight-label" style="left: 0; top: 0;">Complete UV map + alpha markers</div>
+            <div id="preview-label" class="highlight-label" style="left: 50%; top: 0;">Main preview + enlarged details
+            </div>
+            <div id="views-label" class="highlight-label" style="left: 0; top: 50%;">Inner / outer multi-view
+              validation</div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">The exact layout mattered less than information density, viewing-angle coverage, and clear
+        UV-to-render correspondence.</div>
+    </section>
+
+    <section id="scene-rendering" class="scene clip" data-start="424.994" data-duration="53.172" data-track-index="10">
+      <div class="scene-inner">
+        <div class="kicker">Rendering decisions</div>
+        <h2>The render is not decoration. It is training information.</h2>
+        <div id="render-pair-surface" class="render-pair clip" data-start="424.994" data-duration="20.451"
+          data-track-index="34">
+          <div class="render-pair-title">Surface representation</div>
+          <div class="render-pair-grid">
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_plane.png" alt="Plane mode"></div>
+              <p>Plane mode: outer layer as floating surfaces</p>
+            </div>
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_voxel.png" alt="Voxel mode"></div>
+              <p>Voxel mode: outer pixels become small blocks</p>
+            </div>
+          </div>
+        </div>
+        <div id="render-pair-camera" class="render-pair clip" data-start="445.445" data-duration="14.112"
+          data-track-index="35">
+          <div class="render-pair-title">Camera projection</div>
+          <div class="render-pair-grid">
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_ortho.png" alt="Orthographic projection"></div>
+              <p>Orthographic: sizes stay constant</p>
+            </div>
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_perspective.png" alt="Perspective projection"></div>
+              <p>Perspective: near and far parts create depth cues</p>
+            </div>
+          </div>
+        </div>
+        <div id="render-pair-lighting" class="render-pair clip" data-start="459.557" data-duration="10.656"
+          data-track-index="36">
+          <div class="render-pair-title">Lighting</div>
+          <div class="render-pair-grid">
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_light_off.png" alt="Lighting off"></div>
+              <p>Lighting off: raw color, less shape separation</p>
+            </div>
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_perspective.png" alt="Lighting on"></div>
+              <p>Lighting on: shadows reveal form</p>
+            </div>
+          </div>
+        </div>
+        <div id="render-pair-layers" class="render-pair clip" data-start="470.213" data-duration="7.953"
+          data-track-index="38">
+          <div class="render-pair-title">Layer views</div>
+          <div class="render-pair-grid render-layer-grid">
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_inner.png" alt="Inner layer"></div>
+              <p>Inner only: base body structure</p>
+            </div>
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_overlay.png" alt="Outer layer"></div>
+              <p>Outer only: raised layer geometry</p>
+            </div>
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_both.png" alt="Both layers"></div>
+              <p>Both layers: final visual reference</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Perspective, lighting, voxel detail, and multiple layer views helped the model learn the 3D
+        mapping.</div>
+    </section>
+
+    <section id="scene-training-convergence" class="scene clip" data-start="478.166" data-duration="74.124"
+      data-track-index="11">
+      <div class="scene-inner">
+        <div class="kicker">Training convergence</div>
+        <h2>Checkpoints reveal the training process</h2>
+
+        <div id="training-phase-early" class="training-phase clip" data-start="478.166" data-duration="20.755"
+          data-track-index="40">
+          <div class="training-media-panel panel">
+            <div class="training-phase-title">Steps 500 to 2000</div>
+            <div class="checkpoint-grid">
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_500.jpg" alt="Training step 500"></div>
+                <div class="checkpoint-label">500</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_1000.jpg" alt="Training step 1000"></div>
+                <div class="checkpoint-label">1000</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_1500.jpg" alt="Training step 1500"></div>
+                <div class="checkpoint-label">1500</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_2000.jpg" alt="Training step 2000"></div>
+                <div class="checkpoint-label">2000</div>
+              </div>
+            </div>
+          </div>
+          <div class="training-copy-panel panel">
+            <div class="training-note soft-panel"><strong>Visible output:</strong> blurry color blocks and chaotic
+              lines.
+            </div>
+            <div class="training-note muted soft-panel">By step 2000, the rough composite structure starts to appear.
+            </div>
+          </div>
+        </div>
+
+        <div id="training-phase-mid" class="training-phase clip" data-start="498.921" data-duration="14.084"
+          data-track-index="41">
+          <div class="training-media-panel panel">
+            <div class="training-phase-title">Steps 2500 to 4000</div>
+            <div class="checkpoint-grid">
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_2500.jpg" alt="Training step 2500"></div>
+                <div class="checkpoint-label">2500</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_3000.jpg" alt="Training step 3000"></div>
+                <div class="checkpoint-label">3000</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_3500.jpg" alt="Training step 3500"></div>
+                <div class="checkpoint-label">3500</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_4000.jpg" alt="Training step 4000"></div>
+                <div class="checkpoint-label">4000</div>
+              </div>
+            </div>
+          </div>
+          <div class="training-copy-panel panel">
+            <div class="training-note soft-panel"><strong>Structure:</strong> head, torso, arms, and legs become
+              clearer.
+            </div>
+            <div class="training-note muted soft-panel">Main clothing colors begin to land on the right body parts.
+            </div>
+          </div>
+        </div>
+
+        <div id="training-phase-late" class="training-phase clip" data-start="513.004" data-duration="21.496"
+          data-track-index="42">
+          <div class="training-media-panel panel">
+            <div class="training-phase-title">Steps 6000 to 16K</div>
+            <div class="checkpoint-grid">
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_6000.jpg" alt="Training step 6000"></div>
+                <div class="checkpoint-label">6000</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_8000.jpg" alt="Training step 8000"></div>
+                <div class="checkpoint-label">8000</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_12000.jpg" alt="Training step 12000"></div>
+                <div class="checkpoint-label">12000</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_16000.jpg" alt="Training step 16K"></div>
+                <div class="checkpoint-label">16K</div>
+              </div>
+            </div>
+          </div>
+          <div class="training-copy-panel panel">
+            <div class="training-note soft-panel"><strong>Details:</strong> facial features, accessories, and
+              outer-layer
+              geometry become more visible.</div>
+            <div class="training-note muted soft-panel">Alpha Marker patterns become more regular for later transparency
+              recovery.</div>
+          </div>
+        </div>
+
+        <div id="training-phase-final" class="training-phase training-phase-final clip" data-start="534.500"
+          data-duration="17.790" data-track-index="43">
+          <div class="final-checkpoint-card panel">
+            <div class="image-frame"><img src="assets/train_18000.jpg" alt="Training step 18K"></div>
+          </div>
+          <div class="training-copy-panel panel">
+            <div class="training-phase-title">After step 18K</div>
+            <div class="training-note soft-panel"><strong>Sharper output:</strong> cleaner pixel boundaries and closer
+              character details.</div>
+            <div class="training-note muted soft-panel">These checkpoints do not prove a fixed learning order, but they
+              make the progression visible.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-data-loop" class="scene clip" data-start="552.290" data-duration="53.568" data-track-index="12">
+      <div class="scene-inner">
+        <div class="kicker">Building more data</div>
+        <h2>The dataset becomes the product</h2>
+        <div class="data-method-layout">
+          <div class="data-method panel reverse-method">
+            <div class="method-kicker">Method 1</div>
+            <h3>Reverse deduction</h3>
+            <p class="method-note">Start from existing Minecraft skins, then infer matched full-body reference images.
+            </p>
+            <div class="reverse-flow">
+              <div class="reverse-node">
+                <div class="node-icon">UV</div>
+                <div>
+                  <strong>Existing skin map</strong>
+                  <span>Community skins already contain usable target files.</span>
+                </div>
+              </div>
+              <div class="flow-arrow-down">↓</div>
+              <div class="reverse-node">
+                <div class="node-icon">AI</div>
+                <div>
+                  <strong>Multimodal inference</strong>
+                  <span>Recover likely outfit, hair, colors, and body views.</span>
+                </div>
+              </div>
+              <div class="flow-arrow-down">↓</div>
+              <div class="reverse-node">
+                <div class="node-icon">IMG</div>
+                <div>
+                  <strong>Front + back reference</strong>
+                  <span>Create stronger control images for training.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="data-method panel synthesis-method">
+            <div class="method-kicker">Method 2</div>
+            <h3>Self-evolving synthesis loop</h3>
+            <p class="method-note">Generate candidates, validate structure, repair weak outputs, then recycle the best
+              pairs.</p>
+            <div class="loop">
+              <div class="loop-step soft-panel">
+                <div class="step-num">01</div>
+                <h3>Description</h3>
+                <p>An LLM generates diverse character and accessory descriptions.</p>
+              </div>
+              <div class="loop-step soft-panel">
+                <div class="step-num">02</div>
+                <h3>Reference</h3>
+                <p>A text-to-image model creates realistic full-body images.</p>
+              </div>
+              <div class="loop-step soft-panel">
+                <div class="step-num">03</div>
+                <h3>Skin</h3>
+                <p>The image-to-skin model generates target outputs.</p>
+              </div>
+              <div class="loop-step soft-panel">
+                <div class="step-num">04</div>
+                <h3>Validate</h3>
+                <p>Structural checks filter and repair weak examples.</p>
+              </div>
+              <div class="loop-step soft-panel">
+                <div class="step-num">05</div>
+                <h3>Expand</h3>
+                <p>High-quality pairs return to the next training round.</p>
+              </div>
+            </div>
+            <div class="loop-return">Good samples become training data. Failure cases are repaired or studied for
+              targeted fixes.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-alpha" class="scene clip" data-start="605.858" data-duration="56.196" data-track-index="13">
+      <div class="scene-inner">
+        <div class="kicker">Post-processing and Alpha Marker</div>
+        <h2>Recovering transparency from RGB generation</h2>
+        <div class="alpha-grid">
+          <div class="image-frame panel"><img src="assets/8880005_alpha.png" alt="Alpha marker example"></div>
+          <div class="alpha-steps">
+            <div class="alpha-step soft-panel">Diffusion models usually output RGB images, not clean RGBA textures.
+            </div>
+            <div class="alpha-step soft-panel">A gray background threshold can confuse foreground pixels with background
+              pixels.</div>
+            <div class="alpha-step soft-panel">Alpha Marker draws a tiny white anchor at the center of transparent UV
+              pixels.</div>
+            <div class="alpha-step soft-panel">Post-processing detects those anchors and classifies the corresponding
+              pixels as transparent.</div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Alpha Marker turns vague foreground separation into feature detection.</div>
+    </section>
+
+    <section id="scene-limits" class="scene clip" data-start="662.054" data-duration="47.448" data-track-index="14">
+      <div class="scene-inner">
+        <div class="limits-screen">
+          <div class="kicker">Limitations</div>
+          <h2>The current method can generate usable examples, but it is not perfect</h2>
+          <div class="limit-grid">
+            <div class="limit-card soft-panel">Multi-level transparency is still unsolved.</div>
+            <div class="limit-card soft-panel">Complex decorations can become blurry, broken, misplaced, or asymmetric.
+            </div>
+          </div>
+        </div>
+        <div class="limits-next-screen">
+          <div class="kicker">Next directions</div>
+          <h2>The next directions</h2>
+          <div class="future-grid">
+            <div class="future-direction-list">
+              <div class="future-direction"><strong>DPO after LoRA</strong>Direct Preference Optimization for more
+                stable, higher-quality generation.</div>
+              <div class="future-direction"><strong>Larger base models</strong>Improve quality and generalization.</div>
+              <div class="future-direction"><strong>Self-evolving data</strong>Find failure cases, repair what can be
+                repaired, and design targeted improvements.</div>
+            </div>
+            <div class="future-card soft-panel substyle-card">
+              <div class="future-title">Sub-style control</div>
+              <div class="future-copy">The same fox reference can produce different Minecraft skin styles.</div>
+              <div class="substyle-flow">
+                <div class="fox-input-card">
+                  <strong>Fox<br>photo</strong>
+                  <span>same reference image</span>
+                </div>
+                <div class="substyle-arrow">→</div>
+                <div class="substyle-results">
+                  <div class="substyle-result">
+                    <div class="image-frame"><img src="assets/fox_lowpoly_skin.png" alt="Lowpoly fox Minecraft skin">
+                    </div>
+                    <p>Abstract lowpoly</p>
+                  </div>
+                  <div class="substyle-result">
+                    <div class="image-frame"><img src="assets/fox_realistic_skin.png"
+                        alt="Realistic fox Minecraft skin">
+                    </div>
+                    <p>Realistic</p>
+                  </div>
+                  <div class="substyle-result">
+                    <div class="image-frame"><img src="assets/fox_surreal_skin.png" alt="Surreal fox Minecraft skin">
+                    </div>
+                    <p>Science-fiction-like</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Minecraft skin generation becomes sustainable when the system can find failures and train
+        against them.</div>
+    </section>
+
+    <section id="scene-closing" class="scene clip" data-start="709.502" data-duration="55.416" data-track-index="15">
+      <div class="scene-inner">
+        <div class="closing-screen closing-takeaways-screen">
+          <div class="kicker">Final takeaways</div>
+          <h2>Three pieces made the pipeline work</h2>
+          <div class="takeaway-grid">
+            <div class="takeaway-card">
+              <h3>Composite targets</h3>
+              <p>Show the model both the UV map and the rendered 3D character.</p>
+            </div>
+            <div class="takeaway-card">
+              <h3>Curated data</h3>
+              <p>A high-quality data construction workflow beats noisy data collection.</p>
+            </div>
+            <div class="takeaway-card">
+              <h3>Alpha Markers</h3>
+              <p>Turn transparent pixels into a feature the model can reproduce.</p>
+            </div>
+          </div>
+        </div>
+        <div class="closing-screen closing-resource-screen">
+          <div class="kicker">Open-source release</div>
+          <h2>Train locally, deploy locally, or use the free generator</h2>
+          <div class="resource-layout">
+            <div class="resource-stack">
+              <div class="resource-card">
+                <div class="resource-icon">ED</div>
+                <div>
+                  <div class="resource-label">Free online Minecraft skin generator</div>
+                  <div class="resource-url">entropydrop.com</div>
+                </div>
+              </div>
+              <div class="resource-card primary">
+                <div class="resource-icon hf-icon">🤗</div>
+                <div>
+                  <div class="resource-label">Models, dataset, and scripts are open-source</div>
+                  <div class="resource-url">https://huggingface.co/EntropyDrop/Sking</div>
+                </div>
+              </div>
+            </div>
+            <div class="subscribe-card">
+              <div class="youtube-logo"></div>
+              <h3>Subscribe</h3>
+              <p>More open-source experiments are coming.</p>
+              <div class="subscribe-pill">open-source projects, tools, and demos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Subscribe for more open-source projects like this.</div>
+    </section>
+
+    <!-- Voiceover audio generated from MiniMax TTS outputs. -->
+    <audio id="vo-full" class="clip voiceover-track" src="audios/voiceover_full.wav" data-start="0"
+      data-duration="764.918" data-track-index="70" data-media-start="0" data-volume="1" preload="auto"></audio>
+
+    <!-- Word-timed subtitles generated from MiniMax subtitle JSON files. -->
+    <div id="sub-001" class="subtitle-line clip" data-start="0.004" data-duration="2.204" data-track-index="50"><span
+        class="subtitle-copy">Imagine uploading a picture of any character,</span></div>
+    <div id="sub-002" class="subtitle-line clip" data-start="2.212" data-duration="2.172" data-track-index="50"><span
+        class="subtitle-copy">and getting a Minecraft version you can actually use</span></div>
+    <div id="sub-003" class="subtitle-line clip" data-start="4.388" data-duration="0.632" data-track-index="50"><span
+        class="subtitle-copy">in the game.</span></div>
+    <div id="sub-004" class="subtitle-line clip" data-start="5.187" data-duration="3.008" data-track-index="50"><span
+        class="subtitle-copy">That sounds like a simple image filter.</span></div>
+    <div id="sub-005" class="subtitle-line clip" data-start="8.355" data-duration="2.973" data-track-index="50"><span
+        class="subtitle-copy">But a Minecraft-style picture is not the same as a playable</span></div>
+    <div id="sub-006" class="subtitle-line clip" data-start="11.332" data-duration="2.812" data-track-index="50"><span
+        class="subtitle-copy">Minecraft character. In the game, the character is a</span></div>
+    <div id="sub-007" class="subtitle-line clip" data-start="14.148" data-duration="2.855" data-track-index="50"><span
+        class="subtitle-copy">3D block model, and its appearance is defined by a</span></div>
+    <div id="sub-008" class="subtitle-line clip" data-start="17.007" data-duration="3.324" data-track-index="50"><span
+        class="subtitle-copy">specific 2D UV map layout wrapped</span></div>
+    <div id="sub-009" class="subtitle-line clip" data-start="20.335" data-duration="0.806" data-track-index="50"><span
+        class="subtitle-copy">around that model.</span></div>
+    <div id="sub-010" class="subtitle-line clip" data-start="21.711" data-duration="1.394" data-track-index="50"><span
+        class="subtitle-copy">So the real challenge is:</span></div>
+    <div id="sub-011" class="subtitle-line clip" data-start="23.109" data-duration="2.855" data-track-index="50"><span
+        class="subtitle-copy">can AI turn a normal reference image into</span></div>
+    <div id="sub-012" class="subtitle-line clip" data-start="25.968" data-duration="3.153" data-track-index="50"><span
+        class="subtitle-copy">that specific UV map, so it actually works as a Minecraft</span></div>
+    <div id="sub-013" class="subtitle-line clip" data-start="29.125" data-duration="0.714" data-track-index="50"><span
+        class="subtitle-copy">character?</span></div>
+    <div id="sub-014" class="subtitle-line clip" data-start="29.991" data-duration="3.229" data-track-index="50"><span
+        class="subtitle-copy">Here are results from the current image-to-skin</span></div>
+    <div id="sub-015" class="subtitle-line clip" data-start="33.224" data-duration="0.669" data-track-index="50"><span
+        class="subtitle-copy">model.</span></div>
+    <div id="sub-016" class="subtitle-line clip" data-start="34.059" data-duration="2.418" data-track-index="50"><span
+        class="subtitle-copy">The input can be a photo portrait, an anime drawing,</span></div>
+    <div id="sub-017" class="subtitle-line clip" data-start="36.481" data-duration="1.618" data-track-index="50"><span
+        class="subtitle-copy">an oil painting, a stylized character,</span></div>
+    <div id="sub-018" class="subtitle-line clip" data-start="38.103" data-duration="2.556" data-track-index="50"><span
+        class="subtitle-copy">a person, or even an animal. Each pair shows the same</span></div>
+    <div id="sub-019" class="subtitle-line clip" data-start="40.663" data-duration="3.153" data-track-index="50"><span
+        class="subtitle-copy">idea: reference image in, generated Minecraft</span></div>
+    <div id="sub-020" class="subtitle-line clip" data-start="43.820" data-duration="0.551" data-track-index="50"><span
+        class="subtitle-copy">skin out.</span></div>
+    <div id="sub-021" class="subtitle-line clip" data-start="44.895" data-duration="2.674" data-track-index="50"><span
+        class="subtitle-copy">These are not perfect, but they show the main goal:</span></div>
+    <div id="sub-022" class="subtitle-line clip" data-start="47.573" data-duration="2.002" data-track-index="50"><span
+        class="subtitle-copy">preserve the identity of the input image,</span></div>
+    <div id="sub-023" class="subtitle-line clip" data-start="49.579" data-duration="2.423" data-track-index="50"><span
+        class="subtitle-copy">compress it into a very small texture space.</span></div>
+    <div id="sub-024" class="subtitle-line clip" data-start="52.167" data-duration="3.310" data-track-index="50"><span
+        class="subtitle-copy">Finally, make it work on the Minecraft character model.</span></div>
+    <div id="sub-025" class="subtitle-line clip" data-start="55.623" data-duration="3.775" data-track-index="50"><span
+        class="subtitle-copy">That combination is much harder than ordinary image stylization.</span></div>
+    <div id="sub-026" class="subtitle-line clip" data-start="59.547" data-duration="1.138" data-track-index="50"><span
+        class="subtitle-copy">Want to try it yourself?</span></div>
+    <div id="sub-027" class="subtitle-line clip" data-start="60.689" data-duration="3.452" data-track-index="50"><span
+        class="subtitle-copy">Visit entropydrop.com for the free online generator.</span></div>
+    <div id="sub-028" class="subtitle-line clip" data-start="64.145" data-duration="2.940" data-track-index="50"><span
+        class="subtitle-copy">We also open-sourced the training details and model weights,</span></div>
+    <div id="sub-029" class="subtitle-line clip" data-start="67.089" data-duration="1.945" data-track-index="50"><span
+        class="subtitle-copy">so you can train or deploy it locally.</span></div>
+    <div id="sub-030" class="subtitle-line clip" data-start="69.137" data-duration="2.333" data-track-index="50"><span
+        class="subtitle-copy">A Minecraft skin is not just a picture of a character.</span></div>
+    <div id="sub-031" class="subtitle-line clip" data-start="71.474" data-duration="2.940" data-track-index="50"><span
+        class="subtitle-copy">It is a texture map that Minecraft reads with fixed</span></div>
+    <div id="sub-032" class="subtitle-line clip" data-start="74.418" data-duration="0.679" data-track-index="50"><span
+        class="subtitle-copy">coordinates.</span></div>
+    <div id="sub-033" class="subtitle-line clip" data-start="75.365" data-duration="2.930" data-track-index="50"><span
+        class="subtitle-copy">The UV map tells the game where every rectangle goes:</span></div>
+    <div id="sub-034" class="subtitle-line clip" data-start="78.299" data-duration="2.428" data-track-index="50"><span
+        class="subtitle-copy">head, torso, arms, and legs.</span></div>
+    <div id="sub-035" class="subtitle-line clip" data-start="80.731" data-duration="2.727" data-track-index="50"><span
+        class="subtitle-copy">If one region moves, the texture lands on the wrong face</span></div>
+    <div id="sub-036" class="subtitle-line clip" data-start="83.462" data-duration="1.227" data-track-index="50"><span
+        class="subtitle-copy">of the 3D model.</span></div>
+    <div id="sub-037" class="subtitle-line clip" data-start="84.833" data-duration="2.418" data-track-index="50"><span
+        class="subtitle-copy">There is one more important idea:</span></div>
+    <div id="sub-038" class="subtitle-line clip" data-start="87.255" data-duration="3.196" data-track-index="50"><span
+        class="subtitle-copy">overlay. Many body parts have two texture</span></div>
+    <div id="sub-039" class="subtitle-line clip" data-start="90.455" data-duration="2.898" data-track-index="50"><span
+        class="subtitle-copy">layers. The inner layer is the base body. The</span></div>
+    <div id="sub-040" class="subtitle-line clip" data-start="93.357" data-duration="2.556" data-track-index="50"><span
+        class="subtitle-copy">overlay layer is for raised details, like hair,</span></div>
+    <div id="sub-041" class="subtitle-line clip" data-start="95.926" data-duration="2.333" data-track-index="50"><span
+        class="subtitle-copy">hats, sleeves, jackets, armor, or accessories.</span></div>
+    <div id="sub-042" class="subtitle-line clip" data-start="98.909" data-duration="3.314" data-track-index="50"><span
+        class="subtitle-copy">The overlay is still stored in the same 2D skin file,</span></div>
+    <div id="sub-043" class="subtitle-line clip" data-start="102.227" data-duration="2.983" data-track-index="50"><span
+        class="subtitle-copy">but Minecraft renders it on a slightly larger outer</span></div>
+    <div id="sub-044" class="subtitle-line clip" data-start="105.214" data-duration="3.281" data-track-index="50"><span
+        class="subtitle-copy">cube. Transparent overlay pixels stay invisible.</span></div>
+    <div id="sub-045" class="subtitle-line clip" data-start="108.499" data-duration="3.580" data-track-index="50"><span
+        class="subtitle-copy">Opaque overlay pixels become the raised detail.</span></div>
+    <div id="sub-046" class="subtitle-line clip" data-start="112.265" data-duration="3.144" data-track-index="50"><span
+        class="subtitle-copy">That is why RGBA matters.</span></div>
+    <div id="sub-047" class="subtitle-line clip" data-start="115.413" data-duration="2.897" data-track-index="50"><span
+        class="subtitle-copy">Color is not enough; the alpha channel</span></div>
+    <div id="sub-048" class="subtitle-line clip" data-start="118.314" data-duration="2.897" data-track-index="50"><span
+        class="subtitle-copy">tells Minecraft which overlay pixels should actually</span></div>
+    <div id="sub-049" class="subtitle-line clip" data-start="121.215" data-duration="0.850" data-track-index="50"><span
+        class="subtitle-copy">exist.</span></div>
+    <div id="sub-050" class="subtitle-line clip" data-start="122.381" data-duration="2.248" data-track-index="50"><span
+        class="subtitle-copy">The layer diagram shows another catch.</span></div>
+    <div id="sub-051" class="subtitle-line clip" data-start="124.633" data-duration="2.897" data-track-index="50"><span
+        class="subtitle-copy">The head overlay protrudes by about half a pixel in</span></div>
+    <div id="sub-052" class="subtitle-line clip" data-start="127.534" data-duration="2.556" data-track-index="50"><span
+        class="subtitle-copy">every direction, while the torso, arms,</span></div>
+    <div id="sub-053" class="subtitle-line clip" data-start="130.094" data-duration="2.855" data-track-index="50"><span
+        class="subtitle-copy">and legs use their own scaling. So even the layer</span></div>
+    <div id="sub-054" class="subtitle-line clip" data-start="132.953" data-duration="2.001" data-track-index="50"><span
+        class="subtitle-copy">geometry is not perfectly uniform.</span></div>
+    <div id="sub-055" class="subtitle-line clip" data-start="135.737" data-duration="2.504" data-track-index="50"><span
+        class="subtitle-copy">The folding animation makes the core idea visible:</span></div>
+    <div id="sub-056" class="subtitle-line clip" data-start="138.245" data-duration="3.196" data-track-index="50"><span
+        class="subtitle-copy">the flat UV layout wraps around a 3D block model,</span></div>
+    <div id="sub-057" class="subtitle-line clip" data-start="141.445" data-duration="3.025" data-track-index="50"><span
+        class="subtitle-copy">with both base and overlay textures landing on specific</span></div>
+    <div id="sub-058" class="subtitle-line clip" data-start="144.474" data-duration="0.892" data-track-index="50"><span
+        class="subtitle-copy">faces.</span></div>
+    <div id="sub-059" class="subtitle-line clip" data-start="145.601" data-duration="3.272" data-track-index="50"><span
+        class="subtitle-copy">So generating a usable Minecraft skin means producing</span></div>
+    <div id="sub-060" class="subtitle-line clip" data-start="148.877" data-duration="2.982" data-track-index="50"><span
+        class="subtitle-copy">the exact 2D UV layout, plus the</span></div>
+    <div id="sub-061" class="subtitle-line clip" data-start="151.863" data-duration="2.940" data-track-index="50"><span
+        class="subtitle-copy">overlay and transparency information the 3D character</span></div>
+    <div id="sub-062" class="subtitle-line clip" data-start="154.807" data-duration="0.838" data-track-index="50"><span
+        class="subtitle-copy">can read.</span></div>
+    <div id="sub-063" class="subtitle-line clip" data-start="155.789" data-duration="3.826" data-track-index="50"><span
+        class="subtitle-copy">The strict mapping creates three problems.</span></div>
+    <div id="sub-064" class="subtitle-line clip" data-start="160.037" data-duration="2.802" data-track-index="50"><span
+        class="subtitle-copy">First, every pixel has a precise spatial meaning.</span></div>
+    <div id="sub-065" class="subtitle-line clip" data-start="162.843" data-duration="2.642" data-track-index="50"><span
+        class="subtitle-copy">If the arm texture drifts by even one pixel,</span></div>
+    <div id="sub-066" class="subtitle-line clip" data-start="165.489" data-duration="2.129" data-track-index="50"><span
+        class="subtitle-copy">the 3D character can look broken.</span></div>
+    <div id="sub-067" class="subtitle-line clip" data-start="167.813" data-duration="2.674" data-track-index="50"><span
+        class="subtitle-copy">Second, the model has to understand the relationship</span></div>
+    <div id="sub-068" class="subtitle-line clip" data-start="170.491" data-duration="2.812" data-track-index="50"><span
+        class="subtitle-copy">between the 2D UV map and the 3D</span></div>
+    <div id="sub-069" class="subtitle-line clip" data-start="173.307" data-duration="2.898" data-track-index="50"><span
+        class="subtitle-copy">body. A scarf, a coat, or a</span></div>
+    <div id="sub-070" class="subtitle-line clip" data-start="176.209" data-duration="2.385" data-track-index="50"><span
+        class="subtitle-copy">strand of hair might cross multiple components.</span></div>
+    <div id="sub-071" class="subtitle-line clip" data-start="178.865" data-duration="2.205" data-track-index="50"><span
+        class="subtitle-copy">If the model does not understand the geometry,</span></div>
+    <div id="sub-072" class="subtitle-line clip" data-start="181.074" data-duration="2.300" data-track-index="50"><span
+        class="subtitle-copy">the detail can appear on the wrong face or disappear</span></div>
+    <div id="sub-073" class="subtitle-line clip" data-start="183.378" data-duration="0.713" data-track-index="50"><span
+        class="subtitle-copy">entirely.</span></div>
+    <div id="sub-074" class="subtitle-line clip" data-start="184.265" data-duration="3.229" data-track-index="50"><span
+        class="subtitle-copy">Third, Minecraft skins depend on transparency.</span></div>
+    <div id="sub-075" class="subtitle-line clip" data-start="187.498" data-duration="2.983" data-track-index="50"><span
+        class="subtitle-copy">The alpha channel decides which outer-layer pixels</span></div>
+    <div id="sub-076" class="subtitle-line clip" data-start="190.485" data-duration="0.977" data-track-index="50"><span
+        class="subtitle-copy">should be visible.</span></div>
+    <div id="sub-077" class="subtitle-line clip" data-start="191.466" data-duration="2.812" data-track-index="50"><span
+        class="subtitle-copy">Most diffusion image models generate RGB</span></div>
+    <div id="sub-078" class="subtitle-line clip" data-start="194.282" data-duration="2.983" data-track-index="50"><span
+        class="subtitle-copy">images by default, not clean RGBA</span></div>
+    <div id="sub-079" class="subtitle-line clip" data-start="197.269" data-duration="1.105" data-track-index="50"><span
+        class="subtitle-copy">texture files.</span></div>
+    <div id="sub-080" class="subtitle-line clip" data-start="198.557" data-duration="3.528" data-track-index="50"><span
+        class="subtitle-copy">So the model is not just learning "Minecraft style."</span></div>
+    <div id="sub-081" class="subtitle-line clip" data-start="202.089" data-duration="3.793" data-track-index="50"><span
+        class="subtitle-copy">It is learning a constrained 2D-to-3D</span></div>
+    <div id="sub-082" class="subtitle-line clip" data-start="205.886" data-duration="1.182" data-track-index="50"><span
+        class="subtitle-copy">encoding system.</span></div>
+    <div id="sub-083" class="subtitle-line clip" data-start="207.233" data-duration="2.888" data-track-index="50"><span
+        class="subtitle-copy">We tested general multimodal image models with explicit</span></div>
+    <div id="sub-084" class="subtitle-line clip" data-start="210.125" data-duration="2.812" data-track-index="50"><span
+        class="subtitle-copy">prompts, UV explanations, and reference images.</span></div>
+    <div id="sub-085" class="subtitle-line clip" data-start="213.137" data-duration="1.565" data-track-index="50"><span
+        class="subtitle-copy">The request sounds reasonable:</span></div>
+    <div id="sub-086" class="subtitle-line clip" data-start="214.706" data-duration="3.153" data-track-index="50"><span
+        class="subtitle-copy">generate a 64 by 64 Minecraft</span></div>
+    <div id="sub-087" class="subtitle-line clip" data-start="217.863" data-duration="2.381" data-track-index="50"><span
+        class="subtitle-copy">skin UV map for this character.</span></div>
+    <div id="sub-088" class="subtitle-line clip" data-start="220.409" data-duration="3.186" data-track-index="50"><span
+        class="subtitle-copy">But a usable skin is not judged by style alone.</span></div>
+    <div id="sub-089" class="subtitle-line clip" data-start="223.599" data-duration="3.495" data-track-index="50"><span
+        class="subtitle-copy">Every visible pixel has to snap to the exact 64</span></div>
+    <div id="sub-090" class="subtitle-line clip" data-start="227.098" data-duration="1.822" data-track-index="50"><span
+        class="subtitle-copy">by 64 UV grid.</span></div>
+    <div id="sub-091" class="subtitle-line clip" data-start="229.085" data-duration="2.632" data-track-index="50"><span
+        class="subtitle-copy">The first two outputs look skin-like at a glance,</span></div>
+    <div id="sub-092" class="subtitle-line clip" data-start="231.721" data-duration="2.684" data-track-index="50"><span
+        class="subtitle-copy">but their pixels are not strictly aligned to the Minecraft</span></div>
+    <div id="sub-093" class="subtitle-line clip" data-start="234.409" data-duration="0.494" data-track-index="50"><span
+        class="subtitle-copy">layout.</span></div>
+    <div id="sub-094" class="subtitle-line clip" data-start="235.061" data-duration="3.101" data-track-index="50"><span
+        class="subtitle-copy">They may invent regions, shift faces, blur</span></div>
+    <div id="sub-095" class="subtitle-line clip" data-start="238.166" data-duration="3.068" data-track-index="50"><span
+        class="subtitle-copy">structural boundaries, ignore the inner and outer</span></div>
+    <div id="sub-096" class="subtitle-line clip" data-start="241.238" data-duration="3.196" data-track-index="50"><span
+        class="subtitle-copy">layer relationship, or fail to output transparency</span></div>
+    <div id="sub-097" class="subtitle-line clip" data-start="244.438" data-duration="1.178" data-track-index="50"><span
+        class="subtitle-copy">in a usable way.</span></div>
+    <div id="sub-098" class="subtitle-line clip" data-start="245.789" data-duration="2.760" data-track-index="50"><span
+        class="subtitle-copy">So the problem is not that these models cannot make attractive</span></div>
+    <div id="sub-099" class="subtitle-line clip" data-start="248.553" data-duration="1.489" data-track-index="50"><span
+        class="subtitle-copy">images. They can.</span></div>
+    <div id="sub-100" class="subtitle-line clip" data-start="250.046" data-duration="3.025" data-track-index="50"><span
+        class="subtitle-copy">The problem is that they do not consistently obey the</span></div>
+    <div id="sub-101" class="subtitle-line clip" data-start="253.075" data-duration="2.119" data-track-index="50"><span
+        class="subtitle-copy">exact schema of a Minecraft skin.</span></div>
+    <div id="sub-102" class="subtitle-line clip" data-start="255.365" data-duration="3.656" data-track-index="50"><span
+        class="subtitle-copy">For a normal image, approximate structure might be acceptable.</span></div>
+    <div id="sub-103" class="subtitle-line clip" data-start="259.025" data-duration="2.897" data-track-index="50"><span
+        class="subtitle-copy">For a game texture with strict UV coordinates,</span></div>
+    <div id="sub-104" class="subtitle-line clip" data-start="261.926" data-duration="1.440" data-track-index="50"><span
+        class="subtitle-copy">it breaks the asset.</span></div>
+    <div id="sub-105" class="subtitle-line clip" data-start="263.537" data-duration="2.376" data-track-index="50"><span
+        class="subtitle-copy">Prompt engineering alone was not enough,</span></div>
+    <div id="sub-106" class="subtitle-line clip" data-start="265.917" data-duration="2.300" data-track-index="50"><span
+        class="subtitle-copy">so we moved to fine-tuning.</span></div>
+    <div id="sub-107" class="subtitle-line clip" data-start="268.433" data-duration="3.144" data-track-index="50"><span
+        class="subtitle-copy">One useful inspiration came from Cory Spencer's</span></div>
+    <div id="sub-108" class="subtitle-line clip" data-start="271.581" data-duration="3.409" data-track-index="50"><span
+        class="subtitle-copy">Monadical articles on Minecraft skin generation. The</span></div>
+    <div id="sub-109" class="subtitle-line clip" data-start="274.994" data-duration="1.745" data-track-index="50"><span
+        class="subtitle-copy">key idea is a composite target image:</span></div>
+    <div id="sub-110" class="subtitle-line clip" data-start="276.753" data-duration="3.144" data-track-index="50"><span
+        class="subtitle-copy">part of the output is the UV map, and another part is</span></div>
+    <div id="sub-111" class="subtitle-line clip" data-start="279.901" data-duration="1.532" data-track-index="50"><span
+        class="subtitle-copy">a 3D render of the same skin.</span></div>
+    <div id="sub-112" class="subtitle-line clip" data-start="282.041" data-duration="3.272" data-track-index="50"><span
+        class="subtitle-copy">That matters because training only on UV maps does</span></div>
+    <div id="sub-113" class="subtitle-line clip" data-start="285.369" data-duration="3.272" data-track-index="50"><span
+        class="subtitle-copy">not show the model enough 3D structure.</span></div>
+    <div id="sub-114" class="subtitle-line clip" data-start="288.645" data-duration="2.812" data-track-index="50"><span
+        class="subtitle-copy">Training only on rendered previews does not give</span></div>
+    <div id="sub-115" class="subtitle-line clip" data-start="291.461" data-duration="2.029" data-track-index="50"><span
+        class="subtitle-copy">it the actual usable texture file.</span></div>
+    <div id="sub-116" class="subtitle-line clip" data-start="293.633" data-duration="3.357" data-track-index="50"><span
+        class="subtitle-copy">By combining both, the target teaches the model:</span></div>
+    <div id="sub-117" class="subtitle-line clip" data-start="296.994" data-duration="3.196" data-track-index="50"><span
+        class="subtitle-copy">this flat texture corresponds to this 3D</span></div>
+    <div id="sub-118" class="subtitle-line clip" data-start="300.194" data-duration="0.836" data-track-index="50"><span
+        class="subtitle-copy">character.</span></div>
+    <div id="sub-119" class="subtitle-line clip" data-start="301.193" data-duration="3.058" data-track-index="50"><span
+        class="subtitle-copy">In our tests, that combined target was much</span></div>
+    <div id="sub-120" class="subtitle-line clip" data-start="304.255" data-duration="1.831" data-track-index="50"><span
+        class="subtitle-copy">more stable than either part alone.</span></div>
+    <div id="sub-121" class="subtitle-line clip" data-start="306.269" data-duration="3.345" data-track-index="50"><span
+        class="subtitle-copy">There is one more difference from the Monadical setup.</span></div>
+    <div id="sub-122" class="subtitle-line clip" data-start="309.761" data-duration="2.930" data-track-index="50"><span
+        class="subtitle-copy">Monadical's pipeline was mainly text-to-skin:</span></div>
+    <div id="sub-123" class="subtitle-line clip" data-start="312.695" data-duration="2.812" data-track-index="50"><span
+        class="subtitle-copy">describe a character in words, then generate a</span></div>
+    <div id="sub-124" class="subtitle-line clip" data-start="315.511" data-duration="1.310" data-track-index="50"><span
+        class="subtitle-copy">Minecraft skin target.</span></div>
+    <div id="sub-125" class="subtitle-line clip" data-start="316.961" data-duration="2.290" data-track-index="50"><span
+        class="subtitle-copy">We borrowed the useful composite target idea,</span></div>
+    <div id="sub-126" class="subtitle-line clip" data-start="319.255" data-duration="1.945" data-track-index="50"><span
+        class="subtitle-copy">but changed the input side.</span></div>
+    <div id="sub-127" class="subtitle-line clip" data-start="321.353" data-duration="2.802" data-track-index="50"><span
+        class="subtitle-copy">For most creators, the natural input is already an image:</span></div>
+    <div id="sub-128" class="subtitle-line clip" data-start="324.159" data-duration="2.556" data-track-index="50"><span
+        class="subtitle-copy">a drawing, a game character, an avatar,</span></div>
+    <div id="sub-129" class="subtitle-line clip" data-start="326.719" data-duration="0.707" data-track-index="50"><span
+        class="subtitle-copy">or a photo.</span></div>
+    <div id="sub-130" class="subtitle-line clip" data-start="327.581" data-duration="1.992" data-track-index="50"><span
+        class="subtitle-copy">So our direction is image-to-skin:</span></div>
+    <div id="sub-131" class="subtitle-line clip" data-start="329.577" data-duration="2.812" data-track-index="50"><span
+        class="subtitle-copy">reference image in, playable Minecraft skin</span></div>
+    <div id="sub-132" class="subtitle-line clip" data-start="332.393" data-duration="0.460" data-track-index="50"><span
+        class="subtitle-copy">out.</span></div>
+    <div id="sub-133" class="subtitle-line clip" data-start="333.017" data-duration="3.144" data-track-index="50"><span
+        class="subtitle-copy">To achieve this, we chose Flux2 Klein 4B</span></div>
+    <div id="sub-134" class="subtitle-line clip" data-start="336.165" data-duration="3.324" data-track-index="50"><span
+        class="subtitle-copy">base as our base model for its strong image understanding</span></div>
+    <div id="sub-135" class="subtitle-line clip" data-start="339.493" data-duration="1.361" data-track-index="50"><span
+        class="subtitle-copy">and generalization.</span></div>
+    <div id="sub-136" class="subtitle-line clip" data-start="341.045" data-duration="2.632" data-track-index="50"><span
+        class="subtitle-copy">But a great model is only half the battle.</span></div>
+    <div id="sub-137" class="subtitle-line clip" data-start="343.681" data-duration="2.897" data-track-index="50"><span
+        class="subtitle-copy">To maximize the training results, we completely</span></div>
+    <div id="sub-138" class="subtitle-line clip" data-start="346.582" data-duration="1.268" data-track-index="50"><span
+        class="subtitle-copy">redesigned our dataset.</span></div>
+    <div id="sub-139" class="subtitle-line clip" data-start="347.993" data-duration="2.546" data-track-index="50"><span
+        class="subtitle-copy">This redesigned dataset is built from paired control</span></div>
+    <div id="sub-140" class="subtitle-line clip" data-start="350.543" data-duration="1.480" data-track-index="50"><span
+        class="subtitle-copy">images and target images.</span></div>
+    <div id="sub-141" class="subtitle-line clip" data-start="352.169" data-duration="1.949" data-track-index="50"><span
+        class="subtitle-copy">The control image is the input.</span></div>
+    <div id="sub-142" class="subtitle-line clip" data-start="354.122" data-duration="2.983" data-track-index="50"><span
+        class="subtitle-copy">In the ideal case, it contains a front-facing full-body</span></div>
+    <div id="sub-143" class="subtitle-line clip" data-start="357.109" data-duration="2.513" data-track-index="50"><span
+        class="subtitle-copy">reference and a back-facing full-body reference. That</span></div>
+    <div id="sub-144" class="subtitle-line clip" data-start="359.626" data-duration="2.001" data-track-index="50"><span
+        class="subtitle-copy">gives the model enough information about clothing,</span></div>
+    <div id="sub-145" class="subtitle-line clip" data-start="361.631" data-duration="2.002" data-track-index="50"><span
+        class="subtitle-copy">hair, colors, and accessories.</span></div>
+    <div id="sub-146" class="subtitle-line clip" data-start="364.373" data-duration="2.888" data-track-index="50"><span
+        class="subtitle-copy">During inference, even if only the front view is available,</span></div>
+    <div id="sub-147" class="subtitle-line clip" data-start="367.265" data-duration="3.025" data-track-index="50"><span
+        class="subtitle-copy">the model can sometimes infer a reasonable back side.</span></div>
+    <div id="sub-148" class="subtitle-line clip" data-start="370.294" data-duration="1.916" data-track-index="50"><span
+        class="subtitle-copy">But the more complete the control image is,</span></div>
+    <div id="sub-149" class="subtitle-line clip" data-start="372.214" data-duration="2.215" data-track-index="50"><span
+        class="subtitle-copy">the stronger the training signal becomes.</span></div>
+    <div id="sub-150" class="subtitle-line clip" data-start="374.633" data-duration="2.674" data-track-index="50"><span
+        class="subtitle-copy">The target image is the output the model learns to generate.</span></div>
+    <div id="sub-151" class="subtitle-line clip" data-start="377.311" data-duration="2.940" data-track-index="50"><span
+        class="subtitle-copy">It includes a complete skin UV map, plus multiple</span></div>
+    <div id="sub-152" class="subtitle-line clip" data-start="380.255" data-duration="1.485" data-track-index="50"><span
+        class="subtitle-copy">3D render views.</span></div>
+    <div id="sub-153" class="subtitle-line clip" data-start="381.905" data-duration="2.760" data-track-index="50"><span
+        class="subtitle-copy">The top-left area contains the real UV texture.</span></div>
+    <div id="sub-154" class="subtitle-line clip" data-start="384.669" data-duration="3.153" data-track-index="50"><span
+        class="subtitle-copy">The top-right area includes a main preview and enlarged</span></div>
+    <div id="sub-155" class="subtitle-line clip" data-start="387.826" data-duration="3.025" data-track-index="50"><span
+        class="subtitle-copy">details. The bottom area contains inner-layer and outer-layer</span></div>
+    <div id="sub-156" class="subtitle-line clip" data-start="390.855" data-duration="2.684" data-track-index="50"><span
+        class="subtitle-copy">views from multiple directions, plus close-ups of the</span></div>
+    <div id="sub-157" class="subtitle-line clip" data-start="393.543" data-duration="0.167" data-track-index="50"><span
+        class="subtitle-copy">head.</span></div>
+    <div id="sub-158" class="subtitle-line clip" data-start="394.541" data-duration="2.973" data-track-index="50"><span
+        class="subtitle-copy">To be clear, the Minecraft UV layout itself</span></div>
+    <div id="sub-159" class="subtitle-line clip" data-start="397.518" data-duration="2.897" data-track-index="50"><span
+        class="subtitle-copy">is fixed to the standard skin format, so we can extract</span></div>
+    <div id="sub-160" class="subtitle-line clip" data-start="400.419" data-duration="2.285" data-track-index="50"><span
+        class="subtitle-copy">a usable skin file reliably.</span></div>
+    <div id="sub-161" class="subtitle-line clip" data-start="402.857" data-duration="2.717" data-track-index="50"><span
+        class="subtitle-copy">What is flexible is how we arrange the different panels</span></div>
+    <div id="sub-162" class="subtitle-line clip" data-start="405.578" data-duration="2.172" data-track-index="50"><span
+        class="subtitle-copy">inside the training target image.</span></div>
+    <div id="sub-163" class="subtitle-line clip" data-start="407.933" data-duration="2.461" data-track-index="50"><span
+        class="subtitle-copy">The model cared less about whether the UV map was placed</span></div>
+    <div id="sub-164" class="subtitle-line clip" data-start="410.398" data-duration="2.599" data-track-index="50"><span
+        class="subtitle-copy">in the top-left or somewhere else, and more about how</span></div>
+    <div id="sub-165" class="subtitle-line clip" data-start="413.001" data-duration="2.342" data-track-index="50"><span
+        class="subtitle-copy">much useful information the target contained:</span></div>
+    <div id="sub-166" class="subtitle-line clip" data-start="415.347" data-duration="3.239" data-track-index="50"><span
+        class="subtitle-copy">the UV texture, rendered views, viewing-angle</span></div>
+    <div id="sub-167" class="subtitle-line clip" data-start="418.590" data-duration="4.817" data-track-index="50"><span
+        class="subtitle-copy">coverage, and clear UV-to-3D</span></div>
+    <div id="sub-168" class="subtitle-line clip" data-start="423.411" data-duration="0.850" data-track-index="50"><span
+        class="subtitle-copy">correspondence.</span></div>
+    <div id="sub-169" class="subtitle-line clip" data-start="424.997" data-duration="2.760" data-track-index="50"><span
+        class="subtitle-copy">Rendering parameters became a surprisingly important</span></div>
+    <div id="sub-170" class="subtitle-line clip" data-start="427.761" data-duration="1.745" data-track-index="50"><span
+        class="subtitle-copy">part of dataset quality.</span></div>
+    <div id="sub-171" class="subtitle-line clip" data-start="429.749" data-duration="2.845" data-track-index="50"><span
+        class="subtitle-copy">Plane mode and voxel mode show the outer layer differently.</span></div>
+    <div id="sub-172" class="subtitle-line clip" data-start="432.598" data-duration="2.940" data-track-index="50"><span
+        class="subtitle-copy">Plane mode renders the outer layer as floating surfaces.</span></div>
+    <div id="sub-173" class="subtitle-line clip" data-start="435.542" data-duration="3.665" data-track-index="50"><span
+        class="subtitle-copy">Voxel mode renders outer pixels as small blocks. For</span></div>
+    <div id="sub-174" class="subtitle-line clip" data-start="439.211" data-duration="3.026" data-track-index="50"><span
+        class="subtitle-copy">Minecraft-style geometry, voxel mode can expose the</span></div>
+    <div id="sub-175" class="subtitle-line clip" data-start="442.241" data-duration="1.105" data-track-index="50"><span
+        class="subtitle-copy">raised structure more clearly.</span></div>
+    <div id="sub-176" class="subtitle-line clip" data-start="444.077" data-duration="3.058" data-track-index="50"><span
+        class="subtitle-copy">Perspective and orthographic projection also behave differently.</span></div>
+    <div id="sub-177" class="subtitle-line clip" data-start="447.139" data-duration="2.471" data-track-index="50"><span
+        class="subtitle-copy">Orthographic projection keeps sizes constant.</span></div>
+    <div id="sub-178" class="subtitle-line clip" data-start="449.614" data-duration="2.684" data-track-index="50"><span
+        class="subtitle-copy">Perspective projection gives near and far parts different</span></div>
+    <div id="sub-179" class="subtitle-line clip" data-start="452.302" data-duration="3.068" data-track-index="50"><span
+        class="subtitle-copy">visual sizes, which can provide extra depth cues.</span></div>
+    <div id="sub-180" class="subtitle-line clip" data-start="455.561" data-duration="1.437" data-track-index="50"><span
+        class="subtitle-copy">Lighting matters too.</span></div>
+    <div id="sub-181" class="subtitle-line clip" data-start="457.002" data-duration="3.409" data-track-index="50"><span
+        class="subtitle-copy">With lighting off, each pixel shows its original color,</span></div>
+    <div id="sub-182" class="subtitle-line clip" data-start="460.415" data-duration="3.068" data-track-index="50"><span
+        class="subtitle-copy">but adjacent blocks of the same color become hard to</span></div>
+    <div id="sub-183" class="subtitle-line clip" data-start="463.487" data-duration="0.760" data-track-index="50"><span
+        class="subtitle-copy">distinguish.</span></div>
+    <div id="sub-184" class="subtitle-line clip" data-start="464.417" data-duration="3.016" data-track-index="50"><span
+        class="subtitle-copy">With lighting on, shadows reveal form and make the</span></div>
+    <div id="sub-185" class="subtitle-line clip" data-start="467.437" data-duration="2.812" data-track-index="50"><span
+        class="subtitle-copy">mapping easier to learn, even though color accuracy</span></div>
+    <div id="sub-186" class="subtitle-line clip" data-start="470.253" data-duration="1.916" data-track-index="50"><span
+        class="subtitle-copy">can be affected in some highlights.</span></div>
+    <div id="sub-187" class="subtitle-line clip" data-start="472.445" data-duration="1.821" data-track-index="50"><span
+        class="subtitle-copy">The practical lesson is simple:</span></div>
+    <div id="sub-188" class="subtitle-line clip" data-start="474.270" data-duration="1.916" data-track-index="50"><span
+        class="subtitle-copy">the render is not just decoration.</span></div>
+    <div id="sub-189" class="subtitle-line clip" data-start="476.190" data-duration="1.818" data-track-index="50"><span
+        class="subtitle-copy">It is training information.</span></div>
+    <div id="sub-190" class="subtitle-line clip" data-start="478.169" data-duration="2.461" data-track-index="50"><span
+        class="subtitle-copy">One useful way to understand this training process is</span></div>
+    <div id="sub-191" class="subtitle-line clip" data-start="480.634" data-duration="1.867" data-track-index="50"><span
+        class="subtitle-copy">to look at the intermediate outputs.</span></div>
+    <div id="sub-192" class="subtitle-line clip" data-start="482.669" data-duration="3.357" data-track-index="50"><span
+        class="subtitle-copy">At the beginning, around steps 500 to 2000,</span></div>
+    <div id="sub-193" class="subtitle-line clip" data-start="486.030" data-duration="3.068" data-track-index="50"><span
+        class="subtitle-copy">the visible outputs are still mostly blurry</span></div>
+    <div id="sub-194" class="subtitle-line clip" data-start="489.102" data-duration="2.812" data-track-index="50"><span
+        class="subtitle-copy">color blocks and chaotic lines. By step 2000,</span></div>
+    <div id="sub-195" class="subtitle-line clip" data-start="492.013" data-duration="2.290" data-track-index="50"><span
+        class="subtitle-copy">the rough composite structure starts to appear:</span></div>
+    <div id="sub-196" class="subtitle-line clip" data-start="494.359" data-duration="3.016" data-track-index="50"><span
+        class="subtitle-copy">UV map in one area, rendered character views</span></div>
+    <div id="sub-197" class="subtitle-line clip" data-start="497.379" data-duration="0.466" data-track-index="50"><span
+        class="subtitle-copy">in the others.</span></div>
+    <div id="sub-198" class="subtitle-line clip" data-start="498.977" data-duration="3.186" data-track-index="50"><span
+        class="subtitle-copy">Between about 2500 and 4000</span></div>
+    <div id="sub-199" class="subtitle-line clip" data-start="502.167" data-duration="3.794" data-track-index="50"><span
+        class="subtitle-copy">steps, the structure becomes more recognizable. The</span></div>
+    <div id="sub-200" class="subtitle-line clip" data-start="505.965" data-duration="2.940" data-track-index="50"><span
+        class="subtitle-copy">head, torso, arms, and legs separate into clearer</span></div>
+    <div id="sub-201" class="subtitle-line clip" data-start="508.909" data-duration="2.897" data-track-index="50"><span
+        class="subtitle-copy">components, and the main clothing colors begin to land</span></div>
+    <div id="sub-202" class="subtitle-line clip" data-start="511.810" data-duration="1.148" data-track-index="50"><span
+        class="subtitle-copy">on the right body parts.</span></div>
+    <div id="sub-203" class="subtitle-line clip" data-start="513.629" data-duration="3.186" data-track-index="50"><span
+        class="subtitle-copy">From 6000 to 16K steps, more details become</span></div>
+    <div id="sub-204" class="subtitle-line clip" data-start="516.819" data-duration="2.684" data-track-index="50"><span
+        class="subtitle-copy">visible: facial features, accessories,</span></div>
+    <div id="sub-205" class="subtitle-line clip" data-start="519.507" data-duration="3.111" data-track-index="50"><span
+        class="subtitle-copy">hair layers, coat borders, and outer-layer geometry. The</span></div>
+    <div id="sub-206" class="subtitle-line clip" data-start="522.622" data-duration="1.916" data-track-index="50"><span
+        class="subtitle-copy">Alpha Marker pattern also becomes more regular,</span></div>
+    <div id="sub-207" class="subtitle-line clip" data-start="524.594" data-duration="2.547" data-track-index="50"><span
+        class="subtitle-copy">which matters later for transparency recovery.</span></div>
+    <div id="sub-208" class="subtitle-line clip" data-start="527.921" data-duration="3.186" data-track-index="50"><span
+        class="subtitle-copy">After step 18K, the image becomes noticeably</span></div>
+    <div id="sub-209" class="subtitle-line clip" data-start="531.111" data-duration="2.386" data-track-index="50"><span
+        class="subtitle-copy">sharper. Pixel boundaries are cleaner,</span></div>
+    <div id="sub-210" class="subtitle-line clip" data-start="533.501" data-duration="2.513" data-track-index="50"><span
+        class="subtitle-copy">character details fit the reference more closely,</span></div>
+    <div id="sub-211" class="subtitle-line clip" data-start="536.018" data-duration="2.458" data-track-index="50"><span
+        class="subtitle-copy">and the marker grid is easier to detect.</span></div>
+    <div id="sub-212" class="subtitle-line clip" data-start="538.649" data-duration="2.674" data-track-index="50"><span
+        class="subtitle-copy">These checkpoints do not prove a fixed learning order,</span></div>
+    <div id="sub-213" class="subtitle-line clip" data-start="541.327" data-duration="2.044" data-track-index="50"><span
+        class="subtitle-copy">but they make the progression easier to see:</span></div>
+    <div id="sub-214" class="subtitle-line clip" data-start="543.375" data-duration="2.386" data-track-index="50"><span
+        class="subtitle-copy">the visible output starts as noisy structure,</span></div>
+    <div id="sub-215" class="subtitle-line clip" data-start="545.765" data-duration="2.982" data-track-index="50"><span
+        class="subtitle-copy">then the layout, body parts, texture details, and</span></div>
+    <div id="sub-216" class="subtitle-line clip" data-start="548.751" data-duration="2.812" data-track-index="50"><span
+        class="subtitle-copy">marker patterns become clearer over time.</span></div>
+    <div id="sub-217" class="subtitle-line clip" data-start="552.293" data-duration="3.016" data-track-index="50"><span
+        class="subtitle-copy">Target images are relatively easy to create once</span></div>
+    <div id="sub-218" class="subtitle-line clip" data-start="555.313" data-duration="2.556" data-track-index="50"><span
+        class="subtitle-copy">you have existing skin UV maps.</span></div>
+    <div id="sub-219" class="subtitle-line clip" data-start="557.873" data-duration="1.817" data-track-index="50"><span
+        class="subtitle-copy">You can render them with scripts.</span></div>
+    <div id="sub-220" class="subtitle-line clip" data-start="559.853" data-duration="3.613" data-track-index="50"><span
+        class="subtitle-copy">The harder part is getting matched realistic</span></div>
+    <div id="sub-221" class="subtitle-line clip" data-start="563.470" data-duration="1.105" data-track-index="50"><span
+        class="subtitle-copy">reference images.</span></div>
+    <div id="sub-222" class="subtitle-line clip" data-start="564.857" data-duration="1.992" data-track-index="50"><span
+        class="subtitle-copy">One strategy is reverse deduction.</span></div>
+    <div id="sub-223" class="subtitle-line clip" data-start="566.853" data-duration="2.940" data-track-index="50"><span
+        class="subtitle-copy">Start from an existing Minecraft skin and use a multimodal</span></div>
+    <div id="sub-224" class="subtitle-line clip" data-start="569.797" data-duration="2.513" data-track-index="50"><span
+        class="subtitle-copy">image model to infer a realistic full-body front and</span></div>
+    <div id="sub-225" class="subtitle-line clip" data-start="572.314" data-duration="0.799" data-track-index="50"><span
+        class="subtitle-copy">back reference.</span></div>
+    <div id="sub-226" class="subtitle-line clip" data-start="573.281" data-duration="3.264" data-track-index="50"><span
+        class="subtitle-copy">Another strategy is a self-evolving data synthesis loop.</span></div>
+    <div id="sub-227" class="subtitle-line clip" data-start="576.701" data-duration="3.741" data-track-index="50"><span
+        class="subtitle-copy">First, use an LLM to generate diverse character descriptions.</span></div>
+    <div id="sub-228" class="subtitle-line clip" data-start="580.446" data-duration="3.068" data-track-index="50"><span
+        class="subtitle-copy">Then use a text-to-image model to create realistic</span></div>
+    <div id="sub-229" class="subtitle-line clip" data-start="583.518" data-duration="3.239" data-track-index="50"><span
+        class="subtitle-copy">reference images. Then use the current image-to-skin</span></div>
+    <div id="sub-230" class="subtitle-line clip" data-start="586.761" data-duration="1.958" data-track-index="50"><span
+        class="subtitle-copy">model to generate target images.</span></div>
+    <div id="sub-231" class="subtitle-line clip" data-start="588.941" data-duration="3.229" data-track-index="50"><span
+        class="subtitle-copy">After that, filter, repair, and validate the outputs.</span></div>
+    <div id="sub-232" class="subtitle-line clip" data-start="592.174" data-duration="2.513" data-track-index="50"><span
+        class="subtitle-copy">High-quality pairs go back into the training set,</span></div>
+    <div id="sub-233" class="subtitle-line clip" data-start="594.691" data-duration="2.471" data-track-index="50"><span
+        class="subtitle-copy">while flawed outputs are repaired when possible,</span></div>
+    <div id="sub-234" class="subtitle-line clip" data-start="597.166" data-duration="2.423" data-track-index="50"><span
+        class="subtitle-copy">or studied to design targeted fixes.</span></div>
+    <div id="sub-235" class="subtitle-line clip" data-start="599.741" data-duration="3.186" data-track-index="50"><span
+        class="subtitle-copy">This turns dataset construction into an evolving</span></div>
+    <div id="sub-236" class="subtitle-line clip" data-start="602.931" data-duration="2.756" data-track-index="50"><span
+        class="subtitle-copy">system, not a one-time collection step.</span></div>
+    <div id="sub-237" class="subtitle-line clip" data-start="605.861" data-duration="2.546" data-track-index="50"><span
+        class="subtitle-copy">Even after generation, there is one more problem:</span></div>
+    <div id="sub-238" class="subtitle-line clip" data-start="608.411" data-duration="3.154" data-track-index="50"><span
+        class="subtitle-copy">extracting the actual 64 by 64 skin</span></div>
+    <div id="sub-239" class="subtitle-line clip" data-start="611.569" data-duration="0.667" data-track-index="50"><span
+        class="subtitle-copy">file.</span></div>
+    <div id="sub-240" class="subtitle-line clip" data-start="612.377" data-duration="2.546" data-track-index="50"><span
+        class="subtitle-copy">Diffusion models usually output RGB images,</span></div>
+    <div id="sub-241" class="subtitle-line clip" data-start="614.927" data-duration="2.343" data-track-index="50"><span
+        class="subtitle-copy">not clean RGBA textures.</span></div>
+    <div id="sub-242" class="subtitle-line clip" data-start="617.274" data-duration="2.848" data-track-index="50"><span
+        class="subtitle-copy">But Minecraft outer layers need transparency.</span></div>
+    <div id="sub-243" class="subtitle-line clip" data-start="620.297" data-duration="2.674" data-track-index="50"><span
+        class="subtitle-copy">A simple background-color threshold is unreliable.</span></div>
+    <div id="sub-244" class="subtitle-line clip" data-start="622.975" data-duration="3.196" data-track-index="50"><span
+        class="subtitle-copy">If the background is gray, and the character also contains</span></div>
+    <div id="sub-245" class="subtitle-line clip" data-start="626.175" data-duration="2.940" data-track-index="50"><span
+        class="subtitle-copy">gray pixels, the algorithm can confuse foreground</span></div>
+    <div id="sub-246" class="subtitle-line clip" data-start="629.119" data-duration="2.727" data-track-index="50"><span
+        class="subtitle-copy">with background. Generated boundaries can also blur into</span></div>
+    <div id="sub-247" class="subtitle-line clip" data-start="631.850" data-duration="0.380" data-track-index="50"><span
+        class="subtitle-copy">gradients.</span></div>
+    <div id="sub-248" class="subtitle-line clip" data-start="632.897" data-duration="3.186" data-track-index="50"><span
+        class="subtitle-copy">To solve this, we used an Alpha Marker</span></div>
+    <div id="sub-249" class="subtitle-line clip" data-start="636.087" data-duration="0.712" data-track-index="50"><span
+        class="subtitle-copy">Strategy.</span></div>
+    <div id="sub-250" class="subtitle-line clip" data-start="636.965" data-duration="3.058" data-track-index="50"><span
+        class="subtitle-copy">During dataset construction, transparent pixels in the</span></div>
+    <div id="sub-251" class="subtitle-line clip" data-start="640.027" data-duration="2.599" data-track-index="50"><span
+        class="subtitle-copy">UV map get a tiny white marker in the center.</span></div>
+    <div id="sub-252" class="subtitle-line clip" data-start="642.630" data-duration="2.385" data-track-index="50"><span
+        class="subtitle-copy">The model learns to reproduce these markers.</span></div>
+    <div id="sub-253" class="subtitle-line clip" data-start="645.245" data-duration="2.973" data-track-index="50"><span
+        class="subtitle-copy">During post-processing, the extraction algorithm</span></div>
+    <div id="sub-254" class="subtitle-line clip" data-start="648.222" data-duration="3.111" data-track-index="50"><span
+        class="subtitle-copy">detects those small white feature anchors and classifies</span></div>
+    <div id="sub-255" class="subtitle-line clip" data-start="651.337" data-duration="2.292" data-track-index="50"><span
+        class="subtitle-copy">the corresponding pixels as transparent.</span></div>
+    <div id="sub-256" class="subtitle-line clip" data-start="653.777" data-duration="2.461" data-track-index="50"><span
+        class="subtitle-copy">The limitation is that this only handles two states:</span></div>
+    <div id="sub-257" class="subtitle-line clip" data-start="656.242" data-duration="1.831" data-track-index="50"><span
+        class="subtitle-copy">Fully transparent and opaque.</span></div>
+    <div id="sub-258" class="subtitle-line clip" data-start="658.077" data-duration="2.598" data-track-index="50"><span
+        class="subtitle-copy">Semi-transparent materials, like glass or veils,</span></div>
+    <div id="sub-259" class="subtitle-line clip" data-start="660.679" data-duration="1.148" data-track-index="50"><span
+        class="subtitle-copy">still need better handling.</span></div>
+    <div id="sub-260" class="subtitle-line clip" data-start="662.057" data-duration="2.248" data-track-index="50"><span
+        class="subtitle-copy">The current method can generate usable examples,</span></div>
+    <div id="sub-261" class="subtitle-line clip" data-start="664.309" data-duration="1.020" data-track-index="50"><span
+        class="subtitle-copy">but it is not perfect.</span></div>
+    <div id="sub-262" class="subtitle-line clip" data-start="665.513" data-duration="2.376" data-track-index="50"><span
+        class="subtitle-copy">Multi-level transparency is still unsolved.</span></div>
+    <div id="sub-263" class="subtitle-line clip" data-start="667.893" data-duration="1.873" data-track-index="50"><span
+        class="subtitle-copy">Complex decorations can become blurry,</span></div>
+    <div id="sub-264" class="subtitle-line clip" data-start="669.770" data-duration="1.689" data-track-index="50"><span
+        class="subtitle-copy">broken, misplaced, or asymmetric.</span></div>
+    <div id="sub-265" class="subtitle-line clip" data-start="671.633" data-duration="1.480" data-track-index="50"><span
+        class="subtitle-copy">The next directions are clear.</span></div>
+    <div id="sub-266" class="subtitle-line clip" data-start="673.289" data-duration="2.717" data-track-index="50"><span
+        class="subtitle-copy">Another promising direction is to add Direct Preference</span></div>
+    <div id="sub-267" class="subtitle-line clip" data-start="676.010" data-duration="2.897" data-track-index="50"><span
+        class="subtitle-copy">Optimization, or DPO, on top of</span></div>
+    <div id="sub-268" class="subtitle-line clip" data-start="678.911" data-duration="2.514" data-track-index="50"><span
+        class="subtitle-copy">LoRA, so the model can better favor stable,</span></div>
+    <div id="sub-269" class="subtitle-line clip" data-start="681.429" data-duration="1.702" data-track-index="50"><span
+        class="subtitle-copy">high-quality generations.</span></div>
+    <div id="sub-270" class="subtitle-line clip" data-start="683.405" data-duration="3.357" data-track-index="50"><span
+        class="subtitle-copy">And larger base models may improve</span></div>
+    <div id="sub-271" class="subtitle-line clip" data-start="686.766" data-duration="1.609" data-track-index="50"><span
+        class="subtitle-copy">quality and generalization.</span></div>
+    <div id="sub-272" class="subtitle-line clip" data-start="688.517" data-duration="2.418" data-track-index="50"><span
+        class="subtitle-copy">Sub-style control could make the same reference image</span></div>
+    <div id="sub-273" class="subtitle-line clip" data-start="690.939" data-duration="3.282" data-track-index="50"><span
+        class="subtitle-copy">produce different Minecraft skin styles. For</span></div>
+    <div id="sub-274" class="subtitle-line clip" data-start="694.225" data-duration="3.068" data-track-index="50"><span
+        class="subtitle-copy">example, we can control the output style from abstract</span></div>
+    <div id="sub-275" class="subtitle-line clip" data-start="697.297" data-duration="2.812" data-track-index="50"><span
+        class="subtitle-copy">to detailed, or from realistic to science-fiction-like.</span></div>
+    <div id="sub-276" class="subtitle-line clip" data-start="700.757" data-duration="2.845" data-track-index="50"><span
+        class="subtitle-copy">A stronger self-evolving dataset loop could automatically</span></div>
+    <div id="sub-277" class="subtitle-line clip" data-start="703.606" data-duration="2.855" data-track-index="50"><span
+        class="subtitle-copy">find failure cases, repair what can be repaired,</span></div>
+    <div id="sub-278" class="subtitle-line clip" data-start="706.465" data-duration="2.885" data-track-index="50"><span
+        class="subtitle-copy">and turn recurring problems into targeted improvements.</span></div>
+    <div id="sub-279" class="subtitle-line clip" data-start="709.505" data-duration="2.077" data-track-index="50"><span
+        class="subtitle-copy">Minecraft skin generation looks small,</span></div>
+    <div id="sub-280" class="subtitle-line clip" data-start="711.586" data-duration="1.361" data-track-index="50"><span
+        class="subtitle-copy">but the real challenge is dense:</span></div>
+    <div id="sub-281" class="subtitle-line clip" data-start="712.951" data-duration="2.855" data-track-index="50"><span
+        class="subtitle-copy">the model must understand a 2D UV map,</span></div>
+    <div id="sub-282" class="subtitle-line clip" data-start="715.810" data-duration="2.641" data-track-index="50"><span
+        class="subtitle-copy">a 3D block body, inner and outer layers,</span></div>
+    <div id="sub-283" class="subtitle-line clip" data-start="718.455" data-duration="2.642" data-track-index="50"><span
+        class="subtitle-copy">transparency, and the identity of the reference image</span></div>
+    <div id="sub-284" class="subtitle-line clip" data-start="721.101" data-duration="0.636" data-track-index="50"><span
+        class="subtitle-copy">at the same time.</span></div>
+    <div id="sub-285" class="subtitle-line clip" data-start="722.465" data-duration="2.162" data-track-index="50"><span
+        class="subtitle-copy">The three most useful pieces in this experiment were</span></div>
+    <div id="sub-286" class="subtitle-line clip" data-start="724.631" data-duration="3.068" data-track-index="50"><span
+        class="subtitle-copy">composite target images, a high-quality data</span></div>
+    <div id="sub-287" class="subtitle-line clip" data-start="727.703" data-duration="3.282" data-track-index="50"><span
+        class="subtitle-copy">construction workflow, and Alpha Markers for transparent</span></div>
+    <div id="sub-288" class="subtitle-line clip" data-start="730.989" data-duration="0.550" data-track-index="50"><span
+        class="subtitle-copy">pixels.</span></div>
+    <div id="sub-289" class="subtitle-line clip" data-start="731.717" data-duration="3.357" data-track-index="50"><span
+        class="subtitle-copy">If those pieces keep improving, Minecraft skin generation</span></div>
+    <div id="sub-290" class="subtitle-line clip" data-start="735.078" data-duration="2.599" data-track-index="50"><span
+        class="subtitle-copy">becomes less like a one-off image trick and more like</span></div>
+    <div id="sub-291" class="subtitle-line clip" data-start="737.681" data-duration="1.909" data-track-index="50"><span
+        class="subtitle-copy">a sustainable engineering pipeline.</span></div>
+    <div id="sub-292" class="subtitle-line clip" data-start="739.745" data-duration="2.717" data-track-index="50"><span
+        class="subtitle-copy">We have open-sourced the models, dataset,</span></div>
+    <div id="sub-293" class="subtitle-line clip" data-start="742.466" data-duration="3.281" data-track-index="50"><span
+        class="subtitle-copy">and scripts. You can train or deploy everything locally,</span></div>
+    <div id="sub-294" class="subtitle-line clip" data-start="745.751" data-duration="4.007" data-track-index="50"><span
+        class="subtitle-copy">or try the free online generator at entropydrop.com. Model</span></div>
+    <div id="sub-295" class="subtitle-line clip" data-start="749.762" data-duration="2.983" data-track-index="50"><span
+        class="subtitle-copy">weights are available on Hugging Face under the</span></div>
+    <div id="sub-296" class="subtitle-line clip" data-start="752.749" data-duration="1.276" data-track-index="50"><span
+        class="subtitle-copy">EntropyDrop organization.</span></div>
+    <div id="sub-297" class="subtitle-line clip" data-start="754.793" data-duration="2.802" data-track-index="50"><span
+        class="subtitle-copy">Subscribe for more deep dives into open-source AI and</span></div>
+    <div id="sub-298" class="subtitle-line clip" data-start="757.599" data-duration="1.020" data-track-index="50"><span
+        class="subtitle-copy">creative engineering.</span></div>
+    <div id="sub-299" class="subtitle-line clip" data-start="758.623" data-duration="3.149" data-track-index="50"><span
+        class="subtitle-copy">Thanks for watching, and I'll see you in the next experiment!</span></div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    const rootNode = document.getElementById("root");
+    const totalDuration = Number(rootNode.dataset.duration);
+
+    function startOf(id, offset = 0) {
+      return Number(document.getElementById(id).dataset.start) + offset;
+    }
+
+    function durationOf(id) {
+      return Number(document.getElementById(id).dataset.duration);
+    }
+
+    function startOfSubtitleContaining(text, fallback) {
+      const subtitle = Array.from(document.querySelectorAll(".subtitle-line"))
+        .find((node) => node.textContent.includes(text));
+      return subtitle ? startOf(subtitle.id) : fallback;
+    }
+
+    function showScene(id, start, duration) {
+      const scene = `#${id}`;
+      const sceneNode = document.getElementById(id);
+      tl.set(scene, { visibility: "visible", opacity: 1 }, start);
+      if (id !== "scene-limits" && id !== "scene-closing" && sceneNode.querySelector(".kicker")) {
+        tl.from(`${scene} .kicker`, { y: 18, opacity: 0, duration: 0.58, ease: "power2.out" }, start + 0.18);
+      }
+      if (id !== "scene-hook" && id !== "scene-limits" && id !== "scene-closing" && sceneNode.querySelector("h1, h2")) {
+        tl.from(`${scene} h1, ${scene} h2`, { y: 34, opacity: 0, duration: 0.78, ease: "power3.out" }, start + 0.28);
+      }
+      if (sceneNode.querySelector(".subtitle")) {
+        tl.from(`${scene} .subtitle`, { y: 22, opacity: 0, duration: 0.62, ease: "power2.out" }, start + 0.72);
+      }
+      if (sceneNode.querySelector(".caption")) {
+        tl.from(`${scene} .caption`, { y: 24, opacity: 0, duration: 0.64, ease: "power2.out" }, start + 1.0);
+      }
+      tl.to(scene, { opacity: 0, duration: 0.62, ease: "power2.in" }, start + duration - 0.62);
+      tl.set(scene, { visibility: "hidden" }, start + duration);
+    }
+
+    function showShowcase(selector, start, duration) {
+      tl.set(selector, { visibility: "visible", opacity: 1 }, start);
+      tl.from(`${selector} .placeholder-center`, { y: 18, opacity: 0, duration: 0.42, ease: "power2.out" }, start + 0.08);
+      tl.to(`${selector} .playbar-fill`, { width: "100%", duration: duration - 0.55, ease: "none" }, start + 0.28);
+      tl.to(selector, { opacity: 0, duration: 0.26, ease: "power2.in" }, start + duration - 0.26);
+      tl.set(selector, { visibility: "hidden" }, start + duration);
+    }
+
+    function showSlidingShowcase(selector, start, duration) {
+      if (start <= 0.001) {
+        tl.set(selector, { visibility: "visible", opacity: 1, x: 0 }, start);
+        tl.to(selector, {
+          x: -1920,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power2.in"
+        }, start + duration - 0.6);
+        tl.set(selector, { visibility: "hidden" }, start + duration);
+        return;
+      }
+
+      // Initially hide and position off-screen right
+      tl.set(selector, { visibility: "visible", opacity: 0, x: 1920 }, start);
+
+      // Slide in from right to center
+      tl.to(selector, {
+        x: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: "power2.out"
+      }, start);
+
+      // Slide out to left at the end
+      tl.to(selector, {
+        x: -1920,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.in"
+      }, start + duration - 0.6);
+
+      // Hide at the very end
+      tl.set(selector, { visibility: "hidden" }, start + duration);
+    }
+
+    function showTimed(selector, start, duration) {
+      tl.set(selector, { visibility: "visible", opacity: 1 }, start);
+      tl.from(`${selector} .showcase-tile`, { y: 38, opacity: 0, duration: 0.5, stagger: 0.08, ease: "power2.out" }, start + 0.1);
+      tl.to(selector, { opacity: 0, duration: 0.36, ease: "power2.in" }, start + duration - 0.36);
+      tl.set(selector, { visibility: "hidden" }, start + duration);
+    }
+
+    function showStructureSegment(selector, start, duration) {
+      tl.set(selector, { visibility: "visible", opacity: 1 }, start);
+      tl.from(`${selector} .reveal-item`, { y: 28, duration: 0.52, stagger: 0.08, ease: "power2.out" }, start + 0.12);
+      tl.to(selector, { opacity: 0, duration: 0.36, ease: "power2.in" }, start + duration - 0.36);
+      tl.set(selector, { visibility: "hidden" }, start + duration);
+    }
+
+    function showRenderPair(selector, start, duration) {
+      tl.set(selector, { visibility: "visible", opacity: 1 }, start);
+      tl.from(`${selector} .render-pair-title`, { y: 16, opacity: 0, duration: 0.42, ease: "power2.out" }, start + 0.06);
+      tl.from(`${selector} .render-card`, { y: 34, opacity: 0, duration: 0.58, stagger: 0.09, ease: "power2.out" }, start + 0.14);
+      tl.to(selector, { opacity: 0, duration: 0.36, ease: "power2.in" }, start + duration - 0.36);
+      tl.set(selector, { visibility: "hidden" }, start + duration);
+    }
+
+    function showTrainingPhase(selector, start, duration) {
+      tl.set(selector, { visibility: "visible", opacity: 1 }, start);
+      const mediaSelector = `${selector} .training-media-panel, ${selector} .final-checkpoint-card`;
+      const cardSelector = `${selector} .checkpoint-card`;
+      const copySelector = `${selector} .training-copy-panel`;
+      const noteSelector = `${selector} .training-note`;
+      if (document.querySelector(mediaSelector)) {
+        tl.from(mediaSelector, { x: -42, opacity: 0, duration: 0.58, ease: "power3.out" }, start + 0.05);
+      }
+      if (document.querySelector(cardSelector)) {
+        tl.from(cardSelector, { y: 30, opacity: 0, duration: 0.46, stagger: 0.07, ease: "power2.out" }, start + 0.24);
+      }
+      if (document.querySelector(copySelector)) {
+        tl.from(copySelector, { x: 44, opacity: 0, duration: 0.58, ease: "power3.out" }, start + 0.22);
+      }
+      if (document.querySelector(noteSelector)) {
+        tl.from(noteSelector, { y: 22, opacity: 0, duration: 0.44, stagger: 0.1, ease: "power2.out" }, start + 0.54);
+      }
+      tl.to(selector, { opacity: 0, duration: 0.36, ease: "power2.in" }, start + duration - 0.36);
+      tl.set(selector, { visibility: "hidden" }, start + duration);
+    }
+
+    function showSubtitle(selector, start, duration) {
+      tl.set(selector, { visibility: "visible", opacity: 1, zIndex: 90 }, start);
+      tl.set(selector, { visibility: "hidden", opacity: 0 }, start + duration);
+    }
+
+    document.querySelectorAll(".scene.clip").forEach((scene) => {
+      showScene(scene.id, startOf(scene.id), durationOf(scene.id));
+    });
+
+    const showcases = [
+      "showcase-girl3",
+      "showcase-cat2",
+      "showcase-boy",
+      "showcase-girl",
+      "showcase-zx",
+      "showcase-boy2",
+      "showcase-linux",
+      "showcase-pink",
+      "showcase-beethoven",
+      "showcase-boy3",
+      "showcase-dog",
+      "showcase-cat"
+    ];
+    showcases.forEach((id) => {
+      showSlidingShowcase(`#${id}`, startOf(id), durationOf(id));
+    });
+
+    showStructureSegment("#skin-uv-closeup", startOf("skin-uv-closeup"), durationOf("skin-uv-closeup"));
+    showStructureSegment("#skin-layers-closeup", startOf("skin-layers-closeup"), durationOf("skin-layers-closeup"));
+    showStructureSegment("#skin-fold-video", startOf("skin-fold-video"), durationOf("skin-fold-video"));
+
+    const uvMapSequenceStart = startOfSubtitleContaining("It is a texture map", startOf("skin-uv-closeup", 2.2));
+    const uvMapSequenceEnd = startOf("skin-layers-closeup") - 0.28;
+    const uvMapRegions = [
+      "head",
+      "head-overlay",
+      "torso",
+      "torso-overlay",
+      "left-leg",
+      "left-leg-overlay",
+      "right-leg",
+      "right-leg-overlay",
+      "left-arm",
+      "left-arm-overlay",
+      "right-arm",
+      "right-arm-overlay"
+    ];
+    const uvMapRegionStep = (uvMapSequenceEnd - uvMapSequenceStart) / uvMapRegions.length;
+    uvMapRegions.forEach((name, index) => {
+      const selector = `#uvmap-${name}-box, #uvmap-${name}-label`;
+      const itemStart = uvMapSequenceStart + index * uvMapRegionStep;
+      tl.to(selector, { opacity: 1, duration: 0.24, overwrite: "auto" }, itemStart);
+      tl.to(selector, { opacity: 0, duration: 0.24, overwrite: "auto" }, itemStart + uvMapRegionStep * 0.72);
+    });
+
+    ["render-pair-surface", "render-pair-camera", "render-pair-lighting", "render-pair-layers"].forEach((id) => {
+      showRenderPair(`#${id}`, startOf(id), durationOf(id));
+    });
+    ["training-phase-early", "training-phase-mid", "training-phase-late", "training-phase-final"].forEach((id) => {
+      showTrainingPhase(`#${id}`, startOf(id), durationOf(id));
+    });
+
+    tl.from("#scene-cta .cta-card", { scale: 0.96, opacity: 0, duration: 0.62, ease: "power3.out" }, startOf("scene-cta", 0.2));
+    tl.from("#scene-cta .video-play-button", { scale: 0.86, opacity: 0, duration: 0.36, ease: "power2.out" }, startOf("scene-cta", 1.0));
+    tl.to("#scene-cta .video-slot-progress-fill", { width: "100%", duration: Math.max(1, durationOf("scene-cta") - 1.4), ease: "none" }, startOf("scene-cta", 1.2));
+    tl.to("#skin-fold-video .uv-slot-progress-fill", { width: "100%", duration: 15.567, ease: "none" }, startOf("skin-fold-video", 0.0));
+    tl.from("#scene-hard .constraint-card", { x: -48, opacity: 0, duration: 0.56, stagger: 0.1, ease: "power2.out" }, startOf("scene-hard", 1.2));
+    tl.from("#scene-hard .hard-video-frame, #hard-fold-video, #hard-video-label", { scale: 0.97, duration: 0.5, ease: "power3.out" }, startOf("scene-hard", 0.2));
+    tl.from("#scene-general-models .failure-card", { y: 52, opacity: 0, duration: 0.64, stagger: 0.14, ease: "power2.out" }, startOf("scene-general-models", 1.2));
+    tl.from("#scene-general-models .reason", { x: 42, opacity: 0, duration: 0.52, stagger: 0.16, ease: "power2.out" }, startOf("scene-general-models", 2.2));
+    tl.from("#scene-finetune .fact", { x: -46, opacity: 0, duration: 0.55, stagger: 0.12, ease: "power2.out" }, startOf("scene-finetune", 1.2));
+    tl.from("#scene-finetune .image-frame", { x: 56, opacity: 0, duration: 0.78, ease: "power3.out" }, startOf("scene-finetune", 1.6));
+    tl.from("#scene-image-to-skin .bridge-panel", { y: 38, opacity: 0, duration: 0.6, stagger: 0.18, ease: "power2.out" }, startOf("scene-image-to-skin", 0.8));
+    tl.from("#scene-image-to-skin .bridge-switch", { scale: 0.92, opacity: 0, duration: 0.48, ease: "power2.out" }, startOf("scene-image-to-skin", 1.5));
+    tl.from("#scene-image-to-skin .bridge-comparison .square-media", { y: 22, opacity: 0, duration: 0.46, stagger: 0.12, ease: "power2.out" }, startOf("scene-image-to-skin", 2.0));
+    tl.from("#scene-dataset .pipeline > .image-frame", { x: -56, opacity: 0, duration: 0.76, ease: "power3.out" }, startOf("scene-dataset", 1.2));
+    tl.from("#scene-dataset .arrow", { scale: 0.72, opacity: 0, duration: 0.48, ease: "back.out(1.6)" }, startOf("scene-dataset", 2.0));
+    tl.from("#scene-dataset .target-wrap", { x: 58, opacity: 0, duration: 0.82, ease: "power3.out" }, startOf("scene-dataset", 2.3));
+
+    const datasetStart = startOf("scene-dataset");
+    const datasetDuration = durationOf("scene-dataset");
+    const uvHighlightStart = startOfSubtitleContaining("The target image is the output", datasetStart + 27.0);
+    const previewHighlightStart = startOfSubtitleContaining("The top-right area includes", datasetStart + 38.5);
+    const viewsHighlightStart = startOfSubtitleContaining("The bottom area contains", datasetStart + 41.5);
+    const datasetHighlightEnd = Math.min(
+      startOfSubtitleContaining("To be clear", datasetStart + 48.0),
+      datasetStart + datasetDuration - 0.8
+    );
+    tl.to("#uv-box, #uv-label", { opacity: 1, duration: 0.36, overwrite: "auto" }, uvHighlightStart);
+    tl.to("#uv-box, #uv-label", { opacity: 0, duration: 0.3, overwrite: "auto" }, previewHighlightStart - 0.12);
+    tl.to("#preview-box, #preview-label", { opacity: 1, duration: 0.36, overwrite: "auto" }, previewHighlightStart);
+    tl.to("#preview-box, #preview-label", { opacity: 0, duration: 0.3, overwrite: "auto" }, viewsHighlightStart - 0.12);
+    tl.to("#views-box, #views-label", { opacity: 1, duration: 0.36, overwrite: "auto" }, viewsHighlightStart);
+    tl.to("#views-box, #views-label", { opacity: 0, duration: 0.3, overwrite: "auto" }, datasetHighlightEnd);
+
+    tl.from("#scene-data-loop .reverse-method", { x: -48, opacity: 0, duration: 0.64, ease: "power3.out" }, startOf("scene-data-loop", 1.0));
+    tl.from("#scene-data-loop .reverse-node, #scene-data-loop .flow-arrow-down", { y: 22, opacity: 0, duration: 0.38, stagger: 0.08, ease: "power2.out" }, startOf("scene-data-loop", 1.55));
+    tl.from("#scene-data-loop .synthesis-method", { x: 48, opacity: 0, duration: 0.64, ease: "power3.out" }, startOf("scene-data-loop", 5.2));
+    tl.from("#scene-data-loop .loop-step", { y: 34, opacity: 0, duration: 0.42, stagger: 0.08, ease: "power2.out" }, startOf("scene-data-loop", 5.8));
+    tl.from("#scene-data-loop .loop-return", { y: 22, opacity: 0, duration: 0.42, ease: "power2.out" }, startOf("scene-data-loop", 7.0));
+    tl.from("#scene-alpha .image-frame", { x: -52, opacity: 0, duration: 0.72, ease: "power3.out" }, startOf("scene-alpha", 1.2));
+    tl.from("#scene-alpha .alpha-step", { x: 44, opacity: 0, duration: 0.52, stagger: 0.13, ease: "power2.out" }, startOf("scene-alpha", 1.8));
+    tl.from("#scene-limits .limits-screen .kicker", { y: 18, opacity: 0, duration: 0.58, ease: "power2.out" }, startOf("scene-limits", 0.18));
+    tl.from("#scene-limits .limits-screen h2", { y: 34, opacity: 0, duration: 0.78, ease: "power3.out" }, startOf("scene-limits", 0.28));
+    tl.from("#scene-limits .limit-card", { y: 36, opacity: 0, duration: 0.48, stagger: 0.09, ease: "power2.out" }, startOf("scene-limits", 1.2));
+    const nextDirectionsStart = startOfSubtitleContaining("The next directions are clear", startOf("scene-limits", 10.0));
+    tl.set("#scene-limits .limits-next-screen", { visibility: "hidden", opacity: 0 }, startOf("scene-limits", 0));
+    tl.to("#scene-limits .limits-screen", { opacity: 0, duration: 0.42, ease: "power2.in" }, nextDirectionsStart - 0.48);
+    tl.set("#scene-limits .limits-screen", { visibility: "hidden" }, nextDirectionsStart);
+    tl.set("#scene-limits .limits-next-screen", { visibility: "visible", opacity: 0 }, nextDirectionsStart - 0.03);
+    tl.to("#scene-limits .limits-next-screen", { opacity: 1, duration: 0.5, ease: "power2.out" }, nextDirectionsStart);
+    tl.set("#scene-limits .limits-next-screen .kicker, #scene-limits .limits-next-screen h2", { opacity: 1, y: 0, clearProps: "transform" }, nextDirectionsStart);
+    const substyleStart = startOfSubtitleContaining("Sub-style control could make", nextDirectionsStart + 12.0);
+    tl.from("#scene-limits .future-direction", { x: -30, opacity: 0, duration: 0.42, stagger: 0.08, ease: "power2.out" }, nextDirectionsStart + 0.58);
+    tl.from("#scene-limits .substyle-card", { x: 36, opacity: 0, duration: 0.52, ease: "power3.out" }, substyleStart);
+    tl.from("#scene-limits .substyle-result", { y: 28, opacity: 0, duration: 0.42, stagger: 0.08, ease: "power2.out" }, substyleStart + 0.38);
+
+    const closingResourceStart = startOf("scene-closing", 31.0);
+    tl.from("#scene-closing .closing-takeaways-screen .kicker", { y: 18, opacity: 0, duration: 0.58, ease: "power2.out" }, startOf("scene-closing", 0.18));
+    tl.from("#scene-closing .closing-takeaways-screen h2", { y: 34, opacity: 0, duration: 0.78, ease: "power3.out" }, startOf("scene-closing", 0.28));
+    tl.set("#scene-closing .closing-resource-screen", { visibility: "hidden", opacity: 0 }, startOf("scene-closing", 0));
+    tl.from("#scene-closing .takeaway-card", { y: 42, opacity: 0, duration: 0.52, stagger: 0.1, ease: "power2.out" }, startOf("scene-closing", 1.2));
+    tl.to("#scene-closing .closing-takeaways-screen", { opacity: 0, duration: 0.5, ease: "power2.in" }, closingResourceStart - 0.55);
+    tl.set("#scene-closing .closing-takeaways-screen", { visibility: "hidden" }, closingResourceStart);
+    tl.set("#scene-closing .closing-resource-screen", { visibility: "visible", opacity: 0 }, closingResourceStart - 0.05);
+    tl.to("#scene-closing .closing-resource-screen", { opacity: 1, duration: 0.52, ease: "power2.out" }, closingResourceStart);
+    tl.from("#scene-closing .closing-resource-screen .kicker, #scene-closing .closing-resource-screen h2", { y: 28, opacity: 0, duration: 0.48, stagger: 0.08, ease: "power2.out" }, closingResourceStart + 0.12);
+    tl.from("#scene-closing .resource-card", { x: -34, opacity: 0, duration: 0.52, stagger: 0.14, ease: "power2.out" }, closingResourceStart + 0.72);
+    tl.from("#scene-closing .subscribe-card", { x: 40, opacity: 0, duration: 0.58, ease: "power2.out" }, closingResourceStart + 1.0);
+
+    document.querySelectorAll(".subtitle-line.clip").forEach((line) => {
+      showSubtitle(`#${line.id}`, startOf(line.id), durationOf(line.id));
+    });
+    tl.to(".progress-fill", { width: "100%", duration: totalDuration, ease: "none" }, 0);
+
+    window.__timelines["main"] = tl;
+  </script>
+</body>
+
+</html>

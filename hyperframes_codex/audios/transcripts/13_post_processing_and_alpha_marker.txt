@@ -1,0 +1,11 @@
+Even after generation, there is one more problem: extracting the actual 64 by 64 skin file.
+
+Diffusion models usually output RGB images, not clean RGBA textures. But Minecraft outer layers need transparency.
+
+A simple background-color threshold is unreliable. If the background is gray, and the character also contains gray pixels, the algorithm can confuse foreground with background. Generated boundaries can also blur into gradients.
+
+To solve this, we used an Alpha Marker Strategy.
+
+During dataset construction, transparent pixels in the UV map get a tiny white marker in the center. The model learns to reproduce these markers. During post-processing, the extraction algorithm detects those small white feature anchors and classifies the corresponding pixels as transparent.
+
+The limitation is that this only handles two states: Fully transparent and opaque. Semi-transparent materials, like glass or veils, still need better handling.
