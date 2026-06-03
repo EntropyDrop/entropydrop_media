@@ -1,6 +1,9 @@
+.DS_Store
 .minimax_api_key
 .hyperframes
 .thumbnails
 .waveform-cache
 renders
 __pycache__
+skingen_*/audios/metadata/
+skingen_*/audios/voiceover_full_*.wav

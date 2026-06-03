@@ -24,7 +24,7 @@ DEFAULT_ENDPOINT = "https://api.minimaxi.com/v1/t2a_v2"
 DEFAULT_MODEL = "speech-2.8-hd"
 #DEFAULT_VOICE_ID = "English_expressive_narrator"
 DEFAULT_VOICE_ID = "English_Aussie_Bloke"
-DEFAULT_OUTPUT = "hyperframes_codex/audios/test.mp3"
+DEFAULT_OUTPUT = "skingen_en/audios/test.mp3"
 
 
 class MiniMaxTTSError(RuntimeError):

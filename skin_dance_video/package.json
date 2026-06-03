@@ -1,0 +1,25 @@
+{
+  "name": "skin-dance-video-generator",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "skin-dance-video": "./render_skin_dance_video.mjs"
+  },
+  "scripts": {
+    "dev": "node scripts/ensure_node_modules_link.mjs && vite --host 127.0.0.1 --port 5178",
+    "render": "node scripts/render_skin_dance_video.mjs",
+    "list-dances": "node scripts/render_skin_dance_video.mjs --list-dances"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "@vitejs/plugin-react": "^5.1.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "three": "^0.183.2",
+    "vite": "^7.3.1"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3"
+  }
+}

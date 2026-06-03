@@ -1,0 +1,13 @@
+不过，我们和 Monadical 的方案还有一个重要区别。
+
+Monadical 的流程主要是 text-to-skin，也就是从文本生成皮肤。它学习很多 prompt 和 target 的配对：文本输入，结构化的 Minecraft 皮肤目标输出。
+
+我们保留这种配对训练思路，但换掉输入端。
+
+我们的训练对是 control image 和 target image。control image 是视觉参考图。target image 是结构化输出：一张 UV 图，加上多个 3D 渲染视角。
+
+这样模型学到的是一种转换规则：给一张新的参考图，生成同样格式的目标图。
+
+之后，再通过后处理提取真正可用的 64 乘 64 Minecraft 皮肤。
+
+这就是 image-to-skin 的意义：对大多数创作者来说，最自然的输入往往已经是一张图片，而不是一段文字描述。

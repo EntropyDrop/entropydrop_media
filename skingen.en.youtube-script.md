@@ -87,11 +87,11 @@ Image in. Playable Minecraft character out.
 
 ## Full Voiceover Draft
 
-The blocks below are machine-readable. `video/generate_voiceover_audio.py` extracts each `Voiceover text` block and writes audio to the matching `Audio file`. Existing MP3 files are skipped by default.
+The blocks below are machine-readable. `generate_voiceover_audio.py` extracts each `Voiceover text` block and writes audio to the matching `Audio file`. Existing MP3 files are skipped by default.
 
 ### VO 01 | 0:00-0:15 | hook | Hook
 
-- Audio file: `hyperframes_codex/audios/01_hook.mp3`
+- Audio file: `skingen_en/audios/01_hook.mp3`
 - Target duration: `15s`
 
 **Voiceover text:**
@@ -108,7 +108,7 @@ So the real challenge is: can AI turn a normal reference image into that specifi
 
 ### VO 02 | 0:15-0:55 | results_first | Results First
 
-- Audio file: `hyperframes_codex/audios/02_results_first.mp3`
+- Audio file: `skingen_en/audios/02_results_first.mp3`
 - Target duration: `40s`
 
 **Voiceover text:**
@@ -127,7 +127,7 @@ That combination is much harder than ordinary image stylization.
 
 ### VO 03 | 0:55-1:05 | try_it_online | Try It Online
 
-- Audio file: `hyperframes_codex/audios/03_try_it_online.mp3`
+- Audio file: `skingen_en/audios/03_try_it_online.mp3`
 - Target duration: `10s`
 - Visual placeholder: reserve this section for a recorded website demo video showing the online generator flow.
 
@@ -139,9 +139,9 @@ Want to try it yourself? Visit entropydrop.com for the free online generator. We
 
 ### VO 04 | 1:05-2:00 | what_a_minecraft_skin_really_is | What a Minecraft Skin Really Is
 
-- Audio file: `hyperframes_codex/audios/04_what_a_minecraft_skin_really_is.mp3`
+- Audio file: `skingen_en/audios/04_what_a_minecraft_skin_really_is.mp3`
 - Target duration: `55s`
-- Visual plan: show this chapter in three visual beats. First, use a close-up of `skingen_uv_map.jpg` while explaining fixed UV regions and overlay regions. Second, use a close-up of `skingen_layers.jpg` while explaining the inner layer, overlay layer, transparency, and outer cube protrusion differences. Third, play `hyperframes_codex/assets/transform.mp4`, the converted 16-second UV-map unfold/fold animation video, to connect the flat layout to the 3D body. Keep `64x64 RGBA` as a supporting note, not the main visual idea.
+- Visual plan: show this chapter in three visual beats. First, use a close-up of `skingen_uv_map.jpg` while explaining fixed UV regions and overlay regions. Second, use a close-up of `skingen_layers.jpg` while explaining the inner layer, overlay layer, transparency, and outer cube protrusion differences. Third, play `skingen_en/assets/transform.mp4`, the converted 16-second UV-map unfold/fold animation video, to connect the flat layout to the 3D body. Keep `64x64 RGBA` as a supporting note, not the main visual idea.
 
 **Voiceover text:**
 
@@ -165,7 +165,7 @@ So generating a usable Minecraft skin means producing the exact 2D UV layout, pl
 
 ### VO 05 | 2:00-2:55 | why_the_structure_is_difficult | Why the Structure Is Difficult
 
-- Audio file: `hyperframes_codex/audios/05_why_the_structure_is_difficult.mp3`
+- Audio file: `skingen_en/audios/05_why_the_structure_is_difficult.mp3`
 - Target duration: `55s`
 - Visual plan: reuse the UV-to-3D folding animation from VO 04 at normal speed, with the blank lead-in trimmed and the clip looped through the chapter, while the three rule cards explain why the mapping is difficult.
 
@@ -185,7 +185,7 @@ So the model is not just learning "Minecraft style." It is learning a constraine
 
 ### VO 06 | 2:55-3:45 | why_general_image_models_fail | Why General Image Models Fail
 
-- Audio file: `hyperframes_codex/audios/06_why_general_image_models_fail.mp3`
+- Audio file: `skingen_en/audios/06_why_general_image_models_fail.mp3`
 - Target duration: `50s`
 
 **Voiceover text:**
@@ -206,7 +206,7 @@ For a normal image, approximate structure might be acceptable. For a game textur
 
 ### VO 07 | 3:45-4:35 | the_fine_tuning_direction | The Fine-Tuning Direction
 
-- Audio file: `hyperframes_codex/audios/07_the_fine_tuning_direction.mp3`
+- Audio file: `skingen_en/audios/07_the_fine_tuning_direction.mp3`
 - Target duration: `50s`
 
 **Voiceover text:**
@@ -225,7 +225,7 @@ In our tests, that combined target was much more stable than either part alone.
 
 ### VO 08 | 4:35-5:15 | why_image_to_skin_matters | Why Image-to-Skin Matters
 
-- Audio file: `hyperframes_codex/audios/08_why_image_to_skin_matters.mp3`
+- Audio file: `skingen_en/audios/08_why_image_to_skin_matters.mp3`
 - Target duration: `40s`
 
 **Voiceover text:**
@@ -248,7 +248,7 @@ That is why image-to-skin matters: for most creators, the natural input is alrea
 
 ### VO 09 | 5:15-6:30 | dataset_design | Dataset Design
 
-- Audio file: `hyperframes_codex/audios/09_dataset_design.mp3`
+- Audio file: `skingen_en/audios/09_dataset_design.mp3`
 - Target duration: `75s`
 
 **Voiceover text:**
@@ -273,7 +273,7 @@ The model cared less about whether the UV map was placed in the top-left or some
 
 ### VO 10 | 6:30-7:35 | rendering_choices | Rendering Choices
 
-- Audio file: `hyperframes_codex/audios/10_rendering_choices.mp3`
+- Audio file: `skingen_en/audios/10_rendering_choices.mp3`
 - Target duration: `65s`
 
 **Voiceover text:**
@@ -292,7 +292,7 @@ The practical lesson is simple: the render is not just decoration. It is trainin
 
 ### VO 11 | 7:35-8:40 | training_convergence | Training Convergence
 
-- Audio file: `hyperframes_codex/audios/11_training_convergence.mp3`
+- Audio file: `skingen_en/audios/11_training_convergence.mp3`
 - Target duration: `65s`
 - Visual plan: show the training outputs as a timeline. Start with a four-image grid for steps 500, 1000, 1500, and 2000. Then replace it with steps 2500 through 4000. Then show 6000, 8000, 12000, and 16K. Finish with the large step-18K image. Use simple labels for phase names and avoid overcrowding the frame.
 
@@ -314,7 +314,7 @@ These checkpoints do not prove a fixed learning order, but they make the progres
 
 ### VO 12 | 8:40-9:25 | building_more_data | Building More Data
 
-- Audio file: `hyperframes_codex/audios/12_building_more_data.mp3`
+- Audio file: `skingen_en/audios/12_building_more_data.mp3`
 - Target duration: `45s`
 
 **Voiceover text:**
@@ -335,7 +335,7 @@ This turns dataset construction into an evolving system, not a one-time collecti
 
 ### VO 13 | 9:25-10:15 | post_processing_and_alpha_marker | Post-Processing and Alpha Marker
 
-- Audio file: `hyperframes_codex/audios/13_post_processing_and_alpha_marker.mp3`
+- Audio file: `skingen_en/audios/13_post_processing_and_alpha_marker.mp3`
 - Target duration: `50s`
 
 **Voiceover text:**
@@ -356,7 +356,7 @@ The limitation is that this only handles two states: Fully transparent and opaqu
 
 ### VO 14 | 10:15-11:15 | limitations_and_future_work | Limitations and Future Work
 
-- Audio file: `hyperframes_codex/audios/14_limitations_and_future_work.mp3`
+- Audio file: `skingen_en/audios/14_limitations_and_future_work.mp3`
 - Target duration: `60s`
 
 **Voiceover text:**
@@ -379,7 +379,7 @@ A stronger self-evolving dataset loop could automatically find failure cases, re
 
 ### VO 15 | 11:15-11:50 | closing | Closing
 
-- Audio file: `hyperframes_codex/audios/15_closing.mp3`
+- Audio file: `skingen_en/audios/15_closing.mp3`
 - Target duration: `35s`
 
 **Voiceover text:**

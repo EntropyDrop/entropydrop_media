@@ -1,0 +1,34 @@
+{
+  "images": [
+    {
+      "rank": 5,
+      "character": "Doctor Strange",
+      "original": "05_doctor_strange_original.jpg",
+      "dance": "05_doctor_strange_dance.webm"
+    },
+    {
+      "rank": 4,
+      "character": "Deadpool",
+      "original": "04_deadpool_original.jpeg",
+      "dance": "04_deadpool_dance.webm"
+    },
+    {
+      "rank": 3,
+      "character": "Thor",
+      "original": "03_thor_original.jpg",
+      "dance": "03_thor_dance.webm"
+    },
+    {
+      "rank": 2,
+      "character": "Iron Man",
+      "original": "02_iron_man_original.jpg",
+      "dance": "02_iron_man_dance.webm"
+    },
+    {
+      "rank": 1,
+      "character": "Spider-Man",
+      "original": "01_spider_man_original.jpg",
+      "dance": "01_spider_man_dance.webm"
+    }
+  ]
+}
