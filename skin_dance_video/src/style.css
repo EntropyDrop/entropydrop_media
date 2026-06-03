@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  color: #f8fbff;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.page {
+  position: relative;
+  overflow: hidden;
+}
+
+.status {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  z-index: 10;
+  max-width: calc(100% - 28px);
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.52);
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 12px;
+  line-height: 1.2;
+  pointer-events: none;
+}

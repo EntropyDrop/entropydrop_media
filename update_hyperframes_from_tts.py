@@ -24,8 +24,8 @@ from generate_voiceover_audio import (  # noqa: E402
 )
 
 
-DEFAULT_HTML = Path("hyperframes_codex/index.html")
-DEFAULT_COMBINED_AUDIO = Path("hyperframes_codex/audios/voiceover_full.wav")
+DEFAULT_HTML = Path("skingen_en/index.html")
+DEFAULT_COMBINED_AUDIO = Path("skingen_en/audios/voiceover_full.wav")
 SCENE_IDS = [
     "scene-hook",
     "scene-results",
@@ -435,14 +435,19 @@ def update_scene_and_showcase_timing(html_text: str, timings: list[ChapterTiming
     return html_text
 
 
-def build_audio_and_subtitle_block(timings: list[ChapterTiming], captions: list[Caption], combined_audio: Path | None, outro_padding: float) -> str:
+def build_audio_and_subtitle_block(
+    timings: list[ChapterTiming],
+    captions: list[Caption],
+    combined_audio: Path | None,
+    outro_padding: float,
+    html_parent: Path,
+) -> str:
     lines = [
         '    <!-- Voiceover audio generated from MiniMax TTS outputs. -->',
     ]
 
     if combined_audio is not None:
-        audio_source = combined_audio
-        src = audio_source.relative_to(DEFAULT_HTML.parent).as_posix()
+        src = combined_audio.relative_to(html_parent).as_posix()
         lines.append(
             f'    <audio id="vo-full" class="clip voiceover-track" src="{src}" '
             f'data-start="0" data-duration="{fmt_seconds(sum(item.duration for item in timings) + max(0.0, outro_padding))}" '
@@ -450,7 +455,7 @@ def build_audio_and_subtitle_block(timings: list[ChapterTiming], captions: list[
         )
     else:
         for offset, timing in enumerate(timings, 70):
-            src = timing.audio_file.relative_to(DEFAULT_HTML.parent).as_posix()
+            src = timing.audio_file.relative_to(html_parent).as_posix()
             lines.append(
                 f'    <audio id="vo-{timing.index:02d}" class="clip voiceover-track" src="{src}" '
                 f'data-start="{fmt_seconds(timing.start)}" data-duration="{fmt_seconds(timing.duration)}" '
@@ -496,7 +501,10 @@ def main() -> int:
     if combined_audio is not None and (args.rebuild_combined_audio or not combined_audio.exists()) and not args.dry_run:
         rebuild_combined_audio(timings, combined_audio)
 
-    html_text = replace_audio_and_subtitles(html_text, build_audio_and_subtitle_block(timings, captions, combined_audio, args.outro_padding))
+    html_text = replace_audio_and_subtitles(
+        html_text,
+        build_audio_and_subtitle_block(timings, captions, combined_audio, args.outro_padding, args.html.parent),
+    )
 
     total_duration = sum(item.duration for item in timings)
     composition_duration = total_duration + max(0.0, args.outro_padding)

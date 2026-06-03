@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1280" viewBox="0 0 720 1280">
+  <defs><pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#293247" stroke-width="2"/></pattern></defs>
+  <rect width="720" height="1280" fill="#090a0f"/><rect width="720" height="1280" fill="url(#grid)"/>
+  <text x="360" y="92" text-anchor="middle" fill="#ef3340" font-family="Arial Black, Arial, sans-serif" font-size="38">MINECRAFT SKIN</text>
+  <rect x="292" y="210" width="136" height="136" fill="#ef3340" stroke="#f8fbff" stroke-width="8"/>
+  <rect x="264" y="354" width="192" height="292" fill="#3a86ff" stroke="#f8fbff" stroke-width="8"/>
+  <rect x="176" y="374" width="72" height="268" fill="#ef3340" stroke="#f8fbff" stroke-width="8"/>
+  <rect x="472" y="374" width="72" height="268" fill="#ef3340" stroke="#f8fbff" stroke-width="8"/>
+  <rect x="278" y="662" width="74" height="320" fill="#242b38" stroke="#f8fbff" stroke-width="8"/><rect x="368" y="662" width="74" height="320" fill="#242b38" stroke="#f8fbff" stroke-width="8"/>
+  <text x="360" y="1110" text-anchor="middle" fill="#f8fbff" font-family="Arial Black, Arial, sans-serif" font-size="40">SPIDER-MAN</text>
+  <text x="360" y="1170" text-anchor="middle" fill="#aeb8c8" font-family="Arial, sans-serif" font-size="30" font-weight="700">PLACEHOLDER</text>
+</svg>

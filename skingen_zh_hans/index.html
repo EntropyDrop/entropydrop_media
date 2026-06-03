@@ -1,0 +1,3745 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>AI 能把一张图变成能玩的 Minecraft 角色吗？</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <style>
+    :root {
+      --bg: #f3f4f1;
+      --paper: #fbfcfa;
+      --panel: #ffffff;
+      --panel-2: #ecefeb;
+      --line: #161a17;
+      --line-soft: #d7ddd5;
+      --line-strong: #161a17;
+      --green: #1d7a3b;
+      --green-dark: #0c4f27;
+      --green-soft: #e3f0e5;
+      --cyan: var(--green);
+      --amber: var(--green);
+      --coral: #111611;
+      --blue: #6b746c;
+      --ink: #111611;
+      --muted: #586159;
+      --dark: #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 1920px;
+      height: 1080px;
+      margin: 0;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Inter, Arial, sans-serif;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(232, 236, 230, 0.42)),
+        linear-gradient(90deg, rgba(29, 122, 59, 0.035) 0 28%, transparent 28% 100%);
+      background-size: 100% 100%, 480px 100%;
+    }
+
+    .grid-bg,
+    .scanline,
+    .top-rule,
+    .progress {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .grid-bg {
+      inset: 0;
+      display: none;
+    }
+
+    .scanline {
+      inset: 0;
+      display: none;
+    }
+
+    .top-rule {
+      left: 82px;
+      right: 82px;
+      top: 34px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green) 0 18%, var(--line) 18% 100%);
+    }
+
+    .progress {
+      left: 82px;
+      right: 82px;
+      bottom: 25px;
+      height: 5px;
+      background: #d9dfd7;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--green);
+    }
+
+    .clip {
+      position: absolute;
+    }
+
+    .voiceover-track {
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .scene {
+      inset: 0;
+      padding: 72px 82px 82px;
+      opacity: 1;
+      visibility: hidden;
+    }
+
+    #scene-hook {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scene-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 1160px;
+      font-size: 74px;
+      line-height: 1.04;
+      font-weight: 860;
+      letter-spacing: 0;
+    }
+
+    #scene-hook h1 {
+      max-width: 1700px;
+      font-size: 64px;
+      white-space: nowrap;
+    }
+
+    h2 {
+      max-width: 1260px;
+      font-size: 54px;
+      line-height: 1.08;
+      font-weight: 840;
+      letter-spacing: 0;
+    }
+
+    #scene-results h2 {
+      max-width: 1640px;
+      font-size: 44px;
+      line-height: 1.04;
+    }
+
+    #scene-results>.scene-inner>.kicker,
+    #scene-results h2 {
+      display: none;
+    }
+
+    h3 {
+      font-size: 31px;
+      line-height: 1.16;
+      font-weight: 800;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--green-dark);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 760;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 28px;
+      height: 4px;
+      background: var(--green);
+    }
+
+    .subtitle {
+      max-width: 1040px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 29px;
+      line-height: 1.36;
+      font-weight: 560;
+    }
+
+    .hook-line {
+      max-width: 980px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 34px;
+      line-height: 1.24;
+      font-weight: 620;
+    }
+
+    .caption {
+      position: absolute;
+      right: 82px;
+      bottom: 152px;
+      width: 650px;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      border: 1px solid var(--line-soft);
+      border-left: 6px solid var(--green);
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      font-size: 24px;
+      line-height: 1.24;
+      font-weight: 720;
+      box-shadow: 0 18px 40px rgba(17, 22, 17, 0.08);
+    }
+
+    .caption strong,
+    .accent {
+      color: var(--amber);
+    }
+
+    .subtitle-line {
+      left: 300px;
+      right: 300px;
+      bottom: 54px;
+      z-index: 90;
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 28px;
+      border: 1px solid rgba(22, 26, 23, 0.16);
+      border-left: 7px solid var(--green);
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--line);
+      font-size: 31px;
+      line-height: 1.28;
+      font-weight: 760;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      box-shadow: 0 14px 34px rgba(17, 22, 17, 0.12);
+    }
+
+    .subtitle-copy {
+      display: block;
+      width: 100%;
+    }
+
+    .panel,
+    .soft-panel {
+      border: 1px solid var(--line-soft);
+      background: var(--panel);
+      box-shadow: 0 20px 48px rgba(17, 22, 17, 0.09);
+    }
+
+    .soft-panel {
+      background: var(--panel-2);
+      box-shadow: none;
+    }
+
+    .image-frame {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line-soft);
+      background-color: #eef1eb;
+    }
+
+    .image-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .source-url-note {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      padding: 9px 13px;
+      border-left: 4px solid var(--green);
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.16;
+      font-weight: 720;
+      box-shadow: 0 12px 30px rgba(17, 22, 17, 0.10);
+    }
+
+    .source-url-note strong {
+      color: var(--green-dark);
+    }
+
+    .square-media {
+      position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1;
+      overflow: hidden;
+      isolation: isolate;
+      border: 1px solid var(--line-soft);
+      border-width: 1px;
+      box-sizing: border-box;
+      background: #eef1eb;
+    }
+
+    .square-media::before {
+      content: "";
+      position: absolute;
+      inset: -34px;
+      z-index: 0;
+      background-image: var(--media-bg);
+      background-position: center;
+      background-size: cover;
+      filter: blur(24px) saturate(0.92);
+      opacity: 0.5;
+      transform: scale(1.05);
+    }
+
+    .square-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(239, 243, 237, 0.28)),
+        rgba(255, 255, 255, 0.08);
+    }
+
+    .square-media>img {
+      position: relative;
+      z-index: 2;
+      width: auto;
+      height: auto;
+      max-width: 92%;
+      max-height: 92%;
+      object-fit: contain;
+      object-position: center;
+      filter: drop-shadow(0 14px 24px rgba(17, 22, 17, 0.16));
+    }
+
+    .square-media:not(.generated)>img {
+      width: 92%;
+      height: 92%;
+      max-width: none;
+      max-height: none;
+    }
+
+    .square-media.generated>img {
+      max-width: 96%;
+      max-height: 96%;
+    }
+
+    .hook-visual {
+      position: absolute;
+      left: 295px;
+      top: 204px;
+      width: 1166px;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 500px 66px 500px;
+      justify-content: center;
+      gap: 26px;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .hook-visual .square-media {
+      width: 500px;
+      height: 500px;
+      background: #f8faf6;
+    }
+
+    .hook-card {
+      display: flex;
+      width: 500px;
+      min-width: 0;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hook-label {
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 760;
+    }
+
+    .hook-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 66px;
+      height: 66px;
+      border: 1px solid var(--line-soft);
+      background: var(--green);
+      color: #ffffff;
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 760;
+    }
+
+    .hero-grid {
+      position: absolute;
+      right: 0;
+      top: 120px;
+      width: 720px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .skin-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 11px;
+    }
+
+    .skin-pair img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      background: var(--panel-2);
+      border: 1px solid var(--line-soft);
+    }
+
+    .pair-name {
+      grid-column: 1 / -1;
+      color: var(--muted);
+      font-size: 18px;
+      font-weight: 700;
+      text-align: center;
+      text-transform: none;
+    }
+
+    .big-word {
+      position: absolute;
+      left: 0;
+      bottom: 144px;
+      color: rgba(17, 22, 17, 0.055);
+      font-size: 210px;
+      line-height: 0.8;
+      font-weight: 860;
+      letter-spacing: 0;
+    }
+
+    .showcase-stage {
+      position: absolute;
+      inset: 136px 0 126px;
+    }
+
+    .showcase-shot {
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+      padding: 24px;
+      border: 1px solid var(--line-soft);
+      background: var(--paper);
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(17, 22, 17, 0.08);
+    }
+
+    .video-placeholder::after {
+      content: none;
+      position: absolute;
+      inset: 0;
+      background: transparent;
+      transform: translateX(-120%);
+    }
+
+    .placeholder-media {
+      width: 610px;
+      height: 610px;
+      max-width: 100%;
+      justify-self: center;
+      align-self: center;
+      background: #f1f3ef;
+    }
+
+    .placeholder-media img {
+      filter: none;
+    }
+
+    .placeholder-media.square-media>img {
+      max-width: 562px;
+      max-height: 562px;
+    }
+
+    .placeholder-media.square-media:not(.generated)>img {
+      width: 562px;
+      height: 562px;
+    }
+
+    .placeholder-media.square-media.generated>img {
+      max-width: 586px;
+      max-height: 586px;
+    }
+
+    .placeholder-center {
+      min-height: 420px;
+      height: min(100%, 520px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 22px;
+      border: 1px dashed rgba(22, 26, 23, 0.32);
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .placeholder-center h3 {
+      max-width: 300px;
+      font-size: 36px;
+    }
+
+    .placeholder-center p {
+      max-width: 300px;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.3;
+      font-weight: 560;
+    }
+
+    .placeholder-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid rgba(29, 122, 59, 0.34);
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      font-size: 20px;
+      font-weight: 760;
+    }
+
+    .playbar {
+      width: 280px;
+      height: 6px;
+      background: #dfe4dc;
+      overflow: hidden;
+    }
+
+    .playbar-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--green);
+    }
+
+    .showcase-pair {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 24px;
+    }
+
+    .showcase-card {
+      width: 580px;
+      height: 580px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line-soft);
+      box-shadow: 0 24px 60px rgba(17, 22, 17, 0.08);
+      position: relative;
+    }
+
+    .showcase-card .square-media {
+      width: 450px;
+      height: 450px;
+      margin-top: 40px;
+    }
+
+    .showcase-label {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      padding: 6px 14px;
+      border: 1px solid var(--line-soft);
+      background: var(--paper);
+      color: var(--muted);
+      font-size: 20px;
+      font-weight: 760;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .showcase-arrow {
+      font-size: 64px;
+      color: var(--green);
+      font-weight: 800;
+      text-shadow: 0 4px 12px rgba(29, 122, 59, 0.15);
+      animation: pulseArrow 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseArrow {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    .showcase-grid {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .showcase-tile {
+      padding: 14px;
+      display: grid;
+      grid-template-rows: auto auto;
+      align-content: center;
+      gap: 12px;
+    }
+
+    .showcase-tile .tile-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .showcase-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .showcase-tile .square-media>img {
+      max-width: 94%;
+      max-height: 94%;
+    }
+
+    .showcase-tile .square-media:not(.generated)>img {
+      width: 94%;
+      height: 94%;
+    }
+
+    .showcase-tile .square-media.generated>img {
+      max-width: 97%;
+      max-height: 97%;
+    }
+
+    .showcase-tile p {
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.24;
+      font-weight: 650;
+      text-align: center;
+    }
+
+    .cta-card {
+      position: absolute;
+      inset: 90px 180px 90px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: center;
+      padding: 48px;
+      border: 1px solid var(--line-soft);
+      background: var(--panel);
+      box-shadow: 0 28px 70px rgba(17, 22, 17, 0.12);
+    }
+
+    .cta-url {
+      margin-top: 28px;
+      display: inline-block;
+      padding: 16px 22px;
+      border-radius: 4px;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 46px;
+      line-height: 1;
+      font-weight: 820;
+    }
+
+    .mock-browser {
+      height: 622px;
+      border: 1px solid var(--line-soft);
+      background: #f6f7f4;
+    }
+
+    .browser-bar {
+      height: 58px;
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      gap: 10px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .url-bar {
+      flex: 1;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      border: 1px solid var(--line-soft);
+      background: #ffffff;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 1px solid rgba(22, 26, 23, 0.18);
+      background: var(--green);
+    }
+
+    .dot:nth-child(2) {
+      background: #ffffff;
+    }
+
+    .dot:nth-child(3) {
+      background: var(--line);
+    }
+
+    .browser-body {
+      padding: 38px;
+    }
+
+    .upload-box {
+      height: 210px;
+      display: grid;
+      place-items: center;
+      border: 1px dashed rgba(22, 26, 23, 0.36);
+      color: var(--muted);
+      font-size: 28px;
+      font-weight: 650;
+    }
+
+    .preview-row {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .preview-tile {
+      height: 110px;
+      border: 1px solid var(--line-soft);
+      background: var(--green-soft);
+    }
+
+    .website-video-slot {
+      padding: 30px;
+    }
+
+    .video-slot-screen {
+      position: relative;
+      height: 504px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      border: 1px solid var(--line-soft);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(237, 241, 235, 0.96)),
+        linear-gradient(90deg, rgba(29, 122, 59, 0.08) 0 25%, transparent 25% 100%);
+      overflow: hidden;
+    }
+
+    .video-slot-screen::before {
+      content: "";
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      top: 34px;
+      height: 1px;
+      background: var(--line-soft);
+    }
+
+    .cta-demo-video {
+      position: absolute;
+      left: 944px;
+      top: 317px;
+      width: 636px;
+      height: 504px;
+      z-index: 35;
+      object-fit: cover;
+      background: #ffffff;
+      pointer-events: none;
+    }
+
+    .video-play-button {
+      position: relative;
+      width: 82px;
+      height: 82px;
+      border: 2px solid var(--green);
+      background: #ffffff;
+      z-index: 2;
+    }
+
+    .video-play-button::before {
+      content: "";
+      position: absolute;
+      left: 31px;
+      top: 23px;
+      width: 0;
+      height: 0;
+      border-top: 18px solid transparent;
+      border-bottom: 18px solid transparent;
+      border-left: 28px solid var(--green);
+    }
+
+    .video-slot-title {
+      color: var(--line);
+      font-size: 32px;
+      font-weight: 820;
+    }
+
+    .video-slot-subtitle {
+      color: var(--muted);
+      font-size: 21px;
+      font-weight: 640;
+    }
+
+    .video-slot-progress {
+      margin-top: 18px;
+      height: 6px;
+      background: #d9dfd7;
+    }
+
+    .video-slot-progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--green);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      height: 720px;
+      margin-top: 36px;
+    }
+
+    .two-col.narrow-left {
+      grid-template-columns: 0.86fr 1.14fr;
+    }
+
+    .two-col.narrow-right {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .fact {
+      padding: 22px 24px;
+      color: var(--ink);
+      font-size: 27px;
+      line-height: 1.3;
+      font-weight: 650;
+    }
+
+    .fact strong,
+    .metric strong {
+      color: var(--cyan);
+    }
+
+    .big-metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .metric {
+      min-height: 126px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .metric .value {
+      display: block;
+      color: var(--amber);
+      font-size: 39px;
+      line-height: 1;
+      font-weight: 820;
+    }
+
+    .metric span:last-child {
+      display: block;
+      margin-top: 11px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.18;
+    }
+
+    .structure-segment {
+      left: 0;
+      right: 0;
+      top: 152px;
+      height: 720px;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .structure-closeup {
+      display: grid;
+      grid-template-columns: 1.14fr 0.86fr;
+      gap: 32px;
+      height: 100%;
+    }
+
+    .structure-image-card,
+    .structure-copy-card,
+    .structure-video-card {
+      padding: 24px;
+    }
+
+    .structure-video-card {
+      height: 100%;
+    }
+
+    .structure-image-card .image-frame {
+      height: 100%;
+      background: #ffffff;
+    }
+
+    .structure-copy-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .structure-copy-card h3 {
+      color: var(--line);
+      font-size: 46px;
+      line-height: 1.08;
+      font-weight: 840;
+    }
+
+    .structure-bullet {
+      padding: 19px 22px;
+      border: 1px solid var(--line-soft);
+      border-left: 6px solid var(--green);
+      background: #ffffff;
+      color: var(--ink);
+      font-size: 26px;
+      line-height: 1.24;
+      font-weight: 680;
+    }
+
+    .structure-bullet strong {
+      color: var(--line);
+    }
+
+    #scene-skin-structure h2 {
+      max-width: 1500px;
+      font-size: 42px;
+      line-height: 1.06;
+    }
+
+    #scene-skin-structure .structure-segment {
+      top: 210px;
+      height: 630px;
+    }
+
+    #scene-skin-structure .structure-closeup {
+      grid-template-columns: 0.98fr 0.78fr;
+      grid-template-rows: 630px;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    #scene-skin-structure .structure-image-card,
+    #scene-skin-structure .structure-copy-card,
+    #scene-skin-structure .structure-video-card {
+      padding: 18px;
+      height: 630px;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    #scene-skin-structure .structure-image-card .image-frame {
+      height: 592px;
+      max-height: 592px;
+    }
+
+    #scene-skin-structure .structure-copy-card {
+      justify-content: center;
+      gap: 12px;
+    }
+
+    #scene-skin-structure .structure-copy-card h3 {
+      font-size: 34px;
+      line-height: 1.08;
+    }
+
+    #scene-skin-structure .structure-bullet {
+      padding: 14px 18px;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    #scene-skin-structure .layer-callout-grid {
+      gap: 10px;
+    }
+
+    #scene-skin-structure .layer-callout {
+      min-height: 90px;
+      padding: 13px;
+      font-size: 18px;
+      line-height: 1.14;
+    }
+
+    #scene-skin-structure .layer-callout strong {
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    #scene-skin-structure .uv-animation-screen {
+      height: 556px;
+    }
+
+    #skin-uv-closeup.structure-segment {
+      top: 190px;
+      height: 670px;
+    }
+
+    #skin-uv-closeup.structure-closeup {
+      grid-template-columns: 670px 500px;
+      grid-template-rows: 670px;
+      justify-content: center;
+      gap: 46px;
+    }
+
+    #skin-uv-closeup .structure-image-card {
+      width: 670px;
+      height: 670px;
+      padding: 8px;
+    }
+
+    #skin-uv-closeup .structure-image-card .image-frame {
+      width: 652px;
+      height: 652px;
+      max-height: 652px;
+    }
+
+    #skin-uv-closeup .uv-map-highlight {
+      z-index: 3;
+      border-width: 5px;
+      background: rgba(29, 122, 59, 0.16);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.72);
+    }
+
+    #skin-uv-closeup .uv-map-label {
+      z-index: 4;
+      padding: 6px 9px;
+      background: var(--green-dark);
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 1.06;
+      max-width: 136px;
+      box-shadow: 0 10px 22px rgba(17, 22, 17, 0.16);
+    }
+
+    #skin-uv-closeup .uv-map-label::before {
+      content: attr(data-label);
+    }
+
+    #skin-uv-closeup .structure-copy-card {
+      width: 500px;
+      height: 670px;
+      padding: 18px;
+    }
+
+    #skin-uv-closeup .structure-copy-card h3 {
+      font-size: 30px;
+      line-height: 1.08;
+    }
+
+    #skin-uv-closeup .structure-bullet {
+      padding: 12px 15px;
+      font-size: 20px;
+      line-height: 1.16;
+    }
+
+    #skin-fold-video.structure-segment {
+      top: 170px;
+      height: 700px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    #skin-fold-video .structure-video-card {
+      width: 698px;
+      height: 698px;
+      padding: 8px;
+    }
+
+    #skin-fold-video .uv-animation-screen {
+      width: 680px;
+      height: 680px;
+    }
+
+    #skin-fold-video .uv-slot-progress {
+      display: none;
+    }
+
+    #scene-skin-structure>.caption {
+      display: none;
+    }
+
+    .layer-callout-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .layer-callout {
+      min-height: 106px;
+      padding: 17px;
+      border: 1px solid var(--line-soft);
+      background: #ffffff;
+      color: var(--ink);
+      font-size: 20px;
+      line-height: 1.18;
+      font-weight: 700;
+    }
+
+    .layer-callout strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--green-dark);
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .uv-animation-screen {
+      position: relative;
+      height: 610px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      border: 1px solid var(--line-soft);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(238, 242, 236, 0.95)),
+        linear-gradient(90deg, rgba(29, 122, 59, 0.07) 0 34%, transparent 34% 100%);
+      overflow: hidden;
+    }
+
+    .uv-fold-video {
+      position: absolute;
+      left: 620px;
+      top: 250px;
+      width: 680px;
+      height: 680px;
+      z-index: 34;
+      object-fit: contain;
+      background: #ffffff;
+      pointer-events: none;
+    }
+
+    .uv-video-label {
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
+      padding: 12px 16px;
+      border: 1px solid var(--line-soft);
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--green-dark);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 760;
+      z-index: 38;
+    }
+
+    .uv-animation-screen::before,
+    .uv-animation-screen::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      border: 1px solid rgba(22, 26, 23, 0.12);
+    }
+
+    .uv-animation-screen::before {
+      left: 48px;
+      top: 48px;
+      width: 220px;
+      height: 220px;
+      background: rgba(255, 255, 255, 0.54);
+    }
+
+    .uv-animation-screen::after {
+      right: 62px;
+      top: 92px;
+      width: 210px;
+      height: 315px;
+      background: rgba(29, 122, 59, 0.08);
+    }
+
+    .uv-slot-title {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      color: var(--line);
+      font-size: 42px;
+      line-height: 1.08;
+      font-weight: 840;
+      text-align: center;
+    }
+
+    .uv-slot-subtitle {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 650;
+      text-align: center;
+    }
+
+    .uv-slot-arrow {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--green-dark);
+      font-size: 32px;
+      line-height: 1;
+      font-weight: 820;
+    }
+
+    .uv-slot-progress {
+      margin-top: 17px;
+      height: 7px;
+      background: #d9dfd7;
+    }
+
+    .uv-slot-progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--green);
+    }
+
+    .constraint-layout {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 34px;
+      height: 710px;
+      margin-top: 30px;
+    }
+
+    .constraint-visual {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 78px 1fr;
+      gap: 20px;
+      align-items: center;
+      padding: 26px;
+    }
+
+    .map-demo,
+    .body-demo {
+      height: 100%;
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .demo-label {
+      color: var(--green-dark);
+      font-size: 24px;
+      font-weight: 820;
+    }
+
+    .constraint-visual .image-frame {
+      height: 612px;
+      background: #f8faf6;
+    }
+
+    .map-demo .image-frame img {
+      image-rendering: pixelated;
+    }
+
+    .mapping-arrow-large {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 78px;
+      height: 78px;
+      border: 1px solid var(--line-soft);
+      background: var(--green);
+      color: #ffffff;
+      font-size: 46px;
+      line-height: 1;
+      font-weight: 820;
+    }
+
+    .uv-highlight {
+      position: absolute;
+      border: 4px solid var(--green);
+      background: rgba(29, 122, 59, 0.12);
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.95) inset;
+    }
+
+    .uv-highlight.arm {
+      left: 51%;
+      top: 42%;
+      width: 19%;
+      height: 37%;
+    }
+
+    .uv-highlight.head {
+      left: 32%;
+      top: 15%;
+      width: 25%;
+      height: 22%;
+      border-color: var(--line);
+      background: rgba(22, 26, 23, 0.08);
+    }
+
+    .constraint-list {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .constraint-card {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 20px;
+      align-items: start;
+      padding: 22px;
+      background: #ffffff;
+    }
+
+    .constraint-number {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 860;
+    }
+
+    .constraint-card h3 {
+      margin-bottom: 10px;
+      font-size: 30px;
+    }
+
+    .constraint-card p {
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.27;
+      font-weight: 620;
+    }
+
+    #scene-hard h2 {
+      max-width: 1280px;
+      font-size: 46px;
+      line-height: 1.06;
+    }
+
+    #scene-hard .constraint-layout {
+      grid-template-columns: 780px 650px;
+      justify-content: center;
+      gap: 42px;
+      height: 600px;
+      margin-top: 22px;
+    }
+
+    #scene-hard .constraint-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    #scene-hard .hard-video-frame {
+      position: relative;
+      width: 570px;
+      height: 570px;
+      background: transparent;
+      overflow: hidden;
+    }
+
+    .hard-fold-video {
+      left: 329px;
+      top: 202px;
+      width: 570px;
+      height: 570px;
+      z-index: 36;
+      border: 1px solid var(--line-soft);
+      object-fit: contain;
+      background: #ffffff;
+      pointer-events: none;
+    }
+
+    .hard-video-label {
+      left: 343px;
+      top: 216px;
+      z-index: 38;
+      padding: 10px 13px;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 820;
+    }
+
+    #scene-hard .map-demo,
+    #scene-hard .body-demo {
+      gap: 12px;
+      min-height: 0;
+    }
+
+    #scene-hard .demo-label {
+      font-size: 20px;
+    }
+
+    #scene-hard .constraint-visual .image-frame {
+      height: 528px;
+      min-height: 0;
+    }
+
+    #scene-hard .mapping-arrow-large {
+      width: 60px;
+      height: 60px;
+      font-size: 35px;
+    }
+
+    #scene-hard .constraint-list {
+      grid-template-rows: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      min-height: 0;
+    }
+
+    #scene-hard .constraint-card {
+      grid-template-columns: 54px 1fr;
+      gap: 16px;
+      padding: 18px;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    #scene-hard .constraint-number {
+      width: 46px;
+      height: 46px;
+      font-size: 23px;
+    }
+
+    #scene-hard .constraint-card h3 {
+      margin-bottom: 7px;
+      font-size: 26px;
+      line-height: 1.08;
+    }
+
+    #scene-hard .constraint-card p {
+      font-size: 20px;
+      line-height: 1.22;
+    }
+
+    #scene-hard>.caption {
+      display: none;
+    }
+
+    .failure-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-rows: 500px auto;
+      gap: 20px;
+      height: 675px;
+      margin-top: 30px;
+    }
+
+    .failure-card {
+      padding: 16px;
+    }
+
+    .failure-card .image-frame {
+      height: 402px;
+      margin-top: 13px;
+    }
+
+    .failure-card.expected {
+      border-color: rgba(78, 184, 92, 0.42);
+      box-shadow: 0 20px 52px rgba(78, 184, 92, 0.14);
+    }
+
+    .failure-card.expected .image-frame {
+      background:
+        linear-gradient(45deg, rgba(17, 22, 17, 0.06) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(17, 22, 17, 0.06) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(17, 22, 17, 0.06) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(17, 22, 17, 0.06) 75%),
+        #ffffff;
+      background-position: 0 0, 0 14px, 14px -14px, -14px 0;
+      background-size: 28px 28px;
+    }
+
+    .failure-card.expected .image-frame img {
+      image-rendering: pixelated;
+    }
+
+    .reason-list {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .reason {
+      padding: 18px 20px;
+      border-left: 5px solid var(--green);
+      background: var(--panel);
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1.22;
+      font-weight: 680;
+    }
+
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 38px;
+      height: 700px;
+      margin-top: 36px;
+    }
+
+    #scene-finetune h2 {
+      max-width: 1700px;
+      font-size: 50px;
+      white-space: nowrap;
+    }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: 0.82fr 90px 1.18fr;
+      align-items: center;
+      gap: 22px;
+      height: 650px;
+      margin-top: 30px;
+    }
+
+    .arrow {
+      color: var(--amber);
+      font-size: 48px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .target-wrap {
+      position: relative;
+      height: 650px;
+    }
+
+    .target-wrap .image-frame {
+      height: 100%;
+    }
+
+    #scene-dataset .pipeline {
+      grid-template-columns: 620px 66px 620px;
+      justify-content: center;
+      gap: 26px;
+      height: 620px;
+    }
+
+    #scene-dataset .pipeline>.image-frame,
+    #scene-dataset .target-wrap {
+      width: 620px;
+      height: 620px;
+      justify-self: center;
+    }
+
+    #scene-dataset .target-wrap .image-frame {
+      width: 100%;
+      height: 100%;
+    }
+
+    #scene-dataset>.caption {
+      display: none;
+    }
+
+    .highlight-box,
+    .highlight-label {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .highlight-box {
+      border: 4px solid var(--green);
+      background: rgba(31, 157, 69, 0.12);
+      box-shadow: none;
+    }
+
+    .highlight-label {
+      padding: 8px 12px;
+      border-radius: 3px;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 760;
+    }
+
+    #scene-image-to-skin h2 {
+      max-width: 1660px;
+      font-size: 48px;
+      line-height: 1.05;
+    }
+
+    .image-skin-bridge {
+      display: grid;
+      grid-template-columns: 610px 104px 780px;
+      justify-content: center;
+      align-items: stretch;
+      gap: 22px;
+      height: 610px;
+      margin-top: 26px;
+    }
+
+    .bridge-panel {
+      height: 100%;
+      min-height: 0;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .bridge-panel h3 {
+      color: var(--green-dark);
+      font-size: 31px;
+      line-height: 1.08;
+    }
+
+    .bridge-panel .model-badge {
+      display: inline-flex;
+      align-self: flex-start;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 4px;
+      background: var(--green-soft);
+      border: 1.5px solid var(--green);
+      color: var(--green-dark);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      line-height: 1;
+      margin-top: -4px;
+    }
+
+    .bridge-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.18;
+      font-weight: 640;
+    }
+
+    .bridge-panel .image-frame {
+      flex: 1;
+      min-height: 0;
+      background: #ffffff;
+    }
+
+    .bridge-switch {
+      display: grid;
+      place-items: center;
+      align-self: center;
+      gap: 14px;
+      color: var(--green-dark);
+      text-align: center;
+      font-weight: 820;
+    }
+
+    .bridge-switch .switch-arrow {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .bridge-switch span {
+      max-width: 104px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.14;
+    }
+
+    .bridge-comparison {
+      display: grid;
+      grid-template-columns: 324px 56px 324px;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 2px;
+    }
+
+    .bridge-media-label {
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 760;
+    }
+
+    .bridge-comparison .square-media {
+      width: 324px;
+      height: 324px;
+    }
+
+    .bridge-comparison .square-media>img {
+      max-width: 94%;
+      max-height: 94%;
+    }
+
+    .bridge-mini-arrow {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      align-self: center;
+      margin-top: 26px;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 34px;
+      font-weight: 900;
+    }
+
+    #scene-image-to-skin>.caption {
+      display: none;
+    }
+
+    .render-pair {
+      left: 0;
+      right: 0;
+      top: 222px;
+      height: 620px;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: 16px;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .render-pair-title {
+      color: var(--green-dark);
+      font-size: 26px;
+      line-height: 1;
+      font-weight: 820;
+    }
+
+    .render-pair-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px;
+      min-height: 0;
+    }
+
+    .render-layer-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .render-card {
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 18px;
+    }
+
+    .render-card .image-frame {
+      flex: 1;
+      min-height: 0;
+      background: #f8faf6;
+    }
+
+    .render-card p {
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.18;
+      font-weight: 620;
+      text-align: center;
+    }
+
+    .render-layer-grid .render-card p {
+      font-size: 22px;
+      line-height: 1.14;
+    }
+
+    #scene-rendering>.caption {
+      display: none;
+    }
+
+    #scene-training-convergence h2 {
+      max-width: 1480px;
+      font-size: 50px;
+      line-height: 1.08;
+    }
+
+    .training-phase {
+      left: 0;
+      right: 0;
+      top: 198px;
+      bottom: 40px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(0, 1fr) auto;
+      gap: 22px;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .training-phase-final {
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(0, 1fr) auto;
+    }
+
+    .training-media-panel,
+    .training-copy-panel {
+      min-height: 0;
+      padding: 20px;
+    }
+
+    .training-media-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: #fbfcf8;
+    }
+
+    .training-copy-panel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      border-left: 6px solid var(--green);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 247, 242, 0.96)),
+        linear-gradient(90deg, rgba(29, 122, 59, 0.06), transparent);
+    }
+
+    .training-phase-title {
+      color: var(--green-dark);
+      font-size: 26px;
+      line-height: 1;
+      font-weight: 840;
+    }
+
+    .training-copy-panel .training-phase-title {
+      grid-column: 1 / -1;
+    }
+
+    .checkpoint-grid {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      align-items: center;
+    }
+
+    .checkpoint-grid.two-up {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+    }
+
+    .checkpoint-card {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 12px;
+      background: #ffffff;
+    }
+
+    .checkpoint-card .image-frame {
+      aspect-ratio: 1;
+      min-height: 0;
+      background: #eef1eb;
+    }
+
+    .checkpoint-card img {
+      image-rendering: auto;
+    }
+
+    .checkpoint-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      color: var(--line);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 820;
+    }
+
+    .training-note {
+      display: flex;
+      align-items: center;
+      min-height: 104px;
+      padding: 19px 20px;
+      color: var(--line);
+      font-size: 27px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .training-note strong {
+      color: var(--amber);
+    }
+
+    .training-note.muted {
+      color: var(--muted);
+      font-size: 24px;
+      font-weight: 640;
+    }
+
+    .final-checkpoint-card {
+      width: min(560px, 100%);
+      justify-self: center;
+      padding: 18px;
+      background: #ffffff;
+    }
+
+    .final-checkpoint-card .image-frame {
+      aspect-ratio: 1;
+      min-height: 0;
+    }
+
+    .parameter-strip {
+      position: absolute;
+      right: 0;
+      bottom: 132px;
+      width: 760px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .parameter-strip .metric {
+      min-height: 112px;
+    }
+
+    .table {
+      display: grid;
+      border: 1px solid var(--line-soft);
+      background: var(--panel);
+    }
+
+    .table.row-2 {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .cell {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      padding: 13px 18px;
+      border-right: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
+      font-size: 23px;
+      line-height: 1.24;
+      font-weight: 650;
+    }
+
+    .head {
+      color: var(--amber);
+      font-weight: 780;
+    }
+
+    .data-method-layout {
+      display: grid;
+      grid-template-columns: 560px 1fr;
+      gap: 30px;
+      height: 650px;
+      margin-top: 34px;
+    }
+
+    .data-method {
+      position: relative;
+      min-height: 0;
+      padding: 24px;
+      overflow: hidden;
+      border-top: 6px solid var(--green);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(244, 247, 242, 0.96)),
+        linear-gradient(90deg, rgba(29, 122, 59, 0.06), transparent);
+    }
+
+    .method-kicker {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 12px;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 820;
+    }
+
+    .data-method h3 {
+      margin-top: 15px;
+      color: var(--line);
+      font-size: 34px;
+      line-height: 1.08;
+      font-weight: 840;
+    }
+
+    .method-note {
+      margin-top: 11px;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.3;
+      font-weight: 620;
+    }
+
+    .reverse-flow {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .reverse-node {
+      min-height: 86px;
+      display: grid;
+      grid-template-columns: 62px 1fr;
+      align-items: center;
+      gap: 16px;
+      padding: 12px;
+      border: 1px solid var(--line-soft);
+      background: #ffffff;
+    }
+
+    .node-icon {
+      display: grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      font-size: 23px;
+      font-weight: 880;
+    }
+
+    .reverse-node strong {
+      display: block;
+      color: var(--line);
+      font-size: 22px;
+      line-height: 1.1;
+      font-weight: 820;
+    }
+
+    .reverse-node span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.2;
+      font-weight: 620;
+    }
+
+    .flow-arrow-down {
+      color: var(--green);
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .loop {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .loop-step {
+      min-height: 258px;
+      padding: 20px 14px;
+      border-top: 4px solid rgba(29, 122, 59, 0.72);
+      background: #ffffff;
+      text-align: left;
+    }
+
+    .loop-step .step-num {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 19px;
+      line-height: 1;
+      font-weight: 860;
+    }
+
+    .loop-step h3 {
+      margin-top: 18px;
+      color: var(--line);
+      font-size: 24px;
+      line-height: 1.08;
+      font-weight: 830;
+    }
+
+    .loop-step p {
+      margin-top: 11px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.28;
+      font-weight: 620;
+    }
+
+    .loop-return {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-left: 6px solid var(--green);
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--line);
+      font-size: 24px;
+      line-height: 1.22;
+      font-weight: 780;
+    }
+
+    .alpha-grid {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 42px;
+      height: 680px;
+      margin-top: 38px;
+    }
+
+    #scene-alpha .image-frame img {
+      image-rendering: pixelated;
+    }
+
+    .alpha-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 17px;
+      justify-content: center;
+    }
+
+    .alpha-step {
+      padding: 23px;
+      border-left: 5px solid var(--green);
+      font-size: 27px;
+      line-height: 1.3;
+      font-weight: 650;
+    }
+
+    .limit-grid,
+    .future-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 17px;
+      margin-top: 38px;
+    }
+
+    .limit-card,
+    .future-card {
+      min-height: 128px;
+      padding: 24px;
+      border-left: 5px solid var(--green);
+      font-size: 26px;
+      line-height: 1.28;
+      font-weight: 650;
+    }
+
+    .future-card {
+      border-left-color: var(--amber);
+    }
+
+    .limits-screen,
+    .limits-next-screen {
+      position: absolute;
+      inset: 0;
+    }
+
+    .limits-next-screen {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    #scene-limits h2 {
+      max-width: 1560px;
+      font-size: 50px;
+      line-height: 1.08;
+    }
+
+    #scene-limits .limit-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 52px;
+    }
+
+    #scene-limits .limit-card {
+      min-height: 250px;
+      padding: 34px;
+      display: flex;
+      align-items: center;
+      font-size: 34px;
+      line-height: 1.24;
+      font-weight: 760;
+      background: #ffffff;
+    }
+
+    .future-grid {
+      grid-template-columns: 440px 1fr;
+      align-items: stretch;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .future-title {
+      color: var(--green-dark);
+      font-size: 25px;
+      line-height: 1.12;
+      font-weight: 840;
+    }
+
+    .future-copy {
+      margin-top: 12px;
+      color: var(--line);
+      font-size: 22px;
+      line-height: 1.22;
+      font-weight: 650;
+    }
+
+    .substyle-card {
+      padding: 22px 24px;
+    }
+
+    .substyle-flow {
+      display: grid;
+      grid-template-columns: 170px 42px 1fr;
+      align-items: center;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .fox-input-card {
+      height: 260px;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 10px;
+      border: 1px solid var(--line-soft);
+      background:
+        linear-gradient(145deg, rgba(29, 122, 59, 0.13), transparent 55%),
+        #ffffff;
+      color: var(--line);
+      text-align: center;
+    }
+
+    .fox-input-card strong {
+      display: block;
+      font-size: 25px;
+      line-height: 1.04;
+      font-weight: 860;
+    }
+
+    .fox-input-card span {
+      display: block;
+      max-width: 100px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.18;
+      font-weight: 680;
+    }
+
+    .substyle-arrow {
+      color: var(--green);
+      font-size: 35px;
+      line-height: 1;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .substyle-results {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .substyle-result {
+      min-width: 0;
+      padding: 10px;
+      border: 1px solid var(--line-soft);
+      background: #ffffff;
+    }
+
+    .substyle-result .image-frame {
+      height: 220px;
+      background: #f4f6f2;
+    }
+
+    .substyle-result img {
+      image-rendering: pixelated;
+    }
+
+    .substyle-result p {
+      margin-top: 9px;
+      color: var(--line);
+      font-size: 17px;
+      line-height: 1.12;
+      font-weight: 780;
+      text-align: center;
+    }
+
+    .future-direction-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .future-direction {
+      min-height: 108px;
+      padding: 20px 22px;
+      border-left: 5px solid var(--green);
+      background: #ffffff;
+      color: var(--line);
+      font-size: 24px;
+      line-height: 1.22;
+      font-weight: 720;
+    }
+
+    .future-direction strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--green-dark);
+      font-size: 21px;
+      line-height: 1.05;
+      font-weight: 850;
+    }
+
+    #scene-limits>.caption {
+      display: none;
+    }
+
+    #scene-closing h2 {
+      max-width: 1500px;
+      font-size: 48px;
+      line-height: 1.06;
+    }
+
+    .closing-screen {
+      position: absolute;
+      inset: 0;
+    }
+
+    .closing-resource-screen {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .takeaway-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 56px;
+      width: 1500px;
+    }
+
+    .takeaway-card {
+      min-height: 260px;
+      padding: 30px;
+      border: 1px solid var(--line-soft);
+      border-left: 7px solid var(--green);
+      background: var(--panel);
+      box-shadow: 0 18px 40px rgba(17, 22, 17, 0.08);
+    }
+
+    .takeaway-card h3 {
+      color: var(--green-dark);
+      font-size: 36px;
+      line-height: 1.05;
+    }
+
+    .takeaway-card p {
+      margin-top: 20px;
+      color: var(--ink);
+      font-size: 28px;
+      line-height: 1.24;
+      font-weight: 680;
+    }
+
+    .resource-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 560px;
+      gap: 28px;
+      margin-top: 36px;
+      align-items: stretch;
+    }
+
+    .resource-stack {
+      display: grid;
+      gap: 20px;
+    }
+
+    .resource-card {
+      min-height: 174px;
+      display: grid;
+      grid-template-columns: 78px minmax(0, 1fr);
+      align-items: center;
+      gap: 22px;
+      padding: 24px 28px;
+      border: 1px solid var(--line-soft);
+      border-left: 5px solid var(--green);
+      background: var(--panel);
+      color: var(--ink);
+      box-shadow: 0 18px 40px rgba(17, 22, 17, 0.08);
+    }
+
+    .resource-card.primary {
+      min-height: 206px;
+      border-left-width: 7px;
+    }
+
+    .resource-icon {
+      width: 70px;
+      height: 70px;
+      display: grid;
+      place-items: center;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 860;
+    }
+
+    .hf-icon {
+      background: #ffcc4d;
+      color: #111611;
+      font-size: 32px;
+    }
+
+    .resource-label {
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 760;
+    }
+
+    .resource-url {
+      margin-top: 12px;
+      color: var(--green-dark);
+      font-size: 34px;
+      line-height: 1.16;
+      font-weight: 820;
+      overflow-wrap: anywhere;
+    }
+
+    .subscribe-card {
+      min-height: 400px;
+      position: relative;
+      padding: 34px;
+      border: 1px solid var(--line-soft);
+      background: var(--panel);
+      box-shadow: 0 18px 40px rgba(17, 22, 17, 0.08);
+      overflow: hidden;
+    }
+
+    .youtube-logo {
+      width: 116px;
+      height: 80px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: #ff0033;
+    }
+
+    .youtube-logo::before {
+      content: "";
+      width: 0;
+      height: 0;
+      margin-left: 8px;
+      border-top: 17px solid transparent;
+      border-bottom: 17px solid transparent;
+      border-left: 27px solid #ffffff;
+    }
+
+    .subscribe-card h3 {
+      margin-top: 28px;
+      color: var(--green-dark);
+      font-size: 48px;
+      line-height: 1;
+    }
+
+    .subscribe-card p {
+      margin-top: 18px;
+      color: var(--ink);
+      font-size: 28px;
+      line-height: 1.22;
+      font-weight: 680;
+    }
+
+    .subscribe-pill {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 26px;
+      min-height: 52px;
+      padding: 0 20px;
+      background: var(--green);
+      color: #ffffff;
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 820;
+      box-shadow: 0 18px 40px rgba(17, 22, 17, 0.08);
+    }
+
+    #scene-closing>.caption {
+      display: none;
+    }
+
+    .code {
+      font-family: "JetBrains Mono", monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root" data-composition-id="main" data-start="0" data-duration="764.918" data-width="1920" data-height="1080">
+    <div class="grid-bg"></div>
+    <div class="scanline"></div>
+    <div class="top-rule"></div>
+    <div class="progress">
+      <div class="progress-fill"></div>
+    </div>
+
+    <video id="cta-demo-video" class="cta-demo-video clip" src="assets/dance.mp4" data-start="59.544"
+      data-duration="9.590" data-track-index="33" data-media-start="0" data-volume="0" muted playsinline
+      preload="auto"></video>
+
+    <video id="uv-fold-video" class="uv-fold-video clip" src="assets/transform_1x_vo04_loop.mp4" data-start="135.634"
+      data-duration="20.152" data-track-index="33" data-media-start="0" data-volume="0" muted playsinline
+      preload="auto"></video>
+
+    <video id="hard-fold-video" class="hard-fold-video clip" src="assets/transform_1x_vo05_loop.mp4"
+      data-start="155.786" data-duration="51.444" data-track-index="39" data-media-start="0" data-volume="0" muted
+      playsinline preload="auto"></video>
+    <div id="hard-video-label" class="hard-video-label clip" data-start="155.786" data-duration="51.444"
+      data-track-index="40">2D UV 布局 → 3D 身体</div>
+
+    <section id="scene-hook" class="scene clip" data-start="0.000" data-duration="29.988" data-track-index="1">
+      <div class="scene-inner">
+
+        <h1>AI 能把一张图变成能玩的 Minecraft 角色吗？</h1>
+
+      </div>
+
+    </section>
+
+    <section id="scene-results" class="scene clip" data-start="0.000" data-duration="59.544" data-track-index="2">
+      <div class="scene-inner">
+        <div class="kicker">生成结果</div>
+        <h2>从参考图直接生成 Minecraft 皮肤</h2>
+        <div class="showcase-stage" style="overflow: hidden;" data-layout-allow-overflow>
+          <div id="showcase-girl3" class="showcase-shot clip" data-start="0.000" data-duration="4.962"
+            data-track-index="20">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">原图</div>
+                <div class="square-media" style="--media-bg: url('assets/girl3_original.jpg')"><img
+                    src="assets/girl3_original.jpg" alt="原始参考图"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">生成皮肤</div>
+                <div class="square-media generated" style="--media-bg: url('assets/girl3_gen.jpg')"><img
+                    src="assets/girl3_gen.jpg" alt="生成的 Minecraft 皮肤"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-cat2" class="showcase-shot clip" data-start="4.962" data-duration="4.962"
+            data-track-index="21">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">原图</div>
+                <div class="square-media" style="--media-bg: url('assets/cat2_original.jpg')"><img
+                    src="assets/cat2_original.jpg" alt="原始参考图"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">生成皮肤</div>
+                <div class="square-media generated" style="--media-bg: url('assets/cat2_gen.jpg')"><img
+                    src="assets/cat2_gen.jpg" alt="生成的 Minecraft 皮肤"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-boy" class="showcase-shot clip" data-start="9.924" data-duration="4.962"
+            data-track-index="22">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">原图</div>
+                <div class="square-media" style="--media-bg: url('assets/boy_original.jpg')"><img
+                    src="assets/boy_original.jpg" alt="原始参考图"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">生成皮肤</div>
+                <div class="square-media generated" style="--media-bg: url('assets/boy_gen.jpg')"><img
+                    src="assets/boy_gen.jpg" alt="生成的 Minecraft 皮肤"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-girl" class="showcase-shot clip" data-start="14.886" data-duration="4.962"
+            data-track-index="23">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">原图</div>
+                <div class="square-media" style="--media-bg: url('assets/girl_original.jpg')"><img
+                    src="assets/girl_original.jpg" alt="原始参考图"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">生成皮肤</div>
+                <div class="square-media generated" style="--media-bg: url('assets/girl_gen.jpg')"><img
+                    src="assets/girl_gen.jpg" alt="生成的 Minecraft 皮肤"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-zx" class="showcase-shot clip" data-start="19.848" data-duration="4.962"
+            data-track-index="24">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">原图</div>
+                <div class="square-media" style="--media-bg: url('assets/zx_original.jpg')"><img
+                    src="assets/zx_original.jpg" alt="原始参考图"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">生成皮肤</div>
+                <div class="square-media generated" style="--media-bg: url('assets/zx_gen.jpg')"><img
+                    src="assets/zx_gen.jpg" alt="生成的 Minecraft 皮肤"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-boy2" class="showcase-shot clip" data-start="24.810" data-duration="4.962"
+            data-track-index="25">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">原图</div>
+                <div class="square-media" style="--media-bg: url('assets/boy2_original.jpg')"><img
+                    src="assets/boy2_original.jpg" alt="原始参考图"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">生成皮肤</div>
+                <div class="square-media generated" style="--media-bg: url('assets/boy2_gen.jpg')"><img
+                    src="assets/boy2_gen.jpg" alt="生成的 Minecraft 皮肤"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-linux" class="showcase-shot clip" data-start="29.772" data-duration="4.962"
+            data-track-index="26">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">原图</div>
+                <div class="square-media" style="--media-bg: url('assets/linux_original.jpg')"><img
+                    src="assets/linux_original.jpg" alt="原始参考图"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">生成皮肤</div>
+                <div class="square-media generated" style="--media-bg: url('assets/linux_gen.jpg')"><img
+                    src="assets/linux_gen.jpg" alt="生成的 Minecraft 皮肤"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-pink" class="showcase-shot clip" data-start="34.734" data-duration="4.962"
+            data-track-index="27">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">原图</div>
+                <div class="square-media" style="--media-bg: url('assets/pink_original.jpg')"><img
+                    src="assets/pink_original.jpg" alt="原始参考图"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">生成皮肤</div>
+                <div class="square-media generated" style="--media-bg: url('assets/pink_gen.jpg')"><img
+                    src="assets/pink_gen.jpg" alt="生成的 Minecraft 皮肤"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-beethoven" class="showcase-shot clip" data-start="39.696" data-duration="4.962"
+            data-track-index="28">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">原图</div>
+                <div class="square-media" style="--media-bg: url('assets/beethoven_original.jpg')"><img
+                    src="assets/beethoven_original.jpg" alt="原始参考图"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">生成皮肤</div>
+                <div class="square-media generated" style="--media-bg: url('assets/beethoven_gen.jpg')"><img
+                    src="assets/beethoven_gen.jpg" alt="生成的 Minecraft 皮肤"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-boy3" class="showcase-shot clip" data-start="44.658" data-duration="4.962"
+            data-track-index="29">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">原图</div>
+                <div class="square-media" style="--media-bg: url('assets/boy3_original.jpg')"><img
+                    src="assets/boy3_original.jpg" alt="原始参考图"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">生成皮肤</div>
+                <div class="square-media generated" style="--media-bg: url('assets/boy3_gen.jpg')"><img
+                    src="assets/boy3_gen.jpg" alt="生成的 Minecraft 皮肤"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-dog" class="showcase-shot clip" data-start="49.620" data-duration="4.962"
+            data-track-index="30">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">原图</div>
+                <div class="square-media" style="--media-bg: url('assets/dog_original.jpg')"><img
+                    src="assets/dog_original.jpg" alt="原始参考图"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">生成皮肤</div>
+                <div class="square-media generated" style="--media-bg: url('assets/dog_gen.jpg')"><img
+                    src="assets/dog_gen.jpg" alt="生成的 Minecraft 皮肤"></div>
+              </div>
+            </div>
+          </div>
+          <div id="showcase-cat" class="showcase-shot clip" data-start="54.582" data-duration="4.962"
+            data-track-index="31">
+            <div class="showcase-pair">
+              <div class="showcase-card panel">
+                <div class="showcase-label">原图</div>
+                <div class="square-media" style="--media-bg: url('assets/cat_original.jpg')"><img
+                    src="assets/cat_original.jpg" alt="原始参考图"></div>
+              </div>
+              <div class="showcase-arrow">→</div>
+              <div class="showcase-card panel">
+                <div class="showcase-label">生成皮肤</div>
+                <div class="square-media generated" style="--media-bg: url('assets/cat_gen.jpg')"><img
+                    src="assets/cat_gen.jpg" alt="生成的 Minecraft 皮肤"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-cta" class="scene clip" data-start="59.544" data-duration="9.590" data-track-index="3">
+      <div class="scene-inner">
+        <div class="cta-card">
+          <div>
+            <div class="kicker">先试试看</div>
+            <h2>免费的在线 Minecraft 皮肤生成器</h2>
+            <p class="subtitle">可以在线体验，也可以本地训练和部署开源模型。</p>
+            <div class="cta-url">entropydrop.com</div>
+          </div>
+          <div class="mock-browser">
+            <div class="browser-bar">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="url-bar">entropydrop.com</div>
+            </div>
+            <div class="website-video-slot">
+              <div class="video-slot-screen">
+                <div class="video-play-button"></div>
+              </div>
+              <div class="video-slot-progress">
+                <div class="video-slot-progress-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-skin-structure" class="scene clip" data-start="69.134" data-duration="86.652"
+      data-track-index="4">
+      <div class="scene-inner">
+        <div class="kicker">真正的难点</div>
+        <h2>可玩的 Minecraft 角色，是一个穿着标准 2D UV 皮肤的 3D 方块身体</h2>
+        <div id="skin-uv-closeup" class="structure-segment structure-closeup clip" data-start="69.134"
+          data-duration="53.000" data-track-index="30">
+          <div class="structure-image-card panel reveal-item">
+            <div class="image-frame"><img src="assets/skingen_uv_map.png" alt="Minecraft 皮肤 UV 图">
+              <div id="uvmap-head-box" class="highlight-box uv-map-highlight"
+                style="left: 4.3%; top: 4.3%; width: 45.7%; height: 22.9%;"></div>
+              <div id="uvmap-head-overlay-box" class="highlight-box uv-map-highlight"
+                style="left: 50%; top: 4.3%; width: 45.7%; height: 22.9%;"></div>
+              <div id="uvmap-torso-box" class="highlight-box uv-map-highlight"
+                style="left: 27.1%; top: 27.1%; width: 34.3%; height: 22.9%;"></div>
+              <div id="uvmap-torso-overlay-box" class="highlight-box uv-map-highlight"
+                style="left: 27.1%; top: 50%; width: 34.3%; height: 22.9%;"></div>
+              <div id="uvmap-left-leg-box" class="highlight-box uv-map-highlight"
+                style="left: 27.1%; top: 72.9%; width: 22.9%; height: 22.9%;"></div>
+              <div id="uvmap-left-leg-overlay-box" class="highlight-box uv-map-highlight"
+                style="left: 4.3%; top: 72.9%; width: 22.9%; height: 22.9%;"></div>
+              <div id="uvmap-right-leg-box" class="highlight-box uv-map-highlight"
+                style="left: 4.3%; top: 27.1%; width: 22.9%; height: 22.9%;"></div>
+              <div id="uvmap-right-leg-overlay-box" class="highlight-box uv-map-highlight"
+                style="left: 4.3%; top: 50%; width: 22.9%; height: 22.9%;"></div>
+              <div id="uvmap-left-arm-box" class="highlight-box uv-map-highlight"
+                style="left: 50%; top: 72.9%; width: 22.9%; height: 22.9%;"></div>
+              <div id="uvmap-left-arm-overlay-box" class="highlight-box uv-map-highlight"
+                style="left: 72.9%; top: 72.9%; width: 22.9%; height: 22.9%;"></div>
+              <div id="uvmap-right-arm-box" class="highlight-box uv-map-highlight"
+                style="left: 61.4%; top: 27.1%; width: 22.9%; height: 22.9%;"></div>
+              <div id="uvmap-right-arm-overlay-box" class="highlight-box uv-map-highlight"
+                style="left: 61.4%; top: 50%; width: 22.9%; height: 22.9%;"></div>
+              <div id="uvmap-head-label" class="highlight-label uv-map-label" aria-hidden="true" data-label="头部"
+                style="left: 6%; top: 6%;"></div>
+              <div id="uvmap-head-overlay-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="头部外层" style="left: 52%; top: 6%;"></div>
+              <div id="uvmap-torso-label" class="highlight-label uv-map-label" aria-hidden="true" data-label="身体"
+                style="left: 29%; top: 29%;"></div>
+              <div id="uvmap-torso-overlay-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="身体外层" style="left: 29%; top: 52%;"></div>
+              <div id="uvmap-left-leg-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="左腿" style="left: 29%; top: 74.4%;"></div>
+              <div id="uvmap-left-leg-overlay-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="左腿外层" style="left: 5.8%; top: 74.4%;"></div>
+              <div id="uvmap-right-leg-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="右腿" style="left: 5.8%; top: 28.6%;"></div>
+              <div id="uvmap-right-leg-overlay-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="右腿外层" style="left: 5.8%; top: 51.5%;"></div>
+              <div id="uvmap-left-arm-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="左臂" style="left: 51.5%; top: 74.4%;"></div>
+              <div id="uvmap-left-arm-overlay-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="左臂外层" style="left: 74.4%; top: 74.4%;"></div>
+              <div id="uvmap-right-arm-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="右臂" style="left: 62.9%; top: 28.6%;"></div>
+              <div id="uvmap-right-arm-overlay-label" class="highlight-label uv-map-label" aria-hidden="true"
+                data-label="右臂外层" style="left: 62.9%; top: 51.5%;"></div>
+            </div>
+          </div>
+          <div class="structure-copy-card reveal-item">
+            <h3>Minecraft 按固定 UV 坐标读取皮肤</h3>
+            <div class="structure-bullet"><strong>身体区域：</strong>头、身体、手臂和腿都有固定位置。</div>
+            <div class="structure-bullet"><strong>外层区域：</strong>第二层纹理用于头发、帽子、袖子和盔甲。</div>
+            <div class="structure-bullet"><strong>Alpha：</strong>透明外层像素会消失，不透明像素会变成凸起细节。
+            </div>
+          </div>
+        </div>
+        <div id="skin-layers-closeup" class="structure-segment structure-closeup clip" data-start="122.134"
+          data-duration="13.500" data-track-index="31">
+          <div class="structure-image-card panel reveal-item">
+            <div class="image-frame"><img src="assets/skingen_layers.png" alt="Minecraft 内外层结构"></div>
+          </div>
+          <div class="structure-copy-card reveal-item">
+            <h3>Minecraft 会把基础层和外层渲染成分层几何</h3>
+            <div class="structure-bullet"><strong>内层：</strong>基础身体纹理。</div>
+            <div class="structure-bullet"><strong>外层：</strong>稍大的几何体，用来表现头发、帽子、外套、盔甲和凸起细节。</div>
+            <div class="layer-callout-grid">
+              <div class="layer-callout"><strong>头部</strong>外层方块大约凸出半个像素。</div>
+              <div class="layer-callout"><strong>身体</strong>外层使用不同缩放。</div>
+              <div class="layer-callout"><strong>手臂 / 腿</strong>凸起细节跟随各自部位的几何。
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="skin-fold-video" class="structure-segment clip" data-start="135.634" data-duration="20.152"
+          data-track-index="32">
+          <div class="structure-video-card panel reveal-item">
+            <div class="uv-animation-screen">
+              <div class="uv-video-label">2D UV 布局 → 3D 方块身体</div>
+            </div>
+            <div class="uv-slot-progress">
+              <div class="uv-slot-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">先看 UV 图，再看内外层，最后看这张平面图如何包到 3D 身体上。
+      </div>
+    </section>
+
+    <section id="scene-hard" class="scene clip" data-start="155.786" data-duration="51.444" data-track-index="5">
+      <div class="scene-inner">
+        <div class="kicker">为什么容易出错</div>
+        <h2>AI 必须同时遵守三条 Minecraft 皮肤规则</h2>
+        <div class="constraint-layout">
+          <div class="constraint-visual panel">
+            <div class="hard-video-frame"></div>
+          </div>
+          <div class="constraint-list">
+            <div class="constraint-card soft-panel">
+              <div class="constraint-number">1</div>
+              <div>
+                <h3>像素位置</h3>
+                <p>一个区域错位，就可能把手臂、脸或衣服细节贴到错误部位。</p>
+              </div>
+            </div>
+            <div class="constraint-card soft-panel">
+              <div class="constraint-number">2</div>
+              <div>
+                <h3>UV 到 3D 几何</h3>
+                <p>头发、外套和围巾必须跨过不同身体区域后仍然连续。</p>
+              </div>
+            </div>
+            <div class="constraint-card soft-panel">
+              <div class="constraint-number">3</div>
+              <div>
+                <h3>Alpha 可见性</h3>
+                <p>外层需要透明信息，但大多数图像模型输出的是普通 RGB 图片。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">这不是风格滤镜，而是一个受约束的 2D 到 3D 纹理编码问题。</div>
+    </section>
+
+    <section id="scene-general-models" class="scene clip" data-start="207.230" data-duration="56.304"
+      data-track-index="6">
+      <div class="scene-inner">
+        <div class="kicker">失败模式</div>
+        <h2>看起来像皮肤还不够，每个像素都必须落在 64x64 标准网格上。</h2>
+        <div class="failure-grid">
+          <div class="failure-card panel">
+            <h3>Nano Banana 2</h3>
+            <div class="image-frame"><img src="assets/gemini_pro_nano_banana2.png" alt="Nano Banana 2 result"></div>
+          </div>
+          <div class="failure-card panel">
+            <h3>GPT Image2</h3>
+            <div class="image-frame"><img src="assets/gpt5_5_image2.png" alt="GPT Image2 result"></div>
+          </div>
+          <div class="failure-card panel expected">
+            <h3>标准 64x64 皮肤</h3>
+            <div class="image-frame"><img src="assets/perfect_dracula.png" alt="严格对齐的 64x64 德古拉皮肤">
+            </div>
+          </div>
+          <div class="reason-list">
+            <div class="reason soft-panel">前两个输出看起来像皮肤，但像素没有严格对齐到 UV 单元。</div>
+            <div class="reason soft-panel">有效皮肤必须保留 64x64 布局：每个面、肢体和外层区域都有固定位置。</div>
+            <div class="reason soft-panel">标准结果看起来很稀疏，但可用：每个可见像素都对齐到 Minecraft 网格。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-finetune" class="scene clip" data-start="263.534" data-duration="42.732" data-track-index="7">
+      <div class="scene-inner">
+        <div class="kicker">关键做法</div>
+        <h2>同时给模型看平面皮肤和 3D 结果</h2>
+        <div class="layout-grid">
+          <div class="stack">
+            <div class="fact soft-panel">只看 UV 图太抽象。</div>
+            <div class="fact soft-panel">只看渲染图又不是可用文件。</div>
+            <div class="fact soft-panel">合在一起：模型才能学习对应关系。</div>
+          </div>
+          <div class="image-frame panel"><img src="assets/monadical_20260519.png" alt="Monadical composite output idea">
+            <div class="source-url-note"><strong>来源：</strong> https://monadical.com/posts/minecraft-skins-part2.html
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-image-to-skin" class="scene clip" data-start="306.266" data-duration="41.724"
+      data-track-index="8">
+      <div class="scene-inner">
+        <div class="kicker">输入方式</div>
+        <h2>Monadical 从文本开始，我们希望图片输入、皮肤输出。</h2>
+        <div class="image-skin-bridge">
+          <div class="bridge-panel panel">
+            <h3>Monadical 启发</h3>
+            <div class="model-badge">模型：Stable Diffusion</div>
+            <p>Prompt + target 配对：文本 -> 结构化目标图</p>
+            <div class="image-frame"><img src="assets/monadical_20260519.png"
+                alt="Monadical text-to-skin composite target"></div>
+            <p>配对目标：UV 图 + 3D 渲染反馈。</p>
+          </div>
+          <div class="bridge-switch">
+            <span>保留配对目标训练</span>
+            <div class="switch-arrow">-&gt;</div>
+            <span>把文本输入换成图片输入</span>
+          </div>
+          <div class="bridge-panel panel">
+            <h3>我们的方向</h3>
+            <div class="model-badge">模型：Flux2 Klein 4B Base</div>
+            <p>Control image + target 配对：图片 -> 结构化目标图</p>
+            <div class="bridge-comparison">
+              <div>
+                <div class="bridge-media-label">图片输入</div>
+                <div class="square-media" style="--media-bg: url('assets/dracula_original.png')"><img
+                    src="assets/dracula_original.png" alt="参考图输入"></div>
+              </div>
+              <div class="bridge-mini-arrow">-&gt;</div>
+              <div>
+                <div class="bridge-media-label">皮肤输出</div>
+                <div class="square-media generated" data-layout-allow-overflow
+                  style="--media-bg: url('assets/dracula_gen.png')"><img src="assets/dracula_gen.png"
+                    alt="生成的 Minecraft 皮肤输出"></div>
+              </div>
+            </div>
+            <p>后处理提取可用的 64x64 皮肤。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-dataset" class="scene clip" data-start="347.990" data-duration="77.004" data-track-index="9">
+      <div class="scene-inner">
+        <div class="kicker">数据集设计</div>
+        <h2>Control image 提供参考，target image 教会结构。</h2>
+        <div class="pipeline">
+          <div class="image-frame panel"><img src="assets/8880005_control_img.png" alt="Control image 示例"></div>
+          <div class="arrow">-&gt;</div>
+          <div class="target-wrap">
+            <div class="image-frame panel"><img src="assets/8880005.png" alt="Target image 示例"></div>
+            <div id="uv-box" class="highlight-box" style="left: 0; top: 0; width: 50%; height: 50%;"></div>
+            <div id="preview-box" class="highlight-box" style="left: 50%; top: 0; width: 50%; height: 50%;"></div>
+            <div id="views-box" class="highlight-box" style="left: 0; top: 50%; width: 100%; height: 50%;"></div>
+            <div id="uv-label" class="highlight-label" style="left: 0; top: 0;">完整 UV 图 + alpha markers</div>
+            <div id="preview-label" class="highlight-label" style="left: 50%; top: 0;">主预览 + 放大细节
+            </div>
+            <div id="views-label" class="highlight-label" style="left: 0; top: 50%;">内外层多视角校验</div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">面板摆放位置没那么重要，更重要的是信息密度、视角覆盖和清晰的 UV 到 3D 对应关系。</div>
+    </section>
+
+    <section id="scene-rendering" class="scene clip" data-start="424.994" data-duration="53.172" data-track-index="10">
+      <div class="scene-inner">
+        <div class="kicker">渲染选择</div>
+        <h2>渲染不是装饰，它本身就是训练信息。</h2>
+        <div id="render-pair-surface" class="render-pair clip" data-start="424.994" data-duration="20.451"
+          data-track-index="34">
+          <div class="render-pair-title">表面表示方式</div>
+          <div class="render-pair-grid">
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_plane.png" alt="Plane mode"></div>
+              <p>Plane mode：外层像漂浮平面</p>
+            </div>
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_voxel.png" alt="Voxel mode"></div>
+              <p>Voxel mode：外层像素变成小方块</p>
+            </div>
+          </div>
+        </div>
+        <div id="render-pair-camera" class="render-pair clip" data-start="445.445" data-duration="14.112"
+          data-track-index="35">
+          <div class="render-pair-title">相机投影</div>
+          <div class="render-pair-grid">
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_ortho.png" alt="Orthographic projection"></div>
+              <p>正交投影：尺寸保持不变</p>
+            </div>
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_perspective.png" alt="Perspective projection"></div>
+              <p>透视投影：远近产生深度线索</p>
+            </div>
+          </div>
+        </div>
+        <div id="render-pair-lighting" class="render-pair clip" data-start="459.557" data-duration="10.656"
+          data-track-index="36">
+          <div class="render-pair-title">光照</div>
+          <div class="render-pair-grid">
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_light_off.png" alt="光照 off"></div>
+              <p>关闭光照：原始颜色，但形体分离弱</p>
+            </div>
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_perspective.png" alt="光照 on"></div>
+              <p>打开光照：阴影揭示形体</p>
+            </div>
+          </div>
+        </div>
+        <div id="render-pair-layers" class="render-pair clip" data-start="470.213" data-duration="7.953"
+          data-track-index="38">
+          <div class="render-pair-title">分层视图</div>
+          <div class="render-pair-grid render-layer-grid">
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_inner.png" alt="Inner layer"></div>
+              <p>只看内层：基础身体结构</p>
+            </div>
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_overlay.png" alt="Outer layer"></div>
+              <p>只看外层：凸起层几何</p>
+            </div>
+            <div class="render-card panel">
+              <div class="image-frame"><img src="assets/8880005_both.png" alt="Both layers"></div>
+              <p>内外层合并：最终视觉参考</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">透视、光照、voxel 细节和多层视图，都能帮助模型学习 3D 映射。</div>
+    </section>
+
+    <section id="scene-training-convergence" class="scene clip" data-start="478.166" data-duration="74.124"
+      data-track-index="11">
+      <div class="scene-inner">
+        <div class="kicker">训练收敛</div>
+        <h2>Checkpoint 能看到训练过程</h2>
+
+        <div id="training-phase-early" class="training-phase clip" data-start="478.166" data-duration="20.755"
+          data-track-index="40">
+          <div class="training-media-panel panel">
+            <div class="training-phase-title">500 到 2000 steps</div>
+            <div class="checkpoint-grid">
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_500.jpg" alt="Training step 500"></div>
+                <div class="checkpoint-label">500</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_1000.jpg" alt="Training step 1000"></div>
+                <div class="checkpoint-label">1000</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_1500.jpg" alt="Training step 1500"></div>
+                <div class="checkpoint-label">1500</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_2000.jpg" alt="Training step 2000"></div>
+                <div class="checkpoint-label">2000</div>
+              </div>
+            </div>
+          </div>
+          <div class="training-copy-panel panel">
+            <div class="training-note soft-panel"><strong>可见输出：</strong>模糊色块和混乱线条。
+            </div>
+            <div class="training-note muted soft-panel">到 2000 steps，粗略的复合结构开始出现。
+            </div>
+          </div>
+        </div>
+
+        <div id="training-phase-mid" class="training-phase clip" data-start="498.921" data-duration="14.084"
+          data-track-index="41">
+          <div class="training-media-panel panel">
+            <div class="training-phase-title">2500 到 4000 steps</div>
+            <div class="checkpoint-grid">
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_2500.jpg" alt="Training step 2500"></div>
+                <div class="checkpoint-label">2500</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_3000.jpg" alt="Training step 3000"></div>
+                <div class="checkpoint-label">3000</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_3500.jpg" alt="Training step 3500"></div>
+                <div class="checkpoint-label">3500</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_4000.jpg" alt="Training step 4000"></div>
+                <div class="checkpoint-label">4000</div>
+              </div>
+            </div>
+          </div>
+          <div class="training-copy-panel panel">
+            <div class="training-note soft-panel"><strong>结构：</strong>头、身体、手臂和腿变得更清楚。
+            </div>
+            <div class="training-note muted soft-panel">主要服装颜色开始落到正确的身体部位。
+            </div>
+          </div>
+        </div>
+
+        <div id="training-phase-late" class="training-phase clip" data-start="513.004" data-duration="21.496"
+          data-track-index="42">
+          <div class="training-media-panel panel">
+            <div class="training-phase-title">6000 到 16K steps</div>
+            <div class="checkpoint-grid">
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_6000.jpg" alt="Training step 6000"></div>
+                <div class="checkpoint-label">6000</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_8000.jpg" alt="Training step 8000"></div>
+                <div class="checkpoint-label">8000</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_12000.jpg" alt="Training step 12000"></div>
+                <div class="checkpoint-label">12000</div>
+              </div>
+              <div class="checkpoint-card panel">
+                <div class="image-frame"><img src="assets/train_16000.jpg" alt="Training step 16K"></div>
+                <div class="checkpoint-label">16K</div>
+              </div>
+            </div>
+          </div>
+          <div class="training-copy-panel panel">
+            <div class="training-note soft-panel"><strong>细节：</strong>五官、配饰和外层几何变得更明显。</div>
+            <div class="training-note muted soft-panel">Alpha Marker 图案变得更规律，方便后面恢复透明。</div>
+          </div>
+        </div>
+
+        <div id="training-phase-final" class="training-phase training-phase-final clip" data-start="534.500"
+          data-duration="17.790" data-track-index="43">
+          <div class="final-checkpoint-card panel">
+            <div class="image-frame"><img src="assets/train_18000.jpg" alt="Training step 18K"></div>
+          </div>
+          <div class="training-copy-panel panel">
+            <div class="training-phase-title">18K steps 之后</div>
+            <div class="training-note soft-panel"><strong>输出更清晰：</strong>像素边界更干净，角色细节更接近参考图。</div>
+            <div class="training-note muted soft-panel">这些 checkpoint 不证明固定学习顺序，但能让训练进展变得可见。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-data-loop" class="scene clip" data-start="552.290" data-duration="53.568" data-track-index="12">
+      <div class="scene-inner">
+        <div class="kicker">构建更多数据</div>
+        <h2>数据集也可以持续进化</h2>
+        <div class="data-method-layout">
+          <div class="data-method panel reverse-method">
+            <div class="method-kicker">方法 1</div>
+            <h3>反向推断</h3>
+            <p class="method-note">从已有 Minecraft 皮肤出发，反推匹配的全身参考图。
+            </p>
+            <div class="reverse-flow">
+              <div class="reverse-node">
+                <div class="node-icon">UV</div>
+                <div>
+                  <strong>已有皮肤图</strong>
+                  <span>社区皮肤本身已经包含可用的 target 文件。</span>
+                </div>
+              </div>
+              <div class="flow-arrow-down">↓</div>
+              <div class="reverse-node">
+                <div class="node-icon">AI</div>
+                <div>
+                  <strong>多模态推断</strong>
+                  <span>推断可能的服装、发型、颜色和身体视角。</span>
+                </div>
+              </div>
+              <div class="flow-arrow-down">↓</div>
+              <div class="reverse-node">
+                <div class="node-icon">IMG</div>
+                <div>
+                  <strong>正面 + 背面参考</strong>
+                  <span>为训练创建更强的 control image。</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="data-method panel synthesis-method">
+            <div class="method-kicker">方法 2</div>
+            <h3>自演化合成循环</h3>
+            <p class="method-note">生成候选、验证结构、修复弱输出，再把最好的配对放回训练集。</p>
+            <div class="loop">
+              <div class="loop-step soft-panel">
+                <div class="step-num">01</div>
+                <h3>描述</h3>
+                <p>LLM 生成多样化角色和配饰描述。</p>
+              </div>
+              <div class="loop-step soft-panel">
+                <div class="step-num">02</div>
+                <h3>参考图</h3>
+                <p>文生图模型生成真实感全身图。</p>
+              </div>
+              <div class="loop-step soft-panel">
+                <div class="step-num">03</div>
+                <h3>皮肤</h3>
+                <p>image-to-skin 模型生成 target 输出。</p>
+              </div>
+              <div class="loop-step soft-panel">
+                <div class="step-num">04</div>
+                <h3>验证</h3>
+                <p>结构检查筛选并修复弱样本。</p>
+              </div>
+              <div class="loop-step soft-panel">
+                <div class="step-num">05</div>
+                <h3>扩展</h3>
+                <p>高质量配对进入下一轮训练。</p>
+              </div>
+            </div>
+            <div class="loop-return">好样本进入训练集，失败案例则被修复或用来设计针对性改进。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scene-alpha" class="scene clip" data-start="605.858" data-duration="56.196" data-track-index="13">
+      <div class="scene-inner">
+        <div class="kicker">后处理和 Alpha Marker</div>
+        <h2>从 RGB 生成结果中恢复透明信息</h2>
+        <div class="alpha-grid">
+          <div class="image-frame panel"><img src="assets/8880005_alpha.png" alt="Alpha Marker 示例"></div>
+          <div class="alpha-steps">
+            <div class="alpha-step soft-panel">扩散模型通常输出 RGB 图片，而不是干净的 RGBA 纹理。
+            </div>
+            <div class="alpha-step soft-panel">灰色背景阈值可能把前景像素和背景像素混在一起。</div>
+            <div class="alpha-step soft-panel">Alpha Marker 会在透明 UV 像素中心画一个很小的白色锚点。</div>
+            <div class="alpha-step soft-panel">后处理检测这些锚点，并把对应像素分类为透明。</div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Alpha Marker 把模糊的前景分离变成特征检测。</div>
+    </section>
+
+    <section id="scene-limits" class="scene clip" data-start="662.054" data-duration="47.448" data-track-index="14">
+      <div class="scene-inner">
+        <div class="limits-screen">
+          <div class="kicker">局限</div>
+          <h2>当前方法已经能生成可用例子，但还不完美</h2>
+          <div class="limit-grid">
+            <div class="limit-card soft-panel">多级透明还没有解决。</div>
+            <div class="limit-card soft-panel">复杂装饰可能变模糊、断裂、错位，或者左右不对称。
+            </div>
+          </div>
+        </div>
+        <div class="limits-next-screen">
+          <div class="kicker">后续方向</div>
+          <h2>接下来可以怎样变得更好</h2>
+          <div class="future-grid">
+            <div class="future-direction-list">
+              <div class="future-direction"><strong>LoRA 之后加入 DPO</strong>让模型更偏向稳定、高质量的生成结果。</div>
+              <div class="future-direction"><strong>更大的基础模型</strong>提升质量和泛化能力。</div>
+              <div class="future-direction"><strong>自演化数据</strong>发现失败案例，修复可修复输出，并设计针对性改进。</div>
+            </div>
+            <div class="future-card soft-panel substyle-card">
+              <div class="future-title">Sub-style control</div>
+              <div class="future-copy">同一张狐狸参考图，可以生成不同风格的 Minecraft 皮肤。</div>
+              <div class="substyle-flow">
+                <div class="fox-input-card">
+                  <strong>狐狸<br>照片</strong>
+                  <span>同一张参考图</span>
+                </div>
+                <div class="substyle-arrow">→</div>
+                <div class="substyle-results">
+                  <div class="substyle-result">
+                    <div class="image-frame"><img src="assets/fox_lowpoly_skin.png" alt="Lowpoly fox Minecraft skin">
+                    </div>
+                    <p>抽象 lowpoly</p>
+                  </div>
+                  <div class="substyle-result">
+                    <div class="image-frame"><img src="assets/fox_realistic_skin.png"
+                        alt="写实 fox Minecraft skin">
+                    </div>
+                    <p>写实</p>
+                  </div>
+                  <div class="substyle-result">
+                    <div class="image-frame"><img src="assets/fox_surreal_skin.png" alt="Surreal fox Minecraft skin">
+                    </div>
+                    <p>科幻风格</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">当系统能发现失败案例并针对它们继续训练，Minecraft 皮肤生成才会变成可持续流程。</div>
+    </section>
+
+    <section id="scene-closing" class="scene clip" data-start="709.502" data-duration="55.416" data-track-index="15">
+      <div class="scene-inner">
+        <div class="closing-screen closing-takeaways-screen">
+          <div class="kicker">最后总结</div>
+          <h2>三个关键部分让这条 pipeline 跑起来</h2>
+          <div class="takeaway-grid">
+            <div class="takeaway-card">
+              <h3>复合目标图</h3>
+              <p>同时给模型看 UV 图和 3D 渲染角色。</p>
+            </div>
+            <div class="takeaway-card">
+              <h3>高质量数据流程</h3>
+              <p>高质量数据构建流程，比大量噪声数据更重要。</p>
+            </div>
+            <div class="takeaway-card">
+              <h3>Alpha Markers</h3>
+              <p>把透明像素变成模型可以复现的特征。</p>
+            </div>
+          </div>
+        </div>
+        <div class="closing-screen closing-resource-screen">
+          <div class="kicker">开源发布</div>
+          <h2>本地训练、本地部署，或者使用免费的在线生成器</h2>
+          <div class="resource-layout">
+            <div class="resource-stack">
+              <div class="resource-card">
+                <div class="resource-icon">ED</div>
+                <div>
+                  <div class="resource-label">免费的在线 Minecraft 皮肤生成器</div>
+                  <div class="resource-url">entropydrop.com</div>
+                </div>
+              </div>
+              <div class="resource-card primary">
+                <div class="resource-icon hf-icon">🤗</div>
+                <div>
+                  <div class="resource-label">模型、数据集和脚本全部开源</div>
+                  <div class="resource-url">https://huggingface.co/EntropyDrop/Sking</div>
+                </div>
+              </div>
+            </div>
+            <div class="subscribe-card">
+              <div class="youtube-logo"></div>
+              <h3>关注我们</h3>
+              <p>后面还会有更多开源实验。</p>
+              <div class="subscribe-pill">开源项目、创作工具和在线 demo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">关注我们，后面会开源更多有趣项目。</div>
+    </section>
+    <!-- Chinese voiceover and subtitles will be generated later. -->
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    const rootNode = document.getElementById("root");
+    const totalDuration = Number(rootNode.dataset.duration);
+
+    function startOf(id, offset = 0) {
+      return Number(document.getElementById(id).dataset.start) + offset;
+    }
+
+    function durationOf(id) {
+      return Number(document.getElementById(id).dataset.duration);
+    }
+
+    function startOfSubtitleContaining(text, fallback) {
+      const subtitle = Array.from(document.querySelectorAll(".subtitle-line"))
+        .find((node) => node.textContent.includes(text));
+      return subtitle ? startOf(subtitle.id) : fallback;
+    }
+
+    function showScene(id, start, duration) {
+      const scene = `#${id}`;
+      const sceneNode = document.getElementById(id);
+      tl.set(scene, { visibility: "visible", opacity: 1 }, start);
+      if (id !== "scene-limits" && id !== "scene-closing" && sceneNode.querySelector(".kicker")) {
+        tl.from(`${scene} .kicker`, { y: 18, opacity: 0, duration: 0.58, ease: "power2.out" }, start + 0.18);
+      }
+      if (id !== "scene-hook" && id !== "scene-limits" && id !== "scene-closing" && sceneNode.querySelector("h1, h2")) {
+        tl.from(`${scene} h1, ${scene} h2`, { y: 34, opacity: 0, duration: 0.78, ease: "power3.out" }, start + 0.28);
+      }
+      if (sceneNode.querySelector(".subtitle")) {
+        tl.from(`${scene} .subtitle`, { y: 22, opacity: 0, duration: 0.62, ease: "power2.out" }, start + 0.72);
+      }
+      if (sceneNode.querySelector(".caption")) {
+        tl.from(`${scene} .caption`, { y: 24, opacity: 0, duration: 0.64, ease: "power2.out" }, start + 1.0);
+      }
+      tl.to(scene, { opacity: 0, duration: 0.62, ease: "power2.in" }, start + duration - 0.62);
+      tl.set(scene, { visibility: "hidden" }, start + duration);
+    }
+
+    function showShowcase(selector, start, duration) {
+      tl.set(selector, { visibility: "visible", opacity: 1 }, start);
+      tl.from(`${selector} .placeholder-center`, { y: 18, opacity: 0, duration: 0.42, ease: "power2.out" }, start + 0.08);
+      tl.to(`${selector} .playbar-fill`, { width: "100%", duration: duration - 0.55, ease: "none" }, start + 0.28);
+      tl.to(selector, { opacity: 0, duration: 0.26, ease: "power2.in" }, start + duration - 0.26);
+      tl.set(selector, { visibility: "hidden" }, start + duration);
+    }
+
+    function showSlidingShowcase(selector, start, duration) {
+      if (start <= 0.001) {
+        tl.set(selector, { visibility: "visible", opacity: 1, x: 0 }, start);
+        tl.to(selector, {
+          x: -1920,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power2.in"
+        }, start + duration - 0.6);
+        tl.set(selector, { visibility: "hidden" }, start + duration);
+        return;
+      }
+
+      // Initially hide and position off-screen right
+      tl.set(selector, { visibility: "visible", opacity: 0, x: 1920 }, start);
+
+      // Slide in from right to center
+      tl.to(selector, {
+        x: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: "power2.out"
+      }, start);
+
+      // Slide out to left at the end
+      tl.to(selector, {
+        x: -1920,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.in"
+      }, start + duration - 0.6);
+
+      // Hide at the very end
+      tl.set(selector, { visibility: "hidden" }, start + duration);
+    }
+
+    function showTimed(selector, start, duration) {
+      tl.set(selector, { visibility: "visible", opacity: 1 }, start);
+      tl.from(`${selector} .showcase-tile`, { y: 38, opacity: 0, duration: 0.5, stagger: 0.08, ease: "power2.out" }, start + 0.1);
+      tl.to(selector, { opacity: 0, duration: 0.36, ease: "power2.in" }, start + duration - 0.36);
+      tl.set(selector, { visibility: "hidden" }, start + duration);
+    }
+
+    function showStructureSegment(selector, start, duration) {
+      tl.set(selector, { visibility: "visible", opacity: 1 }, start);
+      tl.from(`${selector} .reveal-item`, { y: 28, duration: 0.52, stagger: 0.08, ease: "power2.out" }, start + 0.12);
+      tl.to(selector, { opacity: 0, duration: 0.36, ease: "power2.in" }, start + duration - 0.36);
+      tl.set(selector, { visibility: "hidden" }, start + duration);
+    }
+
+    function showRenderPair(selector, start, duration) {
+      tl.set(selector, { visibility: "visible", opacity: 1 }, start);
+      tl.from(`${selector} .render-pair-title`, { y: 16, opacity: 0, duration: 0.42, ease: "power2.out" }, start + 0.06);
+      tl.from(`${selector} .render-card`, { y: 34, opacity: 0, duration: 0.58, stagger: 0.09, ease: "power2.out" }, start + 0.14);
+      tl.to(selector, { opacity: 0, duration: 0.36, ease: "power2.in" }, start + duration - 0.36);
+      tl.set(selector, { visibility: "hidden" }, start + duration);
+    }
+
+    function showTrainingPhase(selector, start, duration) {
+      tl.set(selector, { visibility: "visible", opacity: 1 }, start);
+      const mediaSelector = `${selector} .training-media-panel, ${selector} .final-checkpoint-card`;
+      const cardSelector = `${selector} .checkpoint-card`;
+      const copySelector = `${selector} .training-copy-panel`;
+      const noteSelector = `${selector} .training-note`;
+      if (document.querySelector(mediaSelector)) {
+        tl.from(mediaSelector, { x: -42, opacity: 0, duration: 0.58, ease: "power3.out" }, start + 0.05);
+      }
+      if (document.querySelector(cardSelector)) {
+        tl.from(cardSelector, { y: 30, opacity: 0, duration: 0.46, stagger: 0.07, ease: "power2.out" }, start + 0.24);
+      }
+      if (document.querySelector(copySelector)) {
+        tl.from(copySelector, { x: 44, opacity: 0, duration: 0.58, ease: "power3.out" }, start + 0.22);
+      }
+      if (document.querySelector(noteSelector)) {
+        tl.from(noteSelector, { y: 22, opacity: 0, duration: 0.44, stagger: 0.1, ease: "power2.out" }, start + 0.54);
+      }
+      tl.to(selector, { opacity: 0, duration: 0.36, ease: "power2.in" }, start + duration - 0.36);
+      tl.set(selector, { visibility: "hidden" }, start + duration);
+    }
+
+    function showSubtitle(selector, start, duration) {
+      tl.set(selector, { visibility: "visible", opacity: 1, zIndex: 90 }, start);
+      tl.set(selector, { visibility: "hidden", opacity: 0 }, start + duration);
+    }
+
+    document.querySelectorAll(".scene.clip").forEach((scene) => {
+      showScene(scene.id, startOf(scene.id), durationOf(scene.id));
+    });
+
+    const showcases = [
+      "showcase-girl3",
+      "showcase-cat2",
+      "showcase-boy",
+      "showcase-girl",
+      "showcase-zx",
+      "showcase-boy2",
+      "showcase-linux",
+      "showcase-pink",
+      "showcase-beethoven",
+      "showcase-boy3",
+      "showcase-dog",
+      "showcase-cat"
+    ];
+    showcases.forEach((id) => {
+      showSlidingShowcase(`#${id}`, startOf(id), durationOf(id));
+    });
+
+    showStructureSegment("#skin-uv-closeup", startOf("skin-uv-closeup"), durationOf("skin-uv-closeup"));
+    showStructureSegment("#skin-layers-closeup", startOf("skin-layers-closeup"), durationOf("skin-layers-closeup"));
+    showStructureSegment("#skin-fold-video", startOf("skin-fold-video"), durationOf("skin-fold-video"));
+
+    const uvMapSequenceStart = startOfSubtitleContaining("It is a texture map", startOf("skin-uv-closeup", 2.2));
+    const uvMapSequenceEnd = startOf("skin-layers-closeup") - 0.28;
+    const uvMapRegions = [
+      "head",
+      "head-overlay",
+      "torso",
+      "torso-overlay",
+      "left-leg",
+      "left-leg-overlay",
+      "right-leg",
+      "right-leg-overlay",
+      "left-arm",
+      "left-arm-overlay",
+      "right-arm",
+      "right-arm-overlay"
+    ];
+    const uvMapRegionStep = (uvMapSequenceEnd - uvMapSequenceStart) / uvMapRegions.length;
+    uvMapRegions.forEach((name, index) => {
+      const selector = `#uvmap-${name}-box, #uvmap-${name}-label`;
+      const itemStart = uvMapSequenceStart + index * uvMapRegionStep;
+      tl.to(selector, { opacity: 1, duration: 0.24, overwrite: "auto" }, itemStart);
+      tl.to(selector, { opacity: 0, duration: 0.24, overwrite: "auto" }, itemStart + uvMapRegionStep * 0.72);
+    });
+
+    ["render-pair-surface", "render-pair-camera", "render-pair-lighting", "render-pair-layers"].forEach((id) => {
+      showRenderPair(`#${id}`, startOf(id), durationOf(id));
+    });
+    ["training-phase-early", "training-phase-mid", "training-phase-late", "training-phase-final"].forEach((id) => {
+      showTrainingPhase(`#${id}`, startOf(id), durationOf(id));
+    });
+
+    tl.from("#scene-cta .cta-card", { scale: 0.96, opacity: 0, duration: 0.62, ease: "power3.out" }, startOf("scene-cta", 0.2));
+    tl.from("#scene-cta .video-play-button", { scale: 0.86, opacity: 0, duration: 0.36, ease: "power2.out" }, startOf("scene-cta", 1.0));
+    tl.to("#scene-cta .video-slot-progress-fill", { width: "100%", duration: Math.max(1, durationOf("scene-cta") - 1.4), ease: "none" }, startOf("scene-cta", 1.2));
+    tl.to("#skin-fold-video .uv-slot-progress-fill", { width: "100%", duration: 15.567, ease: "none" }, startOf("skin-fold-video", 0.0));
+    tl.from("#scene-hard .constraint-card", { x: -48, opacity: 0, duration: 0.56, stagger: 0.1, ease: "power2.out" }, startOf("scene-hard", 1.2));
+    tl.from("#scene-hard .hard-video-frame, #hard-fold-video, #hard-video-label", { scale: 0.97, duration: 0.5, ease: "power3.out" }, startOf("scene-hard", 0.2));
+    tl.from("#scene-general-models .failure-card", { y: 52, opacity: 0, duration: 0.64, stagger: 0.14, ease: "power2.out" }, startOf("scene-general-models", 1.2));
+    tl.from("#scene-general-models .reason", { x: 42, opacity: 0, duration: 0.52, stagger: 0.16, ease: "power2.out" }, startOf("scene-general-models", 2.2));
+    tl.from("#scene-finetune .fact", { x: -46, opacity: 0, duration: 0.55, stagger: 0.12, ease: "power2.out" }, startOf("scene-finetune", 1.2));
+    tl.from("#scene-finetune .image-frame", { x: 56, opacity: 0, duration: 0.78, ease: "power3.out" }, startOf("scene-finetune", 1.6));
+    tl.from("#scene-image-to-skin .bridge-panel", { y: 38, opacity: 0, duration: 0.6, stagger: 0.18, ease: "power2.out" }, startOf("scene-image-to-skin", 0.8));
+    tl.from("#scene-image-to-skin .bridge-switch", { scale: 0.92, opacity: 0, duration: 0.48, ease: "power2.out" }, startOf("scene-image-to-skin", 1.5));
+    tl.from("#scene-image-to-skin .bridge-comparison .square-media", { y: 22, opacity: 0, duration: 0.46, stagger: 0.12, ease: "power2.out" }, startOf("scene-image-to-skin", 2.0));
+    tl.from("#scene-dataset .pipeline > .image-frame", { x: -56, opacity: 0, duration: 0.76, ease: "power3.out" }, startOf("scene-dataset", 1.2));
+    tl.from("#scene-dataset .arrow", { scale: 0.72, opacity: 0, duration: 0.48, ease: "back.out(1.6)" }, startOf("scene-dataset", 2.0));
+    tl.from("#scene-dataset .target-wrap", { x: 58, opacity: 0, duration: 0.82, ease: "power3.out" }, startOf("scene-dataset", 2.3));
+
+    const datasetStart = startOf("scene-dataset");
+    const datasetDuration = durationOf("scene-dataset");
+    const uvHighlightStart = startOfSubtitleContaining("The target image is the output", datasetStart + 27.0);
+    const previewHighlightStart = startOfSubtitleContaining("The top-right area includes", datasetStart + 38.5);
+    const viewsHighlightStart = startOfSubtitleContaining("The bottom area contains", datasetStart + 41.5);
+    const datasetHighlightEnd = Math.min(
+      startOfSubtitleContaining("To be clear", datasetStart + 48.0),
+      datasetStart + datasetDuration - 0.8
+    );
+    tl.to("#uv-box, #uv-label", { opacity: 1, duration: 0.36, overwrite: "auto" }, uvHighlightStart);
+    tl.to("#uv-box, #uv-label", { opacity: 0, duration: 0.3, overwrite: "auto" }, previewHighlightStart - 0.12);
+    tl.to("#preview-box, #preview-label", { opacity: 1, duration: 0.36, overwrite: "auto" }, previewHighlightStart);
+    tl.to("#preview-box, #preview-label", { opacity: 0, duration: 0.3, overwrite: "auto" }, viewsHighlightStart - 0.12);
+    tl.to("#views-box, #views-label", { opacity: 1, duration: 0.36, overwrite: "auto" }, viewsHighlightStart);
+    tl.to("#views-box, #views-label", { opacity: 0, duration: 0.3, overwrite: "auto" }, datasetHighlightEnd);
+
+    tl.from("#scene-data-loop .reverse-method", { x: -48, opacity: 0, duration: 0.64, ease: "power3.out" }, startOf("scene-data-loop", 1.0));
+    tl.from("#scene-data-loop .reverse-node, #scene-data-loop .flow-arrow-down", { y: 22, opacity: 0, duration: 0.38, stagger: 0.08, ease: "power2.out" }, startOf("scene-data-loop", 1.55));
+    tl.from("#scene-data-loop .synthesis-method", { x: 48, opacity: 0, duration: 0.64, ease: "power3.out" }, startOf("scene-data-loop", 5.2));
+    tl.from("#scene-data-loop .loop-step", { y: 34, opacity: 0, duration: 0.42, stagger: 0.08, ease: "power2.out" }, startOf("scene-data-loop", 5.8));
+    tl.from("#scene-data-loop .loop-return", { y: 22, opacity: 0, duration: 0.42, ease: "power2.out" }, startOf("scene-data-loop", 7.0));
+    tl.from("#scene-alpha .image-frame", { x: -52, opacity: 0, duration: 0.72, ease: "power3.out" }, startOf("scene-alpha", 1.2));
+    tl.from("#scene-alpha .alpha-step", { x: 44, opacity: 0, duration: 0.52, stagger: 0.13, ease: "power2.out" }, startOf("scene-alpha", 1.8));
+    tl.from("#scene-limits .limits-screen .kicker", { y: 18, opacity: 0, duration: 0.58, ease: "power2.out" }, startOf("scene-limits", 0.18));
+    tl.from("#scene-limits .limits-screen h2", { y: 34, opacity: 0, duration: 0.78, ease: "power3.out" }, startOf("scene-limits", 0.28));
+    tl.from("#scene-limits .limit-card", { y: 36, opacity: 0, duration: 0.48, stagger: 0.09, ease: "power2.out" }, startOf("scene-limits", 1.2));
+    const nextDirectionsStart = startOfSubtitleContaining("接下来可以怎样变得更好 are clear", startOf("scene-limits", 10.0));
+    tl.set("#scene-limits .limits-next-screen", { visibility: "hidden", opacity: 0 }, startOf("scene-limits", 0));
+    tl.to("#scene-limits .limits-screen", { opacity: 0, duration: 0.42, ease: "power2.in" }, nextDirectionsStart - 0.48);
+    tl.set("#scene-limits .limits-screen", { visibility: "hidden" }, nextDirectionsStart);
+    tl.set("#scene-limits .limits-next-screen", { visibility: "visible", opacity: 0 }, nextDirectionsStart - 0.03);
+    tl.to("#scene-limits .limits-next-screen", { opacity: 1, duration: 0.5, ease: "power2.out" }, nextDirectionsStart);
+    tl.set("#scene-limits .limits-next-screen .kicker, #scene-limits .limits-next-screen h2", { opacity: 1, y: 0, clearProps: "transform" }, nextDirectionsStart);
+    const substyleStart = startOfSubtitleContaining("Sub-style control could make", nextDirectionsStart + 12.0);
+    tl.from("#scene-limits .future-direction", { x: -30, opacity: 0, duration: 0.42, stagger: 0.08, ease: "power2.out" }, nextDirectionsStart + 0.58);
+    tl.from("#scene-limits .substyle-card", { x: 36, opacity: 0, duration: 0.52, ease: "power3.out" }, substyleStart);
+    tl.from("#scene-limits .substyle-result", { y: 28, opacity: 0, duration: 0.42, stagger: 0.08, ease: "power2.out" }, substyleStart + 0.38);
+
+    const closingResourceStart = startOf("scene-closing", 31.0);
+    tl.from("#scene-closing .closing-takeaways-screen .kicker", { y: 18, opacity: 0, duration: 0.58, ease: "power2.out" }, startOf("scene-closing", 0.18));
+    tl.from("#scene-closing .closing-takeaways-screen h2", { y: 34, opacity: 0, duration: 0.78, ease: "power3.out" }, startOf("scene-closing", 0.28));
+    tl.set("#scene-closing .closing-resource-screen", { visibility: "hidden", opacity: 0 }, startOf("scene-closing", 0));
+    tl.from("#scene-closing .takeaway-card", { y: 42, opacity: 0, duration: 0.52, stagger: 0.1, ease: "power2.out" }, startOf("scene-closing", 1.2));
+    tl.to("#scene-closing .closing-takeaways-screen", { opacity: 0, duration: 0.5, ease: "power2.in" }, closingResourceStart - 0.55);
+    tl.set("#scene-closing .closing-takeaways-screen", { visibility: "hidden" }, closingResourceStart);
+    tl.set("#scene-closing .closing-resource-screen", { visibility: "visible", opacity: 0 }, closingResourceStart - 0.05);
+    tl.to("#scene-closing .closing-resource-screen", { opacity: 1, duration: 0.52, ease: "power2.out" }, closingResourceStart);
+    tl.from("#scene-closing .closing-resource-screen .kicker, #scene-closing .closing-resource-screen h2", { y: 28, opacity: 0, duration: 0.48, stagger: 0.08, ease: "power2.out" }, closingResourceStart + 0.12);
+    tl.from("#scene-closing .resource-card", { x: -34, opacity: 0, duration: 0.52, stagger: 0.14, ease: "power2.out" }, closingResourceStart + 0.72);
+    tl.from("#scene-closing .subscribe-card", { x: 40, opacity: 0, duration: 0.58, ease: "power2.out" }, closingResourceStart + 1.0);
+
+    document.querySelectorAll(".subtitle-line.clip").forEach((line) => {
+      showSubtitle(`#${line.id}`, startOf(line.id), durationOf(line.id));
+    });
+    tl.to(".progress-fill", { width: "100%", duration: totalDuration, ease: "none" }, 0);
+
+    window.__timelines["main"] = tl;
+  </script>
+</body>
+
+</html>

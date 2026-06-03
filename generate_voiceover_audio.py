@@ -2,10 +2,10 @@
 """Extract structured voiceover blocks and generate missing MiniMax TTS audio.
 
 Default behavior:
-  1. Parse "## Full Voiceover Draft" in video/skingen.en.youtube-script.md.
+  1. Parse "## Full Voiceover Draft" in skingen.en.youtube-script.md.
   2. Extract every "### VO NN | start-end | slug | title" block.
   3. Write per-chapter transcript .txt files.
-  4. Call video/minimax_tts.py for missing MP3 files.
+  4. Call minimax_tts.py for missing MP3 files.
 
 Existing MP3 files are skipped unless --force is provided.
 """
@@ -23,10 +23,10 @@ from pathlib import Path
 
 DEFAULT_SCRIPT = Path("skingen.en.youtube-script.md")
 DEFAULT_TTS_SCRIPT = Path("minimax_tts.py")
-DEFAULT_TRANSCRIPT_DIR = Path("hyperframes_codex/audios/transcripts")
-DEFAULT_OUTPUT_DIR = Path("hyperframes_codex/audios")
-DEFAULT_SUBTITLE_DIR = Path("hyperframes_codex/audios/subtitles")
-DEFAULT_METADATA_DIR = Path("hyperframes_codex/audios/metadata")
+DEFAULT_TRANSCRIPT_DIR = Path("skingen_en/audios/transcripts")
+DEFAULT_OUTPUT_DIR = Path("skingen_en/audios")
+DEFAULT_SUBTITLE_DIR = Path("skingen_en/audios/subtitles")
+DEFAULT_METADATA_DIR = Path("skingen_en/audios/metadata")
 
 
 @dataclass(frozen=True)

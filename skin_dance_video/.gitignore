@@ -1,0 +1,6 @@
+node_modules
+dist
+outputs/*
+!outputs/.gitkeep
+public/generated/*
+!public/generated/placeholder_skin.svg

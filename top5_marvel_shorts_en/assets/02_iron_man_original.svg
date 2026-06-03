@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs><pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M54 0H0V54" fill="none" stroke="#293247" stroke-width="2"/></pattern></defs>
+  <rect width="1080" height="1920" fill="#090a0f"/><rect width="1080" height="1920" fill="url(#grid)"/>
+  <rect x="70" y="190" width="940" height="1260" fill="#2b1015" stroke="#ef3340" stroke-width="10"/>
+  <path d="M160 1450 540 260l380 1190z" fill="#ffd166" opacity=".24"/>
+  <text x="540" y="112" text-anchor="middle" fill="#ffd166" font-family="Arial Black, Arial, sans-serif" font-size="52">ORIGINAL IMAGE</text>
+  <text x="540" y="1565" text-anchor="middle" fill="#f8fbff" font-family="Arial Black, Arial, sans-serif" font-size="88">IRON MAN</text>
+  <text x="540" y="1650" text-anchor="middle" fill="#aeb8c8" font-family="Arial, sans-serif" font-size="42" font-weight="700">PLACEHOLDER</text>
+</svg>
