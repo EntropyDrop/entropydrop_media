@@ -1,0 +1,285 @@
+{
+  "instructions": [
+    "Fill src with a path relative to skin_reconstruction/index.html, then run npm run build.",
+    "Use the true workflow or model names in label. Empty src keeps the placeholder.",
+    "Comparison videos should use matched camera, scale, lighting, duration, and motion."
+  ],
+  "assets": {
+    "comparison.C01.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C01_previous.mp4"
+    },
+    "comparison.C01.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C01_reconstruction.mp4"
+    },
+    "comparison.C02.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C02_previous.mp4"
+    },
+    "comparison.C02.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C02_reconstruction.mp4"
+    },
+    "comparison.C03.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C03_previous.mp4"
+    },
+    "comparison.C03.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C03_reconstruction.mp4"
+    },
+    "comparison.C04.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C04_previous.mp4"
+    },
+    "comparison.C04.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C04_reconstruction.mp4"
+    },
+    "comparison.C05.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C05_previous.mp4"
+    },
+    "comparison.C05.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C05_reconstruction.mp4"
+    },
+    "comparison.C06.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C06_previous.mp4"
+    },
+    "comparison.C06.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C06_reconstruction.mp4"
+    },
+    "comparison.C07.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C07_previous.mp4"
+    },
+    "comparison.C07.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C07_reconstruction.mp4"
+    },
+    "comparison.C08.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C08_previous.mp4"
+    },
+    "comparison.C08.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C08_reconstruction.mp4"
+    },
+    "comparison.C09.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C09_previous.mp4"
+    },
+    "comparison.C09.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C09_reconstruction.mp4"
+    },
+    "comparison.C10.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C10_previous.mp4"
+    },
+    "comparison.C10.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C10_reconstruction.mp4"
+    },
+    "comparison.C11.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C11_previous.mp4"
+    },
+    "comparison.C11.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C11_reconstruction.mp4"
+    },
+    "comparison.C12.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C12_previous.mp4"
+    },
+    "comparison.C12.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C12_reconstruction.mp4"
+    },
+    "comparison.C13.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C13_previous.mp4"
+    },
+    "comparison.C13.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C13_reconstruction.mp4"
+    },
+    "comparison.C14.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C14_previous.mp4"
+    },
+    "comparison.C14.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C14_reconstruction.mp4"
+    },
+    "comparison.C15.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C15_previous.mp4"
+    },
+    "comparison.C15.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C15_reconstruction.mp4"
+    },
+    "comparison.C16.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C16_previous.mp4"
+    },
+    "comparison.C16.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C16_reconstruction.mp4"
+    },
+    "comparison.C17.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C17_previous.mp4"
+    },
+    "comparison.C17.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C17_reconstruction.mp4"
+    },
+    "comparison.C18.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C18_previous.mp4"
+    },
+    "comparison.C18.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C18_reconstruction.mp4"
+    },
+    "comparison.C19.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C19_previous.mp4"
+    },
+    "comparison.C19.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C19_reconstruction.mp4"
+    },
+    "comparison.C20.previous": {
+      "src": "",
+      "type": "video",
+      "label": "Previous workflow",
+      "suggested": "assets/comparisons/C20_previous.mp4"
+    },
+    "comparison.C20.reconstruction": {
+      "src": "",
+      "type": "video",
+      "label": "Reconstruction workflow",
+      "suggested": "assets/comparisons/C20_reconstruction.mp4"
+    },
+    "website.upload": {
+      "src": "",
+      "type": "video",
+      "label": "Website recording · Upload",
+      "suggested": "assets/website/01_upload.mp4"
+    },
+    "website.generate": {
+      "src": "",
+      "type": "video",
+      "label": "Website recording · Generate",
+      "suggested": "assets/website/02_generate.mp4"
+    },
+    "website.preview": {
+      "src": "",
+      "type": "video",
+      "label": "Website recording · Preview & Download",
+      "suggested": "assets/website/03_preview_download.mp4"
+    },
+    "technical.pipeline": {
+      "src": "",
+      "type": "image",
+      "label": "Reference → Views → Skin → 3D",
+      "suggested": "assets/technical/pipeline.png"
+    },
+    "technical.layers": {
+      "src": "",
+      "type": "video",
+      "label": "Base and outer layer turn",
+      "suggested": "assets/technical/layers.mp4"
+    },
+    "technical.limits": {
+      "src": "",
+      "type": "image",
+      "label": "Real limitation examples",
+      "suggested": "assets/technical/limits.png"
+    }
+  }
+}

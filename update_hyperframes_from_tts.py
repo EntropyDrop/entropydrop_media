@@ -356,24 +356,27 @@ def update_scene_and_showcase_timing(html_text: str, timings: list[ChapterTiming
         count=1,
     )
 
-    for index, (scene_id, timing) in enumerate(zip(SCENE_IDS, timings)):
+    scene_ids = re.findall(r'<section id="(scene-[^"]+)"\s+class="scene clip"', html_text)
+    if not scene_ids:
+        scene_ids = SCENE_IDS
+
+    for index, (scene_id, timing) in enumerate(zip(scene_ids, timings)):
         html_text = replace_attr(html_text, scene_id, "data-start", timing.start)
-        duration = timing.duration + max(0.0, outro_padding) if index == len(SCENE_IDS) - 1 else timing.duration
+        duration = timing.duration + max(0.0, outro_padding) if index == len(scene_ids) - 1 else timing.duration
         html_text = replace_attr(html_text, scene_id, "data-duration", duration)
 
-    results = timings[1]
     showcases = extract_showcase_ids(html_text)
-    if not showcases:
-        raise ValueError("Could not find showcase clips in #scene-results.")
-    showcase_start = timings[0].start
-    showcase_duration = timings[2].start - showcase_start if len(timings) >= 3 else timings[0].duration + results.duration
-    html_text = replace_attr(html_text, "scene-results", "data-start", showcase_start)
-    html_text = replace_attr(html_text, "scene-results", "data-duration", showcase_duration)
-    showcase_dur = showcase_duration / len(showcases)
-    for idx, showcase_id in enumerate(showcases):
-        start = showcase_start + idx * showcase_dur
-        html_text = replace_attr(html_text, showcase_id, "data-start", start)
-        html_text = replace_attr(html_text, showcase_id, "data-duration", showcase_dur)
+    if showcases:
+        results = timings[1]
+        showcase_start = timings[0].start
+        showcase_duration = timings[2].start - showcase_start if len(timings) >= 3 else timings[0].duration + results.duration
+        html_text = replace_attr(html_text, "scene-results", "data-start", showcase_start)
+        html_text = replace_attr(html_text, "scene-results", "data-duration", showcase_duration)
+        showcase_dur = showcase_duration / len(showcases)
+        for idx, showcase_id in enumerate(showcases):
+            start = showcase_start + idx * showcase_dur
+            html_text = replace_attr(html_text, showcase_id, "data-start", start)
+            html_text = replace_attr(html_text, showcase_id, "data-duration", showcase_dur)
 
     if 'id="skin-uv-closeup"' in html_text and len(timings) >= 4:
         skin_structure = timings[3]

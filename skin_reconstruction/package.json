@@ -1,0 +1,11 @@
+{
+  "name": "hyperframes-skin-reconstruction-en",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build_placeholder_hyperframes.mjs",
+    "dev": "npx --yes hyperframes@0.6.6 preview",
+    "check": "npx --yes hyperframes@0.6.6 lint && npx --yes hyperframes@0.6.6 validate && npx --yes hyperframes@0.6.6 inspect",
+    "render": "npx --yes hyperframes@0.6.6 render"
+  }
+}

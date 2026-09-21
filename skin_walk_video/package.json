@@ -1,0 +1,10 @@
+{
+  "name": "skin-walk-video-generator",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "render": "node render_skin_walk_video.mjs",
+    "test": "node --test test/*.test.mjs",
+    "check": "tsc --noEmit"
+  }
+}

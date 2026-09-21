@@ -1,0 +1,1 @@
+That's the workflow: upload a character, generate the skin, inspect it from every angle, and download the PNG. Try it with your own reference on EntropyDrop. If you're curious about the implementation, the article and code are linked below.
