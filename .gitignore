@@ -7,3 +7,6 @@ renders
 __pycache__
 skingen_*/audios/metadata/
 skingen_*/audios/voiceover_full_*.wav
+snapshots
+assets/skin_reconstruction/*.webm
+

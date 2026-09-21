@@ -1,0 +1,1 @@
+There are still limits. Tiny text and intricate patterns have to be simplified. Surfaces missing from the reference need to be filled in, and that doesn't guarantee the original design. Accessories also have to fit Minecraft's standard player shape. Check those areas in the preview, and use the editor if a small correction is needed.

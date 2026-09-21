@@ -4,6 +4,7 @@ Video projects are split by language while sharing the same media assets.
 
 ```text
 assets/             Shared images, videos, and fonts.
+skin_walk_video/    MCModal Walk animation with a full 360-degree turn; MP4/WebM CLI.
 skingen_en/         English Hyperframes project.
 skingen_en_shorts/  English vertical Shorts project using the first 3 chapters.
 skingen_zh_hans/    Simplified Chinese Hyperframes project scaffold.
