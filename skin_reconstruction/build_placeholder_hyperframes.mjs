@@ -276,9 +276,9 @@ function webUploadScene(chapter) {
             <div class="card-sub-item">
               <div class="card-sub-header">
                 <span class="card-sub-title">Local Deployment</span>
-                <span class="card-sub-badge green">100% FREE &amp; OPEN</span>
+                <span class="card-sub-badge green">OPEN-SOURCE STAGE 2</span>
               </div>
-              <span class="card-sub-desc">Pipeline and weights are fully open source for unlimited free local running.</span>
+              <span class="card-sub-desc">Reconstruction code and weights are open source. The complete workflow still needs a compatible Stage One image model.</span>
             </div>
           </div>
         </div>
@@ -470,7 +470,7 @@ function stageOneScene(chapter) {
         <span class="step-badge">STEP 1.1</span>
         <h3>Reference + Fixed Examples</h3>
         <p>The character reference is paired with Minecraft template images sharing fixed camera angles, Steve/Alex mesh poses, and standard view layouts.</p>
-        <div class="tag-status tag-open">Open-Source Pipeline Code</div>
+        <div class="tag-status tag-open">Open Workflow Components</div>
       </div>
       <div class="stage-flow-arrow"><i>→</i></div>
       <div class="stage-card">

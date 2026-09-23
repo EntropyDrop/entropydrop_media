@@ -4,9 +4,9 @@
 
 本稿只用于确认视频叙事。**确认前不要重新生成 Hyperframes、旁白、字幕或成片。**
 
-英文口播采用四幕结构：**1. 开场与 20 组多风格效果；2. 网站使用说明；3. SKING_DDJ 的命名来源与两阶段原理；4. 未来展望。** 目标时长约 **8 分 20 秒**。
+英文口播采用四幕结构：**1. 开场与 28 组社区生成效果；2. 网站使用说明；3. SKING_DDJ 的命名来源与两阶段原理；4. 未来展望。** 目标时长约 **8 分 20 秒**。
 
-这次发布需要准确说明范围：**整个流水线代码已经开源**，包括从角色图到最终 64×64 皮肤的流程；但生成固定格式 Minecraft 正面与背面图的中间步骤依赖一个闭源图像模型。流水线开源不代表其中每个第三方依赖也开源，也不要暗示单个 checkpoint 就能复现完整结果。
+这次发布需要准确说明范围：**Stage Two 的皮肤重建代码与模型权重已经开源**，可以把规范化的 Minecraft 正背面图重建为最终 64×64 皮肤；但从任意角色图生成这些固定格式正背面图的 Stage One 仍依赖闭源图像模型。不要把 Stage Two 的开源表述成完整两阶段流程可以完全开源、免费或离线运行，也不要暗示单个 checkpoint 就能复现完整结果。
 
 参考来源：
 
@@ -19,7 +19,7 @@
 
 - **Working title:** We Open-Sourced Another Image-to-Minecraft-Skin Model
 - **Target length:** approximately 8:20
-- **Format:** English voiceover, 20 multi-style examples, browser walkthrough, the SKING_DDJ origin story, a plain-language pipeline explanation, and a short future outlook
+- **Format:** English voiceover, 28 community results, browser walkthrough, the SKING_DDJ origin story, a plain-language pipeline explanation, and a short future outlook
 - **Audience:** Minecraft players, skin creators, open-source developers, and viewers interested in image-to-skin generation
 - **Core promise:** Show what the pipeline produces across different input styles, teach viewers how to use it, credit DDJ for the original direction, explain the two stages, and show where the project goes next.
 - **Tone:** Direct, visual, candid, and practical. Treat the comparisons as evidence instead of claiming that every result is better.
@@ -27,7 +27,7 @@
 ## Title Ideas
 
 1. **We Open-Sourced Another Image-to-Minecraft-Skin Model**
-2. Another Open-Source Minecraft Skin Model — 20 Results
+2. Another Open-Source Minecraft Skin Model — 28 Community Results
 3. From Image to Minecraft Skin: Our New Open-Source Release
 
 推荐第一个标题。“Another”延续已有项目，也天然引出观众的问题：为什么还需要另一个模型？
@@ -36,7 +36,7 @@
 
 - ANOTHER OPEN-SOURCE MODEL
 - IMAGE → MINECRAFT SKIN
-- 20 INPUT STYLES
+- 28 COMMUNITY RESULTS
 
 主画面使用一组辨识度高的 3D 对比，右上角放小型 GitHub / open-source 标识。不要在缩略图中堆版本号、网络名称或指标。
 
@@ -46,7 +46,7 @@ We have open-sourced another model for turning character images into usable Mine
 
 This video starts with character images in different visual styles and compares each input with its 3D Minecraft skin. Then we use the model on EntropyDrop: upload a reference, generate a skin, inspect it from every angle, and download the PNG.
 
-The complete pipeline code is open source, although one intermediate step still depends on a closed-source image model. We also explain why the model family is called SKING_DDJ: the name credits DDJ's earlier public work on the same two-stage direction. The final section shows how the two stages connect and what we want to improve next.
+The Stage Two skin-reconstruction code and model weights are open source. The preceding image-normalization stage still relies on a closed-source image model, so the complete two-stage workflow is not fully open source. We also explain why the model family is called SKING_DDJ: the name credits DDJ's earlier public work on the same two-stage direction. The final section shows how the two stages connect and what we want to improve next.
 
 Try the generator:
 https://entropydrop.com/skin/generate
@@ -88,7 +88,7 @@ Chapters:
 
 WE OPEN-SOURCED ANOTHER MODEL
 
-20 input styles · Live demo · Open-source pipeline
+28 community results · Live demo · Open-source reconstruction
 
 不要用代码滚屏开场。开源是新闻点，效果才是观众留下来的原因。
 
@@ -129,7 +129,7 @@ WE OPEN-SOURCED ANOTHER MODEL
 5. 依次点击底部的 **Idle**、**Walk**、**Dance** 动作按钮，展示站立、行走与舞蹈三种动态表现。
 6. 点击 **DOWNLOAD** 保存最终的 64×64 皮肤 PNG。
 
-尽量使用已经出现在 20 组对比中的同一个角色，让效果展示、网站操作和技术说明形成一条完整故事线。
+尽量使用已经出现在 28 组社区成果中的同一个角色，让效果展示、网站操作和技术说明形成一条完整故事线。
 
 ## DDJ Naming and Principle Notes
 
@@ -201,7 +201,7 @@ Take a moment to look at how these characters hold up from every angle in motion
 - Visual direction: 网站真实录屏。显示地址、上传动作和预览，点击之间留停顿。
 
 ```text
-To try the model online, open entropydrop dot com and sign in, then upload a reference image. The model featured in this video is named the SKING DDJ series. Click the generate button, and you will get your result. For our hosted service, high server costs make continuous free access hard to sustain, so we periodically open free access on the website—if you're lucky. If you prefer local deployment, the entire pipeline and model are open source, so you can run it for free without restrictions.
+To try the model online, open entropydrop dot com and sign in, then upload a reference image. The model featured in this video is named the SKING DDJ series. Click the generate button, and you will get your result. For our hosted service, high server costs make continuous free access hard to sustain, so we open periodic free-access windows on the website. For local use, the Stage Two reconstruction code and weights are open source. Running the complete workflow still requires access to a compatible image model for Stage One.
 ```
 
 ### VO 07 | 4:10-4:50 | viewer_modes | 3D Viewer: Display Modes
@@ -261,7 +261,7 @@ Stage two turns those fixed views into the actual skin file. A Minecraft skin is
 - Visual direction: 先显示闭源依赖的痛点（格式不稳导致生成失败、发型头饰多样性欠缺），再切到数据积累与未来自有模型；最后展示网站、GitHub 与频道关注订阅卡片。
 
 ```text
-This release is one step, not the end of the project. The largest dependency is still the closed-source image model in stage one, and relying on it has real downsides. It cannot guarantee a valid fixed format every time, which can cause skin generation to fail, and its diversity for hairstyles and head accessories is still limited. We want to collect reviewed examples connecting the character, fixed views, and final skin to reduce that dependency. For now, you can try the pipeline on EntropyDrop. All code, model weights, and our technical article are linked below. If you enjoyed this, subscribe to the channel—we'll have many more interesting models to share soon. Thanks for watching!
+This release is one step, not the end of the project. The largest dependency is still the closed-source image model in stage one, and relying on it has real downsides. It cannot guarantee a valid fixed format every time, which can cause skin generation to fail, and its diversity for hairstyles and head accessories is still limited. We want to collect reviewed examples connecting the character, fixed views, and final skin to reduce that dependency. For now, you can try the pipeline on EntropyDrop. The open-source reconstruction code, model weights, and our technical article are linked below. If you enjoyed this, subscribe to the channel—we'll have many more interesting models to share soon. Thanks for watching!
 ```
 
 ## Production Handoff
@@ -270,5 +270,5 @@ This release is one step, not the end of the project. The largest dependency is 
 - 确认后，Hyperframes 按四幕重排：第 1–5 场为开场和多风格效果，第 6–8 场为网站教程，第 9–11 场为 DDJ 命名与两阶段原理，第 12 场为未来展望和链接。
 - 网站教程缩短到 3:30–5:30；DDJ 与原理占 5:30–7:30；未来展望占 7:30–8:20。
 - 生成新旁白时使用本稿的新文件名，避免误用旧 MP3。
-- 20 组素材接入后，根据真实输入修改每个 case 的风格标签；不要让旁白描述素材中看不到的特征。
+- 28 组素材接入后，根据真实输入修改每个 case 的风格标签；不要让旁白描述素材中看不到的特征。
 - 录制 DDJ 资料、GitHub 和 Hugging Face 页面前，再次核对作者、发布日期、公开内容和链接。最终时码以实际配音与操作节奏为准。
