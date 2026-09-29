@@ -118,47 +118,81 @@ function asset(key, timing, extraClass = '') {
     '<small>Target: ' + esc(item.suggested || 'add src in assets/placeholder-manifest.json') + '</small></div>';
 }
 
-// Scene 1: Hook (0:00 - 0:20)
-function hookScene() {
-  const preferredIds = [
-    '34G2L2VV', '3ACVBJ56', '6RMR3QVX',
-    '92KSG3E4', 'KGRGNN4C', 'P8NBZUTB',
-    'VSKVXAWN', 'XCH2FCBQ', 'RHK5KXG6',
-  ];
-  const selected = preferredIds
-    .map(id => communityItems.find(item => item.shortId === id))
-    .filter(Boolean);
-  for (const item of communityItems) {
-    if (selected.length >= 9) break;
-    if (!selected.some(candidate => candidate.shortId === item.shortId)) selected.push(item);
-  }
+function renderShowcaseCard(item, itemStart, slotDuration, trackIndex, idPrefix = 'case') {
+  const refPath = `assets/skin_reconstruction/${item.jpgFile}`;
+  const videoPath = `assets/skin_reconstruction/skin_${item.shortId}__walk360.webm`;
+  const username = item.creator?.username || 'Community Creator';
+  const localAvatarRel = `assets/skin_reconstruction/avatars/${item.shortId}.jpg`;
+  const localAvatarPath = path.join(mediaRoot, localAvatarRel);
+  const hasLocalAvatar = fs.existsSync(localAvatarPath);
+  const shortId = item.shortId;
 
-  const cards = selected.slice(0, 9).map((item, index) => {
-    const refPath = `assets/skin_reconstruction/${item.jpgFile}`;
-    const videoPath = `assets/skin_reconstruction/skin_${item.shortId}__walk360.webm`;
-    const username = item.creator?.username || 'Community Creator';
-    return `<article class="hook-pair-card">
-      <div class="hook-pair-reference">
-        <span class="hook-pair-label">IMAGE</span>
-        <img src="${esc(refPath)}" alt="${esc(username)} reference">
+  const avatarHtml = hasLocalAvatar
+    ? `<img src="${localAvatarRel}" alt="${esc(username)}" class="creator-avatar">`
+    : `<div class="creator-avatar-placeholder">${esc(username.charAt(0).toUpperCase())}</div>`;
+
+  return `<article id="${idPrefix}-${shortId}" class="showcase-card" data-card-start="${fmt(itemStart)}" data-card-duration="${fmt(slotDuration)}">
+    <div class="showcase-grid">
+      <div class="showcase-pane ref-pane">
+        <div class="pane-tag">
+          <span class="tag-title">ORIGINAL REFERENCE</span>
+          <span class="tag-sub">Character Input</span>
+        </div>
+        <div class="pane-media">
+          <img id="ref-img-${idPrefix}-${shortId}" src="${esc(refPath)}" alt="${esc(username)} reference" class="ref-img">
+        </div>
       </div>
-      <span class="hook-pair-arrow" aria-hidden="true">→</span>
-      <div class="hook-pair-result">
-        <span class="hook-pair-label">SKIN</span>
-        <video id="hook-walk-${item.shortId}" class="hook-pair-video clip" src="${esc(videoPath)}"
-          data-start="0.000" data-duration="20.000" data-media-start="0"
-          data-volume="0" data-track-index="${30 + index}" muted playsinline preload="auto" loop></video>
+      <div class="showcase-divider">
+        <div class="divider-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
       </div>
-    </article>`;
+      <div class="showcase-pane video-pane">
+        <div class="pane-tag">
+          <span class="tag-title">3D SKIN</span>
+        </div>
+        <div class="pane-media transparent-stage">
+          <video id="walk-vid-${idPrefix}-${shortId}" src="${esc(videoPath)}" data-start="${fmt(itemStart)}" data-duration="${fmt(slotDuration)}" data-media-start="0" data-volume="0" data-track-index="${trackIndex}" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <div class="creator-tag-bottom-right">
+            ${avatarHtml}
+            <div class="creator-details">
+              <span class="creator-role">CREATOR</span>
+              <strong class="creator-name">${esc(username)}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>`;
+}
+
+// Scene 1: Hook (0:00 - 0:20) — Direct Community Showcase
+function hookScene() {
+  const hookStart = 0;
+  const hookEnd = 20;
+  const totalDuration = hookEnd - hookStart;
+  const hookItems = communityItems.slice(0, 3);
+  const itemCount = hookItems.length || 1;
+  const slotDuration = totalDuration / itemCount;
+
+  const cards = hookItems.map((item, index) => {
+    const itemStart = hookStart + index * slotDuration;
+    return renderShowcaseCard(item, itemStart, slotDuration, 30 + index, 'hook-case');
   }).join('');
 
-  return `<section id="scene-1" class="scene">
-    <div class="hook-grid-shell">
-      <header class="hook-grid-header">
-        <h1 class="hook-grid-title"><span class="hook-grid-kicker">ANOTHER OPEN-SOURCE MODEL:</span> IMAGE <em>→</em> MINECRAFT SKIN</h1>
-        <div class="hook-grid-badge">COMMUNITY RESULTS</div>
-      </header>
-      <div class="hook-pairs-grid">${cards}</div>
+  return `<section id="scene-1" class="scene clip" data-track-index="1">
+    <div class="scene-head">
+      <div>
+        <span class="kicker">Community Showcase · Results in Motion</span>
+        <h2>ANOTHER OPEN-SOURCE MODEL: IMAGE <em>→</em> MINECRAFT SKIN</h2>
+      </div>
+      <div class="scene-note">EntropyDrop Community Creations</div>
+    </div>
+    <div class="showcase-stage">
+      ${cards}
     </div>
   </section>`;
 }
@@ -168,67 +202,20 @@ function showcaseScene() {
   const showcaseStart = 20;
   const showcaseEnd = 210;
   const totalDuration = showcaseEnd - showcaseStart;
-  const itemCount = communityItems.length || 1;
+  const showcaseItems = communityItems.slice(3);
+  const itemCount = showcaseItems.length || 1;
   const slotDuration = totalDuration / itemCount;
 
-  const cards = communityItems.map((item, index) => {
+  const cards = showcaseItems.map((item, index) => {
     const itemStart = showcaseStart + index * slotDuration;
-    const refPath = `assets/skin_reconstruction/${item.jpgFile}`;
-    const videoPath = `assets/skin_reconstruction/skin_${item.shortId}__walk360.webm`;
-    const username = item.creator?.username || 'Community Creator';
-    const localAvatarRel = `assets/skin_reconstruction/avatars/${item.shortId}.jpg`;
-    const localAvatarPath = path.join(mediaRoot, localAvatarRel);
-    const hasLocalAvatar = fs.existsSync(localAvatarPath);
-    const model = item.modelVersion || 'SKING_DDJ';
-    const shortId = item.shortId;
-
-    const avatarHtml = hasLocalAvatar
-      ? `<img src="${localAvatarRel}" alt="${esc(username)}" class="creator-avatar">`
-      : `<div class="creator-avatar-placeholder">${esc(username.charAt(0).toUpperCase())}</div>`;
-
-    return `<article id="case-${shortId}" class="showcase-card" data-card-start="${fmt(itemStart)}" data-card-duration="${fmt(slotDuration)}">
-      <div class="showcase-grid">
-        <div class="showcase-pane ref-pane">
-          <div class="pane-tag">
-            <span class="tag-title">ORIGINAL REFERENCE</span>
-            <span class="tag-sub">Character Input</span>
-          </div>
-          <div class="pane-media">
-            <img id="ref-img-${shortId}" src="${esc(refPath)}" alt="${esc(username)} reference" class="ref-img">
-          </div>
-        </div>
-        <div class="showcase-divider">
-          <div class="divider-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </div>
-        </div>
-        <div class="showcase-pane video-pane">
-          <div class="pane-tag">
-            <span class="tag-title">3D SKIN</span>
-          </div>
-          <div class="pane-media transparent-stage">
-            <video id="walk-vid-${shortId}" src="${esc(videoPath)}" data-start="${fmt(itemStart)}" data-duration="${fmt(slotDuration)}" data-media-start="0" data-volume="0" data-track-index="${90 + index}" muted playsinline preload="auto" loop class="walk-video clip"></video>
-            <div class="creator-tag-bottom-right">
-              ${avatarHtml}
-              <div class="creator-details">
-                <span class="creator-role">CREATOR</span>
-                <strong class="creator-name">${esc(username)}</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>`;
+    return renderShowcaseCard(item, itemStart, slotDuration, 90 + index, 'case');
   }).join('');
 
   return `<section id="scene-2" class="scene clip" data-track-index="2">
     <div class="scene-head">
       <div>
         <span class="kicker">Community Showcase · Results in Motion</span>
-        <h2>From Character Reference to 3D Minecraft Skin</h2>
+        <h2>ANOTHER OPEN-SOURCE MODEL: IMAGE <em>→</em> MINECRAFT SKIN</h2>
       </div>
       <div class="scene-note">EntropyDrop Community Creations</div>
     </div>
