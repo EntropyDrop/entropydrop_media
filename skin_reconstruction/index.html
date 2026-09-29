@@ -250,6 +250,110 @@ h2 em {
   font-style: normal;
 }
 
+/* =========================================================================
+   SCENE 2: VO 02 MODEL COMPARISON (3-COLUMN PANE LAYOUT)
+   ========================================================================= */
+
+.compare-stage {
+  position: relative;
+  height: 708px;
+  margin-top: 14px;
+}
+
+.compare-card {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 510px 56px 510px 56px 510px;
+  justify-content: center;
+  height: 100%;
+  gap: 0;
+  align-items: stretch;
+}
+
+.compare-pane {
+  position: relative;
+  border: 1px solid var(--line-soft);
+  background: var(--panel);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 16px 44px rgba(17, 22, 17, 0.06);
+}
+
+.compare-new-pane {
+  border-color: var(--green);
+  box-shadow: 0 16px 44px rgba(29, 122, 59, 0.09);
+}
+
+.status-old {
+  color: #9b1c1c;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.status-new {
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+}
+
+.divider-icon.vs-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  background: var(--paper);
+  border: 2px solid var(--line-soft);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  animation: none;
+  box-shadow: 0 4px 12px rgba(17, 22, 17, 0.06);
+}
+
+.compare-badge-pill {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  z-index: 5;
+  box-shadow: 0 4px 14px rgba(17, 22, 17, 0.08);
+  white-space: nowrap;
+}
+
+.compare-badge-pill.old {
+  background: #fdf3f2;
+  border: 1px solid #f0a8a3;
+  color: #9b1c1c;
+}
+
+.compare-badge-pill.new {
+  background: var(--green-soft);
+  border: 1px solid var(--green);
+  color: var(--green-dark);
+}
+
 
 .showcase-stage {
   position: relative;
@@ -354,13 +458,18 @@ h2 em {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .divider-icon {
   display: grid;
   place-items: center;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
   border: 2px solid var(--green);
   border-radius: 50%;
   color: #ffffff;
@@ -1385,7 +1494,7 @@ h2 em {
       <div class="scene-note">EntropyDrop Community Creations</div>
     </div>
     <div class="showcase-stage">
-      <article id="hook-case-22K8QBW1" class="showcase-card" data-card-start="0.000" data-card-duration="6.667">
+      <article id="hook-case-KBD3Z6CD" class="showcase-card" data-card-start="0.000" data-card-duration="6.667">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1393,7 +1502,7 @@ h2 em {
           <span class="tag-sub">Character Input</span>
         </div>
         <div class="pane-media">
-          <img id="ref-img-hook-case-22K8QBW1" src="assets/skin_reconstruction/22K8QBW1HB4J54GK.jpg" alt="Nozy Op reference" class="ref-img">
+          <img id="ref-img-hook-case-KBD3Z6CD" src="assets/skin_reconstruction/KBD3Z6CDL9GXBUJD.jpg" alt="Bhavishya reference" class="ref-img">
         </div>
       </div>
       <div class="showcase-divider">
@@ -1409,18 +1518,18 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-hook-case-22K8QBW1" src="assets/skin_reconstruction/skin_22K8QBW1__walk360.webm" data-start="0.000" data-duration="6.667" data-media-start="0" data-volume="0" data-track-index="30" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-hook-case-KBD3Z6CD" src="assets/skin_reconstruction/skin_KBD3Z6CD__walk360.webm" data-start="0.000" data-duration="6.667" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="30" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
-            <img src="assets/skin_reconstruction/avatars/22K8QBW1.jpg" alt="Nozy Op" class="creator-avatar">
+            <img src="assets/skin_reconstruction/avatars/KBD3Z6CD.jpg" alt="Bhavishya" class="creator-avatar">
             <div class="creator-details">
               <span class="creator-role">CREATOR</span>
-              <strong class="creator-name">Nozy Op</strong>
+              <strong class="creator-name">Bhavishya</strong>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </article><article id="hook-case-34G2L2VV" class="showcase-card" data-card-start="6.667" data-card-duration="6.667">
+  </article><article id="hook-case-RHK5KXG6" class="showcase-card" data-card-start="6.667" data-card-duration="6.667">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1428,7 +1537,7 @@ h2 em {
           <span class="tag-sub">Character Input</span>
         </div>
         <div class="pane-media">
-          <img id="ref-img-hook-case-34G2L2VV" src="assets/skin_reconstruction/34G2L2VV1YGA6DG3.jpg" alt="Neetu Parihar reference" class="ref-img">
+          <img id="ref-img-hook-case-RHK5KXG6" src="assets/skin_reconstruction/RHK5KXG6KJ7DNABF.jpg" alt="Invester reference" class="ref-img">
         </div>
       </div>
       <div class="showcase-divider">
@@ -1444,18 +1553,18 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-hook-case-34G2L2VV" src="assets/skin_reconstruction/skin_34G2L2VV__walk360.webm" data-start="6.667" data-duration="6.667" data-media-start="0" data-volume="0" data-track-index="31" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-hook-case-RHK5KXG6" src="assets/skin_reconstruction/skin_RHK5KXG6__walk360.webm" data-start="6.667" data-duration="6.667" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="31" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
-            <img src="assets/skin_reconstruction/avatars/34G2L2VV.jpg" alt="Neetu Parihar" class="creator-avatar">
+            <img src="assets/skin_reconstruction/avatars/RHK5KXG6.jpg" alt="Invester" class="creator-avatar">
             <div class="creator-details">
               <span class="creator-role">CREATOR</span>
-              <strong class="creator-name">Neetu Parihar</strong>
+              <strong class="creator-name">Invester</strong>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </article><article id="hook-case-3ACVBJ56" class="showcase-card" data-card-start="13.333" data-card-duration="6.667">
+  </article><article id="hook-case-P8NBZUTB" class="showcase-card" data-card-start="13.333" data-card-duration="6.667">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1463,7 +1572,7 @@ h2 em {
           <span class="tag-sub">Character Input</span>
         </div>
         <div class="pane-media">
-          <img id="ref-img-hook-case-3ACVBJ56" src="assets/skin_reconstruction/3ACVBJ56XQG8BTMT.jpg" alt="Golem Yt reference" class="ref-img">
+          <img id="ref-img-hook-case-P8NBZUTB" src="assets/skin_reconstruction/P8NBZUTBW6C63CWS.jpg" alt="Célular reference" class="ref-img">
         </div>
       </div>
       <div class="showcase-divider">
@@ -1479,12 +1588,12 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-hook-case-3ACVBJ56" src="assets/skin_reconstruction/skin_3ACVBJ56__walk360.webm" data-start="13.333" data-duration="6.667" data-media-start="0" data-volume="0" data-track-index="32" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-hook-case-P8NBZUTB" src="assets/skin_reconstruction/skin_P8NBZUTB__walk360.webm" data-start="13.333" data-duration="6.667" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="32" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
-            <img src="assets/skin_reconstruction/avatars/3ACVBJ56.jpg" alt="Golem Yt" class="creator-avatar">
+            <img src="assets/skin_reconstruction/avatars/P8NBZUTB.jpg" alt="Célular" class="creator-avatar">
             <div class="creator-details">
               <span class="creator-role">CREATOR</span>
-              <strong class="creator-name">Golem Yt</strong>
+              <strong class="creator-name">Célular</strong>
             </div>
           </div>
         </div>
@@ -1496,13 +1605,238 @@ h2 em {
 <section id="scene-2" class="scene clip" data-track-index="2">
     <div class="scene-head">
       <div>
+        <span class="kicker">Why Build Another One? · Model Comparison</span>
+        <h2>PREVIOUS BASELINE <em>VS</em> NEW ARCHITECTURE</h2>
+      </div>
+      <div class="scene-note">EntropyDrop Model Evolution</div>
+    </div>
+    <div class="compare-stage">
+      <article id="compare-case-6XF2JYHW" class="compare-card" data-card-start="20.000" data-card-duration="20.000">
+    <div class="compare-grid">
+      <div class="compare-pane ref-pane">
+        <div class="pane-tag">
+          <span class="tag-title">ORIGINAL REFERENCE</span>
+          <span class="tag-sub">Character Input</span>
+        </div>
+        <div class="pane-media">
+          <img id="ref-img-compare-6XF2JYHW" src="assets/skin_reconstruction/6XF2JYHW9UDKX8YU.jpg" alt="Junaidk Hossain reference" class="ref-img">
+          <div class="creator-tag-bottom-right">
+            <img src="assets/skin_reconstruction/avatars/6XF2JYHW.jpg" alt="Junaidk Hossain" class="creator-avatar">
+            <div class="creator-details">
+              <span class="creator-role">CREATOR</span>
+              <strong class="creator-name">Junaidk Hossain</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-divider">
+        <div class="divider-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div class="compare-pane video-pane">
+        <div class="pane-tag">
+          <span class="tag-title">PREVIOUS MODEL</span>
+          <span class="tag-sub status-old">sking_v73</span>
+        </div>
+        <div class="pane-media transparent-stage">
+          <video id="walk-vid-old-6XF2JYHW" src="assets/skin_reconstruction/skin_G6F23DKN__walk360.webm" data-start="20.000" data-duration="20.000" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="40" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <div class="compare-badge-pill old">
+            <span>Previous Baseline</span>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-divider">
+        <div class="divider-icon vs-icon">VS</div>
+      </div>
+      <div class="compare-pane video-pane compare-new-pane">
+        <div class="pane-tag">
+          <span class="tag-title">NEW ARCHITECTURE</span>
+          <span class="tag-sub status-new">SKING_DDJ Series</span>
+        </div>
+        <div class="pane-media transparent-stage">
+          <video id="walk-vid-new-6XF2JYHW" src="assets/skin_reconstruction/skin_6XF2JYHW__walk360.webm" data-start="20.000" data-duration="20.000" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="41" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <div class="compare-badge-pill new">
+            <span>✨ New Model</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article><article id="compare-case-4PJLKJGP" class="compare-card" data-card-start="40.000" data-card-duration="20.000">
+    <div class="compare-grid">
+      <div class="compare-pane ref-pane">
+        <div class="pane-tag">
+          <span class="tag-title">ORIGINAL REFERENCE</span>
+          <span class="tag-sub">Character Input</span>
+        </div>
+        <div class="pane-media">
+          <img id="ref-img-compare-4PJLKJGP" src="assets/skin_reconstruction/4PJLKJGPDNEUSKPE.jpg" alt="LoL FF reference" class="ref-img">
+          <div class="creator-tag-bottom-right">
+            <img src="assets/skin_reconstruction/avatars/4PJLKJGP.jpg" alt="LoL FF" class="creator-avatar">
+            <div class="creator-details">
+              <span class="creator-role">CREATOR</span>
+              <strong class="creator-name">LoL FF</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-divider">
+        <div class="divider-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div class="compare-pane video-pane">
+        <div class="pane-tag">
+          <span class="tag-title">PREVIOUS MODEL</span>
+          <span class="tag-sub status-old">sking_v73</span>
+        </div>
+        <div class="pane-media transparent-stage">
+          <video id="walk-vid-old-4PJLKJGP" src="assets/skin_reconstruction/skin_NSXZMKCF__walk360.webm" data-start="40.000" data-duration="20.000" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="42" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <div class="compare-badge-pill old">
+            <span>Previous Baseline</span>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-divider">
+        <div class="divider-icon vs-icon">VS</div>
+      </div>
+      <div class="compare-pane video-pane compare-new-pane">
+        <div class="pane-tag">
+          <span class="tag-title">NEW ARCHITECTURE</span>
+          <span class="tag-sub status-new">SKING_DDJ Series</span>
+        </div>
+        <div class="pane-media transparent-stage">
+          <video id="walk-vid-new-4PJLKJGP" src="assets/skin_reconstruction/skin_4PJLKJGP__walk360.webm" data-start="40.000" data-duration="20.000" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="43" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <div class="compare-badge-pill new">
+            <span>✨ New Model</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+    </div>
+  </section>
+<section id="scene-3" class="scene clip" data-track-index="3">
+    <div class="scene-head">
+      <div>
         <span class="kicker">Community Showcase · Results in Motion</span>
         <h2>ANOTHER OPEN-SOURCE MODEL: IMAGE <em>→</em> MINECRAFT SKIN</h2>
       </div>
       <div class="scene-note">EntropyDrop Community Creations</div>
     </div>
     <div class="showcase-stage">
-      <article id="case-4CD9WUNE" class="showcase-card" data-card-start="20.000" data-card-duration="7.600">
+      <article id="case-22K8QBW1" class="showcase-card" data-card-start="60.000" data-card-duration="6.522">
+    <div class="showcase-grid">
+      <div class="showcase-pane ref-pane">
+        <div class="pane-tag">
+          <span class="tag-title">ORIGINAL REFERENCE</span>
+          <span class="tag-sub">Character Input</span>
+        </div>
+        <div class="pane-media">
+          <img id="ref-img-case-22K8QBW1" src="assets/skin_reconstruction/22K8QBW1HB4J54GK.jpg" alt="Nozy Op reference" class="ref-img">
+        </div>
+      </div>
+      <div class="showcase-divider">
+        <div class="divider-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div class="showcase-pane video-pane">
+        <div class="pane-tag">
+          <span class="tag-title">3D SKIN</span>
+        </div>
+        <div class="pane-media transparent-stage">
+          <video id="walk-vid-case-22K8QBW1" src="assets/skin_reconstruction/skin_22K8QBW1__walk360.webm" data-start="60.000" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="50" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <div class="creator-tag-bottom-right">
+            <img src="assets/skin_reconstruction/avatars/22K8QBW1.jpg" alt="Nozy Op" class="creator-avatar">
+            <div class="creator-details">
+              <span class="creator-role">CREATOR</span>
+              <strong class="creator-name">Nozy Op</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article><article id="case-34G2L2VV" class="showcase-card" data-card-start="66.522" data-card-duration="6.522">
+    <div class="showcase-grid">
+      <div class="showcase-pane ref-pane">
+        <div class="pane-tag">
+          <span class="tag-title">ORIGINAL REFERENCE</span>
+          <span class="tag-sub">Character Input</span>
+        </div>
+        <div class="pane-media">
+          <img id="ref-img-case-34G2L2VV" src="assets/skin_reconstruction/34G2L2VV1YGA6DG3.jpg" alt="Neetu Parihar reference" class="ref-img">
+        </div>
+      </div>
+      <div class="showcase-divider">
+        <div class="divider-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div class="showcase-pane video-pane">
+        <div class="pane-tag">
+          <span class="tag-title">3D SKIN</span>
+        </div>
+        <div class="pane-media transparent-stage">
+          <video id="walk-vid-case-34G2L2VV" src="assets/skin_reconstruction/skin_34G2L2VV__walk360.webm" data-start="66.522" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="51" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <div class="creator-tag-bottom-right">
+            <img src="assets/skin_reconstruction/avatars/34G2L2VV.jpg" alt="Neetu Parihar" class="creator-avatar">
+            <div class="creator-details">
+              <span class="creator-role">CREATOR</span>
+              <strong class="creator-name">Neetu Parihar</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article><article id="case-3ACVBJ56" class="showcase-card" data-card-start="73.043" data-card-duration="6.522">
+    <div class="showcase-grid">
+      <div class="showcase-pane ref-pane">
+        <div class="pane-tag">
+          <span class="tag-title">ORIGINAL REFERENCE</span>
+          <span class="tag-sub">Character Input</span>
+        </div>
+        <div class="pane-media">
+          <img id="ref-img-case-3ACVBJ56" src="assets/skin_reconstruction/3ACVBJ56XQG8BTMT.jpg" alt="Golem Yt reference" class="ref-img">
+        </div>
+      </div>
+      <div class="showcase-divider">
+        <div class="divider-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div class="showcase-pane video-pane">
+        <div class="pane-tag">
+          <span class="tag-title">3D SKIN</span>
+        </div>
+        <div class="pane-media transparent-stage">
+          <video id="walk-vid-case-3ACVBJ56" src="assets/skin_reconstruction/skin_3ACVBJ56__walk360.webm" data-start="73.043" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="52" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <div class="creator-tag-bottom-right">
+            <img src="assets/skin_reconstruction/avatars/3ACVBJ56.jpg" alt="Golem Yt" class="creator-avatar">
+            <div class="creator-details">
+              <span class="creator-role">CREATOR</span>
+              <strong class="creator-name">Golem Yt</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article><article id="case-4CD9WUNE" class="showcase-card" data-card-start="79.565" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1526,7 +1860,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-4CD9WUNE" src="assets/skin_reconstruction/skin_4CD9WUNE__walk360.webm" data-start="20.000" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="90" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-4CD9WUNE" src="assets/skin_reconstruction/skin_4CD9WUNE__walk360.webm" data-start="79.565" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="53" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/4CD9WUNE.jpg" alt="Anonymous" class="creator-avatar">
             <div class="creator-details">
@@ -1537,42 +1871,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-4PJLKJGP" class="showcase-card" data-card-start="27.600" data-card-duration="7.600">
-    <div class="showcase-grid">
-      <div class="showcase-pane ref-pane">
-        <div class="pane-tag">
-          <span class="tag-title">ORIGINAL REFERENCE</span>
-          <span class="tag-sub">Character Input</span>
-        </div>
-        <div class="pane-media">
-          <img id="ref-img-case-4PJLKJGP" src="assets/skin_reconstruction/4PJLKJGPDNEUSKPE.jpg" alt="LoL FF reference" class="ref-img">
-        </div>
-      </div>
-      <div class="showcase-divider">
-        <div class="divider-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </div>
-      </div>
-      <div class="showcase-pane video-pane">
-        <div class="pane-tag">
-          <span class="tag-title">3D SKIN</span>
-        </div>
-        <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-4PJLKJGP" src="assets/skin_reconstruction/skin_4PJLKJGP__walk360.webm" data-start="27.600" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="91" muted playsinline preload="auto" loop class="walk-video clip"></video>
-          <div class="creator-tag-bottom-right">
-            <img src="assets/skin_reconstruction/avatars/4PJLKJGP.jpg" alt="LoL FF" class="creator-avatar">
-            <div class="creator-details">
-              <span class="creator-role">CREATOR</span>
-              <strong class="creator-name">LoL FF</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </article><article id="case-6RMR3QVX" class="showcase-card" data-card-start="35.200" data-card-duration="7.600">
+  </article><article id="case-6RMR3QVX" class="showcase-card" data-card-start="86.087" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1596,7 +1895,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-6RMR3QVX" src="assets/skin_reconstruction/skin_6RMR3QVX__walk360.webm" data-start="35.200" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="92" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-6RMR3QVX" src="assets/skin_reconstruction/skin_6RMR3QVX__walk360.webm" data-start="86.087" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="54" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/6RMR3QVX.jpg" alt="veyy ly" class="creator-avatar">
             <div class="creator-details">
@@ -1607,42 +1906,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-6XF2JYHW" class="showcase-card" data-card-start="42.800" data-card-duration="7.600">
-    <div class="showcase-grid">
-      <div class="showcase-pane ref-pane">
-        <div class="pane-tag">
-          <span class="tag-title">ORIGINAL REFERENCE</span>
-          <span class="tag-sub">Character Input</span>
-        </div>
-        <div class="pane-media">
-          <img id="ref-img-case-6XF2JYHW" src="assets/skin_reconstruction/6XF2JYHW9UDKX8YU.jpg" alt="Junaidk Hossain reference" class="ref-img">
-        </div>
-      </div>
-      <div class="showcase-divider">
-        <div class="divider-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </div>
-      </div>
-      <div class="showcase-pane video-pane">
-        <div class="pane-tag">
-          <span class="tag-title">3D SKIN</span>
-        </div>
-        <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-6XF2JYHW" src="assets/skin_reconstruction/skin_6XF2JYHW__walk360.webm" data-start="42.800" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="93" muted playsinline preload="auto" loop class="walk-video clip"></video>
-          <div class="creator-tag-bottom-right">
-            <img src="assets/skin_reconstruction/avatars/6XF2JYHW.jpg" alt="Junaidk Hossain" class="creator-avatar">
-            <div class="creator-details">
-              <span class="creator-role">CREATOR</span>
-              <strong class="creator-name">Junaidk Hossain</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </article><article id="case-8277S1PD" class="showcase-card" data-card-start="50.400" data-card-duration="7.600">
+  </article><article id="case-8277S1PD" class="showcase-card" data-card-start="92.609" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1666,7 +1930,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-8277S1PD" src="assets/skin_reconstruction/skin_8277S1PD__walk360.webm" data-start="50.400" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="94" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-8277S1PD" src="assets/skin_reconstruction/skin_8277S1PD__walk360.webm" data-start="92.609" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="55" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/8277S1PD.jpg" alt="St Rai" class="creator-avatar">
             <div class="creator-details">
@@ -1677,7 +1941,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-8V9ZQLJL" class="showcase-card" data-card-start="58.000" data-card-duration="7.600">
+  </article><article id="case-8V9ZQLJL" class="showcase-card" data-card-start="99.130" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1701,7 +1965,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-8V9ZQLJL" src="assets/skin_reconstruction/skin_8V9ZQLJL__walk360.webm" data-start="58.000" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="95" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-8V9ZQLJL" src="assets/skin_reconstruction/skin_8V9ZQLJL__walk360.webm" data-start="99.130" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="56" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/8V9ZQLJL.jpg" alt="Sayan Maitra" class="creator-avatar">
             <div class="creator-details">
@@ -1712,7 +1976,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-92KSG3E4" class="showcase-card" data-card-start="65.600" data-card-duration="7.600">
+  </article><article id="case-92KSG3E4" class="showcase-card" data-card-start="105.652" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1736,7 +2000,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-92KSG3E4" src="assets/skin_reconstruction/skin_92KSG3E4__walk360.webm" data-start="65.600" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="96" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-92KSG3E4" src="assets/skin_reconstruction/skin_92KSG3E4__walk360.webm" data-start="105.652" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="57" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/92KSG3E4.jpg" alt="RosieEmperor" class="creator-avatar">
             <div class="creator-details">
@@ -1747,7 +2011,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-AKBCM5RE" class="showcase-card" data-card-start="73.200" data-card-duration="7.600">
+  </article><article id="case-AKBCM5RE" class="showcase-card" data-card-start="112.174" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1771,7 +2035,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-AKBCM5RE" src="assets/skin_reconstruction/skin_AKBCM5RE__walk360.webm" data-start="73.200" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="97" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-AKBCM5RE" src="assets/skin_reconstruction/skin_AKBCM5RE__walk360.webm" data-start="112.174" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="58" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/AKBCM5RE.jpg" alt="Loudest" class="creator-avatar">
             <div class="creator-details">
@@ -1782,7 +2046,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-C9CC37GD" class="showcase-card" data-card-start="80.800" data-card-duration="7.600">
+  </article><article id="case-C9CC37GD" class="showcase-card" data-card-start="118.696" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1806,7 +2070,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-C9CC37GD" src="assets/skin_reconstruction/skin_C9CC37GD__walk360.webm" data-start="80.800" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="98" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-C9CC37GD" src="assets/skin_reconstruction/skin_C9CC37GD__walk360.webm" data-start="118.696" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="59" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/C9CC37GD.jpg" alt="Ek Ladka" class="creator-avatar">
             <div class="creator-details">
@@ -1817,42 +2081,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-KBD3Z6CD" class="showcase-card" data-card-start="88.400" data-card-duration="7.600">
-    <div class="showcase-grid">
-      <div class="showcase-pane ref-pane">
-        <div class="pane-tag">
-          <span class="tag-title">ORIGINAL REFERENCE</span>
-          <span class="tag-sub">Character Input</span>
-        </div>
-        <div class="pane-media">
-          <img id="ref-img-case-KBD3Z6CD" src="assets/skin_reconstruction/KBD3Z6CDL9GXBUJD.jpg" alt="Bhavishya reference" class="ref-img">
-        </div>
-      </div>
-      <div class="showcase-divider">
-        <div class="divider-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </div>
-      </div>
-      <div class="showcase-pane video-pane">
-        <div class="pane-tag">
-          <span class="tag-title">3D SKIN</span>
-        </div>
-        <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-KBD3Z6CD" src="assets/skin_reconstruction/skin_KBD3Z6CD__walk360.webm" data-start="88.400" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="99" muted playsinline preload="auto" loop class="walk-video clip"></video>
-          <div class="creator-tag-bottom-right">
-            <img src="assets/skin_reconstruction/avatars/KBD3Z6CD.jpg" alt="Bhavishya" class="creator-avatar">
-            <div class="creator-details">
-              <span class="creator-role">CREATOR</span>
-              <strong class="creator-name">Bhavishya</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </article><article id="case-KGRGNN4C" class="showcase-card" data-card-start="96.000" data-card-duration="7.600">
+  </article><article id="case-KGRGNN4C" class="showcase-card" data-card-start="125.217" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1876,7 +2105,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-KGRGNN4C" src="assets/skin_reconstruction/skin_KGRGNN4C__walk360.webm" data-start="96.000" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="100" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-KGRGNN4C" src="assets/skin_reconstruction/skin_KGRGNN4C__walk360.webm" data-start="125.217" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="50" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/KGRGNN4C.jpg" alt="Med badis" class="creator-avatar">
             <div class="creator-details">
@@ -1887,7 +2116,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-KYQ86U7L" class="showcase-card" data-card-start="103.600" data-card-duration="7.600">
+  </article><article id="case-KYQ86U7L" class="showcase-card" data-card-start="131.739" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1911,7 +2140,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-KYQ86U7L" src="assets/skin_reconstruction/skin_KYQ86U7L__walk360.webm" data-start="103.600" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="101" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-KYQ86U7L" src="assets/skin_reconstruction/skin_KYQ86U7L__walk360.webm" data-start="131.739" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="51" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/KYQ86U7L.jpg" alt="Ivoneide Maria" class="creator-avatar">
             <div class="creator-details">
@@ -1922,7 +2151,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-L6557M72" class="showcase-card" data-card-start="111.200" data-card-duration="7.600">
+  </article><article id="case-L6557M72" class="showcase-card" data-card-start="138.261" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1946,7 +2175,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-L6557M72" src="assets/skin_reconstruction/skin_L6557M72__walk360.webm" data-start="111.200" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="102" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-L6557M72" src="assets/skin_reconstruction/skin_L6557M72__walk360.webm" data-start="138.261" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="52" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/L6557M72.jpg" alt="Tulsiram Pal" class="creator-avatar">
             <div class="creator-details">
@@ -1957,7 +2186,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-N33TFVWW" class="showcase-card" data-card-start="118.800" data-card-duration="7.600">
+  </article><article id="case-N33TFVWW" class="showcase-card" data-card-start="144.783" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1981,7 +2210,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-N33TFVWW" src="assets/skin_reconstruction/skin_N33TFVWW__walk360.webm" data-start="118.800" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="103" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-N33TFVWW" src="assets/skin_reconstruction/skin_N33TFVWW__walk360.webm" data-start="144.783" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="53" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/N33TFVWW.jpg" alt="Lav Vaishnav" class="creator-avatar">
             <div class="creator-details">
@@ -1992,7 +2221,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-NXSG9WQH" class="showcase-card" data-card-start="126.400" data-card-duration="7.600">
+  </article><article id="case-NXSG9WQH" class="showcase-card" data-card-start="151.304" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2016,7 +2245,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-NXSG9WQH" src="assets/skin_reconstruction/skin_NXSG9WQH__walk360.webm" data-start="126.400" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="104" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-NXSG9WQH" src="assets/skin_reconstruction/skin_NXSG9WQH__walk360.webm" data-start="151.304" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="54" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/NXSG9WQH.jpg" alt="Naksh" class="creator-avatar">
             <div class="creator-details">
@@ -2027,77 +2256,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-P8NBZUTB" class="showcase-card" data-card-start="134.000" data-card-duration="7.600">
-    <div class="showcase-grid">
-      <div class="showcase-pane ref-pane">
-        <div class="pane-tag">
-          <span class="tag-title">ORIGINAL REFERENCE</span>
-          <span class="tag-sub">Character Input</span>
-        </div>
-        <div class="pane-media">
-          <img id="ref-img-case-P8NBZUTB" src="assets/skin_reconstruction/P8NBZUTBW6C63CWS.jpg" alt="Célular reference" class="ref-img">
-        </div>
-      </div>
-      <div class="showcase-divider">
-        <div class="divider-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </div>
-      </div>
-      <div class="showcase-pane video-pane">
-        <div class="pane-tag">
-          <span class="tag-title">3D SKIN</span>
-        </div>
-        <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-P8NBZUTB" src="assets/skin_reconstruction/skin_P8NBZUTB__walk360.webm" data-start="134.000" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="105" muted playsinline preload="auto" loop class="walk-video clip"></video>
-          <div class="creator-tag-bottom-right">
-            <img src="assets/skin_reconstruction/avatars/P8NBZUTB.jpg" alt="Célular" class="creator-avatar">
-            <div class="creator-details">
-              <span class="creator-role">CREATOR</span>
-              <strong class="creator-name">Célular</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </article><article id="case-RHK5KXG6" class="showcase-card" data-card-start="141.600" data-card-duration="7.600">
-    <div class="showcase-grid">
-      <div class="showcase-pane ref-pane">
-        <div class="pane-tag">
-          <span class="tag-title">ORIGINAL REFERENCE</span>
-          <span class="tag-sub">Character Input</span>
-        </div>
-        <div class="pane-media">
-          <img id="ref-img-case-RHK5KXG6" src="assets/skin_reconstruction/RHK5KXG6KJ7DNABF.jpg" alt="Invester reference" class="ref-img">
-        </div>
-      </div>
-      <div class="showcase-divider">
-        <div class="divider-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </div>
-      </div>
-      <div class="showcase-pane video-pane">
-        <div class="pane-tag">
-          <span class="tag-title">3D SKIN</span>
-        </div>
-        <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-RHK5KXG6" src="assets/skin_reconstruction/skin_RHK5KXG6__walk360.webm" data-start="141.600" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="106" muted playsinline preload="auto" loop class="walk-video clip"></video>
-          <div class="creator-tag-bottom-right">
-            <img src="assets/skin_reconstruction/avatars/RHK5KXG6.jpg" alt="Invester" class="creator-avatar">
-            <div class="creator-details">
-              <span class="creator-role">CREATOR</span>
-              <strong class="creator-name">Invester</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </article><article id="case-TFZF4FQM" class="showcase-card" data-card-start="149.200" data-card-duration="7.600">
+  </article><article id="case-TFZF4FQM" class="showcase-card" data-card-start="157.826" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2121,7 +2280,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-TFZF4FQM" src="assets/skin_reconstruction/skin_TFZF4FQM__walk360.webm" data-start="149.200" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="107" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-TFZF4FQM" src="assets/skin_reconstruction/skin_TFZF4FQM__walk360.webm" data-start="157.826" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="55" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/TFZF4FQM.jpg" alt="Chí Dũng Lý" class="creator-avatar">
             <div class="creator-details">
@@ -2132,7 +2291,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-UYD3X92G" class="showcase-card" data-card-start="156.800" data-card-duration="7.600">
+  </article><article id="case-UYD3X92G" class="showcase-card" data-card-start="164.348" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2156,7 +2315,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-UYD3X92G" src="assets/skin_reconstruction/skin_UYD3X92G__walk360.webm" data-start="156.800" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="108" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-UYD3X92G" src="assets/skin_reconstruction/skin_UYD3X92G__walk360.webm" data-start="164.348" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="56" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/UYD3X92G.jpg" alt="Rahul Pandey" class="creator-avatar">
             <div class="creator-details">
@@ -2167,7 +2326,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-VSKVXAWN" class="showcase-card" data-card-start="164.400" data-card-duration="7.600">
+  </article><article id="case-VSKVXAWN" class="showcase-card" data-card-start="170.870" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2191,7 +2350,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-VSKVXAWN" src="assets/skin_reconstruction/skin_VSKVXAWN__walk360.webm" data-start="164.400" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="109" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-VSKVXAWN" src="assets/skin_reconstruction/skin_VSKVXAWN__walk360.webm" data-start="170.870" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="57" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/VSKVXAWN.jpg" alt="Kalista Yu" class="creator-avatar">
             <div class="creator-details">
@@ -2202,7 +2361,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-WMP5SE3V" class="showcase-card" data-card-start="172.000" data-card-duration="7.600">
+  </article><article id="case-WMP5SE3V" class="showcase-card" data-card-start="177.391" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2226,7 +2385,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-WMP5SE3V" src="assets/skin_reconstruction/skin_WMP5SE3V__walk360.webm" data-start="172.000" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="110" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-WMP5SE3V" src="assets/skin_reconstruction/skin_WMP5SE3V__walk360.webm" data-start="177.391" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="58" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/WMP5SE3V.jpg" alt="Yash Rathore" class="creator-avatar">
             <div class="creator-details">
@@ -2237,7 +2396,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-X62LFSC7" class="showcase-card" data-card-start="179.600" data-card-duration="7.600">
+  </article><article id="case-X62LFSC7" class="showcase-card" data-card-start="183.913" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2261,7 +2420,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-X62LFSC7" src="assets/skin_reconstruction/skin_X62LFSC7__walk360.webm" data-start="179.600" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="111" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-X62LFSC7" src="assets/skin_reconstruction/skin_X62LFSC7__walk360.webm" data-start="183.913" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="59" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/X62LFSC7.jpg" alt="IBet 1000" class="creator-avatar">
             <div class="creator-details">
@@ -2272,7 +2431,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-XCH2FCBQ" class="showcase-card" data-card-start="187.200" data-card-duration="7.600">
+  </article><article id="case-XCH2FCBQ" class="showcase-card" data-card-start="190.435" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2296,7 +2455,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-XCH2FCBQ" src="assets/skin_reconstruction/skin_XCH2FCBQ__walk360.webm" data-start="187.200" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="112" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-XCH2FCBQ" src="assets/skin_reconstruction/skin_XCH2FCBQ__walk360.webm" data-start="190.435" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="50" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/XCH2FCBQ.jpg" alt="Husky" class="creator-avatar">
             <div class="creator-details">
@@ -2307,7 +2466,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-Y783AAVH" class="showcase-card" data-card-start="194.800" data-card-duration="7.600">
+  </article><article id="case-Y783AAVH" class="showcase-card" data-card-start="196.957" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2331,7 +2490,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-Y783AAVH" src="assets/skin_reconstruction/skin_Y783AAVH__walk360.webm" data-start="194.800" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="113" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-Y783AAVH" src="assets/skin_reconstruction/skin_Y783AAVH__walk360.webm" data-start="196.957" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="51" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/Y783AAVH.jpg" alt="Slayer69" class="creator-avatar">
             <div class="creator-details">
@@ -2342,7 +2501,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-YWFZ9W7D" class="showcase-card" data-card-start="202.400" data-card-duration="7.600">
+  </article><article id="case-YWFZ9W7D" class="showcase-card" data-card-start="203.478" data-card-duration="6.522">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2366,7 +2525,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-YWFZ9W7D" src="assets/skin_reconstruction/skin_YWFZ9W7D__walk360.webm" data-start="202.400" data-duration="7.600" data-media-start="0" data-volume="0" data-track-index="114" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-YWFZ9W7D" src="assets/skin_reconstruction/skin_YWFZ9W7D__walk360.webm" data-start="203.478" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="52" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/YWFZ9W7D.jpg" alt="Archana Singh" class="creator-avatar">
             <div class="creator-details">
@@ -2750,13 +2909,14 @@ function reveal(selector, start, duration, animate = true) {
   tl.set(selector, { visibility: 'hidden' }, start + duration);
 }
 reveal('#scene-1', 0, 20, false);
-reveal('#scene-2', 20, 190, false);
-document.querySelectorAll('.showcase-card').forEach(node => {
+reveal('#scene-2', 20, 40, false);
+reveal('#scene-3', 60, 150, false);
+document.querySelectorAll('.showcase-card, .compare-card').forEach(node => {
   const start = Number(node.dataset.cardStart);
   const dur = Number(node.dataset.cardDuration);
   reveal('#' + node.id, start, dur, true);
 });
-document.querySelectorAll('.scene.clip:not(#scene-1):not(#scene-2)').forEach(node => reveal('#' + node.id, at(node), length(node)));
+document.querySelectorAll('.scene.clip:not(#scene-1):not(#scene-2):not(#scene-3)').forEach(node => reveal('#' + node.id, at(node), length(node)));
 document.querySelectorAll('.timed-card').forEach(node => reveal('#' + node.id, at(node), length(node), true));
 document.querySelectorAll('.asset-media').forEach(node => reveal('#' + node.id, at(node), length(node), false));
 document.querySelectorAll('.subtitle-line').forEach(node => {
@@ -2765,10 +2925,82 @@ document.querySelectorAll('.subtitle-line').forEach(node => {
 });
 tl.to('.progress i', { width: '100%', duration: total, ease: 'none' }, 0);
 window.__timelines.main = tl;
+// Seamless action video looping & timeline sync
+const walkVideos = document.querySelectorAll('video.walk-video');
+
+walkVideos.forEach(v => {
+  const origPause = v.pause.bind(v);
+  const origPlay = v.play.bind(v);
+  v._origPause = origPause;
+  v._origPlay = origPlay;
+
+  v.loop = true;
+  v.muted = true;
+  v.playsInline = true;
+
+  // Protect active playback window from premature pause by preview runtime
+  v.pause = function() {
+    const isPlaying = window.__player ? window.__player.isPlaying() : false;
+    const time = window.__player ? window.__player.getTime() : (window.__timelines && window.__timelines.main ? window.__timelines.main.time() : 0);
+    const start = Number(this.dataset.start);
+    const dur = Number(this.dataset.duration);
+    if (isPlaying && time >= start && time < start + dur) {
+      return; // Ignore premature pause while card is playing
+    }
+    return origPause();
+  };
+});
+
+function syncVideoPlaybackState(seekToTime = null) {
+  const isPlaying = window.__player ? window.__player.isPlaying() : false;
+  const t = seekToTime !== null 
+    ? seekToTime 
+    : (window.__player ? window.__player.getTime() : (window.__timelines && window.__timelines.main ? window.__timelines.main.time() : 0));
+
+  walkVideos.forEach(vid => {
+    const start = Number(vid.dataset.start);
+    const dur = Number(vid.dataset.duration);
+    if (!Number.isFinite(start) || !Number.isFinite(dur)) return;
+    const inWindow = t >= start && t < start + dur;
+
+    if (inWindow) {
+      const cycle = Number(vid.dataset.sourceDuration) || 8.0;
+      const targetTime = cycle > 0 ? (t - start) % cycle : 0;
+
+      if (!isPlaying) {
+        // Paused / scrubbing: align frame exactly and keep paused
+        if (Math.abs(vid.currentTime - targetTime) > 0.05) {
+          try { vid.currentTime = targetTime; } catch (e) {}
+        }
+        vid._origPause();
+      } else {
+        // Playing: if paused (e.g. sought directly into late window > 28s), resume at correct loop offset
+        if (vid.paused) {
+          try { vid.currentTime = targetTime; } catch (e) {}
+          vid._origPlay().catch(() => {});
+        }
+      }
+    } else {
+      // Out of active card window: ensure paused
+      if (!vid.paused) {
+        vid._origPause();
+      }
+    }
+  });
+}
+
+// Supervisory sync to handle direct seeking into windows and boundary transitions
+setInterval(() => {
+  syncVideoPlaybackState();
+}, 100);
+
 const previewParam = new URLSearchParams(window.location.search).get('time');
 if (previewParam !== null) {
   const previewTime = Number(previewParam);
-  if (Number.isFinite(previewTime)) tl.seek(Math.max(0, Math.min(total, previewTime)), false);
+  if (Number.isFinite(previewTime)) {
+    tl.seek(Math.max(0, Math.min(total, previewTime)), false);
+    syncVideoPlaybackState(previewTime);
+  }
 }
 </script>
 </body>

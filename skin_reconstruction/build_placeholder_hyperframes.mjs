@@ -155,7 +155,7 @@ function renderShowcaseCard(item, itemStart, slotDuration, trackIndex, idPrefix 
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-${idPrefix}-${shortId}" src="${esc(videoPath)}" data-start="${fmt(itemStart)}" data-duration="${fmt(slotDuration)}" data-media-start="0" data-volume="0" data-track-index="${trackIndex}" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-${idPrefix}-${shortId}" src="${esc(videoPath)}" data-start="${fmt(itemStart)}" data-duration="${fmt(slotDuration)}" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="${trackIndex}" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             ${avatarHtml}
             <div class="creator-details">
@@ -169,12 +169,88 @@ function renderShowcaseCard(item, itemStart, slotDuration, trackIndex, idPrefix 
   </article>`;
 }
 
+function renderCompareCard(comp, trackOffset) {
+  const refPath = `assets/skin_reconstruction/${comp.refImage}`;
+  const oldVideoPath = `assets/skin_reconstruction/${comp.oldVideo}`;
+  const newVideoPath = `assets/skin_reconstruction/${comp.newVideo}`;
+  const username = comp.username;
+  const localAvatarRel = `assets/skin_reconstruction/avatars/${comp.shortId}.jpg`;
+  const localAvatarPath = path.join(mediaRoot, localAvatarRel);
+  const hasLocalAvatar = fs.existsSync(localAvatarPath);
+  const shortId = comp.shortId;
+
+  const avatarHtml = hasLocalAvatar
+    ? `<img src="${localAvatarRel}" alt="${esc(username)}" class="creator-avatar">`
+    : `<div class="creator-avatar-placeholder">${esc(username.charAt(0).toUpperCase())}</div>`;
+
+  return `<article id="compare-case-${shortId}" class="compare-card" data-card-start="${fmt(comp.start)}" data-card-duration="${fmt(comp.duration)}">
+    <div class="compare-grid">
+      <div class="compare-pane ref-pane">
+        <div class="pane-tag">
+          <span class="tag-title">ORIGINAL REFERENCE</span>
+          <span class="tag-sub">Character Input</span>
+        </div>
+        <div class="pane-media">
+          <img id="ref-img-compare-${shortId}" src="${esc(refPath)}" alt="${esc(username)} reference" class="ref-img">
+          <div class="creator-tag-bottom-right">
+            ${avatarHtml}
+            <div class="creator-details">
+              <span class="creator-role">CREATOR</span>
+              <strong class="creator-name">${esc(username)}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-divider">
+        <div class="divider-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div class="compare-pane video-pane">
+        <div class="pane-tag">
+          <span class="tag-title">PREVIOUS MODEL</span>
+          <span class="tag-sub status-old">sking_v73</span>
+        </div>
+        <div class="pane-media transparent-stage">
+          <video id="walk-vid-old-${shortId}" src="${esc(oldVideoPath)}" data-start="${fmt(comp.start)}" data-duration="${fmt(comp.duration)}" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="${trackOffset}" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <div class="compare-badge-pill old">
+            <span>Previous Baseline</span>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-divider">
+        <div class="divider-icon vs-icon">VS</div>
+      </div>
+      <div class="compare-pane video-pane compare-new-pane">
+        <div class="pane-tag">
+          <span class="tag-title">NEW ARCHITECTURE</span>
+          <span class="tag-sub status-new">SKING_DDJ Series</span>
+        </div>
+        <div class="pane-media transparent-stage">
+          <video id="walk-vid-new-${shortId}" src="${esc(newVideoPath)}" data-start="${fmt(comp.start)}" data-duration="${fmt(comp.duration)}" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="${trackOffset + 1}" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <div class="compare-badge-pill new">
+            <span>✨ New Model</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>`;
+}
+
 // Scene 1: Hook (0:00 - 0:20) — Direct Community Showcase
 function hookScene() {
   const hookStart = 0;
   const hookEnd = 20;
   const totalDuration = hookEnd - hookStart;
-  const hookItems = communityItems.slice(0, 3);
+  const hookJpgs = [
+    'KBD3Z6CDL9GXBUJD.jpg',
+    'RHK5KXG6KJ7DNABF.jpg',
+    'P8NBZUTBW6C63CWS.jpg'
+  ];
+  const hookItems = hookJpgs.map(jpg => communityItems.find(item => item.jpgFile === jpg)).filter(Boolean);
   const itemCount = hookItems.length || 1;
   const slotDuration = totalDuration / itemCount;
 
@@ -197,21 +273,71 @@ function hookScene() {
   </section>`;
 }
 
-// Scene 2: Community Showcase (0:20 - 3:30, 190 seconds total)
+// Scene 2: VO 02 Comparison (0:20 - 1:00, 40s total)
+function compareScene(chapter) {
+  const compareStart = chapter.start;
+  const compareEnd = chapter.end;
+  const totalDuration = compareEnd - compareStart;
+  const slotDuration = totalDuration / 2;
+
+  const compareItems = [
+    {
+      shortId: '6XF2JYHW',
+      fullId: '6XF2JYHW9UDKX8YU',
+      refImage: '6XF2JYHW9UDKX8YU.jpg',
+      oldVideo: 'skin_G6F23DKN__walk360.webm',
+      newVideo: 'skin_6XF2JYHW__walk360.webm',
+      username: 'Junaidk Hossain',
+      start: compareStart,
+      duration: slotDuration,
+    },
+    {
+      shortId: '4PJLKJGP',
+      fullId: '4PJLKJGPDNEUSKPE',
+      refImage: '4PJLKJGPDNEUSKPE.jpg',
+      oldVideo: 'skin_NSXZMKCF__walk360.webm',
+      newVideo: 'skin_4PJLKJGP__walk360.webm',
+      username: 'LoL FF',
+      start: compareStart + slotDuration,
+      duration: slotDuration,
+    },
+  ];
+
+  const cards = compareItems.map((item, index) => {
+    return renderCompareCard(item, 40 + index * 2);
+  }).join('');
+
+  return `<section id="scene-2" class="scene clip" data-track-index="2">
+    <div class="scene-head">
+      <div>
+        <span class="kicker">Why Build Another One? · Model Comparison</span>
+        <h2>PREVIOUS BASELINE <em>VS</em> NEW ARCHITECTURE</h2>
+      </div>
+      <div class="scene-note">EntropyDrop Model Evolution</div>
+    </div>
+    <div class="compare-stage">
+      ${cards}
+    </div>
+  </section>`;
+}
+
+// Scene 3: Community Showcase (1:00 - 3:30, 150 seconds total)
 function showcaseScene() {
-  const showcaseStart = 20;
+  const showcaseStart = 60;
   const showcaseEnd = 210;
   const totalDuration = showcaseEnd - showcaseStart;
-  const showcaseItems = communityItems.slice(3);
+  const compareShortIds = new Set(['6XF2JYHW', '4PJLKJGP']);
+  const hookShortIds = new Set(['KBD3Z6CD', 'RHK5KXG6', 'P8NBZUTB']);
+  const showcaseItems = communityItems.filter(item => !compareShortIds.has(item.shortId) && !hookShortIds.has(item.shortId));
   const itemCount = showcaseItems.length || 1;
   const slotDuration = totalDuration / itemCount;
 
   const cards = showcaseItems.map((item, index) => {
     const itemStart = showcaseStart + index * slotDuration;
-    return renderShowcaseCard(item, itemStart, slotDuration, 90 + index, 'case');
+    return renderShowcaseCard(item, itemStart, slotDuration, 50 + (index % 10), 'case');
   }).join('');
 
-  return `<section id="scene-2" class="scene clip" data-track-index="2">
+  return `<section id="scene-3" class="scene clip" data-track-index="3">
     <div class="scene-head">
       <div>
         <span class="kicker">Community Showcase · Results in Motion</span>
@@ -647,6 +773,7 @@ const subtitles = chapters.flatMap(chapter => {
 
 const scenes = [
   hookScene(),
+  compareScene(chapters[1]),
   showcaseScene(),
   webUploadScene(chapters[5]),
   webViewerModesScene(chapters[6]),
@@ -688,13 +815,14 @@ function reveal(selector, start, duration, animate = true) {
   tl.set(selector, { visibility: 'hidden' }, start + duration);
 }
 reveal('#scene-1', 0, 20, false);
-reveal('#scene-2', 20, 190, false);
-document.querySelectorAll('.showcase-card').forEach(node => {
+reveal('#scene-2', 20, 40, false);
+reveal('#scene-3', 60, 150, false);
+document.querySelectorAll('.showcase-card, .compare-card').forEach(node => {
   const start = Number(node.dataset.cardStart);
   const dur = Number(node.dataset.cardDuration);
   reveal('#' + node.id, start, dur, true);
 });
-document.querySelectorAll('.scene.clip:not(#scene-1):not(#scene-2)').forEach(node => reveal('#' + node.id, at(node), length(node)));
+document.querySelectorAll('.scene.clip:not(#scene-1):not(#scene-2):not(#scene-3)').forEach(node => reveal('#' + node.id, at(node), length(node)));
 document.querySelectorAll('.timed-card').forEach(node => reveal('#' + node.id, at(node), length(node), true));
 document.querySelectorAll('.asset-media').forEach(node => reveal('#' + node.id, at(node), length(node), false));
 document.querySelectorAll('.subtitle-line').forEach(node => {
@@ -703,10 +831,82 @@ document.querySelectorAll('.subtitle-line').forEach(node => {
 });
 tl.to('.progress i', { width: '100%', duration: total, ease: 'none' }, 0);
 window.__timelines.main = tl;
+// Seamless action video looping & timeline sync
+const walkVideos = document.querySelectorAll('video.walk-video');
+
+walkVideos.forEach(v => {
+  const origPause = v.pause.bind(v);
+  const origPlay = v.play.bind(v);
+  v._origPause = origPause;
+  v._origPlay = origPlay;
+
+  v.loop = true;
+  v.muted = true;
+  v.playsInline = true;
+
+  // Protect active playback window from premature pause by preview runtime
+  v.pause = function() {
+    const isPlaying = window.__player ? window.__player.isPlaying() : false;
+    const time = window.__player ? window.__player.getTime() : (window.__timelines && window.__timelines.main ? window.__timelines.main.time() : 0);
+    const start = Number(this.dataset.start);
+    const dur = Number(this.dataset.duration);
+    if (isPlaying && time >= start && time < start + dur) {
+      return; // Ignore premature pause while card is playing
+    }
+    return origPause();
+  };
+});
+
+function syncVideoPlaybackState(seekToTime = null) {
+  const isPlaying = window.__player ? window.__player.isPlaying() : false;
+  const t = seekToTime !== null 
+    ? seekToTime 
+    : (window.__player ? window.__player.getTime() : (window.__timelines && window.__timelines.main ? window.__timelines.main.time() : 0));
+
+  walkVideos.forEach(vid => {
+    const start = Number(vid.dataset.start);
+    const dur = Number(vid.dataset.duration);
+    if (!Number.isFinite(start) || !Number.isFinite(dur)) return;
+    const inWindow = t >= start && t < start + dur;
+
+    if (inWindow) {
+      const cycle = Number(vid.dataset.sourceDuration) || 8.0;
+      const targetTime = cycle > 0 ? (t - start) % cycle : 0;
+
+      if (!isPlaying) {
+        // Paused / scrubbing: align frame exactly and keep paused
+        if (Math.abs(vid.currentTime - targetTime) > 0.05) {
+          try { vid.currentTime = targetTime; } catch (e) {}
+        }
+        vid._origPause();
+      } else {
+        // Playing: if paused (e.g. sought directly into late window > 28s), resume at correct loop offset
+        if (vid.paused) {
+          try { vid.currentTime = targetTime; } catch (e) {}
+          vid._origPlay().catch(() => {});
+        }
+      }
+    } else {
+      // Out of active card window: ensure paused
+      if (!vid.paused) {
+        vid._origPause();
+      }
+    }
+  });
+}
+
+// Supervisory sync to handle direct seeking into windows and boundary transitions
+setInterval(() => {
+  syncVideoPlaybackState();
+}, 100);
+
 const previewParam = new URLSearchParams(window.location.search).get('time');
 if (previewParam !== null) {
   const previewTime = Number(previewParam);
-  if (Number.isFinite(previewTime)) tl.seek(Math.max(0, Math.min(total, previewTime)), false);
+  if (Number.isFinite(previewTime)) {
+    tl.seek(Math.max(0, Math.min(total, previewTime)), false);
+    syncVideoPlaybackState(previewTime);
+  }
 }
 <\/script>
 </body>

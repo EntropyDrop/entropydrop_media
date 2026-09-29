@@ -243,6 +243,110 @@ h2 em {
   font-style: normal;
 }
 
+/* =========================================================================
+   SCENE 2: VO 02 MODEL COMPARISON (3-COLUMN PANE LAYOUT)
+   ========================================================================= */
+
+.compare-stage {
+  position: relative;
+  height: 708px;
+  margin-top: 14px;
+}
+
+.compare-card {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 510px 56px 510px 56px 510px;
+  justify-content: center;
+  height: 100%;
+  gap: 0;
+  align-items: stretch;
+}
+
+.compare-pane {
+  position: relative;
+  border: 1px solid var(--line-soft);
+  background: var(--panel);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 16px 44px rgba(17, 22, 17, 0.06);
+}
+
+.compare-new-pane {
+  border-color: var(--green);
+  box-shadow: 0 16px 44px rgba(29, 122, 59, 0.09);
+}
+
+.status-old {
+  color: #9b1c1c;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.status-new {
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+}
+
+.divider-icon.vs-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  background: var(--paper);
+  border: 2px solid var(--line-soft);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  animation: none;
+  box-shadow: 0 4px 12px rgba(17, 22, 17, 0.06);
+}
+
+.compare-badge-pill {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  z-index: 5;
+  box-shadow: 0 4px 14px rgba(17, 22, 17, 0.08);
+  white-space: nowrap;
+}
+
+.compare-badge-pill.old {
+  background: #fdf3f2;
+  border: 1px solid #f0a8a3;
+  color: #9b1c1c;
+}
+
+.compare-badge-pill.new {
+  background: var(--green-soft);
+  border: 1px solid var(--green);
+  color: var(--green-dark);
+}
+
 
 .showcase-stage {
   position: relative;
@@ -347,13 +451,18 @@ h2 em {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .divider-icon {
   display: grid;
   place-items: center;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
   border: 2px solid var(--green);
   border-radius: 50%;
   color: #ffffff;
