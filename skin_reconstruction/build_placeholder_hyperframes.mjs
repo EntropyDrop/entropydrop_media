@@ -155,10 +155,7 @@ function hookScene() {
   return `<section id="scene-1" class="scene">
     <div class="hook-grid-shell">
       <header class="hook-grid-header">
-        <div>
-          <div class="hook-grid-kicker"><span></span>ANOTHER OPEN-SOURCE MODEL:</div>
-          <h1 class="hook-grid-title">IMAGE <em>→</em> MINECRAFT SKIN</h1>
-        </div>
+        <h1 class="hook-grid-title"><span class="hook-grid-kicker">ANOTHER OPEN-SOURCE MODEL:</span> IMAGE <em>→</em> MINECRAFT SKIN</h1>
         <div class="hook-grid-badge">COMMUNITY RESULTS</div>
       </header>
       <div class="hook-pairs-grid">${cards}</div>

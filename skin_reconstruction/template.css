@@ -254,25 +254,14 @@ h3 {
 }
 
 .hook-grid-kicker {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
-  color: var(--green-dark);
-  font-size: 15px;
-  letter-spacing: .08em;
-}
-
-.hook-grid-kicker span {
-  width: 24px;
-  height: 4px;
-  background: var(--green);
+  color: inherit;
 }
 
 .hook-grid-title {
   font-size: 50px;
   line-height: 1;
   letter-spacing: .015em;
+  white-space: nowrap;
 }
 
 .hook-grid-title em {
