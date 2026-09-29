@@ -1,4 +1,4 @@
-# YouTube Video Script: We Open-Sourced Another Image-to-Minecraft-Skin Model
+# YouTube Video Script: Another Open-Source Model: Image to Minecraft Skin
 
 ## Draft Status
 
@@ -6,7 +6,7 @@
 
 英文口播采用四幕结构：**1. 开场与 28 组社区生成效果；2. 网站使用说明；3. SKING_DDJ 的命名来源与两阶段原理；4. 未来展望。** 目标时长约 **8 分 20 秒**。
 
-这次发布需要准确说明范围：**Stage Two 的皮肤重建代码与模型权重已经开源**，可以把规范化的 Minecraft 正背面图重建为最终 64×64 皮肤；但从任意角色图生成这些固定格式正背面图的 Stage One 仍依赖闭源图像模型。不要把 Stage Two 的开源表述成完整两阶段流程可以完全开源、免费或离线运行，也不要暗示单个 checkpoint 就能复现完整结果。
+这次发布需要准确说明范围：**完整两阶段流水线代码已经开源，Stage Two 的皮肤重建代码与模型权重也已公开**，可以把规范化的 Minecraft 正背面图重建为最终 64×64 皮肤；但从任意角色图生成这些固定格式正背面图的 Stage One 仍需要调用兼容的闭源图像模型。可以称流水线代码为开源，但不要暗示 Stage One 的外部依赖也已开源、完整流程可以免费离线运行，或单个 checkpoint 就能复现完整结果。
 
 参考来源：
 
@@ -17,7 +17,7 @@
 
 ## Video Positioning
 
-- **Working title:** We Open-Sourced Another Image-to-Minecraft-Skin Model
+- **Working title:** Another Open-Source Model: Image to Minecraft Skin
 - **Target length:** approximately 8:20
 - **Format:** English voiceover, 28 community results, browser walkthrough, the SKING_DDJ origin story, a plain-language pipeline explanation, and a short future outlook
 - **Audience:** Minecraft players, skin creators, open-source developers, and viewers interested in image-to-skin generation
@@ -26,17 +26,17 @@
 
 ## Title Ideas
 
-1. **We Open-Sourced Another Image-to-Minecraft-Skin Model**
-2. Another Open-Source Minecraft Skin Model — 28 Community Results
+1. **Another Open-Source Model: Image to Minecraft Skin**
+2. Another Open-Source Minecraft Skin Model — Community Results
 3. From Image to Minecraft Skin: Our New Open-Source Release
 
-推荐第一个标题。“Another”延续已有项目，也天然引出观众的问题：为什么还需要另一个模型？
+推荐第一个标题。“Another”延续已有项目，也天然引出观众的问题：为什么还需要另一个模型；冒号后的关键词则直接说明模型用途。
 
 ## Thumbnail Copy Ideas
 
 - ANOTHER OPEN-SOURCE MODEL
 - IMAGE → MINECRAFT SKIN
-- 28 COMMUNITY RESULTS
+- COMMUNITY RESULTS
 
 主画面使用一组辨识度高的 3D 对比，右上角放小型 GitHub / open-source 标识。不要在缩略图中堆版本号、网络名称或指标。
 
@@ -46,7 +46,7 @@ We have open-sourced another model for turning character images into usable Mine
 
 This video starts with character images in different visual styles and compares each input with its 3D Minecraft skin. Then we use the model on EntropyDrop: upload a reference, generate a skin, inspect it from every angle, and download the PNG.
 
-The Stage Two skin-reconstruction code and model weights are open source. The preceding image-normalization stage still relies on a closed-source image model, so the complete two-stage workflow is not fully open source. We also explain why the model family is called SKING_DDJ: the name credits DDJ's earlier public work on the same two-stage direction. The final section shows how the two stages connect and what we want to improve next.
+The complete two-stage workflow code is open source, including the Stage Two skin-reconstruction code and model weights. Stage One still requires access to a compatible closed-source image model. We also explain why the model family is called SKING_DDJ: the name credits DDJ's earlier public work on the same two-stage direction. The final section shows how the two stages connect and what we want to improve next.
 
 Try the generator:
 https://entropydrop.com/skin/generate
@@ -78,19 +78,17 @@ Chapters:
 
 ### Visuals
 
-- 0:00–0:04: GitHub repository or release card appears briefly, then cut immediately to the examples.
-- 0:04–0:08: `C01`, illustrated input beside its full 3D skin.
-- 0:08–0:12: `C07`, cartoon or chibi input beside its result.
-- 0:12–0:16: `C12`, 3D or game-art input beside its result.
-- 0:16–0:20: `C17`, painterly input beside its result, with title and links appearing.
+- 0:00–0:20: 首屏持续显示标题与 3×3 九宫格，从后续社区成果中抽取九组代表案例。
+- 每格左侧显示原始参考图，右侧同步播放对应的透明背景 3D 行走视频，中间用箭头建立输入与结果的对应关系。
+- 九组案例覆盖不同画风、配色和角色结构；首屏只保留 `IMAGE` / `SKIN` 标签，不显示作者、版本或链接，避免信息过密。
 
 ### On-Screen Text
 
 WE OPEN-SOURCED ANOTHER MODEL
 
-28 community results · Live demo · Open-source reconstruction
+Community results · Live demo · Open-source reconstruction
 
-不要用代码滚屏开场。开源是新闻点，效果才是观众留下来的原因。
+不要用代码滚屏开场。开源是新闻点，效果才是观众留下来的原因；画面文案避免使用 `any`、`perfect`、`flawless` 或 `high-fidelity` 等绝对化词语。
 
 ## Community Showcase Plan
 
@@ -100,24 +98,24 @@ WE OPEN-SOURCED ANOTHER MODEL
 - 每组使用成对对比：**左侧为原始输入参考图**，**右侧为生成的 3D Minecraft 皮肤 360° 行走视频（透明背景 WebM）**。
 - **合适位置标注作者信息**：显示创作者头像、用户名（通过 `api.entropydrop.com/api/logs/{id}` 获取）、使用的模型版本（如 `SKING_DDJ_v61`）以及任务编号。
 - 轮播所有可用皮肤（当前共 28 组社区生成成果），在 0:20 至 3:30（共 190 秒）的时间段内平分轮播。
-- 视频素材由 `skin_walk_video` 基于 `assets/skin_reconstruction/skin*` 生成透明背景 360° 步态循环，与背景完美融合。
+- 视频素材由 `skin_walk_video` 基于 `assets/skin_reconstruction/skin*` 生成透明背景 360° 步态循环，与背景自然融合。
 - 文案采用前言解说，适度留白，留出纯音乐与 3D 旋转观察时间，后续可根据成片需要继续补充。
 
 ## Main Storyboard
 
 | Time | Segment | Visual Direction | Voiceover Focus | On-Screen Text |
 | :--- | :--- | :--- | :--- | :--- |
-| 0:00–0:20 | Open-source hook | 发布页快速出现，随后展示多组高辨识度生成效果 | 我们又开源了一个模型；先看社区生成效果，再解释它 | Another open-source model |
-| 0:20–1:00 | Why another model? | 社区成果轮播：左原图，右 3D 透明走动，右上标注作者 | 旧路线容易把小图案当作普通缩放；新流水线先理解再做低像素表达 | Community Showcase · Creator Attribution |
-| 1:00–1:50 | Character identity | 持续轮播社区皮肤，展示脸部、发型与服装还原 | 解释两阶段前言：左侧输入与右侧 3D 皮肤的结构转换 | Preserving Distinctive Structure |
-| 1:50–2:40 | Diverse art styles | 覆盖插画、3D 渲染、游戏图与绘画风格，适度留白 | 风格多样性与角色辨识度，观察不同角度的颜色一致性 | All Styles & Creators |
-| 2:40–3:30 | Transparent 3D results | 保留部分观察空间与音乐，平滑过渡到网站实操 | 3D 旋转观察细节还原，引出在线实操 | 3D Skins in Motion |
+| 0:00–0:20 | Open-source hook | 标题 + 九组“参考图 → 3D 行走皮肤”九宫格 | 我们又开源了一个模型；先用九组社区效果建立视觉证据，再解释它 | Another open-source model · Community results |
+| 0:20–1:00 | Why another model? | 社区成果轮播：左原图，右 3D 透明走动，右上标注作者 | 旧路线容易把小图案当作普通图像细节；新流水线先转换到固定 Minecraft 视图，再进行重建 | Community Showcase · Creator Attribution |
+| 1:00–1:50 | Character identity | 持续轮播社区皮肤，展示脸部、发型与服装转换 | 引导观众观察哪些轮廓、配色和服装特征得以保留，以及哪些细节因方块结构被简化 | Translating Distinctive Structure |
+| 1:50–2:40 | Diverse art styles | 覆盖插画、3D 渲染、游戏图与绘画风格，适度留白 | 观察角色转身时正面、侧面和背面的视觉连贯性，不宣称所有细节都能保留 | Diverse Styles & Creators |
+| 2:40–3:30 | Transparent 3D results | 保留部分观察空间与音乐，平滑过渡到网站实操 | 通过动作检查接缝、肢体贴图与背面推断，再引出在线实操 | 3D Skins in Motion |
 | 3:30–4:10 | Website: upload | 地址、登录、Upload Reference | 上传参考图，介绍 SKING DDJ 系列并区分线上限免与本地部署 | 1. Upload a reference |
 | 4:10–4:50 | Viewer: modes | 切换 Voxel、Plane、Cute 模式并旋转观察 | 介绍 3D Viewer 的 Voxel、Plane、Cute 三种渲染模式 | Modes: Voxel · Plane · Cute |
-| 4:50–5:30 | Viewer: actions | 切换 Idle、Walk、Dance 动作，点击 Download | 介绍三种动作动画测试，确认效果后下载 PNG | Actions: Idle · Walk · Dance |
+| 4:50–5:30 | Viewer: actions | 切换 Idle、Walk、Dance 动作，点击 Download | 用动作检查接缝与肢体贴图对齐，确认效果后下载 PNG | Actions: Idle · Walk · Dance |
 | 5:30–6:15 | How pipeline works | DDJ 的公开演示页面、当前模型名称 | 从网站实操转入原理，致敬 DDJ 的两阶段探索与命名来源 | How the Pipeline Works |
 | 6:15–6:45 | Stage one | 参考图 + 模板 → 固定格式正背面图 | 前沿图像模型先理解角色，并把外观转换到统一 Minecraft 视图 | Reference → Fixed views |
-| 6:45–7:30 | Stage two | 前景抠图 → 语义路由 → 拓扑补全 → 头部解码 → 材质拟合 | 详解第二阶段：从 72 面几何与内外层解析、拓扑补全到最终 64×64 皮肤 | Fixed views → Reconstructed Skin |
+| 6:45–7:30 | Stage two | 用三个问题组织画面：像素属于哪里？不可见区域怎么补？重渲染后是否更匹配？ | 以三个问题解释可见像素路由、保守补全与重渲染校验，最终得到 64×64 皮肤 | Fixed views → Reconstructed Skin |
 | 7:30–8:20 | Future outlook | 痛点、数据积累、链接、订阅卡片 | 剖析闭源依赖缺点，展望自有模型，呼吁订阅频道未来更多模型 | What comes next · Subscribe |
 
 ## Website Recording Notes
@@ -148,10 +146,10 @@ WE OPEN-SOURCED ANOTHER MODEL
 
 - Audio file: `skin_reconstruction/audios/01_open_source_hook.mp3`
 - Target duration: `20s`
-- Visual direction: 发布页只闪现一次，马上进入 C01、C11、C16。标题与链接在最后五秒出现。
+- Visual direction: 全段保持标题与九组“参考图 → 3D 行走皮肤”九宫格；不显示作者、版本和链接，后续单案例轮播再补充完整署名。
 
 ```text
-We have open-sourced another model for turning character images into Minecraft skins. To show what it can handle, we picked character images in very different styles. First we will look at the results, then try the pipeline online and explain how it works.
+We have open-sourced another model for turning character images into Minecraft skins. To show the range of community results, we picked character images in very different styles. First we will look at those results, then try the pipeline online and explain how it works.
 ```
 
 ### VO 02 | 0:20-1:00 | why_another_model | Why Build Another One?
@@ -161,7 +159,7 @@ We have open-sourced another model for turning character images into Minecraft s
 - Visual direction: C01–C05。保持输入图可见，选择动漫、平涂、概念设计和带小装饰的插画；旁白结束后让最后两组完整转身。
 
 ```text
-Why make another model? In the previous version, small decorative details were often the hardest part. A flower pattern, a butterfly hair clip, or a tiny bear on a shirt needs to be understood and redesigned with only a few pixels. Instead, these details were often handled like a simple resize, so their shapes could become blurry or disappear. The new pipeline introduces a state-of-the-art image model for this step. It can recognize what those details represent and express them again within a limited pixel resolution.
+Why make another model? In previous versions, small decorative details were often the hardest part. A flower pattern, a butterfly hair clip, or a tiny bear on a shirt has to be translated into only a few pixels. When those features are treated as ordinary image detail, their contours can blur, their colors can mix, or their shapes can disappear. The new pipeline first reinterprets the character in a fixed Minecraft view, giving the reconstruction stage clearer structure to work with.
 ```
 
 ### VO 03 | 1:00-1:50 | community_showcase_1 | Community Showcase
@@ -171,7 +169,7 @@ Why make another model? In the previous version, small decorative details were o
 - Visual direction: 持续轮播社区皮肤。左侧输入参考图，右侧 3D 透明走动角色，右上方展示创作者与模型信息。
 
 ```text
-Here are real results generated by community creators on EntropyDrop. On the left is the original reference image; on the right is the full 3D skin in motion, complete with author attribution. Notice how the key silhouette, colors, and clothing structures are preserved on the block model.
+Here are real results generated by community creators on EntropyDrop. On the left is the original reference image; on the right is the full 3D skin in motion, complete with creator attribution. As you compare them, look for which silhouettes, colors, and clothing details remain recognizable—and where the block geometry requires the design to be simplified.
 ```
 
 ### VO 04 | 1:50-2:40 | community_showcase_2 | Across Styles and Creators
@@ -181,7 +179,7 @@ Here are real results generated by community creators on EntropyDrop. On the lef
 - Visual direction: 持续轮播不同艺术风格作品。留出充足纯音乐与 3D 旋转观察时间。
 
 ```text
-These examples span diverse art styles—from anime and illustrations to game renders and painterly art. The pipeline focuses on keeping character identity intact from every angle as each model turns.
+These examples span diverse art styles—from anime and illustrations to game renders and painterly art. As each model turns, check whether the front, sides, and back remain visually coherent. Some details translate cleanly, while others are simplified or inferred where the original image provides no direct view.
 ```
 
 ### VO 05 | 2:40-3:30 | community_showcase_3 | Transparent 3D Results
@@ -191,7 +189,7 @@ These examples span diverse art styles—from anime and illustrations to game re
 - Visual direction: 轮播最后几组皮肤，平滑过渡到网站实操演示。
 
 ```text
-Take a moment to look at how these characters hold up from every angle in motion. Next, let's see how you can create and download your own skins on the website.
+Take a moment to compare the seams, limb textures, and inferred back details as these characters move. Not every detail survives the conversion, so the 3D turn is an important check. Next, let's see how you can create and download your own skins on the website.
 ```
 
 ### VO 06 | 3:30-4:10 | website_upload | Upload a Reference
@@ -201,7 +199,7 @@ Take a moment to look at how these characters hold up from every angle in motion
 - Visual direction: 网站真实录屏。显示地址、上传动作和预览，点击之间留停顿。
 
 ```text
-To try the model online, open entropydrop dot com and sign in, then upload a reference image. The model featured in this video is named the SKING DDJ series. Click the generate button, and you will get your result. For our hosted service, high server costs make continuous free access hard to sustain, so we open periodic free-access windows on the website. For local use, the Stage Two reconstruction code and weights are open source. Running the complete workflow still requires access to a compatible image model for Stage One.
+To try the model online, open entropydrop dot com and sign in, then upload a reference image. The model featured in this video is named the SKING DDJ series. Click the generate button, and after processing, the result opens in the 3D viewer. For our hosted service, high server costs make continuous free access hard to sustain, so we open periodic free-access windows on the website. For local use, the complete workflow code and the Stage Two model weights are open source. Running the workflow still requires access to a compatible image model for Stage One.
 ```
 
 ### VO 07 | 4:10-4:50 | viewer_modes | 3D Viewer: Display Modes
@@ -211,7 +209,7 @@ To try the model online, open entropydrop dot com and sign in, then upload a ref
 - Visual direction: 打开 3D 预览器，依次点击切换顶部的 Voxel、Plane、Cute 模式，拖动旋转展示立体像素、平面贴图与 Q 版比例差异。
 
 ```text
-Once the result opens in the 3D viewer, you can inspect it in three different display modes. Voxel mode extrudes every pixel into 3D volume, giving the skin physical depth. Plane mode shows the classic flat Minecraft box look, while Cute mode transforms the character into adorable chibi proportions.
+Once the result opens in the 3D viewer, you can inspect it in three different display modes. Voxel mode adds visible depth to the skin texture, while Plane mode shows the classic flat Minecraft box look. Cute mode changes the character to chibi proportions, giving you another way to inspect how the design reads at a different scale.
 ```
 
 ### VO 08 | 4:50-5:30 | viewer_actions | Animations and Download
@@ -221,7 +219,7 @@ Once the result opens in the 3D viewer, you can inspect it in three different di
 - Visual direction: 依次点击底部的 Idle、Walk、Dance 动作按钮，展示角色动态；最后点击 DOWNLOAD 按钮保存皮肤 PNG。
 
 ```text
-At the bottom, you can test three different animation types. Idle lets you inspect details in a calm standing pose, Walk shows how the clothing and limbs move naturally, and Dance brings the character to life with fun moves. Once you are satisfied with the preview, click Download to save the skin as a PNG.
+At the bottom, you can test three different animation types. Idle is useful for inspecting small details. Walk makes seam breaks and texture alignment around moving limbs easier to spot, while Dance provides a more demanding motion check. Once you are satisfied with the preview, click Download to save the skin as a PNG.
 ```
 
 ### VO 09 | 5:30-6:15 | how_pipeline_works | How the Pipeline Works
@@ -248,10 +246,10 @@ The pipeline has two stages. In stage one, the image model receives the characte
 
 - Audio file: `skin_reconstruction/audios/11_stage_two.mp3`
 - Target duration: `45s`
-- Visual direction: 固定正背面图 → 前景抠图与几何对齐 → Dense UV Parser 内外层路由 → 拓扑内部补全 → 头部解码与材质拟合 → 最终 64×64 皮肤。
+- Visual direction: 用三个连续问题组织画面：`1. Where does each visible pixel belong?`（前景、固定几何、内外层路由）→ `2. What fills the unseen surfaces?`（仅补全缺失的内层 texel）→ `3. Does it still match when rendered?`（头部与配件重渲染、材质校正）→ 最终 64×64 皮肤。
 
 ```text
-Stage two turns those fixed views into the actual skin file. A Minecraft skin is a flat sixty-four by sixty-four texture wrapped around 72 cube faces across an inner base and outer layer. First, the pipeline extracts the character silhouette, then our Dense UV Parser routes every pixel to its correct body part, cube face, and layer. Hidden surfaces—like the inner arms and legs—are completed through topological inpainting, while a dedicated head decoder resolves complex hair and accessories across 3D seams. Finally, the colors are refined to produce the finished skin.
+Stage two turns those fixed views into the actual skin file by solving three problems. First: where does each visible pixel belong? Fixed geometry narrows the possibilities, and the Dense UV Parser chooses the body part, cube face, and inner or outer layer. Second: what should fill the surfaces that neither view can see? The pipeline completes only missing inner-layer texels with nearby or mirrored colors, without inventing new outer-layer geometry. Third: does the reconstructed head still match when rendered? The system renders it back into both views and keeps a material correction only when the visible match improves. The result is a standard sixty-four by sixty-four Minecraft skin.
 ```
 
 ### VO 12 | 7:30-8:20 | future_outlook | What Comes Next
@@ -261,7 +259,7 @@ Stage two turns those fixed views into the actual skin file. A Minecraft skin is
 - Visual direction: 先显示闭源依赖的痛点（格式不稳导致生成失败、发型头饰多样性欠缺），再切到数据积累与未来自有模型；最后展示网站、GitHub 与频道关注订阅卡片。
 
 ```text
-This release is one step, not the end of the project. The largest dependency is still the closed-source image model in stage one, and relying on it has real downsides. It cannot guarantee a valid fixed format every time, which can cause skin generation to fail, and its diversity for hairstyles and head accessories is still limited. We want to collect reviewed examples connecting the character, fixed views, and final skin to reduce that dependency. For now, you can try the pipeline on EntropyDrop. The open-source reconstruction code, model weights, and our technical article are linked below. If you enjoyed this, subscribe to the channel—we'll have many more interesting models to share soon. Thanks for watching!
+This release is one step, not the end of the project. The largest dependency is still the closed-source image model in stage one, and relying on it has real downsides. It cannot guarantee a valid fixed format every time, which can cause skin generation to fail, and its diversity for hairstyles and head accessories is still limited. We want to collect reviewed examples connecting the character, fixed views, and final skin to reduce that dependency. For now, you can try the pipeline on EntropyDrop. The open-source pipeline code, Stage Two model weights, and our technical article are linked below. If you enjoyed this, subscribe to the channel—we'll have many more interesting models to share soon. Thanks for watching!
 ```
 
 ## Production Handoff

@@ -120,37 +120,50 @@ function asset(key, timing, extraClass = '') {
 
 // Scene 1: Hook (0:00 - 0:20)
 function hookScene() {
-  return '<section id="scene-1" class="scene clip" data-start="0.000" data-duration="20.000" data-track-index="1">' +
-    '<div class="hook-hero">' +
-    '<div class="hook-kicker"><span class="kicker-dot"></span>ANOTHER OPEN-SOURCE MODEL</div>' +
-    '<h1 class="hook-title">Turn Any Character Image<br>into a Minecraft Skin</h1>' +
-    '<p class="hook-subtitle">Deep learning pipeline for high-fidelity character to Minecraft skin reconstruction</p>' +
-    '<div class="hook-agenda">' +
-    '<div class="agenda-card">' +
-    '<div class="agenda-tag">PART 01</div>' +
-    '<div class="agenda-title">Community Showcase</div>' +
-    '<div class="agenda-desc">Diverse art styles &amp; character identity</div>' +
-    '</div>' +
-    '<div class="agenda-arrow"><i>→</i></div>' +
-    '<div class="agenda-card">' +
-    '<div class="agenda-tag">PART 02</div>' +
-    '<div class="agenda-title">Live Demo</div>' +
-    '<div class="agenda-desc">Online upload, generation &amp; 3D inspection</div>' +
-    '</div>' +
-    '<div class="agenda-arrow"><i>→</i></div>' +
-    '<div class="agenda-card">' +
-    '<div class="agenda-tag">PART 03</div>' +
-    '<div class="agenda-title">Two-Stage Pipeline</div>' +
-    '<div class="agenda-desc">DDJ attribution &amp; reconstruction principle</div>' +
-    '</div>' +
-    '</div>' +
-    '<div class="hook-links">' +
-    '<div class="link-item"><span class="link-badge">WEB</span><span class="link-text">entropydrop.com/skin/generate</span></div>' +
-    '<div class="link-item"><span class="link-badge">CODE</span><span class="link-text">github.com/EntropyDrop/SkingToolkit</span></div>' +
-    '<div class="link-item"><span class="link-badge">WEIGHTS</span><span class="link-text">huggingface.co/EntropyDrop/Sking</span></div>' +
-    '</div>' +
-    '</div>' +
-    '</section>';
+  const preferredIds = [
+    '34G2L2VV', '3ACVBJ56', '6RMR3QVX',
+    '92KSG3E4', 'KGRGNN4C', 'P8NBZUTB',
+    'VSKVXAWN', 'XCH2FCBQ', 'RHK5KXG6',
+  ];
+  const selected = preferredIds
+    .map(id => communityItems.find(item => item.shortId === id))
+    .filter(Boolean);
+  for (const item of communityItems) {
+    if (selected.length >= 9) break;
+    if (!selected.some(candidate => candidate.shortId === item.shortId)) selected.push(item);
+  }
+
+  const cards = selected.slice(0, 9).map((item, index) => {
+    const refPath = `assets/skin_reconstruction/${item.jpgFile}`;
+    const videoPath = `assets/skin_reconstruction/skin_${item.shortId}__walk360.webm`;
+    const username = item.creator?.username || 'Community Creator';
+    return `<article class="hook-pair-card">
+      <div class="hook-pair-reference">
+        <span class="hook-pair-label">IMAGE</span>
+        <img src="${esc(refPath)}" alt="${esc(username)} reference">
+      </div>
+      <span class="hook-pair-arrow" aria-hidden="true">→</span>
+      <div class="hook-pair-result">
+        <span class="hook-pair-label">SKIN</span>
+        <video id="hook-walk-${item.shortId}" class="hook-pair-video clip" src="${esc(videoPath)}"
+          data-start="0.000" data-duration="20.000" data-media-start="0"
+          data-volume="0" data-track-index="${30 + index}" muted playsinline preload="auto" loop></video>
+      </div>
+    </article>`;
+  }).join('');
+
+  return `<section id="scene-1" class="scene">
+    <div class="hook-grid-shell">
+      <header class="hook-grid-header">
+        <div>
+          <div class="hook-grid-kicker"><span></span>ANOTHER OPEN-SOURCE MODEL:</div>
+          <h1 class="hook-grid-title">IMAGE <em>→</em> MINECRAFT SKIN</h1>
+        </div>
+        <div class="hook-grid-badge">COMMUNITY RESULTS</div>
+      </header>
+      <div class="hook-pairs-grid">${cards}</div>
+    </div>
+  </section>`;
 }
 
 // Scene 2: Community Showcase (0:20 - 3:30, 190 seconds total)
@@ -214,7 +227,7 @@ function showcaseScene() {
     </article>`;
   }).join('');
 
-  return `<section id="scene-2" class="scene" data-track-index="2">
+  return `<section id="scene-2" class="scene clip" data-track-index="2">
     <div class="scene-head">
       <div>
         <span class="kicker">Community Showcase · Results in Motion</span>
@@ -666,7 +679,7 @@ const html = `<!doctype html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=1920, height=1080">
-  <title>AI Minecraft Skins — Open-Source Reconstruction</title>
+  <title>Another Open-Source Model: Image to Minecraft Skin</title>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"><\/script>
   <style>${css}</style>
 </head>
