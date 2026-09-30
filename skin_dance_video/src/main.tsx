@@ -5,6 +5,7 @@ import { OrbitControls, Stage } from '@react-three/drei';
 import * as THREE from 'three';
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { MinecraftCharacter } from './MC';
+import type { SkinModel } from './MC';
 import './style.css';
 
 const DEFAULT_SKIN = '/generated/placeholder_skin.svg';
@@ -12,6 +13,7 @@ const DEFAULT_DANCE = '/fbx/Breakdance 1990.fbx';
 
 type RenderParams = {
   skin: string;
+  skinModel: SkinModel;
   action: 'dance' | 'walking';
   dance: string;
   duration: number;
@@ -25,7 +27,10 @@ type RenderParams = {
   yaw: number;
   spin: boolean;
   scale: number;
+  camX: number;
   camY: number;
+  targetX: number;
+  targetY: number;
   record: boolean;
   upload: string;
 };
@@ -51,8 +56,10 @@ function getParams(): RenderParams {
   const params = new URLSearchParams(window.location.search);
   const background = params.get('background') || '#12151f';
   const transparent = background === 'transparent' || boolParam(params.get('transparent'));
+  const skinModel = params.get('skin-model');
   return {
     skin: params.get('skin') || DEFAULT_SKIN,
+    skinModel: skinModel === 'slim' || skinModel === 'classic' ? skinModel : 'auto',
     action: (params.get('action') === 'walking' || boolParam(params.get('walk'))) ? 'walking' : 'dance',
     dance: params.get('dance') || DEFAULT_DANCE,
     duration: Math.max(0.25, numberParam(params.get('duration'), 6)),
@@ -66,7 +73,10 @@ function getParams(): RenderParams {
     yaw: THREE.MathUtils.degToRad(numberParam(params.get('yaw'), -18)),
     spin: boolParam(params.get('spin'), false),
     scale: numberParam(params.get('scale'), 1),
+    camX: numberParam(params.get('cam-x') || params.get('camX') || params.get('cam_x'), 32),
     camY: numberParam(params.get('cam-y') || params.get('camY') || params.get('cam_y'), 24),
+    targetX: numberParam(params.get('target-x') || params.get('targetX') || params.get('target_x'), 0),
+    targetY: numberParam(params.get('target-y') || params.get('targetY') || params.get('target_y'), 1.5),
     record: boolParam(params.get('record'), false),
     upload: params.get('upload') || '',
   };
@@ -186,6 +196,7 @@ function CharacterScene({ params }: { params: RenderParams }) {
       <group ref={groupRef} position={[0, -0.5, 0]} scale={params.scale}>
         <MinecraftCharacter
           textureUrl={params.skin}
+          skinModel={params.skinModel}
           mode={params.mode}
           action={params.action}
           fbxUrl={params.action === 'dance' ? params.dance : undefined}
@@ -210,7 +221,7 @@ function App() {
   return (
     <div className="page" style={{ width: params.width, height: params.height }}>
       <Canvas
-        camera={{ position: [32, params.camY, 44], fov: 34 }}
+        camera={{ position: [params.camX, params.camY, 44], fov: 34 }}
         shadows={!params.transparent}
         gl={{ alpha: params.transparent, preserveDrawingBuffer: true, antialias: false }}
         resize={{ offsetSize: true }}
@@ -222,7 +233,7 @@ function App() {
         <Suspense fallback={null}>
           <CharacterScene params={params} />
         </Suspense>
-        <OrbitControls makeDefault enableDamping={false} enableZoom={false} enablePan={false} target={[0, 1.5, 0]} />
+        <OrbitControls makeDefault enableDamping={false} enableZoom={false} enablePan={false} target={[params.targetX, params.targetY, 0]} />
       </Canvas>
       <Recorder params={params} />
     </div>

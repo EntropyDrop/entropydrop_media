@@ -246,10 +246,10 @@
       "suggested": "assets/comparisons/C20_reconstruction.mp4"
     },
     "website.upload": {
-      "src": "",
+      "src": "assets/website/vo06_website_upload.webm",
       "type": "video",
       "label": "Website recording · Upload",
-      "suggested": "assets/website/01_upload.mp4"
+      "suggested": "assets/website/vo06_website_upload.webm"
     },
     "website.generate": {
       "src": "",
@@ -280,6 +280,18 @@
       "type": "image",
       "label": "Real limitation examples",
       "suggested": "assets/technical/limits.png"
+    },
+    "ddj.videos_2025": {
+      "src": "assets/ddj_2025_videos.png",
+      "type": "image",
+      "label": "DDJ 2025 Nanobanana video demonstration",
+      "suggested": "assets/ddj_2025_videos.png"
+    },
+    "ddj.prompt_2025": {
+      "src": "assets/ddj_2025_prompt.png",
+      "type": "image",
+      "label": "DDJ 2025 Prompt template and dual-layer layout",
+      "suggested": "assets/ddj_2025_prompt.png"
     }
   }
 }

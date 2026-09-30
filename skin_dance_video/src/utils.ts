@@ -1,4 +1,5 @@
 
+
 type Skin2DOptions = {
     scale?: number
     showOverlay?: boolean
@@ -13,7 +14,8 @@ const DEFAULT_SKIN_2D_OPTIONS = {
 
 const MAX_SKIN_2D_CACHE_SIZE = 240
 const skin2DCache = new Map<string, Promise<HTMLCanvasElement>>()
-let canvas2DRendererPromise: Promise<typeof import("@daidr/minecraft-skin-renderer/canvas2d")> | null = null
+const skinAvatarCache = new Map<string, Promise<HTMLCanvasElement>>()
+let skin2DRendererPromise: Promise<typeof import('../utils/skin2dRenderer')> | null = null
 
 function getSkin2DCacheKey(imgSrc: string, options: Required<Skin2DOptions>) {
     return `${imgSrc}|s:${options.scale}|o:${Number(options.showOverlay)}|i:${Number(options.overlayInflated)}`
@@ -29,9 +31,19 @@ function rememberSkin2DRender(key: string, promise: Promise<HTMLCanvasElement>) 
     }
 }
 
-function getCanvas2DRenderer() {
-    canvas2DRendererPromise ??= import("@daidr/minecraft-skin-renderer/canvas2d")
-    return canvas2DRendererPromise
+function rememberSkinAvatarRender(key: string, promise: Promise<HTMLCanvasElement>) {
+    skinAvatarCache.set(key, promise)
+
+    while (skinAvatarCache.size > MAX_SKIN_2D_CACHE_SIZE) {
+        const oldestKey = skinAvatarCache.keys().next().value
+        if (!oldestKey) break
+        skinAvatarCache.delete(oldestKey)
+    }
+}
+
+function getSkin2DRenderer() {
+    return Promise.reject(new Error('skin2dRenderer not available'));
+    return skin2DRendererPromise
 }
 
 function getImageDataFromDrawable(source: CanvasImageSource & { width: number; height: number }) {
@@ -59,14 +71,16 @@ export const isSlim = (img: CanvasImageSource & { width: number; height: number 
     return getSlimFromImageData(getImageDataFromDrawable(img))
 }
 
-async function loadImageDataFromBlob(blob: Blob) {
+async function loadDrawableFromBlob(blob: Blob): Promise<{
+    source: SkinImageSource
+    dispose: () => void
+}> {
     if ('createImageBitmap' in window) {
         try {
             const bitmap = await createImageBitmap(blob)
-            try {
-                return getImageDataFromDrawable(bitmap)
-            } finally {
-                bitmap.close()
+            return {
+                source: bitmap,
+                dispose: () => bitmap.close(),
             }
         } catch (err) {
             console.warn('createImageBitmap failed for skin, falling back to Image:', err)
@@ -83,29 +97,32 @@ async function loadImageDataFromBlob(blob: Blob) {
             img.src = blobUrl
         })
 
-        return getImageDataFromDrawable(image)
+        return {
+            source: image,
+            dispose: () => undefined,
+        }
     } finally {
         URL.revokeObjectURL(blobUrl)
     }
 }
 
 async function renderSkin2D(imgSrc: string, options: Required<Skin2DOptions>) {
-    const { renderSkinIsometric } = await getCanvas2DRenderer()
+    const rendererPromise = getSkin2DRenderer()
 
     // Fetch as a blob so presigned/private URLs and CDN URLs follow the same path.
     const response = await fetch(imgSrc)
     if (!response.ok) throw new Error(`Failed to fetch image: ${response.status} ${response.statusText}`)
 
-    const imageData = await loadImageDataFromBlob(await response.blob())
+    const [decoded, { renderSkinIsometricFast }] = await Promise.all([
+        loadDrawableFromBlob(await response.blob()),
+        rendererPromise,
+    ])
     const canvas = document.createElement('canvas')
-
-    await renderSkinIsometric(canvas, {
-        skin: imageData,
-        slim: getSlimFromImageData(imageData),
-        scale: options.scale,
-        showOverlay: options.showOverlay,
-        overlayInflated: options.overlayInflated,
-    })
+    try {
+        renderSkinIsometricFast(canvas, decoded.source, options)
+    } finally {
+        decoded.dispose()
+    }
 
     const size = Math.max(canvas.width, canvas.height)
     const squareCanvas = document.createElement('canvas')
@@ -142,6 +159,46 @@ export async function Skin2D(imgSrc: string, options: Skin2DOptions = {}): Promi
     return promise
 }
 
+async function renderSkinAvatar(imgSrc: string, options: Required<Skin2DOptions>) {
+    const rendererPromise = getSkin2DRenderer()
+    const response = await fetch(imgSrc)
+    if (!response.ok) throw new Error(`Failed to fetch image: ${response.status} ${response.statusText}`)
+
+    const [decoded, { renderSkinAvatarFast }] = await Promise.all([
+        loadDrawableFromBlob(await response.blob()),
+        rendererPromise,
+    ])
+    const canvas = document.createElement('canvas')
+    try {
+        renderSkinAvatarFast(canvas, decoded.source, options)
+    } finally {
+        decoded.dispose()
+    }
+
+    return canvas
+}
+
+export async function SkinAvatar(imgSrc: string, options: Skin2DOptions = {}): Promise<HTMLCanvasElement> {
+    const normalizedOptions = { ...DEFAULT_SKIN_2D_OPTIONS, scale: 10, ...options }
+    const key = getSkin2DCacheKey(imgSrc, normalizedOptions)
+    const cached = skinAvatarCache.get(key)
+    if (cached) {
+        skinAvatarCache.delete(key)
+        skinAvatarCache.set(key, cached)
+        return cached
+    }
+
+    const promise = renderSkinAvatar(imgSrc, normalizedOptions).catch(err => {
+        if (skinAvatarCache.get(key) === promise) {
+            skinAvatarCache.delete(key)
+        }
+        throw err
+    })
+
+    rememberSkinAvatarRender(key, promise)
+    return promise
+}
+
 /**
  * In plane mode, the decorative layer (overlay) does not necessarily appear on another adjacent face.
  * To ensure the consistency of the overlay edges in voxel mode, some compensation is applied.
@@ -149,11 +206,14 @@ export async function Skin2D(imgSrc: string, options: Skin2DOptions = {}): Promi
  * 2. If a decor pixel is a corner (3 adjacent faces) and some are missing (1 or 2), fill them using the highest priority face (front -> back -> top -> bottom -> left -> right).
  * @param {HTMLCanvasElement} canvas The canvas containing the skin texture
  */
-export function ensureSkinVoxelModeConsistency(canvas: HTMLCanvasElement) {
+export function ensureSkinVoxelModeConsistency(canvas: HTMLCanvasElement, slimOverride?: boolean) {
     const ctx = canvas.getContext('2d')!;
     const { width, height } = canvas;
     const imgData = ctx.getImageData(0, 0, width, height);
     const pixels = imgData.data;
+    type Rgba = [number, number, number, number]
+    type DecorFace = [[number, number, number], [number, number]]
+    type DecorPart = [DecorFace[], [number, number]]
 
     // Pre-process: make translucent pixels fully opaque
     for (let i = 0; i < pixels.length; i += 4) {
@@ -163,12 +223,12 @@ export function ensureSkinVoxelModeConsistency(canvas: HTMLCanvasElement) {
     }
 
     // --- Helper Utility Functions ---
-    const getPixel = (x: number, y: number) => {
+    const getPixel = (x: number, y: number): Rgba => {
         const i = (y * width + x) * 4;
         return [pixels[i], pixels[i + 1], pixels[i + 2], pixels[i + 3]];
     };
 
-    const setPixel = (x: number, y: number, rgba: [number, number, number, number]) => {
+    const setPixel = (x: number, y: number, rgba: Rgba) => {
         const i = (y * width + x) * 4;
         pixels[i] = rgba[0];
         pixels[i + 1] = rgba[1];
@@ -177,10 +237,10 @@ export function ensureSkinVoxelModeConsistency(canvas: HTMLCanvasElement) {
     };
 
     // Determine if it is a Slim (Alex) model
-    const is_slim = getPixel(47, 52)[3] === 0;
+    const is_slim = slimOverride ?? (getPixel(47, 52)[3] === 0);
 
     // --- Data structures strictly kept as-is ---
-    const parts = [
+    const parts: DecorPart[] = [
         // head
         [[
             [[8, 8, 8], [8, 8]],
@@ -235,11 +295,11 @@ export function ensureSkinVoxelModeConsistency(canvas: HTMLCanvasElement) {
         ], [0, 16]]
     ];
 
-    parts.forEach((part, _part_idx) => {
-        const decor_offset: [number, number] = (part as any)[1];
-        const [x, y, z]: [number, number, number] = (part as any)[0][4][0]; // Get x, y, z from the first face
+    parts.forEach((part) => {
+        const decor_offset = part[1];
+        const [x, y, z] = part[0][4][0]; // Get x, y, z from the first face
 
-        const colors: { [key: string]: { rgba: number[], priority: number } } = {};
+        const colors: { [key: string]: { rgba: Rgba, priority: number } } = {};
         const inverse: { [key: string]: number[][] } = {}; // Simulate inverse dictionary
 
         const getPriority = (faceIdx: number) => {
@@ -255,9 +315,8 @@ export function ensureSkinVoxelModeConsistency(canvas: HTMLCanvasElement) {
         };
 
         part[0].forEach((face, idx) => {
-            const size: [number, number, number] = (face as any)[0];
-            const offset: [number, number] = (face as any)[1];
-            if (!offset) { debugger }
+            const size = face[0];
+            const offset = face[1];
 
             for (let dx = 0; dx < size[0]; dx++) {
                 for (let dy = 0; dy < size[1]; dy++) {
@@ -265,7 +324,7 @@ export function ensureSkinVoxelModeConsistency(canvas: HTMLCanvasElement) {
                     const img_y = offset[1] + dy + decor_offset[1];
                     const c = getPixel(img_x, img_y);
 
-                    let new_x, new_y, new_z;
+                    let new_x = 0, new_y = 0, new_z = 0;
                     if (idx === 4) [new_x, new_y, new_z] = [dx, y - 1 - dy, z - 1];      // top
                     else if (idx === 5) [new_x, new_y, new_z] = [dx, y - 1 - dy, 0];      // bottom
                     else if (idx === 0) [new_x, new_y, new_z] = [dx, 0, z - 1 - dy];      // front
@@ -291,14 +350,14 @@ export function ensureSkinVoxelModeConsistency(canvas: HTMLCanvasElement) {
         });
 
         // Apply colors back to the texture map
-        for (let posKey in inverse) {
+        for (const posKey in inverse) {
             const colorInfo = colors[posKey];
             if (!colorInfo) continue; // All missing, no color to fill
 
             inverse[posKey].forEach(coord => {
                 const existingColor = getPixel(coord[0], coord[1]);
                 if (existingColor[3] === 0) {
-                    setPixel(coord[0], coord[1], colorInfo.rgba as any);
+                    setPixel(coord[0], coord[1], colorInfo.rgba);
                 }
             });
         }
@@ -382,4 +441,83 @@ export function convertSkinLayout(canvas: HTMLCanvasElement, target: 'steve' | '
     }
 
     ctx.putImageData(newData, 0, 0);
+}
+
+export async function compressImage(file: File, maxSizeBytes: number = 512 * 1024): Promise<File> {
+    // Only compress actual images
+    if (!file.type.startsWith('image/')) {
+        return file;
+    }
+
+    return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                let width = img.width;
+                let height = img.height;
+
+                // Cap maximum dimensions to 2048px to prevent extreme memory use
+                const maxDimension = 2048;
+                if (width > maxDimension || height > maxDimension) {
+                    if (width > height) {
+                        height = Math.round((height * maxDimension) / width);
+                        width = maxDimension;
+                    } else {
+                        width = Math.round((width * maxDimension) / height);
+                        height = maxDimension;
+                    }
+                }
+
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                if (!ctx) {
+                    resolve(file);
+                    return;
+                }
+
+                // Fill background with white (for transparency compatibility in JPEG)
+                ctx.fillStyle = '#FFFFFF';
+                ctx.fillRect(0, 0, width, height);
+                ctx.drawImage(img, 0, 0, width, height);
+
+                let quality = 0.9;
+                const checkAndResolve = () => {
+                    canvas.toBlob((blob) => {
+                        if (!blob) {
+                            resolve(file);
+                            return;
+                        }
+
+                        if (blob.size <= maxSizeBytes || quality <= 0.1) {
+                            const newFilename = file.name.replace(/\.[^/.]+$/, "") + ".jpg";
+                            const compressedFile = new File([blob], newFilename, {
+                                type: 'image/jpeg',
+                                lastModified: Date.now()
+                            });
+                            resolve(compressedFile);
+                        } else {
+                            quality -= 0.15;
+                            if (quality < 0.5) {
+                                canvas.width = Math.round(canvas.width * 0.85);
+                                canvas.height = Math.round(canvas.height * 0.85);
+                                ctx.fillStyle = '#FFFFFF';
+                                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                            }
+                            checkAndResolve();
+                        }
+                    }, 'image/jpeg', quality);
+                };
+
+                checkAndResolve();
+            };
+            img.onerror = () => resolve(file); // Fallback
+            img.src = e.target?.result as string;
+        };
+        reader.onerror = () => resolve(file); // Fallback
+        reader.readAsDataURL(file);
+    });
 }

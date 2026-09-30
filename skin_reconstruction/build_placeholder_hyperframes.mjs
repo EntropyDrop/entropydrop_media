@@ -33,14 +33,19 @@ for (const match of script.matchAll(chapterPattern)) {
     slug: match[3].trim(), title: match[4].trim(), text,
   });
 }
-if (chapters.length !== 12 || chapters[0].start !== 0 || chapters.at(-1).end !== 500) {
-  throw new Error('Expected 12 continuous chapters ending at 8:20 (500s), got ' + chapters.length);
+if (chapters.length !== 11 || chapters[0].start !== 0 || chapters.at(-1).end !== 500) {
+  throw new Error('Expected 11 continuous chapters ending at 8:20 (500s), got ' + chapters.length);
 }
 chapters.forEach((chapter, index) => {
   if (chapter.index !== index + 1 || chapter.start !== (chapters[index - 1]?.end ?? 0)) {
     throw new Error('Chapter timeline is not continuous at VO ' + chapter.index);
   }
 });
+const getChapter = (slug) => {
+  const c = chapters.find(ch => ch.slug === slug);
+  if (!c) throw new Error('Missing chapter with slug: ' + slug);
+  return c;
+};
 
 // Load community showcase items from metadata.json
 let communityItems = [];
@@ -87,6 +92,8 @@ function initialManifest() {
       'website.preview': { src: '', type: 'video', label: 'Website recording · Preview & Download', suggested: 'assets/website/03_preview_download.mp4' },
       'technical.pipeline': { src: '', type: 'image', label: 'Reference → Views → Skin → 3D', suggested: 'assets/technical/pipeline.png' },
       'technical.layers': { src: '', type: 'video', label: 'Base and outer layer turn', suggested: 'assets/technical/layers.mp4' },
+      'ddj.videos_2025': { src: 'assets/ddj_2025_videos.png', type: 'image', label: 'DDJ 2025 Nanobanana video demonstration', suggested: 'assets/ddj_2025_videos.png' },
+      'ddj.prompt_2025': { src: 'assets/ddj_2025_prompt.png', type: 'image', label: 'DDJ 2025 Prompt template and dual-layer layout', suggested: 'assets/ddj_2025_prompt.png' },
     },
   };
 }
@@ -110,7 +117,7 @@ function asset(key, timing, extraClass = '') {
       return '<img ' + common + ' src="' + esc(item.src) + '" alt="' + esc(label) + '">';
     }
     return '<video ' + common + ' src="' + esc(item.src) +
-      '" data-media-start="0" data-volume="0" muted playsinline preload="auto"></video>';
+      '" data-media-start="0" data-volume="0" muted playsinline preload="auto" loop></video>';
   }
   return '<div class="asset-placeholder ' + esc(extraClass) + '" data-asset-key="' + esc(key) + '">' +
     '<div class="placeholder-grid"></div><span class="placeholder-chip">DEMO RECORDING</span>' +
@@ -262,7 +269,7 @@ function hookScene() {
   return `<section id="scene-1" class="scene clip" data-track-index="1">
     <div class="scene-head">
       <div>
-        <span class="kicker">Community Showcase · Results in Motion</span>
+        <span class="kicker">EntropyDrop</span>
         <h2>ANOTHER OPEN-SOURCE MODEL: IMAGE <em>→</em> MINECRAFT SKIN</h2>
       </div>
       <div class="scene-note">EntropyDrop Community Creations</div>
@@ -340,7 +347,7 @@ function showcaseScene() {
   return `<section id="scene-3" class="scene clip" data-track-index="3">
     <div class="scene-head">
       <div>
-        <span class="kicker">Community Showcase · Results in Motion</span>
+        <span class="kicker">EntropyDrop</span>
         <h2>ANOTHER OPEN-SOURCE MODEL: IMAGE <em>→</em> MINECRAFT SKIN</h2>
       </div>
       <div class="scene-note">EntropyDrop Community Creations</div>
@@ -351,61 +358,43 @@ function showcaseScene() {
   </section>`;
 }
 
-// Act 2: Scene 6: Upload Reference & Model (VO 06 | 210s - 250s)
-function webUploadScene(chapter) {
+// Act 2: Scene CTA: Try It Online (VO 06 | 210s - 220s, 10s)
+function tryItOnlineScene(chapter) {
   const duration = chapter.end - chapter.start;
-  return `<section id="scene-6" class="scene clip" data-start="${fmt(chapter.start)}" data-duration="${fmt(duration)}" data-track-index="6">
-    <div class="scene-head">
-      <div>
-        <span class="kicker">Website Walkthrough · Step 01</span>
-        <h2>Upload Reference &amp; Generate Skin</h2>
-      </div>
-      <div class="step-number">STEP 01</div>
-    </div>
-    <div class="browser-shell">
-      <div class="browser-top">
-        <i></i><i></i><i></i><span>entropydrop.com/skin/generate</span>
-      </div>
-      <div class="browser-body">
-        <aside>
-          <b>IMAGE MODE</b>
-          <span>Upload Reference</span>
-          <span>Model: SKING DDJ</span>
-          <span>Free Access Windows</span>
-          <span>Generate Now</span>
-        </aside>
-        <main>
-          ${asset('website.upload', { start: chapter.start, duration }, 'browser-asset')}
-        </main>
-        <div class="instruction-card">
-          <span>01</span>
-          <h3>Upload &amp; Generate</h3>
-          <p>Open <code>entropydrop.com</code>, sign in, upload your character reference, select <strong>SKING DDJ</strong>, and click Generate.</p>
-          <div class="card-sub-list">
-            <div class="card-sub-item active">
-              <div class="card-sub-header">
-                <span class="card-sub-title">Model: SKING DDJ</span>
-                <span class="card-sub-badge green">ACTIVE</span>
-              </div>
-              <span class="card-sub-desc">Specialized character-to-skin deep learning reconstruction model.</span>
-            </div>
-            <div class="card-sub-item">
-              <div class="card-sub-header">
-                <span class="card-sub-title">Cloud Hosted Service</span>
-                <span class="card-sub-badge amber">PERIODIC FREE</span>
-              </div>
-              <span class="card-sub-desc">High GPU costs prevent 24/7 free access; free windows open periodically.</span>
-            </div>
-            <div class="card-sub-item">
-              <div class="card-sub-header">
-                <span class="card-sub-title">Local Deployment</span>
-                <span class="card-sub-badge green">OPEN-SOURCE STAGE 2</span>
-              </div>
-              <span class="card-sub-desc">Reconstruction code and weights are open source. The complete workflow still needs a compatible Stage One image model.</span>
+  const videoSrc = 'assets/website/skin_P8NBZUTB_uprock_var2_slim_aligned_xneg3_y22.webm';
+  return `<section id="scene-cta" class="scene">
+    <div class="scene-inner">
+      <div class="cta-card">
+        <div class="cta-left">
+          <h2>Free online Minecraft skin generator</h2>
+          <p class="subtitle">Use it online, or train and deploy the open-source model locally.</p>
+          <div class="cta-url">entropydrop.com</div>
+        </div>
+        <div class="mock-browser">
+          <div class="browser-bar">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="url-bar">entropydrop.com</div>
+          </div>
+          <div class="website-video-slot">
+            <div class="video-slot-screen">
+              <video id="cta-demo-video" class="cta-demo-video clip" src="${esc(videoSrc)}" data-start="${fmt(chapter.start)}" data-duration="${fmt(duration)}" data-track-index="33" data-media-start="0" data-volume="0" muted playsinline preload="auto" loop></video>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>`;
+}
+
+// Act 2: Scene 6: Website Walkthrough & 3D Viewer (VO 07 | 220s - 290s, 70s Fullscreen)
+function webUploadScene(chapter) {
+  const duration = chapter.end - chapter.start;
+  const videoSrc = assets['website.upload']?.src || 'assets/website/vo06_website_upload.webm';
+  return `<section id="scene-6" class="scene scene-fullscreen clip" data-track-index="6">
+    <div class="fullscreen-video-frame">
+      <video id="vo06-fullscreen-video" class="fullscreen-video" src="${esc(videoSrc)}" data-start="${fmt(chapter.start)}" data-duration="${fmt(duration)}" data-source-duration="62.800" data-media-start="0" data-volume="0" muted playsinline preload="auto" loop></video>
     </div>
   </section>`;
 }
@@ -541,6 +530,9 @@ function webViewerActionsScene(chapter) {
 
 // Act 3: How the Pipeline Works (Scene 9 | 330s - 375s)
 function ddjScene(chapter) {
+  const ddjVideoImg = assets['ddj.videos_2025']?.src || 'assets/ddj_2025_videos.png';
+  const ddjPromptImg = assets['ddj.prompt_2025']?.src || 'assets/ddj_2025_prompt.png';
+
   return `<section id="scene-9" class="scene clip" data-start="${fmt(chapter.start)}" data-duration="${fmt(chapter.end - chapter.start)}" data-track-index="9">
     <div class="scene-head">
       <div>
@@ -551,15 +543,29 @@ function ddjScene(chapter) {
     </div>
     <div class="ddj-timeline-stage">
       <div class="ddj-card">
-        <div class="milestone-badge">LATE 2025 · CONCEPT</div>
+        <div class="milestone-badge">LATE 2025 · DEMO</div>
         <h3>Banana Image Model Demo</h3>
+        <div class="ddj-media-preview ddj-media-video">
+          <img src="${esc(ddjVideoImg)}" alt="DDJ 2025 Nanobanana Video Demonstration">
+        </div>
+        <div class="ddj-meta">
+          <span>Author: <b>DDJ (氪鸡)</b></span>
+          <span>Date: <b>2025-11-23</b></span>
+        </div>
         <p>DDJ demonstrated using the Banana image model to assist Minecraft skin creation, proving the potential of image-guided generation and prompt design.</p>
         <div class="milestone-tag">Prompt Framework Origin</div>
       </div>
       <div class="timeline-arrow"><i>→</i></div>
       <div class="ddj-card">
         <div class="milestone-badge">STAGE 1 · VIEWS</div>
-        <h3>Fixed Views Generation</h3>
+        <h3>Fixed Views Prompt</h3>
+        <div class="ddj-media-preview ddj-media-prompt">
+          <img src="${esc(ddjPromptImg)}" alt="DDJ 2025 Prompt Template and Layout Guide">
+        </div>
+        <div class="ddj-meta">
+          <span>Post: <b>Bilibili Dynamic</b></span>
+          <span>Date: <b>2025-12-01</b></span>
+        </div>
         <p>Adapted from DDJ's research: specialized prompt templates guide the image model to produce consistent Minecraft front and back views without geometry distortion.</p>
         <div class="milestone-tag">Auxiliary Vision Model</div>
       </div>
@@ -567,6 +573,13 @@ function ddjScene(chapter) {
       <div class="ddj-card active">
         <div class="milestone-badge">STAGE 2 · TOOLKIT</div>
         <h3>Redesigned UV Reconstruction</h3>
+        <div class="ddj-media-preview ddj-media-reconstruction">
+          <img src="assets/skingen_layers.png" alt="SkingToolkit Dual-Layer Reconstruction">
+        </div>
+        <div class="ddj-meta">
+          <span>Engine: <b>SkingToolkit</b></span>
+          <span>Pipeline: <b>Dense UV Parser</b></span>
+        </div>
         <p>EntropyDrop redesigned the full geometric reconstruction pipeline and open-sourced SkingToolkit to turn fixed views into playable 64×64 skins.</p>
         <div class="milestone-tag tag-green">Open-Source Release</div>
       </div>
@@ -773,15 +786,14 @@ const subtitles = chapters.flatMap(chapter => {
 
 const scenes = [
   hookScene(),
-  compareScene(chapters[1]),
+  compareScene(getChapter('why_another_model')),
   showcaseScene(),
-  webUploadScene(chapters[5]),
-  webViewerModesScene(chapters[6]),
-  webViewerActionsScene(chapters[7]),
-  ddjScene(chapters[8]),
-  stageOneScene(chapters[9]),
-  stageTwoScene(chapters[10]),
-  futureScene(chapters[11]),
+  tryItOnlineScene(getChapter('try_it_online')),
+  webUploadScene(getChapter('website_walkthrough')),
+  ddjScene(getChapter('how_pipeline_works')),
+  stageOneScene(getChapter('stage_one')),
+  stageTwoScene(getChapter('stage_two')),
+  futureScene(getChapter('future_outlook')),
 ].join('\n');
 
 const css = fs.readFileSync(path.join(project, 'template.css'), 'utf8');
@@ -796,10 +808,8 @@ const html = `<!doctype html>
 </head>
 <body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="500.000" data-width="1920" data-height="1080">
-  <div class="top-rule"></div>
   ${scenes}
   ${subtitles}
-  <div class="progress"><i></i></div>
 </div>
 <script>
 window.__timelines = window.__timelines || {};
@@ -817,19 +827,21 @@ function reveal(selector, start, duration, animate = true) {
 reveal('#scene-1', 0, 20, false);
 reveal('#scene-2', 20, 40, false);
 reveal('#scene-3', 60, 150, false);
+reveal('#scene-cta', 210, 10, false);
+tl.from('#scene-cta .cta-card', { scale: 0.97, opacity: 0, duration: 0.6, ease: 'power3.out' }, 210.1);
+reveal('#scene-6', 220, 110, false);
 document.querySelectorAll('.showcase-card, .compare-card').forEach(node => {
   const start = Number(node.dataset.cardStart);
   const dur = Number(node.dataset.cardDuration);
   reveal('#' + node.id, start, dur, true);
 });
-document.querySelectorAll('.scene.clip:not(#scene-1):not(#scene-2):not(#scene-3)').forEach(node => reveal('#' + node.id, at(node), length(node)));
+document.querySelectorAll('.scene.clip:not(#scene-1):not(#scene-2):not(#scene-3):not(#scene-6)').forEach(node => reveal('#' + node.id, at(node), length(node)));
 document.querySelectorAll('.timed-card').forEach(node => reveal('#' + node.id, at(node), length(node), true));
 document.querySelectorAll('.asset-media').forEach(node => reveal('#' + node.id, at(node), length(node), false));
 document.querySelectorAll('.subtitle-line').forEach(node => {
   tl.set('#' + node.id, { visibility: 'visible', opacity: 1 }, at(node));
   tl.set('#' + node.id, { visibility: 'hidden', opacity: 0 }, at(node) + length(node));
 });
-tl.to('.progress i', { width: '100%', duration: total, ease: 'none' }, 0);
 window.__timelines.main = tl;
 // Seamless action video looping & timeline sync
 const walkVideos = document.querySelectorAll('video.walk-video');

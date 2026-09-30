@@ -64,6 +64,9 @@ npm run render -- \
 --walk
 --mode voxel
 --mode plane
+--skin-model slim
+--skin-model classic
+--skin-model auto
 --background "#12151f"
 --background transparent --format webm
 --spin
@@ -74,3 +77,7 @@ npm run render -- \
 
 MP4 does not preserve alpha. Use `--background transparent --format webm` when
 you need a transparent WebM overlay asset.
+
+`--skin-model slim` forces Alex-style 3-pixel arms (including the overlay UV
+layout); `classic` forces Steve-style 4-pixel arms. The default `auto` keeps
+detecting the arm model from the skin texture. This does not modify the input PNG.

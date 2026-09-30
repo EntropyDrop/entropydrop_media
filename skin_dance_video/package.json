@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "node scripts/ensure_node_modules_link.mjs && vite --host 127.0.0.1 --port 5178",
     "render": "node scripts/render_skin_dance_video.mjs",
-    "list-dances": "node scripts/render_skin_dance_video.mjs --list-dances"
+    "list-dances": "node scripts/render_skin_dance_video.mjs --list-dances",
+    "test": "node scripts/test_dance_alignments.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

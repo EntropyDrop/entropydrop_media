@@ -50,6 +50,7 @@ Options:
   --width <px>           Canvas width. Default: 1080.
   --height <px>          Canvas height. Default: 1920.
   --mode <voxel|plane>   Minecraft overlay render mode. Default: voxel.
+  --skin-model <auto|classic|slim> Arm model. Default: auto-detect from skin.
   --background <color>   CSS color or "transparent". Default: #12151f.
   --format <mp4|webm|both> Output format. Default: inferred from --out, otherwise mp4.
   --yaw <degrees>        Character yaw. Default: -18.
@@ -147,6 +148,7 @@ function startUploadServer(token, targetPath) {
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
       res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+      res.setHeader('Access-Control-Allow-Private-Network', 'true');
       res.setHeader('Connection', 'close');
       if (req.method === 'OPTIONS') {
         res.writeHead(204);
@@ -291,6 +293,10 @@ async function main() {
   fs.mkdirSync(outputsDir, { recursive: true });
   const useWalk = Boolean(args.walk);
   const danceFile = useWalk ? null : normalizeDance(args.dance);
+  const skinModel = args['skin-model'] || 'auto';
+  if (!['auto', 'classic', 'slim'].includes(skinModel)) {
+    throw new Error(`Invalid skin model "${skinModel}". Use auto, classic, or slim.`);
+  }
   const skinUrl = copySkinToPublic(args.skin);
   const duration = Number(args.duration || 6);
   const fps = Number(args.fps || 30);
@@ -301,7 +307,10 @@ async function main() {
   const background = args.transparent ? 'transparent' : (args.background || '#12151f');
   const yaw = Number(args.yaw || -18);
   const scale = Number(args.scale || 1);
+  const camX = Number(args['cam-x'] || args.camX || args.cam_x || 32);
   const camY = Number(args['cam-y'] || args.camY || args.cam_y || 24);
+  const targetX = Number(args['target-x'] || args.targetX || args.target_x || 0);
+  const targetY = Number(args['target-y'] || args.targetY || args.target_y || 1.5);
   const actionLabel = useWalk ? 'walk' : slug(danceFile);
   const inferredOut = path.join(outputsDir, `${slug(path.basename(args.skin || 'placeholder'))}__${actionLabel}.mp4`);
   const outPath = args.out ? resolveInvocationPath(args.out) : inferredOut;
@@ -326,6 +335,7 @@ async function main() {
     await waitForHttp(`http://127.0.0.1:${vitePort}`, 15000);
     const params = new URLSearchParams({
       skin: skinUrl,
+      'skin-model': skinModel,
       action: useWalk ? 'walking' : 'dance',
       dance: danceFile ? `/fbx/${danceFile}` : '',
       duration: String(duration),
@@ -337,7 +347,10 @@ async function main() {
       background,
       yaw: String(yaw),
       scale: String(scale),
+      'cam-x': String(camX),
       'cam-y': String(camY),
+      'target-x': String(targetX),
+      'target-y': String(targetY),
       record: '1',
       upload: `http://127.0.0.1:${upload.port}/upload?token=${token}`,
     });
@@ -347,6 +360,7 @@ async function main() {
     const url = `http://127.0.0.1:${vitePort}/?${params.toString()}`;
     const chromeArgs = [
       '--headless=new',
+      '--disable-web-security',
       '--no-first-run',
       '--disable-dev-shm-usage',
       '--disable-background-timer-throttling',
