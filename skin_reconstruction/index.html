@@ -226,6 +226,7 @@ h2 em {
   opacity: 0;
   display: flex;
   flex-direction: column;
+  will-change: transform;
 }
 
 .compare-grid {
@@ -327,6 +328,7 @@ h2 em {
   opacity: 0;
   display: flex;
   flex-direction: column;
+  will-change: transform;
 }
 
 .showcase-grid {
@@ -842,55 +844,152 @@ h2 em {
 
 .stage-one-layout {
   display: grid;
-  grid-template-columns: 1fr 50px 1fr 50px 1fr;
+  grid-template-columns: 1fr 48px 1fr 48px 1fr;
   align-items: center;
   gap: 16px;
-  margin-top: 32px;
-  height: 570px;
+  margin-top: 24px;
 }
 
 .stage-card {
-  height: 500px;
+  height: 620px;
   border: 1px solid var(--line-soft);
   background: var(--panel);
   border-radius: 6px;
-  padding: 34px 28px;
+  padding: 22px 22px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
   box-shadow: 0 16px 40px rgba(17, 22, 17, 0.06);
 }
 
+.stage-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
 .step-badge {
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: bold;
   color: var(--green-dark);
   background: var(--green-soft);
   border: 1px solid var(--green);
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: 4px;
   width: fit-content;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
 
-.stage-card h3 {
-  font-size: 26px;
+.stage-card-header h3 {
+  font-size: 22px;
   color: var(--ink);
   line-height: 1.25;
   margin: 0;
 }
 
-.stage-card p {
-  font-size: 16px;
+.stage-card-header p {
+  font-size: 14px;
   color: var(--muted);
-  line-height: 1.55;
+  line-height: 1.45;
   margin: 0;
+  min-height: 42px;
+}
+
+.stage-card-media {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--panel-2);
+  border: 1px solid var(--line-soft);
+  border-radius: 6px;
+  padding: 14px 12px 10px;
+  margin-bottom: 12px;
+}
+
+.media-preview-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+}
+
+.stage-card-img {
+  display: block;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.stage-card-img.ref-tall-img {
+  max-height: 290px;
+  width: auto;
+  border: 1px solid var(--line-soft);
+  box-shadow: 0 6px 18px rgba(17, 22, 17, 0.1);
+}
+
+.stage-card-img.norm-dual-img {
+  max-height: 290px;
+  width: auto;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 20px rgba(17, 22, 17, 0.12);
+}
+
+.templates-grid {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+}
+
+.template-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.stage-card-img.tmpl-img {
+  width: 132px;
+  height: 132px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 14px rgba(17, 22, 17, 0.08);
+}
+
+.tmpl-name {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: bold;
+}
+
+.media-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-top: 8px;
+  border-top: 1px dashed var(--line-soft);
+}
+
+.media-title {
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--green-dark);
+}
+
+.media-sub {
+  font-size: 12px;
+  color: var(--muted);
 }
 
 .tag-status {
-  margin-top: auto;
-  padding: 9px 15px;
+  padding: 8px 14px;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: bold;
   width: fit-content;
 }
 
@@ -901,9 +1000,15 @@ h2 em {
 }
 
 .tag-closed {
-  border: 1px solid #d97706;
+  border: 1px solid #f59e0b;
   background: #fef3c7;
   color: #92400e;
+}
+
+.tag-green {
+  border: 1px solid var(--green);
+  background: var(--green-soft);
+  color: var(--green-dark);
 }
 
 .tag-neutral {
@@ -913,9 +1018,25 @@ h2 em {
 }
 
 .stage-flow-arrow {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stage-flow-arrow i {
+  font-size: 26px;
+  font-weight: bold;
   color: var(--green);
-  font-size: 34px;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(17, 22, 17, 0.06);
 }
 
 .tech-stage,
@@ -1166,14 +1287,16 @@ h2 em {
 
 .closing-link-pill {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
   padding: 12px 24px;
   border: 1px solid var(--line-soft);
-  border-radius: 4px;
+  border-radius: 6px;
   background: var(--panel-2);
   color: var(--ink);
   text-decoration: none;
+  box-shadow: 0 4px 14px rgba(17, 22, 17, 0.04);
 }
 
 .closing-link-pill.primary {
@@ -1181,15 +1304,90 @@ h2 em {
   background: var(--green-soft);
 }
 
+.closing-link-pill.github {
+  border: 1px solid #d0d7de;
+  background: #f8fafc;
+}
+
+.closing-link-pill.github .link-label {
+  color: #24292f;
+}
+
+.closing-link-pill.huggingface {
+  border: 2px solid #ffd21e;
+  background: linear-gradient(135deg, #fffdf2 0%, #ffffff 100%);
+  box-shadow: 0 4px 18px rgba(255, 210, 30, 0.18);
+}
+
+.closing-link-pill.huggingface .link-label {
+  color: #b45309;
+}
+
+.closing-link-pill.youtube {
+  border: 2px solid #ef4444;
+  background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.12);
+}
+
+.closing-link-pill.youtube .link-label {
+  color: #c53030;
+}
+
+.pill-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.pill-brand-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.pill-brand-icon.demo-logo {
+  width: 32px;
+  height: 32px;
+  color: var(--green-dark);
+}
+
+.pill-brand-icon.github-logo {
+  width: 34px;
+  height: 34px;
+  color: #1f2328;
+}
+
+.pill-brand-icon.hf-logo {
+  width: 42px;
+  height: 39px;
+  filter: drop-shadow(0 2px 4px rgba(255, 157, 11, 0.25));
+}
+
+.pill-brand-icon.yt-logo {
+  width: 36px;
+  height: 36px;
+}
+
+.pill-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
 .link-label {
   font-size: 13px;
   color: var(--green-dark);
   letter-spacing: 0.08em;
+  font-weight: bold;
 }
 
 .closing-link-pill strong {
   font-size: 18px;
   color: var(--ink);
+  white-space: nowrap;
 }
 
 /* =========================================================================
@@ -1420,26 +1618,33 @@ h2 em {
 .stage-two-layout {
   display: flex;
   flex-direction: column;
-  gap: 26px;
-  margin-top: 26px;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.stage-two-layout .layers-callout {
+  margin-top: 0;
+}
+
+.stage-two-layout .layer-pill {
+  padding: 16px 20px;
 }
 
 .pipeline-diagram-five {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  align-items: stretch;
+  gap: 10px;
 }
 
 .pipeline-diagram-five > div {
   flex: 1;
-  height: 268px;
+  height: 460px;
   border: 1px solid var(--line-soft);
   background: var(--panel);
-  padding: 22px 16px;
+  padding: 16px 14px 12px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-between;
   border-radius: 6px;
   box-shadow: 0 12px 32px rgba(17, 22, 17, 0.06);
 }
@@ -1449,28 +1654,117 @@ h2 em {
   background: #f4faf5;
 }
 
-.pipeline-diagram-five b {
+.step-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.step-card-header b {
   color: var(--green-dark);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.step-card-header strong {
   font-size: 15px;
-  letter-spacing: 0.04em;
-}
-
-.pipeline-diagram-five strong {
-  font-size: 19px;
+  font-weight: 800;
   color: var(--ink);
-  line-height: 1.25;
+  line-height: 1.2;
+  min-height: 36px;
 }
 
-.pipeline-diagram-five span {
+.step-card-header span {
   color: var(--muted);
-  font-size: 13px;
-  line-height: 1.45;
+  font-size: 12px;
+  line-height: 1.35;
+  min-height: 48px;
+}
+
+.step-card-media {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--panel-2);
+  border: 1px solid var(--line-soft);
+  border-radius: 5px;
+  padding: 8px 6px;
+  margin-top: 8px;
+}
+
+.step-media-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 185px;
+  overflow: hidden;
+}
+
+.step-img {
+  display: block;
+  max-height: 175px;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.step-img.cutout-img {
+  max-height: 170px;
+  width: auto;
+}
+
+.step-img.routed-img {
+  max-height: 175px;
+  width: auto;
+}
+
+.step-img.uv-pixel-img {
+  width: 145px;
+  height: 145px;
+  image-rendering: pixelated;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 14px rgba(17, 22, 17, 0.08);
+}
+
+.step-img.headwear-img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  object-position: 50% 68%;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 14px rgba(17, 22, 17, 0.08);
+}
+
+.step-img.final-skin-img {
+  max-height: 170px;
+  width: auto;
+}
+
+.step-media-caption {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--green-dark);
+  text-align: center;
+  padding-top: 6px;
+  border-top: 1px dashed var(--line-soft);
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pipeline-diagram-five > i {
-  font-size: 26px;
+  font-size: 24px;
   color: var(--green);
   font-style: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -1678,7 +1972,7 @@ h2 em {
 </style>
 </head>
 <body>
-<div id="root" data-composition-id="main" data-start="0" data-duration="500.000" data-width="1920" data-height="1080">
+<div id="root" data-composition-id="main" data-start="0" data-duration="455.000" data-width="1920" data-height="1080">
   <section id="scene-1" class="scene clip" data-track-index="1">
     <div class="scene-head">
       <div>
@@ -1688,7 +1982,7 @@ h2 em {
       <div class="scene-note">EntropyDrop Community Creations</div>
     </div>
     <div class="showcase-stage">
-      <article id="hook-case-KBD3Z6CD" class="showcase-card" data-card-start="0.000" data-card-duration="6.667">
+      <article id="hook-case-KBD3Z6CD" class="showcase-card" data-card-start="0.000" data-card-duration="6.667" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1723,7 +2017,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="hook-case-RHK5KXG6" class="showcase-card" data-card-start="6.667" data-card-duration="6.667">
+  </article><article id="hook-case-RHK5KXG6" class="showcase-card" data-card-start="6.667" data-card-duration="6.667" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1747,7 +2041,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-hook-case-RHK5KXG6" src="assets/skin_reconstruction/skin_RHK5KXG6__walk360.webm" data-start="6.667" data-duration="6.667" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="31" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-hook-case-RHK5KXG6" src="assets/skin_reconstruction/skin_RHK5KXG6__walk360.webm" data-start="6.117" data-duration="7.217" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="31" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/RHK5KXG6.jpg" alt="Invester" class="creator-avatar">
             <div class="creator-details">
@@ -1758,7 +2052,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="hook-case-P8NBZUTB" class="showcase-card" data-card-start="13.333" data-card-duration="6.667">
+  </article><article id="hook-case-P8NBZUTB" class="showcase-card" data-card-start="13.333" data-card-duration="6.667" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1782,7 +2076,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-hook-case-P8NBZUTB" src="assets/skin_reconstruction/skin_P8NBZUTB__walk360.webm" data-start="13.333" data-duration="6.667" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="32" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-hook-case-P8NBZUTB" src="assets/skin_reconstruction/skin_P8NBZUTB__walk360.webm" data-start="12.783" data-duration="7.217" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="32" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/P8NBZUTB.jpg" alt="Célular" class="creator-avatar">
             <div class="creator-details">
@@ -1805,7 +2099,7 @@ h2 em {
       <div class="scene-note">EntropyDrop Model Evolution</div>
     </div>
     <div class="compare-stage">
-      <article id="compare-case-6XF2JYHW" class="compare-card" data-card-start="20.000" data-card-duration="20.000">
+      <article id="compare-case-6XF2JYHW" class="compare-card" data-card-start="20.000" data-card-duration="20.000" data-layout-allow-overflow="true">
     <div class="compare-grid">
       <div class="compare-pane ref-pane">
         <div class="pane-tag">
@@ -1859,7 +2153,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="compare-case-4PJLKJGP" class="compare-card" data-card-start="40.000" data-card-duration="20.000">
+  </article><article id="compare-case-4PJLKJGP" class="compare-card" data-card-start="40.000" data-card-duration="20.000" data-layout-allow-overflow="true">
     <div class="compare-grid">
       <div class="compare-pane ref-pane">
         <div class="pane-tag">
@@ -1891,7 +2185,7 @@ h2 em {
           <span class="tag-sub status-old">sking_v73</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-old-4PJLKJGP" src="assets/skin_reconstruction/skin_NSXZMKCF__walk360.webm" data-start="40.000" data-duration="20.000" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="42" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-old-4PJLKJGP" src="assets/skin_reconstruction/skin_NSXZMKCF__walk360.webm" data-start="39.450" data-duration="20.550" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="42" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="compare-badge-pill old">
             <span>Previous Baseline</span>
           </div>
@@ -1906,7 +2200,7 @@ h2 em {
           <span class="tag-sub status-new">SKING_DDJ Series</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-new-4PJLKJGP" src="assets/skin_reconstruction/skin_4PJLKJGP__walk360.webm" data-start="40.000" data-duration="20.000" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="43" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-new-4PJLKJGP" src="assets/skin_reconstruction/skin_4PJLKJGP__walk360.webm" data-start="39.450" data-duration="20.550" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="43" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="compare-badge-pill new">
             <span>✨ New Model</span>
           </div>
@@ -1925,7 +2219,7 @@ h2 em {
       <div class="scene-note">EntropyDrop Community Creations</div>
     </div>
     <div class="showcase-stage">
-      <article id="case-22K8QBW1" class="showcase-card" data-card-start="60.000" data-card-duration="6.522">
+      <article id="case-22K8QBW1" class="showcase-card" data-card-start="60.000" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1960,7 +2254,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-34G2L2VV" class="showcase-card" data-card-start="66.522" data-card-duration="6.522">
+  </article><article id="case-34G2L2VV" class="showcase-card" data-card-start="66.522" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -1984,7 +2278,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-34G2L2VV" src="assets/skin_reconstruction/skin_34G2L2VV__walk360.webm" data-start="66.522" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="51" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-34G2L2VV" src="assets/skin_reconstruction/skin_34G2L2VV__walk360.webm" data-start="65.972" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="51" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/34G2L2VV.jpg" alt="Neetu Parihar" class="creator-avatar">
             <div class="creator-details">
@@ -1995,7 +2289,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-3ACVBJ56" class="showcase-card" data-card-start="73.043" data-card-duration="6.522">
+  </article><article id="case-3ACVBJ56" class="showcase-card" data-card-start="73.043" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2019,7 +2313,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-3ACVBJ56" src="assets/skin_reconstruction/skin_3ACVBJ56__walk360.webm" data-start="73.043" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="52" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-3ACVBJ56" src="assets/skin_reconstruction/skin_3ACVBJ56__walk360.webm" data-start="72.493" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="52" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/3ACVBJ56.jpg" alt="Golem Yt" class="creator-avatar">
             <div class="creator-details">
@@ -2030,7 +2324,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-4CD9WUNE" class="showcase-card" data-card-start="79.565" data-card-duration="6.522">
+  </article><article id="case-4CD9WUNE" class="showcase-card" data-card-start="79.565" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2054,7 +2348,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-4CD9WUNE" src="assets/skin_reconstruction/skin_4CD9WUNE__walk360.webm" data-start="79.565" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="53" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-4CD9WUNE" src="assets/skin_reconstruction/skin_4CD9WUNE__walk360.webm" data-start="79.015" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="53" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/4CD9WUNE.jpg" alt="Anonymous" class="creator-avatar">
             <div class="creator-details">
@@ -2065,7 +2359,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-6RMR3QVX" class="showcase-card" data-card-start="86.087" data-card-duration="6.522">
+  </article><article id="case-6RMR3QVX" class="showcase-card" data-card-start="86.087" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2089,7 +2383,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-6RMR3QVX" src="assets/skin_reconstruction/skin_6RMR3QVX__walk360.webm" data-start="86.087" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="54" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-6RMR3QVX" src="assets/skin_reconstruction/skin_6RMR3QVX__walk360.webm" data-start="85.537" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="54" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/6RMR3QVX.jpg" alt="veyy ly" class="creator-avatar">
             <div class="creator-details">
@@ -2100,7 +2394,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-8277S1PD" class="showcase-card" data-card-start="92.609" data-card-duration="6.522">
+  </article><article id="case-8277S1PD" class="showcase-card" data-card-start="92.609" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2124,7 +2418,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-8277S1PD" src="assets/skin_reconstruction/skin_8277S1PD__walk360.webm" data-start="92.609" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="55" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-8277S1PD" src="assets/skin_reconstruction/skin_8277S1PD__walk360.webm" data-start="92.059" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="55" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/8277S1PD.jpg" alt="St Rai" class="creator-avatar">
             <div class="creator-details">
@@ -2135,7 +2429,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-8V9ZQLJL" class="showcase-card" data-card-start="99.130" data-card-duration="6.522">
+  </article><article id="case-8V9ZQLJL" class="showcase-card" data-card-start="99.130" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2159,7 +2453,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-8V9ZQLJL" src="assets/skin_reconstruction/skin_8V9ZQLJL__walk360.webm" data-start="99.130" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="56" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-8V9ZQLJL" src="assets/skin_reconstruction/skin_8V9ZQLJL__walk360.webm" data-start="98.580" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="56" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/8V9ZQLJL.jpg" alt="Sayan Maitra" class="creator-avatar">
             <div class="creator-details">
@@ -2170,7 +2464,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-92KSG3E4" class="showcase-card" data-card-start="105.652" data-card-duration="6.522">
+  </article><article id="case-92KSG3E4" class="showcase-card" data-card-start="105.652" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2194,7 +2488,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-92KSG3E4" src="assets/skin_reconstruction/skin_92KSG3E4__walk360.webm" data-start="105.652" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="57" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-92KSG3E4" src="assets/skin_reconstruction/skin_92KSG3E4__walk360.webm" data-start="105.102" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="57" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/92KSG3E4.jpg" alt="RosieEmperor" class="creator-avatar">
             <div class="creator-details">
@@ -2205,7 +2499,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-AKBCM5RE" class="showcase-card" data-card-start="112.174" data-card-duration="6.522">
+  </article><article id="case-AKBCM5RE" class="showcase-card" data-card-start="112.174" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2229,7 +2523,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-AKBCM5RE" src="assets/skin_reconstruction/skin_AKBCM5RE__walk360.webm" data-start="112.174" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="58" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-AKBCM5RE" src="assets/skin_reconstruction/skin_AKBCM5RE__walk360.webm" data-start="111.624" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="58" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/AKBCM5RE.jpg" alt="Loudest" class="creator-avatar">
             <div class="creator-details">
@@ -2240,7 +2534,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-C9CC37GD" class="showcase-card" data-card-start="118.696" data-card-duration="6.522">
+  </article><article id="case-C9CC37GD" class="showcase-card" data-card-start="118.696" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2264,7 +2558,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-C9CC37GD" src="assets/skin_reconstruction/skin_C9CC37GD__walk360.webm" data-start="118.696" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="59" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-C9CC37GD" src="assets/skin_reconstruction/skin_C9CC37GD__walk360.webm" data-start="118.146" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="59" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/C9CC37GD.jpg" alt="Ek Ladka" class="creator-avatar">
             <div class="creator-details">
@@ -2275,7 +2569,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-KGRGNN4C" class="showcase-card" data-card-start="125.217" data-card-duration="6.522">
+  </article><article id="case-KGRGNN4C" class="showcase-card" data-card-start="125.217" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2299,7 +2593,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-KGRGNN4C" src="assets/skin_reconstruction/skin_KGRGNN4C__walk360.webm" data-start="125.217" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="50" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-KGRGNN4C" src="assets/skin_reconstruction/skin_KGRGNN4C__walk360.webm" data-start="124.667" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="50" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/KGRGNN4C.jpg" alt="Med badis" class="creator-avatar">
             <div class="creator-details">
@@ -2310,7 +2604,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-KYQ86U7L" class="showcase-card" data-card-start="131.739" data-card-duration="6.522">
+  </article><article id="case-KYQ86U7L" class="showcase-card" data-card-start="131.739" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2334,7 +2628,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-KYQ86U7L" src="assets/skin_reconstruction/skin_KYQ86U7L__walk360.webm" data-start="131.739" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="51" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-KYQ86U7L" src="assets/skin_reconstruction/skin_KYQ86U7L__walk360.webm" data-start="131.189" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="51" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/KYQ86U7L.jpg" alt="Ivoneide Maria" class="creator-avatar">
             <div class="creator-details">
@@ -2345,7 +2639,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-L6557M72" class="showcase-card" data-card-start="138.261" data-card-duration="6.522">
+  </article><article id="case-L6557M72" class="showcase-card" data-card-start="138.261" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2369,7 +2663,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-L6557M72" src="assets/skin_reconstruction/skin_L6557M72__walk360.webm" data-start="138.261" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="52" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-L6557M72" src="assets/skin_reconstruction/skin_L6557M72__walk360.webm" data-start="137.711" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="52" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/L6557M72.jpg" alt="Tulsiram Pal" class="creator-avatar">
             <div class="creator-details">
@@ -2380,7 +2674,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-N33TFVWW" class="showcase-card" data-card-start="144.783" data-card-duration="6.522">
+  </article><article id="case-N33TFVWW" class="showcase-card" data-card-start="144.783" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2404,7 +2698,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-N33TFVWW" src="assets/skin_reconstruction/skin_N33TFVWW__walk360.webm" data-start="144.783" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="53" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-N33TFVWW" src="assets/skin_reconstruction/skin_N33TFVWW__walk360.webm" data-start="144.233" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="53" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/N33TFVWW.jpg" alt="Lav Vaishnav" class="creator-avatar">
             <div class="creator-details">
@@ -2415,7 +2709,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-NXSG9WQH" class="showcase-card" data-card-start="151.304" data-card-duration="6.522">
+  </article><article id="case-NXSG9WQH" class="showcase-card" data-card-start="151.304" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2439,7 +2733,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-NXSG9WQH" src="assets/skin_reconstruction/skin_NXSG9WQH__walk360.webm" data-start="151.304" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="54" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-NXSG9WQH" src="assets/skin_reconstruction/skin_NXSG9WQH__walk360.webm" data-start="150.754" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="54" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/NXSG9WQH.jpg" alt="Naksh" class="creator-avatar">
             <div class="creator-details">
@@ -2450,7 +2744,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-TFZF4FQM" class="showcase-card" data-card-start="157.826" data-card-duration="6.522">
+  </article><article id="case-TFZF4FQM" class="showcase-card" data-card-start="157.826" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2474,7 +2768,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-TFZF4FQM" src="assets/skin_reconstruction/skin_TFZF4FQM__walk360.webm" data-start="157.826" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="55" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-TFZF4FQM" src="assets/skin_reconstruction/skin_TFZF4FQM__walk360.webm" data-start="157.276" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="55" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/TFZF4FQM.jpg" alt="Chí Dũng Lý" class="creator-avatar">
             <div class="creator-details">
@@ -2485,7 +2779,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-UYD3X92G" class="showcase-card" data-card-start="164.348" data-card-duration="6.522">
+  </article><article id="case-UYD3X92G" class="showcase-card" data-card-start="164.348" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2509,7 +2803,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-UYD3X92G" src="assets/skin_reconstruction/skin_UYD3X92G__walk360.webm" data-start="164.348" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="56" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-UYD3X92G" src="assets/skin_reconstruction/skin_UYD3X92G__walk360.webm" data-start="163.798" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="56" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/UYD3X92G.jpg" alt="Rahul Pandey" class="creator-avatar">
             <div class="creator-details">
@@ -2520,7 +2814,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-VSKVXAWN" class="showcase-card" data-card-start="170.870" data-card-duration="6.522">
+  </article><article id="case-VSKVXAWN" class="showcase-card" data-card-start="170.870" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2544,7 +2838,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-VSKVXAWN" src="assets/skin_reconstruction/skin_VSKVXAWN__walk360.webm" data-start="170.870" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="57" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-VSKVXAWN" src="assets/skin_reconstruction/skin_VSKVXAWN__walk360.webm" data-start="170.320" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="57" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/VSKVXAWN.jpg" alt="Kalista Yu" class="creator-avatar">
             <div class="creator-details">
@@ -2555,7 +2849,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-WMP5SE3V" class="showcase-card" data-card-start="177.391" data-card-duration="6.522">
+  </article><article id="case-WMP5SE3V" class="showcase-card" data-card-start="177.391" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2579,7 +2873,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-WMP5SE3V" src="assets/skin_reconstruction/skin_WMP5SE3V__walk360.webm" data-start="177.391" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="58" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-WMP5SE3V" src="assets/skin_reconstruction/skin_WMP5SE3V__walk360.webm" data-start="176.841" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="58" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/WMP5SE3V.jpg" alt="Yash Rathore" class="creator-avatar">
             <div class="creator-details">
@@ -2590,7 +2884,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-X62LFSC7" class="showcase-card" data-card-start="183.913" data-card-duration="6.522">
+  </article><article id="case-X62LFSC7" class="showcase-card" data-card-start="183.913" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2614,7 +2908,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-X62LFSC7" src="assets/skin_reconstruction/skin_X62LFSC7__walk360.webm" data-start="183.913" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="59" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-X62LFSC7" src="assets/skin_reconstruction/skin_X62LFSC7__walk360.webm" data-start="183.363" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="59" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/X62LFSC7.jpg" alt="IBet 1000" class="creator-avatar">
             <div class="creator-details">
@@ -2625,7 +2919,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-XCH2FCBQ" class="showcase-card" data-card-start="190.435" data-card-duration="6.522">
+  </article><article id="case-XCH2FCBQ" class="showcase-card" data-card-start="190.435" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2649,7 +2943,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-XCH2FCBQ" src="assets/skin_reconstruction/skin_XCH2FCBQ__walk360.webm" data-start="190.435" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="50" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-XCH2FCBQ" src="assets/skin_reconstruction/skin_XCH2FCBQ__walk360.webm" data-start="189.885" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="50" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/XCH2FCBQ.jpg" alt="Husky" class="creator-avatar">
             <div class="creator-details">
@@ -2660,7 +2954,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-Y783AAVH" class="showcase-card" data-card-start="196.957" data-card-duration="6.522">
+  </article><article id="case-Y783AAVH" class="showcase-card" data-card-start="196.957" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2684,7 +2978,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-Y783AAVH" src="assets/skin_reconstruction/skin_Y783AAVH__walk360.webm" data-start="196.957" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="51" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-Y783AAVH" src="assets/skin_reconstruction/skin_Y783AAVH__walk360.webm" data-start="196.407" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="51" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/Y783AAVH.jpg" alt="Slayer69" class="creator-avatar">
             <div class="creator-details">
@@ -2695,7 +2989,7 @@ h2 em {
         </div>
       </div>
     </div>
-  </article><article id="case-YWFZ9W7D" class="showcase-card" data-card-start="203.478" data-card-duration="6.522">
+  </article><article id="case-YWFZ9W7D" class="showcase-card" data-card-start="203.478" data-card-duration="6.522" data-layout-allow-overflow="true">
     <div class="showcase-grid">
       <div class="showcase-pane ref-pane">
         <div class="pane-tag">
@@ -2719,7 +3013,7 @@ h2 em {
           <span class="tag-title">3D SKIN</span>
         </div>
         <div class="pane-media transparent-stage">
-          <video id="walk-vid-case-YWFZ9W7D" src="assets/skin_reconstruction/skin_YWFZ9W7D__walk360.webm" data-start="203.478" data-duration="6.522" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="52" muted playsinline preload="auto" loop class="walk-video clip"></video>
+          <video id="walk-vid-case-YWFZ9W7D" src="assets/skin_reconstruction/skin_YWFZ9W7D__walk360.webm" data-start="202.928" data-duration="7.072" data-media-start="0" data-source-duration="8.000" data-volume="0" data-track-index="52" muted playsinline preload="auto" loop class="walk-video clip"></video>
           <div class="creator-tag-bottom-right">
             <img src="assets/skin_reconstruction/avatars/YWFZ9W7D.jpg" alt="Archana Singh" class="creator-avatar">
             <div class="creator-details">
@@ -2762,94 +3056,82 @@ h2 em {
       <video id="vo06-fullscreen-video" class="fullscreen-video" src="assets/website/vo06_website_upload.webm" data-start="220.000" data-duration="110.000" data-source-duration="62.800" data-media-start="0" data-volume="0" muted playsinline preload="auto" loop></video>
     </div>
   </section>
-<section id="scene-9" class="scene clip" data-start="330.000" data-duration="45.000" data-track-index="9">
+<section id="scene-8" class="scene clip" data-start="330.000" data-duration="30.000" data-track-index="8">
     <div class="scene-head">
       <div>
         <span class="kicker">Two-Stage Architecture</span>
         <h2>How the Pipeline Works</h2>
       </div>
-      <div class="scene-note">Crediting DDJ's Pioneering Concept</div>
-    </div>
-    <div class="ddj-timeline-stage">
-      <div class="ddj-card">
-        <div class="milestone-badge">LATE 2025 · DEMO</div>
-        <h3>Banana Image Model Demo</h3>
-        <div class="ddj-media-preview ddj-media-video">
-          <img src="assets/ddj_2025_videos.png" alt="DDJ 2025 Nanobanana Video Demonstration">
-        </div>
-        <div class="ddj-meta">
-          <span>Author: <b>DDJ (氪鸡)</b></span>
-          <span>Date: <b>2025-11-23</b></span>
-        </div>
-        <p>DDJ demonstrated using the Banana image model to assist Minecraft skin creation, proving the potential of image-guided generation and prompt design.</p>
-        <div class="milestone-tag">Prompt Framework Origin</div>
-      </div>
-      <div class="timeline-arrow"><i>→</i></div>
-      <div class="ddj-card">
-        <div class="milestone-badge">STAGE 1 · VIEWS</div>
-        <h3>Fixed Views Prompt</h3>
-        <div class="ddj-media-preview ddj-media-prompt">
-          <img src="assets/ddj_2025_prompt.png" alt="DDJ 2025 Prompt Template and Layout Guide">
-        </div>
-        <div class="ddj-meta">
-          <span>Post: <b>Bilibili Dynamic</b></span>
-          <span>Date: <b>2025-12-01</b></span>
-        </div>
-        <p>Adapted from DDJ's research: specialized prompt templates guide the image model to produce consistent Minecraft front and back views without geometry distortion.</p>
-        <div class="milestone-tag">Auxiliary Vision Model</div>
-      </div>
-      <div class="timeline-arrow"><i>→</i></div>
-      <div class="ddj-card active">
-        <div class="milestone-badge">STAGE 2 · TOOLKIT</div>
-        <h3>Redesigned UV Reconstruction</h3>
-        <div class="ddj-media-preview ddj-media-reconstruction">
-          <img src="assets/skingen_layers.png" alt="SkingToolkit Dual-Layer Reconstruction">
-        </div>
-        <div class="ddj-meta">
-          <span>Engine: <b>SkingToolkit</b></span>
-          <span>Pipeline: <b>Dense UV Parser</b></span>
-        </div>
-        <p>EntropyDrop redesigned the full geometric reconstruction pipeline and open-sourced SkingToolkit to turn fixed views into playable 64×64 skins.</p>
-        <div class="milestone-tag tag-green">Open-Source Release</div>
-      </div>
-    </div>
-    <div class="attribution-banner">
-      <b>NAMED IN HONOR OF DDJ</b>
-      <span>Prompt framework adapted from DDJ's public research · Complete reconstruction pipeline redesigned &amp; open-sourced by EntropyDrop</span>
-    </div>
-  </section>
-<section id="scene-10" class="scene clip" data-start="375.000" data-duration="30.000" data-track-index="10">
-    <div class="scene-head">
-      <div>
-        <span class="kicker">Two-Stage Pipeline · Stage 01</span>
-        <h2>Stage One: Fixed Front and Back Views</h2>
-      </div>
-      <div class="scene-note">Camera, Pose &amp; Layout Normalization</div>
+      <div class="scene-note">Stage 01 · Fixed Views Generation</div>
     </div>
     <div class="stage-one-layout">
       <div class="stage-card">
-        <span class="step-badge">STEP 1.1</span>
-        <h3>Reference + Fixed Examples</h3>
-        <p>The character reference is paired with Minecraft template images sharing fixed camera angles, Steve/Alex mesh poses, and standard view layouts.</p>
-        <div class="tag-status tag-open">Open Workflow Components</div>
+        <div class="stage-card-header">
+          <span class="step-badge">STEP 1.1</span>
+          <h3>Character Reference</h3>
+          <p>Arbitrary input character image preserving identity, colors, outfit, and hairstyle.</p>
+        </div>
+        <div class="stage-card-media ref-media">
+          <div class="media-preview-box">
+            <img src="assets/input24.png" alt="Character Reference (input24.png)" class="stage-card-img ref-tall-img" />
+          </div>
+          <div class="media-meta">
+            <span class="media-title">input24.png</span>
+            <span class="media-sub">Arbitrary Reference</span>
+          </div>
+        </div>
+        <div class="tag-status tag-open">Character Input</div>
       </div>
-      <div class="stage-flow-arrow"><i>→</i></div>
+      <div class="stage-flow-arrow"><i>+</i></div>
       <div class="stage-card">
-        <span class="step-badge">STEP 1.2</span>
-        <h3>Carefully Designed Prompts</h3>
-        <p>Specialized prompt templates constrain the vision model to keep the fixed format stable, preserving character identity without hallucinating unwanted details.</p>
-        <div class="tag-status tag-closed">Auxiliary Vision Model</div>
+        <div class="stage-card-header">
+          <span class="step-badge">STEP 1.2</span>
+          <h3>Fixed Layout Templates</h3>
+          <p>Multiple templates constrain the vision model to fixed orthogonal dual-view poses.</p>
+        </div>
+        <div class="stage-card-media templates-media">
+          <div class="templates-grid">
+            <div class="template-item">
+              <img src="assets/template41.png" alt="Template 41" class="stage-card-img tmpl-img" />
+              <span class="tmpl-name">Template 41</span>
+            </div>
+            <div class="template-item">
+              <img src="assets/template42.png" alt="Template 42" class="stage-card-img tmpl-img" />
+              <span class="tmpl-name">Template 42</span>
+            </div>
+            <div class="template-item">
+              <img src="assets/template43.png" alt="Template 43" class="stage-card-img tmpl-img" />
+              <span class="tmpl-name">Template 43</span>
+            </div>
+          </div>
+          <div class="media-meta">
+            <span class="media-title">Fixed Multi-Template Anchors</span>
+            <span class="media-sub">Orthogonal Camera · Dual Views</span>
+          </div>
+        </div>
+        <div class="tag-status tag-closed">Geometry &amp; Pose Constraints</div>
       </div>
-      <div class="stage-flow-arrow"><i>→</i></div>
+      <div class="stage-flow-arrow"><i>&rarr;</i></div>
       <div class="stage-card">
-        <span class="step-badge">STEP 1.3</span>
-        <h3>Normalized Format Output</h3>
-        <p>Outputs standardized Minecraft front and back views ready for silhouette extraction, Dense UV parsing, and 3D reconstruction.</p>
-        <div class="tag-status tag-neutral">Standardized Views</div>
+        <div class="stage-card-header">
+          <span class="step-badge">STEP 1.3</span>
+          <h3>Normalized Dual Views</h3>
+          <p>Standardized front and back views ready for silhouette cutout, UV parsing, and 3D reconstruction.</p>
+        </div>
+        <div class="stage-card-media output-media">
+          <div class="media-preview-box">
+            <img src="assets/img24_template41_51_52.png" alt="Normalized Dual Views (img24_template41_51_52.png)" class="stage-card-img norm-dual-img" />
+          </div>
+          <div class="media-meta">
+            <span class="media-title">img24_template41_51_52.png</span>
+            <span class="media-sub">Standardized Front &amp; Back</span>
+          </div>
+        </div>
+        <div class="tag-status tag-green">Normalized Minecraft Views</div>
       </div>
     </div>
   </section>
-<section id="scene-11" class="scene clip" data-start="405.000" data-duration="45.000" data-track-index="11">
+<section id="scene-9" class="scene clip" data-start="360.000" data-duration="45.000" data-track-index="9">
     <div class="scene-head">
       <div>
         <span class="kicker">Two-Stage Pipeline · Stage 02</span>
@@ -2860,33 +3142,73 @@ h2 em {
     <div class="stage-two-layout">
       <div class="pipeline-diagram-five">
         <div>
-          <b>STEP 01</b>
-          <strong>SILHOUETTE EXTRACTION</strong>
-          <span>Isolates character foreground and aligns mesh silhouette geometry</span>
+          <div class="step-card-header">
+            <b>STEP 01</b>
+            <strong>SILHOUETTE EXTRACTION</strong>
+            <span>Isolates character foreground and aligns mesh silhouette geometry</span>
+          </div>
+          <div class="step-card-media">
+            <div class="step-media-box">
+              <img src="assets/img24_cutout.png" alt="Silhouette Cutout (img24_cutout.png)" class="step-img cutout-img" />
+            </div>
+            <span class="step-media-caption">img24_cutout.png · Foreground Cutout</span>
+          </div>
         </div>
         <i>→</i>
         <div class="active-step">
-          <b>STEP 02</b>
-          <strong>DENSE UV PARSER</strong>
-          <span>Routes pixels across 72 cuboid faces: inner base &amp; outer volume layers</span>
+          <div class="step-card-header">
+            <b>STEP 02</b>
+            <strong>DENSE UV PARSER</strong>
+            <span>Routes pixels across 72 cuboid faces: inner base &amp; outer volume layers</span>
+          </div>
+          <div class="step-card-media">
+            <div class="step-media-box">
+              <img src="assets/img24_routed.png" alt="Semantic Routing (img24_routed.png)" class="step-img routed-img" />
+            </div>
+            <span class="step-media-caption">img24_routed.png · Semantic Routing</span>
+          </div>
         </div>
         <i>→</i>
         <div>
-          <b>STEP 03</b>
-          <strong>TOPOLOGICAL INPAINTING</strong>
-          <span>Predicts occluded surfaces: inner arms, legs, armpits, and underside</span>
+          <div class="step-card-header">
+            <b>STEP 03</b>
+            <strong>TOPOLOGICAL INPAINTING</strong>
+            <span>Predicts occluded surfaces: inner arms, legs, armpits, and underside</span>
+          </div>
+          <div class="step-card-media">
+            <div class="step-media-box">
+              <img src="assets/parser_pred_uv_simple_inpainting.png" alt="Inpainted UV (parser_pred_uv_simple_inpainting.png)" class="step-img uv-pixel-img" />
+            </div>
+            <span class="step-media-caption">Inpainted UV (64×64 Texture)</span>
+          </div>
         </div>
         <i>→</i>
         <div>
-          <b>STEP 04</b>
-          <strong>HEAD DECODER</strong>
-          <span>Resolves multi-face seams for complex 3D hairstyles and accessories</span>
+          <div class="step-card-header">
+            <b>STEP 04</b>
+            <strong>HEAD DECODER</strong>
+            <span>Resolves multi-face seams for complex 3D hairstyles and accessories</span>
+          </div>
+          <div class="step-card-media">
+            <div class="step-media-box">
+              <img src="assets/v101_headwear_comparison.png" alt="Headwear Separation (v101_headwear_comparison.png)" class="step-img headwear-img" />
+            </div>
+            <span class="step-media-caption">Dual-Layer Seam Healing</span>
+          </div>
         </div>
         <i>→</i>
         <div class="active-step">
-          <b>STEP 05</b>
-          <strong>64×64 SKIN PNG</strong>
-          <span>Material refitting and color refinement to generate game-ready PNG</span>
+          <div class="step-card-header">
+            <b>STEP 05</b>
+            <strong>64×64 SKIN PNG</strong>
+            <span>Material refitting and color refinement to generate game-ready PNG</span>
+          </div>
+          <div class="step-card-media">
+            <div class="step-media-box">
+              <img src="assets/img24_final.png" alt="Final 64x64 Skin (img24_final.png)" class="step-img final-skin-img" />
+            </div>
+            <span class="step-media-caption">img24_final.png · Game-Ready Skin</span>
+          </div>
         </div>
       </div>
       <div class="layers-callout">
@@ -2905,7 +3227,7 @@ h2 em {
       </div>
     </div>
   </section>
-<section id="scene-12" class="scene clip" data-start="450.000" data-duration="50.000" data-track-index="12">
+<section id="scene-10" class="scene clip" data-start="405.000" data-duration="50.000" data-track-index="10">
     <div class="scene-head">
       <div>
         <span class="kicker">Roadmap &amp; Community</span>
@@ -2942,28 +3264,59 @@ h2 em {
             <p>Stay tuned for upcoming open-source generative AI models, architecture deep-dives &amp; SkingToolkit updates.</p>
           </div>
         </div>
-        <a class="closing-link-pill primary" href="https://youtube.com/@EntropyDrop">
-          <span class="link-label">YOUTUBE</span>
-          <strong>SUBSCRIBE &rarr;</strong>
+        <a class="closing-link-pill youtube" href="https://youtube.com/@EntropyDrop">
+          <div class="pill-icon-box"><svg class="pill-brand-icon yt-logo" viewBox="0 0 24 24" fill="#ff0000" xmlns="http://www.w3.org/2000/svg">
+  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+</svg></div>
+          <div class="pill-texts">
+            <span class="link-label">YOUTUBE</span>
+            <strong>SUBSCRIBE &rarr;</strong>
+          </div>
         </a>
       </div>
       <div class="closing-links-row">
         <a class="closing-link-pill primary" href="https://entropydrop.com/skin/generate">
-          <span class="link-label">ONLINE DEMO</span>
-          <strong>entropydrop.com/skin/generate</strong>
+          <div class="pill-icon-box"><svg class="pill-brand-icon demo-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="10"></circle>
+  <line x1="2" y1="12" x2="22" y2="12"></line>
+  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+</svg></div>
+          <div class="pill-texts">
+            <span class="link-label">ONLINE DEMO</span>
+            <strong>entropydrop.com/skin/generate</strong>
+          </div>
         </a>
-        <a class="closing-link-pill" href="https://github.com/EntropyDrop/SkingToolkit">
-          <span class="link-label">GITHUB CODE</span>
-          <strong>github.com/EntropyDrop/SkingToolkit</strong>
+        <a class="closing-link-pill github" href="https://github.com/EntropyDrop/SkingToolkit">
+          <div class="pill-icon-box"><svg class="pill-brand-icon github-logo" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+</svg></div>
+          <div class="pill-texts">
+            <span class="link-label">GITHUB CODE</span>
+            <strong>github.com/EntropyDrop/SkingToolkit</strong>
+          </div>
         </a>
-        <a class="closing-link-pill" href="https://huggingface.co/EntropyDrop/Sking">
-          <span class="link-label">HUGGING FACE</span>
-          <strong>huggingface.co/EntropyDrop/Sking</strong>
+        <a class="closing-link-pill huggingface" href="https://huggingface.co/EntropyDrop/Sking">
+          <div class="pill-icon-box"><svg class="pill-brand-icon hf-logo" viewBox="0 0 95 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#fff" d="M94.25 70.08a8.28 8.28 0 0 1-.43 6.46 10.57 10.57 0 0 1-3 3.6 25.18 25.18 0 0 1-5.7 3.2 65.74 65.74 0 0 1-7.56 2.65 46.67 46.67 0 0 1-11.42 1.68c-5.42.05-10.09-1.23-13.4-4.5a40.4 40.4 0 0 1-10.14.03c-3.34 3.25-7.99 4.52-13.39 4.47a46.82 46.82 0 0 1-11.43-1.68 66.37 66.37 0 0 1-7.55-2.65c-2.28-.98-4.17-2-5.68-3.2a10.5 10.5 0 0 1-3.02-3.6c-.99-2-1.18-4.3-.42-6.46a8.54 8.54 0 0 1-.33-5.63c.25-.95.66-1.83 1.18-2.61a8.67 8.67 0 0 1 2.1-8.47 8.23 8.23 0 0 1 2.82-2.07 41.75 41.75 0 1 1 81.3-.12 8.27 8.27 0 0 1 3.11 2.19 8.7 8.7 0 0 1 2.1 8.47c.52.78.93 1.66 1.18 2.61a8.61 8.61 0 0 1-.32 5.63Z"/>
+  <path fill="#FFD21E" d="M47.21 76.5a34.75 34.75 0 1 0 0-69.5 34.75 34.75 0 0 0 0 69.5Z"/>
+  <path fill="#FF9D0B" d="M81.96 41.75a34.75 34.75 0 1 0-69.5 0 34.75 34.75 0 0 0 69.5 0Zm-73.5 0a38.75 38.75 0 1 1 77.5 0 38.75 38.75 0 0 1-77.5 0Z"/>
+  <path fill="#3A3B45" d="M58.5 32.3c1.28.44 1.78 3.06 3.07 2.38a5 5 0 1 0-6.76-2.07c.61 1.15 2.55-.72 3.7-.32ZM34.95 32.3c-1.28.44-1.79 3.06-3.07 2.38a5 5 0 1 1 6.76-2.07c-.61 1.15-2.56-.72-3.7-.32Z"/>
+  <path fill="#FF323D" d="M46.96 56.29c9.83 0 13-8.76 13-13.26 0-2.34-1.57-1.6-4.09-.36-2.33 1.15-5.46 2.74-8.9 2.74-7.19 0-13-6.88-13-2.38s3.16 13.26 13 13.26Z"/>
+  <path fill="#3A3B45" fill-rule="evenodd" d="M39.43 54a8.7 8.7 0 0 1 5.3-4.49c.4-.12.81.57 1.24 1.28.4.68.82 1.37 1.24 1.37.45 0 .9-.68 1.33-1.35.45-.7.89-1.38 1.32-1.25a8.61 8.61 0 0 1 5 4.17c3.73-2.94 5.1-7.74 5.1-10.7 0-2.34-1.57-1.6-4.09-.36l-.14.07c-2.31 1.15-5.39 2.67-8.77 2.67s-6.45-1.52-8.77-2.67c-2.6-1.29-4.23-2.1-4.23.29 0 3.05 1.46 8.06 5.47 10.97Z" clip-rule="evenodd"/>
+  <path fill="#FF9D0B" d="M70.71 37a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5ZM24.21 37a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5ZM17.52 48c-1.62 0-3.06.66-4.07 1.87a5.97 5.97 0 0 0-1.33 3.76 7.1 7.1 0 0 0-1.94-.3c-1.55 0-2.95.59-3.94 1.66a5.8 5.8 0 0 0-.8 7 5.3 5.3 0 0 0-1.79 2.82c-.24.9-.48 2.8.8 4.74a5.22 5.22 0 0 0-.37 5.02c1.02 2.32 3.57 4.14 8.52 6.1 3.07 1.22 5.89 2 5.91 2.01a44.33 44.33 0 0 0 10.93 1.6c5.86 0 10.05-1.8 12.46-5.34 3.88-5.69 3.33-10.9-1.7-15.92-2.77-2.78-4.62-6.87-5-7.77-.78-2.66-2.84-5.62-6.25-5.62a5.7 5.7 0 0 0-4.6 2.46c-1-1.26-1.98-2.25-2.86-2.82A7.4 7.4 0 0 0 17.52 48Zm0 4c.51 0 1.14.22 1.82.65 2.14 1.36 6.25 8.43 7.76 11.18.5.92 1.37 1.31 2.14 1.31 1.55 0 2.75-1.53.15-3.48-3.92-2.93-2.55-7.72-.68-8.01.08-.02.17-.02.24-.02 1.7 0 2.45 2.93 2.45 2.93s2.2 5.52 5.98 9.3c3.77 3.77 3.97 6.8 1.22 10.83-1.88 2.75-5.47 3.58-9.16 3.58-3.81 0-7.73-.9-9.92-1.46-.11-.03-13.45-3.8-11.76-7 .28-.54.75-.76 1.34-.76 2.38 0 6.7 3.54 8.57 3.54.41 0 .7-.17.83-.6.79-2.85-12.06-4.05-10.98-8.17.2-.73.71-1.02 1.44-1.02 3.14 0 10.2 5.53 11.68 5.53.11 0 .2-.03.24-.1.74-1.2.33-2.04-4.9-5.2-5.21-3.16-8.88-5.06-6.8-7.33.24-.26.58-.38 1-.38 3.17 0 10.66 6.82 10.66 6.82s2.02 2.1 3.25 2.1c.28 0 .52-.1.68-.38.86-1.46-8.06-8.22-8.56-11.01-.34-1.9.24-2.85 1.31-2.85Z"/>
+  <path fill="#FFD21E" d="M38.6 76.69c2.75-4.04 2.55-7.07-1.22-10.84-3.78-3.77-5.98-9.3-5.98-9.3s-.82-3.2-2.69-2.9c-1.87.3-3.24 5.08.68 8.01 3.91 2.93-.78 4.92-2.29 2.17-1.5-2.75-5.62-9.82-7.76-11.18-2.13-1.35-3.63-.6-3.13 2.2.5 2.79 9.43 9.55 8.56 11-.87 1.47-3.93-1.71-3.93-1.71s-9.57-8.71-11.66-6.44c-2.08 2.27 1.59 4.17 6.8 7.33 5.23 3.16 5.64 4 4.9 5.2-.75 1.2-12.28-8.53-13.36-4.4-1.08 4.11 11.77 5.3 10.98 8.15-.8 2.85-9.06-5.38-10.74-2.18-1.7 3.21 11.65 6.98 11.76 7.01 4.3 1.12 15.25 3.49 19.08-2.12Z"/>
+  <path fill="#FF9D0B" d="M77.4 48c1.62 0 3.07.66 4.07 1.87a5.97 5.97 0 0 1 1.33 3.76 7.1 7.1 0 0 1 1.95-.3c1.55 0 2.95.59 3.94 1.66a5.8 5.8 0 0 1 .8 7 5.3 5.3 0 0 1 1.78 2.82c.24.9.48 2.8-.8 4.74a5.22 5.22 0 0 1 .37 5.02c-1.02 2.32-3.57 4.14-8.51 6.1-3.08 1.22-5.9 2-5.92 2.01a44.33 44.33 0 0 1-10.93 1.6c-5.86 0-10.05-1.8-12.46-5.34-3.88-5.69-3.33-10.9 1.7-15.92 2.78-2.78 4.63-6.87 5.01-7.77.78-2.66 2.83-5.62 6.24-5.62a5.7 5.7 0 0 1 4.6 2.46c1-1.26 1.98-2.25 2.87-2.82A7.4 7.4 0 0 1 77.4 48Zm0 4c-.51 0-1.13.22-1.82.65-2.13 1.36-6.25 8.43-7.76 11.18a2.43 2.43 0 0 1-2.14 1.31c-1.54 0-2.75-1.53-.14-3.48 3.91-2.93 2.54-7.72.67-8.01a1.54 1.54 0 0 0-.24-.02c-1.7 0-2.45 2.93-2.45 2.93s-2.2 5.52-5.97 9.3c-3.78 3.77-3.98 6.8-1.22 10.83 1.87 2.75 5.47 3.58 9.15 3.58 3.82 0 7.73-.9 9.93-1.46.1-.03 13.45-3.8 11.76-7-.29-.54-.75-.76-1.34-.76-2.38 0-6.71 3.54-8.57 3.54-.42 0-.71-.17-.83-.6-.8-2.85 12.05-4.05 10.97-8.17-.19-.73-.7-1.02-1.44-1.02-3.14 0-10.2 5.53-11.68 5.53-.1 0-.19-.03-.23-.1-.74-1.2-.34-2.04 4.88-5.2 5.23-3.16 8.9-5.06 6.8-7.33-.23-.26-.57-.38-.98-.38-3.18 0-10.67 6.82-10.67 6.82s-2.02 2.1-3.24 2.1a.74.74 0 0 1-.68-.38c-.87-1.46 8.05-8.22 8.55-11.01.34-1.9-.24-2.85-1.31-2.85Z"/>
+  <path fill="#FFD21E" d="M56.33 76.69c-2.75-4.04-2.56-7.07 1.22-10.84 3.77-3.77 5.97-9.3 5.97-9.3s.82-3.2 2.7-2.9c1.86.3 3.23 5.08-.68 8.01-3.92 2.93.78 4.92 2.28 2.17 1.51-2.75 5.63-9.82 7.76-11.18 2.13-1.35 3.64-.6 3.13 2.2-.5 2.79-9.42 9.55-8.55 11 .86 1.47 3.92-1.71 3.92-1.71s9.58-8.71 11.66-6.44c2.08 2.27-1.58 4.17-6.8 7.33-5.23 3.16-5.63 4-4.9 5.2.75 1.2 12.28-8.53 13.36-4.4 1.08 4.11-11.76 5.3-10.97 8.15.8 2.85 9.05-5.38 10.74-2.18 1.69 3.21-11.65 6.98-11.76 7.01-4.31 1.12-15.26 3.49-19.08-2.12Z"/>
+</svg></div>
+          <div class="pill-texts">
+            <span class="link-label">HUGGING FACE</span>
+            <strong>huggingface.co/EntropyDrop/Sking</strong>
+          </div>
         </a>
       </div>
     </div>
   </section>
-  <div id="sub-001" class="subtitle-line clip" data-start="0.450" data-duration="5.042" data-track-index="81"><span>We have open-sourced another model for turning character images into Minecraft skins.</span></div><div id="sub-002" class="subtitle-line clip" data-start="5.495" data-duration="2.940" data-track-index="81"><span>To show the range of community results,</span></div><div id="sub-003" class="subtitle-line clip" data-start="8.439" data-duration="3.361" data-track-index="81"><span>we picked character images in very different styles.</span></div><div id="sub-004" class="subtitle-line clip" data-start="11.802" data-duration="2.940" data-track-index="81"><span>First we will look at those results,</span></div><div id="sub-005" class="subtitle-line clip" data-start="14.745" data-duration="4.202" data-track-index="81"><span>then try the pipeline online and explain how it works.</span></div><div id="sub-006" class="subtitle-line clip" data-start="20.450" data-duration="3.179" data-track-index="82"><span>Why make another model? In previous versions,</span></div><div id="sub-007" class="subtitle-line clip" data-start="23.632" data-duration="4.997" data-track-index="82"><span>small decorative details were often the hardest part. A flower pattern,</span></div><div id="sub-008" class="subtitle-line clip" data-start="28.632" data-duration="5.906" data-track-index="82"><span>a butterfly hair clip, or a tiny bear on a shirt has to</span></div><div id="sub-009" class="subtitle-line clip" data-start="34.541" data-duration="3.179" data-track-index="82"><span>be translated into only a few pixels.</span></div><div id="sub-010" class="subtitle-line clip" data-start="37.723" data-duration="5.906" data-track-index="82"><span>When those features are treated as ordinary image detail, their contours can blur,</span></div><div id="sub-011" class="subtitle-line clip" data-start="43.632" data-duration="4.088" data-track-index="82"><span>their colors can mix, or their shapes can disappear.</span></div><div id="sub-012" class="subtitle-line clip" data-start="47.723" data-duration="5.452" data-track-index="82"><span>The new pipeline first reinterprets the character in a fixed Minecraft view,</span></div><div id="sub-013" class="subtitle-line clip" data-start="53.177" data-duration="4.088" data-track-index="82"><span>giving the reconstruction stage clearer structure to work with.</span></div><div id="sub-014" class="subtitle-line clip" data-start="60.450" data-duration="4.542" data-track-index="83"><span>Here are real results generated by community creators on EntropyDrop.</span></div><div id="sub-015" class="subtitle-line clip" data-start="64.995" data-duration="5.906" data-track-index="83"><span>Notice how different silhouettes, colors, and clothing details carry over into the block</span></div><div id="sub-016" class="subtitle-line clip" data-start="70.905" data-duration="3.633" data-track-index="83"><span>geometry—and where complex shapes had to be simplified.</span></div><div id="sub-017" class="subtitle-line clip" data-start="110.450" data-duration="5.906" data-track-index="84"><span>These examples span diverse art styles—from anime and illustrations to game renders and</span></div><div id="sub-018" class="subtitle-line clip" data-start="116.359" data-duration="4.997" data-track-index="84"><span>painterly art. As each model turns, check whether the front, sides,</span></div><div id="sub-019" class="subtitle-line clip" data-start="121.359" data-duration="4.088" data-track-index="84"><span>and back remain visually coherent. Some details translate cleanly,</span></div><div id="sub-020" class="subtitle-line clip" data-start="125.450" data-duration="5.906" data-track-index="84"><span>while others are simplified or inferred where the original image provides no direct</span></div><div id="sub-021" class="subtitle-line clip" data-start="131.359" data-duration="0.452" data-track-index="84"><span>view.</span></div><div id="sub-022" class="subtitle-line clip" data-start="160.450" data-duration="4.088" data-track-index="85"><span>Take a moment to compare the seams, limb textures,</span></div><div id="sub-023" class="subtitle-line clip" data-start="164.541" data-duration="3.633" data-track-index="85"><span>and inferred back details as these characters move.</span></div><div id="sub-024" class="subtitle-line clip" data-start="168.177" data-duration="5.906" data-track-index="85"><span>Not every detail survives the conversion, so the 3D turn is an important</span></div><div id="sub-025" class="subtitle-line clip" data-start="174.086" data-duration="5.906" data-track-index="85"><span>check. Next, let&#39;s see how you can create and download your own skins</span></div><div id="sub-026" class="subtitle-line clip" data-start="179.995" data-duration="1.361" data-track-index="85"><span>on the website.</span></div><div id="sub-027" class="subtitle-line clip" data-start="210.450" data-duration="3.514" data-track-index="86"><span>Want to try it yourself? Visit entropydrop.com for the free online generator.</span></div><div id="sub-028" class="subtitle-line clip" data-start="213.967" data-duration="2.635" data-track-index="86"><span>We also open-sourced the training details and model weights,</span></div><div id="sub-029" class="subtitle-line clip" data-start="216.605" data-duration="2.342" data-track-index="86"><span>so you can train or deploy it locally.</span></div><div id="sub-030" class="subtitle-line clip" data-start="220.450" data-duration="5.452" data-track-index="87"><span>To try the model online, open entropydrop dot com and sign in,</span></div><div id="sub-031" class="subtitle-line clip" data-start="225.905" data-duration="5.906" data-track-index="87"><span>then upload a reference image. The model featured in this video is named</span></div><div id="sub-032" class="subtitle-line clip" data-start="231.814" data-duration="4.997" data-track-index="87"><span>the SKING DDJ series. Click the generate button, and after processing,</span></div><div id="sub-033" class="subtitle-line clip" data-start="236.814" data-duration="5.452" data-track-index="87"><span>the result opens directly in the 3D viewer. Once the result opens,</span></div><div id="sub-034" class="subtitle-line clip" data-start="242.268" data-duration="5.906" data-track-index="87"><span>you can test the character with three different motions: Idle, Walk, and Dance.</span></div><div id="sub-035" class="subtitle-line clip" data-start="248.177" data-duration="4.542" data-track-index="87"><span>Idle lets you inspect fine details in a steady pose,</span></div><div id="sub-036" class="subtitle-line clip" data-start="252.723" data-duration="4.088" data-track-index="87"><span>Walk checks limb articulation and joint alignment during movement,</span></div><div id="sub-037" class="subtitle-line clip" data-start="256.814" data-duration="4.542" data-track-index="87"><span>while Dance puts the model through full dynamic choreography. Next,</span></div><div id="sub-038" class="subtitle-line clip" data-start="261.359" data-duration="4.088" data-track-index="87"><span>you can inspect the skin in different display modes.</span></div><div id="sub-039" class="subtitle-line clip" data-start="265.450" data-duration="4.088" data-track-index="87"><span>Voxel mode adds visible depth to the skin texture,</span></div><div id="sub-040" class="subtitle-line clip" data-start="269.541" data-duration="4.088" data-track-index="87"><span>Plane mode shows the classic flat Minecraft box look,</span></div><div id="sub-041" class="subtitle-line clip" data-start="273.632" data-duration="4.088" data-track-index="87"><span>and Cute mode changes the character to chibi proportions,</span></div><div id="sub-042" class="subtitle-line clip" data-start="277.723" data-duration="5.906" data-track-index="87"><span>giving you another way to inspect how the design reads at a different</span></div><div id="sub-043" class="subtitle-line clip" data-start="283.632" data-duration="3.633" data-track-index="87"><span>scale. Once you are satisfied with the preview,</span></div><div id="sub-044" class="subtitle-line clip" data-start="287.268" data-duration="4.088" data-track-index="87"><span>click Download to save the skin as a PNG.</span></div><div id="sub-045" class="subtitle-line clip" data-start="330.450" data-duration="3.633" data-track-index="88"><span>Now that you&#39;ve seen how to use it,</span></div><div id="sub-046" class="subtitle-line clip" data-start="334.086" data-duration="5.906" data-track-index="88"><span>let&#39;s look at how the pipeline actually works—and why the model is named</span></div><div id="sub-047" class="subtitle-line clip" data-start="339.995" data-duration="3.179" data-track-index="88"><span>SKING_DDJ. The name gives credit to DDJ,</span></div><div id="sub-048" class="subtitle-line clip" data-start="343.177" data-duration="4.997" data-track-index="88"><span>who publicly explored this two-stage direction before us. In late 2025,</span></div><div id="sub-049" class="subtitle-line clip" data-start="348.177" data-duration="5.452" data-track-index="88"><span>DDJ demonstrated using the Banana image model to help create Minecraft skins.</span></div><div id="sub-050" class="subtitle-line clip" data-start="353.632" data-duration="4.088" data-track-index="88"><span>Our first-stage prompt is also adapted from his version.</span></div><div id="sub-051" class="subtitle-line clip" data-start="357.723" data-duration="4.542" data-track-index="88"><span>We kept DDJ in the name to honor that origin,</span></div><div id="sub-052" class="subtitle-line clip" data-start="362.268" data-duration="4.997" data-track-index="88"><span>while building a redesigned reconstruction pipeline on top of it. Now,</span></div><div id="sub-053" class="subtitle-line clip" data-start="367.268" data-duration="3.633" data-track-index="88"><span>let&#39;s break down how those two stages work.</span></div><div id="sub-054" class="subtitle-line clip" data-start="375.450" data-duration="3.120" data-track-index="89"><span>The pipeline has two stages. In stage one,</span></div><div id="sub-055" class="subtitle-line clip" data-start="378.573" data-duration="5.072" data-track-index="89"><span>the image model receives the character reference together with Minecraft examples that share</span></div><div id="sub-056" class="subtitle-line clip" data-start="383.649" data-duration="5.072" data-track-index="89"><span>the same camera, pose, and layout. It then creates a front and back</span></div><div id="sub-057" class="subtitle-line clip" data-start="388.724" data-duration="5.072" data-track-index="89"><span>view in that fixed format. The examples are there to keep the geometry</span></div><div id="sub-058" class="subtitle-line clip" data-start="393.799" data-duration="2.730" data-track-index="89"><span>stable, not to add new character details.</span></div><div id="sub-059" class="subtitle-line clip" data-start="396.532" data-duration="4.292" data-track-index="89"><span>This stage is where the pipeline uses a closed-source image model,</span></div><div id="sub-060" class="subtitle-line clip" data-start="400.827" data-duration="3.120" data-track-index="89"><span>while the surrounding workflow code is open source.</span></div><div id="sub-061" class="subtitle-line clip" data-start="405.450" data-duration="5.185" data-track-index="90"><span>Stage two turns those fixed views into the actual skin file by solving</span></div><div id="sub-062" class="subtitle-line clip" data-start="410.638" data-duration="3.589" data-track-index="90"><span>three problems. First: where does each visible pixel belong?</span></div><div id="sub-063" class="subtitle-line clip" data-start="414.230" data-duration="5.185" data-track-index="90"><span>Fixed geometry narrows the possibilities, and the Dense UV Parser chooses the body</span></div><div id="sub-064" class="subtitle-line clip" data-start="419.418" data-duration="3.589" data-track-index="90"><span>part, cube face, and inner or outer layer. Second:</span></div><div id="sub-065" class="subtitle-line clip" data-start="423.010" data-duration="3.988" data-track-index="90"><span>what should fill the surfaces that neither view can see?</span></div><div id="sub-066" class="subtitle-line clip" data-start="427.000" data-duration="4.786" data-track-index="90"><span>The pipeline completes only missing inner-layer texels with nearby or mirrored colors,</span></div><div id="sub-067" class="subtitle-line clip" data-start="431.789" data-duration="5.185" data-track-index="90"><span>without inventing new outer-layer geometry. Third: does the reconstructed head still match when</span></div><div id="sub-068" class="subtitle-line clip" data-start="436.978" data-duration="5.185" data-track-index="90"><span>rendered? The system renders it back into both views and keeps a material</span></div><div id="sub-069" class="subtitle-line clip" data-start="442.166" data-duration="2.791" data-track-index="90"><span>correction only when the visible match improves.</span></div><div id="sub-070" class="subtitle-line clip" data-start="444.959" data-duration="3.988" data-track-index="90"><span>The result is a standard sixty-four by sixty-four Minecraft skin.</span></div><div id="sub-071" class="subtitle-line clip" data-start="450.450" data-duration="4.518" data-track-index="91"><span>This release is one step, not the end of the project.</span></div><div id="sub-072" class="subtitle-line clip" data-start="454.971" data-duration="4.929" data-track-index="91"><span>The largest dependency is still the closed-source image model in stage one,</span></div><div id="sub-073" class="subtitle-line clip" data-start="459.903" data-duration="2.874" data-track-index="91"><span>and relying on it has real downsides.</span></div><div id="sub-074" class="subtitle-line clip" data-start="462.781" data-duration="3.696" data-track-index="91"><span>It cannot guarantee a valid fixed format every time,</span></div><div id="sub-075" class="subtitle-line clip" data-start="466.480" data-duration="2.874" data-track-index="91"><span>which can cause skin generation to fail,</span></div><div id="sub-076" class="subtitle-line clip" data-start="469.357" data-duration="4.518" data-track-index="91"><span>and its diversity for hairstyles and head accessories is still limited.</span></div><div id="sub-077" class="subtitle-line clip" data-start="473.878" data-duration="4.518" data-track-index="91"><span>We want to collect reviewed examples connecting the character, fixed views,</span></div><div id="sub-078" class="subtitle-line clip" data-start="478.399" data-duration="3.696" data-track-index="91"><span>and final skin to reduce that dependency. For now,</span></div><div id="sub-079" class="subtitle-line clip" data-start="482.098" data-duration="4.518" data-track-index="91"><span>you can try the pipeline on EntropyDrop. The open-source pipeline code,</span></div><div id="sub-080" class="subtitle-line clip" data-start="486.619" data-duration="4.518" data-track-index="91"><span>Stage Two model weights, and our technical article are linked below.</span></div><div id="sub-081" class="subtitle-line clip" data-start="491.141" data-duration="5.340" data-track-index="91"><span>If you enjoyed this, subscribe to the channel—we&#39;ll have many more interesting models</span></div><div id="sub-082" class="subtitle-line clip" data-start="496.484" data-duration="2.463" data-track-index="91"><span>to share soon. Thanks for watching!</span></div>
+  <div id="sub-001" class="subtitle-line clip" data-start="0.450" data-duration="5.042" data-track-index="81"><span>We have open-sourced another model for turning character images into Minecraft skins.</span></div><div id="sub-002" class="subtitle-line clip" data-start="5.495" data-duration="2.940" data-track-index="81"><span>To show the range of community results,</span></div><div id="sub-003" class="subtitle-line clip" data-start="8.439" data-duration="3.361" data-track-index="81"><span>we picked character images in very different styles.</span></div><div id="sub-004" class="subtitle-line clip" data-start="11.802" data-duration="2.940" data-track-index="81"><span>First we will look at those results,</span></div><div id="sub-005" class="subtitle-line clip" data-start="14.745" data-duration="4.202" data-track-index="81"><span>then try the pipeline online and explain how it works.</span></div><div id="sub-006" class="subtitle-line clip" data-start="20.450" data-duration="3.179" data-track-index="82"><span>Why make another model? In previous versions,</span></div><div id="sub-007" class="subtitle-line clip" data-start="23.632" data-duration="4.997" data-track-index="82"><span>small decorative details were often the hardest part. A flower pattern,</span></div><div id="sub-008" class="subtitle-line clip" data-start="28.632" data-duration="5.906" data-track-index="82"><span>a butterfly hair clip, or a tiny bear on a shirt has to</span></div><div id="sub-009" class="subtitle-line clip" data-start="34.541" data-duration="3.179" data-track-index="82"><span>be translated into only a few pixels.</span></div><div id="sub-010" class="subtitle-line clip" data-start="37.723" data-duration="5.906" data-track-index="82"><span>When those features are treated as ordinary image detail, their contours can blur,</span></div><div id="sub-011" class="subtitle-line clip" data-start="43.632" data-duration="4.088" data-track-index="82"><span>their colors can mix, or their shapes can disappear.</span></div><div id="sub-012" class="subtitle-line clip" data-start="47.723" data-duration="5.452" data-track-index="82"><span>The new pipeline first reinterprets the character in a fixed Minecraft view,</span></div><div id="sub-013" class="subtitle-line clip" data-start="53.177" data-duration="4.088" data-track-index="82"><span>giving the reconstruction stage clearer structure to work with.</span></div><div id="sub-014" class="subtitle-line clip" data-start="60.450" data-duration="4.542" data-track-index="83"><span>Here are real results generated by community creators on EntropyDrop.</span></div><div id="sub-015" class="subtitle-line clip" data-start="64.995" data-duration="5.906" data-track-index="83"><span>Notice how different silhouettes, colors, and clothing details carry over into the block</span></div><div id="sub-016" class="subtitle-line clip" data-start="70.905" data-duration="3.633" data-track-index="83"><span>geometry—and where complex shapes had to be simplified.</span></div><div id="sub-017" class="subtitle-line clip" data-start="110.450" data-duration="5.906" data-track-index="84"><span>These examples span diverse art styles—from anime and illustrations to game renders and</span></div><div id="sub-018" class="subtitle-line clip" data-start="116.359" data-duration="4.997" data-track-index="84"><span>painterly art. As each model turns, check whether the front, sides,</span></div><div id="sub-019" class="subtitle-line clip" data-start="121.359" data-duration="4.088" data-track-index="84"><span>and back remain visually coherent. Some details translate cleanly,</span></div><div id="sub-020" class="subtitle-line clip" data-start="125.450" data-duration="5.906" data-track-index="84"><span>while others are simplified or inferred where the original image provides no direct</span></div><div id="sub-021" class="subtitle-line clip" data-start="131.359" data-duration="0.452" data-track-index="84"><span>view.</span></div><div id="sub-022" class="subtitle-line clip" data-start="160.450" data-duration="4.088" data-track-index="85"><span>Take a moment to compare the seams, limb textures,</span></div><div id="sub-023" class="subtitle-line clip" data-start="164.541" data-duration="3.633" data-track-index="85"><span>and inferred back details as these characters move.</span></div><div id="sub-024" class="subtitle-line clip" data-start="168.177" data-duration="5.906" data-track-index="85"><span>Not every detail survives the conversion, so the 3D turn is an important</span></div><div id="sub-025" class="subtitle-line clip" data-start="174.086" data-duration="5.906" data-track-index="85"><span>check. Next, let&#39;s see how you can create and download your own skins</span></div><div id="sub-026" class="subtitle-line clip" data-start="179.995" data-duration="1.361" data-track-index="85"><span>on the website.</span></div><div id="sub-027" class="subtitle-line clip" data-start="210.450" data-duration="3.514" data-track-index="86"><span>Want to try it yourself? Visit entropydrop.com for the free online generator.</span></div><div id="sub-028" class="subtitle-line clip" data-start="213.967" data-duration="2.635" data-track-index="86"><span>We also open-sourced the training details and model weights,</span></div><div id="sub-029" class="subtitle-line clip" data-start="216.605" data-duration="2.342" data-track-index="86"><span>so you can train or deploy it locally.</span></div><div id="sub-030" class="subtitle-line clip" data-start="220.450" data-duration="5.452" data-track-index="87"><span>To try the model online, open entropydrop dot com and sign in,</span></div><div id="sub-031" class="subtitle-line clip" data-start="225.905" data-duration="5.906" data-track-index="87"><span>then upload a reference image. The model featured in this video is named</span></div><div id="sub-032" class="subtitle-line clip" data-start="231.814" data-duration="4.997" data-track-index="87"><span>the SKING DDJ series. Click the generate button, and after processing,</span></div><div id="sub-033" class="subtitle-line clip" data-start="236.814" data-duration="5.452" data-track-index="87"><span>the result opens directly in the 3D viewer. Once the result opens,</span></div><div id="sub-034" class="subtitle-line clip" data-start="242.268" data-duration="5.906" data-track-index="87"><span>you can test the character with three different motions: Idle, Walk, and Dance.</span></div><div id="sub-035" class="subtitle-line clip" data-start="248.177" data-duration="4.542" data-track-index="87"><span>Idle lets you inspect fine details in a steady pose,</span></div><div id="sub-036" class="subtitle-line clip" data-start="252.723" data-duration="4.088" data-track-index="87"><span>Walk checks limb articulation and joint alignment during movement,</span></div><div id="sub-037" class="subtitle-line clip" data-start="256.814" data-duration="4.542" data-track-index="87"><span>while Dance puts the model through full dynamic choreography. Next,</span></div><div id="sub-038" class="subtitle-line clip" data-start="261.359" data-duration="4.088" data-track-index="87"><span>you can inspect the skin in different display modes.</span></div><div id="sub-039" class="subtitle-line clip" data-start="265.450" data-duration="4.088" data-track-index="87"><span>Voxel mode adds visible depth to the skin texture,</span></div><div id="sub-040" class="subtitle-line clip" data-start="269.541" data-duration="4.088" data-track-index="87"><span>Plane mode shows the classic flat Minecraft box look,</span></div><div id="sub-041" class="subtitle-line clip" data-start="273.632" data-duration="4.088" data-track-index="87"><span>and Cute mode changes the character to chibi proportions,</span></div><div id="sub-042" class="subtitle-line clip" data-start="277.723" data-duration="5.906" data-track-index="87"><span>giving you another way to inspect how the design reads at a different</span></div><div id="sub-043" class="subtitle-line clip" data-start="283.632" data-duration="3.633" data-track-index="87"><span>scale. Once you are satisfied with the preview,</span></div><div id="sub-044" class="subtitle-line clip" data-start="287.268" data-duration="4.088" data-track-index="87"><span>click Download to save the skin as a PNG.</span></div><div id="sub-045" class="subtitle-line clip" data-start="330.450" data-duration="3.120" data-track-index="88"><span>The pipeline has two stages. In stage one,</span></div><div id="sub-046" class="subtitle-line clip" data-start="333.573" data-duration="5.072" data-track-index="88"><span>the image model receives the character reference together with Minecraft examples that share</span></div><div id="sub-047" class="subtitle-line clip" data-start="338.649" data-duration="5.072" data-track-index="88"><span>the same camera, pose, and layout. It then creates a front and back</span></div><div id="sub-048" class="subtitle-line clip" data-start="343.724" data-duration="5.072" data-track-index="88"><span>view in that fixed format. The examples are there to keep the geometry</span></div><div id="sub-049" class="subtitle-line clip" data-start="348.799" data-duration="2.730" data-track-index="88"><span>stable, not to add new character details.</span></div><div id="sub-050" class="subtitle-line clip" data-start="351.532" data-duration="4.292" data-track-index="88"><span>This stage is where the pipeline uses a closed-source image model,</span></div><div id="sub-051" class="subtitle-line clip" data-start="355.827" data-duration="3.120" data-track-index="88"><span>while the surrounding workflow code is open source.</span></div><div id="sub-052" class="subtitle-line clip" data-start="360.450" data-duration="5.185" data-track-index="89"><span>Stage two turns those fixed views into the actual skin file by solving</span></div><div id="sub-053" class="subtitle-line clip" data-start="365.638" data-duration="3.589" data-track-index="89"><span>three problems. First: where does each visible pixel belong?</span></div><div id="sub-054" class="subtitle-line clip" data-start="369.230" data-duration="5.185" data-track-index="89"><span>Fixed geometry narrows the possibilities, and the Dense UV Parser chooses the body</span></div><div id="sub-055" class="subtitle-line clip" data-start="374.418" data-duration="3.589" data-track-index="89"><span>part, cube face, and inner or outer layer. Second:</span></div><div id="sub-056" class="subtitle-line clip" data-start="378.010" data-duration="3.988" data-track-index="89"><span>what should fill the surfaces that neither view can see?</span></div><div id="sub-057" class="subtitle-line clip" data-start="382.000" data-duration="4.786" data-track-index="89"><span>The pipeline completes only missing inner-layer texels with nearby or mirrored colors,</span></div><div id="sub-058" class="subtitle-line clip" data-start="386.789" data-duration="5.185" data-track-index="89"><span>without inventing new outer-layer geometry. Third: does the reconstructed head still match when</span></div><div id="sub-059" class="subtitle-line clip" data-start="391.978" data-duration="5.185" data-track-index="89"><span>rendered? The system renders it back into both views and keeps a material</span></div><div id="sub-060" class="subtitle-line clip" data-start="397.166" data-duration="2.791" data-track-index="89"><span>correction only when the visible match improves.</span></div><div id="sub-061" class="subtitle-line clip" data-start="399.959" data-duration="3.988" data-track-index="89"><span>The result is a standard sixty-four by sixty-four Minecraft skin.</span></div><div id="sub-062" class="subtitle-line clip" data-start="405.450" data-duration="4.518" data-track-index="90"><span>This release is one step, not the end of the project.</span></div><div id="sub-063" class="subtitle-line clip" data-start="409.971" data-duration="4.929" data-track-index="90"><span>The largest dependency is still the closed-source image model in stage one,</span></div><div id="sub-064" class="subtitle-line clip" data-start="414.903" data-duration="2.874" data-track-index="90"><span>and relying on it has real downsides.</span></div><div id="sub-065" class="subtitle-line clip" data-start="417.781" data-duration="3.696" data-track-index="90"><span>It cannot guarantee a valid fixed format every time,</span></div><div id="sub-066" class="subtitle-line clip" data-start="421.480" data-duration="2.874" data-track-index="90"><span>which can cause skin generation to fail,</span></div><div id="sub-067" class="subtitle-line clip" data-start="424.357" data-duration="4.518" data-track-index="90"><span>and its diversity for hairstyles and head accessories is still limited.</span></div><div id="sub-068" class="subtitle-line clip" data-start="428.878" data-duration="4.518" data-track-index="90"><span>We want to collect reviewed examples connecting the character, fixed views,</span></div><div id="sub-069" class="subtitle-line clip" data-start="433.399" data-duration="3.696" data-track-index="90"><span>and final skin to reduce that dependency. For now,</span></div><div id="sub-070" class="subtitle-line clip" data-start="437.098" data-duration="4.518" data-track-index="90"><span>you can try the pipeline on EntropyDrop. The open-source pipeline code,</span></div><div id="sub-071" class="subtitle-line clip" data-start="441.619" data-duration="4.518" data-track-index="90"><span>Stage Two model weights, and our technical article are linked below.</span></div><div id="sub-072" class="subtitle-line clip" data-start="446.141" data-duration="5.340" data-track-index="90"><span>If you enjoyed this, subscribe to the channel—we&#39;ll have many more interesting models</span></div><div id="sub-073" class="subtitle-line clip" data-start="451.484" data-duration="2.463" data-track-index="90"><span>to share soon. Thanks for watching!</span></div>
 </div>
 <script>
 window.__timelines = window.__timelines || {};
@@ -2984,10 +3337,31 @@ reveal('#scene-3', 60, 150, false);
 reveal('#scene-cta', 210, 10, false);
 tl.from('#scene-cta .cta-card', { scale: 0.97, opacity: 0, duration: 0.6, ease: 'power3.out' }, 210.1);
 reveal('#scene-6', 220, 110, false);
-document.querySelectorAll('.showcase-card, .compare-card').forEach(node => {
-  const start = Number(node.dataset.cardStart);
-  const dur = Number(node.dataset.cardDuration);
-  reveal('#' + node.id, start, dur, true);
+const TRANSITION_DURATION = 0.55;
+document.querySelectorAll('.showcase-stage, .compare-stage').forEach(stage => {
+  const cards = Array.from(stage.querySelectorAll('.showcase-card, .compare-card'));
+  const count = cards.length;
+  cards.forEach((card, index) => {
+    const start = Number(card.dataset.cardStart);
+    const dur = Number(card.dataset.cardDuration);
+    const end = start + dur;
+    const isFirst = index === 0;
+
+    // Entrance: slide into the screen from the right side (+1920px -> 0px)
+    if (isFirst) {
+      tl.set('#' + card.id, { visibility: 'visible', opacity: 1, x: 1920 }, start);
+      tl.to('#' + card.id, { x: 0, duration: TRANSITION_DURATION, ease: 'power2.inOut' }, start);
+    } else {
+      const enterStart = start - TRANSITION_DURATION;
+      tl.set('#' + card.id, { visibility: 'visible', opacity: 1, x: 1920 }, enterStart);
+      tl.to('#' + card.id, { x: 0, duration: TRANSITION_DURATION, ease: 'power2.inOut' }, enterStart);
+    }
+
+    // Exit: slide out of the screen to the left (0px -> -1920px)
+    const exitStart = end - TRANSITION_DURATION;
+    tl.to('#' + card.id, { x: -1920, duration: TRANSITION_DURATION, ease: 'power2.inOut' }, exitStart);
+    tl.set('#' + card.id, { visibility: 'hidden', x: 0 }, end);
+  });
 });
 document.querySelectorAll('.scene.clip:not(#scene-1):not(#scene-2):not(#scene-3):not(#scene-6)').forEach(node => reveal('#' + node.id, at(node), length(node)));
 document.querySelectorAll('.timed-card').forEach(node => reveal('#' + node.id, at(node), length(node), true));

@@ -4,7 +4,7 @@
 
 本稿只用于确认视频叙事。**确认前不要重新生成 Hyperframes、旁白、字幕或成片。**
 
-英文口播采用四幕结构：**1. 开场与 28 组社区生成效果；2. 网站使用说明；3. SKING_DDJ 的命名来源与两阶段原理；4. 未来展望。** 目标时长约 **8 分 20 秒**。
+英文口播采用四幕结构：**1. 开场与 28 组社区生成效果；2. 网站使用说明；3. 两阶段原理；4. 未来展望。** 目标时长约 **7 分 35 秒**。
 
 这次发布需要准确说明范围：**完整两阶段流水线代码已经开源，Stage Two 的皮肤重建代码与模型权重也已公开**，可以把规范化的 Minecraft 正背面图重建为最终 64×64 皮肤；但从任意角色图生成这些固定格式正背面图的 Stage One 仍需要调用兼容的闭源图像模型。可以称流水线代码为开源，但不要暗示 Stage One 的外部依赖也已开源、完整流程可以免费离线运行，或单个 checkpoint 就能复现完整结果。
 
@@ -18,8 +18,8 @@
 ## Video Positioning
 
 - **Working title:** Another Open-Source Model: Image to Minecraft Skin
-- **Target length:** approximately 8:20
-- **Format:** English voiceover, 28 community results, browser walkthrough, the SKING_DDJ origin story, a plain-language pipeline explanation, and a short future outlook
+- **Target length:** approximately 7:35
+- **Format:** English voiceover, 28 community results, browser walkthrough, two-stage pipeline explanation, and a short future outlook
 - **Audience:** Minecraft players, skin creators, open-source developers, and viewers interested in image-to-skin generation
 - **Core promise:** Show what the pipeline produces across different input styles, teach viewers how to use it, credit DDJ for the original direction, explain the two stages, and show where the project goes next.
 - **Tone:** Direct, visual, candid, and practical. Treat the comparisons as evidence instead of claiming that every result is better.
@@ -46,7 +46,7 @@ We have open-sourced another model for turning character images into usable Mine
 
 This video starts with character images in different visual styles and compares each input with its 3D Minecraft skin. Then we use the model on EntropyDrop: upload a reference, generate a skin, inspect it from every angle, and download the PNG.
 
-The complete two-stage workflow code is open source, including the Stage Two skin-reconstruction code and model weights. Stage One still requires access to a compatible closed-source image model. We also explain why the model family is called SKING_DDJ: the name credits DDJ's earlier public work on the same two-stage direction. The final section shows how the two stages connect and what we want to improve next.
+The complete two-stage workflow code is open source, including the Stage Two skin-reconstruction code and model weights. Stage One still requires access to a compatible closed-source image model. The final section shows how the two stages connect and what we want to improve next.
 
 Try the generator:
 https://entropydrop.com/skin/generate
@@ -62,17 +62,15 @@ https://entropydrop.com/public/blog/skin-reconstruction
 
 Chapters:
 00:00 We open-sourced another model
-00:20 Why build another one?
-01:00 Cartoon, chibi, and mascot styles
+00:15 Why build another one?
+01:05 Cartoon, chibi, and mascot styles
 01:50 3D renders and game art
 02:40 Painterly and mixed styles
 03:30 Try it online
-03:40 Upload an image and viewer modes
-04:50 Preview animations and download
-05:30 Why it is called SKING_DDJ
-06:15 Stage one: fixed front and back views
-06:45 Stage two: reconstruct the skin
-07:30 Where the project goes next
+03:40 Upload, 3D viewer & download
+05:30 How the pipeline works
+06:00 Stage two: reconstruct the skin
+06:45 Where the project goes next
 
 ## First 20 Seconds
 
@@ -113,10 +111,9 @@ Community results · Live demo · Open-source reconstruction
 | 3:30–4:10 | Website: upload | 地址、登录、Upload Reference | 上传参考图，介绍 SKING DDJ 系列并区分线上限免与本地部署 | 1. Upload a reference |
 | 4:10–4:50 | Viewer: modes | 切换 Voxel、Plane、Cute 模式并旋转观察 | 介绍 3D Viewer 的 Voxel、Plane、Cute 三种渲染模式 | Modes: Voxel · Plane · Cute |
 | 4:50–5:30 | Viewer: actions | 切换 Idle、Walk、Dance 动作，点击 Download | 用动作检查接缝与肢体贴图对齐，确认效果后下载 PNG | Actions: Idle · Walk · Dance |
-| 5:30–6:15 | How pipeline works | DDJ 的公开演示页面、当前模型名称 | 从网站实操转入原理，致敬 DDJ 的两阶段探索与命名来源 | How the Pipeline Works |
-| 6:15–6:45 | Stage one | 参考图 + 模板 → 固定格式正背面图 | 前沿图像模型先理解角色，并把外观转换到统一 Minecraft 视图 | Reference → Fixed views |
-| 6:45–7:30 | Stage two | 用三个问题组织画面：像素属于哪里？不可见区域怎么补？重渲染后是否更匹配？ | 以三个问题解释可见像素路由、保守补全与重渲染校验，最终得到 64×64 皮肤 | Fixed views → Reconstructed Skin |
-| 7:30–8:20 | Future outlook | 痛点、数据积累、链接、订阅卡片 | 剖析闭源依赖缺点，展望自有模型，呼吁订阅频道未来更多模型 | What comes next · Subscribe |
+| 5:30–6:00 | How pipeline works | 参考图 + 模板 → 固定格式正背面图 | 两阶段管线架构：Stage 1 图像模型理解角色，转换到统一 Minecraft 正背面视图 | How the Pipeline Works |
+| 6:00–6:45 | Stage two | 用三个问题组织画面：像素属于哪里？不可见区域怎么补？重渲染后是否更匹配？ | 以三个问题解释可见像素路由、保守补全与重渲染校验，最终得到 64×64 皮肤 | Fixed views → Reconstructed Skin |
+| 6:45–7:35 | Future outlook | 痛点、数据积累、链接、订阅卡片 | 剖析闭源依赖缺点，展望自有模型，呼吁订阅频道未来更多模型 | What comes next · Subscribe |
 
 ## Website Recording Notes
 
@@ -212,30 +209,19 @@ Want to try it yourself? Visit entropydrop.com for the free online generator. We
 To try the model online, open entropydrop dot com and sign in, then upload a reference image. The model featured in this video is named the SKING DDJ series. Click the generate button, and after processing, the result opens directly in the 3D viewer. Once the result opens, you can test the character with three different motions: Idle, Walk, and Dance. Idle lets you inspect fine details in a steady pose, Walk checks limb articulation and joint alignment during movement, while Dance puts the model through full dynamic choreography. Next, you can inspect the skin in different display modes. Voxel mode adds visible depth to the skin texture, Plane mode shows the classic flat Minecraft box look, and Cute mode changes the character to chibi proportions, giving you another way to inspect how the design reads at a different scale. Once you are satisfied with the preview, click Download to save the skin as a PNG.
 ```
 
-### VO 08 | 5:30-6:15 | how_pipeline_works | How the Pipeline Works
+### VO 08 | 5:30-6:00 | how_pipeline_works | How the Pipeline Works
 
 - Audio file: `skin_reconstruction/audios/08_how_pipeline_works.mp3`
-- Asset files: `assets/ddj_2025_videos.png` (DDJ 2025-11-23 视频《使用Nanobanana设计mc皮肤》), `assets/ddj_2025_prompt.png` (DDJ 2025-12-01 动态 Prompt 模板与双层 UV 规范)
-- Target duration: `45s`
-- Visual direction: 从网站操作平滑切入架构图；显示 DDJ 的 2025 演示，再回到 `SKING_DDJ` 名称与两阶段概述。页面日期和作者需要可读。
-
-```text
-Now that you've seen how to use it, let's look at how the pipeline actually works—and why the model is named SKING_DDJ. The name gives credit to DDJ, who publicly explored this two-stage direction before us. In late 2025, DDJ demonstrated using the Banana image model to help create Minecraft skins. Our first-stage prompt is also adapted from his version. We kept DDJ in the name to honor that origin, while building a redesigned reconstruction pipeline on top of it. Now, let's break down how those two stages work.
-```
-
-### VO 09 | 6:15-6:45 | stage_one | Stage One: Create Fixed Views
-
-- Audio file: `skin_reconstruction/audios/09_stage_one.mp3`
 - Target duration: `30s`
-- Visual direction: 使用同一角色展示 `Reference + three layout examples → normalized front/back views`。只突出视角、姿势和画面位置统一。
+- Visual direction: 从网站操作平滑切入两阶段架构图，展示 Stage 1 固定视角生成机制：使用同一角色展示 `Reference + three layout examples → normalized front/back views`，突出视角、姿势和画面位置统一。
 
 ```text
 The pipeline has two stages. In stage one, the image model receives the character reference together with Minecraft examples that share the same camera, pose, and layout. It then creates a front and back view in that fixed format. The examples are there to keep the geometry stable, not to add new character details. This stage is where the pipeline uses a closed-source image model, while the surrounding workflow code is open source.
 ```
 
-### VO 10 | 6:45-7:30 | stage_two | Stage Two: Reconstruct the Skin
+### VO 09 | 6:00-6:45 | stage_two | Stage Two: Reconstruct the Skin
 
-- Audio file: `skin_reconstruction/audios/10_stage_two.mp3`
+- Audio file: `skin_reconstruction/audios/09_stage_two.mp3`
 - Target duration: `45s`
 - Visual direction: 用三个连续问题组织画面：`1. Where does each visible pixel belong?`（前景、固定几何、内外层路由）→ `2. What fills the unseen surfaces?`（仅补全缺失的内层 texel）→ `3. Does it still match when rendered?`（头部与配件重渲染、材质校正）→ 最终 64×64 皮肤。
 
@@ -243,9 +229,9 @@ The pipeline has two stages. In stage one, the image model receives the characte
 Stage two turns those fixed views into the actual skin file by solving three problems. First: where does each visible pixel belong? Fixed geometry narrows the possibilities, and the Dense UV Parser chooses the body part, cube face, and inner or outer layer. Second: what should fill the surfaces that neither view can see? The pipeline completes only missing inner-layer texels with nearby or mirrored colors, without inventing new outer-layer geometry. Third: does the reconstructed head still match when rendered? The system renders it back into both views and keeps a material correction only when the visible match improves. The result is a standard sixty-four by sixty-four Minecraft skin.
 ```
 
-### VO 11 | 7:30-8:20 | future_outlook | What Comes Next
+### VO 10 | 6:45-7:35 | future_outlook | What Comes Next
 
-- Audio file: `skin_reconstruction/audios/11_future_outlook.mp3`
+- Audio file: `skin_reconstruction/audios/10_future_outlook.mp3`
 - Target duration: `50s`
 - Visual direction: 先显示闭源依赖的痛点（格式不稳导致生成失败、发型头饰多样性欠缺），再切到数据积累与未来自有模型；最后展示网站、GitHub 与频道关注订阅卡片。
 
@@ -256,9 +242,9 @@ This release is one step, not the end of the project. The largest dependency is 
 ## Production Handoff
 
 - 本稿确认前，保留现有 `skin_reconstruction/index.html`、占位素材清单、字幕和音频文件，不重新生成。
-- 确认后，Hyperframes 按四幕重排：第 1–5 场为开场和多风格效果，第 6 场为在线体验卡片，第 7 场为网站完整教程，第 8–10 场为 DDJ 命名与两阶段原理，第 11 场为未来展望和链接。
-- 网站教程占 3:40–5:30；DDJ 与原理占 5:30–7:30；未来展望占 7:30–8:20。
+- 确认后，Hyperframes 按四幕重排：第 1–5 场为开场和多风格效果，第 6 场为在线体验卡片，第 7 场为网站完整教程，第 8–9 场为两阶段原理（Stage 1 规范视角生成与 Stage 2 几何解算重建），第 10 场为未来展望和链接。
+- 网站教程占 3:40–5:30；两阶段原理占 5:30–6:45；未来展望占 6:45–7:35（总长 7:35 / 455s）。
 - 生成新旁白时使用本稿的新文件名，避免误用旧 MP3。
 
 - 28 组素材接入后，根据真实输入修改每个 case 的风格标签；不要让旁白描述素材中看不到的特征。
-- 录制 DDJ 资料、GitHub 和 Hugging Face 页面前，再次核对作者、发布日期、公开内容和链接。最终时码以实际配音与操作节奏为准。
+- 录制 GitHub 和 Hugging Face 页面前，再次核对发布内容和链接。最终时码以实际配音与操作节奏为准。
