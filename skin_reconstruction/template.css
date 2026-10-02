@@ -1347,167 +1347,186 @@ h2 em {
 }
 
 /* =========================================================================
-   SCENE 10: OPEN SOURCE & TECHNICAL DETAILS (MINIMAL BROADCAST SLATE)
+   SCENE 10: OPEN SOURCE & TECHNICAL DETAILS (MINECRAFT PIXEL ART CARDS)
    ========================================================================= */
 
 #scene-10 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 56px 108px 52px;
+  padding: 60px 108px 60px;
   box-sizing: border-box;
 }
 
 #scene-10 .scene-head {
-  border-bottom: 1.5px solid var(--line-soft, #e2e8f0);
+  border-bottom: 2px solid #1a201c;
   padding-bottom: 16px;
   margin-bottom: 24px;
 }
 
-.minimal-grid {
+.pixel-grid {
   flex: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 48px;
   align-items: center;
 }
 
-.minimal-card {
-  height: 510px;
+.pixel-card {
+  height: 560px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   background: #ffffff;
-  border: 1.5px solid var(--line-soft, #d8e2dc);
-  border-radius: 20px;
-  padding: 36px 32px;
-  box-shadow: 0 16px 44px rgba(17, 24, 39, 0.05);
+  border-radius: 0 !important;
+  padding: 44px 36px;
   box-sizing: border-box;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.minimal-card.github {
-  border-top: 6px solid #24292f;
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 42%);
+/* Sharp Minecraft / Pixel Art Borders & Stepped Hard Drop Shadows */
+.pixel-card.github {
+  border: 3.5px solid #1a201c;
+  border-top: 8px solid #1a201c;
+  background: #ffffff;
+  box-shadow: 8px 8px 0px #1a201c, 14px 14px 0px rgba(26, 32, 28, 0.15);
 }
 
-.minimal-card.huggingface {
-  border: 2px solid #ffd21e;
-  border-top: 6px solid #ff9d0b;
-  background: linear-gradient(180deg, #fffef0 0%, #ffffff 42%);
-  box-shadow: 0 20px 52px rgba(255, 210, 30, 0.18);
+.pixel-card.huggingface {
+  border: 3.5px solid #b45309;
+  border-top: 8px solid #ff9d0b;
+  background: #fffdf0;
+  box-shadow: 8px 8px 0px #ff9d0b, 14px 14px 0px #ffd21e;
 }
 
-.minimal-card.youtube {
-  border-top: 6px solid #ef4444;
-  background: linear-gradient(180deg, #fff5f5 0%, #ffffff 42%);
+.pixel-card.youtube {
+  border: 3.5px solid #991b1b;
+  border-top: 8px solid #ef4444;
+  background: #fffafa;
+  box-shadow: 8px 8px 0px #dc2626, 14px 14px 0px rgba(220, 38, 38, 0.2);
 }
 
-.minimal-tag {
+.pixel-tag {
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 20px;
-  margin-bottom: 20px;
+  padding: 6px 14px;
+  border-radius: 0 !important;
+  margin-bottom: 24px;
+  display: inline-block;
 }
 
-.minimal-card.github .minimal-tag {
-  background: rgba(36, 41, 47, 0.08);
-  color: #24292f;
+.pixel-card.github .pixel-tag {
+  background: #f1f5f9;
+  border: 2px solid #1a201c;
+  box-shadow: 3px 3px 0px #1a201c;
+  color: #1a201c;
 }
 
-.minimal-card.huggingface .minimal-tag {
-  background: rgba(255, 157, 11, 0.15);
-  color: #b45309;
+.pixel-card.huggingface .pixel-tag {
+  background: #fef3c7;
+  border: 2px solid #b45309;
+  box-shadow: 3px 3px 0px #b45309;
+  color: #92400e;
 }
 
-.minimal-card.youtube .minimal-tag {
-  background: rgba(239, 68, 68, 0.12);
-  color: #dc2626;
+.pixel-card.youtube .pixel-tag {
+  background: #fee2e2;
+  border: 2px solid #991b1b;
+  box-shadow: 3px 3px 0px #991b1b;
+  color: #991b1b;
 }
 
-.minimal-icon-box {
-  width: 92px;
-  height: 92px;
-  border-radius: 24px;
+.pixel-icon-box {
+  width: 96px;
+  height: 96px;
+  border-radius: 0 !important;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #ffffff;
-  border: 1px solid var(--line-soft, #e2e8f0);
-  box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
-  margin-bottom: 22px;
+  border: 2.5px solid #1a201c;
+  box-shadow: 5px 5px 0px #1a201c;
+  margin-bottom: 24px;
 }
 
-.minimal-icon-box .pill-brand-icon.github-logo {
-  width: 54px;
-  height: 54px;
-  color: #1f2328;
+.pixel-card.huggingface .pixel-icon-box {
+  border-color: #b45309;
+  box-shadow: 5px 5px 0px #b45309;
 }
 
-.minimal-icon-box .pill-brand-icon.hf-logo {
-  width: 68px;
-  height: 62px;
+.pixel-card.youtube .pixel-icon-box {
+  border-color: #991b1b;
+  box-shadow: 5px 5px 0px #991b1b;
 }
 
-.minimal-icon-box .pill-brand-icon.yt-logo {
-  width: 58px;
-  height: 58px;
+.pixel-icon-box .pill-brand-icon.github-logo {
+  width: 56px;
+  height: 56px;
+  color: #1a201c;
 }
 
-.minimal-card h3 {
+.pixel-icon-box .pill-brand-icon.hf-logo {
+  width: 70px;
+  height: 64px;
+}
+
+.pixel-icon-box .pill-brand-icon.yt-logo {
+  width: 60px;
+  height: 60px;
+}
+
+.pixel-card h3 {
   font-size: 32px;
   font-weight: 700;
   color: var(--ink, #0f172a);
-  margin: 0 0 10px 0;
+  margin: 0 0 12px 0;
   letter-spacing: -0.01em;
 }
 
-.minimal-card p {
+.pixel-card p {
   font-size: 17px;
-  color: #64748b;
-  margin: 0 0 26px 0;
+  color: #475569;
+  margin: 0 0 30px 0;
   line-height: 1.5;
   max-width: 380px;
 }
 
-.minimal-url-display {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+.pixel-url-display {
+  font-family: 'FusionPixel', monospace;
   font-size: 18px;
-  font-weight: 600;
-  color: var(--ink, #1e293b);
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
+  font-weight: 700;
   padding: 12px 24px;
-  border-radius: 10px;
+  border-radius: 0 !important;
   letter-spacing: 0.02em;
+  display: inline-block;
 }
 
-.minimal-card.huggingface .minimal-url-display {
+.pixel-card.github .pixel-url-display {
+  background: #f8fafc;
+  border: 2px solid #1a201c;
+  box-shadow: 4px 4px 0px #1a201c;
+  color: #0f172a;
+}
+
+.pixel-card.huggingface .pixel-url-display {
   background: #fffbeb;
-  border-color: #fef3c7;
-  color: #92400e;
+  border: 2px solid #b45309;
+  box-shadow: 4px 4px 0px #b45309;
+  color: #78350f;
 }
 
-.minimal-card.youtube .minimal-url-display {
+.pixel-card.youtube .pixel-url-display {
   background: #fef2f2;
-  border-color: #fee2e2;
-  color: #991b1b;
-}
-
-.minimal-outro-footer {
-  text-align: center;
-  font-size: 18px;
-  color: var(--muted, #64748b);
-  letter-spacing: 0.02em;
-  padding-top: 18px;
-  border-top: 1.5px solid var(--line-soft, #e2e8f0);
+  border: 2px solid #991b1b;
+  box-shadow: 4px 4px 0px #991b1b;
+  color: #7f1d1d;
 }
 
 .closing-title {

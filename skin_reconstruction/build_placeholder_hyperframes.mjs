@@ -739,35 +739,34 @@ function futureScene(chapter) {
         <h2>Open Source &amp; Technical Details</h2>
       </div>
     </div>
-    <div class="minimal-grid">
+    <div class="pixel-grid">
       <!-- Card 1: GitHub -->
-      <a class="minimal-card github" href="https://github.com/EntropyDrop" target="_blank" rel="noopener">
-        <span class="minimal-tag">Source Code</span>
-        <div class="minimal-icon-box">${GITHUB_LOGO_SVG}</div>
+      <a class="pixel-card github" href="https://github.com/EntropyDrop" target="_blank" rel="noopener">
+        <span class="pixel-tag">Source Code</span>
+        <div class="pixel-icon-box">${GITHUB_LOGO_SVG}</div>
         <h3>GitHub</h3>
         <p>Complete pipeline source code &amp; inference tools</p>
-        <div class="minimal-url-display">github.com/EntropyDrop</div>
+        <div class="pixel-url-display">github.com/EntropyDrop</div>
       </a>
 
       <!-- Card 2: Hugging Face -->
-      <a class="minimal-card huggingface" href="https://huggingface.co/EntropyDrop/Sking" target="_blank" rel="noopener">
-        <span class="minimal-tag">Weights &amp; Docs</span>
-        <div class="minimal-icon-box">${HF_LOGO_SVG}</div>
+      <a class="pixel-card huggingface" href="https://huggingface.co/EntropyDrop/Sking" target="_blank" rel="noopener">
+        <span class="pixel-tag">Weights &amp; Docs</span>
+        <div class="pixel-icon-box">${HF_LOGO_SVG}</div>
         <h3>Hugging Face Hub</h3>
         <p>Stage Two model weights, configs &amp; technical paper</p>
-        <div class="minimal-url-display">huggingface.co/EntropyDrop/Sking</div>
+        <div class="pixel-url-display">huggingface.co/EntropyDrop/Sking</div>
       </a>
 
       <!-- Card 3: YouTube -->
-      <a class="minimal-card youtube" href="https://youtube.com/@EntropyDrop" target="_blank" rel="noopener">
-        <span class="minimal-tag">Channel</span>
-        <div class="minimal-icon-box">${YOUTUBE_LOGO_SVG}</div>
+      <a class="pixel-card youtube" href="https://youtube.com/@EntropyDrop" target="_blank" rel="noopener">
+        <span class="pixel-tag">Channel</span>
+        <div class="pixel-icon-box">${YOUTUBE_LOGO_SVG}</div>
         <h3>YouTube</h3>
         <p>Subscribe for upcoming open-source generative models</p>
-        <div class="minimal-url-display">youtube.com/@EntropyDrop</div>
+        <div class="pixel-url-display">youtube.com/@EntropyDrop</div>
       </a>
     </div>
-    <div class="minimal-outro-footer">Links to code, model weights, and technical writeups are in the description below. Thanks for watching!</div>
   </section>`;
 }
 
@@ -971,49 +970,49 @@ stageTwoSteps.forEach(({ stepId, arrowId, start, end }) => {
 });
 
 // Scene 10: Technical Details & Outro timings (405s - 455s)
-tl.from('#scene-10 .minimal-card', {
-  y: 30,
+tl.from('#scene-10 .pixel-card', {
+  y: 36,
   opacity: 0,
   stagger: 0.14,
-  duration: 0.55,
+  duration: 0.5,
   ease: 'power2.out'
 }, 405.3);
 
-tl.to('#scene-10 .minimal-card.github', {
+tl.to('#scene-10 .pixel-card.github', {
   scale: 1.03,
-  boxShadow: '0 20px 48px rgba(31, 35, 40, 0.14)',
+  boxShadow: '12px 12px 0px #1a201c, 18px 18px 0px rgba(26, 32, 28, 0.15)',
   duration: 0.45,
   ease: 'power2.out'
 }, 405.5);
-tl.to('#scene-10 .minimal-card.github', {
+tl.to('#scene-10 .pixel-card.github', {
   scale: 1.0,
-  boxShadow: '0 16px 44px rgba(17, 24, 39, 0.05)',
+  boxShadow: '8px 8px 0px #1a201c, 14px 14px 0px rgba(26, 32, 28, 0.15)',
   duration: 0.45,
   ease: 'power2.in'
 }, 409.5);
 
-tl.to('#scene-10 .minimal-card.huggingface', {
+tl.to('#scene-10 .pixel-card.huggingface', {
   scale: 1.04,
-  boxShadow: '0 24px 56px rgba(255, 172, 51, 0.32)',
+  boxShadow: '12px 12px 0px #ff9d0b, 20px 20px 0px #ffd21e',
   duration: 0.45,
   ease: 'power2.out'
 }, 410.5);
-tl.to('#scene-10 .minimal-card.huggingface', {
+tl.to('#scene-10 .pixel-card.huggingface', {
   scale: 1.0,
-  boxShadow: '0 20px 52px rgba(255, 210, 30, 0.18)',
+  boxShadow: '8px 8px 0px #ff9d0b, 14px 14px 0px #ffd21e',
   duration: 0.45,
   ease: 'power2.in'
 }, 424.0);
 
-tl.to('#scene-10 .minimal-card.youtube', {
+tl.to('#scene-10 .pixel-card.youtube', {
   scale: 1.03,
-  boxShadow: '0 20px 48px rgba(239, 68, 68, 0.22)',
+  boxShadow: '12px 12px 0px #dc2626, 18px 18px 0px rgba(220, 38, 38, 0.2)',
   duration: 0.5,
   ease: 'power2.out'
 }, 424.0);
-tl.to('#scene-10 .minimal-card.youtube', {
+tl.to('#scene-10 .pixel-card.youtube', {
   scale: 1.0,
-  boxShadow: '0 16px 44px rgba(17, 24, 39, 0.05)',
+  boxShadow: '8px 8px 0px #dc2626, 14px 14px 0px rgba(220, 38, 38, 0.2)',
   duration: 0.5,
   ease: 'power2.in'
 }, 430.0);
