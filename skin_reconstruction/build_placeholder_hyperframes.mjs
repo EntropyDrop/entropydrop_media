@@ -1003,6 +1003,43 @@ stageTwoSteps.forEach(({ stepId, arrowId, start, end }) => {
   }
 });
 
+// Scene 10: Technical Details & Outro timings (405s - 455s)
+tl.from('#scene-10 .future-card', {
+  y: 28,
+  opacity: 0,
+  stagger: 0.15,
+  duration: 0.55,
+  ease: 'power2.out'
+}, 405.3);
+
+tl.to('#scene-10 .closing-link-pill.huggingface', {
+  scale: 1.05,
+  boxShadow: '0 8px 24px rgba(255, 172, 51, 0.35)',
+  duration: 0.45,
+  ease: 'power2.out'
+}, 414.5);
+tl.to('#scene-10 .closing-link-pill.huggingface', {
+  scale: 1.0,
+  boxShadow: 'none',
+  duration: 0.45,
+  ease: 'power2.in'
+}, 419.0);
+
+tl.to('#scene-10 .subscribe-banner-box', {
+  scale: 1.02,
+  borderColor: '#e63946',
+  boxShadow: '0 16px 40px rgba(230, 57, 70, 0.22)',
+  duration: 0.5,
+  ease: 'power2.out'
+}, 424.0);
+tl.to('#scene-10 .subscribe-banner-box', {
+  scale: 1.0,
+  borderColor: 'var(--line-soft)',
+  boxShadow: '0 12px 30px rgba(17, 22, 17, 0.06)',
+  duration: 0.5,
+  ease: 'power2.in'
+}, 430.0);
+
 window.__timelines.main = tl;
 // Seamless action video looping & timeline sync
 const walkVideos = document.querySelectorAll('video.walk-video');
