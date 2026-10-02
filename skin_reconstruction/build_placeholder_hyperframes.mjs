@@ -739,110 +739,35 @@ function futureScene(chapter) {
         <h2>Open Source &amp; Technical Details</h2>
       </div>
     </div>
-    <div class="hub-grid">
+    <div class="minimal-grid">
       <!-- Card 1: GitHub -->
-      <a class="hub-card github" href="https://github.com/EntropyDrop">
-        <div>
-          <div class="hub-card-head">
-            <div class="hub-icon-box">${GITHUB_LOGO_SVG}</div>
-            <span class="hub-tag">Source Code</span>
-          </div>
-          <div class="hub-card-titles">
-            <h3>GitHub Organization</h3>
-            <p class="hub-card-desc">End-to-end open-source reconstruction pipeline &amp; scripts</p>
-            <span class="hub-card-url">github.com/EntropyDrop</span>
-          </div>
-          <div class="hub-feature-list">
-            <div class="hub-feature-item">
-              <span class="hub-feature-bullet">✓</span>
-              <span>Complete repository workflow &amp; toolkit</span>
-            </div>
-            <div class="hub-feature-item">
-              <span class="hub-feature-bullet">✓</span>
-              <span>Stage 2 Minecraft skin reconstruction code</span>
-            </div>
-            <div class="hub-feature-item">
-              <span class="hub-feature-bullet">✓</span>
-              <span>Dense UV unwrapping &amp; 3D projection logic</span>
-            </div>
-            <div class="hub-feature-item">
-              <span class="hub-feature-bullet">✓</span>
-              <span>Python inference CLI &amp; local environment guide</span>
-            </div>
-          </div>
-        </div>
-        <div class="hub-cta-btn">View on GitHub &rarr;</div>
+      <a class="minimal-card github" href="https://github.com/EntropyDrop" target="_blank" rel="noopener">
+        <span class="minimal-tag">Source Code</span>
+        <div class="minimal-icon-box">${GITHUB_LOGO_SVG}</div>
+        <h3>GitHub</h3>
+        <p>Complete pipeline source code &amp; inference tools</p>
+        <div class="minimal-url-display">github.com/EntropyDrop</div>
       </a>
 
       <!-- Card 2: Hugging Face -->
-      <a class="hub-card huggingface" href="https://huggingface.co/EntropyDrop/Sking">
-        <div>
-          <div class="hub-card-head">
-            <div class="hub-icon-box">${HF_LOGO_SVG}</div>
-            <span class="hub-tag">Weights &amp; Docs</span>
-          </div>
-          <div class="hub-card-titles">
-            <h3>Hugging Face Hub</h3>
-            <p class="hub-card-desc">Production model weights, architecture writeups &amp; configs</p>
-            <span class="hub-card-url">huggingface.co/EntropyDrop/Sking</span>
-          </div>
-          <div class="hub-feature-list">
-            <div class="hub-feature-item">
-              <span class="hub-feature-bullet">✓</span>
-              <span>Dense UV Parser weights (parser.pt)</span>
-            </div>
-            <div class="hub-feature-item">
-              <span class="hub-feature-bullet">✓</span>
-              <span>BiRefNet foreground segmentation checkpoint</span>
-            </div>
-            <div class="hub-feature-item">
-              <span class="hub-feature-bullet">✓</span>
-              <span>Complete pipeline configs &amp; pinned checksums</span>
-            </div>
-            <div class="hub-feature-item">
-              <span class="hub-feature-bullet">✓</span>
-              <span>Technical paper, ablations &amp; benchmark logs</span>
-            </div>
-          </div>
-        </div>
-        <div class="hub-cta-btn">Explore Model Hub &rarr;</div>
+      <a class="minimal-card huggingface" href="https://huggingface.co/EntropyDrop/Sking" target="_blank" rel="noopener">
+        <span class="minimal-tag">Weights &amp; Docs</span>
+        <div class="minimal-icon-box">${HF_LOGO_SVG}</div>
+        <h3>Hugging Face Hub</h3>
+        <p>Stage Two model weights, configs &amp; technical paper</p>
+        <div class="minimal-url-display">huggingface.co/EntropyDrop/Sking</div>
       </a>
 
       <!-- Card 3: YouTube -->
-      <a class="hub-card youtube" href="https://youtube.com/@EntropyDrop">
-        <div>
-          <div class="hub-card-head">
-            <div class="hub-icon-box">${YOUTUBE_LOGO_SVG}</div>
-            <span class="hub-tag">Channel</span>
-          </div>
-          <div class="hub-card-titles">
-            <h3>EntropyDrop Official</h3>
-            <p class="hub-card-desc">Subscribe for new AI models, deep-dives &amp; demos</p>
-            <span class="hub-card-url">youtube.com/@EntropyDrop</span>
-          </div>
-          <div class="hub-feature-list">
-            <div class="hub-feature-item">
-              <span class="hub-feature-bullet">✓</span>
-              <span>Subscribe for upcoming generative AI releases</span>
-            </div>
-            <div class="hub-feature-item">
-              <span class="hub-feature-bullet">✓</span>
-              <span>Deep-dive architecture walkthrough videos</span>
-            </div>
-            <div class="hub-feature-item">
-              <span class="hub-feature-bullet">✓</span>
-              <span>Community showcase updates &amp; ablations</span>
-            </div>
-            <div class="hub-feature-item">
-              <span class="hub-feature-bullet">✓</span>
-              <span>Full documentation links in description below</span>
-            </div>
-          </div>
-        </div>
-        <div class="hub-cta-btn">SUBSCRIBE 🔔</div>
+      <a class="minimal-card youtube" href="https://youtube.com/@EntropyDrop" target="_blank" rel="noopener">
+        <span class="minimal-tag">Channel</span>
+        <div class="minimal-icon-box">${YOUTUBE_LOGO_SVG}</div>
+        <h3>YouTube</h3>
+        <p>Subscribe for upcoming open-source generative models</p>
+        <div class="minimal-url-display">youtube.com/@EntropyDrop</div>
       </a>
     </div>
-    <div class="hub-outro-bar">All links, model weights, and technical writeups are available in the video description below. Thanks for watching!</div>
+    <div class="minimal-outro-footer">Links to code, model weights, and technical writeups are in the description below. Thanks for watching!</div>
   </section>`;
 }
 
@@ -1046,49 +971,49 @@ stageTwoSteps.forEach(({ stepId, arrowId, start, end }) => {
 });
 
 // Scene 10: Technical Details & Outro timings (405s - 455s)
-tl.from('#scene-10 .hub-card', {
-  y: 32,
+tl.from('#scene-10 .minimal-card', {
+  y: 30,
   opacity: 0,
   stagger: 0.14,
   duration: 0.55,
   ease: 'power2.out'
 }, 405.3);
 
-tl.to('#scene-10 .hub-card.github', {
+tl.to('#scene-10 .minimal-card.github', {
   scale: 1.03,
-  boxShadow: '0 20px 48px rgba(31, 35, 40, 0.16)',
+  boxShadow: '0 20px 48px rgba(31, 35, 40, 0.14)',
   duration: 0.45,
   ease: 'power2.out'
 }, 405.5);
-tl.to('#scene-10 .hub-card.github', {
+tl.to('#scene-10 .minimal-card.github', {
   scale: 1.0,
-  boxShadow: '0 14px 38px rgba(17, 24, 39, 0.05)',
+  boxShadow: '0 16px 44px rgba(17, 24, 39, 0.05)',
   duration: 0.45,
   ease: 'power2.in'
 }, 409.5);
 
-tl.to('#scene-10 .hub-card.huggingface', {
+tl.to('#scene-10 .minimal-card.huggingface', {
   scale: 1.04,
   boxShadow: '0 24px 56px rgba(255, 172, 51, 0.32)',
   duration: 0.45,
   ease: 'power2.out'
 }, 410.5);
-tl.to('#scene-10 .hub-card.huggingface', {
+tl.to('#scene-10 .minimal-card.huggingface', {
   scale: 1.0,
-  boxShadow: '0 18px 46px rgba(255, 210, 30, 0.16)',
+  boxShadow: '0 20px 52px rgba(255, 210, 30, 0.18)',
   duration: 0.45,
   ease: 'power2.in'
 }, 424.0);
 
-tl.to('#scene-10 .hub-card.youtube', {
-  scale: 1.04,
-  boxShadow: '0 22px 50px rgba(239, 68, 68, 0.28)',
+tl.to('#scene-10 .minimal-card.youtube', {
+  scale: 1.03,
+  boxShadow: '0 20px 48px rgba(239, 68, 68, 0.22)',
   duration: 0.5,
   ease: 'power2.out'
 }, 424.0);
-tl.to('#scene-10 .hub-card.youtube', {
+tl.to('#scene-10 .minimal-card.youtube', {
   scale: 1.0,
-  boxShadow: '0 14px 38px rgba(17, 24, 39, 0.05)',
+  boxShadow: '0 16px 44px rgba(17, 24, 39, 0.05)',
   duration: 0.5,
   ease: 'power2.in'
 }, 430.0);
