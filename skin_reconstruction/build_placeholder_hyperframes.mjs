@@ -650,7 +650,7 @@ function stageTwoScene(chapter) {
           <div class="step-card-header">
             <b class="step-badge-num">STEP 02</b>
             <strong>DENSE UV PARSER</strong>
-            <span>Routes pixels across 72 cuboid faces: inner base &amp; outer volume layers</span>
+            <span>Routes visible pixels across body parts: inner base &amp; outer volume layers</span>
           </div>
           <div class="step-card-media">
             <div class="step-media-box">
@@ -663,7 +663,7 @@ function stageTwoScene(chapter) {
           <div class="step-card-header">
             <b class="step-badge-num">STEP 03</b>
             <strong>TOPOLOGICAL INPAINTING</strong>
-            <span>Predicts occluded surfaces: inner arms, legs, armpits, and underside</span>
+            <span>Inpaints occluded surfaces via nearest-neighbor &amp; symmetric mapping</span>
           </div>
           <div class="step-card-media">
             <div class="step-media-box">
@@ -688,8 +688,8 @@ function stageTwoScene(chapter) {
         <div id="stage2-step-5" class="step-card" data-step="5">
           <div class="step-card-header">
             <b class="step-badge-num">STEP 05</b>
-            <strong>64×64 SKIN PNG</strong>
-            <span>Material refitting and color refinement to generate game-ready PNG</span>
+            <strong>GAME-READY SKIN</strong>
+            <span>Material refitting and color refinement to generate final skin</span>
           </div>
           <div class="step-card-media">
             <div class="step-media-box">
@@ -811,7 +811,7 @@ function subtitleChunks(text) {
   for (let index = 0; index < words.length;) {
     let end = Math.min(words.length, index + 13);
     if (end < words.length) {
-      for (let cursor = end; cursor > index + 6; cursor--) {
+      for (let cursor = end; cursor > index + 3; cursor--) {
         if (/[,.?!;:]$/.test(words[cursor - 1])) { end = cursor; break; }
       }
     }

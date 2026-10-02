@@ -223,18 +223,18 @@ The pipeline has two stages. In Stage One, Fixed Views Generation, NanoBanana re
 
 - Audio file: `skin_reconstruction/audios/09_stage_two.mp3`
 - Target duration: `45s`
-- Visual direction: 随流水线进度分步点亮 5 个卡片并同步推进字幕：`1. Silhouette Extraction`（360-368.5s 前景隔离与网格对齐）→ `2. Dense UV Parser`（368.5-377.5s 72面内外层路由）→ `3. Topological Inpainting`（377.5-386.5s 补全隐蔽内层表面）→ `4. Head Decoder`（386.5-395.5s 头部与发型配件接缝修复）→ `5. 64×64 Skin PNG`（395.5-405s 最终游戏皮肤文件）。
+- Visual direction: 随流水线进度分步点亮 5 个卡片并同步推进字幕：`1. Silhouette Extraction`（360-368.5s 前景隔离与网格对齐）→ `2. Dense UV Parser`（368.5-377.5s 语义路由与内外层分配）→ `3. Topological Inpainting`（377.5-386.5s 最近邻与对称可见区域补全）→ `4. Head Decoder`（386.5-395.5s 头部与发型配件接缝修复）→ `5. Game-Ready Skin`（395.5-405s 最终皮肤生成）。
 
 ```text
 Stage two reconstructs the skin across five geometric steps. First, silhouette extraction isolates the foreground and aligns mesh geometry.
 
-Second, the Dense UV Parser routes visible pixels across seventy-two cuboid faces, distinguishing the base body from outer volume layers.
+Second, the Dense UV Parser routes visible pixels across body parts, distinguishing the base body from outer volume layers.
 
-Third, topological inpainting predicts occluded surfaces, completing hidden inner-limb texels with nearby colors without inventing extra geometry.
+Third, topological inpainting completes unseen surfaces. It combines nearest-neighbor color completion with symmetric visible regions.
 
 Fourth, the head decoder resolves multi-face seams for complex 3D hairstyles, healing boundary alignment across accessories.
 
-Finally, material refitting and color refinement generate the final texture, producing the game-ready sixty-four by sixty-four Minecraft skin.
+Finally, material refitting and color refinement generate the final texture, producing the game-ready Minecraft skin.
 ```
 
 ### VO 10 | 6:45-7:35 | technical_details | Open Source & Technical Details
