@@ -741,11 +741,11 @@ function futureScene(chapter) {
     </div>
     <div class="closing-banner">
       <div class="closing-links-row">
-        <a class="closing-link-pill github" href="https://github.com/EntropyDrop/SkingToolkit">
+        <a class="closing-link-pill github" href="https://github.com/EntropyDrop">
           <div class="pill-icon-box">${GITHUB_LOGO_SVG}</div>
           <div class="pill-texts">
-            <span class="link-label">GITHUB CODE</span>
-            <strong>github.com/EntropyDrop/SkingToolkit</strong>
+            <span class="link-label">GITHUB</span>
+            <strong>github.com/EntropyDrop</strong>
           </div>
         </a>
         <a class="closing-link-pill huggingface" href="https://huggingface.co/EntropyDrop/Sking">

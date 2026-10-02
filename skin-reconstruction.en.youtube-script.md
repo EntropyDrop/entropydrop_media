@@ -12,7 +12,7 @@
 
 - 技术文章：`../entropydrop_frontend/public/articles/skin-reconstruction.en.md`
 - 网站操作：`../entropydrop_frontend/src/pages/GeneratePage.tsx`、`../entropydrop_frontend/src/components/MCModalPreview.tsx`
-- 代码：https://github.com/EntropyDrop/SkingToolkit
+- 代码：https://github.com/EntropyDrop
 - 模型资源：https://huggingface.co/EntropyDrop/Sking
 
 ## Video Positioning
@@ -52,7 +52,7 @@ Try the generator:
 https://entropydrop.com/skin/generate
 
 Code:
-https://github.com/EntropyDrop/SkingToolkit
+https://github.com/EntropyDrop
 
 Model resources:
 https://huggingface.co/EntropyDrop/Sking
