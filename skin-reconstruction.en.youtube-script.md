@@ -223,10 +223,18 @@ The pipeline has two stages. In Stage One, Fixed Views Generation, NanoBanana re
 
 - Audio file: `skin_reconstruction/audios/09_stage_two.mp3`
 - Target duration: `45s`
-- Visual direction: 用三个连续问题组织画面：`1. Where does each visible pixel belong?`（前景、固定几何、内外层路由）→ `2. What fills the unseen surfaces?`（仅补全缺失的内层 texel）→ `3. Does it still match when rendered?`（头部与配件重渲染、材质校正）→ 最终 64×64 皮肤。
+- Visual direction: 随流水线进度分步点亮 5 个卡片并同步推进字幕：`1. Silhouette Extraction`（360-368.5s 前景隔离与网格对齐）→ `2. Dense UV Parser`（368.5-377.5s 72面内外层路由）→ `3. Topological Inpainting`（377.5-386.5s 补全隐蔽内层表面）→ `4. Head Decoder`（386.5-395.5s 头部与发型配件接缝修复）→ `5. 64×64 Skin PNG`（395.5-405s 最终游戏皮肤文件）。
 
 ```text
-Stage two turns those fixed views into the actual skin file by solving three problems. First: where does each visible pixel belong? Fixed geometry narrows the possibilities, and the Dense UV Parser chooses the body part, cube face, and inner or outer layer. Second: what should fill the surfaces that neither view can see? The pipeline completes only missing inner-layer texels with nearby or mirrored colors, without inventing new outer-layer geometry. Third: does the reconstructed head still match when rendered? The system renders it back into both views and keeps a material correction only when the visible match improves. The result is a standard sixty-four by sixty-four Minecraft skin.
+Stage two reconstructs the skin across five geometric steps. First, silhouette extraction isolates the foreground and aligns mesh geometry.
+
+Second, the Dense UV Parser routes visible pixels across seventy-two cuboid faces, distinguishing the base body from outer volume layers.
+
+Third, topological inpainting predicts occluded surfaces, completing hidden inner-limb texels with nearby colors without inventing extra geometry.
+
+Fourth, the head decoder resolves multi-face seams for complex 3D hairstyles, healing boundary alignment across accessories.
+
+Finally, material refitting and color refinement generate the final texture, producing the game-ready sixty-four by sixty-four Minecraft skin.
 ```
 
 ### VO 10 | 6:45-7:35 | technical_details | Open Source & Technical Details

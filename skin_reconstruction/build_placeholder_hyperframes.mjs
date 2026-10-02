@@ -633,9 +633,9 @@ function stageTwoScene(chapter) {
     </div>
     <div class="stage-two-layout">
       <div class="pipeline-diagram-five">
-        <div>
+        <div id="stage2-step-1" class="step-card" data-step="1">
           <div class="step-card-header">
-            <b>STEP 01</b>
+            <b class="step-badge-num">STEP 01</b>
             <strong>SILHOUETTE EXTRACTION</strong>
             <span>Isolates character foreground and aligns mesh silhouette geometry</span>
           </div>
@@ -645,10 +645,10 @@ function stageTwoScene(chapter) {
             </div>
           </div>
         </div>
-        <i>&rarr;</i>
-        <div class="active-step">
+        <i id="stage2-arrow-1" class="step-arrow">&rarr;</i>
+        <div id="stage2-step-2" class="step-card" data-step="2">
           <div class="step-card-header">
-            <b>STEP 02</b>
+            <b class="step-badge-num">STEP 02</b>
             <strong>DENSE UV PARSER</strong>
             <span>Routes pixels across 72 cuboid faces: inner base &amp; outer volume layers</span>
           </div>
@@ -658,10 +658,10 @@ function stageTwoScene(chapter) {
             </div>
           </div>
         </div>
-        <i>&rarr;</i>
-        <div>
+        <i id="stage2-arrow-2" class="step-arrow">&rarr;</i>
+        <div id="stage2-step-3" class="step-card" data-step="3">
           <div class="step-card-header">
-            <b>STEP 03</b>
+            <b class="step-badge-num">STEP 03</b>
             <strong>TOPOLOGICAL INPAINTING</strong>
             <span>Predicts occluded surfaces: inner arms, legs, armpits, and underside</span>
           </div>
@@ -671,10 +671,10 @@ function stageTwoScene(chapter) {
             </div>
           </div>
         </div>
-        <i>&rarr;</i>
-        <div>
+        <i id="stage2-arrow-3" class="step-arrow">&rarr;</i>
+        <div id="stage2-step-4" class="step-card" data-step="4">
           <div class="step-card-header">
-            <b>STEP 04</b>
+            <b class="step-badge-num">STEP 04</b>
             <strong>HEAD DECODER</strong>
             <span>Resolves multi-face seams for complex 3D hairstyles and accessories</span>
           </div>
@@ -684,10 +684,10 @@ function stageTwoScene(chapter) {
             </div>
           </div>
         </div>
-        <i>&rarr;</i>
-        <div class="active-step">
+        <i id="stage2-arrow-4" class="step-arrow">&rarr;</i>
+        <div id="stage2-step-5" class="step-card" data-step="5">
           <div class="step-card-header">
-            <b>STEP 05</b>
+            <b class="step-badge-num">STEP 05</b>
             <strong>64×64 SKIN PNG</strong>
             <span>Material refitting and color refinement to generate game-ready PNG</span>
           </div>
@@ -823,6 +823,35 @@ function subtitleChunks(text) {
 
 let subtitleId = 0;
 const subtitles = chapters.flatMap(chapter => {
+  const paragraphs = chapter.text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+  if (paragraphs.length > 1 && chapter.slug === 'stage_two') {
+    const stepWindows = [
+      { start: 360.0, end: 368.5 },
+      { start: 368.5, end: 377.5 },
+      { start: 377.5, end: 386.5 },
+      { start: 386.5, end: 395.5 },
+      { start: 395.5, end: 405.0 },
+    ];
+    return paragraphs.flatMap((para, stepIdx) => {
+      const win = stepWindows[stepIdx] || { start: chapter.start, end: chapter.end };
+      const chunks = subtitleChunks(para);
+      const counts = chunks.map(value => value.split(/\s+/).length);
+      const total = counts.reduce((sum, value) => sum + value, 0);
+      const slot = win.end - win.start;
+      const spoken = Math.min(slot - 0.5, total / 2.2);
+      let wordsBefore = 0;
+      return chunks.map((value, index) => {
+        const start = win.start + 0.3 + spoken * wordsBefore / total;
+        const duration = spoken * counts[index] / total;
+        wordsBefore += counts[index];
+        subtitleId++;
+        return '<div id="sub-' + String(subtitleId).padStart(3, '0') + '" class="subtitle-line clip" data-start="' +
+          fmt(start) + '" data-duration="' + fmt(Math.max(.1, duration - .003)) + '" data-track-index="' +
+          (80 + chapter.index) + '"><span>' + esc(value) + '</span></div>';
+      });
+    });
+  }
+
   const chunks = subtitleChunks(chapter.text);
   const counts = chunks.map(value => value.split(/\s+/).length);
   const total = counts.reduce((sum, value) => sum + value, 0);
@@ -858,7 +887,7 @@ const html = `<!doctype html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=1920, height=1080">
   <title>Another Open-Source Model: Image to Minecraft Skin</title>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"><\/script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
   <style>${css}</style>
 </head>
 <body>
@@ -918,6 +947,62 @@ document.querySelectorAll('.subtitle-line').forEach(node => {
   tl.set('#' + node.id, { visibility: 'visible', opacity: 1 }, at(node));
   tl.set('#' + node.id, { visibility: 'hidden', opacity: 0 }, at(node) + length(node));
 });
+
+// Progressive 5-step pipeline animation in Stage Two (360s to 405s)
+const stageTwoSteps = [
+  { stepId: '#stage2-step-1', arrowId: '#stage2-arrow-1', start: 360.0, end: 368.5 },
+  { stepId: '#stage2-step-2', arrowId: '#stage2-arrow-2', start: 368.5, end: 377.5 },
+  { stepId: '#stage2-step-3', arrowId: '#stage2-arrow-3', start: 377.5, end: 386.5 },
+  { stepId: '#stage2-step-4', arrowId: '#stage2-arrow-4', start: 386.5, end: 395.5 },
+  { stepId: '#stage2-step-5', arrowId: null,             start: 395.5, end: 405.0 },
+];
+
+stageTwoSteps.forEach(({ stepId, arrowId, start, end }) => {
+  // Step activation
+  tl.to(stepId, {
+    borderColor: '#1d7a3b',
+    backgroundColor: '#f4faf5',
+    y: -6,
+    boxShadow: '0 20px 48px rgba(29, 122, 59, 0.2)',
+    opacity: 1,
+    duration: 0.45,
+    ease: 'power2.out'
+  }, start);
+
+  tl.to(stepId + ' .step-badge-num', {
+    backgroundColor: '#1d7a3b',
+    color: '#ffffff',
+    duration: 0.3
+  }, start);
+
+  // Settle to completed state
+  tl.to(stepId, {
+    borderColor: 'rgba(29, 122, 59, 0.45)',
+    backgroundColor: '#ffffff',
+    y: 0,
+    boxShadow: '0 12px 30px rgba(17, 22, 17, 0.06)',
+    opacity: 0.95,
+    duration: 0.45,
+    ease: 'power2.inOut'
+  }, end);
+
+  tl.to(stepId + ' .step-badge-num', {
+    backgroundColor: 'rgba(29, 122, 59, 0.12)',
+    color: '#1d7a3b',
+    duration: 0.3
+  }, end);
+
+  if (arrowId) {
+    tl.to(arrowId, {
+      color: '#1d7a3b',
+      opacity: 1,
+      scale: 1.25,
+      duration: 0.35,
+      ease: 'back.out(1.7)'
+    }, end);
+  }
+});
+
 window.__timelines.main = tl;
 // Seamless action video looping & timeline sync
 const walkVideos = document.querySelectorAll('video.walk-video');

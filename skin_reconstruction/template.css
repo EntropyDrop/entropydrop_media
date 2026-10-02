@@ -1701,21 +1701,26 @@ h2 em {
   width: 100%;
 }
 
-.pipeline-diagram-five > div {
+.pipeline-diagram-five > div.step-card {
   flex: 1;
   height: 640px;
-  border: 1px solid var(--line-soft);
+  border: 1.5px solid var(--line-soft);
   background: var(--panel);
   padding: 22px 18px 20px;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
-  box-shadow: 0 16px 40px rgba(17, 22, 17, 0.06);
+  box-shadow: 0 14px 36px rgba(17, 22, 17, 0.05);
+  opacity: 0.72;
+  will-change: transform, border-color, background-color, box-shadow, opacity;
 }
 
-.pipeline-diagram-five > div.active-step {
-  border: 2px solid var(--green);
+.pipeline-diagram-five > div.step-card.active-step {
+  border: 2.5px solid var(--green);
   background: #f4faf5;
+  opacity: 1;
+  box-shadow: 0 20px 48px rgba(29, 122, 59, 0.2);
+  transform: translateY(-6px);
 }
 
 .step-card-header {
@@ -1725,12 +1730,17 @@ h2 em {
   margin-bottom: 14px;
 }
 
-.step-card-header b {
-  color: var(--green-dark);
-  font-size: 14px;
+.step-card-header b.step-badge-num {
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+  color: var(--green-dark);
+  background: rgba(29, 122, 59, 0.09);
+  padding: 3px 8px;
+  border-radius: 4px;
+  width: fit-content;
+  display: inline-block;
+  margin-bottom: 2px;
 }
 
 .step-card-header strong {
@@ -1825,7 +1835,7 @@ h2 em {
   box-shadow: 0 8px 20px rgba(17, 22, 17, 0.12);
 }
 
-.pipeline-diagram-five > i {
+.pipeline-diagram-five > i.step-arrow {
   font-size: 26px;
   color: var(--green);
   font-style: normal;
@@ -1833,7 +1843,8 @@ h2 em {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  opacity: 0.85;
+  opacity: 0.35;
+  transition: all 0.3s ease;
 }
 
 /* Subscribe Banner Box (Scene 12) */
