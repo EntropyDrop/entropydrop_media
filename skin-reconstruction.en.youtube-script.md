@@ -244,7 +244,7 @@ Finally, material refitting and color refinement generate the final texture, pro
 - Visual direction: 聚焦开源成果与深度技术细节获取渠道。不谈未来规划与路线图，重点展示 Hugging Face 仓库（EntropyDrop/Sking）界面、Stage Two 模型权重文件（`parser.pt`、`foreground.pt`、`pipeline.json`）、架构文档与评测指标；同步展示 GitHub 源码与网站在线体验链接，最后留出频道关注与链接卡片。
 
 ```text
-You can try the pipeline directly on entropydrop.com. The complete two-stage workflow code is open source on GitHub, and all Stage Two model weights—including the Dense UV Parser and foreground segmentation model—are available on Hugging Face. For in-depth technical details on the geometry-driven UV reconstruction, semantic routing architecture, and full benchmarks, visit our Hugging Face repository at huggingface.co/EntropyDrop/Sking, or check out our technical article linked below. If you enjoyed this video, subscribe to the channel and leave a star on GitHub. Thanks for watching!
+The complete workflow code is open source on GitHub, and all Stage Two model weights are available on Hugging Face. For in-depth technical details on the geometry-driven UV reconstruction, semantic routing architecture, and full benchmarks, visit our Hugging Face repository at huggingface.co/EntropyDrop/Sking, or check out our technical article linked below. If you enjoyed this video, subscribe to the channel and leave a star on GitHub. Thanks for watching!
 ```
 
 ## Production Handoff
