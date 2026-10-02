@@ -630,7 +630,6 @@ function stageTwoScene(chapter) {
         <span class="kicker">Two-Stage Pipeline · Stage 02</span>
         <h2>Stage Two: Reconstruct the Skin</h2>
       </div>
-      <div class="scene-note">Open-Source SkingToolkit Reconstruction</div>
     </div>
     <div class="stage-two-layout">
       <div class="pipeline-diagram-five">
@@ -642,12 +641,11 @@ function stageTwoScene(chapter) {
           </div>
           <div class="step-card-media">
             <div class="step-media-box">
-              <img src="assets/img24_cutout.png" alt="Silhouette Cutout (img24_cutout.png)" class="step-img cutout-img" />
+              <img src="assets/img24_cutout.png" alt="Silhouette Cutout" class="step-img cutout-img" />
             </div>
-            <span class="step-media-caption">img24_cutout.png · Foreground Cutout</span>
           </div>
         </div>
-        <i>→</i>
+        <i>&rarr;</i>
         <div class="active-step">
           <div class="step-card-header">
             <b>STEP 02</b>
@@ -656,12 +654,11 @@ function stageTwoScene(chapter) {
           </div>
           <div class="step-card-media">
             <div class="step-media-box">
-              <img src="assets/img24_routed.png" alt="Semantic Routing (img24_routed.png)" class="step-img routed-img" />
+              <img src="assets/img24_routed.png" alt="Semantic Routing" class="step-img routed-img" />
             </div>
-            <span class="step-media-caption">img24_routed.png · Semantic Routing</span>
           </div>
         </div>
-        <i>→</i>
+        <i>&rarr;</i>
         <div>
           <div class="step-card-header">
             <b>STEP 03</b>
@@ -670,12 +667,11 @@ function stageTwoScene(chapter) {
           </div>
           <div class="step-card-media">
             <div class="step-media-box">
-              <img src="assets/parser_pred_uv_simple_inpainting.png" alt="Inpainted UV (parser_pred_uv_simple_inpainting.png)" class="step-img uv-pixel-img" />
+              <img src="assets/parser_pred_uv_simple_inpainting.png" alt="Inpainted UV" class="step-img uv-pixel-img" />
             </div>
-            <span class="step-media-caption">Inpainted UV (64×64 Texture)</span>
           </div>
         </div>
-        <i>→</i>
+        <i>&rarr;</i>
         <div>
           <div class="step-card-header">
             <b>STEP 04</b>
@@ -684,12 +680,11 @@ function stageTwoScene(chapter) {
           </div>
           <div class="step-card-media">
             <div class="step-media-box">
-              <img src="assets/v101_headwear_comparison.png" alt="Headwear Separation (v101_headwear_comparison.png)" class="step-img headwear-img" />
+              <img src="assets/v101_headwear_comparison.png" alt="Headwear Separation" class="step-img headwear-img" />
             </div>
-            <span class="step-media-caption">Dual-Layer Seam Healing</span>
           </div>
         </div>
-        <i>→</i>
+        <i>&rarr;</i>
         <div class="active-step">
           <div class="step-card-header">
             <b>STEP 05</b>
@@ -698,9 +693,8 @@ function stageTwoScene(chapter) {
           </div>
           <div class="step-card-media">
             <div class="step-media-box">
-              <img src="assets/img24_final.png" alt="Final 64x64 Skin (img24_final.png)" class="step-img final-skin-img" />
+              <img src="assets/img24_final.png" alt="Final 64x64 Skin" class="step-img final-skin-img" />
             </div>
-            <span class="step-media-caption">img24_final.png · Game-Ready Skin</span>
           </div>
         </div>
       </div>
