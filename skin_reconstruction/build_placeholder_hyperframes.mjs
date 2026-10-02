@@ -738,7 +738,6 @@ function futureScene(chapter) {
         <span class="kicker">Open Source &amp; Links</span>
         <h2>Open Source &amp; Technical Details</h2>
       </div>
-      <div class="scene-note">huggingface.co/EntropyDrop/Sking · github.com/EntropyDrop/SkingToolkit</div>
     </div>
     <div class="closing-banner">
       <div class="closing-links-row">
