@@ -1356,64 +1356,236 @@ h2 em {
 #scene-10 {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  padding: 44px 96px 40px;
+  box-sizing: border-box;
 }
 
-#scene-10 .closing-banner {
+#scene-10 .scene-head {
+  border-bottom: 1.5px solid var(--line-soft, #e2e8f0);
+  padding-bottom: 14px;
+  margin-bottom: 24px;
+}
+
+.hub-grid {
   flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  align-items: stretch;
+  min-height: 0;
+  margin-bottom: 24px;
+}
+
+.hub-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  border: 1px solid var(--line-soft);
-  background: var(--panel);
-  border-radius: 12px;
-  padding: 60px 48px;
-  box-shadow: 0 18px 48px rgba(17, 22, 17, 0.06);
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1.5px solid var(--line-soft, #d8e2dc);
+  border-radius: 16px;
+  padding: 36px 34px 30px;
+  box-shadow: 0 14px 38px rgba(17, 24, 39, 0.05), 0 2px 8px rgba(17, 24, 39, 0.03);
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#scene-10 .closing-links-row {
+.hub-card.github {
+  border-top: 5px solid #24292f;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 36%);
+}
+
+.hub-card.huggingface {
+  border: 2px solid #ffd21e;
+  border-top: 5px solid #ff9d0b;
+  background: linear-gradient(180deg, #fffef0 0%, #ffffff 36%);
+  box-shadow: 0 18px 46px rgba(255, 210, 30, 0.16), 0 4px 12px rgba(17, 24, 39, 0.04);
+}
+
+.hub-card.youtube {
+  border-top: 5px solid #ef4444;
+  background: linear-gradient(180deg, #fff5f5 0%, #ffffff 36%);
+}
+
+.hub-card-head {
   display: flex;
-  gap: 36px;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
-#scene-10 .closing-link-pill {
-  padding: 24px 44px;
-  gap: 22px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(17, 22, 17, 0.08);
+.hub-icon-box {
+  width: 62px;
+  height: 62px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid var(--line-soft, #e2e8f0);
+  box-shadow: 0 4px 14px rgba(17, 24, 39, 0.05);
 }
 
-#scene-10 .pill-icon-box {
-  width: 54px;
-  height: 54px;
+.hub-icon-box .pill-brand-icon.github-logo {
+  width: 40px;
+  height: 40px;
+  color: #1f2328;
 }
 
-#scene-10 .pill-brand-icon.github-logo {
-  width: 46px;
+.hub-icon-box .pill-brand-icon.hf-logo {
+  width: 50px;
   height: 46px;
 }
 
-#scene-10 .pill-brand-icon.hf-logo {
-  width: 54px;
-  height: 50px;
+.hub-icon-box .pill-brand-icon.yt-logo {
+  width: 44px;
+  height: 44px;
 }
 
-#scene-10 .pill-brand-icon.yt-logo {
-  width: 48px;
-  height: 48px;
+.hub-tag {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 15px;
+  border-radius: 20px;
 }
 
-#scene-10 .link-label {
+.hub-card.github .hub-tag {
+  background: rgba(36, 41, 47, 0.08);
+  color: #24292f;
+}
+
+.hub-card.huggingface .hub-tag {
+  background: rgba(255, 157, 11, 0.15);
+  color: #b45309;
+}
+
+.hub-card.youtube .hub-tag {
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+}
+
+.hub-card-titles {
+  margin-bottom: 22px;
+}
+
+.hub-card-titles h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink, #0f172a);
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.hub-card-desc {
   font-size: 15px;
+  color: #64748b;
+  margin: 0 0 12px 0;
+  line-height: 1.45;
 }
 
-#scene-10 .closing-link-pill strong {
-  font-size: 22px;
+.hub-card-url {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--muted, #475569);
+  background: rgba(0, 0, 0, 0.04);
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.hub-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex: 1;
+}
+
+.hub-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 16px;
+  color: var(--ink, #1e293b);
+  line-height: 1.35;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.025);
+}
+
+.hub-feature-bullet {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.hub-card.github .hub-feature-bullet {
+  background: rgba(36, 41, 47, 0.1);
+  color: #24292f;
+}
+
+.hub-card.huggingface .hub-feature-bullet {
+  background: rgba(255, 157, 11, 0.18);
+  color: #b45309;
+}
+
+.hub-card.youtube .hub-feature-bullet {
+  background: rgba(239, 68, 68, 0.14);
+  color: #dc2626;
+}
+
+.hub-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 17px 24px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hub-card.github .hub-cta-btn {
+  background: #1f2328;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(31, 35, 40, 0.2);
+}
+
+.hub-card.huggingface .hub-cta-btn {
+  background: linear-gradient(135deg, #ffd21e 0%, #ff9d0b 100%);
+  color: #1a1705;
+  box-shadow: 0 4px 18px rgba(255, 157, 11, 0.3);
+}
+
+.hub-card.youtube .hub-cta-btn {
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3);
+}
+
+.hub-outro-bar {
+  text-align: center;
+  font-size: 16px;
+  color: var(--muted, #64748b);
+  letter-spacing: 0.02em;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft, #e2e8f0);
 }
 
 .closing-title {
@@ -3357,23 +3529,52 @@ h2 em {
 <section id="scene-10" class="scene clip" data-start="405.000" data-duration="50.000" data-track-index="10">
     <div class="scene-head">
       <div>
-        <span class="kicker">Open Source &amp; Links</span>
+        <span class="kicker">EntropyDrop · Open-Source Release</span>
         <h2>Open Source &amp; Technical Details</h2>
       </div>
     </div>
-    <div class="closing-banner">
-      <div class="closing-links-row">
-        <a class="closing-link-pill github" href="https://github.com/EntropyDrop">
-          <div class="pill-icon-box"><svg class="pill-brand-icon github-logo" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <div class="hub-grid">
+      <!-- Card 1: GitHub -->
+      <a class="hub-card github" href="https://github.com/EntropyDrop">
+        <div>
+          <div class="hub-card-head">
+            <div class="hub-icon-box"><svg class="pill-brand-icon github-logo" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
 </svg></div>
-          <div class="pill-texts">
-            <span class="link-label">GITHUB</span>
-            <strong>github.com/EntropyDrop</strong>
+            <span class="hub-tag">Source Code</span>
           </div>
-        </a>
-        <a class="closing-link-pill huggingface" href="https://huggingface.co/EntropyDrop/Sking">
-          <div class="pill-icon-box"><svg class="pill-brand-icon hf-logo" viewBox="0 0 95 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div class="hub-card-titles">
+            <h3>GitHub Organization</h3>
+            <p class="hub-card-desc">End-to-end open-source reconstruction pipeline &amp; scripts</p>
+            <span class="hub-card-url">github.com/EntropyDrop</span>
+          </div>
+          <div class="hub-feature-list">
+            <div class="hub-feature-item">
+              <span class="hub-feature-bullet">✓</span>
+              <span>Complete repository workflow &amp; toolkit</span>
+            </div>
+            <div class="hub-feature-item">
+              <span class="hub-feature-bullet">✓</span>
+              <span>Stage 2 Minecraft skin reconstruction code</span>
+            </div>
+            <div class="hub-feature-item">
+              <span class="hub-feature-bullet">✓</span>
+              <span>Dense UV unwrapping &amp; 3D projection logic</span>
+            </div>
+            <div class="hub-feature-item">
+              <span class="hub-feature-bullet">✓</span>
+              <span>Python inference CLI &amp; local environment guide</span>
+            </div>
+          </div>
+        </div>
+        <div class="hub-cta-btn">View on GitHub &rarr;</div>
+      </a>
+
+      <!-- Card 2: Hugging Face -->
+      <a class="hub-card huggingface" href="https://huggingface.co/EntropyDrop/Sking">
+        <div>
+          <div class="hub-card-head">
+            <div class="hub-icon-box"><svg class="pill-brand-icon hf-logo" viewBox="0 0 95 88" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path fill="#fff" d="M94.25 70.08a8.28 8.28 0 0 1-.43 6.46 10.57 10.57 0 0 1-3 3.6 25.18 25.18 0 0 1-5.7 3.2 65.74 65.74 0 0 1-7.56 2.65 46.67 46.67 0 0 1-11.42 1.68c-5.42.05-10.09-1.23-13.4-4.5a40.4 40.4 0 0 1-10.14.03c-3.34 3.25-7.99 4.52-13.39 4.47a46.82 46.82 0 0 1-11.43-1.68 66.37 66.37 0 0 1-7.55-2.65c-2.28-.98-4.17-2-5.68-3.2a10.5 10.5 0 0 1-3.02-3.6c-.99-2-1.18-4.3-.42-6.46a8.54 8.54 0 0 1-.33-5.63c.25-.95.66-1.83 1.18-2.61a8.67 8.67 0 0 1 2.1-8.47 8.23 8.23 0 0 1 2.82-2.07 41.75 41.75 0 1 1 81.3-.12 8.27 8.27 0 0 1 3.11 2.19 8.7 8.7 0 0 1 2.1 8.47c.52.78.93 1.66 1.18 2.61a8.61 8.61 0 0 1-.32 5.63Z"/>
   <path fill="#FFD21E" d="M47.21 76.5a34.75 34.75 0 1 0 0-69.5 34.75 34.75 0 0 0 0 69.5Z"/>
   <path fill="#FF9D0B" d="M81.96 41.75a34.75 34.75 0 1 0-69.5 0 34.75 34.75 0 0 0 69.5 0Zm-73.5 0a38.75 38.75 0 1 1 77.5 0 38.75 38.75 0 0 1-77.5 0Z"/>
@@ -3385,22 +3586,72 @@ h2 em {
   <path fill="#FF9D0B" d="M77.4 48c1.62 0 3.07.66 4.07 1.87a5.97 5.97 0 0 1 1.33 3.76 7.1 7.1 0 0 1 1.95-.3c1.55 0 2.95.59 3.94 1.66a5.8 5.8 0 0 1 .8 7 5.3 5.3 0 0 1 1.78 2.82c.24.9.48 2.8-.8 4.74a5.22 5.22 0 0 1 .37 5.02c-1.02 2.32-3.57 4.14-8.51 6.1-3.08 1.22-5.9 2-5.92 2.01a44.33 44.33 0 0 1-10.93 1.6c-5.86 0-10.05-1.8-12.46-5.34-3.88-5.69-3.33-10.9 1.7-15.92 2.78-2.78 4.63-6.87 5.01-7.77.78-2.66 2.83-5.62 6.24-5.62a5.7 5.7 0 0 1 4.6 2.46c1-1.26 1.98-2.25 2.87-2.82A7.4 7.4 0 0 1 77.4 48Zm0 4c-.51 0-1.13.22-1.82.65-2.13 1.36-6.25 8.43-7.76 11.18a2.43 2.43 0 0 1-2.14 1.31c-1.54 0-2.75-1.53-.14-3.48 3.91-2.93 2.54-7.72.67-8.01a1.54 1.54 0 0 0-.24-.02c-1.7 0-2.45 2.93-2.45 2.93s-2.2 5.52-5.97 9.3c-3.78 3.77-3.98 6.8-1.22 10.83 1.87 2.75 5.47 3.58 9.15 3.58 3.82 0 7.73-.9 9.93-1.46.1-.03 13.45-3.8 11.76-7-.29-.54-.75-.76-1.34-.76-2.38 0-6.71 3.54-8.57 3.54-.42 0-.71-.17-.83-.6-.8-2.85 12.05-4.05 10.97-8.17-.19-.73-.7-1.02-1.44-1.02-3.14 0-10.2 5.53-11.68 5.53-.1 0-.19-.03-.23-.1-.74-1.2-.34-2.04 4.88-5.2 5.23-3.16 8.9-5.06 6.8-7.33-.23-.26-.57-.38-.98-.38-3.18 0-10.67 6.82-10.67 6.82s-2.02 2.1-3.24 2.1a.74.74 0 0 1-.68-.38c-.87-1.46 8.05-8.22 8.55-11.01.34-1.9-.24-2.85-1.31-2.85Z"/>
   <path fill="#FFD21E" d="M56.33 76.69c-2.75-4.04-2.56-7.07 1.22-10.84 3.77-3.77 5.97-9.3 5.97-9.3s.82-3.2 2.7-2.9c1.86.3 3.23 5.08-.68 8.01-3.92 2.93.78 4.92 2.28 2.17 1.51-2.75 5.63-9.82 7.76-11.18 2.13-1.35 3.64-.6 3.13 2.2-.5 2.79-9.42 9.55-8.55 11 .86 1.47 3.92-1.71 3.92-1.71s9.58-8.71 11.66-6.44c2.08 2.27-1.58 4.17-6.8 7.33-5.23 3.16-5.63 4-4.9 5.2.75 1.2 12.28-8.53 13.36-4.4 1.08 4.11-11.76 5.3-10.97 8.15.8 2.85 9.05-5.38 10.74-2.18 1.69 3.21-11.65 6.98-11.76 7.01-4.31 1.12-15.26 3.49-19.08-2.12Z"/>
 </svg></div>
-          <div class="pill-texts">
-            <span class="link-label">HUGGING FACE</span>
-            <strong>huggingface.co/EntropyDrop/Sking</strong>
+            <span class="hub-tag">Weights &amp; Docs</span>
           </div>
-        </a>
-        <a class="closing-link-pill youtube" href="https://youtube.com/@EntropyDrop">
-          <div class="pill-icon-box"><svg class="pill-brand-icon yt-logo" viewBox="0 0 24 24" fill="#ff0000" xmlns="http://www.w3.org/2000/svg">
+          <div class="hub-card-titles">
+            <h3>Hugging Face Hub</h3>
+            <p class="hub-card-desc">Production model weights, architecture writeups &amp; configs</p>
+            <span class="hub-card-url">huggingface.co/EntropyDrop/Sking</span>
+          </div>
+          <div class="hub-feature-list">
+            <div class="hub-feature-item">
+              <span class="hub-feature-bullet">✓</span>
+              <span>Dense UV Parser weights (parser.pt)</span>
+            </div>
+            <div class="hub-feature-item">
+              <span class="hub-feature-bullet">✓</span>
+              <span>BiRefNet foreground segmentation checkpoint</span>
+            </div>
+            <div class="hub-feature-item">
+              <span class="hub-feature-bullet">✓</span>
+              <span>Complete pipeline configs &amp; pinned checksums</span>
+            </div>
+            <div class="hub-feature-item">
+              <span class="hub-feature-bullet">✓</span>
+              <span>Technical paper, ablations &amp; benchmark logs</span>
+            </div>
+          </div>
+        </div>
+        <div class="hub-cta-btn">Explore Model Hub &rarr;</div>
+      </a>
+
+      <!-- Card 3: YouTube -->
+      <a class="hub-card youtube" href="https://youtube.com/@EntropyDrop">
+        <div>
+          <div class="hub-card-head">
+            <div class="hub-icon-box"><svg class="pill-brand-icon yt-logo" viewBox="0 0 24 24" fill="#ff0000" xmlns="http://www.w3.org/2000/svg">
   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
 </svg></div>
-          <div class="pill-texts">
-            <span class="link-label">YOUTUBE</span>
-            <strong>SUBSCRIBE &rarr;</strong>
+            <span class="hub-tag">Channel</span>
           </div>
-        </a>
-      </div>
+          <div class="hub-card-titles">
+            <h3>EntropyDrop Official</h3>
+            <p class="hub-card-desc">Subscribe for new AI models, deep-dives &amp; demos</p>
+            <span class="hub-card-url">youtube.com/@EntropyDrop</span>
+          </div>
+          <div class="hub-feature-list">
+            <div class="hub-feature-item">
+              <span class="hub-feature-bullet">✓</span>
+              <span>Subscribe for upcoming generative AI releases</span>
+            </div>
+            <div class="hub-feature-item">
+              <span class="hub-feature-bullet">✓</span>
+              <span>Deep-dive architecture walkthrough videos</span>
+            </div>
+            <div class="hub-feature-item">
+              <span class="hub-feature-bullet">✓</span>
+              <span>Community showcase updates &amp; ablations</span>
+            </div>
+            <div class="hub-feature-item">
+              <span class="hub-feature-bullet">✓</span>
+              <span>Full documentation links in description below</span>
+            </div>
+          </div>
+        </div>
+        <div class="hub-cta-btn">SUBSCRIBE 🔔</div>
+      </a>
     </div>
+    <div class="hub-outro-bar">All links, model weights, and technical writeups are available in the video description below. Thanks for watching!</div>
   </section>
   <div id="sub-001" class="subtitle-line clip" data-start="0.450" data-duration="5.042" data-track-index="81"><span>We have open-sourced another model for turning character images into Minecraft skins.</span></div><div id="sub-002" class="subtitle-line clip" data-start="5.495" data-duration="2.940" data-track-index="81"><span>To show the range of community results,</span></div><div id="sub-003" class="subtitle-line clip" data-start="8.439" data-duration="3.361" data-track-index="81"><span>we picked character images in very different styles.</span></div><div id="sub-004" class="subtitle-line clip" data-start="11.802" data-duration="2.940" data-track-index="81"><span>First we will look at those results,</span></div><div id="sub-005" class="subtitle-line clip" data-start="14.745" data-duration="4.202" data-track-index="81"><span>then try the pipeline online and explain how it works.</span></div><div id="sub-006" class="subtitle-line clip" data-start="20.450" data-duration="3.179" data-track-index="82"><span>Why make another model? In previous versions,</span></div><div id="sub-007" class="subtitle-line clip" data-start="23.632" data-duration="4.997" data-track-index="82"><span>small decorative details were often the hardest part. A flower pattern,</span></div><div id="sub-008" class="subtitle-line clip" data-start="28.632" data-duration="1.815" data-track-index="82"><span>a butterfly hair clip,</span></div><div id="sub-009" class="subtitle-line clip" data-start="30.450" data-duration="5.906" data-track-index="82"><span>or a tiny bear on a shirt has to be translated into only</span></div><div id="sub-010" class="subtitle-line clip" data-start="36.359" data-duration="5.452" data-track-index="82"><span>a few pixels. When those features are treated as ordinary image detail,</span></div><div id="sub-011" class="subtitle-line clip" data-start="41.814" data-duration="5.906" data-track-index="82"><span>their contours can blur, their colors can mix, or their shapes can disappear.</span></div><div id="sub-012" class="subtitle-line clip" data-start="47.723" data-duration="5.452" data-track-index="82"><span>The new pipeline first reinterprets the character in a fixed Minecraft view,</span></div><div id="sub-013" class="subtitle-line clip" data-start="53.177" data-duration="4.088" data-track-index="82"><span>giving the reconstruction stage clearer structure to work with.</span></div><div id="sub-014" class="subtitle-line clip" data-start="60.450" data-duration="4.542" data-track-index="83"><span>Here are real results generated by community creators on EntropyDrop.</span></div><div id="sub-015" class="subtitle-line clip" data-start="64.995" data-duration="2.270" data-track-index="83"><span>Notice how different silhouettes, colors,</span></div><div id="sub-016" class="subtitle-line clip" data-start="67.268" data-duration="5.906" data-track-index="83"><span>and clothing details carry over into the block geometry—and where complex shapes had</span></div><div id="sub-017" class="subtitle-line clip" data-start="73.177" data-duration="1.361" data-track-index="83"><span>to be simplified.</span></div><div id="sub-018" class="subtitle-line clip" data-start="110.450" data-duration="5.906" data-track-index="84"><span>These examples span diverse art styles—from anime and illustrations to game renders and</span></div><div id="sub-019" class="subtitle-line clip" data-start="116.359" data-duration="4.997" data-track-index="84"><span>painterly art. As each model turns, check whether the front, sides,</span></div><div id="sub-020" class="subtitle-line clip" data-start="121.359" data-duration="4.088" data-track-index="84"><span>and back remain visually coherent. Some details translate cleanly,</span></div><div id="sub-021" class="subtitle-line clip" data-start="125.450" data-duration="5.906" data-track-index="84"><span>while others are simplified or inferred where the original image provides no direct</span></div><div id="sub-022" class="subtitle-line clip" data-start="131.359" data-duration="0.452" data-track-index="84"><span>view.</span></div><div id="sub-023" class="subtitle-line clip" data-start="160.450" data-duration="4.088" data-track-index="85"><span>Take a moment to compare the seams, limb textures,</span></div><div id="sub-024" class="subtitle-line clip" data-start="164.541" data-duration="3.633" data-track-index="85"><span>and inferred back details as these characters move.</span></div><div id="sub-025" class="subtitle-line clip" data-start="168.177" data-duration="2.724" data-track-index="85"><span>Not every detail survives the conversion,</span></div><div id="sub-026" class="subtitle-line clip" data-start="170.905" data-duration="4.088" data-track-index="85"><span>so the 3D turn is an important check. Next,</span></div><div id="sub-027" class="subtitle-line clip" data-start="174.995" data-duration="5.906" data-track-index="85"><span>let&#39;s see how you can create and download your own skins on the</span></div><div id="sub-028" class="subtitle-line clip" data-start="180.905" data-duration="0.452" data-track-index="85"><span>website.</span></div><div id="sub-029" class="subtitle-line clip" data-start="210.450" data-duration="3.514" data-track-index="86"><span>Want to try it yourself? Visit entropydrop.com for the free online generator.</span></div><div id="sub-030" class="subtitle-line clip" data-start="213.967" data-duration="2.635" data-track-index="86"><span>We also open-sourced the training details and model weights,</span></div><div id="sub-031" class="subtitle-line clip" data-start="216.605" data-duration="2.342" data-track-index="86"><span>so you can train or deploy it locally.</span></div><div id="sub-032" class="subtitle-line clip" data-start="220.450" data-duration="5.452" data-track-index="87"><span>To try the model online, open entropydrop dot com and sign in,</span></div><div id="sub-033" class="subtitle-line clip" data-start="225.905" data-duration="2.270" data-track-index="87"><span>then upload a reference image.</span></div><div id="sub-034" class="subtitle-line clip" data-start="228.177" data-duration="5.452" data-track-index="87"><span>The model featured in this video is named the SKING DDJ series.</span></div><div id="sub-035" class="subtitle-line clip" data-start="233.632" data-duration="3.179" data-track-index="87"><span>Click the generate button, and after processing,</span></div><div id="sub-036" class="subtitle-line clip" data-start="236.814" data-duration="5.452" data-track-index="87"><span>the result opens directly in the 3D viewer. Once the result opens,</span></div><div id="sub-037" class="subtitle-line clip" data-start="242.268" data-duration="5.906" data-track-index="87"><span>you can test the character with three different motions: Idle, Walk, and Dance.</span></div><div id="sub-038" class="subtitle-line clip" data-start="248.177" data-duration="4.542" data-track-index="87"><span>Idle lets you inspect fine details in a steady pose,</span></div><div id="sub-039" class="subtitle-line clip" data-start="252.723" data-duration="4.088" data-track-index="87"><span>Walk checks limb articulation and joint alignment during movement,</span></div><div id="sub-040" class="subtitle-line clip" data-start="256.814" data-duration="4.542" data-track-index="87"><span>while Dance puts the model through full dynamic choreography. Next,</span></div><div id="sub-041" class="subtitle-line clip" data-start="261.359" data-duration="4.088" data-track-index="87"><span>you can inspect the skin in different display modes.</span></div><div id="sub-042" class="subtitle-line clip" data-start="265.450" data-duration="4.088" data-track-index="87"><span>Voxel mode adds visible depth to the skin texture,</span></div><div id="sub-043" class="subtitle-line clip" data-start="269.541" data-duration="4.088" data-track-index="87"><span>Plane mode shows the classic flat Minecraft box look,</span></div><div id="sub-044" class="subtitle-line clip" data-start="273.632" data-duration="4.088" data-track-index="87"><span>and Cute mode changes the character to chibi proportions,</span></div><div id="sub-045" class="subtitle-line clip" data-start="277.723" data-duration="5.906" data-track-index="87"><span>giving you another way to inspect how the design reads at a different</span></div><div id="sub-046" class="subtitle-line clip" data-start="283.632" data-duration="3.633" data-track-index="87"><span>scale. Once you are satisfied with the preview,</span></div><div id="sub-047" class="subtitle-line clip" data-start="287.268" data-duration="4.088" data-track-index="87"><span>click Download to save the skin as a PNG.</span></div><div id="sub-048" class="subtitle-line clip" data-start="330.450" data-duration="4.747" data-track-index="88"><span>The pipeline has two stages. In Stage One, Fixed Views Generation,</span></div><div id="sub-049" class="subtitle-line clip" data-start="335.200" data-duration="5.611" data-track-index="88"><span>NanoBanana receives the character reference alongside fixed layout templates that enforce an orthogonal</span></div><div id="sub-050" class="subtitle-line clip" data-start="340.814" data-duration="4.315" data-track-index="88"><span>dual-view camera and pose. By conditioning on these structural templates,</span></div><div id="sub-051" class="subtitle-line clip" data-start="345.132" data-duration="5.611" data-track-index="88"><span>NanoBanana synthesizes standardized front and back Minecraft views while preserving the character&#39;s identity</span></div><div id="sub-052" class="subtitle-line clip" data-start="350.745" data-duration="4.315" data-track-index="88"><span>and outfit. This stage relies on the closed-source NanoBanana model,</span></div><div id="sub-053" class="subtitle-line clip" data-start="355.064" data-duration="3.883" data-track-index="88"><span>while the surrounding pipeline workflow is fully open source.</span></div><div id="sub-054" class="subtitle-line clip" data-start="360.300" data-duration="4.208" data-track-index="89"><span>Stage two reconstructs the skin across five geometric steps. First,</span></div><div id="sub-055" class="subtitle-line clip" data-start="364.511" data-duration="3.786" data-track-index="89"><span>silhouette extraction isolates the foreground and aligns mesh geometry.</span></div><div id="sub-056" class="subtitle-line clip" data-start="368.800" data-duration="4.918" data-track-index="89"><span>Second, the Dense UV Parser routes visible pixels across body parts,</span></div><div id="sub-057" class="subtitle-line clip" data-start="373.721" data-duration="3.576" data-track-index="89"><span>distinguishing the base body from outer volume layers.</span></div><div id="sub-058" class="subtitle-line clip" data-start="377.800" data-duration="2.724" data-track-index="89"><span>Third, topological inpainting completes unseen surfaces.</span></div><div id="sub-059" class="subtitle-line clip" data-start="380.527" data-duration="4.088" data-track-index="89"><span>It combines nearest-neighbor color completion with symmetric visible regions.</span></div><div id="sub-060" class="subtitle-line clip" data-start="386.800" data-duration="4.997" data-track-index="89"><span>Fourth, the head decoder resolves multi-face seams for complex 3D hairstyles,</span></div><div id="sub-061" class="subtitle-line clip" data-start="391.800" data-duration="2.270" data-track-index="89"><span>healing boundary alignment across accessories.</span></div><div id="sub-062" class="subtitle-line clip" data-start="395.800" data-duration="4.542" data-track-index="89"><span>Finally, material refitting and color refinement generate the final texture,</span></div><div id="sub-063" class="subtitle-line clip" data-start="400.345" data-duration="2.270" data-track-index="89"><span>producing the game-ready Minecraft skin.</span></div><div id="sub-064" class="subtitle-line clip" data-start="405.450" data-duration="4.088" data-track-index="90"><span>The complete workflow code is open source on GitHub,</span></div><div id="sub-065" class="subtitle-line clip" data-start="409.541" data-duration="4.997" data-track-index="90"><span>and all Stage Two model weights are available on Hugging Face.</span></div><div id="sub-066" class="subtitle-line clip" data-start="414.541" data-duration="4.088" data-track-index="90"><span>For in-depth technical details, visit our Hugging Face repository,</span></div><div id="sub-067" class="subtitle-line clip" data-start="418.632" data-duration="5.906" data-track-index="90"><span>or check out our technical article linked below. If you enjoyed this video,</span></div><div id="sub-068" class="subtitle-line clip" data-start="424.541" data-duration="3.179" data-track-index="90"><span>subscribe to the channel. Thanks for watching!</span></div>
 </div>
@@ -3513,49 +3764,49 @@ stageTwoSteps.forEach(({ stepId, arrowId, start, end }) => {
 });
 
 // Scene 10: Technical Details & Outro timings (405s - 455s)
-tl.from('#scene-10 .closing-link-pill', {
-  y: 28,
+tl.from('#scene-10 .hub-card', {
+  y: 32,
   opacity: 0,
-  stagger: 0.15,
+  stagger: 0.14,
   duration: 0.55,
   ease: 'power2.out'
 }, 405.3);
 
-tl.to('#scene-10 .closing-link-pill.github', {
-  scale: 1.05,
-  boxShadow: '0 16px 36px rgba(31, 35, 40, 0.18)',
+tl.to('#scene-10 .hub-card.github', {
+  scale: 1.03,
+  boxShadow: '0 20px 48px rgba(31, 35, 40, 0.16)',
   duration: 0.45,
   ease: 'power2.out'
 }, 405.5);
-tl.to('#scene-10 .closing-link-pill.github', {
+tl.to('#scene-10 .hub-card.github', {
   scale: 1.0,
-  boxShadow: '0 10px 30px rgba(17, 22, 17, 0.08)',
+  boxShadow: '0 14px 38px rgba(17, 24, 39, 0.05)',
   duration: 0.45,
   ease: 'power2.in'
 }, 409.5);
 
-tl.to('#scene-10 .closing-link-pill.huggingface', {
-  scale: 1.05,
-  boxShadow: '0 16px 40px rgba(255, 172, 51, 0.4)',
+tl.to('#scene-10 .hub-card.huggingface', {
+  scale: 1.04,
+  boxShadow: '0 24px 56px rgba(255, 172, 51, 0.32)',
   duration: 0.45,
   ease: 'power2.out'
 }, 410.5);
-tl.to('#scene-10 .closing-link-pill.huggingface', {
+tl.to('#scene-10 .hub-card.huggingface', {
   scale: 1.0,
-  boxShadow: '0 10px 30px rgba(17, 22, 17, 0.08)',
+  boxShadow: '0 18px 46px rgba(255, 210, 30, 0.16)',
   duration: 0.45,
   ease: 'power2.in'
 }, 424.0);
 
-tl.to('#scene-10 .closing-link-pill.youtube', {
-  scale: 1.06,
-  boxShadow: '0 16px 40px rgba(239, 68, 68, 0.35)',
+tl.to('#scene-10 .hub-card.youtube', {
+  scale: 1.04,
+  boxShadow: '0 22px 50px rgba(239, 68, 68, 0.28)',
   duration: 0.5,
   ease: 'power2.out'
 }, 424.0);
-tl.to('#scene-10 .closing-link-pill.youtube', {
+tl.to('#scene-10 .hub-card.youtube', {
   scale: 1.0,
-  boxShadow: '0 10px 30px rgba(17, 22, 17, 0.08)',
+  boxShadow: '0 14px 38px rgba(17, 24, 39, 0.05)',
   duration: 0.5,
   ease: 'power2.in'
 }, 430.0);

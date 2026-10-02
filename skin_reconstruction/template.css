@@ -1349,64 +1349,236 @@ h2 em {
 #scene-10 {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  padding: 44px 96px 40px;
+  box-sizing: border-box;
 }
 
-#scene-10 .closing-banner {
+#scene-10 .scene-head {
+  border-bottom: 1.5px solid var(--line-soft, #e2e8f0);
+  padding-bottom: 14px;
+  margin-bottom: 24px;
+}
+
+.hub-grid {
   flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  align-items: stretch;
+  min-height: 0;
+  margin-bottom: 24px;
+}
+
+.hub-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  border: 1px solid var(--line-soft);
-  background: var(--panel);
-  border-radius: 12px;
-  padding: 60px 48px;
-  box-shadow: 0 18px 48px rgba(17, 22, 17, 0.06);
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1.5px solid var(--line-soft, #d8e2dc);
+  border-radius: 16px;
+  padding: 36px 34px 30px;
+  box-shadow: 0 14px 38px rgba(17, 24, 39, 0.05), 0 2px 8px rgba(17, 24, 39, 0.03);
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#scene-10 .closing-links-row {
+.hub-card.github {
+  border-top: 5px solid #24292f;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 36%);
+}
+
+.hub-card.huggingface {
+  border: 2px solid #ffd21e;
+  border-top: 5px solid #ff9d0b;
+  background: linear-gradient(180deg, #fffef0 0%, #ffffff 36%);
+  box-shadow: 0 18px 46px rgba(255, 210, 30, 0.16), 0 4px 12px rgba(17, 24, 39, 0.04);
+}
+
+.hub-card.youtube {
+  border-top: 5px solid #ef4444;
+  background: linear-gradient(180deg, #fff5f5 0%, #ffffff 36%);
+}
+
+.hub-card-head {
   display: flex;
-  gap: 36px;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
-#scene-10 .closing-link-pill {
-  padding: 24px 44px;
-  gap: 22px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(17, 22, 17, 0.08);
+.hub-icon-box {
+  width: 62px;
+  height: 62px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid var(--line-soft, #e2e8f0);
+  box-shadow: 0 4px 14px rgba(17, 24, 39, 0.05);
 }
 
-#scene-10 .pill-icon-box {
-  width: 54px;
-  height: 54px;
+.hub-icon-box .pill-brand-icon.github-logo {
+  width: 40px;
+  height: 40px;
+  color: #1f2328;
 }
 
-#scene-10 .pill-brand-icon.github-logo {
-  width: 46px;
+.hub-icon-box .pill-brand-icon.hf-logo {
+  width: 50px;
   height: 46px;
 }
 
-#scene-10 .pill-brand-icon.hf-logo {
-  width: 54px;
-  height: 50px;
+.hub-icon-box .pill-brand-icon.yt-logo {
+  width: 44px;
+  height: 44px;
 }
 
-#scene-10 .pill-brand-icon.yt-logo {
-  width: 48px;
-  height: 48px;
+.hub-tag {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 15px;
+  border-radius: 20px;
 }
 
-#scene-10 .link-label {
+.hub-card.github .hub-tag {
+  background: rgba(36, 41, 47, 0.08);
+  color: #24292f;
+}
+
+.hub-card.huggingface .hub-tag {
+  background: rgba(255, 157, 11, 0.15);
+  color: #b45309;
+}
+
+.hub-card.youtube .hub-tag {
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+}
+
+.hub-card-titles {
+  margin-bottom: 22px;
+}
+
+.hub-card-titles h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink, #0f172a);
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.hub-card-desc {
   font-size: 15px;
+  color: #64748b;
+  margin: 0 0 12px 0;
+  line-height: 1.45;
 }
 
-#scene-10 .closing-link-pill strong {
-  font-size: 22px;
+.hub-card-url {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--muted, #475569);
+  background: rgba(0, 0, 0, 0.04);
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.hub-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex: 1;
+}
+
+.hub-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 16px;
+  color: var(--ink, #1e293b);
+  line-height: 1.35;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.025);
+}
+
+.hub-feature-bullet {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.hub-card.github .hub-feature-bullet {
+  background: rgba(36, 41, 47, 0.1);
+  color: #24292f;
+}
+
+.hub-card.huggingface .hub-feature-bullet {
+  background: rgba(255, 157, 11, 0.18);
+  color: #b45309;
+}
+
+.hub-card.youtube .hub-feature-bullet {
+  background: rgba(239, 68, 68, 0.14);
+  color: #dc2626;
+}
+
+.hub-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 17px 24px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hub-card.github .hub-cta-btn {
+  background: #1f2328;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(31, 35, 40, 0.2);
+}
+
+.hub-card.huggingface .hub-cta-btn {
+  background: linear-gradient(135deg, #ffd21e 0%, #ff9d0b 100%);
+  color: #1a1705;
+  box-shadow: 0 4px 18px rgba(255, 157, 11, 0.3);
+}
+
+.hub-card.youtube .hub-cta-btn {
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3);
+}
+
+.hub-outro-bar {
+  text-align: center;
+  font-size: 16px;
+  color: var(--muted, #64748b);
+  letter-spacing: 0.02em;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft, #e2e8f0);
 }
 
 .closing-title {
