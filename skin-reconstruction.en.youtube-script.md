@@ -4,7 +4,7 @@
 
 本稿只用于确认视频叙事。**确认前不要重新生成 Hyperframes、旁白、字幕或成片。**
 
-英文口播采用四幕结构：**1. 开场与 28 组社区生成效果；2. 网站使用说明；3. 两阶段原理；4. 技术细节与开源仓库。** 目标时长约 **7 分 35 秒**。
+英文口播采用四幕结构：**1. 开场与 28 组社区生成效果；2. 网站使用说明；3. 两阶段原理；4. 开源与技术细节（Open Source & Technical Details）。** 目标时长约 **7 分 35 秒**。
 
 这次发布需要准确说明范围：**完整两阶段流水线代码已经开源，Stage Two 的皮肤重建代码与模型权重也已公开**，可以把规范化的 Minecraft 正背面图重建为最终 64×64 皮肤；但从任意角色图生成这些固定格式正背面图的 Stage One 仍需要调用兼容的闭源图像模型。可以称流水线代码为开源，但不要暗示 Stage One 的外部依赖也已开源、完整流程可以免费离线运行，或单个 checkpoint 就能复现完整结果。
 
@@ -19,7 +19,7 @@
 
 - **Working title:** Another Open-Source Model: Image to Minecraft Skin
 - **Target length:** approximately 7:35
-- **Format:** English voiceover, 28 community results, browser walkthrough, two-stage pipeline explanation, and technical details & open-source resources
+- **Format:** English voiceover, 28 community results, browser walkthrough, two-stage pipeline explanation, and open-source resources & technical details
 - **Audience:** Minecraft players, skin creators, open-source developers, and viewers interested in image-to-skin generation
 - **Core promise:** Show what the pipeline produces across different input styles, teach viewers how to use it, credit DDJ for the original direction, explain the two stages, and direct viewers to the Hugging Face repository for full technical details.
 - **Tone:** Direct, visual, candid, and practical. Treat the comparisons as evidence instead of claiming that every result is better.
@@ -203,7 +203,7 @@ Want to try it yourself? Visit entropydrop.com for the free online generator. We
 
 - Audio file: `skin_reconstruction/audios/07_website_walkthrough.mp3`
 - Target duration: `110s`
-- Visual direction: 网站真实录屏全屏展示。涵盖首页探索、上传角色参考图、选择 SKING DDJ 模型生成，随后在 3D 查看器中测试 Idle、Walk、Dance 动态，切换 Voxel、Plane、Cute 等展示模式，最后点击 Download 下载皮肤 PNG。
+- Visual direction: 网站真实录屏全屏展示。涵盖首页探索、进入 Generate 界面并保持停顿观察 5 秒（清晰展示 SKING DDJ 模型选项、生成参数与上传区），随后平滑衔接 3D 查看器实机操作：测试 Idle、Walk、Dance 动态，切换 Plane、Cute 等展示模式，最后点击 Download 下载皮肤 PNG。
 
 ```text
 To try the model online, open entropydrop dot com and sign in, then upload a reference image. The model featured in this video is named the SKING DDJ series. Click the generate button, and after processing, the result opens directly in the 3D viewer. Once the result opens, you can test the character with three different motions: Idle, Walk, and Dance. Idle lets you inspect fine details in a steady pose, Walk checks limb articulation and joint alignment during movement, while Dance puts the model through full dynamic choreography. Next, you can inspect the skin in different display modes. Voxel mode adds visible depth to the skin texture, Plane mode shows the classic flat Minecraft box look, and Cute mode changes the character to chibi proportions, giving you another way to inspect how the design reads at a different scale. Once you are satisfied with the preview, click Download to save the skin as a PNG.
@@ -229,7 +229,7 @@ The pipeline has two stages. In stage one, the image model receives the characte
 Stage two turns those fixed views into the actual skin file by solving three problems. First: where does each visible pixel belong? Fixed geometry narrows the possibilities, and the Dense UV Parser chooses the body part, cube face, and inner or outer layer. Second: what should fill the surfaces that neither view can see? The pipeline completes only missing inner-layer texels with nearby or mirrored colors, without inventing new outer-layer geometry. Third: does the reconstructed head still match when rendered? The system renders it back into both views and keeps a material correction only when the visible match improves. The result is a standard sixty-four by sixty-four Minecraft skin.
 ```
 
-### VO 10 | 6:45-7:35 | technical_details | Technical Details & Hugging Face Repo
+### VO 10 | 6:45-7:35 | technical_details | Open Source & Technical Details
 
 - Audio file: `skin_reconstruction/audios/10_technical_details.mp3`
 - Target duration: `50s`
@@ -242,8 +242,8 @@ You can try the pipeline directly on entropydrop.com. The complete two-stage wor
 ## Production Handoff
 
 - 本稿确认前，保留现有 `skin_reconstruction/index.html`、占位素材清单、字幕和音频文件，不重新生成。
-- 确认后，Hyperframes 按四幕重排：第 1–5 场为开场和多风格效果，第 6 场为在线体验卡片，第 7 场为网站完整教程，第 8–9 场为两阶段原理（Stage 1 规范视角生成与 Stage 2 几何解算重建），第 10 场为技术细节、Hugging Face 仓库与开源资源。
-- 网站教程占 3:40–5:30；两阶段原理占 5:30–6:45；技术细节与开源仓库占 6:45–7:35（总长 7:35 / 455s）。
+- 确认后，Hyperframes 按四幕重排：第 1–5 场为开场和多风格效果，第 6 场为在线体验卡片，第 7 场为网站完整教程，第 8–9 场为两阶段原理（Stage 1 规范视角生成与 Stage 2 几何解算重建），第 10 场为开源与技术细节（Open Source & Technical Details）。
+- 网站教程占 3:40–5:30；两阶段原理占 5:30–6:45；开源与技术细节占 6:45–7:35（总长 7:35 / 455s）。
 - 生成新旁白时使用本稿的新文件名，避免误用旧 MP3。
 
 - 28 组素材接入后，根据真实输入修改每个 case 的风格标签；不要让旁白描述素材中看不到的特征。

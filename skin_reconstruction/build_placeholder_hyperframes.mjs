@@ -411,7 +411,7 @@ function webUploadScene(chapter) {
   const videoSrc = assets['website.upload']?.src || 'assets/website/vo06_website_upload.webm';
   return `<section id="scene-6" class="scene scene-fullscreen clip" data-track-index="6">
     <div class="fullscreen-video-frame">
-      <video id="vo06-fullscreen-video" class="fullscreen-video" src="${esc(videoSrc)}" data-start="${fmt(chapter.start)}" data-duration="${fmt(duration)}" data-source-duration="62.800" data-media-start="0" data-volume="0" muted playsinline preload="auto" loop></video>
+      <video id="vo06-fullscreen-video" class="fullscreen-video" src="${esc(videoSrc)}" data-start="${fmt(chapter.start)}" data-duration="${fmt(duration)}" data-source-duration="55.733" data-media-start="0" data-volume="0" muted playsinline preload="auto" loop></video>
     </div>
   </section>`;
 }
@@ -752,13 +752,13 @@ const YOUTUBE_LOGO_SVG = `<svg class="pill-brand-icon yt-logo" viewBox="0 0 24 2
   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
 </svg>`;
 
-// Act 4: Technical Details & Open-Source Closing (Scene 10 | 405s - 455s)
+// Act 4: Open Source & Technical Details (Scene 10 | 405s - 455s)
 function futureScene(chapter) {
   return `<section id="scene-10" class="scene clip" data-start="${fmt(chapter.start)}" data-duration="${fmt(chapter.end - chapter.start)}" data-track-index="10">
     <div class="scene-head">
       <div>
-        <span class="kicker">Open Source &amp; Technical Details</span>
-        <h2>Technical Architecture &amp; Hugging Face Hub</h2>
+        <span class="kicker">Hugging Face Hub · Architecture &amp; Weights</span>
+        <h2>Open Source &amp; Technical Details</h2>
       </div>
       <div class="scene-note">huggingface.co/EntropyDrop/Sking · Weights, Configs &amp; Code</div>
     </div>
