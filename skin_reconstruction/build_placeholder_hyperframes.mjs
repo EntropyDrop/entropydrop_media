@@ -602,7 +602,7 @@ function stageOneScene(chapter) {
             </div>
             <div class="process-text-group">
               <span class="process-kicker">PROCESSED BY</span>
-              <strong class="process-title">Gemini Banana</strong>
+              <strong class="process-title">NanoBanana</strong>
             </div>
           </div>
           <span class="process-arrow-out">&rarr;</span>

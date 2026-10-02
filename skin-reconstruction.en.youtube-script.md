@@ -213,10 +213,10 @@ To try the model online, open entropydrop dot com and sign in, then upload a ref
 
 - Audio file: `skin_reconstruction/audios/08_how_pipeline_works.mp3`
 - Target duration: `30s`
-- Visual direction: 从网站操作平滑切入两阶段架构图，展示 Stage 1 固定视角生成机制：左侧角色参考图（Character Reference）+ 中间固定模板（Fixed Layout Templates）作为输入，经由中间带有 Google Gemini 图标的 Gemini Banana 模型节点处理，右侧输出规范化正背面图（Normalized Dual Views）。
+- Visual direction: 从网站操作平滑切入两阶段架构图，展示 Stage 1 固定视角生成机制：左侧角色参考图（Character Reference）+ 中间固定模板（Fixed Layout Templates）作为输入，经由中间带有 Google Gemini 图标的 NanoBanana 模型节点处理，右侧输出规范化正背面图（Normalized Dual Views）。
 
 ```text
-The pipeline has two stages. In Stage One, Fixed Views Generation, Gemini Banana receives the character reference alongside fixed layout templates that enforce an orthogonal dual-view camera and pose. By conditioning on these structural templates, Gemini Banana synthesizes standardized front and back Minecraft views while preserving the character's identity and outfit. This stage relies on the closed-source Gemini Banana model, while the surrounding pipeline workflow is fully open source.
+The pipeline has two stages. In Stage One, Fixed Views Generation, NanoBanana receives the character reference alongside fixed layout templates that enforce an orthogonal dual-view camera and pose. By conditioning on these structural templates, NanoBanana synthesizes standardized front and back Minecraft views while preserving the character's identity and outfit. This stage relies on the closed-source NanoBanana model, while the surrounding pipeline workflow is fully open source.
 ```
 
 ### VO 09 | 6:00-6:45 | stage_two | Stage Two: Reconstruct the Skin
