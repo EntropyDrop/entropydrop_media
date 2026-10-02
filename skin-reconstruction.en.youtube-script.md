@@ -4,7 +4,7 @@
 
 本稿只用于确认视频叙事。**确认前不要重新生成 Hyperframes、旁白、字幕或成片。**
 
-英文口播采用四幕结构：**1. 开场与 28 组社区生成效果；2. 网站使用说明；3. 两阶段原理；4. 未来展望。** 目标时长约 **7 分 35 秒**。
+英文口播采用四幕结构：**1. 开场与 28 组社区生成效果；2. 网站使用说明；3. 两阶段原理；4. 技术细节与开源仓库。** 目标时长约 **7 分 35 秒**。
 
 这次发布需要准确说明范围：**完整两阶段流水线代码已经开源，Stage Two 的皮肤重建代码与模型权重也已公开**，可以把规范化的 Minecraft 正背面图重建为最终 64×64 皮肤；但从任意角色图生成这些固定格式正背面图的 Stage One 仍需要调用兼容的闭源图像模型。可以称流水线代码为开源，但不要暗示 Stage One 的外部依赖也已开源、完整流程可以免费离线运行，或单个 checkpoint 就能复现完整结果。
 
@@ -19,9 +19,9 @@
 
 - **Working title:** Another Open-Source Model: Image to Minecraft Skin
 - **Target length:** approximately 7:35
-- **Format:** English voiceover, 28 community results, browser walkthrough, two-stage pipeline explanation, and a short future outlook
+- **Format:** English voiceover, 28 community results, browser walkthrough, two-stage pipeline explanation, and technical details & open-source resources
 - **Audience:** Minecraft players, skin creators, open-source developers, and viewers interested in image-to-skin generation
-- **Core promise:** Show what the pipeline produces across different input styles, teach viewers how to use it, credit DDJ for the original direction, explain the two stages, and show where the project goes next.
+- **Core promise:** Show what the pipeline produces across different input styles, teach viewers how to use it, credit DDJ for the original direction, explain the two stages, and direct viewers to the Hugging Face repository for full technical details.
 - **Tone:** Direct, visual, candid, and practical. Treat the comparisons as evidence instead of claiming that every result is better.
 
 ## Title Ideas
@@ -46,7 +46,7 @@ We have open-sourced another model for turning character images into usable Mine
 
 This video starts with character images in different visual styles and compares each input with its 3D Minecraft skin. Then we use the model on EntropyDrop: upload a reference, generate a skin, inspect it from every angle, and download the PNG.
 
-The complete two-stage workflow code is open source, including the Stage Two skin-reconstruction code and model weights. Stage One still requires access to a compatible closed-source image model. The final section shows how the two stages connect and what we want to improve next.
+The complete two-stage workflow code is open source, including the Stage Two skin-reconstruction code and model weights. Stage One still requires access to a compatible closed-source image model. The final section highlights our Hugging Face repository for technical architecture details, model weights, and documentation.
 
 Try the generator:
 https://entropydrop.com/skin/generate
@@ -70,7 +70,7 @@ Chapters:
 03:40 Upload, 3D viewer & download
 05:30 How the pipeline works
 06:00 Stage two: reconstruct the skin
-06:45 Where the project goes next
+06:45 Technical details & Hugging Face repo
 
 ## First 20 Seconds
 
@@ -113,7 +113,7 @@ Community results · Live demo · Open-source reconstruction
 | 4:50–5:30 | Viewer: actions | 切换 Idle、Walk、Dance 动作，点击 Download | 用动作检查接缝与肢体贴图对齐，确认效果后下载 PNG | Actions: Idle · Walk · Dance |
 | 5:30–6:00 | How pipeline works | 参考图 + 模板 → 固定格式正背面图 | 两阶段管线架构：Stage 1 图像模型理解角色，转换到统一 Minecraft 正背面视图 | How the Pipeline Works |
 | 6:00–6:45 | Stage two | 用三个问题组织画面：像素属于哪里？不可见区域怎么补？重渲染后是否更匹配？ | 以三个问题解释可见像素路由、保守补全与重渲染校验，最终得到 64×64 皮肤 | Fixed views → Reconstructed Skin |
-| 6:45–7:35 | Future outlook | 痛点、数据积累、链接、订阅卡片 | 剖析闭源依赖缺点，展望自有模型，呼吁订阅频道未来更多模型 | What comes next · Subscribe |
+| 6:45–7:35 | Technical details | Hugging Face 仓库、模型权重清单、GitHub 源码、在线生成器与订阅卡片 | 简化结尾，不谈未来规划；重点引导观众访问 Hugging Face 仓库获取模型权重、技术架构与评测细节 | Hugging Face · Open Source · Subscribe |
 
 ## Website Recording Notes
 
@@ -229,21 +229,21 @@ The pipeline has two stages. In stage one, the image model receives the characte
 Stage two turns those fixed views into the actual skin file by solving three problems. First: where does each visible pixel belong? Fixed geometry narrows the possibilities, and the Dense UV Parser chooses the body part, cube face, and inner or outer layer. Second: what should fill the surfaces that neither view can see? The pipeline completes only missing inner-layer texels with nearby or mirrored colors, without inventing new outer-layer geometry. Third: does the reconstructed head still match when rendered? The system renders it back into both views and keeps a material correction only when the visible match improves. The result is a standard sixty-four by sixty-four Minecraft skin.
 ```
 
-### VO 10 | 6:45-7:35 | future_outlook | What Comes Next
+### VO 10 | 6:45-7:35 | technical_details | Technical Details & Hugging Face Repo
 
-- Audio file: `skin_reconstruction/audios/10_future_outlook.mp3`
+- Audio file: `skin_reconstruction/audios/10_technical_details.mp3`
 - Target duration: `50s`
-- Visual direction: 先显示闭源依赖的痛点（格式不稳导致生成失败、发型头饰多样性欠缺），再切到数据积累与未来自有模型；最后展示网站、GitHub 与频道关注订阅卡片。
+- Visual direction: 聚焦开源成果与深度技术细节获取渠道。不谈未来规划与路线图，重点展示 Hugging Face 仓库（EntropyDrop/Sking）界面、Stage Two 模型权重文件（`parser.pt`、`foreground.pt`、`pipeline.json`）、架构文档与评测指标；同步展示 GitHub 源码与网站在线体验链接，最后留出频道关注与链接卡片。
 
 ```text
-This release is one step, not the end of the project. The largest dependency is still the closed-source image model in stage one, and relying on it has real downsides. It cannot guarantee a valid fixed format every time, which can cause skin generation to fail, and its diversity for hairstyles and head accessories is still limited. We want to collect reviewed examples connecting the character, fixed views, and final skin to reduce that dependency. For now, you can try the pipeline on EntropyDrop. The open-source pipeline code, Stage Two model weights, and our technical article are linked below. If you enjoyed this, subscribe to the channel—we'll have many more interesting models to share soon. Thanks for watching!
+You can try the pipeline directly on entropydrop.com. The complete two-stage workflow code is open source on GitHub, and all Stage Two model weights—including the Dense UV Parser and foreground segmentation model—are available on Hugging Face. For in-depth technical details on the geometry-driven UV reconstruction, semantic routing architecture, and full benchmarks, visit our Hugging Face repository at huggingface.co/EntropyDrop/Sking, or check out our technical article linked below. If you enjoyed this video, subscribe to the channel and leave a star on GitHub. Thanks for watching!
 ```
 
 ## Production Handoff
 
 - 本稿确认前，保留现有 `skin_reconstruction/index.html`、占位素材清单、字幕和音频文件，不重新生成。
-- 确认后，Hyperframes 按四幕重排：第 1–5 场为开场和多风格效果，第 6 场为在线体验卡片，第 7 场为网站完整教程，第 8–9 场为两阶段原理（Stage 1 规范视角生成与 Stage 2 几何解算重建），第 10 场为未来展望和链接。
-- 网站教程占 3:40–5:30；两阶段原理占 5:30–6:45；未来展望占 6:45–7:35（总长 7:35 / 455s）。
+- 确认后，Hyperframes 按四幕重排：第 1–5 场为开场和多风格效果，第 6 场为在线体验卡片，第 7 场为网站完整教程，第 8–9 场为两阶段原理（Stage 1 规范视角生成与 Stage 2 几何解算重建），第 10 场为技术细节、Hugging Face 仓库与开源资源。
+- 网站教程占 3:40–5:30；两阶段原理占 5:30–6:45；技术细节与开源仓库占 6:45–7:35（总长 7:35 / 455s）。
 - 生成新旁白时使用本稿的新文件名，避免误用旧 MP3。
 
 - 28 组素材接入后，根据真实输入修改每个 case 的风格标签；不要让旁白描述素材中看不到的特征。

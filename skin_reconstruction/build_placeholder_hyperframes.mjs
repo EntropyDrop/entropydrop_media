@@ -752,34 +752,34 @@ const YOUTUBE_LOGO_SVG = `<svg class="pill-brand-icon yt-logo" viewBox="0 0 24 2
   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
 </svg>`;
 
-// Act 4: Future Outlook & Closing (Scene 10 | 405s - 455s)
+// Act 4: Technical Details & Open-Source Closing (Scene 10 | 405s - 455s)
 function futureScene(chapter) {
   return `<section id="scene-10" class="scene clip" data-start="${fmt(chapter.start)}" data-duration="${fmt(chapter.end - chapter.start)}" data-track-index="10">
     <div class="scene-head">
       <div>
-        <span class="kicker">Roadmap &amp; Community</span>
-        <h2>What Comes Next: Reducing Dependencies</h2>
+        <span class="kicker">Open Source &amp; Technical Details</span>
+        <h2>Technical Architecture &amp; Hugging Face Hub</h2>
       </div>
-      <div class="scene-note">Open-Source Roadmap &amp; Channel Updates</div>
+      <div class="scene-note">huggingface.co/EntropyDrop/Sking · Weights, Configs &amp; Code</div>
     </div>
     <div class="future-grid">
       <div class="future-card">
         <span class="card-num">01</span>
-        <h3>Closed-Source Bottlenecks</h3>
-        <p>The vision model cannot guarantee a valid fixed format every time, causing occasional failures; diversity for complex hair and head accessories is also limited.</p>
-        <div class="milestone-tag tag-closed">Current Bottleneck</div>
+        <h3>Hugging Face Model Hub</h3>
+        <p>Directly download production model weights (Dense UV Parser, BiRefNet foreground model), pipeline configs, and pinned checksums from our Hugging Face repository.</p>
+        <div class="milestone-tag tag-green">huggingface.co/EntropyDrop/Sking</div>
       </div>
       <div class="future-card">
         <span class="card-num">02</span>
-        <h3>Screened Dataset Triples</h3>
-        <p>Collecting reviewed (Character → Views → Skin) dataset triples to train native end-to-end open-source models and remove closed-source dependencies.</p>
-        <div class="milestone-tag tag-green">Open-Source Direction</div>
+        <h3>Architecture &amp; Benchmarks</h3>
+        <p>In-depth technical writeups covering orthographic projection constraints, SigLIP2 semantic routing, whole-headwear consistency, and re-rendering ablation logs.</p>
+        <div class="milestone-tag tag-green">Technical Paper &amp; Metrics</div>
       </div>
       <div class="future-card">
         <span class="card-num">03</span>
-        <h3>Subscribe for Future Models</h3>
-        <p>More open-source generative models, pipelines, and datasets are coming. Subscribe to the channel to get future model releases and tutorials!</p>
-        <div class="milestone-tag tag-green">Channel Subscription</div>
+        <h3>Open Code &amp; Web Demo</h3>
+        <p>Run the full pipeline locally with open-source SkingToolkit code on GitHub, or create and inspect skins in the free interactive 3D generator on EntropyDrop.</p>
+        <div class="milestone-tag tag-green">entropydrop.com/skin/generate</div>
       </div>
     </div>
     <div class="closing-banner">
@@ -870,7 +870,7 @@ const scenes = [
   webUploadScene(getChapter('website_walkthrough')),
   stageOneScene(getChapter('how_pipeline_works')),
   stageTwoScene(getChapter('stage_two')),
-  futureScene(getChapter('future_outlook')),
+  futureScene(getChapter('technical_details')),
 ].join('\n');
 
 const css = fs.readFileSync(path.join(project, 'template.css'), 'utf8');
