@@ -68,7 +68,7 @@ Chapters:
 02:40 Painterly and mixed styles
 03:30 Try it online
 03:40 Upload, 3D viewer & download
-05:30 How the pipeline works
+05:30 How the pipeline works: Stage 1 fixed views generation
 06:00 Stage two: reconstruct the skin
 06:45 Technical details & Hugging Face repo
 
@@ -209,14 +209,14 @@ Want to try it yourself? Visit entropydrop.com for the free online generator. We
 To try the model online, open entropydrop dot com and sign in, then upload a reference image. The model featured in this video is named the SKING DDJ series. Click the generate button, and after processing, the result opens directly in the 3D viewer. Once the result opens, you can test the character with three different motions: Idle, Walk, and Dance. Idle lets you inspect fine details in a steady pose, Walk checks limb articulation and joint alignment during movement, while Dance puts the model through full dynamic choreography. Next, you can inspect the skin in different display modes. Voxel mode adds visible depth to the skin texture, Plane mode shows the classic flat Minecraft box look, and Cute mode changes the character to chibi proportions, giving you another way to inspect how the design reads at a different scale. Once you are satisfied with the preview, click Download to save the skin as a PNG.
 ```
 
-### VO 08 | 5:30-6:00 | how_pipeline_works | How the Pipeline Works
+### VO 08 | 5:30-6:00 | how_pipeline_works | How the Pipeline Works: Stage 1 Fixed Views Generation
 
 - Audio file: `skin_reconstruction/audios/08_how_pipeline_works.mp3`
 - Target duration: `30s`
-- Visual direction: 从网站操作平滑切入两阶段架构图，展示 Stage 1 固定视角生成机制：使用同一角色展示 `Reference + three layout examples → normalized front/back views`，突出视角、姿势和画面位置统一。
+- Visual direction: 从网站操作平滑切入两阶段架构图，展示 Stage 1 固定视角生成机制：左侧角色参考图（Character Reference）+ 中间固定模板（Fixed Layout Templates）作为输入，经由中间带有 Google Gemini 图标的 Gemini Banana 模型节点处理，右侧输出规范化正背面图（Normalized Dual Views）。
 
 ```text
-The pipeline has two stages. In stage one, the image model receives the character reference together with Minecraft examples that share the same camera, pose, and layout. It then creates a front and back view in that fixed format. The examples are there to keep the geometry stable, not to add new character details. This stage is where the pipeline uses a closed-source image model, while the surrounding workflow code is open source.
+The pipeline has two stages. In Stage One, Fixed Views Generation, Gemini Banana receives the character reference alongside fixed layout templates that enforce an orthogonal dual-view camera and pose. By conditioning on these structural templates, Gemini Banana synthesizes standardized front and back Minecraft views while preserving the character's identity and outfit. This stage relies on the closed-source Gemini Banana model, while the surrounding pipeline workflow is fully open source.
 ```
 
 ### VO 09 | 6:00-6:45 | stage_two | Stage Two: Reconstruct the Skin

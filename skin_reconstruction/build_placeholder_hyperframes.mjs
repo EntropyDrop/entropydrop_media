@@ -551,74 +551,72 @@ function stageOneScene(chapter) {
     <div class="scene-head">
       <div>
         <span class="kicker">Two-Stage Architecture</span>
-        <h2>How the Pipeline Works</h2>
+        <h2>How the Pipeline Works: Stage 1 Fixed Views Generation</h2>
       </div>
-      <div class="scene-note">Stage 01 · Fixed Views Generation</div>
     </div>
     <div class="stage-one-layout">
       <div class="stage-card">
         <div class="stage-card-header">
-          <span class="step-badge">STEP 1.1</span>
           <h3>Character Reference</h3>
-          <p>Arbitrary input character image preserving identity, colors, outfit, and hairstyle.</p>
         </div>
         <div class="stage-card-media ref-media">
           <div class="media-preview-box">
-            <img src="assets/input24.png" alt="Character Reference (input24.png)" class="stage-card-img ref-tall-img" />
-          </div>
-          <div class="media-meta">
-            <span class="media-title">input24.png</span>
-            <span class="media-sub">Arbitrary Reference</span>
+            <img src="assets/input24.png" alt="Character Reference" class="stage-card-img ref-tall-img" />
           </div>
         </div>
-        <div class="tag-status tag-open">Character Input</div>
       </div>
       <div class="stage-flow-arrow"><i>+</i></div>
       <div class="stage-card">
         <div class="stage-card-header">
-          <span class="step-badge">STEP 1.2</span>
           <h3>Fixed Layout Templates</h3>
-          <p>Multiple templates constrain the vision model to fixed orthogonal dual-view poses.</p>
         </div>
         <div class="stage-card-media templates-media">
           <div class="templates-grid">
             <div class="template-item">
               <img src="assets/template41.png" alt="Template 41" class="stage-card-img tmpl-img" />
-              <span class="tmpl-name">Template 41</span>
             </div>
             <div class="template-item">
               <img src="assets/template42.png" alt="Template 42" class="stage-card-img tmpl-img" />
-              <span class="tmpl-name">Template 42</span>
             </div>
             <div class="template-item">
               <img src="assets/template43.png" alt="Template 43" class="stage-card-img tmpl-img" />
-              <span class="tmpl-name">Template 43</span>
             </div>
           </div>
-          <div class="media-meta">
-            <span class="media-title">Fixed Multi-Template Anchors</span>
-            <span class="media-sub">Orthogonal Camera · Dual Views</span>
-          </div>
         </div>
-        <div class="tag-status tag-closed">Geometry &amp; Pose Constraints</div>
       </div>
-      <div class="stage-flow-arrow"><i>&rarr;</i></div>
-      <div class="stage-card">
+      <div class="stage-flow-process">
+        <div class="process-node">
+          <span class="process-arrow-in">&rarr;</span>
+          <div class="process-card">
+            <div class="gemini-icon-glow">
+              <svg class="gemini-svg" viewBox="0 0 24 24" width="36" height="36">
+                <defs>
+                  <linearGradient id="gemini-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#4E75FF"/>
+                    <stop offset="50%" stop-color="#9C5BFF"/>
+                    <stop offset="100%" stop-color="#FF6B95"/>
+                  </linearGradient>
+                </defs>
+                <path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81" fill="url(#gemini-grad)"/>
+              </svg>
+            </div>
+            <div class="process-text-group">
+              <span class="process-kicker">PROCESSED BY</span>
+              <strong class="process-title">Gemini Banana</strong>
+            </div>
+          </div>
+          <span class="process-arrow-out">&rarr;</span>
+        </div>
+      </div>
+      <div class="stage-card stage-card-output">
         <div class="stage-card-header">
-          <span class="step-badge">STEP 1.3</span>
           <h3>Normalized Dual Views</h3>
-          <p>Standardized front and back views ready for silhouette cutout, UV parsing, and 3D reconstruction.</p>
         </div>
         <div class="stage-card-media output-media">
           <div class="media-preview-box">
-            <img src="assets/img24_template41_51_52.png" alt="Normalized Dual Views (img24_template41_51_52.png)" class="stage-card-img norm-dual-img" />
-          </div>
-          <div class="media-meta">
-            <span class="media-title">img24_template41_51_52.png</span>
-            <span class="media-sub">Standardized Front &amp; Back</span>
+            <img src="assets/img24_template41_51_52.png" alt="Normalized Dual Views" class="stage-card-img norm-dual-img" />
           </div>
         </div>
-        <div class="tag-status tag-green">Normalized Minecraft Views</div>
       </div>
     </div>
   </section>`;
