@@ -693,7 +693,7 @@ function stageTwoScene(chapter) {
           </div>
           <div class="step-card-media">
             <div class="step-media-box">
-              <img src="assets/img24_final.png" alt="Final 64x64 Skin" class="step-img final-skin-img" />
+              <img src="assets/skin-reconstruction.png" alt="Game-Ready Skin" class="step-img final-skin-img" />
             </div>
           </div>
         </div>
