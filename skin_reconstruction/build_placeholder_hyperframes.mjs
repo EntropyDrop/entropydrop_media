@@ -698,20 +698,6 @@ function stageTwoScene(chapter) {
           </div>
         </div>
       </div>
-      <div class="layers-callout">
-        <div class="layer-pill inner">
-          <b>72 Cuboid Faces &amp; Dual Layer</b>
-          Standard 64×64 texture mapped onto 12 cuboids (6 base body + 6 outer volume).
-        </div>
-        <div class="layer-pill outer">
-          <b>Topological Limb Inpainting</b>
-          Fills hidden inner-limb surfaces never directly visible in 2D views.
-        </div>
-        <div class="layer-pill check">
-          <b>Head Decoder &amp; Seam Healing</b>
-          Cross-face continuous UV reconstruction eliminating hair wrapping artifacts.
-        </div>
-      </div>
     </div>
   </section>`;
 }
