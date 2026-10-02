@@ -735,56 +735,13 @@ function futureScene(chapter) {
   return `<section id="scene-10" class="scene clip" data-start="${fmt(chapter.start)}" data-duration="${fmt(chapter.end - chapter.start)}" data-track-index="10">
     <div class="scene-head">
       <div>
-        <span class="kicker">Hugging Face Hub · Architecture &amp; Weights</span>
+        <span class="kicker">Open Source &amp; Links</span>
         <h2>Open Source &amp; Technical Details</h2>
       </div>
-      <div class="scene-note">huggingface.co/EntropyDrop/Sking · Weights, Configs &amp; Code</div>
-    </div>
-    <div class="future-grid">
-      <div class="future-card">
-        <span class="card-num">01</span>
-        <h3>Hugging Face Model Hub</h3>
-        <p>Directly download production model weights (Dense UV Parser, BiRefNet foreground model), pipeline configs, and pinned checksums from our Hugging Face repository.</p>
-        <div class="milestone-tag tag-green">huggingface.co/EntropyDrop/Sking</div>
-      </div>
-      <div class="future-card">
-        <span class="card-num">02</span>
-        <h3>Architecture &amp; Benchmarks</h3>
-        <p>In-depth technical writeups covering orthographic projection constraints, SigLIP2 semantic routing, whole-headwear consistency, and re-rendering ablation logs.</p>
-        <div class="milestone-tag tag-green">Technical Paper &amp; Metrics</div>
-      </div>
-      <div class="future-card">
-        <span class="card-num">03</span>
-        <h3>Open Code &amp; Web Demo</h3>
-        <p>Run the full pipeline locally with open-source SkingToolkit code on GitHub, or create and inspect skins in the free interactive 3D generator on EntropyDrop.</p>
-        <div class="milestone-tag tag-green">entropydrop.com/skin/generate</div>
-      </div>
+      <div class="scene-note">huggingface.co/EntropyDrop/Sking · github.com/EntropyDrop/SkingToolkit</div>
     </div>
     <div class="closing-banner">
-      <div class="subscribe-banner-box">
-        <div class="subscribe-banner-left">
-          <span class="subscribe-icon">🔔</span>
-          <div class="subscribe-banner-texts">
-            <h4>Subscribe to the Channel for More Models</h4>
-            <p>Stay tuned for upcoming open-source generative AI models, architecture deep-dives &amp; SkingToolkit updates.</p>
-          </div>
-        </div>
-        <a class="closing-link-pill youtube" href="https://youtube.com/@EntropyDrop">
-          <div class="pill-icon-box">${YOUTUBE_LOGO_SVG}</div>
-          <div class="pill-texts">
-            <span class="link-label">YOUTUBE</span>
-            <strong>SUBSCRIBE &rarr;</strong>
-          </div>
-        </a>
-      </div>
       <div class="closing-links-row">
-        <a class="closing-link-pill primary" href="https://entropydrop.com/skin/generate">
-          <div class="pill-icon-box">${DEMO_LOGO_SVG}</div>
-          <div class="pill-texts">
-            <span class="link-label">ONLINE DEMO</span>
-            <strong>entropydrop.com/skin/generate</strong>
-          </div>
-        </a>
         <a class="closing-link-pill github" href="https://github.com/EntropyDrop/SkingToolkit">
           <div class="pill-icon-box">${GITHUB_LOGO_SVG}</div>
           <div class="pill-texts">
@@ -797,6 +754,13 @@ function futureScene(chapter) {
           <div class="pill-texts">
             <span class="link-label">HUGGING FACE</span>
             <strong>huggingface.co/EntropyDrop/Sking</strong>
+          </div>
+        </a>
+        <a class="closing-link-pill youtube" href="https://youtube.com/@EntropyDrop">
+          <div class="pill-icon-box">${YOUTUBE_LOGO_SVG}</div>
+          <div class="pill-texts">
+            <span class="link-label">YOUTUBE</span>
+            <strong>SUBSCRIBE &rarr;</strong>
           </div>
         </a>
       </div>
@@ -1004,7 +968,7 @@ stageTwoSteps.forEach(({ stepId, arrowId, start, end }) => {
 });
 
 // Scene 10: Technical Details & Outro timings (405s - 455s)
-tl.from('#scene-10 .future-card', {
+tl.from('#scene-10 .closing-link-pill', {
   y: 28,
   opacity: 0,
   stagger: 0.15,
@@ -1012,30 +976,41 @@ tl.from('#scene-10 .future-card', {
   ease: 'power2.out'
 }, 405.3);
 
-tl.to('#scene-10 .closing-link-pill.huggingface', {
+tl.to('#scene-10 .closing-link-pill.github', {
   scale: 1.05,
-  boxShadow: '0 8px 24px rgba(255, 172, 51, 0.35)',
+  boxShadow: '0 16px 36px rgba(31, 35, 40, 0.18)',
   duration: 0.45,
   ease: 'power2.out'
-}, 414.5);
-tl.to('#scene-10 .closing-link-pill.huggingface', {
+}, 405.5);
+tl.to('#scene-10 .closing-link-pill.github', {
   scale: 1.0,
-  boxShadow: 'none',
+  boxShadow: '0 10px 30px rgba(17, 22, 17, 0.08)',
   duration: 0.45,
   ease: 'power2.in'
-}, 419.0);
+}, 409.5);
 
-tl.to('#scene-10 .subscribe-banner-box', {
-  scale: 1.02,
-  borderColor: '#e63946',
-  boxShadow: '0 16px 40px rgba(230, 57, 70, 0.22)',
+tl.to('#scene-10 .closing-link-pill.huggingface', {
+  scale: 1.05,
+  boxShadow: '0 16px 40px rgba(255, 172, 51, 0.4)',
+  duration: 0.45,
+  ease: 'power2.out'
+}, 410.5);
+tl.to('#scene-10 .closing-link-pill.huggingface', {
+  scale: 1.0,
+  boxShadow: '0 10px 30px rgba(17, 22, 17, 0.08)',
+  duration: 0.45,
+  ease: 'power2.in'
+}, 424.0);
+
+tl.to('#scene-10 .closing-link-pill.youtube', {
+  scale: 1.06,
+  boxShadow: '0 16px 40px rgba(239, 68, 68, 0.35)',
   duration: 0.5,
   ease: 'power2.out'
 }, 424.0);
-tl.to('#scene-10 .subscribe-banner-box', {
+tl.to('#scene-10 .closing-link-pill.youtube', {
   scale: 1.0,
-  borderColor: 'var(--line-soft)',
-  boxShadow: '0 12px 30px rgba(17, 22, 17, 0.06)',
+  boxShadow: '0 10px 30px rgba(17, 22, 17, 0.08)',
   duration: 0.5,
   ease: 'power2.in'
 }, 430.0);

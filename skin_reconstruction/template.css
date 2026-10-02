@@ -1346,6 +1346,69 @@ h2 em {
   box-shadow: 0 18px 48px rgba(17, 22, 17, 0.07);
 }
 
+#scene-10 {
+  display: flex;
+  flex-direction: column;
+}
+
+#scene-10 .closing-banner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border: 1px solid var(--line-soft);
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 60px 48px;
+  box-shadow: 0 18px 48px rgba(17, 22, 17, 0.06);
+}
+
+#scene-10 .closing-links-row {
+  display: flex;
+  gap: 36px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#scene-10 .closing-link-pill {
+  padding: 24px 44px;
+  gap: 22px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(17, 22, 17, 0.08);
+}
+
+#scene-10 .pill-icon-box {
+  width: 54px;
+  height: 54px;
+}
+
+#scene-10 .pill-brand-icon.github-logo {
+  width: 46px;
+  height: 46px;
+}
+
+#scene-10 .pill-brand-icon.hf-logo {
+  width: 54px;
+  height: 50px;
+}
+
+#scene-10 .pill-brand-icon.yt-logo {
+  width: 48px;
+  height: 48px;
+}
+
+#scene-10 .link-label {
+  font-size: 15px;
+}
+
+#scene-10 .closing-link-pill strong {
+  font-size: 22px;
+}
+
 .closing-title {
   font-size: 28px;
   color: var(--green-dark);

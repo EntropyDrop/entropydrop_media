@@ -241,7 +241,7 @@ Finally, material refitting and color refinement generate the final texture, pro
 
 - Audio file: `skin_reconstruction/audios/10_technical_details.mp3`
 - Target duration: `50s`
-- Visual direction: 聚焦开源成果与深度技术细节获取渠道。不谈未来规划与路线图，重点展示 Hugging Face 仓库（EntropyDrop/Sking）界面、Stage Two 模型权重文件（`parser.pt`、`foreground.pt`、`pipeline.json`）、架构文档与评测指标；同步展示 GitHub 源码与网站在线体验链接，最后留出频道关注与链接卡片。
+- Visual direction: 聚焦核心开源成果与链接。页面精简展示三大核心入口卡片（GitHub 仓库源码、Hugging Face 模型权重与架构文档、YouTube 频道订阅），去除冗余信息卡、体验卡与文字说明，画面清爽聚焦。
 
 ```text
 The complete workflow code is open source on GitHub, and all Stage Two model weights are available on Hugging Face. For in-depth technical details, visit our Hugging Face repository, or check out our technical article linked below. If you enjoyed this video, subscribe to the channel. Thanks for watching!
