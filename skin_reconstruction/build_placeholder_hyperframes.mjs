@@ -928,8 +928,8 @@ stageTwoSteps.forEach(({ stepId, arrowId, start, end }) => {
   tl.to(stepId, {
     borderColor: '#1d7a3b',
     backgroundColor: '#f4faf5',
-    y: -6,
-    boxShadow: '0 20px 48px rgba(29, 122, 59, 0.2)',
+    y: -4,
+    boxShadow: '4px 4px 0px rgba(29, 122, 59, 0.10)',
     opacity: 1,
     duration: 0.45,
     ease: 'power2.out'
@@ -946,7 +946,7 @@ stageTwoSteps.forEach(({ stepId, arrowId, start, end }) => {
     borderColor: 'rgba(29, 122, 59, 0.45)',
     backgroundColor: '#ffffff',
     y: 0,
-    boxShadow: '0 12px 30px rgba(17, 22, 17, 0.06)',
+    boxShadow: '2px 2px 0px rgba(22, 26, 23, 0.04)',
     opacity: 0.95,
     duration: 0.45,
     ease: 'power2.inOut'
@@ -979,40 +979,40 @@ tl.from('#scene-10 .pixel-card', {
 }, 405.3);
 
 tl.to('#scene-10 .pixel-card.github', {
-  scale: 1.03,
-  boxShadow: '12px 12px 0px #1a201c, 18px 18px 0px rgba(26, 32, 28, 0.15)',
+  scale: 1.02,
+  boxShadow: '4px 4px 0px rgba(22, 26, 23, 0.09)',
   duration: 0.45,
   ease: 'power2.out'
 }, 405.5);
 tl.to('#scene-10 .pixel-card.github', {
   scale: 1.0,
-  boxShadow: '8px 8px 0px #1a201c, 14px 14px 0px rgba(26, 32, 28, 0.15)',
+  boxShadow: '3px 3px 0px rgba(22, 26, 23, 0.05)',
   duration: 0.45,
   ease: 'power2.in'
 }, 409.5);
 
 tl.to('#scene-10 .pixel-card.huggingface', {
-  scale: 1.04,
-  boxShadow: '12px 12px 0px #ff9d0b, 20px 20px 0px #ffd21e',
+  scale: 1.02,
+  boxShadow: '4px 4px 0px rgba(22, 26, 23, 0.09)',
   duration: 0.45,
   ease: 'power2.out'
 }, 410.5);
 tl.to('#scene-10 .pixel-card.huggingface', {
   scale: 1.0,
-  boxShadow: '8px 8px 0px #ff9d0b, 14px 14px 0px #ffd21e',
+  boxShadow: '3px 3px 0px rgba(22, 26, 23, 0.05)',
   duration: 0.45,
   ease: 'power2.in'
 }, 424.0);
 
 tl.to('#scene-10 .pixel-card.youtube', {
-  scale: 1.03,
-  boxShadow: '12px 12px 0px #dc2626, 18px 18px 0px rgba(220, 38, 38, 0.2)',
+  scale: 1.02,
+  boxShadow: '4px 4px 0px rgba(22, 26, 23, 0.09)',
   duration: 0.5,
   ease: 'power2.out'
 }, 424.0);
 tl.to('#scene-10 .pixel-card.youtube', {
   scale: 1.0,
-  boxShadow: '8px 8px 0px #dc2626, 14px 14px 0px rgba(220, 38, 38, 0.2)',
+  boxShadow: '3px 3px 0px rgba(22, 26, 23, 0.05)',
   duration: 0.5,
   ease: 'power2.in'
 }, 430.0);
