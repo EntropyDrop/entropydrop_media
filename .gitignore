@@ -10,3 +10,13 @@ skingen_*/audios/voiceover_full_*.wav
 snapshots
 assets/skin_reconstruction/*.webm
 
+# Local TTS generation staging and revision backups
+skin_reconstruction/.tts-staging-*/
+skin_reconstruction/audios/tts_revisions/
+skin_reconstruction/audios/qwen3_first_pass/
+skin_reconstruction/audios/qwen3_steady_pass/
+
+# Superseded walkthrough composites; the active keyframe version is tracked
+assets/website/vo07_website_walkthrough_110s.mp4
+assets/website/vo07_website_walkthrough_64s.mp4
+assets/website/vo07_website_walkthrough_synced.mp4

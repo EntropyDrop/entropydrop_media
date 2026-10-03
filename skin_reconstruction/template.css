@@ -491,6 +491,7 @@ h2 em {
   box-shadow: var(--shadow-pixel-sm);
   object-fit: cover;
   flex-shrink: 0;
+  background: #555;
 }
 
 .creator-tag-bottom-right .creator-avatar-placeholder {
@@ -523,18 +524,6 @@ h2 em {
 .creator-tag-bottom-right .creator-name {
   font-size: 18px;
   color: var(--ink);
-}
-
-.creator-tag-bottom-right .badge-model {
-  margin-left: 4px;
-  padding: 4px 10px;
-  background: var(--green-soft);
-  border: 1px solid var(--green);
-  border-radius: 0 !important;
-  box-shadow: var(--shadow-pixel-green);
-  color: var(--green-dark);
-  font-size: 13px;
-  letter-spacing: 0.04em;
 }
 
 /* =========================================================================

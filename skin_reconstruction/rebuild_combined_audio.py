@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Build the continuous 455-second voiceover_full.wav aligned with the video timeline."""
+"""Build the continuous voiceover_full.wav aligned with the video timeline."""
 
 import subprocess
+import argparse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -16,17 +17,22 @@ CHAPTERS = [
     (AUDIOS_DIR / "05_community_showcase_3.mp3", 160.0),
     (AUDIOS_DIR / "06_try_it_online.mp3", 210.0),
     (AUDIOS_DIR / "07_website_walkthrough.mp3", 220.0),
-    (AUDIOS_DIR / "08_how_pipeline_works.mp3", 330.0),
-    (AUDIOS_DIR / "09_stage_two.mp3", 360.0),
-    (AUDIOS_DIR / "10_technical_details.mp3", 405.0),
+    (AUDIOS_DIR / "08_how_pipeline_works.mp3", 282.709),
+    (AUDIOS_DIR / "09_stage_two.mp3", 312.709),
+    (AUDIOS_DIR / "10_technical_details.mp3", 357.709),
 ]
-TOTAL_DURATION = 455.0
+TOTAL_DURATION = 407.709
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--audio-dir", type=Path, default=AUDIOS_DIR)
+    parser.add_argument("--output", type=Path, default=OUTPUT_FILE)
+    args = parser.parse_args()
     inputs = []
     delays = []
     for idx, (path, start_s) in enumerate(CHAPTERS):
+        path = args.audio_dir / path.name
         if not path.exists():
             raise FileNotFoundError(f"Missing audio file: {path}")
         inputs.extend(["-i", str(path)])
@@ -54,10 +60,10 @@ def main() -> None:
         "32000",
         "-ac",
         "1",
-        str(OUTPUT_FILE),
+        str(args.output),
     ]
     subprocess.run(cmd, check=True)
-    print(f"Generated {OUTPUT_FILE} ({TOTAL_DURATION}s)")
+    print(f"Generated {args.output} ({TOTAL_DURATION}s)")
 
 
 if __name__ == "__main__":

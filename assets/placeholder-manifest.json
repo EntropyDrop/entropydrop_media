@@ -246,10 +246,16 @@
       "suggested": "assets/comparisons/C20_reconstruction.mp4"
     },
     "website.upload": {
-      "src": "assets/website/vo06_website_upload.webm",
+      "src": "assets/website/vo07_website_walkthrough_synced_keyframes.mp4",
       "type": "video",
-      "label": "Website recording · Upload",
-      "suggested": "assets/website/vo06_website_upload.webm"
+      "label": "Website recording · Upload and 3D review",
+      "suggested": "assets/website/vo07_website_walkthrough_synced_keyframes.mp4",
+      "duration_seconds": 62.733333,
+      "playback_duration_seconds": 62.709,
+      "original_duration_seconds": 55.733333,
+      "tail_replay_seconds": 6.975667,
+      "tail_replay_start_seconds": 48.733333,
+      "keyframe_interval_seconds": 1.0
     },
     "website.generate": {
       "src": "",

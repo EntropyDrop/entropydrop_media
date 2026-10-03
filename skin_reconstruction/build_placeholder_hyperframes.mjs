@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const project = path.dirname(fileURLToPath(import.meta.url));
@@ -9,6 +10,7 @@ const scriptPath = path.join(mediaRoot, 'skin-reconstruction.en.youtube-script.m
 const metadataPath = path.join(mediaRoot, 'assets', 'skin_reconstruction', 'metadata.json');
 const manifestPath = path.join(project, 'assets', 'placeholder-manifest.json');
 const outputPath = path.join(project, 'index.html');
+const audioManifestPath = path.join(project, 'audios', 'qwen3_tts_manifest.json');
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
@@ -33,14 +35,31 @@ for (const match of script.matchAll(chapterPattern)) {
     slug: match[3].trim(), title: match[4].trim(), text,
   });
 }
-if (chapters.length !== 10 || chapters[0].start !== 0 || chapters.at(-1).end !== 455) {
-  throw new Error('Expected 10 continuous chapters ending at 7:35 (455s), got ' + chapters.length);
+if (chapters.length !== 10 || chapters[0].start !== 0) {
+  throw new Error('Expected 10 continuous narration chapters, got ' + chapters.length);
 }
 chapters.forEach((chapter, index) => {
   if (chapter.index !== index + 1 || chapter.start !== (chapters[index - 1]?.end ?? 0)) {
     throw new Error('Chapter timeline is not continuous at VO ' + chapter.index);
   }
 });
+const audioManifest = fs.existsSync(audioManifestPath)
+  ? JSON.parse(fs.readFileSync(audioManifestPath, 'utf8'))
+  : null;
+const narrationClip = chapter => {
+  const filename = `${String(chapter.index).padStart(2, '0')}_${chapter.slug}.mp3`;
+  const clip = audioManifest?.clips?.find(item => item.file === filename);
+  const transcriptPath = path.join(project, 'audios', 'transcripts', filename.replace(/\.mp3$/, '.txt'));
+  if (!clip || !fs.existsSync(transcriptPath)) {
+    return null;
+  }
+  const transcript = fs.readFileSync(transcriptPath, 'utf8');
+  const hash = createHash('sha256').update(transcript).digest('hex');
+  if (transcript.trim() !== chapter.text || hash !== clip.transcript_sha256) return null;
+  const duration = Number(clip.duration_seconds);
+  return Number.isFinite(duration) && duration > 0 ? clip : null;
+};
+const narrationDuration = chapter => narrationClip(chapter)?.duration_seconds ?? null;
 const getChapter = (slug) => {
   const c = chapters.find(ch => ch.slug === slug);
   if (!c) throw new Error('Missing chapter with slug: ' + slug);
@@ -53,14 +72,33 @@ const stageTwoParagraphs = stageTwoChapter.text.split(/\n\s*\n/).map(p => p.trim
 if (stageTwoParagraphs.length !== 3) throw new Error('Stage Two requires three narration paragraphs.');
 const stageTwoWordCounts = stageTwoParagraphs.map(p => p.split(/\s+/).length);
 const stageTwoTotalWords = stageTwoWordCounts.reduce((sum, count) => sum + count, 0);
-let stageTwoWordsBefore = 0;
-const stageTwoWindows = stageTwoWordCounts.map(count => {
-  const duration = stageTwoChapter.end - stageTwoChapter.start;
-  const start = stageTwoChapter.start + duration * stageTwoWordsBefore / stageTwoTotalWords;
-  stageTwoWordsBefore += count;
-  const end = stageTwoChapter.start + duration * stageTwoWordsBefore / stageTwoTotalWords;
-  return { start, end };
-});
+const stageTwoSpeechWindows = (() => {
+  const clip = narrationClip(stageTwoChapter);
+  if (clip?.chunks?.length) {
+    const windows = [];
+    let start = stageTwoChapter.start;
+    let cursor = start;
+    clip.chunks.forEach((chunk, index) => {
+      cursor += Number(chunk.processed_duration_seconds ?? chunk.target_seconds) + Number(chunk.pause_after_seconds || 0);
+      if (Number(chunk.pause_after_seconds) >= 0.39 || index === clip.chunks.length - 1) {
+        windows.push({ start, end: cursor });
+        start = cursor;
+      }
+    });
+    if (windows.length === stageTwoParagraphs.length) return windows;
+  }
+  const duration = narrationDuration(stageTwoChapter) ?? (stageTwoChapter.end - stageTwoChapter.start);
+  let wordsBefore = 0;
+  return stageTwoWordCounts.map(count => {
+    const start = stageTwoChapter.start + duration * wordsBefore / stageTwoTotalWords;
+    wordsBefore += count;
+    return { start, end: stageTwoChapter.start + duration * wordsBefore / stageTwoTotalWords };
+  });
+})();
+const stageTwoWindows = stageTwoSpeechWindows.map((window, index) => ({
+  ...window,
+  end: index === stageTwoSpeechWindows.length - 1 ? stageTwoChapter.end : window.end,
+}));
 
 // Load community showcase items from metadata.json
 let communityItems = [];
@@ -144,7 +182,11 @@ function renderShowcaseCard(item, itemStart, slotDuration, trackIndex, idPrefix 
   const refPath = `assets/skin_reconstruction/${item.jpgFile}`;
   const videoPath = `assets/skin_reconstruction/skin_${item.shortId}__walk360.webm`;
   const username = item.creator?.username || 'Community Creator';
-  const localAvatarRel = `assets/skin_reconstruction/avatars/${item.shortId}.jpg`;
+  const avatarPngRel = `assets/skin_reconstruction/avatars/${item.shortId}.png`;
+  const avatarJpgRel = `assets/skin_reconstruction/avatars/${item.shortId}.jpg`;
+  const localAvatarRel = (item.localAvatar && fs.existsSync(path.join(mediaRoot, item.localAvatar)))
+    ? item.localAvatar
+    : (fs.existsSync(path.join(mediaRoot, avatarPngRel)) ? avatarPngRel : avatarJpgRel);
   const localAvatarPath = path.join(mediaRoot, localAvatarRel);
   const hasLocalAvatar = fs.existsSync(localAvatarPath);
   const shortId = item.shortId;
@@ -200,7 +242,11 @@ function renderCompareCard(comp, trackOffset, isFirst = false, isLast = false, t
   const oldVideoPath = `assets/skin_reconstruction/${comp.oldVideo}`;
   const newVideoPath = `assets/skin_reconstruction/${comp.newVideo}`;
   const username = comp.username;
-  const localAvatarRel = `assets/skin_reconstruction/avatars/${comp.shortId}.jpg`;
+  const avatarPngRel = `assets/skin_reconstruction/avatars/${comp.shortId}.png`;
+  const avatarJpgRel = `assets/skin_reconstruction/avatars/${comp.shortId}.jpg`;
+  const localAvatarRel = (comp.localAvatar && fs.existsSync(path.join(mediaRoot, comp.localAvatar)))
+    ? comp.localAvatar
+    : (fs.existsSync(path.join(mediaRoot, avatarPngRel)) ? avatarPngRel : avatarJpgRel);
   const localAvatarPath = path.join(mediaRoot, localAvatarRel);
   const hasLocalAvatar = fs.existsSync(localAvatarPath);
   const shortId = comp.shortId;
@@ -420,13 +466,14 @@ function tryItOnlineScene(chapter) {
   </section>`;
 }
 
-// Act 2: Scene 6: Website Walkthrough & 3D Viewer (VO 07 | 220s - 290s, 70s Fullscreen)
+// Act 2: Fullscreen Website Walkthrough & 3D Viewer (VO 07)
 function webUploadScene(chapter) {
   const duration = chapter.end - chapter.start;
-  const videoSrc = assets['website.upload']?.src || 'assets/website/vo06_website_upload.webm';
+  const videoSrc = assets['website.upload']?.src || 'assets/website/vo07_website_walkthrough_synced_keyframes.mp4';
+  const sourceDuration = Number(assets['website.upload']?.duration_seconds ?? duration);
   return `<section id="scene-6" class="scene scene-fullscreen clip" data-track-index="6">
     <div class="fullscreen-video-frame">
-      <video id="vo06-fullscreen-video" class="fullscreen-video" src="${esc(videoSrc)}" data-start="${fmt(chapter.start)}" data-duration="${fmt(duration)}" data-source-duration="55.733" data-media-start="0" data-volume="0" muted playsinline preload="auto" loop></video>
+      <video id="vo06-fullscreen-video" class="fullscreen-video" src="${esc(videoSrc)}" data-start="${fmt(chapter.start)}" data-duration="${fmt(duration)}" data-source-duration="${fmt(sourceDuration)}" data-media-start="0" data-volume="0" muted playsinline preload="auto"></video>
     </div>
   </section>`;
 }
@@ -560,13 +607,13 @@ function webViewerActionsScene(chapter) {
   </section>`;
 }
 
-// Act 3: How the Pipeline Works: Stage One (Scene 8 | 330s - 360s)
+// Act 3: How the Pipeline Works: Stage One (VO 08)
 function stageOneScene(chapter) {
   return `<section id="scene-8" class="scene clip" data-start="${fmt(chapter.start)}" data-duration="${fmt(chapter.end - chapter.start)}" data-track-index="8">
     <div class="scene-head">
       <div>
         <span class="kicker">Two-Stage Architecture</span>
-        <h2>Stage One: Template-Guided Views</h2>
+        <h2>${esc(chapter.title)}</h2>
       </div>
     </div>
     <div class="stage-one-layout">
@@ -642,7 +689,7 @@ function stageOneScene(chapter) {
   </section>`;
 }
 
-// Act 3: Stage Two (Scene 9 | 360s - 405s)
+// Act 3: Stage Two (VO 09)
 function stageTwoScene(chapter) {
   const topics = [
     {
@@ -743,7 +790,7 @@ const YOUTUBE_LOGO_SVG = `<svg class="pill-brand-icon yt-logo" viewBox="0 0 24 2
   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
 </svg>`;
 
-// Act 4: Open Source & Technical Details (Scene 10 | 405s - 455s)
+// Act 4: Open Source & Technical Details (VO 10)
 function futureScene(chapter) {
   return `<section id="scene-10" class="scene clip" data-start="${fmt(chapter.start)}" data-duration="${fmt(chapter.end - chapter.start)}" data-track-index="10">
     <div class="scene-head">
@@ -767,7 +814,7 @@ function futureScene(chapter) {
         <span class="pixel-tag">Weights &amp; Docs</span>
         <div class="pixel-icon-box">${HF_LOGO_SVG}</div>
         <h3>Hugging Face Hub</h3>
-        <p>Stage Two model weights, configs &amp; technical paper</p>
+        <p>Stage Two model weights, configs &amp; documentation</p>
         <div class="pixel-url-display">huggingface.co/EntropyDrop/Sking</div>
       </a>
 
@@ -776,7 +823,7 @@ function futureScene(chapter) {
         <span class="pixel-tag">Channel</span>
         <div class="pixel-icon-box">${YOUTUBE_LOGO_SVG}</div>
         <h3>YouTube</h3>
-        <p>Subscribe for more amazing open-source projects coming soon</p>
+        <p>Subscribe for open-source Minecraft projects</p>
         <div class="pixel-url-display">youtube.com/@EntropyDrop</div>
       </a>
     </div>
@@ -802,15 +849,40 @@ function subtitleChunks(text) {
 
 let subtitleId = 0;
 const subtitles = chapters.flatMap(chapter => {
+  const clip = narrationClip(chapter);
+  if (clip?.chunks?.length) {
+    let cursor = chapter.start;
+    return clip.chunks.flatMap(chunk => {
+      const audioSeconds = Number(chunk.processed_duration_seconds ?? chunk.target_seconds);
+      const lines = subtitleChunks(chunk.text);
+      const counts = lines.map(value => value.split(/\s+/).length);
+      const total = counts.reduce((sum, count) => sum + count, 0);
+      const spoken = Math.max(0.1, audioSeconds - 0.08);
+      let wordsBefore = 0;
+      const captions = lines.map((value, index) => {
+        const start = cursor + 0.04 + spoken * wordsBefore / total;
+        const duration = spoken * counts[index] / total;
+        wordsBefore += counts[index];
+        subtitleId++;
+        return '<div id="sub-' + String(subtitleId).padStart(3, '0') + '" class="subtitle-line clip" data-start="' +
+          fmt(start) + '" data-duration="' + fmt(Math.max(.1, duration - .003)) + '" data-track-index="' +
+          (80 + chapter.index) + '"><span>' + esc(value) + '</span></div>';
+      });
+      cursor += audioSeconds + Number(chunk.pause_after_seconds || 0);
+      return captions;
+    });
+  }
   const paragraphs = chapter.text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
   if (paragraphs.length > 1 && chapter.slug === 'stage_two') {
     return paragraphs.flatMap((para, stepIdx) => {
-      const win = stageTwoWindows[stepIdx];
+      const win = stageTwoSpeechWindows[stepIdx];
       const chunks = subtitleChunks(para);
       const counts = chunks.map(value => value.split(/\s+/).length);
       const total = counts.reduce((sum, value) => sum + value, 0);
       const slot = win.end - win.start;
-      const spoken = Math.min(slot - 0.5, total / 2.2);
+      const spoken = narrationDuration(chapter) === null
+        ? Math.min(slot - 0.5, total / 2.2)
+        : Math.max(0.1, slot - 0.3);
       let wordsBefore = 0;
       return chunks.map((value, index) => {
         const start = win.start + 0.3 + spoken * wordsBefore / total;
@@ -828,7 +900,10 @@ const subtitles = chapters.flatMap(chapter => {
   const counts = chunks.map(value => value.split(/\s+/).length);
   const total = counts.reduce((sum, value) => sum + value, 0);
   const slot = chapter.end - chapter.start;
-  const spoken = Math.min(slot - 1.5, total / 2.2);
+  const measured = narrationDuration(chapter);
+  const spoken = measured === null
+    ? Math.min(slot - 1.5, total / 2.2)
+    : Math.max(0.1, Math.min(slot - 0.45, measured - 0.45));
   let wordsBefore = 0;
   return chunks.map((value, index) => {
     const start = chapter.start + .45 + spoken * wordsBefore / total;
@@ -853,6 +928,9 @@ const scenes = [
 ].join('\n');
 
 const css = fs.readFileSync(path.join(project, 'template.css'), 'utf8');
+const compositionDuration = chapters.at(-1).end;
+const websiteChapter = getChapter('website_walkthrough');
+const outroStart = getChapter('technical_details').start;
 const html = `<!doctype html>
 <html lang="en">
 <head>
@@ -863,8 +941,8 @@ const html = `<!doctype html>
   <style>${css}</style>
 </head>
 <body>
-<div id="root" data-composition-id="main" data-start="0" data-duration="455.000" data-width="1920" data-height="1080">
-  <audio id="vo-full" class="clip voiceover-track" src="audios/voiceover_full.wav" data-start="0" data-duration="455.000" data-track-index="70" data-media-start="0" data-volume="1" preload="auto"></audio>
+<div id="root" data-composition-id="main" data-start="0" data-duration="${fmt(compositionDuration)}" data-width="1920" data-height="1080">
+  <audio id="vo-full" class="clip voiceover-track" src="audios/voiceover_full.wav" data-start="0" data-duration="${fmt(compositionDuration)}" data-track-index="70" data-media-start="0" data-volume="1" preload="auto"></audio>
   ${scenes}
   ${subtitles}
 </div>
@@ -886,7 +964,7 @@ reveal('#scene-2', 20, 40, false);
 reveal('#scene-3', 60, 150, false);
 reveal('#scene-cta', 210, 10, false);
 tl.from('#scene-cta .cta-card', { scale: 0.97, opacity: 0, duration: 0.6, ease: 'power3.out' }, 210.1);
-reveal('#scene-6', 220, 110, false);
+reveal('#scene-6', ${fmt(websiteChapter.start)}, ${fmt(websiteChapter.end - websiteChapter.start)}, false);
 const TRANSITION_DURATION = 0.55;
 document.querySelectorAll('.showcase-stage, .compare-stage').forEach(stage => {
   const cards = Array.from(stage.querySelectorAll('.showcase-card, .compare-card'));
@@ -960,53 +1038,53 @@ stageTwoWindows.forEach(({ start, end }, index) => {
   }, end);
 });
 
-// Scene 10: Technical Details & Outro timings (405s - 455s)
+// Scene 10: Technical Details & Outro timings, relative to the chapter start.
 tl.from('#scene-10 .pixel-card', {
   y: 36,
   opacity: 0,
   stagger: 0.14,
   duration: 0.5,
   ease: 'power2.out'
-}, 405.3);
+}, ${outroStart + 0.3});
 
 tl.to('#scene-10 .pixel-card.github', {
   scale: 1.02,
   boxShadow: '4px 4px 0px rgba(22, 26, 23, 0.09)',
   duration: 0.45,
   ease: 'power2.out'
-}, 405.5);
+}, ${outroStart + 0.5});
 tl.to('#scene-10 .pixel-card.github', {
   scale: 1.0,
   boxShadow: '3px 3px 0px rgba(22, 26, 23, 0.05)',
   duration: 0.45,
   ease: 'power2.in'
-}, 409.5);
+}, ${outroStart + 4.5});
 
 tl.to('#scene-10 .pixel-card.huggingface', {
   scale: 1.02,
   boxShadow: '4px 4px 0px rgba(22, 26, 23, 0.09)',
   duration: 0.45,
   ease: 'power2.out'
-}, 410.5);
+}, ${outroStart + 5.5});
 tl.to('#scene-10 .pixel-card.huggingface', {
   scale: 1.0,
   boxShadow: '3px 3px 0px rgba(22, 26, 23, 0.05)',
   duration: 0.45,
   ease: 'power2.in'
-}, 424.0);
+}, ${outroStart + 19.0});
 
 tl.to('#scene-10 .pixel-card.youtube', {
   scale: 1.02,
   boxShadow: '4px 4px 0px rgba(22, 26, 23, 0.09)',
   duration: 0.5,
   ease: 'power2.out'
-}, 424.0);
+}, ${outroStart + 19.0});
 tl.to('#scene-10 .pixel-card.youtube', {
   scale: 1.0,
   boxShadow: '3px 3px 0px rgba(22, 26, 23, 0.05)',
   duration: 0.5,
   ease: 'power2.in'
-}, 430.0);
+}, ${outroStart + 25.0});
 
 window.__timelines.main = tl;
 // Seamless action video looping & timeline sync

@@ -2,9 +2,9 @@
 
 ## Draft Status
 
-本稿只用于确认视频叙事。**确认前不要重新生成 Hyperframes、旁白、字幕或成片。**
+本稿已用于当前 Hyperframes 预览、旁白和字幕。后续改文案时，以本稿的 fenced `text` 为准，同步更新对应文稿并重新生成受影响的音频。
 
-英文口播采用四幕结构：**1. 开场与 28 组社区生成效果；2. 网站使用说明；3. 两阶段原理；4. 开源与技术细节（Open Source & Technical Details）。** 目标时长约 **7 分 35 秒**。
+英文口播采用四幕结构：**1. 开场与 28 组社区生成效果；2. 网站使用说明；3. 两阶段原理；4. 开源与技术细节（Open Source & Technical Details）。** 目标时长约 **6 分 48 秒**。
 
 这次发布需要准确说明范围：**完整两阶段流水线代码已经开源，Stage Two 的皮肤重建代码与模型权重也已公开**，可以把规范化的 Minecraft 正背面图重建为最终 64×64 皮肤；但从任意角色图生成这些固定格式正背面图的 Stage One 仍需要调用兼容的闭源图像模型。可以称流水线代码为开源，但不要暗示 Stage One 的外部依赖也已开源、完整流程可以免费离线运行，或单个 checkpoint 就能复现完整结果。
 
@@ -18,7 +18,7 @@
 ## Video Positioning
 
 - **Working title:** Another Open-Source Model: Image to Minecraft Skin
-- **Target length:** approximately 7:35
+- **Target length:** approximately 6:48
 - **Format:** English voiceover, 28 community results, browser walkthrough, two-stage pipeline explanation, and open-source resources & technical details
 - **Audience:** Minecraft players, skin creators, open-source developers, and viewers interested in image-to-skin generation
 - **Core promise:** Show what the pipeline produces across different input styles, teach viewers how to use it, credit DDJ for the original direction, explain the two stages, and direct viewers to the Hugging Face repository for full technical details.
@@ -62,23 +62,23 @@ https://entropydrop.com/public/blog/skin-reconstruction
 
 Chapters:
 00:00 We open-sourced another model
-00:15 Why build another one?
-01:05 Cartoon, chibi, and mascot styles
-01:50 3D renders and game art
-02:40 Painterly and mixed styles
+00:20 Why build another one?
+01:00 Community showcase: character identity
+01:50 Across styles and creators
+02:40 Transparent 3D results
 03:30 Try it online
 03:40 Upload, 3D viewer & download
-05:30 How the pipeline works: Stage 1 fixed views generation
-06:00 Stage two: reconstruct the skin
-06:45 Technical details & Hugging Face repo
+04:43 How the Pipeline Works: Stage 1 Template-guided views
+05:13 Stage two: reconstruct the skin
+05:58 Technical details & Hugging Face repo
 
 ## First 20 Seconds
 
 ### Visuals
 
-- 0:00–0:20: 首屏持续显示标题与 3×3 九宫格，从后续社区成果中抽取九组代表案例。
-- 每格左侧显示原始参考图，右侧同步播放对应的透明背景 3D 行走视频，中间用箭头建立输入与结果的对应关系。
-- 九组案例覆盖不同画风、配色和角色结构；首屏只保留 `IMAGE` / `SKIN` 标签，不显示作者、版本或链接，避免信息过密。
+- 0:00–0:20: 首屏持续显示标题，依次轮播三组代表案例。
+- 每组左侧显示原始参考图，右侧播放对应的透明背景 3D 行走视频，中间用箭头建立输入与结果的对应关系。
+- 三组案例覆盖不同画风、配色和角色结构；每组右下角显示作者头像和用户名，不显示模型版本或链接。
 
 ### On-Screen Text
 
@@ -94,8 +94,8 @@ Community results · Live demo · Open-source reconstruction
 
 - 采用**动态不固定数量**的效果展示，不刻意绑定单一主题，展示多样化的角色风格。
 - 每组使用成对对比：**左侧为原始输入参考图**，**右侧为生成的 3D Minecraft 皮肤 360° 行走视频（透明背景 WebM）**。
-- **合适位置标注作者信息**：显示创作者头像、用户名（通过 `api.entropydrop.com/api/logs/{id}` 获取）、使用的模型版本（如 `SKING_DDJ_v61`）以及任务编号。
-- 轮播所有可用皮肤（当前共 28 组社区生成成果），在 0:20 至 3:30（共 190 秒）的时间段内平分轮播。
+- **右下角标注作者信息**：显示创作者头像和用户名（通过 `api.entropydrop.com/api/logs/{id}` 获取）。
+- 当前共 28 组社区成果：开场 3 组，模型对比 2 组，1:00 至 3:30 的展示段轮播其余 23 组。
 - 视频素材由 `skin_walk_video` 基于 `assets/skin_reconstruction/skin*` 生成透明背景 360° 步态循环，与背景自然融合。
 - 文案采用前言解说，适度留白，留出纯音乐与 3D 旋转观察时间，后续可根据成片需要继续补充。
 
@@ -103,26 +103,20 @@ Community results · Live demo · Open-source reconstruction
 
 | Time | Segment | Visual Direction | Voiceover Focus | On-Screen Text |
 | :--- | :--- | :--- | :--- | :--- |
-| 0:00–0:20 | Open-source hook | 标题 + 九组“参考图 → 3D 行走皮肤”九宫格 | 我们又开源了一个模型；先用九组社区效果建立视觉证据，再解释它 | Another open-source model · Community results |
+| 0:00–0:20 | Open-source hook | 标题 + 三组依次轮播的“参考图 → 3D 行走皮肤” | 我们又开源了一个模型；先用三组社区效果建立视觉证据，再解释它 | Another open-source model · Community results |
 | 0:20–1:00 | Why another model? | 社区成果轮播：左原图，右 3D 透明走动，右上标注作者 | 旧路线容易把小图案当作普通图像细节；新流水线先转换到固定 Minecraft 视图，再进行重建 | Community Showcase · Creator Attribution |
 | 1:00–1:50 | Character identity | 持续轮播社区皮肤，展示脸部、发型与服装转换 | 引导观众观察哪些轮廓、配色和服装特征得以保留，以及哪些细节因方块结构被简化 | Translating Distinctive Structure |
 | 1:50–2:40 | Diverse art styles | 覆盖插画、3D 渲染、游戏图与绘画风格，适度留白 | 观察角色转身时正面、侧面和背面的视觉连贯性，不宣称所有细节都能保留 | Diverse Styles & Creators |
 | 2:40–3:30 | Transparent 3D results | 保留部分观察空间与音乐，平滑过渡到网站实操 | 通过动作检查接缝、肢体贴图与背面推断，再引出在线实操 | 3D Skins in Motion |
-| 3:30–4:10 | Website: upload | 地址、登录、Upload Reference | 上传参考图，介绍 SKING DDJ 系列并区分线上限免与本地部署 | 1. Upload a reference |
-| 4:10–4:50 | Viewer: modes | 切换 Voxel、Plane、Cute 模式并旋转观察 | 介绍 3D Viewer 的 Voxel、Plane、Cute 三种渲染模式 | Modes: Voxel · Plane · Cute |
-| 4:50–5:30 | Viewer: actions | 切换 Idle、Walk、Dance 动作，点击 Download | 用动作检查接缝与肢体贴图对齐，确认效果后下载 PNG | Actions: Idle · Walk · Dance |
-| 5:30–6:00 | How pipeline works | 参考图 + 模板 → 固定格式正背面图 | Stage 1 用模板引导正交投影、姿态与画面位置；生成视图仍可能偏离模板，影响后续重建 | How the Pipeline Works |
-| 6:00–6:45 | Stage two | 同一角色贯穿三个陈述式环节：像素映射到皮肤层、补全缺失内层、重渲染指导优化 | 固定几何与语义判断共同决定像素归属；只补未知内层；用双视图重渲染检查局部头部修正并优化可见头部颜色，输出 64×64 皮肤 | Pixel routing · Inner-layer completion · Re-rendering check |
-| 6:45–7:35 | Technical details | Hugging Face 仓库、模型权重清单、GitHub 源码、在线生成器与订阅卡片 | 简化结尾，不谈未来规划；重点引导观众访问 Hugging Face 仓库获取模型权重、技术架构与评测细节 | Hugging Face · Open Source · Subscribe |
+| 3:30–3:40 | Try it online | 在线体验卡片与 3D 跳舞示例 | 免费生成器与开源部署入口 | entropydrop.com |
+| 3:40–4:42.709 | Website walkthrough | 展示生成页、3D 查看器、Walk/Dance、Cute 和 Download 按钮；末尾回放最后约 6.976 秒动态画面 | 依次说明参考图、模型、展示模式、动作和 PNG 下载 | Upload · 3D Viewer · Download |
+| 4:42.709–5:12.709 | How pipeline works | 参考图 + 模板 → 固定格式正背面图 | Stage 1 用模板引导正交投影、姿态与画面位置；生成视图仍可能偏离模板，影响后续重建 | How the Pipeline Works: Stage 1 Template-guided views |
+| 5:12.709–5:57.709 | Stage two | 同一角色贯穿三个陈述式环节：像素映射到皮肤层、补全缺失内层、重渲染指导优化 | 固定几何与语义判断共同决定像素归属；只补未知内层；用双视图重渲染检查局部头部修正并优化可见头部颜色，输出 64×64 皮肤 | Pixel routing · Inner-layer completion · Re-rendering check |
+| 5:57.709–6:47.709 | Technical details | Hugging Face 仓库、模型权重清单、GitHub 源码、在线生成器与订阅卡片 | 简化结尾，不谈未来规划；重点引导观众访问 Hugging Face 仓库获取模型权重、技术架构与评测细节 | Hugging Face · Open Source · Subscribe |
 
 ## Website Recording Notes
 
-1. 打开 `https://entropydrop.com` 并登录。
-2. 点击 **Upload Reference**，上传角色参考图。
-3. 选择 **SKING DDJ** 系列模型并点击生成按钮。等待部分直接跳切，展示弹出的 3D 预览器。
-4. 依次切换顶部的 **Voxel**、**Plane**、**Cute** 模式，拖动旋转展示立体像素、平面贴图与 Q 版比例差异。
-5. 依次点击底部的 **Idle**、**Walk**、**Dance** 动作按钮，展示站立、行走与舞蹈三种动态表现。
-6. 点击 **DOWNLOAD** 保存最终的 64×64 皮肤 PNG。
+当前录屏从首页进入 Image to Skin 页面，显示上传区和 SKING DDJ 选项；登录、文件选择和生成等待没有录入。约第 12 秒直接跳到 3D 结果。查看器先展示 Voxel 下的 Idle、Walk、Dance，随后鼠标经过 Plane 并选择 Cute。右侧始终可见参考图，底部可见蓝色 Download 按钮，但录屏没有实际点击下载。旁白按这个可见顺序讲解，不把未录到的步骤说成已经操作完成。录屏末尾回放最后约 6.976 秒动态画面，配合下载说明。
 
 尽量使用已经出现在 28 组社区成果中的同一个角色，让效果展示、网站操作和技术说明形成一条完整故事线。
 
@@ -137,13 +131,13 @@ Community results · Live demo · Open-source reconstruction
 
 ## Full Voiceover Draft
 
-只有 fenced `text` 中的英文用于配音。章节时间包含展示、点击和静默观察时间；口播不需要填满整个槽位。
+只有 fenced `text` 中的英文用于配音。每段口播覆盖对应画面的主要时长，仅在画面转场和完整转身处留短暂停顿。
 
 ### VO 01 | 0:00-0:20 | open_source_hook | Another Open-Source Model
 
 - Audio file: `skin_reconstruction/audios/01_open_source_hook.mp3`
 - Target duration: `20s`
-- Visual direction: 全段保持标题与九组“参考图 → 3D 行走皮肤”九宫格；不显示作者、版本和链接，后续单案例轮播再补充完整署名。
+- Visual direction: 全段保持标题并依次轮播三组“参考图 → 3D 行走皮肤”；每组右下角显示作者头像和用户名，不显示模型版本和链接。
 
 ```text
 We have open-sourced another model for turning character images into Minecraft skins. To show the range of community results, we picked character images in very different styles. First we will look at those results, then try the pipeline online and explain how it works.
@@ -153,40 +147,40 @@ We have open-sourced another model for turning character images into Minecraft s
 
 - Audio file: `skin_reconstruction/audios/02_why_another_model.mp3`
 - Target duration: `40s`
-- Visual direction: C01–C05。保持输入图可见，选择动漫、平涂、概念设计和带小装饰的插画；旁白结束后让最后两组完整转身。
+- Visual direction: 依次展示两组“参考图、旧模型、新模型”并列对照。第二组出现后，引导观众对照手腕饰品、项链和裤子纹理；参考图与两个皮肤预览保持可见。
 
 ```text
-Why make another model? In previous versions, small decorative details were often the hardest part. A flower pattern, a butterfly hair clip, or a tiny bear on a shirt has to be translated into only a few pixels. When those features are treated as ordinary image detail, their contours can blur, their colors can mix, or their shapes can disappear. The new pipeline first reinterprets the character in a fixed Minecraft view, giving the reconstruction stage clearer structure to work with.
+Why make another model? In previous versions, small decorative details were often the hardest part. A flower pattern, a butterfly hair clip, or a tiny bear on a shirt has to be translated into only a few pixels. When those features are treated as ordinary image detail, their contours can blur, their colors can mix, or their shapes can disappear. The new pipeline first reinterprets the character in a fixed Minecraft view, giving the reconstruction stage clearer structure to work with. Look closely at the wrist accessories, the necklace, and the textures on the trousers. Compare those small details in the reference image with the previous and new skin previews.
 ```
 
 ### VO 03 | 1:00-1:50 | community_showcase_1 | Community Showcase
 
 - Audio file: `skin_reconstruction/audios/03_community_showcase_1.mp3`
 - Target duration: `50s`
-- Visual direction: 持续轮播社区皮肤。左侧输入参考图，右侧 3D 透明走动角色，右上方展示创作者与模型信息。
+- Visual direction: 按当前八组案例的顺序逐个点评：蓝金外套、白发与黑色袖纹、皇冠与蓝金长裙、蓝色格纹袖子与紫色内衬、半身参考图、粉发与面罩、双色羽织、红白服装。每句旁白对应一张卡片，左侧输入参考图，右侧 3D 透明走动角色，右下方展示创作者头像与用户名。
 
 ```text
-Here are real results generated by community creators on EntropyDrop. Notice how different silhouettes, colors, and clothing details carry over into the block geometry—and where complex shapes had to be simplified.
+Here are more community creations, starting with the blue jacket, gold sleeve trim, and white collar wrapped around the shoulders. The white-haired character keeps the open jacket and bare chest, with the sleeve pattern reduced to chunky black pixels. The crowned character keeps her long brown hair and blue-and-gold colors; the flowing skirt becomes trousers and red boots. The dark coat has a blue checkered sleeve; its purple lining becomes small patches of color on the legs. The close-up gives us pale hair, purple eyes, and a hoodie; everything below the shoulders has to be invented. Then there's the pink hair and black face covering, with purple arm markings and yellow details on the trousers. The next character keeps the two-tone coat: burgundy on one side, green-and-yellow checks on the other, plus white leg wraps. Finally, white hair and red sleeve markings, with black cuffs framing the wrists.
 ```
 
 ### VO 04 | 1:50-2:40 | community_showcase_2 | Across Styles and Creators
 
 - Audio file: `skin_reconstruction/audios/04_community_showcase_2.mp3`
 - Target duration: `50s`
-- Visual direction: 持续轮播不同艺术风格作品。留出充足纯音乐与 3D 旋转观察时间。
+- Visual direction: 开头接续红白服装的袖口细节，然后依次点评青绿色发束与黑夹克、紫色连帽衫的袖口和背部图案、小鲨鱼的项圈与吊牌、紫白制服的红色眼部和胸前图案、蓝绿格纹衬衫、浅色衬衫与背带、蓝色发尾与红外套；段尾随棕色西装角色登场作简短引入。每句对齐相应卡片的显示时间。
 
 ```text
-These examples span diverse art styles—from anime and illustrations to game renders and painterly art. As each model turns, check whether the front, sides, and back remain visually coherent. Some details translate cleanly, while others are simplified or inferred where the original image provides no direct view.
+The cuffs have red edging, too. The ice cream is gone, but the teal hair streaks, amber eyes, and black jacket are all still there. The purple hoodie has cyan sleeve bands and matching trouser accents, plus the big wave graphic across the back. The shark becomes a blue character with a white belly, toothy grin, pink collar, and gold tag at the neck. This purple-and-white suit keeps the red eye shapes and wrist bands, though the thin chest emblem gets much simpler. Here we've got the plaid shirt, black glasses, and dark jeans; the blue-and-green checks continue around the back, too. The next shirt comes out much paler than the reference, with narrow suspenders, black glasses, and a checked trouser pattern. The blond hair ends in blue, with yellow trim on the red jacket and blue markings down one forearm. Next, a brown blazer and tie.
 ```
 
 ### VO 05 | 2:40-3:30 | community_showcase_3 | Transparent 3D Results
 
 - Audio file: `skin_reconstruction/audios/05_community_showcase_3.mp3`
 - Target duration: `50s`
-- Visual direction: 轮播最后几组皮肤，平滑过渡到网站实操演示。
+- Visual direction: 开头接续棕色西装的格纹与白色袖口，然后依次点评青紫长外套、绿紫头发与白色大领口、白发蒙眼角色、粉色衣裙人偶、花纹长袍人偶、青色角与白色连帽衫，最后展示浅色服装和深色靴子的冒险者。每句对齐对应卡片，最后一句后半段转入在线生成器体验。
 
 ```text
-Take a moment to compare the seams, limb textures, and inferred back details as these characters move. Not every detail survives the conversion, so the 3D turn is an important check. Next, let's see how you can create and download your own skins on the website.
+The brown blazer gets a checked pattern, with white cuffs and dark trousers. Back to a pixel reference: dark hair, black coat, cyan sleeve accents, and purple panels running down the legs. The wavy green-and-purple hair becomes straight stripes, over a wide white collar, purple jacket, and boots with green toes. The swordsman keeps the white hair and blue blindfold; the blade is gone, while blue patterns cover the sleeves. This doll keeps long blond hair and a pink outfit, with the dress's stitched flowers reduced to pale patches. Another doll, now in a floral robe: pink-and-green sleeve patterns, a pale sash, and dark trim at the ankles. The white hoodie and cyan horns carry over from this reference, with black trousers and matching accents around the shoes. We finish with goggles, a pale outfit, and dark boots; next, let's try the generator with our own image.
 ```
 
 ### VO 06 | 3:30-3:40 | try_it_online | Try It Online
@@ -196,60 +190,64 @@ Take a moment to compare the seams, limb textures, and inferred back details as 
 - Visual direction: 插入和 skingen VO 03 一样的在线体验画面（在线体验卡片，右侧浏览器线框显示 entropydrop.com 并播放生成的 skin_P8NBZUTB 3D 跳舞视频）。
 
 ```text
-Want to try it yourself? Visit entropydrop.com for the free online generator. We also open-sourced the training details and model weights, so you can train or deploy it locally.
+Try the free generator at entropydrop dot com. Training details and model weights are open source, so you can deploy it locally.
 ```
 
-### VO 07 | 3:40-5:30 | website_walkthrough | Upload, 3D Viewer & Download
+### VO 07 | 3:40-4:42.709 | website_walkthrough | Upload, 3D Viewer & Download
 
 - Audio file: `skin_reconstruction/audios/07_website_walkthrough.mp3`
-- Target duration: `110s`
-- Visual direction: 网站真实录屏全屏展示。涵盖首页探索、进入 Generate 界面并保持停顿观察 5 秒（清晰展示 SKING DDJ 模型选项、生成参数与上传区），随后平滑衔接 3D 查看器实机操作：测试 Idle、Walk、Dance 动态，切换 Plane、Cute 等展示模式，最后点击 Download 下载皮肤 PNG。
+- Target duration: `62.709s`
+- Visual direction: 保留 55.733 秒网站真实录屏：进入 Generate 界面，展示 SKING DDJ 选项、上传区和跳切后的 3D 查看器操作。末尾回放原录屏最后约 6.976 秒动态画面，覆盖下载说明；全段按旁白时长播放 62.709 秒，然后切入原理讲解。
 
 ```text
-To try the model online, open entropydrop dot com and sign in, then upload a reference image. The model featured in this video is named the SKING DDJ series. Click the generate button, and after processing, the result opens directly in the 3D viewer. Once the result opens, you can test the character with three different motions: Idle, Walk, and Dance. Idle lets you inspect fine details in a steady pose, Walk checks limb articulation and joint alignment during movement, while Dance puts the model through full dynamic choreography. Next, you can inspect the skin in different display modes. Voxel mode adds visible depth to the skin texture, Plane mode shows the classic flat Minecraft box look, and Cute mode changes the character to chibi proportions, giving you another way to inspect how the design reads at a different scale. Once you are satisfied with the preview, click Download to save the skin as a PNG.
+Open Entropydrop dot com and enter the skin generator. In Image to Skin mode, upload a character reference and select the SKING DDJ model.
+
+The recording jumps over the processing wait and opens the result in the 3D viewer. The reference remains beside the result as the character turns. Now Walk shows the moving arms and legs. Check whether sleeves and trouser colors stay aligned at the joints. Dance makes the movement larger, exposing any gaps in the outer layer or mismatched patches. Then use the display controls along the top. The menu offers Voxel, Plane, and Cute; here Cute changes the figure's proportions. As the smaller figure moves, compare its face and outfit with the reference at the right. Turn it toward the side to check whether hair and clothing colors continue around the body. Changing display mode changes the preview, while the downloaded skin PNG stays the same. The source stays visible beside it.
+
+When it looks good, the blue Download button saves a standard sixty-four by sixty-four PNG. That file is the finished skin you can use in Minecraft.
 ```
 
-### VO 08 | 5:30-6:00 | how_pipeline_works | How the Pipeline Works: Stage 1 Fixed Views Generation
+### VO 08 | 4:42.709-5:12.709 | how_pipeline_works | How the Pipeline Works: Stage 1 Template-guided views
 
 - Audio file: `skin_reconstruction/audios/08_how_pipeline_works.mp3`
 - Target duration: `30s`
 - Visual direction: 从网站操作平滑切入两阶段架构图：左侧角色参考图（Character Reference）+ 中间固定模板（Fixed Layout Templates）作为输入，经由带有 Google Gemini 图标的 NanoBanana 模型节点处理，右侧输出规范化正背面图（Normalized Dual Views）。叠加模板轮廓说明正交投影、姿态与画面位置的引导作用，标注 `Template-guided views`；讲到偏差时展示轮廓错位如何影响后续对应关系，避免把模板画成能严格锁定生成结果的几何约束。
 
 ```text
-The pipeline has two stages. In Stage One, NanoBanana receives the character reference and fixed layout templates. These guide the model toward front and back Minecraft views with a consistent orthographic camera, pose, and placement, while retaining recognizable character features. Generated views can still drift from the templates, affecting reconstruction. This stage relies on the closed-source NanoBanana model; the surrounding workflow code is open source.
+How the Pipeline Works? Stage One starts with the character reference and several fixed layout templates. NanoBanana uses them to produce front and back Minecraft views with a similar camera, pose, and placement. The templates guide the image model; they cannot force exact geometry. A shifted arm or tilted camera can make later pixel mapping less reliable. The output here is a pair of normalized views, not yet a skin. The image model is a closed-source dependency, while the surrounding workflow code is open source.
 ```
 
-### VO 09 | 6:00-6:45 | stage_two | Stage Two: Reconstruct the Skin
+### VO 09 | 5:12.709-5:57.709 | stage_two | Stage Two: Reconstruct the Skin
 
 - Audio file: `skin_reconstruction/audios/09_stage_two.mp3`
 - Target duration: `45s`
-- Visual direction: 使用同一角色的真实中间结果，依次点亮三个陈述式卡片，按实际配音安排切换：`1. Pixels map to skin layers` 展示前景分离、固定几何候选，以及可见像素到身体部位、表面和内外层的映射；放大头发或帽子示例说明专门的语义与层归属判断。`2. Missing inner pixels are filled` 只高亮未知内层像素，演示优先镜像、其次同部位邻近颜色的补全；已知内层与完整外层在这一步保持不变。`3. Rendered views guide refinement` 对比输入与重渲染的两个头部视图，展示有证据支持的局部头部修正与可见头部颜色优化，最后展示 64×64 PNG 和旋转预览。
+- Visual direction: 使用同一角色的真实中间结果，依次点亮三个陈述式卡片，按实际配音安排切换：`1. Pixels map to skin layers` 展示前景分离和可见像素到身体部位、表面及皮肤层的映射，配合文字解释固定几何候选与头部语义判断。`2. Missing inner pixels are filled` 对照已观测 UV 与内层补全后的 UV，说明仅填充未知内层像素；已知内层与完整外层在这一步保持不变。`3. Rendered views guide refinement` 对比输入与重渲染的正背面图，配合文字说明有证据支持的局部头部修正与可见头部颜色优化，并标示最终输出为 64×64 RGBA 皮肤。
 - Technical guardrails: 以 v101/v101c 技术文章为准。前景分离不负责重塑网格；头部语义分支不表述为通用复杂发型或配件接缝修复器。内层补全不生成新外层像素。若展示王冠几何修正，只展示重渲染证据支持的外层头顶像素移除；可见材质拟合只更新头部颜色、固定 alpha 与身体贴图，并仅接受降低重建误差的更新。三个环节是叙事分组，不暗示所有局部修正共用一个损失或构成三个独立网络。
 
 ```text
-Stage Two reconstructs the skin from the normalized views. After foreground extraction, fixed geometry and the Dense UV Parser map visible pixels to body parts, faces, and skin layers, with specialized decisions for hair and headwear.
+Stage Two first separates the character from the background. Fixed geometry lists the body parts, cube faces, and skin layers that could own each visible pixel. The Dense UV Parser uses evidence from both views to choose a supported route, with special decisions around hair and headwear.
 
-Missing inner-layer pixels are then filled using mirrored or nearby colors from the same body part. This step leaves the outer layer unchanged.
+Some inner-layer pixels are never visible in two views. The pipeline fills only those unknown cells, preferring a mirror or a nearby color from the same body part. Known inner pixels and the outer layer stay unchanged.
 
-Re-rendering guides targeted head corrections and visible head color refinement. The pipeline checks both views and accepts color updates only when reconstruction error decreases. The output is a standard sixty-four by sixty-four skin.
+Finally, re-rendered front and back views test targeted head corrections. Visible head colors update only when they reduce reconstruction error; alpha and the body texture stay fixed. The result is a standard sixty-four by sixty-four skin, ready for inspection in motion.
 ```
 
-### VO 10 | 6:45-7:35 | technical_details | Open Source & Technical Details
+### VO 10 | 5:57.709-6:47.709 | technical_details | Open Source & Technical Details
 
 - Audio file: `skin_reconstruction/audios/10_technical_details.mp3`
 - Target duration: `50s`
 - Visual direction: 聚焦核心开源成果与链接。页面精简展示三大核心入口卡片（GitHub 仓库源码、Hugging Face 模型权重与架构文档、YouTube 频道订阅），去除冗余信息卡、体验卡与文字说明，画面清爽聚焦。
 
 ```text
-The complete workflow code is open source on GitHub, and all Stage Two model weights are available on Hugging Face. For in-depth technical details, visit our Hugging Face repository, or check out our technical article linked below. If you enjoyed this, be sure to subscribe to the channel for more amazing open-source projects coming soon. Thanks for watching!
+Here are the three places to continue. GitHub contains the workflow code and inference tools. The code covers both stages, but generating the normalized front and back views still requires a compatible closed-source image model. On Hugging Face, you can find the Stage Two weights, configuration, and documentation for local reconstruction. The technical article linked below explains how geometry constrains pixel routing, how missing inner-layer pixels are filled, and how re-rendering checks the result. They also document remaining limits, including occluded surfaces and complicated hair or accessories. The video description also links the online generator if you want to try your own character image. Compare the reference with the skin from front, side, and back before downloading. We will keep documenting the limits as well as the improvements. Subscribe to EntropyDrop for more open-source Minecraft projects. Thanks for watching!
 ```
 
 ## Production Handoff
 
-- 本稿确认前，保留现有 `skin_reconstruction/index.html`、占位素材清单、字幕和音频文件，不重新生成。
+- 当前旁白已按本稿生成，并由 `skin_reconstruction/audios/qwen3_tts_manifest.json` 记录句级时长。第一段第三句已重新录制；第二段末尾提醒观众对照手腕饰品、项链和裤子纹理。
 - 确认后，Hyperframes 按四幕重排：第 1–5 场为开场和多风格效果，第 6 场为在线体验卡片，第 7 场为网站完整教程，第 8–9 场为两阶段原理（Stage 1 模板引导的规范视角生成与 Stage 2 像素归属、内层补全和重渲染检查），第 10 场为开源与技术细节（Open Source & Technical Details）。
-- 网站教程占 3:40–5:30；两阶段原理占 5:30–6:45；开源与技术细节占 6:45–7:35（总长 7:35 / 455s）。
-- 生成新旁白时使用本稿的新文件名，避免误用旧 MP3。
+- 网站教程占 3:40–4:42.709；两阶段原理占 4:42.709–5:57.709；开源与技术细节占 5:57.709–6:47.709（总长 6:47.709 / 407.709s）。
+- 网站录屏采用 `assets/website/vo07_website_walkthrough_synced_keyframes.mp4`，完整保留原录屏，末尾回放最后约 6.976 秒动态画面，播放时长与旁白一致为 62.709 秒；没有展示登录、文件选择或实际下载点击。后续章节紧接音频结束，总长 6:47.709 / 407.709s。字幕和 Stage Two 面板切换按句级音频时长对齐。
 
 - 28 组素材接入后，根据真实输入修改每个 case 的风格标签；不要让旁白描述素材中看不到的特征。
 - 录制 GitHub 和 Hugging Face 页面前，再次核对发布内容和链接。最终时码以实际配音与操作节奏为准。
