@@ -22,6 +22,6 @@ npm run dev
 
 ## 配音
 
-10 段英文旁白由局域网 Qwen3-TTS 服务的 `entropydrop` 音色生成，见 `audios/qwen3_tts_manifest.json`。当前版本按句合成，以接近参考声音的语速统一节奏，并在句间留出短暂停顿。第 3–5 段按真实 showcase 顺序逐个点评；第 7 段已删除第二遍检查旁白，下载说明直接接在模式演示之后；末尾以最后约 6.976 秒录屏回放保持动态；第 2 段末尾提醒观众对照手腕饰品、项链和裤子纹理，第 1 段第三句已重新录制，第 6 段保持不变。原始克隆参考保存在 `audios/reference/`，句级原始合成保存在 `audios/qwen3_sentence_sources/`，本地先前版本保存在 `audios/qwen3_first_pass/` 和 `audios/qwen3_steady_pass/`，修订备份保存在 `audios/tts_revisions/`；这些历史目录和 `renders/` 导出目录不纳入 Git。`audios/voiceover_full.wav` 按当前 407.709 秒时间线合成，页面直接播放这条音轨。
+10 段英文旁白由 Qwen3-TTS 的 `entropydrop` 参考音频克隆音色生成，见 `audios/qwen3_tts_manifest.json`。当前版本按句合成，以接近参考声音的语速统一节奏，并在句间留出短暂停顿。第 3–5 段按真实 showcase 顺序逐个点评；第 7 段已删除第二遍检查旁白，下载说明直接接在模式演示之后；末尾以最后约 6.976 秒录屏回放保持动态；第 2 段末尾提醒观众对照手腕饰品、项链和裤子纹理，第 1 段第三句已重新录制，末尾补充第三组角色的深色头发与亮粉色装饰，旁白长 19.856 秒并覆盖 20 秒开场；第 6 段保持不变。原始克隆参考保存在 `audios/reference/`，句级原始合成保存在 `audios/qwen3_sentence_sources/`，本地先前版本保存在 `audios/qwen3_first_pass/` 和 `audios/qwen3_steady_pass/`，修订备份保存在 `audios/tts_revisions/`；这些历史目录和 `renders/` 导出目录不纳入 Git。`audios/voiceover_full.wav` 按当前 407.709 秒时间线合成，页面直接播放这条音轨。
 
-在可访问 `TTS_SERVICE_ENDPOINT` 的环境中，运行 `python3 regenerate_audio.py --chapters 3-5,7-10` 可只重新生成选定章节，同时保留其他章节并重建总音轨。随后运行 `npm run build`，字幕会按每句实际音频时长分配，Stage Two 面板按段落边界切换；字幕仍未进行逐词强制对齐。`audios/metadata/` 和 `audios/subtitles/` 保留的是更早配音的历史结果，不用于当前页面。
+运行 `python3 regenerate_audio.py --chapters 3-5,7-10` 可重新生成选定章节并重建总音轨。连接配置通过 `--url`、`ENTROPYDROP_TTS_URL` 或本地配置文件提供；部署帮助统一保存在仓库根目录的 `local_deployment/tts/`，该目录不纳入 Git。随后运行 `npm run build`，字幕会按每句实际音频时长分配，Stage Two 面板按段落边界切换；字幕仍未进行逐词强制对齐。`audios/metadata/` 和 `audios/subtitles/` 保留的是更早配音的历史结果，不用于当前页面。

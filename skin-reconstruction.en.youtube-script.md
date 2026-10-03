@@ -137,10 +137,10 @@ Community results · Live demo · Open-source reconstruction
 
 - Audio file: `skin_reconstruction/audios/01_open_source_hook.mp3`
 - Target duration: `20s`
-- Visual direction: 全段保持标题并依次轮播三组“参考图 → 3D 行走皮肤”；每组右下角显示作者头像和用户名，不显示模型版本和链接。
+- Visual direction: 全段保持标题并依次轮播三组“参考图 → 3D 行走皮肤”；每组右下角显示作者头像和用户名，不显示模型版本和链接。末句对应第三组角色设定图与皮肤预览，引导观众关注深色头发和亮粉色装饰，旁白覆盖到本段结尾。
 
 ```text
-We have open-sourced another model for turning character images into Minecraft skins. To show the range of community results, we picked character images in very different styles. First we will look at those results, then try the pipeline online and explain how it works.
+We have open-sourced another model for turning character images into Minecraft skins. To show the range of community results, we picked character images in very different styles. First we will look at those results, then try the pipeline online and explain how it works. The final skin keeps the dark hair and bright pink accents from the character sheet.
 ```
 
 ### VO 02 | 0:20-1:00 | why_another_model | Why Build Another One?

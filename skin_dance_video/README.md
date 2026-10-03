@@ -25,11 +25,12 @@ npm run render -- \
 
 ## Call From Any Directory
 
-Use the root script so your relative `--skin` and `--out` paths are resolved
-from the directory where you run the command:
+Set `ENTROPYDROP_MEDIA_DIR` to your repository checkout, then use the root script
+so your relative `--skin` and `--out` paths are resolved from the directory where
+you run the command:
 
 ```bash
-${ENTROPYDROP_MEDIA_DIR}/skin_dance_video/render_skin_dance_video.mjs \
+node "${ENTROPYDROP_MEDIA_DIR}/skin_dance_video/render_skin_dance_video.mjs" \
   --skin dr_strange.png \
   --dance "BBoy Hip Hop Move" \
   --out iron_breakdance.webm \

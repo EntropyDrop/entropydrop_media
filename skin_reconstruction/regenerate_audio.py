@@ -202,7 +202,6 @@ def finalize(stage, plan, direct_downloads):
 
     manifest = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "service_url": plan["service_url"],
         "model": plan["model"],
         "voice": plan["voice"],
         "language": plan["language"],
@@ -239,6 +238,8 @@ def main():
     parser.add_argument("--prepare-only", action="store_true")
     parser.add_argument("--finalize-stage", type=Path)
     args = parser.parse_args()
+    if not args.url and not args.finalize_stage:
+        parser.error("Configure --url, ENTROPYDROP_TTS_URL, or the local deployment config.")
     if args.prepare_only and args.finalize_stage:
         parser.error("--prepare-only and --finalize-stage cannot be used together")
     selected = set()

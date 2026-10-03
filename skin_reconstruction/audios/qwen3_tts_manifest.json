@@ -1,6 +1,5 @@
 {
-  "generated_at_utc": "2026-10-03T18:26:56.086234+00:00",
-  "service_url": "http://tts.example.invalid/v1/audio/speech",
+  "generated_at_utc": "2026-10-03T18:55:12.500265+00:00",
   "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
   "voice": "entropydrop",
   "language": "English",
@@ -14,14 +13,14 @@
     {
       "file": "01_open_source_hook.mp3",
       "transcript": "transcripts/01_open_source_hook.txt",
-      "transcript_sha256": "086266f8380f964dad1986dd320c6fec88bb1fa145a0eeea7c9de3c3f1839bfa",
+      "transcript_sha256": "8ac08229456f7b53f5b2b7d2c40e7eb3f60872a1647fa6c39100759e7dac7374",
       "start_seconds": 0.0,
       "slot_seconds": 20.0,
-      "duration_seconds": 14.751,
+      "duration_seconds": 19.856,
       "codec": "mp3",
       "sample_rate": 24000,
       "channels": 1,
-      "sha256": "59f137a3d889598613aaadf6e582f50a1fc10f2255c8a74e9ffd0b2fbc526b3b",
+      "sha256": "38a289f9a331308ced37b7074ccd44cb0d2405a7a04fdf994b777d4f07915bcc",
       "chunks": [
         {
           "id": "01_open_source_hook__01",
@@ -30,6 +29,7 @@
           "target_seconds": 3.892,
           "pause_after_seconds": 0.24,
           "seed": 42,
+          "reused_raw": true,
           "raw_duration_seconds": 3.888,
           "processed_duration_seconds": 3.892,
           "tempo": 0.999,
@@ -43,6 +43,7 @@
           "target_seconds": 4.865,
           "pause_after_seconds": 0.24,
           "seed": 42,
+          "reused_raw": true,
           "raw_duration_seconds": 4.224,
           "processed_duration_seconds": 4.865,
           "tempo": 0.8682,
@@ -54,16 +55,30 @@
           "text": "First we will look at those results, then try the pipeline online and explain how it works.",
           "words": 17,
           "target_seconds": 5.514,
-          "pause_after_seconds": 0.0,
+          "pause_after_seconds": 0.24,
           "seed": 43,
-          "previous_raw_sha256": "0b76f807b20bdefc26f2e6bbe30058757bfbee2481338d71cb59b48e9795d0c8",
+          "reused_raw": true,
           "regeneration_reason": "User reported unusual voice timbre in this sentence.",
           "preview_file": "previews/01_hook_sentence03_seed43.mp3",
+          "previous_raw_sha256": "0b76f807b20bdefc26f2e6bbe30058757bfbee2481338d71cb59b48e9795d0c8",
           "raw_duration_seconds": 4.464,
           "processed_duration_seconds": 5.514,
           "tempo": 0.8096,
           "generation_seconds_header": "3.335",
           "raw_sha256": "e07500fc23367de9e361abbd10ec5786ec9bfb375a69781fbae60678bbdf0d0c"
+        },
+        {
+          "id": "01_open_source_hook__04",
+          "text": "The final skin keeps the dark hair and bright pink accents from the character sheet.",
+          "words": 15,
+          "target_seconds": 4.865,
+          "pause_after_seconds": 0.0,
+          "seed": 42,
+          "raw_duration_seconds": 3.888,
+          "processed_duration_seconds": 4.865,
+          "tempo": 0.7992,
+          "generation_seconds_header": "2.952",
+          "raw_sha256": "0fefedc706e392a91230196475b82cfd589d15c222cc9c7cf912eb737d6e6e93"
         }
       ]
     },
@@ -1321,6 +1336,6 @@
     "codec": "pcm_s16le",
     "sample_rate": 32000,
     "channels": 1,
-    "sha256": "bfdea5d1a741cce9698d8e7b76888b6e41698ace38d6ef63e375a96e1ad84bba"
+    "sha256": "8b5a3e62c1fb79008c7237471ea9466f108a69e332adee2d91e95bd586edb90a"
   }
 }

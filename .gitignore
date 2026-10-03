@@ -20,3 +20,6 @@ skin_reconstruction/audios/qwen3_steady_pass/
 assets/website/vo07_website_walkthrough_110s.mp4
 assets/website/vo07_website_walkthrough_64s.mp4
 assets/website/vo07_website_walkthrough_synced.mp4
+
+# Private deployment instructions, local connection settings, and recovery backups
+/local_deployment/

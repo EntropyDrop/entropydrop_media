@@ -18,7 +18,20 @@ from rebuild_combined_audio import AUDIOS_DIR, CHAPTERS, TOTAL_DURATION
 ROOT = Path(__file__).resolve().parent
 REFERENCE_DIR = AUDIOS_DIR / "reference"
 MANIFEST = AUDIOS_DIR / "qwen3_tts_manifest.json"
-DEFAULT_URL = "http://tts.example.invalid/v1/audio/speech"
+LOCAL_CONFIG = ROOT.parent / "local_deployment" / "tts" / "config.json"
+
+
+def load_default_url():
+    configured = os.environ.get("ENTROPYDROP_TTS_URL", "").strip()
+    if configured:
+        return configured
+    if LOCAL_CONFIG.exists():
+        configuration = json.loads(LOCAL_CONFIG.read_text(encoding="utf-8"))
+        return configuration.get("speech_url", "").strip() or None
+    return None
+
+
+DEFAULT_URL = load_default_url()
 
 
 def sha256(path):
@@ -109,6 +122,8 @@ def main():
     parser.add_argument("--prepare-only", action="store_true", help="Write request files for direct curl calls")
     parser.add_argument("--finalize-stage", type=Path, help="Validate downloaded audio and install it")
     args = parser.parse_args()
+    if not args.url and not args.finalize_stage:
+        parser.error("Configure --url, ENTROPYDROP_TTS_URL, or the local deployment config.")
 
     stage = args.finalize_stage or Path(tempfile.mkdtemp(prefix=".tts-staging-", dir=ROOT))
     if args.finalize_stage and (stage.parent != ROOT or not stage.name.startswith(".tts-staging-")):
@@ -174,7 +189,6 @@ def main():
 
         manifest = {
             "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-            "service_url": args.url,
             "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
             "voice": "entropydrop",
             "language": "English",
