@@ -1,0 +1,5 @@
+Stage Two reconstructs the skin from the normalized views. After foreground extraction, fixed geometry and the Dense UV Parser map visible pixels to body parts, faces, and skin layers, with specialized decisions for hair and headwear.
+
+Missing inner-layer pixels are then filled using mirrored or nearby colors from the same body part. This step leaves the outer layer unchanged.
+
+Re-rendering guides targeted head corrections and visible head color refinement. The pipeline checks both views and accepts color updates only when reconstruction error decreases. The output is a standard sixty-four by sixty-four skin.

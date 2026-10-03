@@ -1,0 +1,1908 @@
+[
+	{
+		"text": "The pipeline has two stages. In Stage One, NanoBanana receives the character reference and fixed layout templates.",
+		"pronounce_text": "The pipeline has two stages. In Stage One, NanoBanana receives the character reference and fixed layout templates.",
+		"time_begin": 0,
+		"time_end": 7876.0544217687075,
+		"text_begin": 0,
+		"text_end": 114,
+		"pronounce_text_begin": 0,
+		"pronounce_text_end": 114,
+		"timestamped_words": [
+			{
+				"word": "The",
+				"word_begin": 0,
+				"word_end": 3,
+				"pronounce_word": "The",
+				"pronounce_word_begin": 0,
+				"pronounce_word_end": 3,
+				"time_begin": 42.666666666666664,
+				"time_end": 170.66666666666666
+			},
+			{
+				"word": " ",
+				"word_begin": 3,
+				"word_end": 4,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 3,
+				"pronounce_word_end": 4,
+				"time_begin": 170.66666666666666,
+				"time_end": 213.33333333333331
+			},
+			{
+				"word": "pi",
+				"word_begin": 4,
+				"word_end": 6,
+				"pronounce_word": "pi",
+				"pronounce_word_begin": 4,
+				"pronounce_word_end": 6,
+				"time_begin": 213.33333333333331,
+				"time_end": 298.66666666666663
+			},
+			{
+				"word": "pe",
+				"word_begin": 6,
+				"word_end": 8,
+				"pronounce_word": "pe",
+				"pronounce_word_begin": 6,
+				"pronounce_word_end": 8,
+				"time_begin": 298.66666666666663,
+				"time_end": 469.3333333333333
+			},
+			{
+				"word": "line",
+				"word_begin": 8,
+				"word_end": 12,
+				"pronounce_word": "line",
+				"pronounce_word_begin": 8,
+				"pronounce_word_end": 12,
+				"time_begin": 469.3333333333333,
+				"time_end": 597.3333333333333
+			},
+			{
+				"word": " ",
+				"word_begin": 12,
+				"word_end": 13,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 12,
+				"pronounce_word_end": 13,
+				"time_begin": 597.3333333333333,
+				"time_end": 640
+			},
+			{
+				"word": "has",
+				"word_begin": 13,
+				"word_end": 16,
+				"pronounce_word": "has",
+				"pronounce_word_begin": 13,
+				"pronounce_word_end": 16,
+				"time_begin": 640,
+				"time_end": 768
+			},
+			{
+				"word": " ",
+				"word_begin": 16,
+				"word_end": 17,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 16,
+				"pronounce_word_end": 17,
+				"time_begin": 768,
+				"time_end": 810.6666666666666
+			},
+			{
+				"word": "two",
+				"word_begin": 17,
+				"word_end": 20,
+				"pronounce_word": "two",
+				"pronounce_word_begin": 17,
+				"pronounce_word_end": 20,
+				"time_begin": 810.6666666666666,
+				"time_end": 981.3333333333333
+			},
+			{
+				"word": " ",
+				"word_begin": 20,
+				"word_end": 21,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 20,
+				"pronounce_word_end": 21,
+				"time_begin": 981.3333333333333,
+				"time_end": 1024
+			},
+			{
+				"word": "st",
+				"word_begin": 21,
+				"word_end": 23,
+				"pronounce_word": "st",
+				"pronounce_word_begin": 21,
+				"pronounce_word_end": 23,
+				"time_begin": 1024,
+				"time_end": 1194.6666666666665
+			},
+			{
+				"word": "ages",
+				"word_begin": 23,
+				"word_end": 27,
+				"pronounce_word": "ages",
+				"pronounce_word_begin": 23,
+				"pronounce_word_end": 27,
+				"time_begin": 1194.6666666666665,
+				"time_end": 1408
+			},
+			{
+				"word": ".",
+				"word_begin": 27,
+				"word_end": 28,
+				"pronounce_word": ".",
+				"pronounce_word_begin": 27,
+				"pronounce_word_end": 28,
+				"time_begin": 1408,
+				"time_end": 1578.6666666666667
+			},
+			{
+				"word": " ",
+				"word_begin": 28,
+				"word_end": 29,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 28,
+				"pronounce_word_end": 29,
+				"time_begin": 1578.6666666666667,
+				"time_end": 1621.3333333333333
+			},
+			{
+				"word": "In",
+				"word_begin": 29,
+				"word_end": 31,
+				"pronounce_word": "In",
+				"pronounce_word_begin": 29,
+				"pronounce_word_end": 31,
+				"time_begin": 1621.3333333333333,
+				"time_end": 1877.3333333333333
+			},
+			{
+				"word": " ",
+				"word_begin": 31,
+				"word_end": 32,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 31,
+				"pronounce_word_end": 32,
+				"time_begin": 1877.3333333333333,
+				"time_end": 2175.9999999999995
+			},
+			{
+				"word": "S",
+				"word_begin": 32,
+				"word_end": 33,
+				"pronounce_word": "S",
+				"pronounce_word_begin": 32,
+				"pronounce_word_end": 33,
+				"time_begin": 2175.9999999999995,
+				"time_end": 2304
+			},
+			{
+				"word": "ta",
+				"word_begin": 33,
+				"word_end": 35,
+				"pronounce_word": "ta",
+				"pronounce_word_begin": 33,
+				"pronounce_word_end": 35,
+				"time_begin": 2304,
+				"time_end": 2346.6666666666665
+			},
+			{
+				"word": "ge",
+				"word_begin": 35,
+				"word_end": 37,
+				"pronounce_word": "ge",
+				"pronounce_word_begin": 35,
+				"pronounce_word_end": 37,
+				"time_begin": 2346.6666666666665,
+				"time_end": 2474.666666666667
+			},
+			{
+				"word": " ",
+				"word_begin": 37,
+				"word_end": 38,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 37,
+				"pronounce_word_end": 38,
+				"time_begin": 2474.666666666667,
+				"time_end": 2517.333333333333
+			},
+			{
+				"word": "One",
+				"word_begin": 38,
+				"word_end": 41,
+				"pronounce_word": "One",
+				"pronounce_word_begin": 38,
+				"pronounce_word_end": 41,
+				"time_begin": 2517.333333333333,
+				"time_end": 2687.9999999999995
+			},
+			{
+				"word": ",",
+				"word_begin": 41,
+				"word_end": 42,
+				"pronounce_word": ",",
+				"pronounce_word_begin": 41,
+				"pronounce_word_end": 42,
+				"time_begin": 2687.9999999999995,
+				"time_end": 2901.333333333333
+			},
+			{
+				"word": " ",
+				"word_begin": 42,
+				"word_end": 43,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 42,
+				"pronounce_word_end": 43,
+				"time_begin": 2901.333333333333,
+				"time_end": 2944
+			},
+			{
+				"word": "N",
+				"word_begin": 43,
+				"word_end": 44,
+				"pronounce_word": "N",
+				"pronounce_word_begin": 43,
+				"pronounce_word_end": 44,
+				"time_begin": 2944,
+				"time_end": 3114.6666666666665
+			},
+			{
+				"word": "an",
+				"word_begin": 44,
+				"word_end": 46,
+				"pronounce_word": "an",
+				"pronounce_word_begin": 44,
+				"pronounce_word_end": 46,
+				"time_begin": 3114.6666666666665,
+				"time_end": 3626.6666666666665
+			},
+			{
+				"word": "o",
+				"word_begin": 46,
+				"word_end": 47,
+				"pronounce_word": "o",
+				"pronounce_word_begin": 46,
+				"pronounce_word_end": 47,
+				"time_begin": 3626.6666666666665,
+				"time_end": 3754.6666666666665
+			},
+			{
+				"word": "B",
+				"word_begin": 47,
+				"word_end": 48,
+				"pronounce_word": "B",
+				"pronounce_word_begin": 47,
+				"pronounce_word_end": 48,
+				"time_begin": 3754.6666666666665,
+				"time_end": 3797.333333333333
+			},
+			{
+				"word": "an",
+				"word_begin": 48,
+				"word_end": 50,
+				"pronounce_word": "an",
+				"pronounce_word_begin": 48,
+				"pronounce_word_end": 50,
+				"time_begin": 3797.333333333333,
+				"time_end": 3925.333333333333
+			},
+			{
+				"word": "ana",
+				"word_begin": 50,
+				"word_end": 53,
+				"pronounce_word": "ana",
+				"pronounce_word_begin": 50,
+				"pronounce_word_end": 53,
+				"time_begin": 3925.333333333333,
+				"time_end": 4053.3333333333326
+			},
+			{
+				"word": " ",
+				"word_begin": 53,
+				"word_end": 54,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 53,
+				"pronounce_word_end": 54,
+				"time_begin": 4053.3333333333326,
+				"time_end": 4096
+			},
+			{
+				"word": "receive",
+				"word_begin": 54,
+				"word_end": 61,
+				"pronounce_word": "receive",
+				"pronounce_word_begin": 54,
+				"pronounce_word_end": 61,
+				"time_begin": 4096,
+				"time_end": 4479.999999999999
+			},
+			{
+				"word": "s",
+				"word_begin": 61,
+				"word_end": 62,
+				"pronounce_word": "s",
+				"pronounce_word_begin": 61,
+				"pronounce_word_end": 62,
+				"time_begin": 4479.999999999999,
+				"time_end": 4650.666666666667
+			},
+			{
+				"word": " ",
+				"word_begin": 62,
+				"word_end": 63,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 62,
+				"pronounce_word_end": 63,
+				"time_begin": 4650.666666666667,
+				"time_end": 4693.333333333333
+			},
+			{
+				"word": "the",
+				"word_begin": 63,
+				"word_end": 66,
+				"pronounce_word": "the",
+				"pronounce_word_begin": 63,
+				"pronounce_word_end": 66,
+				"time_begin": 4693.333333333333,
+				"time_end": 4821.333333333333
+			},
+			{
+				"word": " ",
+				"word_begin": 66,
+				"word_end": 67,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 66,
+				"pronounce_word_end": 67,
+				"time_begin": 4821.333333333333,
+				"time_end": 4864
+			},
+			{
+				"word": "character",
+				"word_begin": 67,
+				"word_end": 76,
+				"pronounce_word": "character",
+				"pronounce_word_begin": 67,
+				"pronounce_word_end": 76,
+				"time_begin": 4864,
+				"time_end": 5034.666666666666
+			},
+			{
+				"word": " ",
+				"word_begin": 76,
+				"word_end": 77,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 76,
+				"pronounce_word_end": 77,
+				"time_begin": 5034.666666666666,
+				"time_end": 5077.333333333333
+			},
+			{
+				"word": "re",
+				"word_begin": 77,
+				"word_end": 79,
+				"pronounce_word": "re",
+				"pronounce_word_begin": 77,
+				"pronounce_word_end": 79,
+				"time_begin": 5077.333333333333,
+				"time_end": 5461.333333333333
+			},
+			{
+				"word": "ference",
+				"word_begin": 79,
+				"word_end": 86,
+				"pronounce_word": "ference",
+				"pronounce_word_begin": 79,
+				"pronounce_word_end": 86,
+				"time_begin": 5461.333333333333,
+				"time_end": 5674.666666666666
+			},
+			{
+				"word": " ",
+				"word_begin": 86,
+				"word_end": 87,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 86,
+				"pronounce_word_end": 87,
+				"time_begin": 5674.666666666666,
+				"time_end": 5717.333333333333
+			},
+			{
+				"word": "and",
+				"word_begin": 87,
+				"word_end": 90,
+				"pronounce_word": "and",
+				"pronounce_word_begin": 87,
+				"pronounce_word_end": 90,
+				"time_begin": 5717.333333333333,
+				"time_end": 5930.666666666666
+			},
+			{
+				"word": " ",
+				"word_begin": 90,
+				"word_end": 91,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 90,
+				"pronounce_word_end": 91,
+				"time_begin": 5930.666666666666,
+				"time_end": 5973.333333333333
+			},
+			{
+				"word": "fix",
+				"word_begin": 91,
+				"word_end": 94,
+				"pronounce_word": "fix",
+				"pronounce_word_begin": 91,
+				"pronounce_word_end": 94,
+				"time_begin": 5973.333333333333,
+				"time_end": 6186.666666666667
+			},
+			{
+				"word": "ed",
+				"word_begin": 94,
+				"word_end": 96,
+				"pronounce_word": "ed",
+				"pronounce_word_begin": 94,
+				"pronounce_word_end": 96,
+				"time_begin": 6186.666666666667,
+				"time_end": 6399.999999999999
+			},
+			{
+				"word": " ",
+				"word_begin": 96,
+				"word_end": 97,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 96,
+				"pronounce_word_end": 97,
+				"time_begin": 6399.999999999999,
+				"time_end": 6442.666666666667
+			},
+			{
+				"word": "la",
+				"word_begin": 97,
+				"word_end": 99,
+				"pronounce_word": "la",
+				"pronounce_word_begin": 97,
+				"pronounce_word_end": 99,
+				"time_begin": 6442.666666666667,
+				"time_end": 6656
+			},
+			{
+				"word": "you",
+				"word_begin": 99,
+				"word_end": 102,
+				"pronounce_word": "you",
+				"pronounce_word_begin": 99,
+				"pronounce_word_end": 102,
+				"time_begin": 6656,
+				"time_end": 6826.666666666666
+			},
+			{
+				"word": "t",
+				"word_begin": 102,
+				"word_end": 103,
+				"pronounce_word": "t",
+				"pronounce_word_begin": 102,
+				"pronounce_word_end": 103,
+				"time_begin": 6826.666666666666,
+				"time_end": 6954.666666666666
+			},
+			{
+				"word": " ",
+				"word_begin": 103,
+				"word_end": 104,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 103,
+				"pronounce_word_end": 104,
+				"time_begin": 6954.666666666666,
+				"time_end": 6997.333333333333
+			},
+			{
+				"word": "tem",
+				"word_begin": 104,
+				"word_end": 107,
+				"pronounce_word": "tem",
+				"pronounce_word_begin": 104,
+				"pronounce_word_end": 107,
+				"time_begin": 6997.333333333333,
+				"time_end": 7168
+			},
+			{
+				"word": "pl",
+				"word_begin": 107,
+				"word_end": 109,
+				"pronounce_word": "pl",
+				"pronounce_word_begin": 107,
+				"pronounce_word_end": 109,
+				"time_begin": 7168,
+				"time_end": 7295.999999999999
+			},
+			{
+				"word": "ates",
+				"word_begin": 109,
+				"word_end": 113,
+				"pronounce_word": "ates",
+				"pronounce_word_begin": 109,
+				"pronounce_word_end": 113,
+				"time_begin": 7295.999999999999,
+				"time_end": 7423.999999999999
+			},
+			{
+				"word": ".",
+				"word_begin": 113,
+				"word_end": 114,
+				"pronounce_word": ".",
+				"pronounce_word_begin": 113,
+				"pronounce_word_end": 114,
+				"time_begin": 7423.999999999999,
+				"time_end": 7637.333333333333
+			}
+		]
+	},
+	{
+		"text": "These guide the model toward front and back Minecraft views with a consistent orthographic camera, pose, and placement, while retaining recognizable character features.Generated views can still drift from the templates, affecting reconstruction.",
+		"pronounce_text": "These guide the model toward front and back Minecraft views with a consistent orthographic camera, pose, and placement, while retaining recognizable character features.Generated views can still drift from the templates, affecting reconstruction.",
+		"time_begin": 8028.000000000001,
+		"time_end": 22127.0022675737,
+		"text_begin": 114,
+		"text_end": 359,
+		"pronounce_text_begin": 114,
+		"pronounce_text_end": 359,
+		"timestamped_words": [
+			{
+				"word": "These",
+				"word_begin": 114,
+				"word_end": 119,
+				"pronounce_word": "These",
+				"pronounce_word_begin": 114,
+				"pronounce_word_end": 119,
+				"time_begin": 8070.666666666668,
+				"time_end": 8198.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 119,
+				"word_end": 120,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 119,
+				"pronounce_word_end": 120,
+				"time_begin": 8198.666666666668,
+				"time_end": 8241.333333333334
+			},
+			{
+				"word": "gu",
+				"word_begin": 120,
+				"word_end": 122,
+				"pronounce_word": "gu",
+				"pronounce_word_begin": 120,
+				"pronounce_word_end": 122,
+				"time_begin": 8241.333333333334,
+				"time_end": 8497.333333333334
+			},
+			{
+				"word": "ide",
+				"word_begin": 122,
+				"word_end": 125,
+				"pronounce_word": "ide",
+				"pronounce_word_begin": 122,
+				"pronounce_word_end": 125,
+				"time_begin": 8497.333333333334,
+				"time_end": 8582.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 125,
+				"word_end": 126,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 125,
+				"pronounce_word_end": 126,
+				"time_begin": 8582.666666666668,
+				"time_end": 8625.333333333334
+			},
+			{
+				"word": "the",
+				"word_begin": 126,
+				"word_end": 129,
+				"pronounce_word": "the",
+				"pronounce_word_begin": 126,
+				"pronounce_word_end": 129,
+				"time_begin": 8625.333333333334,
+				"time_end": 8710.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 129,
+				"word_end": 130,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 129,
+				"pronounce_word_end": 130,
+				"time_begin": 8710.666666666668,
+				"time_end": 8753.333333333334
+			},
+			{
+				"word": "model",
+				"word_begin": 130,
+				"word_end": 135,
+				"pronounce_word": "model",
+				"pronounce_word_begin": 130,
+				"pronounce_word_end": 135,
+				"time_begin": 8753.333333333334,
+				"time_end": 8838.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 135,
+				"word_end": 136,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 135,
+				"pronounce_word_end": 136,
+				"time_begin": 8838.666666666668,
+				"time_end": 8881.333333333334
+			},
+			{
+				"word": "toward",
+				"word_begin": 136,
+				"word_end": 142,
+				"pronounce_word": "toward",
+				"pronounce_word_begin": 136,
+				"pronounce_word_end": 142,
+				"time_begin": 8881.333333333334,
+				"time_end": 9094.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 142,
+				"word_end": 143,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 142,
+				"pronounce_word_end": 143,
+				"time_begin": 9094.666666666668,
+				"time_end": 9137.333333333334
+			},
+			{
+				"word": "front",
+				"word_begin": 143,
+				"word_end": 148,
+				"pronounce_word": "front",
+				"pronounce_word_begin": 143,
+				"pronounce_word_end": 148,
+				"time_begin": 9137.333333333334,
+				"time_end": 9393.333333333334
+			},
+			{
+				"word": " ",
+				"word_begin": 148,
+				"word_end": 149,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 148,
+				"pronounce_word_end": 149,
+				"time_begin": 9393.333333333334,
+				"time_end": 9436
+			},
+			{
+				"word": "and",
+				"word_begin": 149,
+				"word_end": 152,
+				"pronounce_word": "and",
+				"pronounce_word_begin": 149,
+				"pronounce_word_end": 152,
+				"time_begin": 9436,
+				"time_end": 9649.333333333334
+			},
+			{
+				"word": " ",
+				"word_begin": 152,
+				"word_end": 153,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 152,
+				"pronounce_word_end": 153,
+				"time_begin": 9649.333333333334,
+				"time_end": 9692
+			},
+			{
+				"word": "back",
+				"word_begin": 153,
+				"word_end": 157,
+				"pronounce_word": "back",
+				"pronounce_word_begin": 153,
+				"pronounce_word_end": 157,
+				"time_begin": 9692,
+				"time_end": 9777.333333333334
+			},
+			{
+				"word": " ",
+				"word_begin": 157,
+				"word_end": 158,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 157,
+				"pronounce_word_end": 158,
+				"time_begin": 9777.333333333334,
+				"time_end": 9820
+			},
+			{
+				"word": "M",
+				"word_begin": 158,
+				"word_end": 159,
+				"pronounce_word": "M",
+				"pronounce_word_begin": 158,
+				"pronounce_word_end": 159,
+				"time_begin": 9820,
+				"time_end": 10033.333333333334
+			},
+			{
+				"word": "ine",
+				"word_begin": 159,
+				"word_end": 162,
+				"pronounce_word": "ine",
+				"pronounce_word_begin": 159,
+				"pronounce_word_end": 162,
+				"time_begin": 10033.333333333334,
+				"time_end": 10118.666666666668
+			},
+			{
+				"word": "craft",
+				"word_begin": 162,
+				"word_end": 167,
+				"pronounce_word": "craft",
+				"pronounce_word_begin": 162,
+				"pronounce_word_end": 167,
+				"time_begin": 10118.666666666668,
+				"time_end": 10332
+			},
+			{
+				"word": " ",
+				"word_begin": 167,
+				"word_end": 168,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 167,
+				"pronounce_word_end": 168,
+				"time_begin": 10332,
+				"time_end": 10374.666666666668
+			},
+			{
+				"word": "view",
+				"word_begin": 168,
+				"word_end": 172,
+				"pronounce_word": "view",
+				"pronounce_word_begin": 168,
+				"pronounce_word_end": 172,
+				"time_begin": 10374.666666666668,
+				"time_end": 10630.666666666668
+			},
+			{
+				"word": "s",
+				"word_begin": 172,
+				"word_end": 173,
+				"pronounce_word": "s",
+				"pronounce_word_begin": 172,
+				"pronounce_word_end": 173,
+				"time_begin": 10630.666666666668,
+				"time_end": 10758.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 173,
+				"word_end": 174,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 173,
+				"pronounce_word_end": 174,
+				"time_begin": 10758.666666666668,
+				"time_end": 10801.333333333334
+			},
+			{
+				"word": "with",
+				"word_begin": 174,
+				"word_end": 178,
+				"pronounce_word": "with",
+				"pronounce_word_begin": 174,
+				"pronounce_word_end": 178,
+				"time_begin": 10801.333333333334,
+				"time_end": 11057.333333333334
+			},
+			{
+				"word": " ",
+				"word_begin": 178,
+				"word_end": 179,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 178,
+				"pronounce_word_end": 179,
+				"time_begin": 11057.333333333334,
+				"time_end": 11270.666666666668
+			},
+			{
+				"word": "a",
+				"word_begin": 179,
+				"word_end": 180,
+				"pronounce_word": "a",
+				"pronounce_word_begin": 179,
+				"pronounce_word_end": 180,
+				"time_begin": 11270.666666666668,
+				"time_end": 11398.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 180,
+				"word_end": 181,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 180,
+				"pronounce_word_end": 181,
+				"time_begin": 11398.666666666668,
+				"time_end": 11441.333333333334
+			},
+			{
+				"word": "consist",
+				"word_begin": 181,
+				"word_end": 188,
+				"pronounce_word": "consist",
+				"pronounce_word_begin": 181,
+				"pronounce_word_end": 188,
+				"time_begin": 11441.333333333334,
+				"time_end": 11612
+			},
+			{
+				"word": "ent",
+				"word_begin": 188,
+				"word_end": 191,
+				"pronounce_word": "ent",
+				"pronounce_word_begin": 188,
+				"pronounce_word_end": 191,
+				"time_begin": 11612,
+				"time_end": 11910.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 191,
+				"word_end": 192,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 191,
+				"pronounce_word_end": 192,
+				"time_begin": 11910.666666666668,
+				"time_end": 11953.333333333334
+			},
+			{
+				"word": "or",
+				"word_begin": 192,
+				"word_end": 194,
+				"pronounce_word": "or",
+				"pronounce_word_begin": 192,
+				"pronounce_word_end": 194,
+				"time_begin": 11953.333333333334,
+				"time_end": 12081.333333333334
+			},
+			{
+				"word": "th",
+				"word_begin": 194,
+				"word_end": 196,
+				"pronounce_word": "th",
+				"pronounce_word_begin": 194,
+				"pronounce_word_end": 196,
+				"time_begin": 12081.333333333334,
+				"time_end": 12209.333333333334
+			},
+			{
+				"word": "o",
+				"word_begin": 196,
+				"word_end": 197,
+				"pronounce_word": "o",
+				"pronounce_word_begin": 196,
+				"pronounce_word_end": 197,
+				"time_begin": 12209.333333333334,
+				"time_end": 12252
+			},
+			{
+				"word": "graph",
+				"word_begin": 197,
+				"word_end": 202,
+				"pronounce_word": "graph",
+				"pronounce_word_begin": 197,
+				"pronounce_word_end": 202,
+				"time_begin": 12252,
+				"time_end": 12380
+			},
+			{
+				"word": "ic",
+				"word_begin": 202,
+				"word_end": 204,
+				"pronounce_word": "ic",
+				"pronounce_word_begin": 202,
+				"pronounce_word_end": 204,
+				"time_begin": 12380,
+				"time_end": 12550.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 204,
+				"word_end": 205,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 204,
+				"pronounce_word_end": 205,
+				"time_begin": 12550.666666666668,
+				"time_end": 12593.333333333334
+			},
+			{
+				"word": "camera",
+				"word_begin": 205,
+				"word_end": 211,
+				"pronounce_word": "camera",
+				"pronounce_word_begin": 205,
+				"pronounce_word_end": 211,
+				"time_begin": 12593.333333333334,
+				"time_end": 12849.333333333334
+			},
+			{
+				"word": ",",
+				"word_begin": 211,
+				"word_end": 212,
+				"pronounce_word": ",",
+				"pronounce_word_begin": 211,
+				"pronounce_word_end": 212,
+				"time_begin": 12849.333333333334,
+				"time_end": 13062.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 212,
+				"word_end": 213,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 212,
+				"pronounce_word_end": 213,
+				"time_begin": 13062.666666666668,
+				"time_end": 13105.333333333334
+			},
+			{
+				"word": "pose",
+				"word_begin": 213,
+				"word_end": 217,
+				"pronounce_word": "pose",
+				"pronounce_word_begin": 213,
+				"pronounce_word_end": 217,
+				"time_begin": 13105.333333333334,
+				"time_end": 13446.666666666668
+			},
+			{
+				"word": ",",
+				"word_begin": 217,
+				"word_end": 218,
+				"pronounce_word": ",",
+				"pronounce_word_begin": 217,
+				"pronounce_word_end": 218,
+				"time_begin": 13446.666666666668,
+				"time_end": 13702.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 218,
+				"word_end": 219,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 218,
+				"pronounce_word_end": 219,
+				"time_begin": 13702.666666666668,
+				"time_end": 13745.333333333334
+			},
+			{
+				"word": "and",
+				"word_begin": 219,
+				"word_end": 222,
+				"pronounce_word": "and",
+				"pronounce_word_begin": 219,
+				"pronounce_word_end": 222,
+				"time_begin": 13745.333333333334,
+				"time_end": 13830.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 222,
+				"word_end": 223,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 222,
+				"pronounce_word_end": 223,
+				"time_begin": 13830.666666666668,
+				"time_end": 13873.333333333336
+			},
+			{
+				"word": "place",
+				"word_begin": 223,
+				"word_end": 228,
+				"pronounce_word": "place",
+				"pronounce_word_begin": 223,
+				"pronounce_word_end": 228,
+				"time_begin": 13873.333333333336,
+				"time_end": 14129.333333333334
+			},
+			{
+				"word": "ment",
+				"word_begin": 228,
+				"word_end": 232,
+				"pronounce_word": "ment",
+				"pronounce_word_begin": 228,
+				"pronounce_word_end": 232,
+				"time_begin": 14129.333333333334,
+				"time_end": 14342.666666666668
+			},
+			{
+				"word": ",",
+				"word_begin": 232,
+				"word_end": 233,
+				"pronounce_word": ",",
+				"pronounce_word_begin": 232,
+				"pronounce_word_end": 233,
+				"time_begin": 14342.666666666668,
+				"time_end": 14470.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 233,
+				"word_end": 234,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 233,
+				"pronounce_word_end": 234,
+				"time_begin": 14470.666666666668,
+				"time_end": 14513.333333333334
+			},
+			{
+				"word": "while",
+				"word_begin": 234,
+				"word_end": 239,
+				"pronounce_word": "while",
+				"pronounce_word_begin": 234,
+				"pronounce_word_end": 239,
+				"time_begin": 14513.333333333334,
+				"time_end": 14854.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 239,
+				"word_end": 240,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 239,
+				"pronounce_word_end": 240,
+				"time_begin": 14854.666666666668,
+				"time_end": 14897.333333333336
+			},
+			{
+				"word": "re",
+				"word_begin": 240,
+				"word_end": 242,
+				"pronounce_word": "re",
+				"pronounce_word_begin": 240,
+				"pronounce_word_end": 242,
+				"time_begin": 14897.333333333336,
+				"time_end": 15153.333333333334
+			},
+			{
+				"word": "tain",
+				"word_begin": 242,
+				"word_end": 246,
+				"pronounce_word": "tain",
+				"pronounce_word_begin": 242,
+				"pronounce_word_end": 246,
+				"time_begin": 15153.333333333334,
+				"time_end": 15281.333333333334
+			},
+			{
+				"word": "ing",
+				"word_begin": 246,
+				"word_end": 249,
+				"pronounce_word": "ing",
+				"pronounce_word_begin": 246,
+				"pronounce_word_end": 249,
+				"time_begin": 15281.333333333334,
+				"time_end": 15494.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 249,
+				"word_end": 250,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 249,
+				"pronounce_word_end": 250,
+				"time_begin": 15494.666666666668,
+				"time_end": 15537.333333333334
+			},
+			{
+				"word": "recogn",
+				"word_begin": 250,
+				"word_end": 256,
+				"pronounce_word": "recogn",
+				"pronounce_word_begin": 250,
+				"pronounce_word_end": 256,
+				"time_begin": 15537.333333333334,
+				"time_end": 15793.333333333334
+			},
+			{
+				"word": "iz",
+				"word_begin": 256,
+				"word_end": 258,
+				"pronounce_word": "iz",
+				"pronounce_word_begin": 256,
+				"pronounce_word_end": 258,
+				"time_begin": 15793.333333333334,
+				"time_end": 16006.666666666668
+			},
+			{
+				"word": "able",
+				"word_begin": 258,
+				"word_end": 262,
+				"pronounce_word": "able",
+				"pronounce_word_begin": 258,
+				"pronounce_word_end": 262,
+				"time_begin": 16006.666666666668,
+				"time_end": 16220
+			},
+			{
+				"word": " ",
+				"word_begin": 262,
+				"word_end": 263,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 262,
+				"pronounce_word_end": 263,
+				"time_begin": 16220,
+				"time_end": 16262.666666666668
+			},
+			{
+				"word": "character",
+				"word_begin": 263,
+				"word_end": 272,
+				"pronounce_word": "character",
+				"pronounce_word_begin": 263,
+				"pronounce_word_end": 272,
+				"time_begin": 16262.666666666668,
+				"time_end": 16476
+			},
+			{
+				"word": " ",
+				"word_begin": 272,
+				"word_end": 273,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 272,
+				"pronounce_word_end": 273,
+				"time_begin": 16476,
+				"time_end": 16518.666666666668
+			},
+			{
+				"word": "features",
+				"word_begin": 273,
+				"word_end": 281,
+				"pronounce_word": "features",
+				"pronounce_word_begin": 273,
+				"pronounce_word_end": 281,
+				"time_begin": 16518.666666666668,
+				"time_end": 16902.666666666668
+			},
+			{
+				"word": ".",
+				"word_begin": 281,
+				"word_end": 282,
+				"pronounce_word": ".",
+				"pronounce_word_begin": 281,
+				"pronounce_word_end": 282,
+				"time_begin": 16902.666666666668,
+				"time_end": 17244
+			},
+			{
+				"word": "G",
+				"word_begin": 283,
+				"word_end": 284,
+				"pronounce_word": "G",
+				"pronounce_word_begin": 282,
+				"pronounce_word_end": 283,
+				"time_begin": 17286.666666666668,
+				"time_end": 17457.333333333336
+			},
+			{
+				"word": "ener",
+				"word_begin": 284,
+				"word_end": 288,
+				"pronounce_word": "ener",
+				"pronounce_word_begin": 283,
+				"pronounce_word_end": 287,
+				"time_begin": 17457.333333333336,
+				"time_end": 17585.333333333336
+			},
+			{
+				"word": "ated",
+				"word_begin": 288,
+				"word_end": 292,
+				"pronounce_word": "ated",
+				"pronounce_word_begin": 287,
+				"pronounce_word_end": 291,
+				"time_begin": 17585.333333333336,
+				"time_end": 17713.333333333336
+			},
+			{
+				"word": " ",
+				"word_begin": 292,
+				"word_end": 293,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 291,
+				"pronounce_word_end": 292,
+				"time_begin": 17713.333333333336,
+				"time_end": 17756
+			},
+			{
+				"word": "view",
+				"word_begin": 293,
+				"word_end": 297,
+				"pronounce_word": "view",
+				"pronounce_word_begin": 292,
+				"pronounce_word_end": 296,
+				"time_begin": 17756,
+				"time_end": 17926.666666666668
+			},
+			{
+				"word": "s",
+				"word_begin": 297,
+				"word_end": 298,
+				"pronounce_word": "s",
+				"pronounce_word_begin": 296,
+				"pronounce_word_end": 297,
+				"time_begin": 17926.666666666668,
+				"time_end": 18054.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 298,
+				"word_end": 299,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 297,
+				"pronounce_word_end": 298,
+				"time_begin": 18054.666666666668,
+				"time_end": 18097.333333333336
+			},
+			{
+				"word": "can",
+				"word_begin": 299,
+				"word_end": 302,
+				"pronounce_word": "can",
+				"pronounce_word_begin": 298,
+				"pronounce_word_end": 301,
+				"time_begin": 18097.333333333336,
+				"time_end": 18268
+			},
+			{
+				"word": " ",
+				"word_begin": 302,
+				"word_end": 303,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 301,
+				"pronounce_word_end": 302,
+				"time_begin": 18268,
+				"time_end": 18310.666666666668
+			},
+			{
+				"word": "still",
+				"word_begin": 303,
+				"word_end": 308,
+				"pronounce_word": "still",
+				"pronounce_word_begin": 302,
+				"pronounce_word_end": 307,
+				"time_begin": 18310.666666666668,
+				"time_end": 18438.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 308,
+				"word_end": 309,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 307,
+				"pronounce_word_end": 308,
+				"time_begin": 18438.666666666668,
+				"time_end": 18481.333333333336
+			},
+			{
+				"word": "dri",
+				"word_begin": 309,
+				"word_end": 312,
+				"pronounce_word": "dri",
+				"pronounce_word_begin": 308,
+				"pronounce_word_end": 311,
+				"time_begin": 18481.333333333336,
+				"time_end": 18737.333333333336
+			},
+			{
+				"word": "ft",
+				"word_begin": 312,
+				"word_end": 314,
+				"pronounce_word": "ft",
+				"pronounce_word_begin": 311,
+				"pronounce_word_end": 313,
+				"time_begin": 18737.333333333336,
+				"time_end": 18865.333333333336
+			},
+			{
+				"word": " ",
+				"word_begin": 314,
+				"word_end": 315,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 313,
+				"pronounce_word_end": 314,
+				"time_begin": 18865.333333333336,
+				"time_end": 18908
+			},
+			{
+				"word": "from",
+				"word_begin": 315,
+				"word_end": 319,
+				"pronounce_word": "from",
+				"pronounce_word_begin": 314,
+				"pronounce_word_end": 318,
+				"time_begin": 18908,
+				"time_end": 18993.333333333336
+			},
+			{
+				"word": " ",
+				"word_begin": 319,
+				"word_end": 320,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 318,
+				"pronounce_word_end": 319,
+				"time_begin": 18993.333333333336,
+				"time_end": 19036
+			},
+			{
+				"word": "the",
+				"word_begin": 320,
+				"word_end": 323,
+				"pronounce_word": "the",
+				"pronounce_word_begin": 319,
+				"pronounce_word_end": 322,
+				"time_begin": 19036,
+				"time_end": 19121.333333333336
+			},
+			{
+				"word": " ",
+				"word_begin": 323,
+				"word_end": 324,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 322,
+				"pronounce_word_end": 323,
+				"time_begin": 19121.333333333336,
+				"time_end": 19164
+			},
+			{
+				"word": "tem",
+				"word_begin": 324,
+				"word_end": 327,
+				"pronounce_word": "tem",
+				"pronounce_word_begin": 323,
+				"pronounce_word_end": 326,
+				"time_begin": 19164,
+				"time_end": 19249.333333333336
+			},
+			{
+				"word": "pl",
+				"word_begin": 327,
+				"word_end": 329,
+				"pronounce_word": "pl",
+				"pronounce_word_begin": 326,
+				"pronounce_word_end": 328,
+				"time_begin": 19249.333333333336,
+				"time_end": 19420
+			},
+			{
+				"word": "ates",
+				"word_begin": 329,
+				"word_end": 333,
+				"pronounce_word": "ates",
+				"pronounce_word_begin": 328,
+				"pronounce_word_end": 332,
+				"time_begin": 19420,
+				"time_end": 19548
+			},
+			{
+				"word": ",",
+				"word_begin": 333,
+				"word_end": 334,
+				"pronounce_word": ",",
+				"pronounce_word_begin": 332,
+				"pronounce_word_end": 333,
+				"time_begin": 19548,
+				"time_end": 19718.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 334,
+				"word_end": 335,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 333,
+				"pronounce_word_end": 334,
+				"time_begin": 19718.666666666668,
+				"time_end": 19761.333333333332
+			},
+			{
+				"word": "affect",
+				"word_begin": 335,
+				"word_end": 341,
+				"pronounce_word": "affect",
+				"pronounce_word_begin": 334,
+				"pronounce_word_end": 340,
+				"time_begin": 19761.333333333332,
+				"time_end": 20316
+			},
+			{
+				"word": "ing",
+				"word_begin": 341,
+				"word_end": 344,
+				"pronounce_word": "ing",
+				"pronounce_word_begin": 340,
+				"pronounce_word_end": 343,
+				"time_begin": 20316,
+				"time_end": 20529.333333333336
+			},
+			{
+				"word": " ",
+				"word_begin": 344,
+				"word_end": 345,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 343,
+				"pronounce_word_end": 344,
+				"time_begin": 20529.333333333336,
+				"time_end": 20572
+			},
+			{
+				"word": "re",
+				"word_begin": 345,
+				"word_end": 347,
+				"pronounce_word": "re",
+				"pronounce_word_begin": 344,
+				"pronounce_word_end": 346,
+				"time_begin": 20572,
+				"time_end": 20742.666666666668
+			},
+			{
+				"word": "con",
+				"word_begin": 347,
+				"word_end": 350,
+				"pronounce_word": "con",
+				"pronounce_word_begin": 346,
+				"pronounce_word_end": 349,
+				"time_begin": 20742.666666666668,
+				"time_end": 20870.666666666668
+			},
+			{
+				"word": "struction",
+				"word_begin": 350,
+				"word_end": 359,
+				"pronounce_word": "struction",
+				"pronounce_word_begin": 349,
+				"pronounce_word_end": 358,
+				"time_begin": 20870.666666666668,
+				"time_end": 21126.666666666668
+			},
+			{
+				"word": ".",
+				"word_begin": 359,
+				"word_end": 360,
+				"pronounce_word": ".",
+				"pronounce_word_begin": 358,
+				"pronounce_word_end": 359,
+				"time_begin": 21126.666666666668,
+				"time_end": 21553.333333333332
+			}
+		]
+	},
+	{
+		"text": "This stage relies on the closed-source NanoBanana model; the surrounding workflow code is open source.",
+		"pronounce_text": "This stage relies on the closed-source NanoBanana model; the surrounding workflow code is open source.",
+		"time_begin": 22284,
+		"time_end": 28743.637188208617,
+		"text_begin": 359,
+		"text_end": 461,
+		"pronounce_text_begin": 359,
+		"pronounce_text_end": 461,
+		"timestamped_words": [
+			{
+				"word": "This",
+				"word_begin": 359,
+				"word_end": 363,
+				"pronounce_word": "This",
+				"pronounce_word_begin": 359,
+				"pronounce_word_end": 363,
+				"time_begin": 22326.666666666668,
+				"time_end": 22497.333333333332
+			},
+			{
+				"word": " ",
+				"word_begin": 363,
+				"word_end": 364,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 363,
+				"pronounce_word_end": 364,
+				"time_begin": 22497.333333333332,
+				"time_end": 22540
+			},
+			{
+				"word": "stage",
+				"word_begin": 364,
+				"word_end": 369,
+				"pronounce_word": "stage",
+				"pronounce_word_begin": 364,
+				"pronounce_word_end": 369,
+				"time_begin": 22540,
+				"time_end": 22710.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 369,
+				"word_end": 370,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 369,
+				"pronounce_word_end": 370,
+				"time_begin": 22710.666666666668,
+				"time_end": 22753.333333333332
+			},
+			{
+				"word": "re",
+				"word_begin": 370,
+				"word_end": 372,
+				"pronounce_word": "re",
+				"pronounce_word_begin": 370,
+				"pronounce_word_end": 372,
+				"time_begin": 22753.333333333332,
+				"time_end": 23052
+			},
+			{
+				"word": "lies",
+				"word_begin": 372,
+				"word_end": 376,
+				"pronounce_word": "lies",
+				"pronounce_word_begin": 372,
+				"pronounce_word_end": 376,
+				"time_begin": 23052,
+				"time_end": 23180
+			},
+			{
+				"word": " ",
+				"word_begin": 376,
+				"word_end": 377,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 376,
+				"pronounce_word_end": 377,
+				"time_begin": 23180,
+				"time_end": 23222.666666666668
+			},
+			{
+				"word": "on",
+				"word_begin": 377,
+				"word_end": 379,
+				"pronounce_word": "on",
+				"pronounce_word_begin": 377,
+				"pronounce_word_end": 379,
+				"time_begin": 23222.666666666668,
+				"time_end": 23393.333333333332
+			},
+			{
+				"word": " ",
+				"word_begin": 379,
+				"word_end": 380,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 379,
+				"pronounce_word_end": 380,
+				"time_begin": 23393.333333333332,
+				"time_end": 23436
+			},
+			{
+				"word": "the",
+				"word_begin": 380,
+				"word_end": 383,
+				"pronounce_word": "the",
+				"pronounce_word_begin": 380,
+				"pronounce_word_end": 383,
+				"time_begin": 23436,
+				"time_end": 23521.333333333332
+			},
+			{
+				"word": " ",
+				"word_begin": 383,
+				"word_end": 384,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 383,
+				"pronounce_word_end": 384,
+				"time_begin": 23521.333333333332,
+				"time_end": 23564
+			},
+			{
+				"word": "closed",
+				"word_begin": 384,
+				"word_end": 390,
+				"pronounce_word": "closed",
+				"pronounce_word_begin": 384,
+				"pronounce_word_end": 390,
+				"time_begin": 23564,
+				"time_end": 23692
+			},
+			{
+				"word": "-",
+				"word_begin": 390,
+				"word_end": 391,
+				"pronounce_word": "-",
+				"pronounce_word_begin": 390,
+				"pronounce_word_end": 391,
+				"time_begin": 23692,
+				"time_end": 23734.666666666668
+			},
+			{
+				"word": "source",
+				"word_begin": 391,
+				"word_end": 397,
+				"pronounce_word": "source",
+				"pronounce_word_begin": 391,
+				"pronounce_word_end": 397,
+				"time_begin": 23734.666666666668,
+				"time_end": 24033.333333333332
+			},
+			{
+				"word": " ",
+				"word_begin": 397,
+				"word_end": 398,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 397,
+				"pronounce_word_end": 398,
+				"time_begin": 24033.333333333332,
+				"time_end": 24076
+			},
+			{
+				"word": "N",
+				"word_begin": 398,
+				"word_end": 399,
+				"pronounce_word": "N",
+				"pronounce_word_begin": 398,
+				"pronounce_word_end": 399,
+				"time_begin": 24076,
+				"time_end": 24502.666666666668
+			},
+			{
+				"word": "an",
+				"word_begin": 399,
+				"word_end": 401,
+				"pronounce_word": "an",
+				"pronounce_word_begin": 399,
+				"pronounce_word_end": 401,
+				"time_begin": 24502.666666666668,
+				"time_end": 24630.666666666668
+			},
+			{
+				"word": "o",
+				"word_begin": 401,
+				"word_end": 402,
+				"pronounce_word": "o",
+				"pronounce_word_begin": 401,
+				"pronounce_word_end": 402,
+				"time_begin": 24630.666666666668,
+				"time_end": 24758.666666666668
+			},
+			{
+				"word": "B",
+				"word_begin": 402,
+				"word_end": 403,
+				"pronounce_word": "B",
+				"pronounce_word_begin": 402,
+				"pronounce_word_end": 403,
+				"time_begin": 24758.666666666668,
+				"time_end": 24801.333333333332
+			},
+			{
+				"word": "an",
+				"word_begin": 403,
+				"word_end": 405,
+				"pronounce_word": "an",
+				"pronounce_word_begin": 403,
+				"pronounce_word_end": 405,
+				"time_begin": 24801.333333333332,
+				"time_end": 24929.333333333332
+			},
+			{
+				"word": "ana",
+				"word_begin": 405,
+				"word_end": 408,
+				"pronounce_word": "ana",
+				"pronounce_word_begin": 405,
+				"pronounce_word_end": 408,
+				"time_begin": 24929.333333333332,
+				"time_end": 25057.333333333332
+			},
+			{
+				"word": " ",
+				"word_begin": 408,
+				"word_end": 409,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 408,
+				"pronounce_word_end": 409,
+				"time_begin": 25057.333333333332,
+				"time_end": 25100
+			},
+			{
+				"word": "model",
+				"word_begin": 409,
+				"word_end": 414,
+				"pronounce_word": "model",
+				"pronounce_word_begin": 409,
+				"pronounce_word_end": 414,
+				"time_begin": 25100,
+				"time_end": 25398.666666666668
+			},
+			{
+				"word": ";",
+				"word_begin": 414,
+				"word_end": 415,
+				"pronounce_word": ";",
+				"pronounce_word_begin": 414,
+				"pronounce_word_end": 415,
+				"time_begin": 25398.666666666668,
+				"time_end": 25569.333333333332
+			},
+			{
+				"word": " ",
+				"word_begin": 415,
+				"word_end": 416,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 415,
+				"pronounce_word_end": 416,
+				"time_begin": 25569.333333333332,
+				"time_end": 25612
+			},
+			{
+				"word": "the",
+				"word_begin": 416,
+				"word_end": 419,
+				"pronounce_word": "the",
+				"pronounce_word_begin": 416,
+				"pronounce_word_end": 419,
+				"time_begin": 25612,
+				"time_end": 25740
+			},
+			{
+				"word": " ",
+				"word_begin": 419,
+				"word_end": 420,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 419,
+				"pronounce_word_end": 420,
+				"time_begin": 25740,
+				"time_end": 25868
+			},
+			{
+				"word": "surround",
+				"word_begin": 420,
+				"word_end": 428,
+				"pronounce_word": "surround",
+				"pronounce_word_begin": 420,
+				"pronounce_word_end": 428,
+				"time_begin": 25868,
+				"time_end": 26124
+			},
+			{
+				"word": "ing",
+				"word_begin": 428,
+				"word_end": 431,
+				"pronounce_word": "ing",
+				"pronounce_word_begin": 428,
+				"pronounce_word_end": 431,
+				"time_begin": 26124,
+				"time_end": 26380
+			},
+			{
+				"word": " ",
+				"word_begin": 431,
+				"word_end": 432,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 431,
+				"pronounce_word_end": 432,
+				"time_begin": 26380,
+				"time_end": 26422.666666666664
+			},
+			{
+				"word": "work",
+				"word_begin": 432,
+				"word_end": 436,
+				"pronounce_word": "work",
+				"pronounce_word_begin": 432,
+				"pronounce_word_end": 436,
+				"time_begin": 26422.666666666664,
+				"time_end": 26593.333333333332
+			},
+			{
+				"word": "flow",
+				"word_begin": 436,
+				"word_end": 440,
+				"pronounce_word": "flow",
+				"pronounce_word_begin": 436,
+				"pronounce_word_end": 440,
+				"time_begin": 26593.333333333332,
+				"time_end": 26849.333333333332
+			},
+			{
+				"word": " ",
+				"word_begin": 440,
+				"word_end": 441,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 440,
+				"pronounce_word_end": 441,
+				"time_begin": 26849.333333333332,
+				"time_end": 26892
+			},
+			{
+				"word": "code",
+				"word_begin": 441,
+				"word_end": 445,
+				"pronounce_word": "code",
+				"pronounce_word_begin": 441,
+				"pronounce_word_end": 445,
+				"time_begin": 26892,
+				"time_end": 27105.333333333332
+			},
+			{
+				"word": " ",
+				"word_begin": 445,
+				"word_end": 446,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 445,
+				"pronounce_word_end": 446,
+				"time_begin": 27105.333333333332,
+				"time_end": 27148
+			},
+			{
+				"word": "is",
+				"word_begin": 446,
+				"word_end": 448,
+				"pronounce_word": "is",
+				"pronounce_word_begin": 446,
+				"pronounce_word_end": 448,
+				"time_begin": 27148,
+				"time_end": 27574.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 448,
+				"word_end": 449,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 448,
+				"pronounce_word_end": 449,
+				"time_begin": 27574.666666666668,
+				"time_end": 27617.333333333332
+			},
+			{
+				"word": "open",
+				"word_begin": 449,
+				"word_end": 453,
+				"pronounce_word": "open",
+				"pronounce_word_begin": 449,
+				"pronounce_word_end": 453,
+				"time_begin": 27617.333333333332,
+				"time_end": 27830.666666666668
+			},
+			{
+				"word": " ",
+				"word_begin": 453,
+				"word_end": 454,
+				"pronounce_word": " ",
+				"pronounce_word_begin": 453,
+				"pronounce_word_end": 454,
+				"time_begin": 27830.666666666668,
+				"time_end": 27873.333333333332
+			},
+			{
+				"word": "source",
+				"word_begin": 454,
+				"word_end": 460,
+				"pronounce_word": "source",
+				"pronounce_word_begin": 454,
+				"pronounce_word_end": 460,
+				"time_begin": 27873.333333333332,
+				"time_end": 28172
+			},
+			{
+				"word": ".",
+				"word_begin": 460,
+				"word_end": 461,
+				"pronounce_word": ".",
+				"pronounce_word_begin": 460,
+				"pronounce_word_end": 461,
+				"time_begin": 28172,
+				"time_end": 28556
+			}
+		]
+	}
+]

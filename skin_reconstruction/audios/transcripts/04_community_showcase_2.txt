@@ -1,0 +1,1 @@
+These examples span diverse art styles—from anime and illustrations to game renders and painterly art. As each model turns, check whether the front, sides, and back remain visually coherent. Some details translate cleanly, while others are simplified or inferred where the original image provides no direct view.

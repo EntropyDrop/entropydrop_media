@@ -864,6 +864,7 @@ const html = `<!doctype html>
 </head>
 <body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="455.000" data-width="1920" data-height="1080">
+  <audio id="vo-full" class="clip voiceover-track" src="audios/voiceover_full.wav" data-start="0" data-duration="455.000" data-track-index="70" data-media-start="0" data-volume="1" preload="auto"></audio>
   ${scenes}
   ${subtitles}
 </div>

@@ -94,6 +94,13 @@ input {
    SUBTITLE BAR
    ========================================================================= */
 
+.voiceover-track {
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .subtitle-line {
   position: absolute;
   left: 260px;
