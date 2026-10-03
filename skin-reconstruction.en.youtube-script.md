@@ -111,8 +111,8 @@ Community results · Live demo · Open-source reconstruction
 | 3:30–4:10 | Website: upload | 地址、登录、Upload Reference | 上传参考图，介绍 SKING DDJ 系列并区分线上限免与本地部署 | 1. Upload a reference |
 | 4:10–4:50 | Viewer: modes | 切换 Voxel、Plane、Cute 模式并旋转观察 | 介绍 3D Viewer 的 Voxel、Plane、Cute 三种渲染模式 | Modes: Voxel · Plane · Cute |
 | 4:50–5:30 | Viewer: actions | 切换 Idle、Walk、Dance 动作，点击 Download | 用动作检查接缝与肢体贴图对齐，确认效果后下载 PNG | Actions: Idle · Walk · Dance |
-| 5:30–6:00 | How pipeline works | 参考图 + 模板 → 固定格式正背面图 | 两阶段管线架构：Stage 1 图像模型理解角色，转换到统一 Minecraft 正背面视图 | How the Pipeline Works |
-| 6:00–6:45 | Stage two | 用三个问题组织画面：像素属于哪里？不可见区域怎么补？重渲染后是否更匹配？ | 以三个问题解释可见像素路由、保守补全与重渲染校验，最终得到 64×64 皮肤 | Fixed views → Reconstructed Skin |
+| 5:30–6:00 | How pipeline works | 参考图 + 模板 → 固定格式正背面图 | Stage 1 用模板引导正交投影、姿态与画面位置；生成视图仍可能偏离模板，影响后续重建 | How the Pipeline Works |
+| 6:00–6:45 | Stage two | 同一角色贯穿三个陈述式环节：像素映射到皮肤层、补全缺失内层、重渲染指导优化 | 固定几何与语义判断共同决定像素归属；只补未知内层；用双视图重渲染检查局部头部修正并优化可见头部颜色，输出 64×64 皮肤 | Pixel routing · Inner-layer completion · Re-rendering check |
 | 6:45–7:35 | Technical details | Hugging Face 仓库、模型权重清单、GitHub 源码、在线生成器与订阅卡片 | 简化结尾，不谈未来规划；重点引导观众访问 Hugging Face 仓库获取模型权重、技术架构与评测细节 | Hugging Face · Open Source · Subscribe |
 
 ## Website Recording Notes
@@ -213,28 +213,25 @@ To try the model online, open entropydrop dot com and sign in, then upload a ref
 
 - Audio file: `skin_reconstruction/audios/08_how_pipeline_works.mp3`
 - Target duration: `30s`
-- Visual direction: 从网站操作平滑切入两阶段架构图，展示 Stage 1 固定视角生成机制：左侧角色参考图（Character Reference）+ 中间固定模板（Fixed Layout Templates）作为输入，经由中间带有 Google Gemini 图标的 NanoBanana 模型节点处理，右侧输出规范化正背面图（Normalized Dual Views）。
+- Visual direction: 从网站操作平滑切入两阶段架构图：左侧角色参考图（Character Reference）+ 中间固定模板（Fixed Layout Templates）作为输入，经由带有 Google Gemini 图标的 NanoBanana 模型节点处理，右侧输出规范化正背面图（Normalized Dual Views）。叠加模板轮廓说明正交投影、姿态与画面位置的引导作用，标注 `Template-guided views`；讲到偏差时展示轮廓错位如何影响后续对应关系，避免把模板画成能严格锁定生成结果的几何约束。
 
 ```text
-The pipeline has two stages. In Stage One, Fixed Views Generation, NanoBanana receives the character reference alongside fixed layout templates that enforce an orthogonal dual-view camera and pose. By conditioning on these structural templates, NanoBanana synthesizes standardized front and back Minecraft views while preserving the character's identity and outfit. This stage relies on the closed-source NanoBanana model, while the surrounding pipeline workflow is fully open source.
+The pipeline has two stages. In Stage One, NanoBanana receives the character reference and fixed layout templates. These guide the model toward front and back Minecraft views with a consistent orthographic camera, pose, and placement, while retaining recognizable character features. Generated views can still drift from the templates, affecting reconstruction. This stage relies on the closed-source NanoBanana model; the surrounding workflow code is open source.
 ```
 
 ### VO 09 | 6:00-6:45 | stage_two | Stage Two: Reconstruct the Skin
 
 - Audio file: `skin_reconstruction/audios/09_stage_two.mp3`
 - Target duration: `45s`
-- Visual direction: 随流水线进度分步点亮 5 个卡片并同步推进字幕：`1. Silhouette Extraction`（360-368.5s 前景隔离与网格对齐）→ `2. Dense UV Parser`（368.5-377.5s 语义路由与内外层分配）→ `3. Topological Inpainting`（377.5-386.5s 最近邻与对称可见区域补全）→ `4. Head Decoder`（386.5-395.5s 头部与发型配件接缝修复）→ `5. Game-Ready Skin`（395.5-405s 最终皮肤生成）。
+- Visual direction: 使用同一角色的真实中间结果，依次点亮三个陈述式卡片，按实际配音安排切换：`1. Pixels map to skin layers` 展示前景分离、固定几何候选，以及可见像素到身体部位、表面和内外层的映射；放大头发或帽子示例说明专门的语义与层归属判断。`2. Missing inner pixels are filled` 只高亮未知内层像素，演示优先镜像、其次同部位邻近颜色的补全；已知内层与完整外层在这一步保持不变。`3. Rendered views guide refinement` 对比输入与重渲染的两个头部视图，展示有证据支持的局部头部修正与可见头部颜色优化，最后展示 64×64 PNG 和旋转预览。
+- Technical guardrails: 以 v101/v101c 技术文章为准。前景分离不负责重塑网格；头部语义分支不表述为通用复杂发型或配件接缝修复器。内层补全不生成新外层像素。若展示王冠几何修正，只展示重渲染证据支持的外层头顶像素移除；可见材质拟合只更新头部颜色、固定 alpha 与身体贴图，并仅接受降低重建误差的更新。三个环节是叙事分组，不暗示所有局部修正共用一个损失或构成三个独立网络。
 
 ```text
-Stage two reconstructs the skin across five geometric steps. First, silhouette extraction isolates the foreground and aligns mesh geometry.
+Stage Two reconstructs the skin from the normalized views. After foreground extraction, fixed geometry and the Dense UV Parser map visible pixels to body parts, faces, and skin layers, with specialized decisions for hair and headwear.
 
-Second, the Dense UV Parser routes visible pixels across body parts, distinguishing the base body from outer volume layers.
+Missing inner-layer pixels are then filled using mirrored or nearby colors from the same body part. This step leaves the outer layer unchanged.
 
-Third, topological inpainting completes unseen surfaces. It combines nearest-neighbor color completion with symmetric visible regions.
-
-Fourth, the head decoder resolves multi-face seams for complex 3D hairstyles, healing boundary alignment across accessories.
-
-Finally, material refitting and color refinement generate the final texture, producing the game-ready Minecraft skin.
+Re-rendering guides targeted head corrections and visible head color refinement. The pipeline checks both views and accepts color updates only when reconstruction error decreases. The output is a standard sixty-four by sixty-four skin.
 ```
 
 ### VO 10 | 6:45-7:35 | technical_details | Open Source & Technical Details
@@ -244,13 +241,13 @@ Finally, material refitting and color refinement generate the final texture, pro
 - Visual direction: 聚焦核心开源成果与链接。页面精简展示三大核心入口卡片（GitHub 仓库源码、Hugging Face 模型权重与架构文档、YouTube 频道订阅），去除冗余信息卡、体验卡与文字说明，画面清爽聚焦。
 
 ```text
-The complete workflow code is open source on GitHub, and all Stage Two model weights are available on Hugging Face. For in-depth technical details, visit our Hugging Face repository, or check out our technical article linked below. If you enjoyed this video, subscribe to the channel. Thanks for watching!
+The complete workflow code is open source on GitHub, and all Stage Two model weights are available on Hugging Face. For in-depth technical details, visit our Hugging Face repository, or check out our technical article linked below. If you enjoyed this, be sure to subscribe to the channel for more amazing open-source projects coming soon. Thanks for watching!
 ```
 
 ## Production Handoff
 
 - 本稿确认前，保留现有 `skin_reconstruction/index.html`、占位素材清单、字幕和音频文件，不重新生成。
-- 确认后，Hyperframes 按四幕重排：第 1–5 场为开场和多风格效果，第 6 场为在线体验卡片，第 7 场为网站完整教程，第 8–9 场为两阶段原理（Stage 1 规范视角生成与 Stage 2 几何解算重建），第 10 场为开源与技术细节（Open Source & Technical Details）。
+- 确认后，Hyperframes 按四幕重排：第 1–5 场为开场和多风格效果，第 6 场为在线体验卡片，第 7 场为网站完整教程，第 8–9 场为两阶段原理（Stage 1 模板引导的规范视角生成与 Stage 2 像素归属、内层补全和重渲染检查），第 10 场为开源与技术细节（Open Source & Technical Details）。
 - 网站教程占 3:40–5:30；两阶段原理占 5:30–6:45；开源与技术细节占 6:45–7:35（总长 7:35 / 455s）。
 - 生成新旁白时使用本稿的新文件名，避免误用旧 MP3。
 

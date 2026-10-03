@@ -1914,169 +1914,104 @@ h2 em {
   line-height: 1.45;
 }
 
-/* 5-Step Stage Two Pipeline Diagram */
-.stage-two-layout {
+/* Stage One template guidance and Stage Two reconstruction panels */
+.template-guidance {
   display: flex;
   flex-direction: column;
-  margin-top: 24px;
-}
-
-.pipeline-diagram-five {
-  display: flex;
-  align-items: stretch;
   gap: 12px;
-  width: 100%;
+  margin-top: 22px;
+  padding: 18px 24px;
+  border-left: 5px solid var(--green);
+  background: var(--green-soft);
+  font-size: 22px;
 }
+.template-guidance strong { color: var(--green-dark); font-size: 18px; }
 
-.pipeline-diagram-five>div.step-card {
-  flex: 1;
-  height: 640px;
-  border: 2px solid #1a201c;
+.stage-two-layout { margin-top: 24px; }
+.reconstruction-topics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 22px;
+}
+.reconstruction-topic {
+  height: 126px;
+  padding: 18px 22px;
+  border: 2px solid var(--line-soft);
   background: var(--panel);
-  padding: 22px 18px 20px;
+  opacity: 0.8;
   display: flex;
   flex-direction: column;
-  border-radius: 0 !important;
-  box-shadow: var(--shadow-pixel-sm);
-  opacity: 0.72;
-  will-change: transform, border-color, background-color, box-shadow, opacity;
+  align-items: flex-start;
+  gap: 12px;
 }
-
-.pipeline-diagram-five>div.step-card.active-step {
-  border: 3px solid var(--green);
-  background: #f4faf5;
-  opacity: 1;
-  box-shadow: var(--shadow-pixel-green);
-  transform: translateY(-6px);
-}
-
-.step-card-header {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 14px;
-}
-
-.step-card-header b.step-badge-num {
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+.topic-number {
+  padding: 4px 10px;
   color: var(--green-dark);
   background: var(--green-soft);
-  border: 1.5px solid var(--green);
-  padding: 3px 8px;
-  border-radius: 0 !important;
-  box-shadow: var(--shadow-pixel-green);
-  width: fit-content;
-  display: inline-block;
-  margin-bottom: 2px;
+  font-size: 16px;
 }
-
-.step-card-header strong {
-  font-size: 19px;
-  font-weight: 800;
-  color: var(--ink);
-  line-height: 1.25;
-  min-height: 48px;
-  display: flex;
-  align-items: center;
+.reconstruction-topic strong { font-size: 26px; line-height: 1.25; }
+.reconstruction-panels { position: relative; height: 570px; }
+.reconstruction-panel {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 440px;
+  grid-template-rows: minmax(0, 1fr);
+  gap: 32px;
+  padding: 26px;
+  border: 2px solid var(--line);
+  background: var(--panel);
+  box-shadow: var(--shadow-pixel);
+  visibility: hidden;
+  opacity: 0;
 }
-
-.step-card-header span {
-  color: var(--muted);
-  font-size: 13.5px;
-  line-height: 1.45;
-  min-height: 58px;
-}
-
-.step-card-media {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--panel-2);
-  border: 2px solid #1a201c;
-  border-radius: 0 !important;
-  padding: 12px;
+.reconstruction-evidence {
+  min-width: 0;
   min-height: 0;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
 }
-
-.step-media-box {
+.evidence-figure {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  gap: 16px;
+}
+.evidence-figure figcaption { min-height: 28px; font-size: 22px; color: var(--green-dark); }
+.evidence-image {
+  position: relative;
+  flex: 1;
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  padding: 12px;
+  background-color: var(--panel-2);
+  background-image: conic-gradient(#dce2d9 25%, transparent 0 50%, #dce2d9 0 75%, transparent 0);
+  background-size: 24px 24px;
+  border: 1px solid var(--line-soft);
   overflow: hidden;
 }
-
-.step-img {
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 0 !important;
+.evidence-image img { position: absolute; inset: 12px; width: calc(100% - 24px); height: calc(100% - 24px); object-fit: contain; }
+.evidence-image img.uv-evidence { image-rendering: pixelated; }
+.reconstruction-explanation { min-height: 0; display: flex; flex-direction: column; gap: 22px; padding: 10px 6px; }
+.reconstruction-label { color: var(--green-dark); font-size: 17px; }
+.reconstruction-explanation h3 { font-size: 32px; line-height: 1.2; }
+.reconstruction-explanation p { font-size: 24px; line-height: 1.45; }
+.reconstruction-explanation .reconstruction-detail { font-size: 22px; color: var(--muted); }
+.reconstruction-result {
+  margin-top: auto;
+  border-top: 2px solid var(--green);
+  padding-top: 18px;
+  font-size: 20px;
+  color: var(--green-dark);
 }
-
-.step-img.cutout-img {
-  width: 100%;
-  height: auto;
-  max-height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(3px 3px 0px rgba(22, 26, 23, 0.08));
-}
-
-.step-img.routed-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 0 !important;
-  border: 1.5px solid #1a201c;
-  box-shadow: var(--shadow-pixel-sm);
-}
-
-.step-img.uv-pixel-img {
-  width: 100%;
-  max-width: 250px;
-  aspect-ratio: 1 / 1;
-  height: auto;
-  image-rendering: pixelated;
-  border: 2px solid #1a201c;
-  box-shadow: var(--shadow-pixel-sm);
-}
-
-.step-img.headwear-img {
-  width: 100%;
-  height: auto;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 0 !important;
-  border: 1.5px solid #1a201c;
-  box-shadow: var(--shadow-pixel-sm);
-}
-
-.step-img.final-skin-img {
-  width: 100%;
-  height: auto;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 0 !important;
-  border: 1.5px solid #1a201c;
-  box-shadow: var(--shadow-pixel-sm);
-}
-
-.pipeline-diagram-five>i.step-arrow {
-  font-size: 26px;
-  color: var(--green);
-  font-style: normal;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  opacity: 0.35;
-  transition: all 0.3s ease;
-}
+.reconstruction-source-note { margin-top: 14px; color: var(--muted); font-size: 17px; }
 
 /* Subscribe Banner Box (Scene 12) */
 .subscribe-banner-box {
@@ -3383,7 +3318,7 @@ h2 em {
     <div class="scene-head">
       <div>
         <span class="kicker">Two-Stage Architecture</span>
-        <h2>How the Pipeline Works: Stage 1 Fixed Views Generation</h2>
+        <h2>Stage One: Template-Guided Views</h2>
       </div>
     </div>
     <div class="stage-one-layout">
@@ -3435,6 +3370,7 @@ h2 em {
             <div class="process-text-group">
               <span class="process-kicker">PROCESSED BY</span>
               <strong class="process-title">NanoBanana</strong>
+              <span class="process-kicker">CLOSED-SOURCE MODEL</span>
             </div>
           </div>
           <span class="process-arrow-out">&rarr;</span>
@@ -3451,6 +3387,10 @@ h2 em {
         </div>
       </div>
     </div>
+    <div class="template-guidance">
+      <strong>ORTHOGRAPHIC CAMERA · CONSISTENT POSE · FIXED PLACEMENT</strong>
+      <span id="template-drift-note">Templates guide the views. Camera or pose drift can affect reconstruction.</span>
+    </div>
   </section>
 <section id="scene-9" class="scene clip" data-start="360.000" data-duration="45.000" data-track-index="9">
     <div class="scene-head">
@@ -3460,72 +3400,73 @@ h2 em {
       </div>
     </div>
     <div class="stage-two-layout">
-      <div class="pipeline-diagram-five">
-        <div id="stage2-step-1" class="step-card" data-step="1">
-          <div class="step-card-header">
-            <b class="step-badge-num">STEP 01</b>
-            <strong>SILHOUETTE EXTRACTION</strong>
-            <span>Isolates character foreground and aligns mesh silhouette geometry</span>
-          </div>
-          <div class="step-card-media">
-            <div class="step-media-box">
-              <img src="assets/img24_cutout.png" alt="Silhouette Cutout" class="step-img cutout-img" />
-            </div>
-          </div>
+      <div class="reconstruction-topics">
+        <div id="stage2-topic-1" class="reconstruction-topic">
+          <b class="topic-number">PART 01</b>
+          <strong>Pixels map to skin layers</strong>
+        </div><div id="stage2-topic-2" class="reconstruction-topic">
+          <b class="topic-number">PART 02</b>
+          <strong>Missing inner pixels are filled</strong>
+        </div><div id="stage2-topic-3" class="reconstruction-topic">
+          <b class="topic-number">PART 03</b>
+          <strong>Rendered views guide refinement</strong>
         </div>
-        <i id="stage2-arrow-1" class="step-arrow">&rarr;</i>
-        <div id="stage2-step-2" class="step-card" data-step="2">
-          <div class="step-card-header">
-            <b class="step-badge-num">STEP 02</b>
-            <strong>DENSE UV PARSER</strong>
-            <span>Routes visible pixels across body parts: inner base &amp; outer volume layers</span>
+      </div>
+      <div class="reconstruction-panels">
+        <div id="stage2-panel-1" class="reconstruction-panel">
+          <div class="reconstruction-evidence">
+            <figure class="evidence-figure">
+              <figcaption>Isolate the foreground</figcaption>
+              <div class="evidence-image"><img id="stage2-evidence-1-1" src="assets/img24_cutout.png" alt="Isolate the foreground" class=" clip" data-start="360.000" data-duration="17.609" data-track-index="140"></div>
+            </figure><figure class="evidence-figure">
+              <figcaption>Map visible surfaces</figcaption>
+              <div class="evidence-image"><img id="stage2-evidence-1-2" src="assets/img24_routed.png" alt="Map visible surfaces" class=" clip" data-start="360.000" data-duration="17.609" data-track-index="141"></div>
+            </figure>
           </div>
-          <div class="step-card-media">
-            <div class="step-media-box">
-              <img src="assets/img24_routed.png" alt="Semantic Routing" class="step-img routed-img" />
-            </div>
+          <div class="reconstruction-explanation">
+            <span class="reconstruction-label">PIXEL ROUTING</span>
+            <h3>Geometry + image semantics</h3>
+            <p>Fixed geometry limits the possible body parts, faces and skin layers. The parser selects the supported assignment.</p>
+            <p class="reconstruction-detail">Specialized head decisions help distinguish hair and headwear.</p>
+            <strong class="reconstruction-result">VISIBLE PIXELS → SKIN LAYERS</strong>
           </div>
-        </div>
-        <i id="stage2-arrow-2" class="step-arrow">&rarr;</i>
-        <div id="stage2-step-3" class="step-card" data-step="3">
-          <div class="step-card-header">
-            <b class="step-badge-num">STEP 03</b>
-            <strong>TOPOLOGICAL INPAINTING</strong>
-            <span>Inpaints occluded surfaces via nearest-neighbor &amp; symmetric mapping</span>
+        </div><div id="stage2-panel-2" class="reconstruction-panel">
+          <div class="reconstruction-evidence">
+            <figure class="evidence-figure">
+              <figcaption>Observed UV pixels</figcaption>
+              <div class="evidence-image"><img id="stage2-evidence-2-1" src="assets/parser_only_uv.png" alt="Observed UV pixels" class="uv-evidence clip" data-start="377.609" data-duration="11.250" data-track-index="142"></div>
+            </figure><figure class="evidence-figure">
+              <figcaption>After inner-layer completion</figcaption>
+              <div class="evidence-image"><img id="stage2-evidence-2-2" src="assets/parser_pred_uv_simple_inpainting.png" alt="After inner-layer completion" class="uv-evidence clip" data-start="377.609" data-duration="11.250" data-track-index="143"></div>
+            </figure>
           </div>
-          <div class="step-card-media">
-            <div class="step-media-box">
-              <img src="assets/parser_pred_uv_simple_inpainting.png" alt="Inpainted UV" class="step-img uv-pixel-img" />
-            </div>
+          <div class="reconstruction-explanation">
+            <span class="reconstruction-label">INNER-LAYER COMPLETION</span>
+            <h3>Fill only missing inner pixels</h3>
+            <p>Use a mirrored pixel first, then nearby colors from the same body part when evidence is missing.</p>
+            <p class="reconstruction-detail">Known inner pixels and the complete outer layer stay unchanged in this step.</p>
+            <strong class="reconstruction-result">SAME BODY PART · EXISTING COLORS</strong>
           </div>
-        </div>
-        <i id="stage2-arrow-3" class="step-arrow">&rarr;</i>
-        <div id="stage2-step-4" class="step-card" data-step="4">
-          <div class="step-card-header">
-            <b class="step-badge-num">STEP 04</b>
-            <strong>HEAD DECODER</strong>
-            <span>Resolves multi-face seams for complex 3D hairstyles and accessories</span>
+        </div><div id="stage2-panel-3" class="reconstruction-panel">
+          <div class="reconstruction-evidence">
+            <figure class="evidence-figure">
+              <figcaption>Input front + back views</figcaption>
+              <div class="evidence-image"><img id="stage2-evidence-3-1" src="assets/img24_template41_51_52.png" alt="Input front + back views" class=" clip" data-start="388.859" data-duration="16.141" data-track-index="144"></div>
+            </figure><figure class="evidence-figure">
+              <figcaption>Reconstructed front + back views</figcaption>
+              <div class="evidence-image"><img id="stage2-evidence-3-2" src="assets/img24_final.png" alt="Reconstructed front + back views" class=" clip" data-start="388.859" data-duration="16.141" data-track-index="145"></div>
+            </figure>
           </div>
-          <div class="step-card-media">
-            <div class="step-media-box">
-              <img src="assets/v101_headwear_comparison.png" alt="Headwear Separation" class="step-img headwear-img" />
-            </div>
-          </div>
-        </div>
-        <i id="stage2-arrow-4" class="step-arrow">&rarr;</i>
-        <div id="stage2-step-5" class="step-card" data-step="5">
-          <div class="step-card-header">
-            <b class="step-badge-num">STEP 05</b>
-            <strong>GAME-READY SKIN</strong>
-            <span>Material refitting and color refinement to generate final skin</span>
-          </div>
-          <div class="step-card-media">
-            <div class="step-media-box">
-              <img src="assets/skin-reconstruction.png" alt="Game-Ready Skin" class="step-img final-skin-img" />
-            </div>
+          <div class="reconstruction-explanation">
+            <span class="reconstruction-label">RE-RENDERING CHECK</span>
+            <h3>Check both views</h3>
+            <p>Rendered evidence checks targeted head corrections. Visible head colors update only when reconstruction error decreases.</p>
+            <p class="reconstruction-detail">During color fitting, alpha and the body texture stay fixed.</p>
+            <strong class="reconstruction-result">OUTPUT → 64 × 64 RGBA SKIN</strong>
           </div>
         </div>
       </div>
+      <p class="reconstruction-source-note">Illustrative intermediate results from the technical article.</p>
     </div>
   </section>
 <section id="scene-10" class="scene clip" data-start="405.000" data-duration="50.000" data-track-index="10">
@@ -3574,12 +3515,12 @@ h2 em {
   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
 </svg></div>
         <h3>YouTube</h3>
-        <p>Subscribe for upcoming open-source generative models</p>
+        <p>Subscribe for more amazing open-source projects coming soon</p>
         <div class="pixel-url-display">youtube.com/@EntropyDrop</div>
       </a>
     </div>
   </section>
-  <div id="sub-001" class="subtitle-line clip" data-start="0.450" data-duration="5.042" data-track-index="81"><span>We have open-sourced another model for turning character images into Minecraft skins.</span></div><div id="sub-002" class="subtitle-line clip" data-start="5.495" data-duration="2.940" data-track-index="81"><span>To show the range of community results,</span></div><div id="sub-003" class="subtitle-line clip" data-start="8.439" data-duration="3.361" data-track-index="81"><span>we picked character images in very different styles.</span></div><div id="sub-004" class="subtitle-line clip" data-start="11.802" data-duration="2.940" data-track-index="81"><span>First we will look at those results,</span></div><div id="sub-005" class="subtitle-line clip" data-start="14.745" data-duration="4.202" data-track-index="81"><span>then try the pipeline online and explain how it works.</span></div><div id="sub-006" class="subtitle-line clip" data-start="20.450" data-duration="3.179" data-track-index="82"><span>Why make another model? In previous versions,</span></div><div id="sub-007" class="subtitle-line clip" data-start="23.632" data-duration="4.997" data-track-index="82"><span>small decorative details were often the hardest part. A flower pattern,</span></div><div id="sub-008" class="subtitle-line clip" data-start="28.632" data-duration="1.815" data-track-index="82"><span>a butterfly hair clip,</span></div><div id="sub-009" class="subtitle-line clip" data-start="30.450" data-duration="5.906" data-track-index="82"><span>or a tiny bear on a shirt has to be translated into only</span></div><div id="sub-010" class="subtitle-line clip" data-start="36.359" data-duration="5.452" data-track-index="82"><span>a few pixels. When those features are treated as ordinary image detail,</span></div><div id="sub-011" class="subtitle-line clip" data-start="41.814" data-duration="5.906" data-track-index="82"><span>their contours can blur, their colors can mix, or their shapes can disappear.</span></div><div id="sub-012" class="subtitle-line clip" data-start="47.723" data-duration="5.452" data-track-index="82"><span>The new pipeline first reinterprets the character in a fixed Minecraft view,</span></div><div id="sub-013" class="subtitle-line clip" data-start="53.177" data-duration="4.088" data-track-index="82"><span>giving the reconstruction stage clearer structure to work with.</span></div><div id="sub-014" class="subtitle-line clip" data-start="60.450" data-duration="4.542" data-track-index="83"><span>Here are real results generated by community creators on EntropyDrop.</span></div><div id="sub-015" class="subtitle-line clip" data-start="64.995" data-duration="2.270" data-track-index="83"><span>Notice how different silhouettes, colors,</span></div><div id="sub-016" class="subtitle-line clip" data-start="67.268" data-duration="5.906" data-track-index="83"><span>and clothing details carry over into the block geometry—and where complex shapes had</span></div><div id="sub-017" class="subtitle-line clip" data-start="73.177" data-duration="1.361" data-track-index="83"><span>to be simplified.</span></div><div id="sub-018" class="subtitle-line clip" data-start="110.450" data-duration="5.906" data-track-index="84"><span>These examples span diverse art styles—from anime and illustrations to game renders and</span></div><div id="sub-019" class="subtitle-line clip" data-start="116.359" data-duration="4.997" data-track-index="84"><span>painterly art. As each model turns, check whether the front, sides,</span></div><div id="sub-020" class="subtitle-line clip" data-start="121.359" data-duration="4.088" data-track-index="84"><span>and back remain visually coherent. Some details translate cleanly,</span></div><div id="sub-021" class="subtitle-line clip" data-start="125.450" data-duration="5.906" data-track-index="84"><span>while others are simplified or inferred where the original image provides no direct</span></div><div id="sub-022" class="subtitle-line clip" data-start="131.359" data-duration="0.452" data-track-index="84"><span>view.</span></div><div id="sub-023" class="subtitle-line clip" data-start="160.450" data-duration="4.088" data-track-index="85"><span>Take a moment to compare the seams, limb textures,</span></div><div id="sub-024" class="subtitle-line clip" data-start="164.541" data-duration="3.633" data-track-index="85"><span>and inferred back details as these characters move.</span></div><div id="sub-025" class="subtitle-line clip" data-start="168.177" data-duration="2.724" data-track-index="85"><span>Not every detail survives the conversion,</span></div><div id="sub-026" class="subtitle-line clip" data-start="170.905" data-duration="4.088" data-track-index="85"><span>so the 3D turn is an important check. Next,</span></div><div id="sub-027" class="subtitle-line clip" data-start="174.995" data-duration="5.906" data-track-index="85"><span>let&#39;s see how you can create and download your own skins on the</span></div><div id="sub-028" class="subtitle-line clip" data-start="180.905" data-duration="0.452" data-track-index="85"><span>website.</span></div><div id="sub-029" class="subtitle-line clip" data-start="210.450" data-duration="3.514" data-track-index="86"><span>Want to try it yourself? Visit entropydrop.com for the free online generator.</span></div><div id="sub-030" class="subtitle-line clip" data-start="213.967" data-duration="2.635" data-track-index="86"><span>We also open-sourced the training details and model weights,</span></div><div id="sub-031" class="subtitle-line clip" data-start="216.605" data-duration="2.342" data-track-index="86"><span>so you can train or deploy it locally.</span></div><div id="sub-032" class="subtitle-line clip" data-start="220.450" data-duration="5.452" data-track-index="87"><span>To try the model online, open entropydrop dot com and sign in,</span></div><div id="sub-033" class="subtitle-line clip" data-start="225.905" data-duration="2.270" data-track-index="87"><span>then upload a reference image.</span></div><div id="sub-034" class="subtitle-line clip" data-start="228.177" data-duration="5.452" data-track-index="87"><span>The model featured in this video is named the SKING DDJ series.</span></div><div id="sub-035" class="subtitle-line clip" data-start="233.632" data-duration="3.179" data-track-index="87"><span>Click the generate button, and after processing,</span></div><div id="sub-036" class="subtitle-line clip" data-start="236.814" data-duration="5.452" data-track-index="87"><span>the result opens directly in the 3D viewer. Once the result opens,</span></div><div id="sub-037" class="subtitle-line clip" data-start="242.268" data-duration="5.906" data-track-index="87"><span>you can test the character with three different motions: Idle, Walk, and Dance.</span></div><div id="sub-038" class="subtitle-line clip" data-start="248.177" data-duration="4.542" data-track-index="87"><span>Idle lets you inspect fine details in a steady pose,</span></div><div id="sub-039" class="subtitle-line clip" data-start="252.723" data-duration="4.088" data-track-index="87"><span>Walk checks limb articulation and joint alignment during movement,</span></div><div id="sub-040" class="subtitle-line clip" data-start="256.814" data-duration="4.542" data-track-index="87"><span>while Dance puts the model through full dynamic choreography. Next,</span></div><div id="sub-041" class="subtitle-line clip" data-start="261.359" data-duration="4.088" data-track-index="87"><span>you can inspect the skin in different display modes.</span></div><div id="sub-042" class="subtitle-line clip" data-start="265.450" data-duration="4.088" data-track-index="87"><span>Voxel mode adds visible depth to the skin texture,</span></div><div id="sub-043" class="subtitle-line clip" data-start="269.541" data-duration="4.088" data-track-index="87"><span>Plane mode shows the classic flat Minecraft box look,</span></div><div id="sub-044" class="subtitle-line clip" data-start="273.632" data-duration="4.088" data-track-index="87"><span>and Cute mode changes the character to chibi proportions,</span></div><div id="sub-045" class="subtitle-line clip" data-start="277.723" data-duration="5.906" data-track-index="87"><span>giving you another way to inspect how the design reads at a different</span></div><div id="sub-046" class="subtitle-line clip" data-start="283.632" data-duration="3.633" data-track-index="87"><span>scale. Once you are satisfied with the preview,</span></div><div id="sub-047" class="subtitle-line clip" data-start="287.268" data-duration="4.088" data-track-index="87"><span>click Download to save the skin as a PNG.</span></div><div id="sub-048" class="subtitle-line clip" data-start="330.450" data-duration="4.747" data-track-index="88"><span>The pipeline has two stages. In Stage One, Fixed Views Generation,</span></div><div id="sub-049" class="subtitle-line clip" data-start="335.200" data-duration="5.611" data-track-index="88"><span>NanoBanana receives the character reference alongside fixed layout templates that enforce an orthogonal</span></div><div id="sub-050" class="subtitle-line clip" data-start="340.814" data-duration="4.315" data-track-index="88"><span>dual-view camera and pose. By conditioning on these structural templates,</span></div><div id="sub-051" class="subtitle-line clip" data-start="345.132" data-duration="5.611" data-track-index="88"><span>NanoBanana synthesizes standardized front and back Minecraft views while preserving the character&#39;s identity</span></div><div id="sub-052" class="subtitle-line clip" data-start="350.745" data-duration="4.315" data-track-index="88"><span>and outfit. This stage relies on the closed-source NanoBanana model,</span></div><div id="sub-053" class="subtitle-line clip" data-start="355.064" data-duration="3.883" data-track-index="88"><span>while the surrounding pipeline workflow is fully open source.</span></div><div id="sub-054" class="subtitle-line clip" data-start="360.300" data-duration="4.208" data-track-index="89"><span>Stage two reconstructs the skin across five geometric steps. First,</span></div><div id="sub-055" class="subtitle-line clip" data-start="364.511" data-duration="3.786" data-track-index="89"><span>silhouette extraction isolates the foreground and aligns mesh geometry.</span></div><div id="sub-056" class="subtitle-line clip" data-start="368.800" data-duration="4.918" data-track-index="89"><span>Second, the Dense UV Parser routes visible pixels across body parts,</span></div><div id="sub-057" class="subtitle-line clip" data-start="373.721" data-duration="3.576" data-track-index="89"><span>distinguishing the base body from outer volume layers.</span></div><div id="sub-058" class="subtitle-line clip" data-start="377.800" data-duration="2.724" data-track-index="89"><span>Third, topological inpainting completes unseen surfaces.</span></div><div id="sub-059" class="subtitle-line clip" data-start="380.527" data-duration="4.088" data-track-index="89"><span>It combines nearest-neighbor color completion with symmetric visible regions.</span></div><div id="sub-060" class="subtitle-line clip" data-start="386.800" data-duration="4.997" data-track-index="89"><span>Fourth, the head decoder resolves multi-face seams for complex 3D hairstyles,</span></div><div id="sub-061" class="subtitle-line clip" data-start="391.800" data-duration="2.270" data-track-index="89"><span>healing boundary alignment across accessories.</span></div><div id="sub-062" class="subtitle-line clip" data-start="395.800" data-duration="4.542" data-track-index="89"><span>Finally, material refitting and color refinement generate the final texture,</span></div><div id="sub-063" class="subtitle-line clip" data-start="400.345" data-duration="2.270" data-track-index="89"><span>producing the game-ready Minecraft skin.</span></div><div id="sub-064" class="subtitle-line clip" data-start="405.450" data-duration="4.088" data-track-index="90"><span>The complete workflow code is open source on GitHub,</span></div><div id="sub-065" class="subtitle-line clip" data-start="409.541" data-duration="4.997" data-track-index="90"><span>and all Stage Two model weights are available on Hugging Face.</span></div><div id="sub-066" class="subtitle-line clip" data-start="414.541" data-duration="4.088" data-track-index="90"><span>For in-depth technical details, visit our Hugging Face repository,</span></div><div id="sub-067" class="subtitle-line clip" data-start="418.632" data-duration="5.906" data-track-index="90"><span>or check out our technical article linked below. If you enjoyed this video,</span></div><div id="sub-068" class="subtitle-line clip" data-start="424.541" data-duration="3.179" data-track-index="90"><span>subscribe to the channel. Thanks for watching!</span></div>
+  <div id="sub-001" class="subtitle-line clip" data-start="0.450" data-duration="5.042" data-track-index="81"><span>We have open-sourced another model for turning character images into Minecraft skins.</span></div><div id="sub-002" class="subtitle-line clip" data-start="5.495" data-duration="2.940" data-track-index="81"><span>To show the range of community results,</span></div><div id="sub-003" class="subtitle-line clip" data-start="8.439" data-duration="3.361" data-track-index="81"><span>we picked character images in very different styles.</span></div><div id="sub-004" class="subtitle-line clip" data-start="11.802" data-duration="2.940" data-track-index="81"><span>First we will look at those results,</span></div><div id="sub-005" class="subtitle-line clip" data-start="14.745" data-duration="4.202" data-track-index="81"><span>then try the pipeline online and explain how it works.</span></div><div id="sub-006" class="subtitle-line clip" data-start="20.450" data-duration="3.179" data-track-index="82"><span>Why make another model? In previous versions,</span></div><div id="sub-007" class="subtitle-line clip" data-start="23.632" data-duration="4.997" data-track-index="82"><span>small decorative details were often the hardest part. A flower pattern,</span></div><div id="sub-008" class="subtitle-line clip" data-start="28.632" data-duration="1.815" data-track-index="82"><span>a butterfly hair clip,</span></div><div id="sub-009" class="subtitle-line clip" data-start="30.450" data-duration="5.906" data-track-index="82"><span>or a tiny bear on a shirt has to be translated into only</span></div><div id="sub-010" class="subtitle-line clip" data-start="36.359" data-duration="5.452" data-track-index="82"><span>a few pixels. When those features are treated as ordinary image detail,</span></div><div id="sub-011" class="subtitle-line clip" data-start="41.814" data-duration="5.906" data-track-index="82"><span>their contours can blur, their colors can mix, or their shapes can disappear.</span></div><div id="sub-012" class="subtitle-line clip" data-start="47.723" data-duration="5.452" data-track-index="82"><span>The new pipeline first reinterprets the character in a fixed Minecraft view,</span></div><div id="sub-013" class="subtitle-line clip" data-start="53.177" data-duration="4.088" data-track-index="82"><span>giving the reconstruction stage clearer structure to work with.</span></div><div id="sub-014" class="subtitle-line clip" data-start="60.450" data-duration="4.542" data-track-index="83"><span>Here are real results generated by community creators on EntropyDrop.</span></div><div id="sub-015" class="subtitle-line clip" data-start="64.995" data-duration="2.270" data-track-index="83"><span>Notice how different silhouettes, colors,</span></div><div id="sub-016" class="subtitle-line clip" data-start="67.268" data-duration="5.906" data-track-index="83"><span>and clothing details carry over into the block geometry—and where complex shapes had</span></div><div id="sub-017" class="subtitle-line clip" data-start="73.177" data-duration="1.361" data-track-index="83"><span>to be simplified.</span></div><div id="sub-018" class="subtitle-line clip" data-start="110.450" data-duration="5.906" data-track-index="84"><span>These examples span diverse art styles—from anime and illustrations to game renders and</span></div><div id="sub-019" class="subtitle-line clip" data-start="116.359" data-duration="4.997" data-track-index="84"><span>painterly art. As each model turns, check whether the front, sides,</span></div><div id="sub-020" class="subtitle-line clip" data-start="121.359" data-duration="4.088" data-track-index="84"><span>and back remain visually coherent. Some details translate cleanly,</span></div><div id="sub-021" class="subtitle-line clip" data-start="125.450" data-duration="5.906" data-track-index="84"><span>while others are simplified or inferred where the original image provides no direct</span></div><div id="sub-022" class="subtitle-line clip" data-start="131.359" data-duration="0.452" data-track-index="84"><span>view.</span></div><div id="sub-023" class="subtitle-line clip" data-start="160.450" data-duration="4.088" data-track-index="85"><span>Take a moment to compare the seams, limb textures,</span></div><div id="sub-024" class="subtitle-line clip" data-start="164.541" data-duration="3.633" data-track-index="85"><span>and inferred back details as these characters move.</span></div><div id="sub-025" class="subtitle-line clip" data-start="168.177" data-duration="2.724" data-track-index="85"><span>Not every detail survives the conversion,</span></div><div id="sub-026" class="subtitle-line clip" data-start="170.905" data-duration="4.088" data-track-index="85"><span>so the 3D turn is an important check. Next,</span></div><div id="sub-027" class="subtitle-line clip" data-start="174.995" data-duration="5.906" data-track-index="85"><span>let&#39;s see how you can create and download your own skins on the</span></div><div id="sub-028" class="subtitle-line clip" data-start="180.905" data-duration="0.452" data-track-index="85"><span>website.</span></div><div id="sub-029" class="subtitle-line clip" data-start="210.450" data-duration="3.514" data-track-index="86"><span>Want to try it yourself? Visit entropydrop.com for the free online generator.</span></div><div id="sub-030" class="subtitle-line clip" data-start="213.967" data-duration="2.635" data-track-index="86"><span>We also open-sourced the training details and model weights,</span></div><div id="sub-031" class="subtitle-line clip" data-start="216.605" data-duration="2.342" data-track-index="86"><span>so you can train or deploy it locally.</span></div><div id="sub-032" class="subtitle-line clip" data-start="220.450" data-duration="5.452" data-track-index="87"><span>To try the model online, open entropydrop dot com and sign in,</span></div><div id="sub-033" class="subtitle-line clip" data-start="225.905" data-duration="2.270" data-track-index="87"><span>then upload a reference image.</span></div><div id="sub-034" class="subtitle-line clip" data-start="228.177" data-duration="5.452" data-track-index="87"><span>The model featured in this video is named the SKING DDJ series.</span></div><div id="sub-035" class="subtitle-line clip" data-start="233.632" data-duration="3.179" data-track-index="87"><span>Click the generate button, and after processing,</span></div><div id="sub-036" class="subtitle-line clip" data-start="236.814" data-duration="5.452" data-track-index="87"><span>the result opens directly in the 3D viewer. Once the result opens,</span></div><div id="sub-037" class="subtitle-line clip" data-start="242.268" data-duration="5.906" data-track-index="87"><span>you can test the character with three different motions: Idle, Walk, and Dance.</span></div><div id="sub-038" class="subtitle-line clip" data-start="248.177" data-duration="4.542" data-track-index="87"><span>Idle lets you inspect fine details in a steady pose,</span></div><div id="sub-039" class="subtitle-line clip" data-start="252.723" data-duration="4.088" data-track-index="87"><span>Walk checks limb articulation and joint alignment during movement,</span></div><div id="sub-040" class="subtitle-line clip" data-start="256.814" data-duration="4.542" data-track-index="87"><span>while Dance puts the model through full dynamic choreography. Next,</span></div><div id="sub-041" class="subtitle-line clip" data-start="261.359" data-duration="4.088" data-track-index="87"><span>you can inspect the skin in different display modes.</span></div><div id="sub-042" class="subtitle-line clip" data-start="265.450" data-duration="4.088" data-track-index="87"><span>Voxel mode adds visible depth to the skin texture,</span></div><div id="sub-043" class="subtitle-line clip" data-start="269.541" data-duration="4.088" data-track-index="87"><span>Plane mode shows the classic flat Minecraft box look,</span></div><div id="sub-044" class="subtitle-line clip" data-start="273.632" data-duration="4.088" data-track-index="87"><span>and Cute mode changes the character to chibi proportions,</span></div><div id="sub-045" class="subtitle-line clip" data-start="277.723" data-duration="5.906" data-track-index="87"><span>giving you another way to inspect how the design reads at a different</span></div><div id="sub-046" class="subtitle-line clip" data-start="283.632" data-duration="3.633" data-track-index="87"><span>scale. Once you are satisfied with the preview,</span></div><div id="sub-047" class="subtitle-line clip" data-start="287.268" data-duration="4.088" data-track-index="87"><span>click Download to save the skin as a PNG.</span></div><div id="sub-048" class="subtitle-line clip" data-start="330.450" data-duration="3.505" data-track-index="88"><span>The pipeline has two stages. In Stage One,</span></div><div id="sub-049" class="subtitle-line clip" data-start="333.958" data-duration="3.943" data-track-index="88"><span>NanoBanana receives the character reference and fixed layout templates.</span></div><div id="sub-050" class="subtitle-line clip" data-start="337.904" data-duration="5.697" data-track-index="88"><span>These guide the model toward front and back Minecraft views with a consistent</span></div><div id="sub-051" class="subtitle-line clip" data-start="343.604" data-duration="4.382" data-track-index="88"><span>orthographic camera, pose, and placement, while retaining recognizable character features.</span></div><div id="sub-052" class="subtitle-line clip" data-start="347.988" data-duration="4.382" data-track-index="88"><span>Generated views can still drift from the templates, affecting reconstruction.</span></div><div id="sub-053" class="subtitle-line clip" data-start="352.373" data-duration="3.505" data-track-index="88"><span>This stage relies on the closed-source NanoBanana model;</span></div><div id="sub-054" class="subtitle-line clip" data-start="355.881" data-duration="3.066" data-track-index="88"><span>the surrounding workflow code is open source.</span></div><div id="sub-055" class="subtitle-line clip" data-start="360.300" data-duration="5.452" data-track-index="89"><span>Stage Two reconstructs the skin from the normalized views. After foreground extraction,</span></div><div id="sub-056" class="subtitle-line clip" data-start="365.755" data-duration="5.906" data-track-index="89"><span>fixed geometry and the Dense UV Parser map visible pixels to body parts,</span></div><div id="sub-057" class="subtitle-line clip" data-start="371.664" data-duration="4.997" data-track-index="89"><span>faces, and skin layers, with specialized decisions for hair and headwear.</span></div><div id="sub-058" class="subtitle-line clip" data-start="377.909" data-duration="5.906" data-track-index="89"><span>Missing inner-layer pixels are then filled using mirrored or nearby colors from the</span></div><div id="sub-059" class="subtitle-line clip" data-start="383.818" data-duration="4.542" data-track-index="89"><span>same body part. This step leaves the outer layer unchanged.</span></div><div id="sub-060" class="subtitle-line clip" data-start="389.159" data-duration="4.542" data-track-index="89"><span>Re-rendering guides targeted head corrections and visible head color refinement.</span></div><div id="sub-061" class="subtitle-line clip" data-start="393.704" data-duration="5.906" data-track-index="89"><span>The pipeline checks both views and accepts color updates only when reconstruction error</span></div><div id="sub-062" class="subtitle-line clip" data-start="399.613" data-duration="4.542" data-track-index="89"><span>decreases. The output is a standard sixty-four by sixty-four skin.</span></div><div id="sub-063" class="subtitle-line clip" data-start="405.450" data-duration="4.088" data-track-index="90"><span>The complete workflow code is open source on GitHub,</span></div><div id="sub-064" class="subtitle-line clip" data-start="409.541" data-duration="4.997" data-track-index="90"><span>and all Stage Two model weights are available on Hugging Face.</span></div><div id="sub-065" class="subtitle-line clip" data-start="414.541" data-duration="4.088" data-track-index="90"><span>For in-depth technical details, visit our Hugging Face repository,</span></div><div id="sub-066" class="subtitle-line clip" data-start="418.632" data-duration="5.452" data-track-index="90"><span>or check out our technical article linked below. If you enjoyed this,</span></div><div id="sub-067" class="subtitle-line clip" data-start="424.086" data-duration="5.906" data-track-index="90"><span>be sure to subscribe to the channel for more amazing open-source projects coming</span></div><div id="sub-068" class="subtitle-line clip" data-start="429.995" data-duration="1.815" data-track-index="90"><span>soon. Thanks for watching!</span></div>
 </div>
 <script>
 window.__timelines = window.__timelines || {};
@@ -3634,59 +3575,41 @@ document.querySelectorAll('.subtitle-line').forEach(node => {
   tl.set('#' + node.id, { visibility: 'hidden', opacity: 0 }, at(node) + length(node));
 });
 
-// Progressive 5-step pipeline animation in Stage Two (360s to 405s)
-const stageTwoSteps = [
-  { stepId: '#stage2-step-1', arrowId: '#stage2-arrow-1', start: 360.0, end: 368.5 },
-  { stepId: '#stage2-step-2', arrowId: '#stage2-arrow-2', start: 368.5, end: 377.5 },
-  { stepId: '#stage2-step-3', arrowId: '#stage2-arrow-3', start: 377.5, end: 386.5 },
-  { stepId: '#stage2-step-4', arrowId: '#stage2-arrow-4', start: 386.5, end: 395.5 },
-  { stepId: '#stage2-step-5', arrowId: null,             start: 395.5, end: 405.0 },
-];
-
-stageTwoSteps.forEach(({ stepId, arrowId, start, end }) => {
-  // Step activation
-  tl.to(stepId, {
+// The three reconstruction panels use the same paragraph windows as their subtitles.
+const stageTwoWindows = [{"start":360,"end":377.60869565217394},{"start":377.60869565217394,"end":388.85869565217394},{"start":388.85869565217394,"end":405}];
+stageTwoWindows.forEach(({ start, end }, index) => {
+  const topicId = '#stage2-topic-' + (index + 1);
+  const panelId = '#stage2-panel-' + (index + 1);
+  tl.to(topicId, {
     borderColor: '#1d7a3b',
     backgroundColor: '#f4faf5',
     y: -4,
     boxShadow: '4px 4px 0px rgba(29, 122, 59, 0.10)',
     opacity: 1,
-    duration: 0.45,
+    duration: 0.3,
     ease: 'power2.out'
   }, start);
-
-  tl.to(stepId + ' .step-badge-num', {
+  tl.to(topicId + ' .topic-number', {
     backgroundColor: '#1d7a3b',
     color: '#ffffff',
     duration: 0.3
   }, start);
-
-  // Settle to completed state
-  tl.to(stepId, {
+  tl.set(panelId, { visibility: 'visible', opacity: 1 }, start);
+  tl.set(panelId, { visibility: 'hidden', opacity: 0 }, end);
+  tl.to(topicId, {
     borderColor: 'rgba(29, 122, 59, 0.45)',
     backgroundColor: '#ffffff',
     y: 0,
     boxShadow: '2px 2px 0px rgba(22, 26, 23, 0.04)',
-    opacity: 0.95,
-    duration: 0.45,
+    opacity: 0.8,
+    duration: 0.3,
     ease: 'power2.inOut'
   }, end);
-
-  tl.to(stepId + ' .step-badge-num', {
+  tl.to(topicId + ' .topic-number', {
     backgroundColor: 'rgba(29, 122, 59, 0.12)',
     color: '#1d7a3b',
     duration: 0.3
   }, end);
-
-  if (arrowId) {
-    tl.to(arrowId, {
-      color: '#1d7a3b',
-      opacity: 1,
-      scale: 1.25,
-      duration: 0.35,
-      ease: 'back.out(1.7)'
-    }, end);
-  }
 });
 
 // Scene 10: Technical Details & Outro timings (405s - 455s)

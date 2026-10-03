@@ -21,7 +21,7 @@ const seconds = stamp => {
 const fmt = value => Number(value).toFixed(3);
 const script = fs.readFileSync(scriptPath, 'utf8');
 
-// Parse continuous 12 chapters from script
+// Parse the continuous voiceover chapters from the script.
 const chapterPattern = /^### VO (\d+) \| ([^|]+) \| ([^|]+) \| (.+)\n([\s\S]*?)(?=^### VO |^## |(?![\s\S]))/gm;
 const chapters = [];
 for (const match of script.matchAll(chapterPattern)) {
@@ -46,6 +46,21 @@ const getChapter = (slug) => {
   if (!c) throw new Error('Missing chapter with slug: ' + slug);
   return c;
 };
+
+// Share paragraph windows between the three reconstruction panels and their subtitles.
+const stageTwoChapter = getChapter('stage_two');
+const stageTwoParagraphs = stageTwoChapter.text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+if (stageTwoParagraphs.length !== 3) throw new Error('Stage Two requires three narration paragraphs.');
+const stageTwoWordCounts = stageTwoParagraphs.map(p => p.split(/\s+/).length);
+const stageTwoTotalWords = stageTwoWordCounts.reduce((sum, count) => sum + count, 0);
+let stageTwoWordsBefore = 0;
+const stageTwoWindows = stageTwoWordCounts.map(count => {
+  const duration = stageTwoChapter.end - stageTwoChapter.start;
+  const start = stageTwoChapter.start + duration * stageTwoWordsBefore / stageTwoTotalWords;
+  stageTwoWordsBefore += count;
+  const end = stageTwoChapter.start + duration * stageTwoWordsBefore / stageTwoTotalWords;
+  return { start, end };
+});
 
 // Load community showcase items from metadata.json
 let communityItems = [];
@@ -551,7 +566,7 @@ function stageOneScene(chapter) {
     <div class="scene-head">
       <div>
         <span class="kicker">Two-Stage Architecture</span>
-        <h2>How the Pipeline Works: Stage 1 Fixed Views Generation</h2>
+        <h2>Stage One: Template-Guided Views</h2>
       </div>
     </div>
     <div class="stage-one-layout">
@@ -603,6 +618,7 @@ function stageOneScene(chapter) {
             <div class="process-text-group">
               <span class="process-kicker">PROCESSED BY</span>
               <strong class="process-title">NanoBanana</strong>
+              <span class="process-kicker">CLOSED-SOURCE MODEL</span>
             </div>
           </div>
           <span class="process-arrow-out">&rarr;</span>
@@ -619,11 +635,50 @@ function stageOneScene(chapter) {
         </div>
       </div>
     </div>
+    <div class="template-guidance">
+      <strong>ORTHOGRAPHIC CAMERA · CONSISTENT POSE · FIXED PLACEMENT</strong>
+      <span id="template-drift-note">Templates guide the views. Camera or pose drift can affect reconstruction.</span>
+    </div>
   </section>`;
 }
 
 // Act 3: Stage Two (Scene 9 | 360s - 405s)
 function stageTwoScene(chapter) {
+  const topics = [
+    {
+      title: 'Pixels map to skin layers', label: 'PIXEL ROUTING',
+      images: [
+        ['img24_cutout.png', 'Isolate the foreground', ''],
+        ['img24_routed.png', 'Map visible surfaces', ''],
+      ],
+      heading: 'Geometry + image semantics',
+      description: 'Fixed geometry limits the possible body parts, faces and skin layers. The parser selects the supported assignment.',
+      detail: 'Specialized head decisions help distinguish hair and headwear.',
+      result: 'VISIBLE PIXELS → SKIN LAYERS',
+    },
+    {
+      title: 'Missing inner pixels are filled', label: 'INNER-LAYER COMPLETION',
+      images: [
+        ['parser_only_uv.png', 'Observed UV pixels', 'uv-evidence'],
+        ['parser_pred_uv_simple_inpainting.png', 'After inner-layer completion', 'uv-evidence'],
+      ],
+      heading: 'Fill only missing inner pixels',
+      description: 'Use a mirrored pixel first, then nearby colors from the same body part when evidence is missing.',
+      detail: 'Known inner pixels and the complete outer layer stay unchanged in this step.',
+      result: 'SAME BODY PART · EXISTING COLORS',
+    },
+    {
+      title: 'Rendered views guide refinement', label: 'RE-RENDERING CHECK',
+      images: [
+        ['img24_template41_51_52.png', 'Input front + back views', ''],
+        ['img24_final.png', 'Reconstructed front + back views', ''],
+      ],
+      heading: 'Check both views',
+      description: 'Rendered evidence checks targeted head corrections. Visible head colors update only when reconstruction error decreases.',
+      detail: 'During color fitting, alpha and the body texture stay fixed.',
+      result: 'OUTPUT → 64 × 64 RGBA SKIN',
+    },
+  ];
   return `<section id="scene-9" class="scene clip" data-start="${fmt(chapter.start)}" data-duration="${fmt(chapter.end - chapter.start)}" data-track-index="9">
     <div class="scene-head">
       <div>
@@ -632,72 +687,30 @@ function stageTwoScene(chapter) {
       </div>
     </div>
     <div class="stage-two-layout">
-      <div class="pipeline-diagram-five">
-        <div id="stage2-step-1" class="step-card" data-step="1">
-          <div class="step-card-header">
-            <b class="step-badge-num">STEP 01</b>
-            <strong>SILHOUETTE EXTRACTION</strong>
-            <span>Isolates character foreground and aligns mesh silhouette geometry</span>
-          </div>
-          <div class="step-card-media">
-            <div class="step-media-box">
-              <img src="assets/img24_cutout.png" alt="Silhouette Cutout" class="step-img cutout-img" />
-            </div>
-          </div>
-        </div>
-        <i id="stage2-arrow-1" class="step-arrow">&rarr;</i>
-        <div id="stage2-step-2" class="step-card" data-step="2">
-          <div class="step-card-header">
-            <b class="step-badge-num">STEP 02</b>
-            <strong>DENSE UV PARSER</strong>
-            <span>Routes visible pixels across body parts: inner base &amp; outer volume layers</span>
-          </div>
-          <div class="step-card-media">
-            <div class="step-media-box">
-              <img src="assets/img24_routed.png" alt="Semantic Routing" class="step-img routed-img" />
-            </div>
-          </div>
-        </div>
-        <i id="stage2-arrow-2" class="step-arrow">&rarr;</i>
-        <div id="stage2-step-3" class="step-card" data-step="3">
-          <div class="step-card-header">
-            <b class="step-badge-num">STEP 03</b>
-            <strong>TOPOLOGICAL INPAINTING</strong>
-            <span>Inpaints occluded surfaces via nearest-neighbor &amp; symmetric mapping</span>
-          </div>
-          <div class="step-card-media">
-            <div class="step-media-box">
-              <img src="assets/parser_pred_uv_simple_inpainting.png" alt="Inpainted UV" class="step-img uv-pixel-img" />
-            </div>
-          </div>
-        </div>
-        <i id="stage2-arrow-3" class="step-arrow">&rarr;</i>
-        <div id="stage2-step-4" class="step-card" data-step="4">
-          <div class="step-card-header">
-            <b class="step-badge-num">STEP 04</b>
-            <strong>HEAD DECODER</strong>
-            <span>Resolves multi-face seams for complex 3D hairstyles and accessories</span>
-          </div>
-          <div class="step-card-media">
-            <div class="step-media-box">
-              <img src="assets/v101_headwear_comparison.png" alt="Headwear Separation" class="step-img headwear-img" />
-            </div>
-          </div>
-        </div>
-        <i id="stage2-arrow-4" class="step-arrow">&rarr;</i>
-        <div id="stage2-step-5" class="step-card" data-step="5">
-          <div class="step-card-header">
-            <b class="step-badge-num">STEP 05</b>
-            <strong>GAME-READY SKIN</strong>
-            <span>Material refitting and color refinement to generate final skin</span>
-          </div>
-          <div class="step-card-media">
-            <div class="step-media-box">
-              <img src="assets/skin-reconstruction.png" alt="Game-Ready Skin" class="step-img final-skin-img" />
-            </div>
-          </div>
-        </div>
+      <div class="reconstruction-topics">
+        ${topics.map((q, i) => `<div id="stage2-topic-${i + 1}" class="reconstruction-topic">
+          <b class="topic-number">PART 0${i + 1}</b>
+          <strong>${esc(q.title)}</strong>
+        </div>`).join('')}
       </div>
+      <div class="reconstruction-panels">
+        ${topics.map((q, i) => `<div id="stage2-panel-${i + 1}" class="reconstruction-panel">
+          <div class="reconstruction-evidence">
+            ${q.images.map(([src, caption, cls], imageIndex) => `<figure class="evidence-figure">
+              <figcaption>${esc(caption)}</figcaption>
+              <div class="evidence-image"><img id="stage2-evidence-${i + 1}-${imageIndex + 1}" src="assets/${esc(src)}" alt="${esc(caption)}" class="${esc(cls)} clip" data-start="${fmt(stageTwoWindows[i].start)}" data-duration="${fmt(stageTwoWindows[i].end - stageTwoWindows[i].start)}" data-track-index="${140 + i * 2 + imageIndex}"></div>
+            </figure>`).join('')}
+          </div>
+          <div class="reconstruction-explanation">
+            <span class="reconstruction-label">${esc(q.label)}</span>
+            <h3>${esc(q.heading)}</h3>
+            <p>${esc(q.description)}</p>
+            <p class="reconstruction-detail">${esc(q.detail)}</p>
+            <strong class="reconstruction-result">${esc(q.result)}</strong>
+          </div>
+        </div>`).join('')}
+      </div>
+      <p class="reconstruction-source-note">Illustrative intermediate results from the technical article.</p>
     </div>
   </section>`;
 }
@@ -763,7 +776,7 @@ function futureScene(chapter) {
         <span class="pixel-tag">Channel</span>
         <div class="pixel-icon-box">${YOUTUBE_LOGO_SVG}</div>
         <h3>YouTube</h3>
-        <p>Subscribe for upcoming open-source generative models</p>
+        <p>Subscribe for more amazing open-source projects coming soon</p>
         <div class="pixel-url-display">youtube.com/@EntropyDrop</div>
       </a>
     </div>
@@ -791,15 +804,8 @@ let subtitleId = 0;
 const subtitles = chapters.flatMap(chapter => {
   const paragraphs = chapter.text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
   if (paragraphs.length > 1 && chapter.slug === 'stage_two') {
-    const stepWindows = [
-      { start: 360.0, end: 368.5 },
-      { start: 368.5, end: 377.5 },
-      { start: 377.5, end: 386.5 },
-      { start: 386.5, end: 395.5 },
-      { start: 395.5, end: 405.0 },
-    ];
     return paragraphs.flatMap((para, stepIdx) => {
-      const win = stepWindows[stepIdx] || { start: chapter.start, end: chapter.end };
+      const win = stageTwoWindows[stepIdx];
       const chunks = subtitleChunks(para);
       const counts = chunks.map(value => value.split(/\s+/).length);
       const total = counts.reduce((sum, value) => sum + value, 0);
@@ -914,59 +920,41 @@ document.querySelectorAll('.subtitle-line').forEach(node => {
   tl.set('#' + node.id, { visibility: 'hidden', opacity: 0 }, at(node) + length(node));
 });
 
-// Progressive 5-step pipeline animation in Stage Two (360s to 405s)
-const stageTwoSteps = [
-  { stepId: '#stage2-step-1', arrowId: '#stage2-arrow-1', start: 360.0, end: 368.5 },
-  { stepId: '#stage2-step-2', arrowId: '#stage2-arrow-2', start: 368.5, end: 377.5 },
-  { stepId: '#stage2-step-3', arrowId: '#stage2-arrow-3', start: 377.5, end: 386.5 },
-  { stepId: '#stage2-step-4', arrowId: '#stage2-arrow-4', start: 386.5, end: 395.5 },
-  { stepId: '#stage2-step-5', arrowId: null,             start: 395.5, end: 405.0 },
-];
-
-stageTwoSteps.forEach(({ stepId, arrowId, start, end }) => {
-  // Step activation
-  tl.to(stepId, {
+// The three reconstruction panels use the same paragraph windows as their subtitles.
+const stageTwoWindows = ${JSON.stringify(stageTwoWindows)};
+stageTwoWindows.forEach(({ start, end }, index) => {
+  const topicId = '#stage2-topic-' + (index + 1);
+  const panelId = '#stage2-panel-' + (index + 1);
+  tl.to(topicId, {
     borderColor: '#1d7a3b',
     backgroundColor: '#f4faf5',
     y: -4,
     boxShadow: '4px 4px 0px rgba(29, 122, 59, 0.10)',
     opacity: 1,
-    duration: 0.45,
+    duration: 0.3,
     ease: 'power2.out'
   }, start);
-
-  tl.to(stepId + ' .step-badge-num', {
+  tl.to(topicId + ' .topic-number', {
     backgroundColor: '#1d7a3b',
     color: '#ffffff',
     duration: 0.3
   }, start);
-
-  // Settle to completed state
-  tl.to(stepId, {
+  tl.set(panelId, { visibility: 'visible', opacity: 1 }, start);
+  tl.set(panelId, { visibility: 'hidden', opacity: 0 }, end);
+  tl.to(topicId, {
     borderColor: 'rgba(29, 122, 59, 0.45)',
     backgroundColor: '#ffffff',
     y: 0,
     boxShadow: '2px 2px 0px rgba(22, 26, 23, 0.04)',
-    opacity: 0.95,
-    duration: 0.45,
+    opacity: 0.8,
+    duration: 0.3,
     ease: 'power2.inOut'
   }, end);
-
-  tl.to(stepId + ' .step-badge-num', {
+  tl.to(topicId + ' .topic-number', {
     backgroundColor: 'rgba(29, 122, 59, 0.12)',
     color: '#1d7a3b',
     duration: 0.3
   }, end);
-
-  if (arrowId) {
-    tl.to(arrowId, {
-      color: '#1d7a3b',
-      opacity: 1,
-      scale: 1.25,
-      duration: 0.35,
-      ease: 'back.out(1.7)'
-    }, end);
-  }
 });
 
 // Scene 10: Technical Details & Outro timings (405s - 455s)
@@ -1100,5 +1088,10 @@ if (previewParam !== null) {
 </html>`;
 
 fs.writeFileSync(outputPath, html);
+const metaPath = path.join(project, 'meta.json');
+const meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
+meta.name = 'Another Open-Source Model: Image to Minecraft Skin';
+meta.duration = chapters.at(-1).end;
+fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2) + '\n');
 console.log('Built ' + outputPath);
-console.log('  chapters: ' + chapters.length + ', showcase items: ' + communityItems.length + ', subtitles: ' + subtitleId + ', duration: 500s');
+console.log('  chapters: ' + chapters.length + ', showcase items: ' + communityItems.length + ', subtitles: ' + subtitleId + ', duration: ' + meta.duration + 's');
