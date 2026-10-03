@@ -897,7 +897,9 @@ document.querySelectorAll('.showcase-stage, .compare-stage').forEach(stage => {
     const isFirst = index === 0;
 
     // Entrance: slide into the screen from the right side (+1920px -> 0px)
-    if (isFirst) {
+    if (start === 0) {
+      tl.set('#' + card.id, { visibility: 'visible', opacity: 1, x: 0 }, 0);
+    } else if (isFirst) {
       tl.set('#' + card.id, { visibility: 'visible', opacity: 1, x: 1920 }, start);
       tl.to('#' + card.id, { x: 0, duration: TRANSITION_DURATION, ease: 'power2.inOut' }, start);
     } else {

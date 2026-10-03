@@ -197,6 +197,16 @@ h3 {
   box-shadow: var(--shadow-pixel-sm);
 }
 
+#scene-1 {
+  opacity: 1;
+  visibility: visible;
+}
+
+#scene-1 .showcase-card:first-child {
+  opacity: 1;
+  visibility: visible;
+}
+
 #scene-1 .scene-note,
 #scene-2 .scene-note,
 #scene-3 .scene-note {
@@ -901,7 +911,7 @@ h2 em {
   align-items: center;
   justify-content: center;
   background: var(--panel-2);
-  border: 2px solid #1a201c;
+  border: none;
   border-radius: 0 !important;
   padding: 18px 16px;
   margin-bottom: 0;
@@ -924,15 +934,15 @@ h2 em {
 .stage-card-img.ref-tall-img {
   max-height: 440px;
   width: auto;
-  border: 2px solid #1a201c;
-  box-shadow: var(--shadow-pixel-sm);
+  border: none;
+  box-shadow: none;
 }
 
 .stage-card-img.norm-dual-img {
   max-height: 440px;
   width: auto;
-  border: 2px solid #1a201c;
-  box-shadow: var(--shadow-pixel-sm);
+  border: none;
+  box-shadow: none;
 }
 
 .templates-grid {
@@ -954,8 +964,8 @@ h2 em {
 .stage-card-img.tmpl-img {
   width: 140px;
   height: 140px;
-  border: 2px solid #1a201c;
-  box-shadow: var(--shadow-pixel-sm);
+  border: none;
+  box-shadow: none;
 }
 
 .tmpl-name {
