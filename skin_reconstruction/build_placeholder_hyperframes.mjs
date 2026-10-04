@@ -65,6 +65,7 @@ const getChapter = (slug) => {
   if (!c) throw new Error('Missing chapter with slug: ' + slug);
   return c;
 };
+const INTRO_TRANSITION_DURATION = 0.55;
 
 // Share paragraph windows between the three reconstruction panels and their subtitles.
 const stageTwoChapter = getChapter('stage_two');
@@ -255,7 +256,9 @@ function renderCompareCard(comp, trackOffset, isFirst = false, isLast = false, t
     ? `<img src="${localAvatarRel}" alt="${esc(username)}" class="creator-avatar">`
     : `<div class="creator-avatar-placeholder">${esc(username.charAt(0).toUpperCase())}</div>`;
 
-  const videoStart = isFirst ? comp.start : Math.max(0, comp.start - transDur);
+  // The first comparison is visible during the opening's slide transition,
+  // before VO 02 starts speaking.
+  const videoStart = Math.max(0, comp.start - (isFirst ? INTRO_TRANSITION_DURATION : transDur));
   const videoEnd = comp.start + comp.duration;
   const videoDuration = Math.max(0.1, videoEnd - videoStart);
 
@@ -316,26 +319,27 @@ function renderCompareCard(comp, trackOffset, isFirst = false, isLast = false, t
   </article>`;
 }
 
-// Scene 1: Hook (0:00 - 0:20) — Direct Community Showcase
+// Scene 1: Hook — start sliding to the comparison when the narration finishes.
 function hookScene() {
-  const hookStart = 0;
-  const hookEnd = 20;
-  const totalDuration = hookEnd - hookStart;
+  const chapter = getChapter('open_source_hook');
+  const hookStart = chapter.start;
+  const hookEnd = chapter.end;
   const hookJpgs = [
     'KBD3Z6CDL9GXBUJD.jpg',
-    'RHK5KXG6KJ7DNABF.jpg',
-    'P8NBZUTBW6C63CWS.jpg'
+    'RHK5KXG6KJ7DNABF.jpg'
   ];
   const hookItems = hookJpgs.map(jpg => communityItems.find(item => item.jpgFile === jpg)).filter(Boolean);
   const itemCount = hookItems.length || 1;
-  const slotDuration = totalDuration / itemCount;
+  const slotDuration = 10;
+  if (hookEnd - hookStart <= slotDuration) throw new Error('The hook must have time for both showcases.');
   const transDur = 0.55;
 
   const cards = hookItems.map((item, index) => {
     const itemStart = hookStart + index * slotDuration;
     const isFirst = index === 0;
     const isLast = index === itemCount - 1;
-    return renderShowcaseCard(item, itemStart, slotDuration, 30 + index, 'hook-case', isFirst, isLast, transDur);
+    const duration = Math.min(slotDuration, hookEnd - itemStart);
+    return renderShowcaseCard(item, itemStart, duration, 30 + index, 'hook-case', isFirst, isLast, transDur);
   }).join('');
 
   return `<section id="scene-1" class="scene clip" data-track-index="1">
@@ -352,7 +356,7 @@ function hookScene() {
   </section>`;
 }
 
-// Scene 2: VO 02 Comparison (0:20 - 1:00, 40s total)
+// Scene 2: VO 02 Comparison (40 seconds).
 function compareScene(chapter) {
   const compareStart = chapter.start;
   const compareEnd = chapter.end;
@@ -403,23 +407,43 @@ function compareScene(chapter) {
   </section>`;
 }
 
-// Scene 3: Community Showcase (1:00 - 3:30, 150 seconds total)
+// Scene 3: Community Showcase across VO 03–05.
 function showcaseScene() {
-  const showcaseStart = 60;
-  const showcaseEnd = 210;
+  const showcaseStart = getChapter('community_showcase_1').start;
+  const showcaseEnd = getChapter('community_showcase_3').end;
   const totalDuration = showcaseEnd - showcaseStart;
   const compareShortIds = new Set(['6XF2JYHW', '4PJLKJGP']);
-  const hookShortIds = new Set(['KBD3Z6CD', 'RHK5KXG6', 'P8NBZUTB']);
-  const showcaseItems = communityItems.filter(item => !compareShortIds.has(item.shortId) && !hookShortIds.has(item.shortId));
+  const hookShortIds = new Set(['KBD3Z6CD', 'RHK5KXG6']);
+  const closingItem = communityItems.find(item => item.shortId === 'P8NBZUTB');
+  if (!closingItem) throw new Error('Missing closing showcase P8NBZUTB.');
+  const originalItems = communityItems.filter(item => !compareShortIds.has(item.shortId) && !hookShortIds.has(item.shortId) && item.shortId !== closingItem.shortId);
+  const showcaseItems = [...originalItems, closingItem];
   const itemCount = showcaseItems.length || 1;
-  const slotDuration = totalDuration / itemCount;
+  // Preserve VO 03–04 timings; VO 05 follows its revised sentence windows.
+  const originalSlotDuration = totalDuration / originalItems.length;
+  const closingChapter = getChapter('community_showcase_3');
+  const closingClip = narrationClip(closingChapter);
+  if (!closingClip?.chunks?.length) throw new Error('VO 05 requires matching sentence audio.');
+  const closingStartIndex = originalItems.findIndex(item => item.shortId === 'TFZF4FQM');
+  if (closingStartIndex < 0 || showcaseItems.length - closingStartIndex !== closingClip.chunks.length) {
+    throw new Error('VO 05 showcase count must match its narration sentences.');
+  }
+  let cursor = closingChapter.start;
+  const closingWindows = closingClip.chunks.map((chunk, index) => {
+    const start = index === 0 ? showcaseStart + closingStartIndex * originalSlotDuration : cursor;
+    cursor += Number(chunk.processed_duration_seconds) + Number(chunk.pause_after_seconds || 0);
+    const end = index === closingClip.chunks.length - 1 ? showcaseEnd : cursor;
+    return { start, duration: end - start };
+  });
   const transDur = 0.55;
 
   const cards = showcaseItems.map((item, index) => {
-    const itemStart = showcaseStart + index * slotDuration;
+    const window = index < closingStartIndex
+      ? { start: showcaseStart + index * originalSlotDuration, duration: originalSlotDuration }
+      : closingWindows[index - closingStartIndex];
     const isFirst = index === 0;
     const isLast = index === itemCount - 1;
-    return renderShowcaseCard(item, itemStart, slotDuration, 50 + (index % 10), 'case', isFirst, isLast, transDur);
+    return renderShowcaseCard(item, window.start, window.duration, 50 + (index % 10), 'case', isFirst, isLast, transDur);
   }).join('');
 
   return `<section id="scene-3" class="scene clip" data-track-index="3">
@@ -436,7 +460,7 @@ function showcaseScene() {
   </section>`;
 }
 
-// Act 2: Scene CTA: Try It Online (VO 06 | 210s - 220s, 10s)
+// Act 2: Scene CTA: Try It Online (VO 06, 10 seconds).
 function tryItOnlineScene(chapter) {
   const duration = chapter.end - chapter.start;
   const videoSrc = 'assets/website/skin_P8NBZUTB_uprock_var2_slim_aligned_xneg3_y22.webm';
@@ -929,6 +953,16 @@ const scenes = [
 
 const css = fs.readFileSync(path.join(project, 'template.css'), 'utf8');
 const compositionDuration = chapters.at(-1).end;
+const hookChapter = getChapter('open_source_hook');
+const comparisonChapter = getChapter('why_another_model');
+const introTransitionStart = hookChapter.start +
+  (narrationDuration(hookChapter) ?? (hookChapter.end - hookChapter.start - INTRO_TRANSITION_DURATION));
+if (Math.abs(hookChapter.end - introTransitionStart - INTRO_TRANSITION_DURATION) > 0.002) {
+  throw new Error('VO 01 must end after its narration and the opening slide transition.');
+}
+const showcaseStart = getChapter('community_showcase_1').start;
+const showcaseEnd = getChapter('community_showcase_3').end;
+const onlineChapter = getChapter('try_it_online');
 const websiteChapter = getChapter('website_walkthrough');
 const outroStart = getChapter('technical_details').start;
 const html = `<!doctype html>
@@ -953,17 +987,23 @@ const root = document.getElementById('root');
 const total = Number(root.dataset.duration);
 const at = node => Number(node.dataset.start);
 const length = node => Number(node.dataset.duration);
-function reveal(selector, start, duration, animate = true) {
+function reveal(selector, start, duration, animate = true, fadeOut = true) {
   tl.set(selector, { visibility: 'visible', opacity: animate ? 0 : 1, y: animate ? 22 : 0 }, start);
   if (animate) tl.to(selector, { y: 0, opacity: 1, duration: .42, ease: 'power2.out' }, start + .05);
-  tl.to(selector, { opacity: 0, duration: .35, ease: 'power2.in' }, start + duration - .35);
+  if (fadeOut) tl.to(selector, { opacity: 0, duration: .35, ease: 'power2.in' }, start + duration - .35);
   tl.set(selector, { visibility: 'hidden' }, start + duration);
 }
-reveal('#scene-1', 0, 20, false);
-reveal('#scene-2', 20, 40, false);
-reveal('#scene-3', 60, 150, false);
-reveal('#scene-cta', 210, 10, false);
-tl.from('#scene-cta .cta-card', { scale: 0.97, opacity: 0, duration: 0.6, ease: 'power3.out' }, 210.1);
+reveal('#scene-1', ${fmt(hookChapter.start)}, ${fmt(hookChapter.end - hookChapter.start)}, false, false);
+reveal('#scene-2', ${fmt(introTransitionStart)}, ${fmt(comparisonChapter.end - introTransitionStart)}, false);
+// Finish the slide before starting VO 02; the rotating character need not finish its loop.
+const INTRO_TRANSITION_START = ${fmt(introTransitionStart)};
+const INTRO_TRANSITION_DURATION = ${fmt(INTRO_TRANSITION_DURATION)};
+tl.to('#scene-1', { x: -1920, duration: INTRO_TRANSITION_DURATION, ease: 'power2.inOut' }, INTRO_TRANSITION_START);
+tl.set('#scene-2', { x: 1920 }, INTRO_TRANSITION_START);
+tl.to('#scene-2', { x: 0, duration: INTRO_TRANSITION_DURATION, ease: 'power2.inOut' }, INTRO_TRANSITION_START);
+reveal('#scene-3', ${fmt(showcaseStart)}, ${fmt(showcaseEnd - showcaseStart)}, false);
+reveal('#scene-cta', ${fmt(onlineChapter.start)}, ${fmt(onlineChapter.end - onlineChapter.start)}, false);
+tl.from('#scene-cta .cta-card', { scale: 0.97, opacity: 0, duration: 0.6, ease: 'power3.out' }, ${fmt(onlineChapter.start + 0.1)});
 reveal('#scene-6', ${fmt(websiteChapter.start)}, ${fmt(websiteChapter.end - websiteChapter.start)}, false);
 const TRANSITION_DURATION = 0.55;
 document.querySelectorAll('.showcase-stage, .compare-stage').forEach(stage => {
@@ -978,6 +1018,9 @@ document.querySelectorAll('.showcase-stage, .compare-stage').forEach(stage => {
     // Entrance: slide into the screen from the right side (+1920px -> 0px)
     if (start === 0) {
       tl.set('#' + card.id, { visibility: 'visible', opacity: 1, x: 0 }, 0);
+    } else if (isFirst && stage.closest('#scene-2')) {
+      // The whole comparison scene slides in; keep its card visible throughout.
+      tl.set('#' + card.id, { visibility: 'visible', opacity: 1, x: 0 }, INTRO_TRANSITION_START);
     } else if (isFirst) {
       tl.set('#' + card.id, { visibility: 'visible', opacity: 1, x: 1920 }, start);
       tl.to('#' + card.id, { x: 0, duration: TRANSITION_DURATION, ease: 'power2.inOut' }, start);
@@ -989,7 +1032,8 @@ document.querySelectorAll('.showcase-stage, .compare-stage').forEach(stage => {
 
     // Exit: slide out of the screen to the left (0px -> -1920px)
     const exitStart = end - TRANSITION_DURATION;
-    tl.to('#' + card.id, { x: -1920, duration: TRANSITION_DURATION, ease: 'power2.inOut' }, exitStart);
+    const exitsWithScene = stage.closest('#scene-1') && index === count - 1;
+    if (!exitsWithScene) tl.to('#' + card.id, { x: -1920, duration: TRANSITION_DURATION, ease: 'power2.inOut' }, exitStart);
     tl.set('#' + card.id, { visibility: 'hidden', x: 0 }, end);
   });
 });

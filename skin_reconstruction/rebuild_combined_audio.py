@@ -3,25 +3,36 @@
 
 import subprocess
 import argparse
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 AUDIOS_DIR = ROOT / "audios"
 OUTPUT_FILE = AUDIOS_DIR / "voiceover_full.wav"
 
-CHAPTERS = [
-    (AUDIOS_DIR / "01_open_source_hook.mp3", 0.0),
-    (AUDIOS_DIR / "02_why_another_model.mp3", 20.0),
-    (AUDIOS_DIR / "03_community_showcase_1.mp3", 60.0),
-    (AUDIOS_DIR / "04_community_showcase_2.mp3", 110.0),
-    (AUDIOS_DIR / "05_community_showcase_3.mp3", 160.0),
-    (AUDIOS_DIR / "06_try_it_online.mp3", 210.0),
-    (AUDIOS_DIR / "07_website_walkthrough.mp3", 220.0),
-    (AUDIOS_DIR / "08_how_pipeline_works.mp3", 282.709),
-    (AUDIOS_DIR / "09_stage_two.mp3", 312.709),
-    (AUDIOS_DIR / "10_technical_details.mp3", 357.709),
-]
-TOTAL_DURATION = 407.709
+SCRIPT_PATH = ROOT.parent / "skin-reconstruction.en.youtube-script.md"
+
+
+def read_chapter_timeline():
+    def seconds(stamp):
+        minutes, value = stamp.strip().split(":")
+        return int(minutes) * 60 + float(value)
+
+    chapters = []
+    end = 0.0
+    pattern = r"^### VO (\d+) \| ([^|]+) \| ([^|]+) \|"
+    for number, time_range, slug in re.findall(pattern, SCRIPT_PATH.read_text(encoding="utf-8"), re.MULTILINE):
+        start, next_end = map(seconds, time_range.strip().split("-"))
+        if int(number) != len(chapters) + 1 or abs(start - end) > 0.000001 or next_end <= start:
+            raise ValueError(f"Invalid chapter timeline at VO {number}")
+        chapters.append((AUDIOS_DIR / f"{int(number):02d}_{slug.strip()}.mp3", start))
+        end = next_end
+    if len(chapters) != 10:
+        raise ValueError("Expected 10 voiceover chapters in the script")
+    return chapters, end
+
+
+CHAPTERS, TOTAL_DURATION = read_chapter_timeline()
 
 
 def main() -> None:
