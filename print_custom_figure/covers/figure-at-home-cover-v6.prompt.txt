@@ -1,0 +1,7 @@
+Use case: precise-object-edit.
+Asset type: landscape video cover.
+Input image: the provided v5 cover is the edit target.
+Primary request: change ONLY the light ivory / sage background to a soft pale lavender background. A clean seamless pastel lavender studio backdrop, approximately #E9E1F5, with very subtle smooth tonal variation and a soft light area behind the subject. Lavender should be clearly visible but light, gentle and low saturation. No pattern, shapes or decoration.
+Strict invariants: preserve the character and the human hand exactly as in the input, including their colors, materials, pixel costume, geometry, pose, grip, skin tone, lighting, size, position and edges. Do not tint the hand or character purple. Preserve the existing composition, framing and margins.
+Preserve the existing FusionPixel-style pixel typography exactly: all glyph shapes, sizes, line breaks, placement and colors. The only text remains "MAKE YOUR OWN" in dark charcoal and "FIGURE" in forest green. Do not regenerate into another font or add text.
+Keep the rendered figure clean, full head and feet visible, no logo, watermark or border. Change background color only. Output one finished image in the same landscape aspect ratio.

@@ -1,0 +1,10 @@
+Use case: precise-object-edit.
+Asset type: landscape 16:9 video cover.
+Input images: Image 1 is the current cover to edit. Image 2 is a BACKGROUND COLOR REFERENCE ONLY; do not import its characters, arrow, layout, outline effects or words.
+Apply exactly these requested changes:
+1. Replace Image 1's pale lavender backdrop with the rich dark purple background color treatment in Image 2: deep plum / aubergine at the edges, saturated royal violet in the softly glowing center. Approximate palette #25052F, #4C086C, #7A0ABB. A smooth dark purple studio gradient with soft violet illumination; vivid, clean and dimensional. No objects, pattern, texture, starburst or added graphics.
+2. Change "MAKE YOUR OWN" to pure white, preserving its existing FusionPixel-style pixel font, size and placement.
+3. Make "FIGURE" substantially bolder: thicken the actual pixel strokes approximately twofold into strong bold bitmap lettering. Preserve the recognizable FusionPixel glyph skeleton, square pixels, stair-stepped corners and counters, baseline, overall position and approximate overall word width. Keep it GREEN, in a vivid readable emerald-green rendition of the current hue, sufficiently bright against the new dark purple background. Keep open counters and crisp edges; no smooth athletic typeface, no outline, bevel, glow or drop shadow.
+Strict subject preservation: keep the rendered green-and-purple figure and natural human hand exactly as Image 1: same pose, grip, anatomy, proportions, geometry, pixel-art costume pattern, colors, clean material finish, lighting, size and placement. Do not import the alternate character proportions or textures from Image 2. Keep skin natural, not purple. Complete head and feet must remain visible. Keep existing framing and margins.
+Text remains exactly two left-aligned lines: "MAKE YOUR OWN" / "FIGURE". No other text, logo, brand, watermark or graphic elements.
+Output one finished landscape cover with the same aspect ratio and composition as Image 1.

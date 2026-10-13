@@ -1,0 +1,13 @@
+Use case: compositing.
+Asset type: landscape 16:9 video cover.
+Input images: Image 1 is the existing cover to edit and establishes the clean rendered character style. Image 2 is the original photograph, a supporting reference for the natural one-handed grip, scale and character identity.
+Primary edit: add one natural, photorealistic human hand holding the clean rendered figure, and change the headline to "MAKE YOUR OWN FIGURE". Keep the clean warm ivory studio background and green / charcoal typography. No logo.
+Subject invariants: exactly the same green-haired, purple-striped cuboid character, pale square face and pixel eyes, purple / gray / green pixel costume, white shoulder details, rectangular limbs and proportions. Retain the pristine 3D-rendered finish from Image 1: precise geometry, neat edges, crisp pixel artwork and smooth matte surfaces. Do not restore creased paper, rough sticker edges or handmade wear.
+Hand: a single realistic hand entering from the bottom, naturally cradling the figure as in Image 2, thumb alongside the left side of the figure and fingers wrapping around behind it. Anatomically correct, comfortable grip and believable contact shadows. Keep the costume, face, head and feet clearly visible. The figure should feel like a small physical collectible held in the palm. Harmonize soft lighting and scale between the photorealistic hand and the rendered figure. No extra hands, duplicated fingers or props.
+Composition: character and hand dominate the right half, head and feet complete inside generous margins. Left-center has a compact two-line headline with ample negative space. Keep the graphic simple and image-led.
+Text: remove the previous "YOUR SKIN. MADE REAL." completely. The ONLY text on the cover must be exactly:
+"MAKE YOUR OWN"
+"FIGURE"
+Two left-aligned lines, first line smaller charcoal, second line larger deep forest green, bold geometric sans serif. Keep the overall headline block compact, about 40 percent of the canvas width, and avoid text overlapping the hand or character. No "AT HOME", slogans, labels, branding, logo or watermark.
+Background and light: clean seamless ivory studio background with subtle pale sage falloff and soft dimensional light. No foliage, noisy texture, decorative elements or borders.
+Deliver one finished high-resolution 16:9 landscape cover.

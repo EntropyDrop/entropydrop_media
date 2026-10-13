@@ -1,0 +1,23 @@
+# Private/local source media and transient TTS requests
+/sources/
+.tts-staging-*/
+
+# Derived media and manifests; the font is a required source dependency
+/assets/*
+!/assets/fonts/
+/assets/fonts/*
+!/assets/fonts/fusion-pixel-12px-proportional-zh_hans.ttf.woff2
+/audios/
+
+# Generated Hyperframes composition, metadata, timeline, and subtitles
+/index.html
+/meta.json
+/timeline.json
+/captions.en.srt
+
+# Exports, previews, backups, and editor caches
+/renders/
+/snapshots/
+/.thumbnails/
+/.waveform-cache/
+/node_modules/

@@ -23,3 +23,33 @@ assets/website/vo07_website_walkthrough_synced.mp4
 
 # Private deployment instructions, local connection settings, and recovery backups
 /local_deployment/
+
+# Local credentials and environment overrides (keep shareable examples)
+.env
+.env.*
+!.env.example
+!.env.template
+.secrets/
+secrets/
+.aws/
+.ssh/
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+credentials.json
+application_default_credentials.json
+service-account*.json
+service_account*.json
+
+# Generated cover artwork and image references; keep prompts and HTML sources
+**/covers/*.png
+**/covers/*.jpg
+**/covers/*.jpeg
+**/covers/*.webp
+
+# Dependency and Python caches
+node_modules/
+*.py[cod]

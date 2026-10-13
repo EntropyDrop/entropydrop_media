@@ -1,0 +1,13 @@
+Use case: style-transfer.
+Asset type: revised landscape 16:9 video thumbnail.
+Input images: Image 1 is the existing cover to edit; Image 2 is the original figure photograph, a supporting character identity reference.
+Primary request: reduce the amount of text, remove the upper-left EntropyDrop logo completely, and replace the photographic handmade figure with a clean, polished 3D-rendered version of the SAME character. Remove the entire human hand and sleeve as well, giving the figure a clean standalone product-render presentation.
+Character invariants: retain the specific cuboid head, green hair with vertical purple sections, pale square face, dark pixel eyes, purple / gray / green pixel-art outfit, white shoulder details and separate rectangular arms and legs. Preserve the silhouette, costume design, color placement, chibi block proportions and recognizable character identity from the original. Do not invent a different character.
+Render treatment: pristine high-quality 3D toy render, precise block geometry with extremely subtle bevels, clean flat pixel-art texture mapped flush onto surfaces. Remove paper grain, folds, torn edges, sticker layering, misalignments and imperfections. Soft matte material, restrained ambient occlusion, gentle highlights. Keep crisp square pixels and cuboid geometry; do not smooth into a round cartoon or add glossy metallic effects.
+Composition: make the character the dominant focus, large on the right and slightly toward the center, complete head and feet visible with generous margins. Slight three-quarter front view showing depth, arms relaxed, both feet resting on the neutral studio floor. Small soft natural contact shadow. No pedestal, hand, props or scenery. Left side uses considerably less space for text than the original cover.
+Background: clean seamless warm ivory studio background, very subtle pale sage gradient; remove the busy blurred plant-like shapes. Maintain a quiet light palette with lots of breathing room.
+Text: remove ALL existing typography and branding. The ONLY text on the entire image must be these two concise uppercase lines, verbatim:
+"YOUR SKIN."
+"MADE REAL."
+Left-aligned, placed in the left-center area, bold compact clean geometric sans serif, ample line spacing. First line charcoal, second line deep forest green. Text should occupy only about one third of the composition and must not overlap the figure.
+Constraints: no logo, no brand name, no watermark, no extra labels, badges, copy or icons. One figure only. Premium, minimal, crisp and image-led. Produce one finished cover in landscape 16:9.

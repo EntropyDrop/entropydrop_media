@@ -1,0 +1,10 @@
+Use case: text-localization.
+Asset type: landscape 16:9 video thumbnail, typography-only revision.
+Input images: Image 1 is the cover to edit. Image 2 is a lettering reference rendered directly from the actual video's FusionPixel font file (fusion-pixel-12px-proportional-zh_hans.ttf.woff2). Image 2 is only a glyph-shape reference, not a new composition.
+Primary request: replace ONLY the cover's existing smooth block headline with the same retro pixel / bitmap lettering shown in Image 2. Reproduce the shapes of those exact reference glyphs: small square grid modules, stair-stepped diagonals, squared corners and bitmap-style counters. Do not use the chamfered athletic block lettering of Image 1. Do not create random videogame lettering: match the real FusionPixel reference.
+Text must remain exactly two left-aligned lines:
+"MAKE YOUR OWN"
+"FIGURE"
+Preserve the headline's current position and visual hierarchy, first line smaller dark charcoal and second line larger forest green. Adjust sizes and spacing gently if needed to fit the genuine pixel letter proportions without stretching the glyphs or letting text touch the hand. Keep crisp pixels, flat color and no outline, bevel, glow or text shadow.
+STRICT preservation: preserve the rendered green-and-purple character, its geometry and costume, natural human hand, grip, pose, lighting, background, size and composition from Image 1. Change only the typography. Do not move, restyle, replace or alter the character or hand. Do not add brand, logo, extra text or graphic decoration. Retain the complete head and feet and current margins.
+Output one finished landscape cover in the same aspect ratio.

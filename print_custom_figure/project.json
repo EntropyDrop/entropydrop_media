@@ -1,0 +1,73 @@
+{
+  "title": "Make Your Own Figure at Home",
+  "fps": 30,
+  "showcase": {
+    "src": "",
+    "duration": 10,
+    "mediaStart": 0,
+    "manifest": "assets/showcase/manifest.json"
+  },
+  "clips": [
+    {
+      "src": "assets/3dp1.mp4",
+      "source": "3dp1.mov",
+      "label": "Create & download",
+      "step": 1,
+      "cropPixels": {
+        "left": 10,
+        "top": 6,
+        "right": 22,
+        "bottom": 14
+      }
+    },
+    {
+      "src": "assets/3dp2.mp4",
+      "source": "3dp2.mov",
+      "label": "Prepare to print",
+      "step": 2,
+      "caption": "Import the parts into your slicer."
+    },
+    {
+      "src": "assets/3dp3.mp4",
+      "source": "3dp3.mov",
+      "label": "Prepare to print",
+      "step": 2,
+      "caption": "Slice the model."
+    },
+    {
+      "src": "assets/3dp4.mp4",
+      "source": "3dp4.mov",
+      "label": "Prepare to print",
+      "step": 2,
+      "caption": "And get ready to print."
+    }
+  ],
+  "websiteCaptions": [
+    {
+      "start": 0.2,
+      "end": 8.05,
+      "text": "Start with a new skin, or upload one you've already made. Then open the 3D printing page."
+    },
+    {
+      "start": 8.4,
+      "end": 14.6,
+      "text": "You can turn the model around and see how all the pieces fit together."
+    },
+    {
+      "start": 15.05,
+      "end": 22.95,
+      "text": "Download the files for free and make it yourself. Or buy a Figure Kit with 3D-printed parts and pre-cut stickers."
+    }
+  ],
+  "outroDuration": 4,
+  "assembly": {
+    "manifest": "assets/assembly/manifest.json"
+  },
+  "stickers": {
+    "manifest": "assets/stickers/manifest.json"
+  },
+  "ending": {
+    "duration": 8,
+    "image": "assets/ending/PXL_20261013_070550776.jpg"
+  }
+}

@@ -1,0 +1,13 @@
+Use case: ads-marketing.
+Asset type: a polished landscape 16:9 video cover / YouTube thumbnail for an English DIY video titled "Make Your Own Figure at Home". Produce one final high-resolution cover, preferably 2560 × 1440.
+Input images: Image 1 is the original full-resolution product photograph and the primary edit target. Image 2 is the actual 00:09 video frame, a supporting reference for the exact figure, project context and existing restrained green/ivory design.
+Primary request: beautify this real photograph into an attractive, image-led video cover. Retain the exact handmade physical figure and natural hand holding it. Improve the composition, lighting, background and typography.
+Subject invariants: the very same small block-shaped figure, green hair with purple vertical sections, pale square face and dark pixel eyes, purple/gray/green sticker outfit, silver-white shoulder details, segmented block limbs. Preserve the actual proportions, pixel-art pattern, colors, folds, layered sticker edges and plausible paper/3D-printed texture. Keep the original hand anatomically natural. It must look like the real handmade figure in the source, not a newly invented character or a glossy CGI toy.
+Composition: subject large and dominant on the right, framed from complete hair to complete feet with comfortable margins, natural hand entering from the bottom. The left has clean negative space for the short headline, with no overlap onto the figure. Figure and hand occupy roughly the right 55–60 percent; the figure remains the main point of attention even as a small thumbnail.
+Background and light: replace the dull gray tabletop with a clean warm ivory studio backdrop, subtle pale sage falloff behind the subject, soft dimensional shadows and brighter controlled photographic lighting. Crisp detail and natural contrast without harsh oversharpening or exaggerated saturation. Premium but approachable handmade DIY feel.
+Typography: highly legible bold geometric uppercase lettering with subtly squared forms, clean spacing and strong contrast. Three left-aligned lines, exact text:
+"MAKE YOUR OWN"
+"FIGURE"
+"AT HOME"
+Make "FIGURE" the largest line in deep forest green; the other lines dark charcoal. Small understated "EntropyDrop" near the upper left. Keep the layout spacious, strong and simple, in keeping with the video. Do not reproduce the source video's small bottom-left title badge.
+Constraints: only the one original figure and its natural hand. No extra characters, printer, tools, arrows, icons, stickers, sales badges, price claims or invented objects. No watermark, fake UI, frame border or extra copy. Keep all lettering and the figure comfortably inside the 16:9 canvas.

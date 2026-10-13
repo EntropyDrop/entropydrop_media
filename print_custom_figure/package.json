@@ -1,0 +1,17 @@
+{
+  "name": "hyperframes-print-custom-figure",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare:assets": "python3 prepare_assets.py",
+    "assembly": "python3 build_assembly.py && python3 build_stickers.py && python3 build_soundtrack.py && node build.mjs",
+    "stickers": "python3 build_stickers.py && python3 build_soundtrack.py && node build.mjs --without-narration && python3 regenerate_audio.py && node build.mjs",
+    "audio": "node build.mjs --without-narration && python3 regenerate_audio.py && node build.mjs",
+    "build": "node build.mjs",
+    "dev": "npx --yes hyperframes@0.6.6 preview",
+    "check": "npx --yes hyperframes@0.6.6 lint && npx --yes hyperframes@0.6.6 inspect --at 0,2,4,6,8,9.966667,10,17,28,34,36.5,39,42,44.433334,50,58,66.433334,72.4,72.433334,73.033334,81.1,89.833334,90.433334,91,94,98.4",
+    "render": "npx --yes hyperframes@0.6.6 render --fps 30 --quality high --sdr -o renders/print-your-custom-figure-at-home.mp4 && python3 finalize_audio.py",
+    "soundtrack": "python3 build_soundtrack.py --refresh-sections",
+    "showcase": "python3 prepare_showcase.py && node build.mjs --without-narration && python3 regenerate_audio.py && node build.mjs"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "seed": 42,
+  "targetWpm": 175,
+  "segments": [
+    {
+      "id": "01_hook",
+      "anchor": "showcase",
+      "offset": 0.15,
+      "maxDuration": 7.65,
+      "text": "Let's turn your favorite skin into one of these—a figure you can hold."
+    },
+    {
+      "id": "02_start",
+      "anchor": "3dp1.mov",
+      "offset": 0.2,
+      "maxDuration": 7.85,
+      "text": "Start with a new skin, or upload one you've already made. Then open the 3D printing page."
+    },
+    {
+      "id": "03_preview",
+      "anchor": "3dp1.mov",
+      "offset": 8.4,
+      "maxDuration": 6.2,
+      "text": "You can turn the model around and see how all the pieces fit together."
+    },
+    {
+      "id": "04_download",
+      "anchor": "3dp1.mov",
+      "offset": 15.05,
+      "maxDuration": 7.9,
+      "text": "Download the files for free and make it yourself. Or buy a Figure Kit with 3D-printed parts and pre-cut stickers."
+    },
+    {
+      "id": "05_slice",
+      "anchor": "slicing",
+      "offset": 0.12,
+      "maxDuration": 6.72,
+      "text": "Now bring the files into your slicer, check the preview, and you're ready to print."
+    },
+    {
+      "id": "06_assemble",
+      "anchor": "outro",
+      "offset": 0.15,
+      "maxDuration": 3.65,
+      "text": "Once they're printed, let's put everything together."
+    },
+    {
+      "id": "07_finished",
+      "anchor": "ending",
+      "offset": 0.2,
+      "maxDuration": 7.5,
+      "text": "And there you go, your skin, printed and put together. Try it yourself at entropydrop dot com."
+    }
+  ],
+  "tempoRange": [
+    0.8,
+    1.1
+  ]
+}

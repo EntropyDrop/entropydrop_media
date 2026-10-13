@@ -1,0 +1,7 @@
+Use case: text-localization.
+Asset type: YouTube thumbnail, wide landscape.
+Input image 1 is the edit target.
+
+Replace the bottom headline "Open Source" with exactly "In Minutes". Render "In" in white and "Minutes" in vivid electric blue, matching the existing very bold clean sans-serif lettering, subtle dark shadow and lower-center horizontal placement. Maintain a similar overall headline width and strong readability at thumbnail size. Spell the words exactly: I-n, M-i-n-u-t-e-s. Completely remove the original words "Open Source".
+
+Change only this headline. Preserve the entire rest of the supplied thumbnail: the large green-and-purple-haired illustration on the left, the matching Minecraft skin on the right, their faces, geometry, pixel colors, poses, clothing, white outlines, the single white arrow, deep purple gradient background, glow, framing and proportions. Do not add characters, labels, logos, version numbers, timestamps or watermarks. Preserve the same landscape aspect ratio.

@@ -1,0 +1,9 @@
+{
+  "sourceDirectory": "sources/stickers",
+  "fps": 30,
+  "secondsPerImage": 0.6,
+  "transition": "cut",
+  "video": "assets/stickers/sticker-installation.mp4",
+  "music": "audios/assembly-and-stickers-electro.wav",
+  "assemblyManifest": "assets/assembly/manifest.json"
+}

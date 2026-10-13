@@ -1,0 +1,12 @@
+Use case: text-localization.
+Asset type: landscape video cover, typography-only edit.
+Input images: Image 1 is the user's chosen ivory-background cover, the exact edit target. Image 2 is ONLY the reference for the pixel font shapes and weights from our previous cover. Do not import Image 2's purple background, white first-line color or bright green text color.
+Primary request: on Image 1, replace the existing non-pixel headline with the pixel lettering style from Image 2.
+Exact two-line text remains:
+"MAKE YOUR OWN"
+"FIGURE"
+MAKE YOUR OWN must use the thin / regular FusionPixel-style bitmap glyphs from Image 2, with small square pixel modules and clearly stepped diagonals. Its color must remain dark charcoal / black, as in Image 1.
+FIGURE must use the BOLD pixel lettering from Image 2: thick strokes, square terminals, stair-stepped corners, open counters and the same bold pixel glyph skeleton. Its color must remain the dark forest green of Image 1, NOT the bright neon green of Image 2.
+Preserve Image 1's headline location, two-line layout, size hierarchy and overall text footprint. Avoid overlap with the hand. Crisp flat-color pixel letters, no outline, glow, bevel or shadow.
+STRICT invariants: retain Image 1's warm ivory and pale sage background exactly, together with the green-purple rendered figure, human hand, pose, grip, anatomy, skin tone, costume, character geometry, highlights, textures, framing, size and placement. Do not change the background or any non-text part. Full figure visible, no logo, extra copy or decoration.
+Output one finished landscape image in the same dimensions and aspect ratio as Image 1.

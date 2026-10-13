@@ -1,0 +1,18 @@
+{
+  "source": "sources/PXL_20261012_012814410.mp4",
+  "fps": 30,
+  "bpm": 120,
+  "video": "assets/assembly/assembly-montage.mp4",
+  "music": "audios/assembly-electro.wav",
+  "shots": [
+    { "id": "01_parts", "in": 0.15, "out": 2.15, "duration": 2, "caption": "Lay out the printed parts.", "events": [] },
+    { "id": "02_arm_one", "in": 6.8, "out": 12.8, "duration": 4, "caption": "Fit the shoulder joint and attach the first arm.", "events": [{ "source": 12, "target": 3.5, "label": "first arm seated" }] },
+    { "id": "03_arm_two", "in": 16.8, "out": 22.3, "duration": 4, "caption": "Connect the other arm.", "events": [{ "source": 20.7, "target": 3, "label": "second arm seated" }] },
+    { "id": "04_hips", "in": 132.2, "out": 141.6, "duration": 4, "caption": "Press both leg connectors into the torso.", "events": [{ "source": 134.8, "target": 1, "label": "first hip connector seated" }, { "source": 141, "target": 3.5, "label": "second hip connector seated" }] },
+    { "id": "05_leg_one", "in": 142.8, "out": 146.6, "duration": 2, "caption": "Attach the first leg.", "events": [{ "source": 145.9, "target": 1.5, "label": "first leg seated" }] },
+    { "id": "06_leg_two", "in": 147.6, "out": 151.6, "duration": 2, "caption": "Attach the second leg.", "events": [{ "source": 150.5, "target": 1.5, "label": "second leg seated" }] },
+    { "id": "07_neck", "in": 178.4, "out": 183.1, "duration": 2, "caption": "Fit the neck connector.", "events": [{ "source": 182.4, "target": 1.5, "label": "neck connector seated" }] },
+    { "id": "08_head", "in": 183.5, "out": 188.5, "duration": 4, "caption": "Press the head into place.", "events": [{ "source": 185.9, "target": 2, "label": "head seated" }] },
+    { "id": "09_finished", "in": 190.4, "out": 194.4, "duration": 4, "caption": "Assembled. Ready for your custom skin.", "events": [] }
+  ]
+}
