@@ -6,6 +6,9 @@
     "build": "python3 build_video.py && node build.mjs",
     "render": "python3 build_video.py && node build.mjs",
     "dev": "npx --yes hyperframes@0.6.6 preview",
-    "check": "python3 check_media.py && npx --yes hyperframes@0.6.6 lint"
+    "check": "python3 check_media.py && npx --yes hyperframes@0.6.6 lint",
+    "douyin:review": "python3 build_vertical.py --review",
+    "render:douyin": "python3 build_vertical.py",
+    "check:douyin": "python3 check_vertical.py"
   }
 }
