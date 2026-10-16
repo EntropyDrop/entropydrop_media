@@ -1,0 +1,105 @@
+{
+  "tool": "built-in image_gen",
+  "useCase": "precise-object-edit",
+  "purpose": "Outpaint all eight opening photographs to a natural 16:9 grey background without black bars.",
+  "selectedEnding": "assets/showcase/expanded/001-ai-v1.png",
+  "endingSelectionReason": "Unobstructed full figure in a clear front three-quarter standing pose, showing the face, crown, coat, boots and grounded shadow.",
+  "images": [
+    {
+      "original": "PXL_20261015_131727651.jpg",
+      "source": "sources/showcase/PXL_20261015_131727651.jpg",
+      "source_sha256": "0ad9500bbb2f8d0ace42dfe9173fe06a8dc5f34406376d82b11c4bdb97931161",
+      "image": "assets/showcase/expanded/001-ai-v1.png",
+      "image_sha256": "e4be96d91b7283d729d926e6b7bd00ea1e058e214400ba478971cf6496b4ac64",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: a full-frame 16:9 still for a product showcase video.\nEDIT TARGET: the attached original photograph. This is background OUTPAINTING of this exact photograph, not a recreation of the subject.\nExpand the image horizontally into a wide 16:9 photograph, ideally 2048x1152. Seamlessly continue its existing neutral grey photographic sweep/tabletop into the new left and right regions, matching its grey gradient, fine texture, perspective, subtle focus falloff, natural light and shadows.\nKeep the complete physical block-shaped pig figure exactly as photographed: same pose and viewing angle, pink pixel face or back of head, exact eye placement, exact yellow crown geometry and colored crown squares, red jacket, blue or white torso details, white cuffs, grey and black boots, visible paper/printed seams, materials and all small imperfections. Do not beautify, redesign or reconstruct the figure. Keep crown and both feet fully inside the frame with comfortable margins. Keep its photographic appearance, not a CGI render or illustration.\nNo black borders, no letterboxing, no blurred duplicate backdrop, no mirror-stretched edges, no new props, no extra figures, no text overlays, no logo, no watermark. Return one single finished wide photograph filling the entire 16:9 image.\nThe original is a clean freestanding product photo. Retain the complete toy and its grounded contact shadow centered in the wide frame, with the toy about 65–75% of frame height, extending the grey background on both sides. Preserve the original physical pose and proportions."
+    },
+    {
+      "original": "PXL_20261015_132014892.jpg",
+      "source": "sources/showcase/PXL_20261015_132014892.jpg",
+      "source_sha256": "19767e2227dd72936ece8eee7efb646a859ce26d190d3c9ea40ee605d98b35cc",
+      "image": "assets/showcase/expanded/002-ai-v1.png",
+      "image_sha256": "62a43d3f669f04d01ec690d83518a3a85ac6c6023e91ecba9be00b747b910667",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: a full-frame 16:9 still for a product showcase video.\nEDIT TARGET: the attached original photograph. This is background OUTPAINTING of this exact photograph, not a recreation of the subject.\nExpand the image horizontally into a wide 16:9 photograph, ideally 2048x1152. Seamlessly continue its existing neutral grey photographic sweep/tabletop into the new left and right regions, matching its grey gradient, fine texture, perspective, subtle focus falloff, natural light and shadows.\nKeep the complete physical block-shaped pig figure exactly as photographed: same pose and viewing angle, pink pixel face or back of head, exact eye placement, exact yellow crown geometry and colored crown squares, red jacket, blue or white torso details, white cuffs, grey and black boots, visible paper/printed seams, materials and all small imperfections. Do not beautify, redesign or reconstruct the figure. Keep crown and both feet fully inside the frame with comfortable margins. Keep its photographic appearance, not a CGI render or illustration.\nNo black borders, no letterboxing, no blurred duplicate backdrop, no mirror-stretched edges, no new props, no extra figures, no text overlays, no logo, no watermark. Return one single finished wide photograph filling the entire 16:9 image.\nThe original is a clean freestanding product photo. Retain the complete toy and its grounded contact shadow centered in the wide frame, with the toy about 65–75% of frame height, extending the grey background on both sides. Preserve the original physical pose and proportions."
+    },
+    {
+      "original": "PXL_20261015_132030379.jpg",
+      "source": "sources/showcase/PXL_20261015_132030379.jpg",
+      "source_sha256": "9f47fe6a779215782f936b6c51b7e98124337163e04f2054766f6bedcb0f0524",
+      "image": "assets/showcase/expanded/003-ai-v1.png",
+      "image_sha256": "a48ea454a109c7e4294e46d2d7340648bb30b376679aae6d19cb29b60d4eda5f",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: a full-frame 16:9 still for a product showcase video.\nEDIT TARGET: the attached original photograph. This is background OUTPAINTING of this exact photograph, not a recreation of the subject.\nExpand the image horizontally into a wide 16:9 photograph, ideally 2048x1152. Seamlessly continue its existing neutral grey photographic sweep/tabletop into the new left and right regions, matching its grey gradient, fine texture, perspective, subtle focus falloff, natural light and shadows.\nKeep the complete physical block-shaped pig figure exactly as photographed: same pose and viewing angle, pink pixel face or back of head, exact eye placement, exact yellow crown geometry and colored crown squares, red jacket, blue or white torso details, white cuffs, grey and black boots, visible paper/printed seams, materials and all small imperfections. Do not beautify, redesign or reconstruct the figure. Keep crown and both feet fully inside the frame with comfortable margins. Keep its photographic appearance, not a CGI render or illustration.\nNo black borders, no letterboxing, no blurred duplicate backdrop, no mirror-stretched edges, no new props, no extra figures, no text overlays, no logo, no watermark. Return one single finished wide photograph filling the entire 16:9 image.\nThe original is a clean freestanding product photo. Retain the complete toy and its grounded contact shadow centered in the wide frame, with the toy about 65–75% of frame height, extending the grey background on both sides. Preserve the original physical pose and proportions."
+    },
+    {
+      "original": "PXL_20261015_132056696.jpg",
+      "source": "sources/showcase/PXL_20261015_132056696.jpg",
+      "source_sha256": "1531f7db4773dbf8346d2a573201220e82df2e4757afebcd1f42931e25924604",
+      "image": "assets/showcase/expanded/004-ai-v1.png",
+      "image_sha256": "5eb321b368568590f7e8ff29f5b4a0e5b030fd40f4848c5af9c98eaa383f5b27",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: a full-frame 16:9 still for a product showcase video.\nEDIT TARGET: the attached original photograph. This is background OUTPAINTING of this exact photograph, not a recreation of the subject.\nExpand the image horizontally into a wide 16:9 photograph, ideally 2048x1152. Seamlessly continue its existing neutral grey photographic sweep/tabletop into the new left and right regions, matching its grey gradient, fine texture, perspective, subtle focus falloff, natural light and shadows.\nKeep the complete physical block-shaped pig figure exactly as photographed: same pose and viewing angle, pink pixel face or back of head, exact eye placement, exact yellow crown geometry and colored crown squares, red jacket, blue or white torso details, white cuffs, grey and black boots, visible paper/printed seams, materials and all small imperfections. Do not beautify, redesign or reconstruct the figure. Keep crown and both feet fully inside the frame with comfortable margins. Keep its photographic appearance, not a CGI render or illustration.\nNo black borders, no letterboxing, no blurred duplicate backdrop, no mirror-stretched edges, no new props, no extra figures, no text overlays, no logo, no watermark. Return one single finished wide photograph filling the entire 16:9 image.\nPreserve the real human hand, fingers and wrist holding the figure exactly as photographed. Reframe the composition around the whole figure without losing its crown or feet; trim only surplus empty grey headroom if needed and extend the grey background sideways. The hand naturally enters from the lower left. Do not change the number or shape of fingers. The complete figure should occupy about 65–75% of frame height."
+    },
+    {
+      "original": "PXL_20261015_132151563.jpg",
+      "source": "sources/showcase/PXL_20261015_132151563.jpg",
+      "source_sha256": "c0d8f05ea1f34252a20bd26fe4190f4a3638db683712b255ffd452e695c0fb9e",
+      "image": "assets/showcase/expanded/005-ai-v1.png",
+      "image_sha256": "65a46659a6d826e5206561b85108cfcb1df13a23865aabc07c802ad39b8c5653",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: a full-frame 16:9 still for a product showcase video.\nEDIT TARGET: the attached original photograph. This is background OUTPAINTING of this exact photograph, not a recreation of the subject.\nExpand the image horizontally into a wide 16:9 photograph, ideally 2048x1152. Seamlessly continue its existing neutral grey photographic sweep/tabletop into the new left and right regions, matching its grey gradient, fine texture, perspective, subtle focus falloff, natural light and shadows.\nKeep the complete physical block-shaped pig figure exactly as photographed: same pose and viewing angle, pink pixel face or back of head, exact eye placement, exact yellow crown geometry and colored crown squares, red jacket, blue or white torso details, white cuffs, grey and black boots, visible paper/printed seams, materials and all small imperfections. Do not beautify, redesign or reconstruct the figure. Keep crown and both feet fully inside the frame with comfortable margins. Keep its photographic appearance, not a CGI render or illustration.\nNo black borders, no letterboxing, no blurred duplicate backdrop, no mirror-stretched edges, no new props, no extra figures, no text overlays, no logo, no watermark. Return one single finished wide photograph filling the entire 16:9 image.\nPreserve the real human hand, fingers and wrist holding the figure exactly as photographed. Reframe the composition around the whole figure without losing its crown or feet; trim only surplus empty grey headroom if needed and extend the grey background sideways. The hand naturally enters from the lower left. Do not change the number or shape of fingers. The complete figure should occupy about 65–75% of frame height."
+    },
+    {
+      "original": "PXL_20261015_132327677.jpg",
+      "source": "sources/showcase/PXL_20261015_132327677.jpg",
+      "source_sha256": "200d584f76fb72890ec8bdf36332b2bec1f2d78da8175113eb27f65a670a858a",
+      "image": "assets/showcase/expanded/006-ai-v1.png",
+      "image_sha256": "e43770df966886250ccda636fae67b110186717857ca12fe56bce5eb79ec9fb4",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: a full-frame 16:9 still for a product showcase video.\nEDIT TARGET: the attached original photograph. This is background OUTPAINTING of this exact photograph, not a recreation of the subject.\nExpand the image horizontally into a wide 16:9 photograph, ideally 2048x1152. Seamlessly continue its existing neutral grey photographic sweep/tabletop into the new left and right regions, matching its grey gradient, fine texture, perspective, subtle focus falloff, natural light and shadows.\nKeep the complete physical block-shaped pig figure exactly as photographed: same pose and viewing angle, pink pixel face or back of head, exact eye placement, exact yellow crown geometry and colored crown squares, red jacket, blue or white torso details, white cuffs, grey and black boots, visible paper/printed seams, materials and all small imperfections. Do not beautify, redesign or reconstruct the figure. Keep crown and both feet fully inside the frame with comfortable margins. Keep its photographic appearance, not a CGI render or illustration.\nNo black borders, no letterboxing, no blurred duplicate backdrop, no mirror-stretched edges, no new props, no extra figures, no text overlays, no logo, no watermark. Return one single finished wide photograph filling the entire 16:9 image.\nPreserve the real human hand, fingers and wrist holding the figure exactly as photographed. Reframe the composition around the whole figure without losing its crown or feet; trim only surplus empty grey headroom if needed and extend the grey background sideways. The hand naturally enters from the lower left. Do not change the number or shape of fingers. The complete figure should occupy about 65–75% of frame height."
+    },
+    {
+      "original": "PXL_20261015_132338399.jpg",
+      "source": "sources/showcase/PXL_20261015_132338399.jpg",
+      "source_sha256": "e167f746edc5d3c5b05109cf2067b4753df7228002d20e25eda8e23ab997fa35",
+      "image": "assets/showcase/expanded/007-ai-v1.png",
+      "image_sha256": "6b0919adcfa7a93640f684b0fbd36c875d67e64a777d2b706e387382142d70ad",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: a full-frame 16:9 still for a product showcase video.\nEDIT TARGET: the attached original photograph. This is background OUTPAINTING of this exact photograph, not a recreation of the subject.\nExpand the image horizontally into a wide 16:9 photograph, ideally 2048x1152. Seamlessly continue its existing neutral grey photographic sweep/tabletop into the new left and right regions, matching its grey gradient, fine texture, perspective, subtle focus falloff, natural light and shadows.\nKeep the complete physical block-shaped pig figure exactly as photographed: same pose and viewing angle, pink pixel face or back of head, exact eye placement, exact yellow crown geometry and colored crown squares, red jacket, blue or white torso details, white cuffs, grey and black boots, visible paper/printed seams, materials and all small imperfections. Do not beautify, redesign or reconstruct the figure. Keep crown and both feet fully inside the frame with comfortable margins. Keep its photographic appearance, not a CGI render or illustration.\nNo black borders, no letterboxing, no blurred duplicate backdrop, no mirror-stretched edges, no new props, no extra figures, no text overlays, no logo, no watermark. Return one single finished wide photograph filling the entire 16:9 image.\nPreserve the real human hand, fingers and wrist holding the figure exactly as photographed. Reframe the composition around the whole figure without losing its crown or feet; trim only surplus empty grey headroom if needed and extend the grey background sideways. The hand naturally enters from the lower left. Do not change the number or shape of fingers. The complete figure should occupy about 65–75% of frame height."
+    },
+    {
+      "original": "PXL_20261015_132824167.jpg",
+      "source": "sources/showcase/PXL_20261015_132824167.jpg",
+      "source_sha256": "7021a432a90952990ff2b8e532e913f93f49f24cac100d873013496d994db551",
+      "image": "assets/showcase/expanded/008-ai-v1.png",
+      "image_sha256": "858722ce8151ddf93a7c8238906b3b9604611dab600b994d6743bbf3192538cb",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: a full-frame 16:9 still for a product showcase video.\nEDIT TARGET: the attached original photograph. This is background OUTPAINTING of this exact photograph, not a recreation of the subject.\nExpand the image horizontally into a wide 16:9 photograph, ideally 2048x1152. Seamlessly continue its existing neutral grey photographic sweep/tabletop into the new left and right regions, matching its grey gradient, fine texture, perspective, subtle focus falloff, natural light and shadows.\nKeep the complete physical block-shaped pig figure exactly as photographed: same pose and viewing angle, pink pixel face or back of head, exact eye placement, exact yellow crown geometry and colored crown squares, red jacket, blue or white torso details, white cuffs, grey and black boots, visible paper/printed seams, materials and all small imperfections. Do not beautify, redesign or reconstruct the figure. Keep crown and both feet fully inside the frame with comfortable margins. Keep its photographic appearance, not a CGI render or illustration.\nNo black borders, no letterboxing, no blurred duplicate backdrop, no mirror-stretched edges, no new props, no extra figures, no text overlays, no logo, no watermark. Return one single finished wide photograph filling the entire 16:9 image.\nPreserve the entire existing arrangement: the completed figure, black precision screwdriver, printed sticker sheet, its existing markings and pictures, and their relative positions. Extend only the grey tabletop at the outer sides, keeping every existing object wholly visible. Do not add printed graphics or tools."
+    }
+  ]
+}

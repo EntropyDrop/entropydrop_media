@@ -1,0 +1,12 @@
+sources/
+assets/assembly/
+assets/graphics/
+assets/showcase/
+audios/
+review/
+renders/
+index.html
+meta.json
+timeline.json
+captions.en.srt
+__pycache__/

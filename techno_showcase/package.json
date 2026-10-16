@@ -1,0 +1,11 @@
+{
+  "name": "hyperframes-techno-showcase",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "python3 build_video.py && node build.mjs",
+    "render": "python3 build_video.py && node build.mjs",
+    "dev": "npx --yes hyperframes@0.6.6 preview",
+    "check": "python3 check_media.py && npx --yes hyperframes@0.6.6 lint"
+  }
+}

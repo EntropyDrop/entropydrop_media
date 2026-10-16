@@ -1,0 +1,57 @@
+{
+  "source": "sources/VID_20261014_114829.mp4",
+  "fps": 30,
+  "bpm": 120,
+  "width": 1920,
+  "height": 1080,
+  "title": "Techno — From Print to Figure",
+  "showcase": {
+    "importDirectory": "~/Downloads/shipin/未命名文件夹 5",
+    "durationPerPhoto": 2,
+    "fit": "cover",
+    "aiManifest": "showcase-ai.json",
+    "imageOverrides": {
+      "PXL_20261015_131727651.jpg": "assets/showcase/selected/user-opening-ending.png"
+    },
+    "photos": [
+      "PXL_20261015_131727651.jpg",
+      "PXL_20261015_132014892.jpg",
+      "PXL_20261015_132030379.jpg",
+      "PXL_20261015_132056696.jpg",
+      "PXL_20261015_132151563.jpg",
+      "PXL_20261015_132327677.jpg",
+      "PXL_20261015_132338399.jpg",
+      "PXL_20261015_132824167.jpg"
+    ]
+  },
+  "ending": {
+    "duration": 4,
+    "image": "assets/showcase/selected/user-opening-ending.png",
+    "sourcePhoto": "user-opening-ending.png",
+    "selectedBy": "user",
+    "fit": "cover"
+  },
+  "shots": [
+    { "id": "01_parts", "in": 0.3, "out": 2.3, "duration": 2, "crop": [0, 0, 1920, 1080], "label": "Printed figure and matching skin sheet", "notes": "Full overview without an overlay label." },
+    { "id": "02_face", "in": 14, "out": 28, "duration": 4, "crop": [480, 270, 1440, 810], "label": "Align and press the face sticker", "notes": "Focus on the head, keeping both hands and the sticker edge visible." },
+    { "id": "03_head_side", "in": 131, "out": 149, "duration": 4, "crop": [480, 270, 1440, 810], "label": "Wrap the side of the head" },
+    { "id": "04_head_back", "in": 203, "out": 221, "duration": 4, "crop": [480, 270, 1440, 810], "label": "Cover the back of the head" },
+    { "id": "05_crown", "in": 344, "out": 358, "duration": 4, "crop": [480, 270, 1440, 810], "label": "Wrap and seat the crown" },
+    { "id": "06_head_complete", "in": 624.5, "out": 628.5, "duration": 2, "crop": [240, 180, 1440, 810], "label": "Finished head and crown" },
+    { "id": "07_torso_front", "in": 707, "out": 723, "duration": 4, "crop": [240, 180, 1440, 810], "label": "Apply the front of the coat" },
+    { "id": "08_torso_side", "in": 807, "out": 821, "duration": 4, "crop": [240, 180, 1440, 810], "label": "Wrap the torso side around the shoulder socket" },
+    { "id": "09_torso_back", "in": 944, "out": 962, "duration": 4, "crop": [240, 180, 1440, 810], "label": "Apply the blue and gold back detail" },
+    { "id": "10_head_attach", "in": 1256, "out": 1265, "duration": 4, "crop": [160, 60, 1600, 900], "label": "Reconnect the head and torso" },
+    { "id": "11_arm_front", "in": 1347, "out": 1361, "duration": 4, "crop": [160, 120, 1600, 900], "label": "Fit the first red sleeve" },
+    { "id": "12_arm_back", "in": 1438, "out": 1449, "duration": 3, "crop": [240, 240, 1440, 810], "label": "Wrap the back of the sleeve" },
+    { "id": "13_arm_detail", "in": 1947, "out": 1955, "duration": 2, "crop": [320, 360, 1280, 720], "label": "Finish the sleeve edge", "notes": "Replacement: complete sleeve and hand are visible within a centered close-up." },
+    { "id": "14_arm_attach", "in": 1955, "out": 1959, "duration": 4, "crop": [0, 0, 1920, 1080], "label": "Attach the covered arm", "notes": "Keep the connection at original speed and cut before the repeated adjustment." },
+    { "id": "15_other_arm", "in": 2152, "out": 2168, "duration": 4, "crop": [160, 120, 1600, 900], "label": "Finish the other sleeve" },
+    { "id": "16_leg_front", "in": 2471, "out": 2481, "duration": 4, "crop": [0, 0, 1920, 1080], "label": "Apply the first leg skin" },
+    { "id": "17_leg_back", "in": 2690, "out": 2706, "duration": 4, "crop": [160, 120, 1600, 900], "label": "Wrap the back of the first leg" },
+    { "id": "18_other_leg", "in": 3234, "out": 3243, "duration": 3, "crop": [320, 180, 1440, 810], "label": "Finish the second leg skin" },
+    { "id": "19_leg_attach", "in": 3507, "out": 3519, "duration": 4, "crop": [0, 0, 1920, 1080], "label": "Attach the first finished leg" },
+    { "id": "20_other_leg_attach", "in": 3540, "out": 3550, "duration": 4, "crop": [0, 0, 1920, 1080], "label": "Attach the second finished leg" },
+    { "id": "21_finished", "in": 3568, "out": 3578, "duration": 6, "crop": [0, 0, 1920, 1080], "label": "Finished figure: front and side views" }
+  ]
+}
