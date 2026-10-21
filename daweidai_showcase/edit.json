@@ -1,0 +1,468 @@
+{
+  "id": "daweidai-showcase",
+  "title": "Daweidai — From Print to Figure",
+  "source": "sources/PXL_20261019_021114421.mp4",
+  "importDirectory": "~/Downloads/shipin/未命名文件夹 8",
+  "fps": 30,
+  "bpm": 120,
+  "formats": {
+    "landscape": {
+      "width": 1920,
+      "height": 1080
+    },
+    "portrait": {
+      "width": 1080,
+      "height": 1920
+    }
+  },
+  "defaultLandscape": [
+    0,
+    0,
+    1920,
+    1080
+  ],
+  "defaultPortrait": {
+    "width": 594,
+    "height": 1056,
+    "y": 12
+  },
+  "music": {
+    "assembly": "01_parts",
+    "head": "04_face",
+    "head_attach": "08_head_complete",
+    "arms": "12_arm_front",
+    "legs": "16_leg_front",
+    "leg_attach": "21_pose",
+    "ending": "ending"
+  },
+  "shots": [
+    {
+      "id": "opening_01",
+      "image": "sources/showcase/PXL_20261019_023723373.jpg",
+      "duration": 2,
+      "imageCenterX": 2150,
+      "imageY": 460,
+      "landscapeOnly": false,
+      "label": "成品正面"
+    },
+    {
+      "id": "opening_02",
+      "image": "sources/showcase/PXL_20261019_023726026.jpg",
+      "duration": 2,
+      "imageCenterX": 2250,
+      "imageY": 450,
+      "landscapeOnly": true,
+      "label": "成品侧面"
+    },
+    {
+      "id": "opening_03",
+      "image": "sources/showcase/PXL_20261019_023747384.jpg",
+      "duration": 2,
+      "imageCenterX": 2350,
+      "imageY": 480,
+      "landscapeOnly": true,
+      "label": "成品背面"
+    },
+    {
+      "id": "01_parts",
+      "in": 0,
+      "out": 2,
+      "duration": 2,
+      "portraitDuration": 1,
+      "landscape": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "centerX": 920,
+      "label": "白模与零件"
+    },
+    {
+      "id": "02_joint",
+      "in": 30,
+      "out": 42,
+      "duration": 3,
+      "portraitDuration": 2,
+      "landscape": [
+        160,
+        0,
+        1600,
+        900
+      ],
+      "centerX": 980,
+      "label": "安装白模关节"
+    },
+    {
+      "id": "03_white_assembly",
+      "in": 61,
+      "out": 73,
+      "duration": 3,
+      "portraitDuration": 2,
+      "landscape": [
+        160,
+        0,
+        1600,
+        900
+      ],
+      "centerX": 940,
+      "label": "连接白模部件",
+      "keyframes": [
+        [
+          0,
+          1130
+        ],
+        [
+          1.5,
+          1160
+        ],
+        [
+          3,
+          1040
+        ]
+      ]
+    },
+    {
+      "id": "04_face",
+      "in": 103.5,
+      "out": 108.5,
+      "duration": 4,
+      "portraitDuration": 3,
+      "landscape": [
+        160,
+        0,
+        1600,
+        900
+      ],
+      "centerX": 1020,
+      "label": "贴合面部皮肤"
+    },
+    {
+      "id": "05_head_side",
+      "in": 164,
+      "out": 180,
+      "duration": 4,
+      "portraitDuration": 2.5,
+      "landscape": [
+        160,
+        0,
+        1600,
+        900
+      ],
+      "centerX": 1000,
+      "label": "包裹头部侧面"
+    },
+    {
+      "id": "06_head_back",
+      "in": 204,
+      "out": 216,
+      "duration": 3,
+      "portraitDuration": 2,
+      "landscape": [
+        160,
+        0,
+        1600,
+        900
+      ],
+      "centerX": 1020,
+      "label": "贴合头部背面"
+    },
+    {
+      "id": "07_head_top",
+      "in": 354,
+      "out": 366,
+      "duration": 3,
+      "portraitDuration": 2,
+      "landscape": [
+        160,
+        0,
+        1600,
+        900
+      ],
+      "centerX": 1010,
+      "label": "包裹头顶与边缘"
+    },
+    {
+      "id": "08_head_complete",
+      "in": 367,
+      "out": 371,
+      "duration": 2,
+      "portraitDuration": 1.5,
+      "landscape": [
+        160,
+        0,
+        1600,
+        900
+      ],
+      "centerX": 980,
+      "label": "完成头部"
+    },
+    {
+      "id": "09_torso_front",
+      "in": 427,
+      "out": 439,
+      "duration": 4,
+      "portraitDuration": 3,
+      "landscape": [
+        160,
+        90,
+        1600,
+        900
+      ],
+      "centerX": 1050,
+      "label": "贴合上衣正面",
+      "keyframes": [
+        [
+          0,
+          1130
+        ],
+        [
+          2,
+          1290
+        ],
+        [
+          4,
+          1200
+        ]
+      ]
+    },
+    {
+      "id": "10_torso_side",
+      "in": 539,
+      "out": 555,
+      "duration": 4,
+      "portraitDuration": 3,
+      "landscape": [
+        160,
+        90,
+        1600,
+        900
+      ],
+      "centerX": 1090,
+      "label": "包裹上衣侧面"
+    },
+    {
+      "id": "11_torso_back",
+      "in": 602,
+      "out": 618,
+      "duration": 4,
+      "portraitDuration": 3,
+      "landscape": [
+        160,
+        90,
+        1600,
+        900
+      ],
+      "centerX": 1040,
+      "label": "贴合上衣背面"
+    },
+    {
+      "id": "12_arm_front",
+      "in": 792,
+      "out": 808,
+      "duration": 4,
+      "portraitDuration": 3,
+      "landscape": [
+        240,
+        180,
+        1440,
+        810
+      ],
+      "centerX": 1120,
+      "label": "贴合袖子外侧"
+    },
+    {
+      "id": "13_arm_wrap",
+      "in": 847,
+      "out": 859,
+      "duration": 3,
+      "portraitDuration": 2,
+      "landscape": [
+        160,
+        180,
+        1600,
+        900
+      ],
+      "centerX": 1030,
+      "label": "包裹袖口与手部"
+    },
+    {
+      "id": "14_arm_attach",
+      "in": 894,
+      "out": 902,
+      "duration": 4,
+      "portraitDuration": 3,
+      "landscape": [
+        160,
+        90,
+        1600,
+        900
+      ],
+      "centerX": 1070,
+      "label": "连接第一只手臂",
+      "keyframes": [
+        [
+          0,
+          1110
+        ],
+        [
+          1.2,
+          1100
+        ],
+        [
+          2.8,
+          940
+        ],
+        [
+          4,
+          800
+        ]
+      ]
+    },
+    {
+      "id": "15_other_arm",
+      "in": 1063,
+      "out": 1079,
+      "duration": 4,
+      "portraitDuration": 2.5,
+      "landscape": [
+        240,
+        180,
+        1440,
+        810
+      ],
+      "centerX": 1160,
+      "label": "完成另一只袖子"
+    },
+    {
+      "id": "16_leg_front",
+      "in": 1137,
+      "out": 1153,
+      "duration": 4,
+      "portraitDuration": 3,
+      "landscape": [
+        160,
+        90,
+        1600,
+        900
+      ],
+      "centerX": 1070,
+      "label": "贴合第一条裤腿"
+    },
+    {
+      "id": "17_leg_side",
+      "in": 1187,
+      "out": 1203,
+      "duration": 4,
+      "portraitDuration": 2.5,
+      "landscape": [
+        160,
+        90,
+        1600,
+        900
+      ],
+      "centerX": 1090,
+      "label": "包裹裤腿侧面"
+    },
+    {
+      "id": "18_leg_back",
+      "in": 1246,
+      "out": 1258,
+      "duration": 3,
+      "portraitDuration": 2,
+      "landscape": [
+        160,
+        90,
+        1600,
+        900
+      ],
+      "centerX": 1120,
+      "label": "按压裤腿背面"
+    },
+    {
+      "id": "19_other_leg",
+      "in": 1364,
+      "out": 1380,
+      "duration": 4,
+      "portraitDuration": 3,
+      "landscape": [
+        160,
+        180,
+        1600,
+        900
+      ],
+      "centerX": 1100,
+      "label": "完成第二条裤腿"
+    },
+    {
+      "id": "20_final_attach",
+      "in": 1418,
+      "out": 1430,
+      "duration": 4,
+      "portraitDuration": 2.5,
+      "landscape": [
+        160,
+        90,
+        1600,
+        900
+      ],
+      "centerX": 1040,
+      "label": "整理髋部关节"
+    },
+    {
+      "id": "21_pose",
+      "in": 1443,
+      "out": 1451,
+      "duration": 4,
+      "portraitDuration": 2.5,
+      "landscape": [
+        160,
+        90,
+        1600,
+        900
+      ],
+      "centerX": 1030,
+      "label": "装回完成的腿部"
+    },
+    {
+      "id": "22_finished",
+      "in": 1508,
+      "out": 1514,
+      "duration": 4,
+      "portraitDuration": 3,
+      "landscape": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "centerX": 1010,
+      "label": "完成后的转身展示"
+    },
+    {
+      "id": "ending",
+      "image": "sources/showcase/PXL_20261019_023723373.jpg",
+      "duration": 4,
+      "portraitDuration": 3,
+      "imageCenterX": 2150,
+      "imageY": 460,
+      "label": "正面成品收尾"
+    }
+  ],
+  "enhancement": {
+    "id": "sharpness-v1",
+    "beforeScale": [
+      "hqdn3d=1.0:1.4:1.5:2.1",
+      "unsharp=7:7:0.85:3:3:0"
+    ],
+    "afterScale": {
+      "landscape": [
+        "cas=strength=0.25:planes=1"
+      ],
+      "portrait": [
+        "cas=strength=0.20:planes=1"
+      ]
+    },
+    "notes": "Mild denoise and luma-only detail enhancement; no generated textures or changes to photos, edit timing, framing or audio."
+  }
+}

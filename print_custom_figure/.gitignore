@@ -18,6 +18,7 @@
 # Exports, previews, backups, and editor caches
 /renders/
 /snapshots/
+/review/
 /.thumbnails/
 /.waveform-cache/
 /node_modules/

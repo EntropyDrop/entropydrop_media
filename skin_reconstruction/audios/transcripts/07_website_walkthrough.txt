@@ -1,5 +1,0 @@
-Open Entropydrop dot com and enter the skin generator. In Image to Skin mode, upload a character reference and select the SKING DDJ model.
-
-The recording jumps over the processing wait and opens the result in the 3D viewer. The reference remains beside the result as the character turns. Now Walk shows the moving arms and legs. Check whether sleeves and trouser colors stay aligned at the joints. Dance makes the movement larger, exposing any gaps in the outer layer or mismatched patches. Then use the display controls along the top. The menu offers Voxel, Plane, and Cute; here Cute changes the figure's proportions. As the smaller figure moves, compare its face and outfit with the reference at the right. Turn it toward the side to check whether hair and clothing colors continue around the body. Changing display mode changes the preview, while the downloaded skin PNG stays the same. The source stays visible beside it.
-
-When it looks good, the blue Download button saves a standard sixty-four by sixty-four PNG. That file is the finished skin you can use in Minecraft.

@@ -9,7 +9,7 @@ RATE = 48000
 def ffmpeg(*args):
     subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", *map(str, args)], check=True)
 
-def synthesize(path, duration, bpm, events, work, *, ending_start=None):
+def synthesize(path, duration, bpm, events, work, *, ending_start=None, section_times=None):
     """Arrange an original electronic score around the assembly and sticker sections."""
     rng = np.random.default_rng(1202026)
     signal = np.zeros((round(duration * RATE), 2), dtype=np.float64)
@@ -78,6 +78,13 @@ def synthesize(path, duration, bpm, events, work, *, ending_start=None):
         breakdown = 40 <= start < 44
         stickers = 28 <= start < 36 or start >= 40
         busy = 10 <= start < 24 or start >= 40
+        if section_times is not None:
+            overview = start < section_times['assembly']
+            breakdown = section_times['head_attach'] <= start < section_times['arms']
+            stickers = (section_times['arms'] <= start < section_times['legs']
+                        or start >= section_times['leg_attach'])
+            busy = (section_times['head'] <= start < section_times['head_attach']
+                    or start >= section_times['legs'])
         root = chord[0] - 12
         section_gain = .75 if overview else (.55 if pose else (1.0 if stickers else .9))
 
@@ -145,7 +152,8 @@ def synthesize(path, duration, bpm, events, work, *, ending_start=None):
                 add(pitched(note, .8, .07), start+offset*beat, .042, -.26)
 
     # Brief pickups signal section changes, with room left around contact clicks.
-    for boundary in (10, 18, 28, 40):
+    boundaries = sorted(set(section_times.values())) if section_times is not None else (10, 18, 28, 40)
+    for boundary in boundaries:
         if boundary < duration and (ending_start is None or boundary < ending_start):
             swell = pitched(72, .36, .06)[::-1].copy()
             swell *= np.minimum(1, (len(swell)-1-np.arange(len(swell)))/(RATE*.025))

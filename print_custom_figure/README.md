@@ -1,6 +1,6 @@
 # Make Your Own Figure at Home
 
-独立英文 Hyperframes 子项目，1920 × 1080 / 30 fps，当前总长 98.43 秒（2953 帧）。主题：通过网站生成皮肤或上传自己的皮肤，下载对应的 3D 文件，然后在家打印、组装并贴皮肤贴纸。网站工具与下载免费使用。
+统一的英文视频子项目，共享素材、时间线、英文配音与音乐，保存 **1920 × 1080 横屏**和 **1080 × 1920 竖屏**两版。两版均为 30 fps、98.433 秒（2953 帧）。横屏使用 Hyperframes，竖屏使用 FFmpeg 逐镜头重新取景。主题：通过网站生成皮肤或上传自己的皮肤，下载对应的 3D 文件，然后在家打印、组装并贴皮肤贴纸。网站工具与下载免费使用。
 
 开场以全屏成品照片为主，只保留左下角小标签 **Make Your Own Figure at Home**，第一句配音为 “Let's turn your favorite skin into one of these—a figure you can hold.”，先介绍成品的吸引力；网站过程说明生成或上传皮肤，并在下载环节介绍两种选择：免费下载文件自己制作，或购买包含打印好的零件与预切贴纸的 Figure Kit。四段录屏全屏显示，取消外加的顶部品牌、步骤栏、免费角标、边框、画面字幕和进度条。
 
@@ -38,21 +38,42 @@ ffmpeg -hide_banner -loglevel error -y -ss 192.4 -i sources/PXL_20261012_0128144
 node build.mjs --without-narration
 python3 regenerate_audio.py
 npm run build
-npm run check
+npm run check:composition
 npm run render
+npm run check
 ```
 
-## 预览和导出
+## 横竖两版的预览、导出与检查
+
+原独立竖屏项目已并入本目录。`project.json` 的 `formats` 统一定义尺寸和输出文件，`portrait-edit.json` 保存竖屏取景。全部原素材保存在同一份 `sources/` 和 `assets/` 中，竖屏直接复制横屏成片的 AAC 音轨，保留英文配音、音乐和音画同步。
 
 ```bash
 cd entropydrop_media/print_custom_figure
-npm run build
-npm run check
-npm run dev
-npm run render
+npm run build               # 更新共享时间线和横屏 HTML
+npm run dev                 # 横屏 Hyperframes 预览
+npm run review              # 生成竖屏逐镜头预览与联系表
+npm run render              # 依次生成横屏和竖屏
+npm run render:landscape     # 单独生成横屏
+npm run render:portrait      # 单独生成竖屏，复用当前横屏音轨
+npm run check               # 检查两版成片、输入哈希、时长及相同的 AAC 音轨
+npm run check:composition   # 横屏 HTML lint 与指定时间点检查
 ```
 
-导出文件：`renders/print-your-custom-figure-at-home.mp4`。输出保持 1920 × 1080 / 30 fps，使用 `--quality high --sdr`（H.264 CRF 15）；开场直接使用原图，但视频导出仍会缩放到 1080p 并编码。需要 Node.js 22+、FFmpeg 和 Hyperframes 的 Chrome 渲染环境；命令使用与仓库已有项目相同的 Hyperframes 0.6.6。动画库目前沿用其他项目的 GSAP CDN，预览和导出需要可访问该地址。
+成片统一保存在 `renders/`：
+
+- `print-your-custom-figure-at-home-landscape.mp4`：1920 × 1080 / 16:9，Hyperframes `--quality high --sdr`，H.264 CRF 15。
+- `print-your-custom-figure-at-home-portrait.mp4`：1080 × 1920 / 9:16，H.264 CRF 16、BT.709；AAC 从横屏版直接复制。
+
+横屏导出需要 Node.js 22+、FFmpeg 和 Hyperframes 0.6.6 的 Chrome 环境，GSAP CDN 需可访问。竖屏生成需要 Python 3.9+、Pillow（支持 WOFF2）和 FFmpeg/FFprobe；已有素材与横屏成片时，竖屏导出无需网络或 TTS 服务。若横屏内容或音频已修改，先生成横屏，再生成竖屏；仅修改竖屏取景时只需运行 `npm run render:portrait`。
+
+竖屏沿用原有适配：5 张开场照片每张 2 秒，多人照以模糊背景补齐画布，单人照裁切铺满；4 段录屏居中显示单个画面，网站录屏保留中间 70% 的宽度，3 段切片录屏统一使用 3D Printing 标题；组装衔接采用上下布局，9 个组装镜头逐镜头取景并保留焦点关键帧；30 张贴纸照片各 18 帧；8 秒片尾采用上方成品、下方标题与网址布局。全部镜头顺序、时长、配音和音乐与横屏一致。
+
+- `assets/portrait/`：竖屏生成的文字图层与字体副本。
+- `review/portrait/`：竖屏逐场景预览和联系表。
+- `renders/work/portrait/`：竖屏逐镜头转码缓存；只重新处理发生变化的镜头。
+- `renders/landscape-manifest.json`、`renders/portrait-manifest.json`：输出哈希、实际使用的输入哈希、帧数、时长及竖屏镜头配置。
+
+检查仅跟踪实际使用的素材、配置和脚本；文档、预览、缓存或本地备份变化不会使成片校验失效。本次合并前的横屏配置与成片，以及原竖屏项目完整目录，保存在 `renders/revisions/before-format-merge/`；其中 `original-exports.json` 记录迁移前两版的文件、视频流和音频流指纹。
 
 ## 安装精剪与音乐
 
@@ -76,7 +97,7 @@ npm run render
 
 安装段从原片结束处接入。前段旁白覆盖前 44.43 秒，片尾有一段旁白；安装和贴纸过程保留纯音乐。配音母带按完整 98.43 秒时间线补齐静音，重新生成配音不会改变安装段节拍。
 
-`npm run render` 最后调用 `finalize_audio.py`，从无损 WAV 按采样位置混合旁白和音乐，修正 Hyperframes 0.6.6 的 AAC 封装偏移。视频直接复制，不进行二次画面压缩；若直接调用 Hyperframes CLI 导出，随后运行 `python3 finalize_audio.py`。仅调整音乐且已有完整成片时，依次运行 `npm run soundtrack`、`npm run build`、`python3 finalize_audio.py` 即可更新音频，无需重新渲染画面。
+横屏生成流程调用 `finalize_audio.py`，从无损 WAV 按采样位置混合旁白和音乐，修正 Hyperframes 0.6.6 的 AAC 封装偏移，然后竖屏复制这条音轨。视频直接复制，不进行二次画面压缩；若直接调用 Hyperframes CLI 导出到上述横屏路径，随后运行 `python3 finalize_audio.py`。仅调整音乐且已有完整成片时，依次运行 `npm run soundtrack`、`npm run build`、`python3 finalize_audio.py` 和 `npm run render:portrait`，即可更新两版音频并复用已渲染的画面。
 
 ## 贴纸安装图片轮播
 
@@ -158,7 +179,10 @@ npm run render
 - `project.json`：标题、开场素材、视频顺序、字幕、组装衔接时长、成品片尾与安装素材清单。
 - `narration.json`：当前配音稿及句级时间窗；有配音时以此生成字幕，`project.json` 的字幕仅用于无配音回退。
 - `template.css`：视觉样式。
-- `build.mjs`：读取实际视频帧数，生成 HTML、元数据、时间线和 SRT。
+- `build.mjs`：读取实际视频帧数，生成横屏 HTML、元数据、共享时间线和 SRT。
+- `build_landscape.py`：构建横屏并同步母带音频，生成横屏清单。
+- `build_vertical.py` / `portrait-edit.json`：共享项目内的竖屏取景、图层生成、逐镜头缓存与输出。
+- `media_common.py` / `check_media.py`：统一输出路径、导出清单与两版校验。
 - `assets/3dp1.mp4` 至 `3dp4.mp4`：H.264 / 30 fps / 宽 1920、每秒一个关键帧的预览与渲染素材，保留全画幅。帧率转换只有帧级舍入，不做加速或慢放。
 - `assets/sources.json`：原始视频参数及 SHA-256。
 - 网站录屏 `3dp1.mov` 在标准化为 1920 像素宽后，左裁 10、上裁 6、右裁 22、下裁 14 像素，去掉右侧窗口白边和底部圆角；输出为 1888 × 1074，时长和帧数不变。裁边由 `project.json` 中的 `cropPixels` 控制，三段切片软件录屏不裁切。仅重新处理网站录屏：`python3 prepare_assets.py --force --only 3dp1.mov`。

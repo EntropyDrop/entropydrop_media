@@ -4,8 +4,10 @@ Video projects are split by language while sharing the same media assets.
 
 ```text
 assets/             Shared images, videos, and fonts.
-print_custom_figure/ Make Your Own Figure at Home; photo-led opening + website/slicer walkthrough + beat-synced assembly + sticker photo sequence + finished-figure call to action.
+print_custom_figure/ Make Your Own Figure at Home; shared assets and timeline, with landscape (1920 × 1080) and portrait (1080 × 1920) exports.
 techno_showcase/    Techno figure showcase; 8-photo opening + centered skin installation + beat-synced cuts + finished-figure ending; landscape and 9:16 Douyin exports.
+daweidai_showcase/  Daweidai figure; 3-photo opening + skin installation + 120 BPM electronic soundtrack; 88-second landscape and 59-second portrait exports.
+3d_printed_mini_gundam/ Mini Gundam; 75-second assembly and skin application montage + 13-second photo ending, with landscape and portrait exports.
 skin_walk_video/    MCModal Walk animation with a full 360-degree turn; MP4/WebM CLI.
 skingen_en/         English Hyperframes project.
 skingen_en_shorts/  English vertical Shorts project using the first 3 chapters.
@@ -19,6 +21,13 @@ skingen.en.youtube-script.md
 The English project owns its generated audio under `skingen_en/audios/`.
 The Chinese project is intentionally scaffolded without generated voiceover or
 subtitles for now.
+
+Git stores code, edit configurations, documentation, prompts, and small source
+dependencies. Generated audio (including transcripts, subtitles and API response
+metadata), imported recordings/photos, renders, review files, caches and local
+credentials stay on disk and are ignored. Existing source assets larger than
+5 MiB are also ignored by explicit path; restore those assets locally before
+building projects that use them. Audio can be regenerated with the commands below.
 
 Common commands:
 

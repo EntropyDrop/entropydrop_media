@@ -1,0 +1,66 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Asset type: full-screen 16:9 still photo in a landscape assembly video. Edit target: the single supplied photograph. Expand its canvas horizontally from 4:3 to a clean wide 16:9 composition by outpainting ONLY the plain grey studio background and grey tabletop at the left/right edges. Preserve the entire original central photo and its vertical framing: the complete small blocky 3D printed white mini Gundam, both top antennae, boots, every sticker color and pixel shape, 3D print layers, pose, angle, scale, natural bare hand and fingers, skin texture, contact shadows, perspective and lighting. Keep the subject at roughly the same percentage of frame height, with comfortable space above the antennae and below both feet. Continue the same subtle grey background gradient and tabletop texture seamlessly into the added side areas. This is an outpaint, not a redesign or beautification. Do not crop any part of the toy or hand; do not change the robot geometry, face, stickers or hand anatomy. No text, logo, watermark, extra object, black border, duplicate subject or artificial blur. Output one photorealistic 16:9 image.",
+  "images": [
+    {
+      "source": "sources/showcase/PXL_20261016_153602993.jpg",
+      "source_sha256": "4ec69d86ee1f35c53124aed48a28658c4ce627facabd83276ea56543caba3da4",
+      "expanded": "assets/showcase/expanded/PXL_20261016_153602993-wide-v1.png",
+      "expanded_sha256": "11f5431e58f59c8e3818d373a33e52c260674e9003d206cf4e0417815e81044c",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "source": "sources/showcase/PXL_20261016_153606850.jpg",
+      "source_sha256": "86422351265e834035b8932036f3b0fb75e180988af974953b0b1396f5ac520b",
+      "expanded": "assets/showcase/expanded/PXL_20261016_153606850-wide-v1.png",
+      "expanded_sha256": "606cad4b09c88f39d8e475f051c4011b6b21e7a7e4c7810d9fb21f06c3f5d92f",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "source": "sources/showcase/PXL_20261016_153705569.jpg",
+      "source_sha256": "9518fc5b106b3d8a11b8a9a71ac6a8dff2cf2e9e337765bc12cf1551dd37439b",
+      "expanded": "assets/showcase/expanded/PXL_20261016_153705569-wide-v1.png",
+      "expanded_sha256": "f24b40643f43464539bd9a4367d7f83876289046c97976777cd05fcb830b41ad",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "source": "sources/showcase/PXL_20261016_153713206.jpg",
+      "source_sha256": "14155ff4a6dcfc3603f39c2671af1503ebc84150467dffc2d4f229c1853157d9",
+      "expanded": "assets/showcase/expanded/PXL_20261016_153713206-wide-v1.png",
+      "expanded_sha256": "5e06e9f5b0681b59becbf3637767562c1c77e30306824222b054b7d06dfae80e",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "source": "sources/showcase/PXL_20261016_153825015.jpg",
+      "source_sha256": "01909942bedfb7a568c93ac315eff2be225bfef101969824eded77d564ba3e35",
+      "expanded": "assets/showcase/expanded/PXL_20261016_153825015-wide-v1.png",
+      "expanded_sha256": "c96ad2427c910b0ed89ac680859177b4651bd165e42cf67129e96850d5fc220b",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "source": "sources/showcase/PXL_20261016_153839081.jpg",
+      "source_sha256": "2bd74fe5fdaa63cde920b53e884a2f66ad267786017271a96c8d6b003942bc09",
+      "expanded": "assets/showcase/expanded/PXL_20261016_153839081-wide-v1.png",
+      "expanded_sha256": "88c563ad2b17655f64ab827073e3342be32cc5a1f12ca7cdcce4836789ad78e1",
+      "dimensions": [
+        1672,
+        941
+      ]
+    }
+  ]
+}

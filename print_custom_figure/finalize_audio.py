@@ -4,13 +4,15 @@ import json
 import subprocess
 from pathlib import Path
 
+from media_common import output_path, write_landscape_manifest
+
 ROOT = Path(__file__).resolve().parent
 RATE = 48000
 
 
-def main():
+def finalize(video=None, *, write_manifest=True):
     timeline = json.loads((ROOT / "timeline.json").read_text())
-    video = ROOT / "renders/print-your-custom-figure-at-home.mp4"
+    video = output_path("landscape") if video is None else Path(video)
     temporary = video.with_name(video.stem + ".audio-sync.mp4")
     info = json.loads(subprocess.check_output([
         "ffprobe", "-v", "error", "-select_streams", "v:0",
@@ -38,8 +40,10 @@ def main():
                 "-t", str(duration), "-movflags", "+faststart", str(temporary)]
     subprocess.run(command, check=True)
     temporary.replace(video)
+    if write_manifest:
+        write_landscape_manifest()
     print(f"Muxed narration and music at exact sample positions: {video}")
 
 
 if __name__ == "__main__":
-    main()
+    finalize()

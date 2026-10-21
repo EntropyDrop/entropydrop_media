@@ -1,0 +1,8 @@
+Use case: compositing edit.
+Edit image 1, the existing wide video cover, with one targeted visual cleanup: remove ALL headline text and ALL gold light effects, including the gold arrow, glow, sparkles, luminous haze, lens flares, gold rim lighting, outlines, and light streaks. Do not add any replacement text, labels, arrows, icons, logos, or decoration.
+
+Keep the same two photographic subjects and the existing left-person/right-figure comparison composition. Preserve their scale, seated pose, body shape, hairstyle, face orientation, clothes, pixel face, hair, arms, dark green legs, feet, phone, and natural supporting hand. Keep the entire figure's head and feet visible. Do not invent a different face or redraw the figure as a new product.
+
+Image 2 is the original dwd.jpeg photo, provided only as a fidelity and natural-color reference for the real person. Image 3 is the original 00:02.000 video frame, provided only as a fidelity and natural-color reference for the handmade figure and supporting hand. Preserve the real black-and-gold shirt pattern and the actual yellow-gold pixels on the figure: the user wants the artificial gold LIGHT removed, not the yellow/gold clothing colors removed.
+
+Replace the decorative golden backdrop and former text/arrow areas with a clean, neutral matte charcoal-gray studio background, gently and naturally lit. Restore neutral photographic white balance, realistic skin and paper/cardboard textures, and soft ordinary lighting without luminous outlines. The result should feel like a clean photographic collage of the two supplied subjects, not a glossy promotional poster. No text anywhere. No glowing light anywhere. Wide 16:9 output.

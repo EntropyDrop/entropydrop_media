@@ -1,0 +1,13 @@
+{
+  "name": "daweidai-showcase",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "review": "python3 build_video.py --review",
+    "render": "python3 build_video.py",
+    "render:landscape": "python3 build_video.py --format landscape",
+    "render:portrait": "python3 build_video.py --format portrait",
+    "check": "python3 check_media.py",
+    "sharpness:review": "python3 review_sharpness.py"
+  }
+}

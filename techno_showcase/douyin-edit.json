@@ -4,31 +4,253 @@
   "height": 1920,
   "fps": 30,
   "output": "renders/techno-showcase-douyin.mp4",
-  "defaultCrop": { "width": 594, "height": 1056, "y": 12 },
+  "openingPhotoCount": 1,
+  "musicBpm": 120,
+  "defaultCrop": {
+    "width": 594,
+    "height": 1056,
+    "y": 12
+  },
   "photoFocus": {
-    "PXL_20261015_132824167.jpg": { "centerX": 640 }
+    "PXL_20261015_132824167.jpg": {
+      "centerX": 640
+    }
   },
   "shots": {
-    "01_parts": { "centerX": 920 },
-    "02_face": { "centerX": 1150, "crop": { "width": 450, "height": 800, "y": 280 } },
-    "03_head_side": { "centerX": 1300, "crop": { "width": 450, "height": 800, "y": 280 } },
-    "04_head_back": { "centerX": 1210, "crop": { "width": 450, "height": 800, "y": 280 } },
-    "05_crown": { "centerX": 1210, "crop": { "width": 450, "height": 800, "y": 280 } },
-    "06_head_complete": { "centerX": 1000, "crop": { "width": 450, "height": 800, "y": 280 } },
-    "07_torso_front": { "centerX": 950 },
-    "08_torso_side": { "centerX": 1280 },
-    "09_torso_back": { "centerX": 1000 },
-    "10_head_attach": { "centerX": 1050, "keyframes": [[0, 1250], [1.5, 1100], [2.5, 1030], [4, 1070]] },
-    "11_arm_front": { "centerX": 1160 },
-    "12_arm_back": { "centerX": 830 },
-    "13_arm_detail": { "centerX": 980, "crop": { "width": 450, "height": 800, "y": 280 } },
-    "14_arm_attach": { "centerX": 830 },
-    "15_other_arm": { "centerX": 1100 },
-    "16_leg_front": { "centerX": 1120 },
-    "17_leg_back": { "centerX": 830 },
-    "18_other_leg": { "centerX": 1020, "crop": { "width": 450, "height": 800, "y": 280 } },
-    "19_leg_attach": { "centerX": 800, "crop": { "width": 450, "height": 800, "y": 280 } },
-    "20_other_leg_attach": { "centerX": 850, "crop": { "width": 450, "height": 800, "y": 280 } },
-    "21_finished": { "centerX": 1060 }
-  }
+    "01_parts": {
+      "centerX": 920
+    },
+    "02_face": {
+      "centerX": 1150,
+      "crop": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      }
+    },
+    "03_head_side": {
+      "centerX": 1300,
+      "crop": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      }
+    },
+    "04_head_back": {
+      "centerX": 1210,
+      "crop": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      }
+    },
+    "05_crown": {
+      "centerX": 1210,
+      "crop": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      }
+    },
+    "06_head_complete": {
+      "centerX": 1000,
+      "crop": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      }
+    },
+    "07_torso_front": {
+      "centerX": 950
+    },
+    "08_torso_side": {
+      "centerX": 1280
+    },
+    "09_torso_back": {
+      "centerX": 1000
+    },
+    "10_head_attach": {
+      "centerX": 1050,
+      "keyframes": [
+        [
+          0,
+          1250
+        ],
+        [
+          1.5,
+          1100
+        ],
+        [
+          2.5,
+          1030
+        ],
+        [
+          4,
+          1070
+        ]
+      ]
+    },
+    "11_arm_front": {
+      "centerX": 1160
+    },
+    "12_arm_back": {
+      "centerX": 830
+    },
+    "13_arm_detail": {
+      "centerX": 980,
+      "crop": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      }
+    },
+    "14_arm_attach": {
+      "centerX": 830
+    },
+    "15_other_arm": {
+      "centerX": 1100
+    },
+    "16_leg_front": {
+      "centerX": 1120
+    },
+    "17_leg_back": {
+      "centerX": 830
+    },
+    "18_other_leg": {
+      "centerX": 1020,
+      "crop": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      }
+    },
+    "19_leg_attach": {
+      "centerX": 800,
+      "crop": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      }
+    },
+    "20_other_leg_attach": {
+      "centerX": 850,
+      "crop": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      }
+    },
+    "21_finished": {
+      "centerX": 1060
+    }
+  },
+  "duration": 59,
+  "endingDuration": 3,
+  "cut": [
+    {
+      "id": "01_parts",
+      "trimStart": 0.6666666666666666,
+      "duration": 1
+    },
+    {
+      "id": "02_face",
+      "trimStart": 0.6666666666666666,
+      "duration": 3
+    },
+    {
+      "id": "03_head_side",
+      "trimStart": 0.9666666666666667,
+      "duration": 2.5
+    },
+    {
+      "id": "04_head_back",
+      "trimStart": 0.9666666666666667,
+      "duration": 2.5
+    },
+    {
+      "id": "05_crown",
+      "trimStart": 0.6666666666666666,
+      "duration": 3
+    },
+    {
+      "id": "06_head_complete",
+      "trimStart": 0.3333333333333333,
+      "duration": 1.5
+    },
+    {
+      "id": "07_torso_front",
+      "trimStart": 0.6666666666666666,
+      "duration": 3
+    },
+    {
+      "id": "08_torso_side",
+      "trimStart": 1.3,
+      "duration": 2
+    },
+    {
+      "id": "09_torso_back",
+      "trimStart": 0.9666666666666667,
+      "duration": 2.5
+    },
+    {
+      "id": "10_head_attach",
+      "trimStart": 0.6666666666666666,
+      "duration": 3
+    },
+    {
+      "id": "11_arm_front",
+      "trimStart": 0.6666666666666666,
+      "duration": 3
+    },
+    {
+      "id": "12_arm_back",
+      "trimStart": 0.6666666666666666,
+      "duration": 2
+    },
+    {
+      "id": "13_arm_detail",
+      "trimStart": 0.3333333333333333,
+      "duration": 1.5
+    },
+    {
+      "id": "14_arm_attach",
+      "trimStart": 0.0,
+      "duration": 4
+    },
+    {
+      "id": "15_other_arm",
+      "trimStart": 0.9666666666666667,
+      "duration": 2.5
+    },
+    {
+      "id": "16_leg_front",
+      "trimStart": 0.6666666666666666,
+      "duration": 3
+    },
+    {
+      "id": "17_leg_back",
+      "trimStart": 0.9666666666666667,
+      "duration": 2.5
+    },
+    {
+      "id": "18_other_leg",
+      "trimStart": 0.6666666666666666,
+      "duration": 2
+    },
+    {
+      "id": "19_leg_attach",
+      "trimStart": 0.6666666666666666,
+      "duration": 3
+    },
+    {
+      "id": "20_other_leg_attach",
+      "trimStart": 0.6666666666666666,
+      "duration": 3
+    },
+    {
+      "id": "21_finished",
+      "trimStart": 1.6333333333333333,
+      "duration": 3.5
+    }
+  ]
 }

@@ -8,9 +8,18 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 from build_video import ffmpeg, probe, sha256
+from build_soundtrack import synthesize
 
 ROOT = Path(__file__).resolve().parent
 SETTINGS = ROOT / "douyin-edit.json"
+
+
+def opening_photos(config, horizontal):
+    photos = horizontal["showcase"]["photos"]
+    count = config["openingPhotoCount"]
+    if not isinstance(count, int) or not 1 <= count <= len(photos):
+        raise ValueError("Choose at least one opening photo from the original sequence")
+    return photos[:count]
 
 
 def focus_points(framing, duration):
@@ -40,7 +49,7 @@ def position_expression(points):
 
 
 def shot_framing(config, shot):
-    framing = config["shots"][shot["id"]]
+    framing = shot.get('portraitFraming', config["shots"][shot["id"]])
     crop = {**config["defaultCrop"], **framing.get("crop", {})}
     w, h, y = crop["width"], crop["height"], crop["y"]
     if w * 16 != h * 9 or w <= 0 or h <= 0 or min(w, h) % 2 or not 0 <= y <= 1080 - h:
@@ -49,6 +58,29 @@ def shot_framing(config, shot):
     if any(not w / 2 <= x <= 1920 - w / 2 for _, x in points):
         raise ValueError(f"Focus leaves the source frame: {shot['id']}")
     return crop, points
+
+
+def portrait_shots(config, horizontal):
+    """Shorten individual actions at their existing speed; retain original framing."""
+    originals = {shot['id']: shot for shot in horizontal['shots']}
+    shots = []
+    for selection in config['cut']:
+        original = originals[selection['id']]
+        offset, duration = selection.get('trimStart', 0), selection['duration']
+        if not 0 <= offset < offset+duration <= original['duration']+1e-8:
+            raise ValueError(f"Portrait trim leaves source shot: {original['id']}")
+        speed = (original['out']-original['in'])/original['duration']
+        framing = dict(config['shots'][original['id']])
+        points = focus_points(framing, original['duration'])
+        framing['keyframes'] = [[0, position_at(points, offset)]] + [
+            [t-offset, x] for t,x in points if offset < t < offset+duration
+        ] + [[duration, position_at(points, offset+duration)]]
+        shot = dict(original, duration=duration, frames=round(duration*config['fps']),
+                    portraitFraming=framing)
+        shot['in'] = original['in'] + offset*speed
+        shot['out'] = shot['in'] + duration*speed
+        shots.append(shot)
+    return shots
 
 
 def photo_framing(config, image, focus=None):
@@ -112,10 +144,10 @@ def review(config, horizontal):
         return output, shot["id"]
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
-        items = list(executor.map(frame, horizontal["shots"]))
+        items = list(executor.map(frame, portrait_shots(config, horizontal)))
     contact_sheets(items, folder, "assembly")
     photo_items = []
-    for index, photo in enumerate(horizontal["showcase"]["photos"]):
+    for index, photo in enumerate(opening_photos(config, horizontal)):
         rectangle = photo_framing(config, ROOT / photo["image"], config["photoFocus"].get(photo["name"]))
         output = folder / f"photo-{index + 1:03}.jpg"
         x, y, w, h = rectangle
@@ -132,26 +164,28 @@ def render(config, horizontal):
     source = ROOT / horizontal["source"]
     source_stat = source.stat()
     jobs = []
-    for index, photo in enumerate(horizontal["showcase"]["photos"]):
+    for index, photo in enumerate(opening_photos(config, horizontal)):
         rectangle = photo_framing(config, ROOT / photo["image"], config["photoFocus"].get(photo["name"]))
         jobs.append(dict(id=f"photo-{index + 1:03}", image=photo["image"], image_sha256=photo["image_sha256"],
                          crop=rectangle, frames=photo["frames"], start=photo["start"], duration=photo["duration"]))
-    for shot in horizontal["shots"]:
+    for shot in portrait_shots(config, horizontal):
         crop, points = shot_framing(config, shot)
         jobs.append(dict(id=shot["id"], source=horizontal["source"], inPoint=shot["in"], outPoint=shot["out"],
                          crop=crop, focus=points, frames=shot["frames"], start=shot["start"], duration=shot["duration"]))
-    ending = horizontal["ending"]
+    ending = {**horizontal["ending"], 'duration': config['endingDuration']}
     first_focus = config["photoFocus"].get(horizontal["showcase"]["photos"][0]["name"])
     jobs.append(dict(id="ending", image=ending["image"], image_sha256=ending["image_sha256"],
                      crop=photo_framing(config, ROOT / ending["image"], first_focus),
                      frames=round(ending["duration"] * fps), start=ending["start"], duration=ending["duration"]))
     cursor = 0
+    scenes = []
     for job in jobs:
-        if abs(job["start"] - cursor / fps) > 1e-8:
-            raise ValueError("Portrait scene timing does not match the original edit")
+        scenes.append({**job, "original_start": job["start"], "start": cursor / fps})
         cursor += job["frames"]
-    if cursor != horizontal["frames"]:
-        raise ValueError("Portrait scenes must fill the original duration")
+    duration = cursor / fps
+    if duration != config['duration']:
+        raise ValueError('Portrait timeline must total exactly 59 seconds')
+    ending_start = scenes[-1]["start"]
 
     def encode(job):
         output = work / (job["id"] + ".mp4")
@@ -192,22 +226,40 @@ def render(config, horizontal):
            "-movflags", "+faststart", picture)
     output = ROOT / config["output"]
     staging = output.with_name(output.stem + "-rendering.mp4")
-    # Copy the original AAC track so that music and edit timing remain identical.
-    ffmpeg("-i", picture, "-i", ROOT / horizontal["render"], "-map", "0:v:0", "-map", "1:a:0",
-           "-c", "copy", "-t", horizontal["duration"], "-movflags", "+faststart", staging)
-    if int(probe(staging)["streams"][0]["nb_frames"]) != horizontal["frames"]:
+    starts = {scene["id"]: scene["start"] for scene in scenes}
+    sections = {"assembly": starts["01_parts"], "head": starts["02_face"],
+                "torso": starts["07_torso_front"], "head_attach": starts["10_head_attach"],
+                "arms": starts["11_arm_front"], "legs": starts["16_leg_front"],
+                "leg_attach": starts["19_leg_attach"], "pose": starts["21_finished"]}
+    events = [{"time": scene["start"]} for scene in scenes[1:-1]]
+    bpm = config["musicBpm"]
+    if bpm <= 0 or any(abs(event["time"] * bpm / 60 - round(event["time"] * bpm / 60)) > 1e-8
+                       for event in events):
+        raise ValueError("The score pulse must match every picture cut")
+    music = ROOT / "audios/techno-douyin-electro.wav"
+    encoded_music = music.with_suffix(".m4a")
+    music.parent.mkdir(parents=True, exist_ok=True)
+    synthesize(music, duration, bpm, events, work, ending_start=ending_start, section_times=sections)
+    ffmpeg("-i", music, "-c:a", "aac", "-b:a", "192k", "-ar", 48000, encoded_music)
+    ffmpeg("-i", picture, "-i", encoded_music, "-map", "0:v:0", "-map", "1:a:0",
+           "-c", "copy", "-t", duration, "-movflags", "+faststart", staging)
+    if int(probe(staging)["streams"][0]["nb_frames"]) != cursor:
         raise ValueError("Incomplete portrait export")
     staging.replace(output)
     manifest = dict(id=config["id"], width=config["width"], height=config["height"], fps=fps,
-                    duration=horizontal["duration"], frames=horizontal["frames"],
+                    duration=duration, frames=cursor,
                     edit_sha256=sha256(SETTINGS), source_edit_sha256=horizontal["edit_sha256"],
                     horizontal_render_sha256=horizontal["render_sha256"],
-                    audio_origin="AAC stream copied unchanged from the horizontal export",
-                    render=config["output"], render_sha256=sha256(output), scenes=jobs)
+                    music=dict(wave=str(music.relative_to(ROOT)), wave_sha256=sha256(music),
+                               encoded=str(encoded_music.relative_to(ROOT)), encoded_sha256=sha256(encoded_music),
+                               origin="Original electronic score regenerated for the shortened portrait timeline",
+                               bpm=bpm, sections=sections, events=events, ending_start=ending_start,
+                               generator_sha256=sha256(ROOT / "build_soundtrack.py")),
+                    render=config["output"], render_sha256=sha256(output), scenes=scenes)
     (ROOT / "renders/douyin-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
-    for label, time in (("opening", 1), ("assembly", 38), ("ending", ending["start"] + 1)):
+    for label, time in (("opening", 1), ("assembly", sections["assembly"] + 1), ("ending", ending_start + 1)):
         ffmpeg("-ss", time, "-i", output, "-frames:v", 1, ROOT / f"renders/douyin-preview-{label}.jpg")
-    print(f"Douyin export: {config['width']} × {config['height']} / {horizontal['duration']}s / {fps} fps", flush=True)
+    print(f"Douyin export: {config['width']} × {config['height']} / {duration}s / {fps} fps", flush=True)
 
 
 def main():

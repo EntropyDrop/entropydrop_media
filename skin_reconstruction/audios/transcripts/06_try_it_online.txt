@@ -1,1 +1,0 @@
-Try the free generator at entropydrop dot com. Training details and model weights are open source, so you can deploy it locally.

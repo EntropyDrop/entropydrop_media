@@ -53,3 +53,34 @@ service_account*.json
 # Dependency and Python caches
 node_modules/
 *.py[cod]
+
+# Generated media, API responses, source imports and local review files
+**/audios/*
+!**/audios/.gitkeep
+**/sources/
+**/review/
+**/dist/
+**/outputs/*
+!**/outputs/.gitkeep
+**/covers/cover-v*.json
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# Additional local credential files and backups
+.minimax_api_key.*
+.netrc
+.pypirc
+*.keystore
+*.jks
+
+# Existing local source assets larger than 5 MiB; restore locally when needed
+/assets/fonts/fusion-pixel-12px-proportional-zh_hans.ttf
+/assets/transform.mov
+/assets/website/vo06_website_upload.mp4
+/assets/website/vo06_website_upload.webm
+/assets/website/vo06_website_upload.webp
+/assets/website/vo07_website_walkthrough_synced_keyframes.mp4
+/techno_showcase/assets/fonts/fusion-pixel-12px-proportional-zh_hans.ttf

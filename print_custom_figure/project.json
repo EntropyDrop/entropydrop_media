@@ -69,5 +69,17 @@
   "ending": {
     "duration": 8,
     "image": "assets/ending/PXL_20261013_070550776.jpg"
+  },
+  "formats": {
+    "landscape": {
+      "width": 1920,
+      "height": 1080,
+      "output": "renders/print-your-custom-figure-at-home-landscape.mp4"
+    },
+    "portrait": {
+      "width": 1080,
+      "height": 1920,
+      "output": "renders/print-your-custom-figure-at-home-portrait.mp4"
+    }
   }
 }

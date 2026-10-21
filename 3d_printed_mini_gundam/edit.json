@@ -1,0 +1,478 @@
+{
+  "id": "3d-printed-mini-gundam",
+  "source": "sources/VID_20261016_104215.mp4",
+  "fps": 30,
+  "bpm": 120,
+  "formats": {
+    "landscape": {
+      "width": 1920,
+      "height": 1080
+    },
+    "portrait": {
+      "width": 1080,
+      "height": 1920
+    }
+  },
+  "defaultLandscape": [
+    160,
+    90,
+    1600,
+    900
+  ],
+  "defaultPortrait": {
+    "width": 594,
+    "height": 1056,
+    "y": 12
+  },
+  "music": {
+    "introEnd": "01_parts",
+    "detailStart": "04_visor",
+    "breakStart": "09_head_finished",
+    "breakEnd": "10_chest_front",
+    "buildStart": "12_first_arm",
+    "finalBuild": "16_first_leg",
+    "reveal": "photo_01",
+    "ending": "photo_06"
+  },
+  "shots": [
+    {
+      "id": "00_hook",
+      "image": "sources/showcase/PXL_20261016_153825015.jpg",
+      "landscapeImage": "assets/showcase/expanded/PXL_20261016_153825015-wide-v1.png",
+      "imageCenterX": 2100,
+      "duration": 2,
+      "label": "Finished figure opening; same photo as the ending"
+    },
+    {
+      "id": "01_parts",
+      "duration": 2,
+      "centerX": 980,
+      "landscape": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "label": "Printed white figure and ball joints",
+      "freeze": 0
+    },
+    {
+      "id": "02_neck_joint",
+      "in": 20,
+      "out": 32,
+      "duration": 3,
+      "centerX": 1010,
+      "label": "Fit the neck joint",
+      "portrait": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      }
+    },
+    {
+      "id": "03_shoulder_joint",
+      "in": 59,
+      "out": 63.5,
+      "duration": 3,
+      "centerX": 820,
+      "label": "Fit the shoulder joint",
+      "landscape": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "keyframes": [
+        [
+          0,
+          780
+        ],
+        [
+          3,
+          850
+        ]
+      ]
+    },
+    {
+      "id": "04_visor",
+      "in": 157.5,
+      "out": 160.5,
+      "duration": 2,
+      "centerX": 1280,
+      "label": "Press the aligned visor once and show the finished face",
+      "portrait": {
+        "width": 504,
+        "height": 896,
+        "y": 184
+      },
+      "landscape": [
+        320,
+        270,
+        1440,
+        810
+      ],
+      "keyframes": [
+        [
+          0,
+          1280
+        ],
+        [
+          1,
+          1280
+        ],
+        [
+          2,
+          1220
+        ]
+      ],
+      "notes": "Skip repeated lifting and alignment attempts; retain only the final press and release."
+    },
+    {
+      "id": "05_forehead",
+      "in": 314,
+      "out": 322,
+      "duration": 4,
+      "centerX": 1210,
+      "label": "Wrap the blue forehead detail",
+      "portrait": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      },
+      "landscape": [
+        640,
+        360,
+        1280,
+        720
+      ]
+    },
+    {
+      "id": "06_mouth",
+      "in": 438,
+      "out": 446,
+      "duration": 2,
+      "centerX": 1270,
+      "label": "Apply the red chin detail",
+      "portrait": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      },
+      "landscape": [
+        480,
+        270,
+        1440,
+        810
+      ]
+    },
+    {
+      "id": "07_head_side",
+      "in": 477,
+      "out": 491,
+      "duration": 4,
+      "centerX": 1020,
+      "label": "Wrap the helmet side",
+      "portrait": {
+        "width": 504,
+        "height": 896,
+        "y": 184
+      },
+      "landscape": [
+        320,
+        270,
+        1440,
+        810
+      ]
+    },
+    {
+      "id": "08_head_back",
+      "in": 772,
+      "out": 784,
+      "duration": 4,
+      "centerX": 760,
+      "label": "Align and press the rear helmet panel",
+      "portrait": {
+        "width": 504,
+        "height": 896,
+        "y": 184
+      },
+      "landscape": [
+        80,
+        270,
+        1440,
+        810
+      ]
+    },
+    {
+      "id": "09_head_finished",
+      "in": 1042,
+      "out": 1046,
+      "duration": 2,
+      "centerX": 1120,
+      "label": "Finished helmet",
+      "landscape": [
+        320,
+        270,
+        1440,
+        810
+      ]
+    },
+    {
+      "id": "10_chest_front",
+      "in": 1129,
+      "out": 1143,
+      "duration": 4,
+      "centerX": 1020,
+      "label": "Apply the front chest panel",
+      "landscape": [
+        240,
+        270,
+        1440,
+        810
+      ]
+    },
+    {
+      "id": "11_chest_wrap",
+      "in": 1175,
+      "out": 1191,
+      "duration": 4,
+      "centerX": 1000,
+      "label": "Wrap and press the chest colors",
+      "landscape": [
+        240,
+        180,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "12_first_arm",
+      "in": 1374,
+      "out": 1390,
+      "duration": 4,
+      "centerX": 900,
+      "label": "Wrap the first arm",
+      "portrait": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      },
+      "landscape": [
+        80,
+        180,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "13_arm_stripes",
+      "in": 1501,
+      "out": 1509,
+      "duration": 4,
+      "centerX": 1080,
+      "label": "Align shoulder and forearm stripes",
+      "landscape": [
+        160,
+        180,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "14_arm_detail",
+      "in": 1598,
+      "out": 1601.5,
+      "duration": 4,
+      "centerX": 740,
+      "label": "Press the forearm detail",
+      "landscape": [
+        160,
+        180,
+        1600,
+        900
+      ],
+      "portrait": {
+        "width": 540,
+        "height": 960,
+        "y": 120
+      }
+    },
+    {
+      "id": "15_other_arm",
+      "in": 1740,
+      "out": 1745,
+      "duration": 4,
+      "centerX": 650,
+      "label": "Finish the other blue cuff",
+      "landscape": [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    },
+    {
+      "id": "16_first_leg",
+      "in": 1868,
+      "out": 1877,
+      "duration": 4,
+      "centerX": 1020,
+      "label": "Apply the first leg front",
+      "portrait": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      },
+      "landscape": [
+        320,
+        270,
+        1440,
+        810
+      ]
+    },
+    {
+      "id": "17_leg_side",
+      "in": 1893,
+      "out": 1900,
+      "duration": 4,
+      "centerX": 990,
+      "label": "Press the lower leg and blue ankle edge",
+      "portrait": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      },
+      "landscape": [
+        320,
+        270,
+        1440,
+        810
+      ]
+    },
+    {
+      "id": "18_leg_back",
+      "in": 2011,
+      "out": 2027,
+      "duration": 4,
+      "centerX": 1040,
+      "label": "Press the rear leg edge",
+      "portrait": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      },
+      "landscape": [
+        240,
+        270,
+        1440,
+        810
+      ]
+    },
+    {
+      "id": "19_other_leg",
+      "in": 2038,
+      "out": 2047,
+      "duration": 4,
+      "centerX": 1080,
+      "label": "Finish the second leg panel",
+      "portrait": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      },
+      "landscape": [
+        240,
+        270,
+        1440,
+        810
+      ]
+    },
+    {
+      "id": "20_leg_edge",
+      "in": 2152,
+      "out": 2166,
+      "duration": 4,
+      "centerX": 1080,
+      "label": "Seal the lower leg edge",
+      "portrait": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      },
+      "landscape": [
+        240,
+        270,
+        1440,
+        810
+      ]
+    },
+    {
+      "id": "21_ankle_detail",
+      "in": 2277,
+      "out": 2287.5,
+      "duration": 3,
+      "centerX": 1000,
+      "label": "Align the final ankle detail",
+      "portrait": {
+        "width": 450,
+        "height": 800,
+        "y": 280
+      },
+      "landscape": [
+        160,
+        270,
+        1440,
+        810
+      ]
+    },
+    {
+      "id": "photo_01",
+      "image": "sources/showcase/PXL_20261016_153602993.jpg",
+      "landscapeImage": "assets/showcase/expanded/PXL_20261016_153602993-wide-v1.png",
+      "imageCenterX": 2140,
+      "duration": 2,
+      "label": "Finished figure photo 1"
+    },
+    {
+      "id": "photo_02",
+      "image": "sources/showcase/PXL_20261016_153606850.jpg",
+      "landscapeImage": "assets/showcase/expanded/PXL_20261016_153606850-wide-v1.png",
+      "imageCenterX": 2200,
+      "duration": 2,
+      "label": "Finished figure photo 2"
+    },
+    {
+      "id": "photo_03",
+      "image": "sources/showcase/PXL_20261016_153705569.jpg",
+      "landscapeImage": "assets/showcase/expanded/PXL_20261016_153705569-wide-v1.png",
+      "imageCenterX": 2090,
+      "duration": 2,
+      "label": "Finished figure photo 3"
+    },
+    {
+      "id": "photo_04",
+      "image": "sources/showcase/PXL_20261016_153713206.jpg",
+      "landscapeImage": "assets/showcase/expanded/PXL_20261016_153713206-wide-v1.png",
+      "imageCenterX": 2140,
+      "duration": 2,
+      "label": "Finished figure photo 4"
+    },
+    {
+      "id": "photo_05",
+      "image": "sources/showcase/PXL_20261016_153839081.jpg",
+      "landscapeImage": "assets/showcase/expanded/PXL_20261016_153839081-wide-v1.png",
+      "imageCenterX": 2050,
+      "duration": 2,
+      "label": "Finished figure photo 5"
+    },
+    {
+      "id": "photo_06",
+      "image": "sources/showcase/PXL_20261016_153825015.jpg",
+      "landscapeImage": "assets/showcase/expanded/PXL_20261016_153825015-wide-v1.png",
+      "imageCenterX": 2100,
+      "duration": 3,
+      "label": "Finished figure photo 6"
+    }
+  ],
+  "photoEndingStart": 75
+}
