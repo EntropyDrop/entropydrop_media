@@ -1,0 +1,828 @@
+{
+  "title": "ZXF Showcase",
+  "source": "sources/VID_20261028_155752.mp4",
+  "importSource": "~/Downloads/shipin/zxf/VID_20261028_155752.mp4",
+  "fps": 30,
+  "style": "techno_showcase: opening reference and figure centered as one group, translate left together while reference fades; centered assembly and full-body photos; music-beat hard cuts; no production audio",
+  "music": {
+    "source": "sources/music-candidates/night-sky-hip-hop.mp3",
+    "instrumental": "sources/music-candidates/night-sky-hip-hop.mp3",
+    "beatMap": "music-beats.json",
+    "startBeat": 36,
+    "fadeIn": 0.04,
+    "fadeOut": 2,
+    "targetLUFS": -18,
+    "truePeak": -1.5,
+    "loudnessRange": 11
+  },
+  "formats": {
+    "landscape": {
+      "width": 1920,
+      "height": 1080,
+      "output": "renders/zxf-showcase.mp4"
+    },
+    "portrait": {
+      "width": 1080,
+      "height": 1920,
+      "output": "renders/zxf-showcase-portrait.mp4"
+    }
+  },
+  "shots": [
+    {
+      "id": "01-photo-hero",
+      "label": "成品主图",
+      "image": "assets/photos-centered/hero-centered.png",
+      "beats": [
+        6,
+        6
+      ],
+      "landscape": [
+        4,
+        0,
+        1664,
+        936
+      ],
+      "portrait": [
+        576,
+        4,
+        522,
+        928
+      ],
+      "originalImage": "sources/photos/IMG_20261029_101756.jpg",
+      "comparison": {
+        "image": "sources/photos/zxf4.jpeg",
+        "exitStartBeat": 3,
+        "exitEndBeat": 5,
+        "landscape": {
+          "photoWidth": 520,
+          "photoX": 416,
+          "photoY": 280,
+          "groupShiftX": 324,
+          "figureHeight": 1080
+        },
+        "portrait": {
+          "photoWidth": 320,
+          "photoX": 34,
+          "photoY": 800,
+          "groupShiftX": 184,
+          "figureHeight": 1568
+        },
+        "layout": "reference and figure visible bounds centered as one group; equal leftward translation; reference fades; figure ends centered"
+      }
+    },
+    {
+      "id": "01b-photo-back",
+      "label": "成品背面",
+      "image": "assets/photos-centered/back-centered.png",
+      "beats": [
+        2,
+        0
+      ],
+      "landscape": [
+        94,
+        106,
+        1472,
+        828
+      ],
+      "portrait": [
+        596,
+        104,
+        468,
+        832
+      ],
+      "originalImage": "sources/photos/IMG_20261029_101813.jpg"
+    },
+    {
+      "id": "01c-photo-front",
+      "label": "正面拼色展示",
+      "image": "assets/photos-centered/front-centered.png",
+      "beats": [
+        4,
+        2
+      ],
+      "landscape": [
+        20,
+        40,
+        1600,
+        900
+      ],
+      "portrait": [
+        568,
+        42,
+        504,
+        896
+      ],
+      "originalImage": "sources/photos/IMG_20261029_101748.jpg"
+    },
+    {
+      "id": "02-blank",
+      "label": "白模与皮肤纸",
+      "in": 70.8,
+      "out": 73.8,
+      "beats": [
+        4,
+        2
+      ],
+      "landscape": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "portrait": [
+        300,
+        24,
+        594,
+        1056
+      ],
+      "portraitIn": 70.8,
+      "portraitOut": 73.8
+    },
+    {
+      "id": "03-face",
+      "label": "脸部贴合",
+      "in": 99,
+      "out": 117,
+      "beats": [
+        8,
+        8
+      ],
+      "landscape": [
+        180,
+        150,
+        1600,
+        900
+      ],
+      "portrait": [
+        350,
+        24,
+        594,
+        1056
+      ]
+    },
+    {
+      "id": "04-glasses",
+      "label": "眼镜与正面发际线",
+      "in": 168,
+      "out": 176,
+      "beats": [
+        4,
+        2
+      ],
+      "landscape": [
+        160,
+        150,
+        1600,
+        900
+      ],
+      "portrait": [
+        340,
+        24,
+        594,
+        1056
+      ],
+      "portraitIn": 170,
+      "portraitOut": 175.5
+    },
+    {
+      "id": "05-hair-side",
+      "label": "侧面发型包裹",
+      "in": 196,
+      "out": 210,
+      "beats": [
+        4,
+        0
+      ],
+      "landscape": [
+        80,
+        170,
+        1600,
+        900
+      ],
+      "portrait": [
+        520,
+        24,
+        594,
+        1056
+      ]
+    },
+    {
+      "id": "06-hair-back",
+      "label": "后脑包裹",
+      "in": 270,
+      "out": 283,
+      "beats": [
+        4,
+        2
+      ],
+      "landscape": [
+        160,
+        150,
+        1600,
+        900
+      ],
+      "portrait": [
+        320,
+        24,
+        594,
+        1056
+      ],
+      "portraitIn": 272.5,
+      "portraitOut": 280.5
+    },
+    {
+      "id": "07-head-top",
+      "label": "头顶封合",
+      "in": 397,
+      "out": 406,
+      "beats": [
+        4,
+        2
+      ],
+      "landscape": [
+        100,
+        150,
+        1600,
+        900
+      ],
+      "portrait": [
+        400,
+        24,
+        594,
+        1056
+      ],
+      "portraitIn": 398,
+      "portraitOut": 406
+    },
+    {
+      "id": "08-head-base",
+      "label": "头部底面",
+      "in": 480,
+      "out": 494,
+      "beats": [
+        2,
+        0
+      ],
+      "landscape": [
+        220,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        700,
+        24,
+        594,
+        1056
+      ]
+    },
+    {
+      "id": "09-torso-front",
+      "label": "躯干正面",
+      "in": 536,
+      "out": 553,
+      "beats": [
+        8,
+        8
+      ],
+      "landscape": [
+        160,
+        134,
+        1600,
+        900
+      ],
+      "portrait": [
+        650,
+        24,
+        594,
+        1056
+      ]
+    },
+    {
+      "id": "10-torso-side",
+      "label": "躯干侧面与关节",
+      "in": 578,
+      "out": 593,
+      "beats": [
+        4,
+        2
+      ],
+      "landscape": [
+        120,
+        170,
+        1600,
+        900
+      ],
+      "portrait": [
+        580,
+        24,
+        594,
+        1056
+      ],
+      "portraitIn": 581.5,
+      "portraitOut": 589.5
+    },
+    {
+      "id": "11-torso-back",
+      "label": "躯干背面",
+      "in": 606,
+      "out": 621,
+      "beats": [
+        4,
+        2
+      ],
+      "landscape": [
+        200,
+        160,
+        1600,
+        900
+      ],
+      "portrait": [
+        620,
+        24,
+        594,
+        1056
+      ],
+      "portraitIn": 609.5,
+      "portraitOut": 617.5
+    },
+    {
+      "id": "12-hip",
+      "label": "腰部关节收边",
+      "in": 709,
+      "out": 722,
+      "beats": [
+        2,
+        0
+      ],
+      "landscape": [
+        100,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        560,
+        24,
+        594,
+        1056
+      ]
+    },
+    {
+      "id": "13-head-assembly",
+      "label": "头部与躯干连接",
+      "in": 742,
+      "out": 751.5,
+      "beats": [
+        4,
+        2
+      ],
+      "landscape": [
+        100,
+        170,
+        1600,
+        900
+      ],
+      "portrait": [
+        460,
+        24,
+        594,
+        1056
+      ],
+      "portraitIn": 742.75,
+      "portraitOut": 750.75
+    },
+    {
+      "id": "14-brown-arm",
+      "label": "棕色手臂内侧",
+      "in": 850,
+      "out": 869,
+      "beats": [
+        4,
+        2
+      ],
+      "landscape": [
+        200,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        360,
+        24,
+        594,
+        1056
+      ],
+      "portraitIn": 858.5,
+      "portraitOut": 866.5
+    },
+    {
+      "id": "15-brown-arm-outer",
+      "label": "棕色袖口包裹",
+      "in": 908,
+      "out": 921,
+      "beats": [
+        2,
+        0
+      ],
+      "landscape": [
+        160,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        630,
+        24,
+        594,
+        1056
+      ]
+    },
+    {
+      "id": "16-brown-leg",
+      "label": "棕色腿上段",
+      "in": 985,
+      "out": 998,
+      "beats": [
+        4,
+        2
+      ],
+      "landscape": [
+        160,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        580,
+        24,
+        594,
+        1056
+      ],
+      "portraitIn": 987.5,
+      "portraitOut": 995.5
+    },
+    {
+      "id": "17-brown-leg-lower",
+      "label": "棕色腿下段",
+      "in": 1014,
+      "out": 1028,
+      "beats": [
+        4,
+        2
+      ],
+      "landscape": [
+        160,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        610,
+        24,
+        594,
+        1056
+      ],
+      "portraitIn": 1017.0,
+      "portraitOut": 1025.0
+    },
+    {
+      "id": "18-brown-leg-wrap",
+      "label": "棕色腿侧面收边",
+      "in": 1061,
+      "out": 1073,
+      "beats": [
+        2,
+        0
+      ],
+      "landscape": [
+        240,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        720,
+        24,
+        594,
+        1056
+      ]
+    },
+    {
+      "id": "19-green-leg",
+      "label": "绿色腿上段",
+      "in": 1204,
+      "out": 1218,
+      "beats": [
+        4,
+        2
+      ],
+      "landscape": [
+        160,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        520,
+        24,
+        594,
+        1056
+      ],
+      "portraitIn": 1207.0,
+      "portraitOut": 1215.0
+    },
+    {
+      "id": "20-green-leg-lower",
+      "label": "绿色腿下段",
+      "in": 1240,
+      "out": 1255,
+      "beats": [
+        4,
+        2
+      ],
+      "landscape": [
+        180,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        540,
+        24,
+        594,
+        1056
+      ],
+      "portraitIn": 1243.5,
+      "portraitOut": 1251.5
+    },
+    {
+      "id": "21-green-knee",
+      "label": "膝关节分割与贴合",
+      "in": 1376,
+      "out": 1391,
+      "beats": [
+        2,
+        0
+      ],
+      "landscape": [
+        160,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        650,
+        24,
+        594,
+        1056
+      ]
+    },
+    {
+      "id": "22-green-arm",
+      "label": "绿色手臂外侧",
+      "in": 1445,
+      "out": 1459,
+      "beats": [
+        4,
+        2
+      ],
+      "landscape": [
+        160,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        500,
+        24,
+        594,
+        1056
+      ],
+      "portraitIn": 1448.0,
+      "portraitOut": 1456.0
+    },
+    {
+      "id": "23-green-arm-wrap",
+      "label": "绿色手臂侧面",
+      "in": 1496,
+      "out": 1510,
+      "beats": [
+        2,
+        0
+      ],
+      "landscape": [
+        160,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        620,
+        24,
+        594,
+        1056
+      ]
+    },
+    {
+      "id": "24-green-arm-finish",
+      "label": "绿色袖口完成",
+      "in": 1600,
+      "out": 1613,
+      "beats": [
+        2,
+        2
+      ],
+      "landscape": [
+        200,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        580,
+        24,
+        594,
+        1056
+      ],
+      "portraitIn": 1602.5,
+      "portraitOut": 1610.5
+    },
+    {
+      "id": "25-shoulder-joint",
+      "label": "肩关节接口",
+      "in": 1646,
+      "out": 1660,
+      "beats": [
+        2,
+        0
+      ],
+      "landscape": [
+        180,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        670,
+        24,
+        594,
+        1056
+      ]
+    },
+    {
+      "id": "26-green-arm-connect",
+      "label": "装入绿色手臂",
+      "in": 1809.4,
+      "out": 1815.6,
+      "beats": [
+        8,
+        8
+      ],
+      "landscape": [
+        80,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        500,
+        24,
+        594,
+        1056
+      ]
+    },
+    {
+      "id": "27-brown-arm-connect",
+      "label": "装入棕色手臂",
+      "in": 1825.8,
+      "out": 1831.4,
+      "beats": [
+        8,
+        8
+      ],
+      "landscape": [
+        40,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        430,
+        24,
+        594,
+        1056
+      ]
+    },
+    {
+      "id": "28-green-leg-connect",
+      "label": "装入绿色腿",
+      "in": 1842,
+      "out": 1849.5,
+      "beats": [
+        8,
+        8
+      ],
+      "landscape": [
+        0,
+        180,
+        1600,
+        900
+      ],
+      "portrait": [
+        380,
+        24,
+        594,
+        1056
+      ]
+    },
+    {
+      "id": "29-brown-leg-connect",
+      "label": "装入棕色腿",
+      "in": 1868,
+      "out": 1872.2,
+      "beats": [
+        8,
+        8
+      ],
+      "landscape": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "portrait": [
+        520,
+        24,
+        594,
+        1056
+      ]
+    },
+    {
+      "id": "30-finished",
+      "label": "完整成品展示",
+      "in": 1881.7,
+      "out": 1886.2,
+      "beats": [
+        4,
+        4
+      ],
+      "landscape": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "portrait": [
+        530,
+        12,
+        594,
+        1056
+      ]
+    },
+    {
+      "id": "31-photo-angle",
+      "label": "成品立体结构",
+      "image": "assets/photos-centered/angle-centered.png",
+      "beats": [
+        4,
+        4
+      ],
+      "landscape": [
+        42,
+        64,
+        1536,
+        864
+      ],
+      "portrait": [
+        568,
+        64,
+        486,
+        864
+      ],
+      "originalImage": "sources/photos/IMG_20261029_101824.jpg"
+    },
+    {
+      "id": "32-photo-ending",
+      "label": "主图收尾",
+      "image": "assets/photos-centered/hero-centered.png",
+      "beats": [
+        8,
+        4
+      ],
+      "landscape": [
+        4,
+        0,
+        1664,
+        936
+      ],
+      "portrait": [
+        576,
+        4,
+        522,
+        928
+      ],
+      "originalImage": "sources/photos/IMG_20261029_101756.jpg"
+    }
+  ]
+}

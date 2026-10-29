@@ -1,0 +1,14 @@
+.venv/
+.cache/
+sources/
+audios/
+review/
+renders/
+__pycache__/
+index.html
+timeline.json
+assets/
+
+# Generated scores and transcription; retain the small third-party license.
+/score/*
+!/score/GeneralUser-GS-LICENSE.txt

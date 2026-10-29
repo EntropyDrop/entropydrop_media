@@ -1,0 +1,48 @@
+{
+  "title": "Night Sky Hip Hop",
+  "artist": "Michael Ramir C.",
+  "sourcePage": "https://mixkit.co/free-stock-music/",
+  "downloadUrl": "https://assets.mixkit.co/music/970/970.mp3",
+  "sourceFile": "sources/music-candidates/night-sky-hip-hop.mp3",
+  "instrumental": "sources/music-candidates/night-sky-hip-hop.mp3",
+  "sourceSha256": "073f81d2dd27f744665464a11b8e3bd075bb150a927a1a7f4d10c01787f06066",
+  "downloadDate": "2026-10-29",
+  "license": {
+    "name": "Mixkit Stock Music Free License",
+    "url": "https://mixkit.co/license/modal/musicFree/",
+    "terms": "https://mixkit.co/terms/",
+    "attributionRequired": false,
+    "allowed": [
+      "Commercial and non-commercial online videos",
+      "Social media posts",
+      "Online marketing ads"
+    ],
+    "exclusions": [
+      "TV/radio broadcast",
+      "CD/DVD",
+      "Video games",
+      "Standalone music redistribution or music-only remix"
+    ],
+    "caveat": "Licensed use is not public-domain status and does not guarantee that an automated platform claim will never occur.",
+    "evidenceFolder": "sources/music-candidates/"
+  },
+  "processing": {
+    "method": "Continuous excerpt of the original licensed instrumental; no remix, pitch change or speed change",
+    "startBeat": 36,
+    "sourceStart": 24.032653,
+    "targetLUFS": -18,
+    "fadeOut": 2
+  },
+  "cutting": {
+    "landscapeBeats": 148,
+    "portraitBeats": 96,
+    "method": "Detected recording beats, cuts snapped to nearest 30 fps video frame"
+  },
+  "previousVersion": "renders/revisions/before-night-sky-photos-20261029/",
+  "sourceQuality": {
+    "codec": "MP3",
+    "bitRate": 256000,
+    "sampleRate": 44100,
+    "durationSeconds": 257.142857
+  }
+}

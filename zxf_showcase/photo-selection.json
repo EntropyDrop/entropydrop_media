@@ -1,0 +1,129 @@
+{
+  "importDirectory": "/Users/ha/Downloads/shipin/zxf",
+  "date": "2026-10-29",
+  "availablePhotos": 11,
+  "selected": [
+    {
+      "file": "sources/photos/IMG_20261029_101756.jpg",
+      "size": [
+        4096,
+        3072
+      ],
+      "sha256": "ec830efb78149adcf645e28f1b95d4e9cdf2db0d9fcb2ed7f14427873df909b6",
+      "landscape": [
+        4,
+        0,
+        1664,
+        936
+      ],
+      "portrait": [
+        576,
+        4,
+        522,
+        928
+      ],
+      "reason": "正面偏侧，脸部与衣服清楚，背景整洁，作为首尾主图",
+      "editedFile": "assets/photos-centered/hero-centered.png",
+      "editedSize": [
+        1672,
+        941
+      ],
+      "editedSha256": "bdfa486a7cdc1c05faff0a26221540d6b7edabcda417c948e1a7848582b28303",
+      "generationSource": "/Users/ha/.codex/generated_images/01a182a5-3372-7c62-a41d-525c77fca5f7/exec-a77acb2a-2353-405d-909a-9c9621701d75.png"
+    },
+    {
+      "file": "sources/photos/IMG_20261029_101813.jpg",
+      "size": [
+        4096,
+        3072
+      ],
+      "sha256": "631cd886c30a9e6e90d71d7510469134d63df04cdc9e4ddc670bc82434de3482",
+      "landscape": [
+        94,
+        106,
+        1472,
+        828
+      ],
+      "portrait": [
+        596,
+        104,
+        468,
+        832
+      ],
+      "reason": "背面与肩部皮肤连接，用于补充不同角度",
+      "editedFile": "assets/photos-centered/back-centered.png",
+      "editedSize": [
+        1672,
+        940
+      ],
+      "editedSha256": "0694cfa22046e40758b9dada58d9e931795a6cace8557b37889bd14eb9fa7560",
+      "generationSource": "/Users/ha/.codex/generated_images/01a182a5-3372-7c62-a41d-525c77fca5f7/exec-e80cc57d-318b-436a-ac4b-a27b457a64a9.png"
+    },
+    {
+      "file": "sources/photos/IMG_20261029_101748.jpg",
+      "size": [
+        4096,
+        3072
+      ],
+      "sha256": "eedc40b5a74a35daab74c65902a49288602680fe7916979fec2e6cdf423d723d",
+      "landscape": [
+        20,
+        40,
+        1600,
+        900
+      ],
+      "portrait": [
+        568,
+        42,
+        504,
+        896
+      ],
+      "reason": "正面全身，便于看清绿棕拼色与眼镜",
+      "editedFile": "assets/photos-centered/front-centered.png",
+      "editedSize": [
+        1672,
+        941
+      ],
+      "editedSha256": "3e29bfb126a3f2d8c9c6d59e9fa74665d3769facb5f1dbbc8a0d7985090ac529",
+      "generationSource": "/Users/ha/.codex/generated_images/01a182a5-3372-7c62-a41d-525c77fca5f7/exec-c41568a2-2b38-4ff3-8090-8f44d97a3529.png"
+    },
+    {
+      "file": "sources/photos/IMG_20261029_101824.jpg",
+      "size": [
+        4096,
+        3072
+      ],
+      "sha256": "cbb611f7ca6299f4b8ef98d02e2b4682225ec1acf5d25001e93436f92ad741c6",
+      "landscape": [
+        42,
+        64,
+        1536,
+        864
+      ],
+      "portrait": [
+        568,
+        64,
+        486,
+        864
+      ],
+      "reason": "俯拍侧前方，头部与立体结构清楚，片尾成品展示",
+      "editedFile": "assets/photos-centered/angle-centered.png",
+      "editedSize": [
+        1672,
+        941
+      ],
+      "editedSha256": "e0f56d240f30bd3d9622cf5a02429a18f3a8ecb4c2bd352bb298efd161be7384",
+      "generationSource": "/Users/ha/.codex/generated_images/01a182a5-3372-7c62-a41d-525c77fca5f7/exec-a21d8350-2f79-447b-a09a-a50c316a9f6a.png"
+    }
+  ],
+  "presentation": "Four photos recentered using built-in image_gen, with grey background extension. Opening reference and figure have centered combined visible bounds and share the same leftward motion; only the reference fades, leaving the figure centered.",
+  "prompts": "prompts/center-photos.json",
+  "comparison": {
+    "file": "sources/photos/zxf4.jpeg",
+    "sha256": "3035e70c43d88eba875b983ef652a079e9174619f22235807460d2dbdfdfa365",
+    "size": [
+      660,
+      662
+    ]
+  }
+}
