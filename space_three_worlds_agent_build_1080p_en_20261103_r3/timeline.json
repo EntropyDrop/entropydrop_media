@@ -1,0 +1,1035 @@
+{
+  "duration": 767.0666666666666,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "language": "English",
+  "subtitles": false,
+  "chapters": [
+    {
+      "id": "01_intro",
+      "title": "Space: three worlds, three design problems",
+      "start": 0,
+      "duration": 27.933333333333334,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 12.32,
+          "text": "Hey everyone, welcome back. Today I am taking Space from an idea to three playable machines. We will build a Chinook in Aether Archipelago, a suspension equipped off road vehicle in Nature, and a tilt controlled quadcopter in Copper Metropolis.",
+          "source": "audios/raw/01_intro__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 12.77,
+          "duration": 14.79,
+          "text": "Space combines a voxel world, physical construction, and programmable entities. My focus is the player experience: describe a machine, inspect what the agent builds, make a correction yourself, and test it in the world. I am recording the development build, with the camera and tool preview fixes included.",
+          "source": "audios/raw/01_intro__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/reused/01-intro.mp4",
+          "in": 0,
+          "out": 27.933333333333334,
+          "duration": 27.933333333333334,
+          "speed": 1.0
+        }
+      ],
+      "footage": "review/edited-chapters/01_intro.mp4"
+    },
+    {
+      "id": "02_aether_tour",
+      "title": "Aether: read the landscape",
+      "start": 27.933333333333334,
+      "duration": 39.1,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 10.72,
+          "text": "Before building, I want a full look around Aether Archipelago. The islands create separate destinations, and the continuous ring gives you a much larger sense of place. I have waited for every district of the ring to load before this tour.",
+          "source": "audios/raw/02_aether_tour__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 11.17,
+          "duration": 17.24,
+          "text": "Notice the composition as we turn: a nearby island gives scale, the ring rises diagonally behind it, and sunlight separates the silhouette. That is the visual direction used by the introduction page. Our launch site is existing grass beside the castle. We are working with the landscape, without constructing a new platform.",
+          "source": "audios/raw/02_aether_tour__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.03
+        },
+        {
+          "start": 28.659999999999997,
+          "duration": 10.07,
+          "text": "I am using this complete circle to choose a route before I build. Open gaps are travel space, while castles and grass ledges become destinations. A good vehicle should make those spaces useful to the player.",
+          "source": "audios/raw/02_aether_tour__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.09
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/02-aether-tour-clean.mp4",
+          "in": 0,
+          "out": 39.1,
+          "duration": 39.1,
+          "speed": 1.0
+        }
+      ],
+      "footage": "review/edited-chapters/02_aether_tour.mp4"
+    },
+    {
+      "id": "03_toolbar",
+      "title": "The toolbar as a workflow",
+      "start": 67.03333333333333,
+      "duration": 32.733333333333334,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 12.15,
+          "text": "The toolbar is organized around intent. Selector defines an area. Hammer places reusable items. Wrench moves, rotates, and manages an entity. Shovel edits one meter blocks, while Spoon works at one eighth of a meter.",
+          "source": "audios/raw/03_toolbar__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.01
+        },
+        {
+          "start": 12.6,
+          "duration": 13.120041666666667,
+          "text": "Brush changes color and material. Modeling creates visual decoration, which does not add collision geometry. Keys one through seven select these tools. Extra controls change with the active tool, so a compact toolbar still explains the current operation.",
+          "source": "audios/raw/03_toolbar__02.wav",
+          "trim_start": 0.08,
+          "trim_end": 0.0
+        },
+        {
+          "start": 25.970041666666667,
+          "duration": 6.4,
+          "text": "This matters even when an agent builds the first draft. The player needs predictable ways to inspect, fix, and personalize the result.",
+          "source": "audios/raw/03_toolbar__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/03-toolbar-clean.mp4",
+          "in": 0,
+          "out": 32.733333333333334,
+          "duration": 32.733333333333334,
+          "speed": 1.0
+        }
+      ],
+      "footage": "review/edited-chapters/03_toolbar.mp4"
+    },
+    {
+      "id": "04_agent",
+      "title": "Connect Agent Build",
+      "start": 99.76666666666667,
+      "duration": 39.13333333333333,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 10.72,
+          "text": "Here is the Agent Build workflow. Open Agent Build, check the target world, and copy the connection prompt into your external agent. This connection can create structures and entities through the Space interface.",
+          "source": "audios/raw/04_agent__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 11.17,
+          "duration": 15.5,
+          "text": "The agent gives you an authorization link and a code. Open the link yourself, compare the code and the agent name, and authorize that connection. This grants full Space access, so approve only an agent you trust. The agent retrieves its credential; you do not need to paste a secret into the conversation.",
+          "source": "audios/raw/04_agent__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.01
+        },
+        {
+          "start": 26.92,
+          "duration": 11.84,
+          "text": "My connection is already authorized. I will reuse it for all three worlds, checking the world identifier each time. The separate assistant inside an entity editor helps with controller code. It is a different entry point from Agent Build.",
+          "source": "audios/raw/04_agent__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/reused/04-agent.mp4",
+          "in": 0,
+          "out": 47,
+          "duration": 39.13333333333333,
+          "speed": 1.201022146507666
+        }
+      ],
+      "footage": "review/edited-chapters/04_agent.mp4"
+    },
+    {
+      "id": "05_chinook_prompt",
+      "title": "Describe the Chinook",
+      "start": 138.9,
+      "duration": 36.2,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 11.24,
+          "text": "For the Chinook, I describe appearance, structure, behavior, and limits in the same request. Build an olive tandem rotor transport helicopter, with a readable cockpit, a hollow cabin, landing wheels, and a pilot seat.",
+          "source": "audios/raw/05_chinook_prompt__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.04
+        },
+        {
+          "start": 11.69,
+          "duration": 12.4,
+          "text": "Make the fuselage a dynamic body. Give the two rotors their own components, spinning in opposite directions. Use thrust and torque for flight. W and S control forward and backward movement, A and D turn, and Space and Shift change altitude.",
+          "source": "audios/raw/05_chinook_prompt__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 24.34,
+          "duration": 11.51,
+          "text": "Finally, place it on the selected existing ground, leave it stopped, and do not modify terrain. Those constraints make the result easy to inspect before the first test. I also ask the agent to compile every component script and report errors.",
+          "source": "audios/raw/05_chinook_prompt__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.01
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/reused/05-chinook-prompt.mp4",
+          "in": 0,
+          "out": 36.2,
+          "duration": 36.2,
+          "speed": 1.0
+        }
+      ],
+      "footage": "review/edited-chapters/05_chinook_prompt.mp4"
+    },
+    {
+      "id": "06_chinook_inspect",
+      "title": "Inspect the generated aircraft",
+      "start": 175.10000000000002,
+      "duration": 33.6,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 8.62,
+          "text": "Here is the generated aircraft. The fuselage and two rotor assemblies are separate components. The seat is an interaction definition, not just a cushion drawn inside the cabin.",
+          "source": "audios/raw/06_chinook_inspect__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.02
+        },
+        {
+          "start": 9.069999999999999,
+          "duration": 10.08,
+          "text": "I inspect it from outside first. The rotor spacing should make the tandem layout obvious. The windows need to be readable, the landing gear needs ground clearance, and the aircraft needs enough room to leave the island.",
+          "source": "audios/raw/06_chinook_inspect__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 19.4,
+          "duration": 13.84,
+          "text": "These are the agent generated assets used in this development session. The physics controller uses simplified thrust and attitude control. It is a playable prototype rather than a complete aerodynamic simulation. That distinction sets useful expectations for the flight test.",
+          "source": "audios/raw/06_chinook_inspect__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/06-chinook-inspect-clean.mp4",
+          "in": 0,
+          "out": 33.6,
+          "duration": 33.6,
+          "speed": 1.0
+        }
+      ],
+      "footage": "review/edited-chapters/06_chinook_inspect.mp4"
+    },
+    {
+      "id": "07_chinook_refine",
+      "title": "Refine with Spoon and Brush",
+      "start": 208.70000000000002,
+      "duration": 30.666666666666668,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 12.56,
+          "text": "Now I return to first person and stop the entity before editing. With Spoon selected, the gray outline shows the containing standard block. The smaller target marks the micro voxel that will change. There is no dense micro grid covering the whole preview.",
+          "source": "audios/raw/07_chinook_refine__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 13.01,
+          "duration": 8.77,
+          "text": "A small notch demonstrates the tool. I remove only the targeted detail and inspect it. The scale is one eighth of a meter, so a precise correction does not need to remove a full block.",
+          "source": "audios/raw/07_chinook_refine__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.03
+        },
+        {
+          "start": 22.03,
+          "duration": 8.28,
+          "text": "Then I switch to Brush. I choose an accent color and paint a small surface detail. The agent gives me the broad design; these manual adjustments make the result intentional.",
+          "source": "audios/raw/07_chinook_refine__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.04
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/07-chinook-refine-clean.mp4",
+          "in": 0,
+          "out": 30.666666666666668,
+          "duration": 30.666666666666668,
+          "speed": 1.0
+        }
+      ],
+      "footage": "review/edited-chapters/07_chinook_refine.mp4"
+    },
+    {
+      "id": "08_chinook_controls",
+      "title": "Review controls and board",
+      "start": 239.36666666666667,
+      "duration": 29.0,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 10.88,
+          "text": "Before running the aircraft, I review the fuselage controller and the pilot seat. The script checks whether a driver is mounted before it applies flight control. Rotor animation alone would not prove that a helicopter can fly.",
+          "source": "audios/raw/08_chinook_controls__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 11.33,
+          "duration": 11.680041666666666,
+          "text": "I close the editor, aim at the pilot seat, and use V to board. F three switches the camera perspective. For this test I choose the rear third person view, because I want to see both rotor clearance and the surrounding islands.",
+          "source": "audios/raw/08_chinook_controls__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 23.260041666666666,
+          "duration": 5.36,
+          "text": "The follow camera uses a fit calculated in advance. Its field of view does not pump as the rotors turn.",
+          "source": "audios/raw/08_chinook_controls__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/08-chinook-controls-clean.mp4",
+          "in": 0,
+          "out": 29.0,
+          "duration": 29.0,
+          "speed": 1.0
+        }
+      ],
+      "footage": "review/edited-chapters/08_chinook_controls.mp4"
+    },
+    {
+      "id": "09_chinook_flight_a",
+      "title": "Lift and first circuit",
+      "start": 268.3666666666667,
+      "duration": 43.53333333333333,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 11.26,
+          "text": "I start with a vertical climb, then add forward input gradually. The controller tilts the aircraft and applies lift along its local up direction. Releasing the movement keys asks it to slow down and hold position.",
+          "source": "audios/raw/09_chinook_flight_a__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.02
+        },
+        {
+          "start": 11.709999999999999,
+          "duration": 10.08,
+          "text": "The first turn is deliberately wide. A transport helicopter should feel like something with size and momentum, especially beside these narrow islands. The goal is a readable route, not a fast lap.",
+          "source": "audios/raw/09_chinook_flight_a__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 22.04,
+          "duration": 9.14,
+          "text": "As the castle moves behind us, watch the ring sweep into the diagonal composition from the introduction image. The landmark makes it easy to understand where we launched and where we are going.",
+          "source": "audios/raw/09_chinook_flight_a__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.06
+        },
+        {
+          "start": 31.43,
+          "duration": 11.73,
+          "text": "I keep the first climb slow enough to see the transition from ground contact to flight. Then I hold altitude while turning. Testing one control at a time makes a controller problem much easier to spot than immediately pushing every input together.",
+          "source": "audios/raw/09_chinook_flight_a__04.wav",
+          "trim_start": 0.03,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/09-chinook-flight-a-clean.mp4",
+          "in": 0,
+          "out": 43.53333333333333,
+          "duration": 43.53333333333333,
+          "speed": 1.0
+        }
+      ],
+      "footage": "review/edited-chapters/09_chinook_flight_a.mp4"
+    },
+    {
+      "id": "10_chinook_flight_b",
+      "title": "Circle the launch island",
+      "start": 311.9,
+      "duration": 35.333333333333336,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 6.16,
+          "text": "From this side, the aircraft silhouette and floating terrain remain separate. That helps the player judge motion without relying on a minimap.",
+          "source": "audios/raw/10_chinook_flight_b__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 6.61,
+          "duration": 10.96,
+          "text": "I continue around the launch area in third person, keeping enough altitude to clear the buildings. The camera framing stays stable while the body pitches and the rotors spin. This is the practical test of the earlier camera fix.",
+          "source": "audios/raw/10_chinook_flight_b__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 17.82,
+          "duration": 9.74,
+          "text": "Aether gives the Chinook a purpose: crossing gaps, carrying the player between islands, and turning distant landmarks into reachable destinations. Next, we change both the environment and the movement problem.",
+          "source": "audios/raw/10_chinook_flight_b__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.02
+        },
+        {
+          "start": 27.810000000000002,
+          "duration": 7.16,
+          "text": "The wide view also checks the world loading. The ring remains continuous throughout the turn, and distant terrain stays visible as the aircraft changes heading.",
+          "source": "audios/raw/10_chinook_flight_b__04.wav",
+          "trim_start": 0.02,
+          "trim_end": 0.02
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/10-chinook-flight-b-clean.mp4",
+          "in": 0,
+          "out": 35.333333333333336,
+          "duration": 35.333333333333336,
+          "speed": 1.0
+        }
+      ],
+      "footage": "review/edited-chapters/10_chinook_flight_b.mp4"
+    },
+    {
+      "id": "11_nature_tour",
+      "title": "Nature: choose a driving route",
+      "start": 347.2333333333333,
+      "duration": 35.1,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 6.8,
+          "text": "Our second world is Nature. I check the world selection before asking the agent to build anything. A position from Aether would be meaningless here.",
+          "source": "audios/raw/11_nature_tour__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 7.25,
+          "duration": 8.64,
+          "text": "For the off road vehicle, I want open ground, a gentle change in height, and enough room to brake. I am using the original terrain. No new platform, ramp, or obstacle course is added.",
+          "source": "audios/raw/11_nature_tour__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 16.14,
+          "duration": 9.36,
+          "text": "This orbit again passes through a near ground, diagonal ring composition. The landscape establishes the scale of the world and gives us an immediate reason to care about suspension and wheel contact.",
+          "source": "audios/raw/11_nature_tour__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 25.75,
+          "duration": 8.99,
+          "text": "This is also where I decide what to test first: wheel rotation at low speed, left and right steering, then suspension over the natural steps. Each test should answer one clear question.",
+          "source": "audios/raw/11_nature_tour__04.wav",
+          "trim_start": 0.05,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/reused/11-nature-tour.mp4",
+          "in": 0,
+          "out": 42,
+          "duration": 35.1,
+          "speed": 1.1965811965811965
+        }
+      ],
+      "footage": "review/edited-chapters/11_nature_tour.mp4"
+    },
+    {
+      "id": "12_rover_prompt",
+      "title": "Ask for independent suspension",
+      "start": 382.3333333333333,
+      "duration": 34.5,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 9.98,
+          "text": "My second request is more specific than simply asking for a car. Build a four wheel off road vehicle with a sand colored body, a pilot seat, generous ground clearance, and clearly visible headlights.",
+          "source": "audios/raw/12_rover_prompt__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.02
+        },
+        {
+          "start": 10.43,
+          "duration": 13.6,
+          "text": "Use a dynamic chassis and four independently animated wheels. At each wheel, measure ground distance and apply spring and damper forces at that support point. The visible wheel should follow its suspension extension. Add acceleration, steering, braking, and lateral grip.",
+          "source": "audios/raw/12_rover_prompt__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 24.28,
+          "duration": 9.84,
+          "text": "Place it stopped on existing ground in Nature and do not modify terrain. This is a raycast suspension model. It gives us behavior we can inspect directly instead of four wheels that only look articulated.",
+          "source": "audios/raw/12_rover_prompt__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/reused/12-rover-prompt.mp4",
+          "in": 0,
+          "out": 34.5,
+          "duration": 34.5,
+          "speed": 1.0
+        }
+      ],
+      "footage": "review/edited-chapters/12_rover_prompt.mp4"
+    },
+    {
+      "id": "13_rover_inspect",
+      "title": "Inspect the four supports",
+      "start": 416.8333333333333,
+      "duration": 30.633333333333333,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 9.79,
+          "text": "I start the inspection at wheel level. The body has one dynamic root, while the four wheel components provide separate visible motion. The suspension controller samples each support point independently.",
+          "source": "audios/raw/13_rover_inspect__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.05
+        },
+        {
+          "start": 10.239999999999998,
+          "duration": 10.66,
+          "text": "A spring supports the weight. A damper resists rapid compression and rebound. Without damping, the chassis keeps bouncing after a small disturbance. With too much damping, it feels rigid and reluctant to settle.",
+          "source": "audios/raw/13_rover_inspect__02.wav",
+          "trim_start": 0.06,
+          "trim_end": 0.0
+        },
+        {
+          "start": 21.15,
+          "duration": 9.11,
+          "text": "The useful question is whether the wheels and body respond coherently when the terrain changes. I will test one side over uneven ground and watch the body return toward a settled position.",
+          "source": "audios/raw/13_rover_inspect__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.09
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/reused/13-rover-inspect.mp4",
+          "in": 0,
+          "out": 41,
+          "duration": 30.633333333333333,
+          "speed": 1.338411316648531
+        }
+      ],
+      "footage": "review/edited-chapters/13_rover_inspect.mp4"
+    },
+    {
+      "id": "14_rover_light_a",
+      "title": "Select one headlight",
+      "start": 447.46666666666664,
+      "duration": 28.666666666666668,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 8.24,
+          "text": "Before driving, I want one small manual customization. I stop the vehicle, switch to first person, and move close to the front. The headlights start with a neutral light color.",
+          "source": "audios/raw/14_rover_light_a__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 8.69,
+          "duration": 9.68,
+          "text": "I select Brush with key six and switch to the micro scale with Tab. Then I open the color and material panel with I. I choose a warm amber accent, keeping the rest of the body untouched.",
+          "source": "audios/raw/14_rover_light_a__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 18.619999999999997,
+          "duration": 9.68,
+          "text": "For a tiny detail, a targeted paint action is easy to understand. For a larger lamp face, Selector and the paint command can recolor a bounded region. Check the highlighted surface before confirming.",
+          "source": "audios/raw/14_rover_light_a__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/reused/14-rover-light-a.mp4",
+          "in": 0,
+          "out": 37,
+          "duration": 28.666666666666668,
+          "speed": 1.2906976744186045
+        }
+      ],
+      "footage": "review/edited-chapters/14_rover_light_a.mp4"
+    },
+    {
+      "id": "15_rover_light_b",
+      "title": "Paint, inspect, and compare",
+      "start": 476.1333333333333,
+      "duration": 28.8,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 9.52,
+          "text": "Now I apply the new color to the headlight detail. I step back to compare it with the other side. The warm accent makes the front easier to recognize, even when the vehicle is small in the frame.",
+          "source": "audios/raw/15_rover_light_b__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 9.969999999999999,
+          "duration": 9.41,
+          "text": "This is why I like combining Agent Build with direct tools. A generated vehicle should remain editable. I do not want to rewrite a long prompt whenever I need to change one visible detail.",
+          "source": "audios/raw/15_rover_light_b__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.03
+        },
+        {
+          "start": 19.63,
+          "duration": 8.8,
+          "text": "Brush changes appearance. Modeling adds visual pieces. Neither should be confused with physical suspension. Keeping those responsibilities clear helps the player predict the result of each tool.",
+          "source": "audios/raw/15_rover_light_b__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/reused/15-rover-light-b.mp4",
+          "in": 4,
+          "out": 20,
+          "duration": 9.969999999999999,
+          "speed": 1.6048144433299902
+        },
+        {
+          "file": "footage/reused/15-rover-light-b.mp4",
+          "in": 26,
+          "out": 41,
+          "duration": 18.830000000000002,
+          "speed": 0.7966011683483801
+        }
+      ],
+      "footage": "review/edited-chapters/15_rover_light_b.mp4"
+    },
+    {
+      "id": "16_rover_drive_a",
+      "title": "Wheel rotation: forward and reverse",
+      "start": 504.93333333333334,
+      "duration": 34.266666666666666,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 10.08,
+          "text": "I start this revised test at wheel level. Watch the tread as the vehicle moves forward, stops, and reverses. The bottom of each tire must roll against the ground in the opposite direction to the chassis motion.",
+          "source": "audios/raw/16_rover_drive_a__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 10.53,
+          "duration": 12.800041666666667,
+          "text": "The earlier controller had the sign reversed. Forward motion is along the vehicle's negative Z axis, so the wheel angle must decrease around its local X axle. Reverse motion increases that angle. The same rule applies on both sides of this model.",
+          "source": "audios/raw/16_rover_drive_a__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 23.580041666666666,
+          "duration": 10.32,
+          "text": "Now I stop again. This slow pass is a useful acceptance test for Agent Build: do not approve a vehicle just because its wheels spin. Check the contact motion, the reverse direction, and the suspension together.",
+          "source": "audios/raw/16_rover_drive_a__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/16-rover-roll-test.mp4",
+          "in": 0,
+          "out": 34.266666666666666,
+          "duration": 34.266666666666666,
+          "speed": 1.0
+        }
+      ],
+      "footage": "review/edited-chapters/16_rover_drive_a.mp4"
+    },
+    {
+      "id": "17_rover_drive_b",
+      "title": "Steering test: left, right, center",
+      "start": 539.2,
+      "duration": 35.63333333333333,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 11.76,
+          "text": "Next I isolate steering. With the brakes held, I press A, release it, press D, and release it again. Both front wheels turn left, return to center, turn right, and return to center. The rear wheels stay straight.",
+          "source": "audios/raw/17_rover_drive_b__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 12.209999999999999,
+          "duration": 10.56,
+          "text": "The steering axis belongs to the chassis, while the rolling axis belongs to each wheel. Keeping that order correct prevents a spinning wheel from making the steering direction wobble. I check the wheel axles as well as the tread.",
+          "source": "audios/raw/17_rover_drive_b__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 23.02,
+          "duration": 12.26,
+          "text": "Finally I drive through a gentle left turn, then a right turn, and brake. The front wheel angles now agree with the vehicle's path. The independent supports continue following the terrain, and the amber headlight identifies the front.",
+          "source": "audios/raw/17_rover_drive_b__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.06
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/17-rover-steering-test.mp4",
+          "in": 0,
+          "out": 35.63333333333333,
+          "duration": 35.63333333333333,
+          "speed": 1.0
+        }
+      ],
+      "footage": "review/edited-chapters/17_rover_drive_b.mp4"
+    },
+    {
+      "id": "18_copper_tour",
+      "title": "Copper Metropolis: an aerial route",
+      "start": 574.8333333333334,
+      "duration": 40.733333333333334,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 10.88,
+          "text": "Our final stop is Copper Metropolis. Buildings create a different navigation problem from open ground. For the quadcopter I choose an existing flat roof terrace, then plan a short flight with room to climb, translate, and stop.",
+          "source": "audios/raw/18_copper_tour__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 11.33,
+          "duration": 9.12,
+          "text": "The orbit passes the same kind of orange roof foreground and rising city ring seen on the introduction page. Strong horizontal roofs make small changes in aircraft attitude easy to see.",
+          "source": "audios/raw/18_copper_tour__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 20.7,
+          "duration": 8.16,
+          "text": "The design goal is controlled movement that reads as physical. If the drone slides forward while remaining perfectly level, the motion will not explain where its acceleration comes from.",
+          "source": "audios/raw/18_copper_tour__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 29.11,
+          "duration": 11.26,
+          "text": "For this test, the player will be the moving target. I choose an open roof as the starting point, then fly above it to look around the city. That gives the drone room to climb, follow, and settle without nearby obstacles.",
+          "source": "audios/raw/18_copper_tour__04.wav",
+          "trim_start": 0.02,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/reused/18-copper-tour.mp4",
+          "in": 0,
+          "out": 42,
+          "duration": 40.733333333333334,
+          "speed": 1.0310965630114566
+        }
+      ],
+      "footage": "review/edited-chapters/18_copper_tour.mp4"
+    },
+    {
+      "id": "19_drone_prompt",
+      "title": "Ask for a character-following quadcopter",
+      "start": 615.5666666666667,
+      "duration": 34.63333333333333,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 8.64,
+          "text": "The third prompt asks for a compact quadcopter that follows the player. Give it a dynamic center body, four counter rotating rotors, landing feet, and a clear front accent.",
+          "source": "audios/raw/19_drone_prompt__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 9.09,
+          "duration": 12.28,
+          "text": "Read the actual character position and velocity every update. Maintain an offset above and to one side, follow the character on the ground or in the air, and settle into a hover when they stop. If the target disappears, hold the last safe target.",
+          "source": "audios/raw/19_drone_prompt__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.04
+        },
+        {
+          "start": 21.619999999999997,
+          "duration": 12.64,
+          "text": "Use local upward thrust and attitude torque. Pitch to accelerate, counter tilt to brake, and roll for sideways motion. Leave the drone stopped on the existing roof. Compile the controller and test tracking, direction changes, stopping, and target loss.",
+          "source": "audios/raw/19_drone_prompt__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "stills/19-drone-follow-prompt.png",
+          "in": 0,
+          "out": 34.63333333333333,
+          "duration": 34.63333333333333,
+          "speed": 1.0
+        }
+      ],
+      "footage": "review/edited-chapters/19_drone_prompt.mp4"
+    },
+    {
+      "id": "20_drone_refine",
+      "title": "Inspect and mark the drone",
+      "start": 650.2,
+      "duration": 26.9,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 8.56,
+          "text": "I inspect the four rotor assemblies and make sure the arms are easy to distinguish. Counter rotating pairs are visible, but rotor animation is separate from the force controller moving the body.",
+          "source": "audios/raw/20_drone_refine__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 9.01,
+          "duration": 7.82,
+          "text": "With the drone stopped, I use Brush to add a small front accent. A directional color cue matters because a nearly symmetrical quadcopter becomes difficult to read when it turns.",
+          "source": "audios/raw/20_drone_refine__02.wav",
+          "trim_start": 0.1,
+          "trim_end": 0.0
+        },
+        {
+          "start": 17.08,
+          "duration": 9.44,
+          "text": "I also check the landing feet and clearance under the body. Modeling can add a camera housing as visual decoration, but collision and flight behavior still come from the actual components and controller.",
+          "source": "audios/raw/20_drone_refine__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/reused/20-drone-refine.mp4",
+          "in": 0,
+          "out": 13,
+          "duration": 9.01,
+          "speed": 1.4428412874583796
+        },
+        {
+          "file": "footage/reused/20-drone-refine.mp4",
+          "in": 13,
+          "out": 25,
+          "duration": 8.069999999999999,
+          "speed": 1.4869888475836435
+        },
+        {
+          "file": "footage/reused/20-drone-refine.mp4",
+          "in": 25,
+          "out": 38,
+          "duration": 9.82,
+          "speed": 1.3238289205702647
+        }
+      ],
+      "footage": "review/edited-chapters/20_drone_refine.mp4"
+    },
+    {
+      "id": "21_drone_flight_a",
+      "title": "Third person: take off together",
+      "start": 677.1,
+      "duration": 31.4,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 10.24,
+          "text": "Now let us test the follow behavior in the air. I start in third person, let the drone settle beside me, then toggle character flight and rise above the roof. The drone has to catch up vertically as well as horizontally.",
+          "source": "audios/raw/21_drone_flight_a__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 10.69,
+          "duration": 10.64,
+          "text": "I make a short forward move, then pause. The drone reads my real position and velocity. Its body leans to accelerate and tilts back to brake; there is no timed route or position snapping moving it through the scene.",
+          "source": "audios/raw/21_drone_flight_a__02.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 21.58,
+          "duration": 9.44,
+          "text": "While hovering, I turn the view across the skyline. Keeping the character and drone together in the frame lets us see the tracking delay, the change in height, and the moment the drone settles into its offset.",
+          "source": "audios/raw/21_drone_flight_a__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/21-drone-airborne-follow.mp4",
+          "in": 0,
+          "out": 31.4,
+          "duration": 31.4,
+          "speed": 1.0
+        }
+      ],
+      "footage": "review/edited-chapters/21_drone_flight_a.mp4"
+    },
+    {
+      "id": "22_drone_flight_b",
+      "title": "Airborne orbit, direction changes, and hover",
+      "start": 708.5,
+      "duration": 34.166666666666664,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 9.52,
+          "text": "From up here, I can look around the city while the drone holds its place beside the character. I sweep the third person camera around us, changing the angle and elevation while the field of view stays fixed.",
+          "source": "audios/raw/22_drone_flight_b__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 9.969999999999999,
+          "duration": 10.94,
+          "text": "Next I make a short sideways move and stop again. Watch the roll into the movement, the opposite tilt while braking, and the return to a steady hover. I leave a pause between inputs so each response is easy to read.",
+          "source": "audios/raw/22_drone_flight_b__02.wav",
+          "trim_start": 0.1,
+          "trim_end": 0.0
+        },
+        {
+          "start": 21.159999999999997,
+          "duration": 12.64,
+          "text": "This makes the drone feel like a flying companion. It follows the character in three dimensions, while the orbit reveals the surrounding city. This prototype has no automatic obstacle avoidance, so I keep the demonstration in clear air above the roof.",
+          "source": "audios/raw/22_drone_flight_b__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/22-drone-airborne-orbit.mp4",
+          "in": 0,
+          "out": 34.166666666666664,
+          "duration": 34.166666666666664,
+          "speed": 1.0
+        }
+      ],
+      "footage": "review/edited-chapters/22_drone_flight_b.mp4"
+    },
+    {
+      "id": "23_close",
+      "title": "Build, refine, play",
+      "start": 742.6666666666666,
+      "duration": 24.4,
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 7.04,
+          "text": "Three worlds gave us three design problems: transport between islands, traction over uneven ground, and controlled flight between city landmarks.",
+          "source": "audios/raw/23_close__01.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        },
+        {
+          "start": 7.49,
+          "duration": 10.29,
+          "text": "Agent Build helped create the structure and behavior. The toolbar kept the result understandable and editable. The final test was always play: could I use the machine, read its motion, and make a useful correction?",
+          "source": "audios/raw/23_close__02.wav",
+          "trim_start": 0.03,
+          "trim_end": 0.0
+        },
+        {
+          "start": 18.03,
+          "duration": 6.0,
+          "text": "That is the direction I want for Space. Describe an idea, inspect the result, make it your own, and take it somewhere. Thanks for watching.",
+          "source": "audios/raw/23_close__03.wav",
+          "trim_start": 0.0,
+          "trim_end": 0.0
+        }
+      ],
+      "edits": [
+        {
+          "file": "footage/10-chinook-flight-b-clean.mp4",
+          "in": 8,
+          "out": 16,
+          "duration": 8,
+          "speed": 1.0
+        },
+        {
+          "file": "footage/17-rover-steering-test.mp4",
+          "in": 24,
+          "out": 32,
+          "duration": 8,
+          "speed": 1.0
+        },
+        {
+          "file": "footage/22-drone-airborne-orbit.mp4",
+          "in": 1,
+          "out": 9.399999999999999,
+          "duration": 8.399999999999999,
+          "speed": 1.0
+        }
+      ],
+      "footage": "review/edited-chapters/23_close.mp4"
+    }
+  ]
+}

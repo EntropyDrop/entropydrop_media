@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "接下来，我们看看生成以后怎样亲手微调。切换到第一人称，暂时停用实体，开始编辑。",
+  "seed": 42
+}

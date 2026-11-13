@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "Here is the centerpiece of Space: the Agent Build system. Simply open the panel and copy the prompt to your favorite external AI agent. Through open interfaces, it connects directly into your active voxel world.",
+      "file": "modules/04_agent/audio/b91b9a0dd60cb19cddff.wav",
+      "sha256": "59aafd00dc7942c60522ee77c94b2e429165a3c5fac94129e2c99e6a70fa29d1",
+      "request_sha256": "b91b9a0dd60cb19cddff3162d4483e2a7321ddc38aaec64a974de8dbf3bf56b5"
+    },
+    {
+      "text": "Whether using cloud frontier models or local AI, the agent becomes your versatile co-builder. It interprets everyday natural language, computing 3D geometry, placing blocks, and writing full controller scripts in seconds.",
+      "file": "modules/04_agent/audio/72b9d0afc276ec79c12f.wav",
+      "sha256": "265c560dbc1fb72c87f466f9aa7f41f147c07152861d3dcb48b51871e9e0bb99",
+      "request_sha256": "72b9d0afc276ec79c12f7f89dd1abdc5cf4545fed01dd8b52a7e343962dc7da0"
+    },
+    {
+      "text": "This connection seamlessly carries across every world you visit. Now, let's dive into our first live build!",
+      "file": "modules/04_agent/audio/a976b7424ea5c84cc310.wav",
+      "sha256": "a2e37f76451c1c186c3755d51e90092dd47b6861c9175117efdf9eaa1ad29236",
+      "request_sha256": "a976b7424ea5c84cc3109e0c9c7722cbec4f74eff2b69e9f165ecd44e9981129"
+    }
+  ]
+}

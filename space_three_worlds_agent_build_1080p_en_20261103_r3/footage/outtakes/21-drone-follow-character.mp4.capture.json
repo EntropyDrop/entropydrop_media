@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/space-three-worlds-vlog-r2/footage/21-drone-follow-character.mp4",
+  "seconds": 35,
+  "mode": "compositor",
+  "incoming": 1825,
+  "frames": 1050,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793700732174,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

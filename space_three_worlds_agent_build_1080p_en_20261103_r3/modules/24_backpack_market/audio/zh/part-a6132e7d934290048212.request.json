@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "一座风车、一座塔，或者一段建筑装饰，都可以保存并分享。",
+  "seed": 42
+}

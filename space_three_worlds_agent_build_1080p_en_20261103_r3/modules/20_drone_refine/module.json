@@ -1,0 +1,30 @@
+{
+  "id": "20_drone_refine",
+  "label": "无人机检查与标记",
+  "title": "Entity Marking: Spraying a Front-Facing Accent",
+  "clips": [
+    {
+      "source": "footage/reused/20-drone-refine.mp4",
+      "in": 0,
+      "out": 13,
+      "end_at": "voice:2",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/reused/20-drone-refine.mp4",
+      "in": 13,
+      "out": 25,
+      "end_at": "voice:3",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/reused/20-drone-refine.mp4",
+      "in": 25,
+      "out": 38,
+      "end_at": "end",
+      "mode": "fit"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "Retains inspection, actual Brush front accent, and landing-foot detail at the matching narration paragraphs."
+}

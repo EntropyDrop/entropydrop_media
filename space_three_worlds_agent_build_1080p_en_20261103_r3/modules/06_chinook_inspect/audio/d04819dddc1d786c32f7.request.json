@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "The pilot seat is a standout feature: in Space, this is a fully functional interaction definition with boarding logic and input mapping, not just a static cushion drawn inside the cabin.",
+  "seed": 43
+}

@@ -1,0 +1,1729 @@
+{
+  "output": "/private/tmp/scifi-team-design.mp4",
+  "shot": {
+    "id": "03_team_design",
+    "seconds": 26.0333333333,
+    "fov": 50,
+    "controllerRate": 1,
+    "segments": [
+      {
+        "seconds": 2,
+        "position": [
+          [
+            5342,
+            60,
+            654
+          ],
+          [
+            5339,
+            60,
+            654
+          ]
+        ],
+        "target": [
+          [
+            5268,
+            44,
+            654
+          ],
+          [
+            5268,
+            44,
+            654
+          ]
+        ]
+      },
+      {
+        "seconds": 4.2,
+        "fov": 45,
+        "position": [
+          [
+            5281,
+            46,
+            640
+          ],
+          [
+            5280,
+            45,
+            637
+          ]
+        ],
+        "target": [
+          [
+            5268,
+            39.5,
+            630
+          ],
+          [
+            5268,
+            39.5,
+            630
+          ]
+        ]
+      },
+      {
+        "seconds": 2,
+        "fov": 45,
+        "position": [
+          [
+            5281,
+            47,
+            650
+          ],
+          [
+            5279,
+            47,
+            649
+          ]
+        ],
+        "target": [
+          [
+            5268,
+            41,
+            642
+          ],
+          [
+            5268,
+            41,
+            642
+          ]
+        ]
+      },
+      {
+        "seconds": 2.5,
+        "position": [
+          [
+            5290,
+            51,
+            660
+          ],
+          [
+            5288,
+            50,
+            661
+          ]
+        ],
+        "target": [
+          [
+            5268,
+            45,
+            660
+          ],
+          [
+            5268,
+            45,
+            660
+          ]
+        ]
+      },
+      {
+        "seconds": 1.73,
+        "fov": 45,
+        "position": [
+          [
+            5281,
+            52,
+            686
+          ],
+          [
+            5279,
+            52,
+            685
+          ]
+        ],
+        "target": [
+          [
+            5268,
+            47,
+            678
+          ],
+          [
+            5268,
+            47,
+            678
+          ]
+        ]
+      },
+      {
+        "seconds": 4.17,
+        "position": [
+          [
+            5342,
+            57,
+            661
+          ],
+          [
+            5337,
+            56,
+            654
+          ]
+        ],
+        "target": [
+          [
+            5268,
+            44,
+            654
+          ],
+          [
+            5268,
+            44,
+            654
+          ]
+        ]
+      },
+      {
+        "seconds": 3.6,
+        "fov": 45,
+        "position": [
+          [
+            5277,
+            42,
+            662
+          ],
+          [
+            5276,
+            42,
+            658
+          ]
+        ],
+        "target": [
+          [
+            5268,
+            43,
+            654
+          ],
+          [
+            5268,
+            43,
+            654
+          ]
+        ]
+      },
+      {
+        "seconds": 2.6,
+        "fov": 45,
+        "position": [
+          [
+            5278,
+            45,
+            686
+          ],
+          [
+            5276,
+            45,
+            682
+          ]
+        ],
+        "target": [
+          [
+            5268,
+            47,
+            678
+          ],
+          [
+            5268,
+            47,
+            678
+          ]
+        ]
+      },
+      {
+        "seconds": 3.2333333333,
+        "position": [
+          [
+            5340,
+            61,
+            654
+          ],
+          [
+            5336,
+            59,
+            649
+          ]
+        ],
+        "target": [
+          [
+            5268,
+            44,
+            654
+          ],
+          [
+            5268,
+            44,
+            654
+          ]
+        ]
+      }
+    ]
+  },
+  "mode": "native-fixed-time-frames",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 781,
+  "target": 781,
+  "state": "complete",
+  "errors": "",
+  "samples": [
+    {
+      "frame": 0,
+      "checkpoint": "new-world",
+      "clock": 2.0500000000000007,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 30,
+      "checkpoint": "new-world",
+      "clock": 3.049999999999997,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 60,
+      "checkpoint": "new-world",
+      "clock": 4.049999999999994,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 90,
+      "checkpoint": "new-world",
+      "clock": 5.04999999999999,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 120,
+      "checkpoint": "new-world",
+      "clock": 6.0499999999999865,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 150,
+      "checkpoint": "new-world",
+      "clock": 7.049999999999983,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 180,
+      "checkpoint": "new-world",
+      "clock": 8.04999999999998,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 210,
+      "checkpoint": "new-world",
+      "clock": 9.049999999999994,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 240,
+      "checkpoint": "new-world",
+      "clock": 10.050000000000008,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 270,
+      "checkpoint": "new-world",
+      "clock": 11.050000000000022,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 300,
+      "checkpoint": "new-world",
+      "clock": 12.050000000000036,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 330,
+      "checkpoint": "new-world",
+      "clock": 13.05000000000005,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 360,
+      "checkpoint": "new-world",
+      "clock": 14.050000000000065,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 390,
+      "checkpoint": "new-world",
+      "clock": 15.05000000000008,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 420,
+      "checkpoint": "new-world",
+      "clock": 16.050000000000093,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 450,
+      "checkpoint": "new-world",
+      "clock": 17.050000000000107,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 480,
+      "checkpoint": "new-world",
+      "clock": 18.05000000000012,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 510,
+      "checkpoint": "new-world",
+      "clock": 19.050000000000136,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 540,
+      "checkpoint": "new-world",
+      "clock": 20.05000000000015,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 570,
+      "checkpoint": "new-world",
+      "clock": 21.050000000000164,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 600,
+      "checkpoint": "new-world",
+      "clock": 22.05000000000018,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 630,
+      "checkpoint": "new-world",
+      "clock": 23.050000000000193,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 660,
+      "checkpoint": "new-world",
+      "clock": 24.050000000000207,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 690,
+      "checkpoint": "new-world",
+      "clock": 25.05000000000022,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 720,
+      "checkpoint": "new-world",
+      "clock": 26.050000000000235,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 750,
+      "checkpoint": "new-world",
+      "clock": 27.05000000000025,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 780,
+      "checkpoint": "new-world",
+      "clock": 28.050000000000264,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5268,
+            40.0625,
+            630
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            42.0625,
+            642
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            44.0625,
+            654
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            46.0625,
+            666
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5268,
+            48.0625,
+            678
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    }
+  ],
+  "started": "2026-11-06T03:29:58.241Z",
+  "finished": "2026-11-06T03:31:14.942Z"
+}

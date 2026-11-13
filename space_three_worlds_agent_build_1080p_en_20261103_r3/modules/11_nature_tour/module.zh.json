@@ -1,0 +1,19 @@
+{
+  "id": "11_nature_tour",
+  "label": "Nature 地形游览",
+  "title": "Nature: Land Expedition & Route Planning",
+  "clips": [
+    {
+      "source": "footage/reused/11-nature-tour.mp4",
+      "in": 0,
+      "out": 42,
+      "end_at": "end",
+      "mode": "fit"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "tts_seeds": {
+    "3": 46
+  },
+  "edit_notes": "Full free-camera landscape survey."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "03_team_design",
+  "title": "五种分工与六个独立实体",
+  "status": "rendered_chinese",
+  "planned_duration_seconds": 50,
+  "planned_shots": [
+    "六台机器人同框，按角色依次靠近；颜色用于识别分工。",
+    "打开实体列表，证明是六个独立根实体；两台建筑机器人具有不同实体ID。",
+    "用真实任务状态面板或实体指示灯展示等待、工作、完成，不添加虚构进度。"
+  ],
+  "footage": "modules/03_team_design/module.json",
+  "voice": "modules/03_team_design/voice.zh.json",
+  "planned_start_seconds": 65,
+  "actual_start_seconds": 60.433333,
+  "actual_duration_seconds": 44.53333333333333
+}

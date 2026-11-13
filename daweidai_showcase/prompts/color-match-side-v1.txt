@@ -1,0 +1,10 @@
+Use case: precise-object-edit — color correction only.
+Asset: a corrected still photograph to replace the second opening photo in a video.
+
+Image 1 is the EDIT TARGET: the original 4:3 three-quarter side photograph of the handmade block-shaped figure held in a human hand. Image 2 is the authoritative COLOR REFERENCE from the last second of the finished video. Image 3 is the already color-corrected FRONT photograph of this same figure, supplied only to keep the two edited stills in one consistent photographic color family.
+
+Correct ONLY the figure's colors, tonal balance and exposure in image 1 to match images 2 and 3: warm peach/amber-orange face and arms; neutral charcoal-black hair and dark shirt pixels; warm golden-yellow patterned shirt pixels; visibly lighter, desaturated gray-green/olive-charcoal trousers rather than the original crushed near-black emerald-green trousers. Retain natural shadow depth and visible paper texture. In particular, the trouser color and brightness should closely match the trousers in image 3 and the final-video reference. Use restrained realistic saturation.
+
+Keep image 1's EXACT original three-quarter side angle, pose, camera perspective, proportions, face and hair pixels, clothing pattern, paper seams, full supporting hand, skin tones, gray photographic background and overall 4:3 composition. All head, arms and feet remain visible. Do not change it into the front-facing view of image 3. Its arms stay down, exactly as in image 1; do NOT copy the raised-arm pose or rotating platform from image 2. Do not redesign or re-render the product as CGI, clean away physical seams, replace the hand, alter anatomy, add objects, or change the backdrop.
+
+Return just ONE edited 4:3 photo with the same framing, preferably the original 4032×3024 canvas or another high-resolution 4:3 canvas. No text, arrows, borders, logos, glow, or new details. This is a faithful color retouch of image 1.

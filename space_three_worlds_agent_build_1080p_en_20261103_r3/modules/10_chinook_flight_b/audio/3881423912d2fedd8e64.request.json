@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Cruising over the islands in third-person, the silhouette of the Chinook stands out sharply against the floating terrain, making spatial navigation effortless without needing a minimap.",
+  "seed": 42
+}

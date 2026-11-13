@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "这时候，这架支奴干真正激活了以太群岛的玩法：原本不可逾越的虚空鸿沟，变成了自由翱翔的天空舞台，远方的孤岛随时都能降落探索。",
+  "seed": 44
+}

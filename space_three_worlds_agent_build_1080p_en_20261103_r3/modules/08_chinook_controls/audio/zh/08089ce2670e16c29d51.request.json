@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "在启动飞行前，我们快速看一眼机身控制器。脚本会在后台自动监听驾驶状态：只有当你真正坐进座舱时，按键动力才会解锁。",
+  "seed": 42
+}

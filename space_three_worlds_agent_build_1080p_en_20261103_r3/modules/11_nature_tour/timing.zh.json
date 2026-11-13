@@ -1,0 +1,46 @@
+{
+  "id": "11_nature_tour",
+  "title": "Nature: Land Expedition & Route Planning",
+  "label": "Nature 地形游览",
+  "duration": 35.53333333333333,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 5.47,
+      "text": "Welcome to our second world: Nature. In Agent Build, we simply update our target world to Nature.",
+      "source": "modules/11_nature_tour/audio/4dc406108b968288b398.wav"
+    },
+    {
+      "start": 5.92,
+      "duration": 7.43,
+      "text": "Unlike the vertical drops of Aether, Nature is an expansive rolling wilderness packed with natural slopes, rocky ledges, and stepped grass terraces.",
+      "source": "modules/11_nature_tour/audio/f147b976f61a4c003d9f.wav"
+    },
+    {
+      "start": 13.6,
+      "duration": 11.84,
+      "text": "We pick an open grassy clearing as our starting point. In Space, you don't need to build artificial ramps or test tracks—the rugged procedural earth is already the ultimate off-road proving ground. Here, we're going to build a heavy-duty all-terrain rover.",
+      "source": "modules/11_nature_tour/audio/4046c81bdfe718748df9.wav"
+    },
+    {
+      "start": 25.689999999999998,
+      "duration": 9.47,
+      "text": "This landscape sets the stage for our driving tests: checking low-speed wheel rotation first, testing steering geometry, and finally pushing the independent suspension across natural terraces.",
+      "source": "modules/11_nature_tour/audio/ad8ce63b263e0df5f507.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "footage/reused/11-nature-tour.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/reused/11-nature-tour.mp4",
+      "in": 0.0,
+      "out": 42.0,
+      "duration": 35.53333333333333,
+      "source_sig": "0f216c95e265bd541242892b07a862e35c34645c56e40b2272ad30a2583bbf9e",
+      "mode": "fit"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "d0224644abcc90622cc23488cc4e2d2efc39b45a29b1e40b80188adfa90988fd",
+  "voice_sig": "d44a917b8db65d2b8c054733b9b93da42a1765db884e71feec9a023e7c452f22"
+}

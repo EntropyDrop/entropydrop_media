@@ -1,0 +1,40 @@
+{
+  "id": "19_drone_prompt",
+  "title": "Intelligent Companion: Prompting a Character-Following Drone",
+  "label": "跟随无人机构建请求",
+  "duration": 28.033333333333335,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 4.4,
+      "text": "To summon this smart aerial companion, we provide the agent with a clear behavioral prompt:",
+      "source": "modules/19_drone_prompt/audio/a6ea44bc248afddf7d72.wav"
+    },
+    {
+      "start": 4.8500000000000005,
+      "duration": 7.14,
+      "text": "Build a compact quadcopter companion featuring a dynamic center body, four counter-rotating rotors, landing feet, and a distinct front accent.",
+      "source": "modules/19_drone_prompt/audio/9c9d775310ea753182fc.wav"
+    },
+    {
+      "start": 12.24,
+      "duration": 15.43,
+      "text": "Writing a real-time 3D tracking controller that samples velocity, maintains a spatial offset, and handles target loss would normally take hundreds of lines of complex math. In Space, you just describe the behavior in plain English, and the agent automatically writes and compiles the entire autonomous attitude-torque controller for you.",
+      "source": "modules/19_drone_prompt/audio/a64a409c36569ef315db.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "stills/19-drone-prompt.png",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/stills/19-drone-prompt.png",
+      "in": 0.0,
+      "out": 28.033333333333335,
+      "duration": 28.033333333333335,
+      "source_sig": "d6504fa826b6fa99270abfdafaf56737941139b998ff22336670a6da01fab33a",
+      "mode": "realtime"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "38a3e8f90a5f5a9a1baba95c55e0138c2ab0f6b7b48c399c37ac44534a36b25f",
+  "voice_sig": "5c15623a705f9f779b685e586fd616938a92c533eeb7edff8db5237298ce3b54"
+}

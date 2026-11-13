@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Watch the drone bank into each turn, redirecting acceleration rather than sliding sideways. When we change speed, it adjusts thrust to correct the tracking error. It's constantly balancing distance and altitude, so the follower stays responsive while the target keeps moving.",
+  "seed": 43
+}

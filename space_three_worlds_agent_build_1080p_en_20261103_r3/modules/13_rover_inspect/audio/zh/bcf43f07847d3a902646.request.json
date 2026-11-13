@@ -1,0 +1,21 @@
+{
+  "requests": [
+    {
+      "model": "qwen3-tts",
+      "voice": "entropydrop",
+      "language": "Chinese",
+      "response_format": "wav",
+      "input": "每个车轮都会实时探测地面起伏，弹簧吸收冲击，阻尼则抑制颠簸后的多余震荡。",
+      "seed": 46
+    },
+    {
+      "model": "qwen3-tts",
+      "voice": "entropydrop",
+      "language": "Chinese",
+      "response_format": "wav",
+      "input": "如果没有阻尼，车身压过凸起就会持续跳动；如果阻尼过大，整辆车开起来又会显得僵硬死板。",
+      "seed": 47
+    }
+  ],
+  "gap_seconds": 0.1
+}

@@ -1,0 +1,12 @@
+{
+  "name": "rick-and-morty-showcase",
+  "private": true,
+  "scripts": {
+    "prepare": "python3 prepare_assets.py",
+    "review": "python3 build_video.py --review",
+    "render": "python3 build_video.py",
+    "render:landscape": "python3 build_video.py --format landscape",
+    "render:portrait": "python3 build_video.py --format portrait",
+    "check": "python3 check_media.py"
+  }
+}

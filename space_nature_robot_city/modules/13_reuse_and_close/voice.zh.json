@@ -1,0 +1,25 @@
+{
+  "duration": 28.333333333333332,
+  "file": "voice.zh.wav",
+  "sha256": "bf3403b726041864efd8e6d3a7f540e78c17e45747339337579d9130ab4743d7",
+  "sentences": [
+    {
+      "paragraph": 1,
+      "sentence": 1,
+      "text": "完成这套原型之后，玩家还可以继续修改和复用这些作品。既可以保留一栋完整的高楼，也可以取出一组窗框、一段桥栏，或者一种树冠算法，再组合成自己的设计。",
+      "file": "audios/zh/c33a750a8dbf12a1fef7fa5a.wav",
+      "start": 0.2,
+      "duration": 12.59,
+      "sha256": "d2d4b3cce2daeb23280b5fb02552e72453d6d9d18b684e76ef4c3020ea9e87c4"
+    },
+    {
+      "paragraph": 2,
+      "sentence": 1,
+      "text": "这一期完成的是无限资源下的五机协作。人工智能辅助设计，运行时的无人机依靠各自的脚本和消息协作。后面我们还可以继续探索更复杂的地形、任务和互动。这里是 Space，我们下期再见。",
+      "file": "audios/zh/efd4adb9a76372119312fa00.wav",
+      "start": 13.04,
+      "duration": 14.89,
+      "sha256": "6e7bb5c14f1c287740043a7f2a4cf62f88d36a0ca9a89d0e139c3c0ea38a0d27"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Looking back across our journey—from air-lifting between floating islands, to tackling wild terrain in an off-road rover, to soaring alongside an autonomous drone—each world highlights the core magic of Space:",
+  "seed": 42
+}

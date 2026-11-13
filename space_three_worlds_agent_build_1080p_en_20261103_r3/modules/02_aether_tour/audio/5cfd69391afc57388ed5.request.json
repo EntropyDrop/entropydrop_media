@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "We also want to extend this collaboration to automated construction. Imagine an agent directing a road-building robot: it reads the terrain ahead and lays a route as it moves. Vehicles, robots, and the world become connected. You set a goal, AI helps implement it, and real operation puts the design to the test.",
+  "seed": 44
+}

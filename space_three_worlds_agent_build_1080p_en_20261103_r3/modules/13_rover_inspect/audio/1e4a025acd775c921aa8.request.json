@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Each wheel samples the terrain in real time. Springs absorb ground impact while dampers suppress unwanted oscillation. Without damping, a chassis bounces uncontrollably after every bump; with too much, it rides like a rigid brick.",
+  "seed": 43
+}

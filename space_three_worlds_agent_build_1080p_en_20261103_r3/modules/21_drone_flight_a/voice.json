@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "Now, let's look at how the drone actually behaves in synchronized flight. In third-person, we let the drone settle beside us, then toggle character flight mode and ascend straight into the air.",
+      "file": "modules/21_drone_flight_a/audio/51dce233fad38f1c5bb7.wav",
+      "sha256": "d30be6c3616130e8a848919e402038b03234dfc1ceb77d87822c433b4a68082c",
+      "request_sha256": "51dce233fad38f1c5bb732a3ad33ae4016e6d550cb223e079941d9496b10741e"
+    },
+    {
+      "text": "We leave the rooftop and keep moving around a wide circle above the city. The drone tracks our position and velocity. To turn, it must redirect thrust and bank, rather than slide straight to a target.",
+      "file": "modules/21_drone_flight_a/audio/520af4c2577e21802f2b.wav",
+      "sha256": "41ae00ab597e7b6508c45b16c78b0e5720ef263e38afacb4b01e81abbacf0566",
+      "request_sha256": "520af4c2577e21802f2bfaee897f1ff5015f71f6005f3b88adcbb8d1f523ba52"
+    },
+    {
+      "text": "This is closer to real exploration. With the target always moving, the drone continuously corrects its distance and altitude. Keeping both characters in third person makes the tracking delay and banking easy to see.",
+      "file": "modules/21_drone_flight_a/audio/b8fc86bb53423faa2cf5.wav",
+      "sha256": "ea48a55b941b3d20182e1aae0e534a13386437813c5109db5e87f41e60a04678",
+      "request_sha256": "b8fc86bb53423faa2cf5c3b87a4ea598109df7d09f2c6e550a92b3906d3bd1c8"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "直升机也一样。旋翼可以作为独立模块保存下来，机身、起落架和其他组件也能分别整理。这样，创造一辆新载具，就可以从组合已有模块开始，把精力放在新的设计和玩法上。",
+  "seed": 44
+}

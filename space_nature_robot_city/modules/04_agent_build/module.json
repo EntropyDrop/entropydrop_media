@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "04_agent_build",
+  "language": "zh",
+  "clips": [
+    {
+      "file": "footage/scifi-agent-build-panel.mp4",
+      "start": 0,
+      "duration": 6.5
+    },
+    {
+      "file": "footage/scifi-prompt-example.mp4",
+      "start": 0,
+      "duration": 12.4333333333
+    },
+    {
+      "file": "footage/scifi-city-designs.mp4",
+      "start": 0,
+      "duration": 21.3666666667
+    }
+  ],
+  "burned_subtitles": false,
+  "editing_notes": "Approved sci-fi city; native fixed-time frames. Construction and work-button events are controller-driven. Prompt example is explicitly authored documentary material.",
+  "blueprint_sha256": "7e27f4c0a19ceda654d8bc3a60920a042f947ab9147199ce944a1cc4ee7abff0"
+}

@@ -8,7 +8,7 @@
 
 ## 内容顺序
 
-1. **效果展示，10 秒**：原有 4 张成品照后，追加 `PXL_20261013_071428829.jpg`，共 5 张，每张 2 秒（60 帧），直接硬切。按 EXIF 拍摄时间排序，新照片固定排在本次序列的最后。照片铺满画布，只保留左下角小标题与原有配音。
+1. **效果展示，10 秒**：`Untitled.png` → `Untitled4.png` → `Untitled5.png`，共 3 张，每张 100 帧（约 3.333 秒），直接硬切。顺序由 `project.json` 的 `showcase.photos` 明确指定。照片铺满画布，只保留左下角小标题与原有配音。
 2. **制作方法和过程**：`3dp1.mov` → `3dp2.mov` → `3dp3.mov` → `3dp4.mov`，保持顺序、完整内容和原速。第一段展示网站，后三段展示切片软件；旁白说明生成／上传皮肤、下载模型、导入切片、检查支撑与分层。录屏按比例放大至整个 1920 × 1080 画布，保留完整软件界面；原素材比例略有差异时，仅在两侧留窄黑边。
 3. **4 秒组装衔接**：左侧以大字呈现 Let’s put it together.，绿色突出 together.；右侧使用实际安装视频中双手托着组装完成的白色人偶的静帧，画面保持静止。直接从 `sources/PXL_20261012_012814410.mp4` 的 192.4 秒截取为原尺寸 1920 × 1080 PNG，保存在 `assets/assembly/assembly-bridge-still.png`，对应安装精剪约 26 秒处。右侧满高显示，人偶居中且头脚完整；配音为 Once they’re printed, let’s put everything together.。
 4. **28 秒实拍安装**：从 44.433 秒接入零件概览、两只手臂、髋部连接件、两条腿、颈部连接件、头部与组装成品；共 9 个镜头。安装视频铺满 1920 × 1080 画布，取消顶部品牌、网址、外框、步骤字幕和进度条。卡合动作与原创 120 BPM 电子配乐踩点。
@@ -22,7 +22,7 @@
 
 Git 保留工程脚本、剪辑与配音配置、样式、必要字体、说明文档，以及封面提示词和字体参考 HTML。原始照片与视频、转码代理、生成音频及清单、封面图片、导出视频、预览、缓存和历史备份只保留在本地；`index.html`、`meta.json`、`timeline.json`、`captions.en.srt` 由构建脚本生成，也不提交。设置忽略规则不会删除现有本地文件。
 
-全新检出后，需要从独立素材备份恢复 `sources/`：四段录屏 `3dp1.mov` 至 `3dp4.mov`、安装原片 `PXL_20261012_012814410.mp4`、`showcase/` 内的 5 张原图，以及 `stickers/` 内的 30 张原图。照片须保留 EXIF 拍摄时间，以恢复轮播顺序。封面 PNG 和生成图片的参考图也需另行备份；提示词用于后续编辑，不保证精确重现同一张图片。
+全新检出后，需要从独立素材备份恢复 `sources/`：四段录屏 `3dp1.mov` 至 `3dp4.mov`、安装原片 `PXL_20261012_012814410.mp4`、`showcase/` 内的 `Untitled.png`、`Untitled4.png`、`Untitled5.png`，以及 `stickers/` 内的 30 张原图。开场按配置中的文件名顺序播放；贴纸照片须保留 EXIF 拍摄时间，以恢复轮播顺序。封面 PNG 和生成图片的参考图也需另行备份；提示词用于后续编辑，不保证精确重现同一张图片。
 
 准备 Node.js 22+、FFmpeg/FFprobe，以及含 Pillow、NumPy、SciPy 的 Python 3 环境，并配置可用的 TTS 服务（使用 `ENTROPYDROP_TTS_URL` 或已忽略的 `../local_deployment/tts/config.json`；不要将真实连接配置和密钥写入受版本管理的文件）。素材恢复后，在本项目目录依次执行：
 
@@ -66,7 +66,7 @@ npm run check:composition   # 横屏 HTML lint 与指定时间点检查
 
 横屏导出需要 Node.js 22+、FFmpeg 和 Hyperframes 0.6.6 的 Chrome 环境，GSAP CDN 需可访问。竖屏生成需要 Python 3.9+、Pillow（支持 WOFF2）和 FFmpeg/FFprobe；已有素材与横屏成片时，竖屏导出无需网络或 TTS 服务。若横屏内容或音频已修改，先生成横屏，再生成竖屏；仅修改竖屏取景时只需运行 `npm run render:portrait`。
 
-竖屏沿用原有适配：5 张开场照片每张 2 秒，多人照以模糊背景补齐画布，单人照裁切铺满；4 段录屏居中显示单个画面，网站录屏保留中间 70% 的宽度，3 段切片录屏统一使用 3D Printing 标题；组装衔接采用上下布局，9 个组装镜头逐镜头取景并保留焦点关键帧；30 张贴纸照片各 18 帧；8 秒片尾采用上方成品、下方标题与网址布局。全部镜头顺序、时长、配音和音乐与横屏一致。
+竖屏沿用原有适配：3 张开场图片每张 100 帧（约 3.333 秒），按各张图片中的人偶范围取景，以模糊背景补齐画布；4 段录屏居中显示单个画面，网站录屏保留中间 70% 的宽度，3 段切片录屏统一使用 3D Printing 标题；组装衔接采用上下布局，9 个组装镜头逐镜头取景并保留焦点关键帧；30 张贴纸照片各 18 帧；8 秒片尾采用上方成品、下方标题与网址布局。全部镜头顺序、时长、配音和音乐与横屏一致。
 
 - `assets/portrait/`：竖屏生成的文字图层与字体副本。
 - `review/portrait/`：竖屏逐场景预览和联系表。
@@ -144,15 +144,23 @@ npm run build
 
 ## 开场成品轮播
 
-前 4 张原照片来自 `~/Downloads/未命名文件夹 4/`，最后追加 `~/Downloads/未命名文件夹/PXL_20261013_071428829.jpg`；原件保存在 `sources/showcase/`。`prepare_showcase.py` 按拍摄时间排序，逐字节复制 4032 × 3024 原图（不缩图、不重存 JPEG，保留 EXIF 与色彩信息），生成 `assets/showcase/manifest.json`；总计 300 帧，五张各 60 帧。主合成使用图片节点在整数帧边界直接切换，没有淡入淡出或图片移动。首屏以 16:9 铺满显示，裁去部分上下背景，保留所有人偶；只显示左下角 `Make Your Own Figure at Home` 单行小标题（30px），不显示进度条。免费信息由旁白及片尾的 FREE TOOLS & DOWNLOADS 说明。
+当前开场图片来自 `~/Downloads/shipin/`，按 `Untitled.png` → `Untitled4.png` → `Untitled5.png` 播放，原件保存在 `sources/showcase/`。`project.json` 的 `showcase.photos` 指定选用图片及顺序，因此保留在素材目录内的旧照片不会再次混入开场。PNG 无需 EXIF 拍摄时间。`prepare_showcase.py` 逐字节复制原图，保留分辨率、色彩信息及图像内容，并生成 `assets/showcase/manifest.json`；总计 300 帧，三张各 100 帧。主合成使用图片节点在整数帧边界直接切换，没有淡入淡出或图片移动。
+
+横屏等比例铺满画布，4:3 图片裁去上下空白背景，完整保留人偶；取消旧版第一张照片的额外放大和偏移。只显示左下角 `Make Your Own Figure at Home` 单行小标题（30px），不显示进度条。竖屏按 `portrait-edit.json` 的三个取景框保留完整人偶，使用模糊背景补齐上下画布。免费信息由旁白及片尾的 FREE TOOLS & DOWNLOADS 说明。
 
 ```bash
-# 重新复制原始照片、生成时间线并同步配音位置
+# 更换图片且开场时长不变：复用现有配音，更新清单、时间线并导出两版
+python3 prepare_showcase.py
+npm run build
+npm run render
+npm run check
+
+# 若同时修改时长或配音，重新生成配音后再导出
 npm run showcase
 npm run render
 ```
 
-第一张照片单独调整取景：显示宽度为画布的 105.6%，`object-position: left 12%`，裁去多余右侧和下方背景，使两个人偶整体的中心接近画布中心，头顶与脚下保留接近的留白。仅改变合成中的构图，原图文件保持原样。
+2026-10-26 替换前的两版成片与工程配置保存在 `renders/revisions/before-showcase-png-20261026/`。旧开场原图继续保存在本地素材目录。
 
 `project.json` 的 `showcase.manifest` 指向照片清单。开头为 10 秒。贴纸轮播从 72.433 秒开始；每张延长为 0.6 秒后，片尾及其旁白从 90.433 秒接入。开场时长由 `project.json` 的 `showcase.duration` 控制，后续场景及音频随时间线顺延。
 

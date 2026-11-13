@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "我借助这一圈环顾来规划飞行路线：空旷的间隙是飞行走廊，而城堡与悬崖草坪则是探索的目的地。一台出色的载具，理应让这些空间真正对玩家有用。",
+  "seed": 44
+}

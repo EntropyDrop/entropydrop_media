@@ -1,0 +1,9 @@
+Before we finish, let's open the backpack. Save a vehicle here and place it again later. Think of it as both a collection of finished creations and your own reusable parts library.
+
+Take this rover. Select a wheel component and copy it into the backpack. When you design another vehicle, reuse that wheel, then adjust its size, color, and structure to suit the new build.
+
+The helicopter works the same way. Save a rotor as its own module, and organize the fuselage and landing gear separately. New vehicles can start by combining existing parts, leaving more time for design and gameplay.
+
+The market lets you browse other players' creations and share your own. Others can download and reuse a complete vehicle, a single tire, or a rotor assembly. Each contribution can become part of someone else's build.
+
+Static buildings belong here too. A windmill, a tower, or an architectural detail can all be saved and shared. One player's creation becomes another player's starting point. Together, we can build a richer world.

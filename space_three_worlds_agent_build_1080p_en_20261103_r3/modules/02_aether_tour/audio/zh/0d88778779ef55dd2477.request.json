@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "我们首先来到以太群岛（Aether Archipelago）。整个世界由漂浮在虚空中的浮岛群，以及环绕天际的巨型世界环构成。在 Space 中，所有地貌都是基于程序化生成的连续体素。",
+  "seed": 42
+}

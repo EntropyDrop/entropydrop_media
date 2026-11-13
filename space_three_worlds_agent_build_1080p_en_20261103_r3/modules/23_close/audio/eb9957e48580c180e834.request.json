@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "This is EntropyDrop Space. With no client to install, you can open entropydrop.com directly in your browser to start building and exploring today. Describe your ideas, refine them with your own hands, and take them wherever your imagination leads. Thanks for watching, and see you in the game!",
+  "seed": 44
+}

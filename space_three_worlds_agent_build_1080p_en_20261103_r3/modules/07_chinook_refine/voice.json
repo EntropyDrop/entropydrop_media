@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "Now let's see how effortless it is to customize an AI-generated build. We switch into first-person and pause the entity to begin editing.",
+      "file": "modules/07_chinook_refine/audio/146d600c6a0bc7ea04ec.wav",
+      "sha256": "a2e5fdd260cad112f0fad036c86b383352df0bcb3b65def99749a2fc0692f4a0",
+      "request_sha256": "146d600c6a0bc7ea04ec84125fc63649e3d02fb5778d97d8308991a5256b2166"
+    },
+    {
+      "text": "Selecting Spoon brings up a targeted reticle focused on an eighth-meter micro-voxel. We carve out a clean notch along the edge without removing a full standard block, shaping the airframe with sculptural precision.",
+      "file": "modules/07_chinook_refine/audio/678cf2eea02f4867a3fb.wav",
+      "sha256": "c3d75c4e0a2f7ba59e312970def69bde3114dc5ee239bba9a2d5fd112249ad8b",
+      "request_sha256": "678cf2eea02f4867a3fbc5630c738c0ecf71812989483c0ce68db19ce9aff917"
+    },
+    {
+      "text": "Switching to Brush, we pick an accent color and paint a custom livery detail. This is where Space shines: the AI handles the heavy structural engineering, and in just a few seconds with your own hands, you make the machine truly your own.",
+      "file": "modules/07_chinook_refine/audio/be703f624c5271b2b7ef.wav",
+      "sha256": "0343a96447bf7a05c0e32249dc69bdb513e303c4c414e0f4de6f1a422f574e08",
+      "request_sha256": "be703f624c5271b2b7ef0698848f143eee95b8c170dac3b12bd489ae672d8940"
+    }
+  ]
+}

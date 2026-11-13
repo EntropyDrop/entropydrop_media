@@ -1,0 +1,27 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "在发车试驾前，我们再体验一次高效的个性化涂装。",
+      "file": "modules/14_rover_light_a/audio/zh/28e2c3eac8ddf1d0a9ba.wav",
+      "sha256": "a99f82204071a2b95d5d3914ed656daf749061f2e947d0785bd21bb39409055a",
+      "request_sha256": "28e2c3eac8ddf1d0a9ba6b1019b082bfe2ef67473f6f264d512a5407f9ed32b7",
+      "trimmed_duration": 3.37
+    },
+    {
+      "text": "切到第一人称靠近车头，默认的车灯是单调的浅白色。按 6 键拿出画笔，Tab 键切到微格模式，按 I 键唤出材质调色板，挑选一款明亮的琥珀橙色，保持车身其他部位完好不动。",
+      "file": "modules/14_rover_light_a/audio/zh/4462c3cf7da89bedb585.wav",
+      "sha256": "4321c8a8ca3a4912f05a8ee99b4c02233db31db6ea26699e560b0ee404a075b2",
+      "request_sha256": "4462c3cf7da89bedb5858fb549d96e774a8e8cd4c80d1d7b7b0e5ff8f63794e4",
+      "trimmed_duration": 12.710041666666667
+    },
+    {
+      "text": "在 Space 中，针对微小构件的点选上色极其便捷直观；若是更大面积的表面，使用选择器也可以快速区域重绘。",
+      "file": "modules/14_rover_light_a/audio/zh/59fbe04d655f855b5d30.wav",
+      "sha256": "0e197a6a6ea1233558081a73272ed5fe5f5fb0922187b05d799fbdd00f675986",
+      "request_sha256": "59fbe04d655f855b5d3092fa3941e6ca7abfa0f3c3fa734817abd9bf1251ba75",
+      "trimmed_duration": 8.28
+    }
+  ]
+}

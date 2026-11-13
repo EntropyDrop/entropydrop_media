@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "The market lets you browse other players' creations and share your own. Others can download and reuse a complete vehicle, a single tire, or a rotor assembly. Each contribution can become part of someone else's build.",
+  "seed": 45
+}

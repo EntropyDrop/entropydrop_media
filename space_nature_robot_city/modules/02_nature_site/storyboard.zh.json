@@ -1,0 +1,16 @@
+{
+  "id": "02_nature_site",
+  "title": "选址与城市目标",
+  "status": "rendered_chinese",
+  "planned_duration_seconds": 40,
+  "planned_shots": [
+    "等待完整远景与附近地形加载稳定后，匀速360度环顾。",
+    "选自然地面，不预先建立大平台；现场确认无其他玩家建筑。",
+    "保存开工前固定俯瞰机位、地形与施工范围快照。"
+  ],
+  "footage": "modules/02_nature_site/module.json",
+  "voice": "modules/02_nature_site/voice.zh.json",
+  "planned_start_seconds": 25,
+  "actual_start_seconds": 26.1,
+  "actual_duration_seconds": 34.333333333333336
+}

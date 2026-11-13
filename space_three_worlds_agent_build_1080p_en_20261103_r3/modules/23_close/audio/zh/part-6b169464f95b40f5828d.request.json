@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "最后，这一切汇聚成一个可以互动、可以探索的三维世界，直接打开浏览器就能体验。",
+  "seed": 42
+}

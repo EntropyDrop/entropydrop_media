@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Hit the throttle, and the helicopter lifts off smoothly from the grass into a clean vertical climb! Nudging forward input pitches the nose down as thrust propels us forward.",
+  "seed": 42
+}

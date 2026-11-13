@@ -1,0 +1,41 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "结束之前，再打开背包看看。刚才创造的载具，可以保存成背包里的物品，下次需要时再拿出来放置。背包不只是收纳成品，它也可以成为我们自己的零件库。",
+      "file": "modules/24_backpack_market/audio/zh/ca7d4350ea9d9ba70c37.wav",
+      "sha256": "e4ed62c34a5a682d061bb16771065a64e58e16b05aef40ed7f0a77343e8e46d9",
+      "request_sha256": "ca7d4350ea9d9ba70c37faf08401eb1667b8555c39830c5c2aeb55d050b936c6",
+      "trimmed_duration": 10.16
+    },
+    {
+      "text": "比如这辆越野车，不必每次都从零制作四个轮子。我们可以选中轮胎组件，把它单独复制进背包。以后设计另一辆车，就能复用这套轮胎，再按照新车的需求调整尺寸、颜色和结构。",
+      "file": "modules/24_backpack_market/audio/zh/c8df641186fb8235de45.wav",
+      "sha256": "46d081ce07b29188bdf5902066162bc2e386615203ee5090a0ba248bc50e8ec7",
+      "request_sha256": "c8df641186fb8235de45171b70991f9ecc59a8d209440719e7164416e53eafc0",
+      "trimmed_duration": 12.56
+    },
+    {
+      "text": "直升机也一样。旋翼可以作为独立模块保存下来，机身、起落架和其他组件也能分别整理。这样，创造一辆新载具，就可以从组合已有模块开始，把精力放在新的设计和玩法上。",
+      "file": "modules/24_backpack_market/audio/zh/125daef56528d5f9544a.wav",
+      "sha256": "224ad727f9651dc5277eb817427e295d890007c96e89aaf0b01360af117a72f3",
+      "request_sha256": "125daef56528d5f9544a45a0f7778cbc6f711e32b0b384eb5a828ad8d860cc8b",
+      "trimmed_duration": 12.96
+    },
+    {
+      "text": "打开旁边的市场，就能浏览其他玩家分享的作品。自己的组件也可以发布到这里，让其他玩家下载使用。分享的既可以是一辆完整载具，也可以只是一个轮胎或一组旋翼。",
+      "file": "modules/24_backpack_market/audio/zh/c6921af7caffeba197fe.wav",
+      "sha256": "5c45db26c3597b380e0d844cc736762f2bae8b208fb404bb33a1f9319ff2f707",
+      "request_sha256": "c6921af7caffeba197fe951c9fc6bb70eaf64ba9066d8b786f2c3016e60933f1",
+      "trimmed_duration": 11.17
+    },
+    {
+      "text": "这套创造和分享的方式，也适用于静态建筑。一座风车、一座塔，或者一段建筑装饰，都可以保存并分享。我们希望每位玩家的创造，都能成为其他人的起点，让大家一起把这个世界搭建得更丰富。",
+      "file": "modules/24_backpack_market/audio/zh/6e9694cf67e6b2df2d3a.wav",
+      "sha256": "2aea600417a4dabfa3704715c79851ede31edaa2cbc1942bf84611d2c0d3be8f",
+      "request_sha256": "6e9694cf67e6b2df2d3a86c0c98e8295cf39066c02afdf478f4d0c7919478e37",
+      "trimmed_duration": 13.63
+    }
+  ]
+}

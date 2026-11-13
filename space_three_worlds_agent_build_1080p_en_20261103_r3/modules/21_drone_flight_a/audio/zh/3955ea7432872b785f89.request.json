@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "现在，我们来看看无人机同行的实际效果。切到第三人称视角，让无人机在身边悬停，随后开启角色飞行模式垂直腾空！",
+  "seed": 100
+}

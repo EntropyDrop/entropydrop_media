@@ -1,0 +1,129 @@
+{
+  "id": "avenue",
+  "name": "错列行道树",
+  "options": {
+    "pattern": "avenue",
+    "seed": 801,
+    "count": 8,
+    "width": 48,
+    "depth": 28,
+    "exclusions": [
+      {
+        "minX": -24,
+        "maxX": 24,
+        "minZ": -3.875,
+        "maxZ": 3.875,
+        "clearance": 0.75
+      }
+    ]
+  },
+  "recipe": {
+    "pattern": "avenue",
+    "seed": 801,
+    "requestedCount": 8,
+    "placedCount": 8,
+    "bounds": {
+      "width": 48,
+      "depth": 28
+    },
+    "exclusions": [
+      {
+        "minX": -24,
+        "maxX": 24,
+        "minZ": -3.875,
+        "maxZ": 3.875,
+        "clearance": 0.75
+      }
+    ],
+    "placements": [
+      {
+        "assetId": "17_birch",
+        "kind": "birch",
+        "position": [
+          -16.5,
+          0,
+          -7.25
+        ],
+        "rotationY": 4.71238898038469,
+        "crownRadius": 2.25
+      },
+      {
+        "assetId": "17_birch",
+        "kind": "birch",
+        "position": [
+          -13.5,
+          0,
+          7.25
+        ],
+        "rotationY": 1.5707963267948966,
+        "crownRadius": 2.25
+      },
+      {
+        "assetId": "17_birch",
+        "kind": "birch",
+        "position": [
+          -6.5,
+          0,
+          -7.25
+        ],
+        "rotationY": 4.71238898038469,
+        "crownRadius": 2.25
+      },
+      {
+        "assetId": "17_birch",
+        "kind": "birch",
+        "position": [
+          -3.5,
+          0,
+          7.25
+        ],
+        "rotationY": 1.5707963267948966,
+        "crownRadius": 2.25
+      },
+      {
+        "assetId": "17_birch",
+        "kind": "birch",
+        "position": [
+          3.5,
+          0,
+          -7.25
+        ],
+        "rotationY": 3.141592653589793,
+        "crownRadius": 2.25
+      },
+      {
+        "assetId": "17_birch",
+        "kind": "birch",
+        "position": [
+          6.5,
+          0,
+          7.25
+        ],
+        "rotationY": 4.71238898038469,
+        "crownRadius": 2.25
+      },
+      {
+        "assetId": "17_birch",
+        "kind": "birch",
+        "position": [
+          13.5,
+          0,
+          -7.25
+        ],
+        "rotationY": 1.5707963267948966,
+        "crownRadius": 2.25
+      },
+      {
+        "assetId": "17_birch",
+        "kind": "birch",
+        "position": [
+          16.5,
+          0,
+          7.25
+        ],
+        "rotationY": 3.141592653589793,
+        "crownRadius": 2.25
+      }
+    ]
+  }
+}

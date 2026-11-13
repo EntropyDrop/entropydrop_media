@@ -1,0 +1,12 @@
+{
+  "duration": 31.433333333333334,
+  "sha256": "ae7c1ad46f57116a52fa626d2b2b78deb8a3af0afd0a54617519af1d5eaa2b03",
+  "voice_sha256": "2ef2eca7593471c22090c351bdfddfd80bbdb2ba031212853ec8cd7c6f0ff9a3",
+  "clips": [
+    {
+      "file": "footage/scifi-nature-site.mp4",
+      "start": 0,
+      "duration": 31.433333333333334
+    }
+  ]
+}

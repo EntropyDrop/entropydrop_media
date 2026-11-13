@@ -1,0 +1,37 @@
+{
+  "id": "23_close",
+  "label": "结尾三场景回顾",
+  "title": "Conclusion: Build, Refine, and Play in EntropyDrop Space",
+  "clips": [
+    {
+      "source": "module:10_chinook_flight_b",
+      "in": 8,
+      "out": "auto",
+      "end_at": 8,
+      "mode": "realtime"
+    },
+    {
+      "source": "module:17_rover_drive_b",
+      "in": 20.28,
+      "out": "auto",
+      "end_at": 16,
+      "mode": "realtime"
+    },
+    {
+      "source": "module:22_drone_flight_b",
+      "in": 3,
+      "out": "auto",
+      "end_at": "voice:3",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/replacements/01-intro-scroll.zh.mp4",
+      "in": 35,
+      "out": "auto",
+      "end_at": "end",
+      "mode": "realtime"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "Chinese review only; English synchronization awaits user confirmation."
+}

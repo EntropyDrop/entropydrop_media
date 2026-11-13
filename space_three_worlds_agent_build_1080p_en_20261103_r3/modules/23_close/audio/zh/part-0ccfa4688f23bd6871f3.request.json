@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "精细的体素工具把修改权留在玩家手里，生成之后也能亲手调整。",
+  "seed": 42
+}

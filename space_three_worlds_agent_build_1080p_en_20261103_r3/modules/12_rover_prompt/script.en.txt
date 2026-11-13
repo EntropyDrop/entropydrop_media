@@ -1,0 +1,5 @@
+Our second request to the agent focuses on ground physics: build a sand-colored four-wheel, off-road vehicle with a sturdy chassis, high ground clearance, and prominent headlights.
+
+The heart of the vehicle is its suspension: dynamic chassis, four independently animated wheels, and spring-and-damper forces calculated at every contact point. The wheels must articulate over bumps with responsive acceleration, steering, braking, and lateral grip.
+
+This independent raycast suspension delivers authentic mechanical behavior you can feel in every turn, far beyond cosmetic wheels that only spin in place.

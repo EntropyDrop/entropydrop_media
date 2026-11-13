@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/drone_handoff_claim.mp4",
+  "seconds": 18,
+  "mode": "compositor",
+  "incoming": 612,
+  "frames": 540,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793853919851,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

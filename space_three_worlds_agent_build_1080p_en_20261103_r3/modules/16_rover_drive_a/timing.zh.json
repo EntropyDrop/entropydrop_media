@@ -1,0 +1,58 @@
+{
+  "id": "16_rover_drive_a",
+  "title": "Driving Feel: Forward, Reverse & Tire Traction",
+  "label": "车轮前进与倒退测试",
+  "duration": 28.733333333333334,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 6.56,
+      "text": "Hop into the driver's seat and tap the accelerator! We run a low-speed crawl forward and backward at ground level to examine tire rotation.",
+      "source": "modules/16_rover_drive_a/audio/87e98ccca970c8052900.wav"
+    },
+    {
+      "start": 7.01,
+      "duration": 7.76,
+      "text": "Relative to the chassis, the contact patch of each tire must sweep backward against the terrain as the vehicle drives forward, reversing smoothly when backing up.",
+      "source": "modules/16_rover_drive_a/audio/178745e04b51ad6431c5.wav"
+    },
+    {
+      "start": 15.02,
+      "duration": 13.36,
+      "text": "The wide treads grip the grass naturally. Forward acceleration, braking, and reverse motion all synchronize with satisfying mechanical weight. If you ever want to tweak torque or gearing, a single message to your agent updates the script instantly.",
+      "source": "modules/16_rover_drive_a/audio/102d46f37f56a41b5662.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "footage/16-rover-roll-test.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/16-rover-roll-test.mp4",
+      "in": 0.0,
+      "out": 11.5,
+      "duration": 11.5,
+      "source_sig": "1c2629d819f347ceac40d6d8f7a9b20a611d50d60cb7c1f4f863f6271d70977b",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/16-rover-roll-test.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/16-rover-roll-test.mp4",
+      "in": 15.0,
+      "out": 25.5,
+      "duration": 10.5,
+      "source_sig": "1c2629d819f347ceac40d6d8f7a9b20a611d50d60cb7c1f4f863f6271d70977b",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/16-rover-roll-test.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/16-rover-roll-test.mp4",
+      "in": 24.0,
+      "out": 30.733333333333334,
+      "duration": 6.733333333333334,
+      "source_sig": "1c2629d819f347ceac40d6d8f7a9b20a611d50d60cb7c1f4f863f6271d70977b",
+      "mode": "realtime"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "e47ed7bb806bf1d0c0c5cbbf44e86209e886c9868b57834606b564672ffc049d",
+  "voice_sig": "b1f1b66db41322cf638ea59e9d981cf79d827d6551b6fd2bcdd58d467b0594b4"
+}

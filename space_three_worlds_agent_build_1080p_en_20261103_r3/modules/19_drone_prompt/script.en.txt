@@ -1,0 +1,5 @@
+To summon this smart aerial companion, we provide the agent with a clear behavioral prompt:
+
+Build a compact quadcopter companion featuring a dynamic center body, four counter-rotating rotors, landing feet, and a distinct front accent.
+
+Writing a real-time 3D tracking controller that samples velocity, maintains a spatial offset, and handles target loss would normally take hundreds of lines of complex math. In Space, you just describe the behavior in plain English, and the agent automatically writes and compiles the entire autonomous attitude-torque controller for you.

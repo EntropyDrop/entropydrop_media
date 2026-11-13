@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "理顺转向轴与车轮车轴的层级关系，可以防止滚动的车轮导致转向轴心晃动，保证高速行驶中的稳定可控。",
+  "seed": 43
+}

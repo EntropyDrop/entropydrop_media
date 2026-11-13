@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "四只宽厚的轮胎牢牢咬住草地，无论是向前开动、平稳刹停，还是挂倒挡后退，轮胎的旋转都与车身动作严丝合缝。如果需要微调动力参数，也随时可以呼叫 Agent 一句话快速优化。",
+  "seed": 44
+}

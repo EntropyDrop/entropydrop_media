@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Welcome to our second world: Nature. In Agent Build, we simply update our target world to Nature.",
+  "seed": 42
+}

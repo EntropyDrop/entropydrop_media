@@ -1,0 +1,12 @@
+{
+  "duration": 31.833333333333332,
+  "sha256": "26988f89b0c66b9f8b4530b11cef0128e8c769fb01345bfcec999ed4ab0f64da",
+  "voice_sha256": "11f24ff04771110a60c96fa713b2f748551e701652efe4100f2a4da7a00b7578",
+  "clips": [
+    {
+      "file": "footage/scifi-interchange.mp4",
+      "start": 0,
+      "duration": 31.833333333333332
+    }
+  ]
+}

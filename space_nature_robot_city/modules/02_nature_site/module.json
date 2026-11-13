@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "02_nature_site",
+  "language": "zh",
+  "clips": [
+    {
+      "file": "footage/scifi-nature-site.mp4",
+      "start": 0,
+      "duration": 31.433333333333334
+    }
+  ],
+  "burned_subtitles": false,
+  "editing_notes": "Approved sci-fi city; native fixed-time frames. Construction and work-button events are controller-driven. Prompt example is explicitly authored documentary material.",
+  "blueprint_sha256": "7e27f4c0a19ceda654d8bc3a60920a042f947ab9147199ce944a1cc4ee7abff0"
+}

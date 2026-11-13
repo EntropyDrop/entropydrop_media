@@ -1,0 +1,17 @@
+{
+  "roles": [
+    "surveyor",
+    "road",
+    "builder_a",
+    "builder_b",
+    "planter"
+  ],
+  "resources": "unlimited",
+  "inactive_legacy_roles": [
+    "hauler"
+  ],
+  "controllers": "scripts/robot-city/controllers.ts",
+  "blueprint_library": "scripts/robot-city/runtime.ts",
+  "parameters": "models/plan.json",
+  "checkpoint": "review/runtime-checkpoint.json"
+}

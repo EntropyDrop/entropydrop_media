@@ -11,6 +11,8 @@ from PIL import Image, ImageDraw, ImageFont
 
 from build_soundtrack import synthesize
 from edit_timeline import resolve_edit
+from build_turntable import prepare as prepare_turntable, prepared_path
+from opening_comparison import filter_graph as comparison_filter, settings as comparison_settings
 
 ROOT = Path(__file__).resolve().parent
 EDIT = ROOT / "edit.json"
@@ -56,6 +58,10 @@ def image_source(shot, variant):
 
 
 def framing(edit, shot, variant):
+    if shot.get("type") == "turntable":
+        target = edit["formats"][variant]
+        return {"width": target["width"], "height": target["height"], "y": 0,
+                "x": [[0, 0], [shot["duration"], 0]]}
     if "image" in shot:
         with Image.open(image_source(shot, variant)) as image:
             source_width, source_height = image.size
@@ -108,7 +114,7 @@ def position_expression(points):
 def enhancement(edit, shot, variant):
     """Only sharpen moving source footage, at source and export resolution."""
     config = edit.get("enhancement")
-    if not config or "image" in shot or "freeze" in shot:
+    if not config or "image" in shot or "freeze" in shot or shot.get("type") == "turntable":
         return None
     return {
         "id": config["id"],
@@ -147,7 +153,18 @@ def review(edit, scenes, variant):
         x = position_at(crop["x"], shot["duration"] * fraction)
         width, height = (480, 270) if variant == "landscape" else (270, 480)
         output = folder / f"{variant}-{shot['id']}-{fraction:.2f}.jpg"
-        inputs = ["-i", image_source(shot, variant)] if "image" in shot else ["-ss", time, "-i", source]
+        if shot.get("comparison"):
+            inputs = ["-loop", 1, "-framerate", edit["fps"], "-i", image_source(shot, variant),
+                      "-loop", 1, "-framerate", edit["fps"], "-i", ROOT / shot["comparison"]["image"]]
+            graph = comparison_filter(edit, shot, variant, crop) + f";[picture]scale={width}:{height}[review]"
+            ffmpeg(*inputs, "-filter_complex_threads", 1, "-filter_complex", graph,
+                   "-map", "[review]", "-ss", shot["duration"] * fraction,
+                   "-frames:v", 1, "-threads", 1, output)
+            return variant, output, f"{shot['id']} {fraction:.0%}"
+        if shot.get("type") == "turntable":
+            inputs = ["-ss", shot["duration"] * fraction, "-i", prepared_path(variant)]
+        else:
+            inputs = ["-i", image_source(shot, variant)] if "image" in shot else ["-ss", time, "-i", source]
         ffmpeg(*inputs, "-frames:v", 1, "-vf",
                f"crop={crop['width']}:{crop['height']}:{x}:{crop['y']},scale={width}:{height}:flags=lanczos,setsar=1",
                "-threads", 1, output)
@@ -195,6 +212,8 @@ def render(edit, scenes, duration, frames, variant, music, source_hash):
     work.mkdir(parents=True, exist_ok=True)
 
     def encode(shot):
+        if shot.get("type") == "turntable":
+            return prepared_path(variant)
         crop = framing(edit, shot, variant)
         detail = enhancement(edit, shot, variant)
         output = work / f"{shot['id']}.mp4"
@@ -203,6 +222,9 @@ def render(edit, scenes, duration, frames, variant, music, source_hash):
                          target=target, fps=fps, shot={key: value for key, value in shot.items() if key != "start"}, crop=crop)
         if "image" in shot:
             signature["image_sha256"] = sha256(image_source(shot, variant))
+        if shot.get("comparison"):
+            signature["comparison_image_sha256"] = sha256(ROOT / shot["comparison"]["image"])
+            signature["comparison_generator_sha256"] = sha256(ROOT / "opening_comparison.py")
         if detail:
             signature["enhancement"] = detail
         if output.exists() and cache.exists() and json.loads(cache.read_text()) == signature:
@@ -230,7 +252,14 @@ def render(edit, scenes, duration, frames, variant, music, source_hash):
             filters = (f"setpts=(PTS-STARTPTS)/{speed:.12f},fps={fps},{crop_filter},"
                        f"{before_scale}{color}{after_scale},"
                        "tpad=stop_mode=clone:stop_duration=0.5")
-        ffmpeg(*inputs, "-map", "0:v:0", "-an", "-vf", filters, "-frames:v", shot["frames"],
+        if shot.get("comparison"):
+            inputs += ["-loop", 1, "-framerate", fps, "-i", ROOT / shot["comparison"]["image"]]
+            filter_args = ["-filter_complex_threads", 1, "-filter_complex",
+                           comparison_filter(edit, shot, variant, crop)]
+            video_map = "[picture]"
+        else:
+            filter_args, video_map = ["-vf", filters], "0:v:0"
+        ffmpeg(*inputs, "-map", video_map, "-an", *filter_args, "-frames:v", shot["frames"],
                "-c:v", "libx264", "-preset", "fast", "-crf", 16, "-threads", 2,
                "-g", fps, "-keyint_min", fps, "-sc_threshold", 0,
                "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709",
@@ -245,7 +274,7 @@ def render(edit, scenes, duration, frames, variant, music, source_hash):
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
         parts = list(executor.map(encode, scenes))
     concat = work / "parts.txt"
-    concat.write_text("".join(f"file '{part.name}'\n" for part in parts))
+    concat.write_text("".join(f"file '{part.resolve()}'\n" for part in parts))
     picture = work / "picture.mp4"
     ffmpeg("-f", "concat", "-safe", 0, "-i", concat, "-c", "copy", "-bsf:v",
            "h264_metadata=colour_primaries=1:transfer_characteristics=1:matrix_coefficients=1:video_full_range_flag=0",
@@ -266,6 +295,9 @@ def render(edit, scenes, duration, frames, variant, music, source_hash):
             scene.update(render_image=str(image_source(shot, variant).relative_to(ROOT)),
                          render_image_sha256=sha256(image_source(shot, variant)),
                          original_image_sha256=sha256(ROOT / shot["image"]))
+        if shot.get("comparison"):
+            scene.update(comparison_image_sha256=sha256(ROOT / shot["comparison"]["image"]),
+                         comparison_generator_sha256=sha256(ROOT / "opening_comparison.py"))
         rendered_scenes.append(scene)
     manifest = dict(id=edit["id"], variant=variant, **target, fps=fps, frames=frames, duration=duration,
                     source=edit["source"], source_sha256=source_hash, edit_sha256=sha256(EDIT),
@@ -273,6 +305,11 @@ def render(edit, scenes, duration, frames, variant, music, source_hash):
                     enhancement=edit.get("enhancement"),
                     render=str(output.relative_to(ROOT)), render_sha256=sha256(output),
                     scenes=rendered_scenes)
+    if any(shot.get("type") == "turntable" for shot in scenes):
+        manifest["turntable"] = json.loads((ROOT / "renders/turntable/manifest.json").read_text())
+    color_manifest = ROOT / "photo-color-match.json"
+    if color_manifest.exists():
+        manifest["photo_color_manifest_sha256"] = sha256(color_manifest)
     (ROOT / f"renders/{variant}-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     for label, time in (("opening", 1), ("process", duration * .45), ("ending", duration - 1)):
         ffmpeg("-ss", time, "-i", output, "-frames:v", 1, ROOT / f"renders/{variant}-{label}.jpg")
@@ -285,6 +322,7 @@ def main():
     parser.add_argument("--format", choices=("landscape", "portrait"))
     args = parser.parse_args()
     base = json.loads(EDIT.read_text())
+    prepare_turntable(base)
     metadata = probe(ROOT / base["source"])
     video = next(stream for stream in metadata["streams"] if stream["codec_type"] == "video")
     if (video["width"], video["height"]) != (1920, 1080):
@@ -304,7 +342,9 @@ def main():
 
 def validate_scenes(edit, scenes, source_duration):
     for shot in scenes:
-        if "image" in shot:
+        if shot.get("type") == "turntable":
+            valid = all(prepared_path(variant).is_file() for variant in edit["formats"])
+        elif "image" in shot:
             valid = all(image_source(shot, variant).is_file() for variant in edit["formats"])
         elif "freeze" in shot:
             valid = 0 <= shot["freeze"] < source_duration
@@ -314,6 +354,12 @@ def validate_scenes(edit, scenes, source_duration):
             raise ValueError(f"Invalid source range: {shot['id']}")
         for variant in edit["formats"]:
             framing(edit, shot, variant)
+            if shot.get("comparison"):
+                config, layout = comparison_settings(edit, shot, variant)
+                with Image.open(ROOT / config["image"]) as photo:
+                    height = round(photo.height * layout["photoWidth"] / photo.width / 2) * 2
+                if layout["photoY"] + height > edit["formats"][variant]["height"]:
+                    raise ValueError(f"Comparison photo leaves the frame: {variant}")
 
 
 if __name__ == "__main__":

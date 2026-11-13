@@ -1,0 +1,648 @@
+{
+  "scifi-survey-and-tools": {
+    "seconds": 32.7666666667,
+    "segments": [
+      {
+        "seconds": 3.8,
+        "position": [
+          [
+            5282,
+            128,
+            646
+          ],
+          [
+            5280,
+            128,
+            646
+          ]
+        ],
+        "target": [
+          [
+            5268,
+            120,
+            630
+          ],
+          [
+            5268,
+            120,
+            630
+          ]
+        ],
+        "controllerRate": 1,
+        "fov": 55
+      },
+      {
+        "seconds": 9.9,
+        "position": [
+          [
+            5371.2,
+            18.2,
+            617.2
+          ],
+          [
+            5371.2,
+            18.2,
+            617.2
+          ]
+        ],
+        "target": [
+          [
+            5368.5,
+            15.5,
+            612.5
+          ],
+          [
+            5368.5,
+            15.5,
+            612.5
+          ]
+        ],
+        "controllerRate": 1,
+        "fov": 55
+      },
+      {
+        "seconds": 1.7,
+        "position": [
+          [
+            5290,
+            134,
+            666
+          ],
+          [
+            5290,
+            134,
+            666
+          ]
+        ],
+        "target": [
+          [
+            5268,
+            118,
+            630
+          ],
+          [
+            5268,
+            118,
+            630
+          ]
+        ],
+        "controllerRate": 650,
+        "fov": 55
+      },
+      {
+        "seconds": 7,
+        "position": [
+          [
+            5310,
+            150,
+            710
+          ],
+          [
+            5310,
+            150,
+            710
+          ]
+        ],
+        "target": [
+          [
+            5330,
+            24,
+            625
+          ],
+          [
+            5330,
+            24,
+            625
+          ]
+        ],
+        "controllerRate": 30,
+        "fov": 55
+      },
+      {
+        "seconds": 10.3666666667,
+        "followRole": 1,
+        "followOffset": [
+          22,
+          13,
+          28
+        ],
+        "lookOffset": [
+          0,
+          -5,
+          0
+        ],
+        "controllerRate": 10,
+        "fov": 55
+      }
+    ],
+    "actions": [
+      {
+        "at": 3.8,
+        "type": "tool-demo",
+        "show": true
+      },
+      {
+        "at": 13.6,
+        "type": "shovel-remove"
+      },
+      {
+        "at": 13.7,
+        "type": "tool-demo",
+        "show": false
+      }
+    ],
+    "id": "scifi-survey-and-tools",
+    "controllerRate": 1,
+    "fov": 55
+  },
+  "scifi-road-close": {
+    "seconds": 7,
+    "followRole": 1,
+    "followOffset": [
+      21,
+      11,
+      25
+    ],
+    "lookOffset": [
+      0,
+      -4,
+      0
+    ],
+    "controllerRate": 1,
+    "fov": 55,
+    "id": "scifi-road-close"
+  },
+  "scifi-road-timelapse": {
+    "seconds": 11,
+    "position": [
+      [
+        5350,
+        120,
+        715
+      ],
+      [
+        5343,
+        118,
+        715
+      ]
+    ],
+    "target": [
+      [
+        5325,
+        20,
+        610
+      ],
+      [
+        5325,
+        20,
+        610
+      ]
+    ],
+    "controllerRate": 60,
+    "fov": 55,
+    "id": "scifi-road-timelapse"
+  },
+  "scifi-parallel-builders": {
+    "seconds": 15,
+    "segments": [
+      {
+        "seconds": 9,
+        "position": [
+          [
+            5268,
+            106,
+            714
+          ],
+          [
+            5268,
+            106,
+            714
+          ]
+        ],
+        "target": [
+          [
+            5340,
+            53,
+            642
+          ],
+          [
+            5340,
+            53,
+            642
+          ]
+        ],
+        "controllerRate": 60,
+        "fov": 57
+      },
+      {
+        "seconds": 6,
+        "followRole": 3,
+        "followOffset": [
+          30,
+          24,
+          32
+        ],
+        "lookOffset": [
+          7,
+          -3,
+          -6
+        ],
+        "controllerRate": 35,
+        "fov": 57
+      }
+    ],
+    "id": "scifi-parallel-builders",
+    "controllerRate": 1,
+    "fov": 55
+  },
+  "scifi-tree-planting": {
+    "seconds": 10,
+    "followRole": 4,
+    "followOffset": [
+      0,
+      30,
+      1
+    ],
+    "lookOffset": [
+      0,
+      -7,
+      0
+    ],
+    "controllerRate": 8,
+    "fov": 50,
+    "id": "scifi-tree-planting"
+  },
+  "scifi-pause-road": {
+    "seconds": 29.6333333333,
+    "segments": [
+      {
+        "seconds": 2.6,
+        "followRole": 1,
+        "followOffset": [
+          20,
+          10,
+          24
+        ],
+        "lookOffset": [
+          0,
+          -2,
+          0
+        ],
+        "controllerRate": 1,
+        "fov": 53
+      },
+      {
+        "seconds": 8.2,
+        "position": [
+          [
+            5618,
+            100,
+            809
+          ],
+          [
+            5618,
+            100,
+            809
+          ]
+        ],
+        "target": [
+          [
+            5500,
+            24,
+            713
+          ],
+          [
+            5500,
+            24,
+            713
+          ]
+        ],
+        "controllerRate": 100,
+        "fov": 58
+      },
+      {
+        "seconds": 2.2,
+        "followRole": 1,
+        "followOffset": [
+          24,
+          14,
+          26
+        ],
+        "lookOffset": [
+          0,
+          -2,
+          0
+        ],
+        "controllerRate": 1,
+        "fov": 53
+      },
+      {
+        "seconds": 6,
+        "followRole": 3,
+        "followOffset": [
+          32,
+          42,
+          52
+        ],
+        "lookOffset": [
+          6,
+          -4,
+          -6
+        ],
+        "controllerRate": 10,
+        "fov": 58
+      },
+      {
+        "seconds": 4,
+        "followRole": 4,
+        "followOffset": [
+          0,
+          30,
+          1
+        ],
+        "lookOffset": [
+          0,
+          -7,
+          0
+        ],
+        "controllerRate": 10,
+        "fov": 50
+      },
+      {
+        "seconds": 6.6333333333,
+        "followRole": 1,
+        "followOffset": [
+          29,
+          30,
+          40
+        ],
+        "lookOffset": [
+          0,
+          -5,
+          0
+        ],
+        "controllerRate": 8,
+        "fov": 58
+      }
+    ],
+    "actions": [
+      {
+        "at": 0.7,
+        "type": "work-pause",
+        "role": 1
+      },
+      {
+        "at": 23,
+        "type": "work-pause",
+        "role": 1
+      }
+    ],
+    "id": "scifi-pause-road",
+    "controllerRate": 1,
+    "fov": 55,
+    "editingSegments": [
+      {
+        "file": "scifi-pause-prefix.mp4",
+        "frames": 154
+      },
+      {
+        "file": "scifi-pause-continuation.mp4",
+        "frames": 396
+      },
+      {
+        "file": "scifi-pause-resume.mp4",
+        "frames": 339
+      }
+    ],
+    "editingNotes": "Final clip uses three healthy native checkpoint segments; see capture provenance. Original continuous shot plan retained for reference."
+  },
+  "scifi-builder-handoff": {
+    "seconds": 18,
+    "segments": [
+      {
+        "seconds": 3,
+        "position": [
+          [
+            5285,
+            48,
+            688
+          ],
+          [
+            5285,
+            48,
+            688
+          ]
+        ],
+        "target": [
+          [
+            5268,
+            40,
+            663
+          ],
+          [
+            5268,
+            40,
+            663
+          ]
+        ],
+        "controllerRate": 1,
+        "fov": 52
+      },
+      {
+        "seconds": 8,
+        "followRole": 2,
+        "followOffset": [
+          24,
+          18,
+          29
+        ],
+        "lookOffset": [
+          0,
+          -3,
+          0
+        ],
+        "controllerRate": 1,
+        "fov": 55
+      },
+      {
+        "seconds": 7,
+        "followRole": 2,
+        "followOffset": [
+          26,
+          24,
+          33
+        ],
+        "lookOffset": [
+          5,
+          -4,
+          -5
+        ],
+        "controllerRate": 12,
+        "fov": 55
+      }
+    ],
+    "actions": [
+      {
+        "at": 0.7,
+        "type": "work-pause",
+        "role": 3
+      }
+    ],
+    "id": "scifi-builder-handoff",
+    "controllerRate": 1,
+    "fov": 55
+  },
+  "scifi-pause-continuation": {
+    "seconds": 24.5,
+    "fov": 58,
+    "mode": "native-checkpoint-continuation",
+    "segments": [
+      {
+        "seconds": 5.666666666666667,
+        "position": [
+          [
+            5618,
+            100,
+            809
+          ],
+          [
+            5618,
+            100,
+            809
+          ]
+        ],
+        "target": [
+          [
+            5500,
+            24,
+            713
+          ],
+          [
+            5500,
+            24,
+            713
+          ]
+        ],
+        "controllerRate": 20,
+        "fov": 58
+      },
+      {
+        "seconds": 2.2,
+        "followRole": 1,
+        "followOffset": [
+          24,
+          14,
+          26
+        ],
+        "lookOffset": [
+          0,
+          -2,
+          0
+        ],
+        "controllerRate": 1,
+        "fov": 53
+      },
+      {
+        "seconds": 6,
+        "followRole": 3,
+        "followOffset": [
+          32,
+          42,
+          52
+        ],
+        "lookOffset": [
+          6,
+          -4,
+          -6
+        ],
+        "controllerRate": 10,
+        "fov": 58
+      },
+      {
+        "seconds": 4,
+        "followRole": 4,
+        "followOffset": [
+          0,
+          30,
+          1
+        ],
+        "lookOffset": [
+          0,
+          -7,
+          0
+        ],
+        "controllerRate": 10,
+        "fov": 50
+      },
+      {
+        "seconds": 6.6333333333,
+        "followRole": 1,
+        "followOffset": [
+          29,
+          30,
+          40
+        ],
+        "lookOffset": [
+          0,
+          -5,
+          0
+        ],
+        "controllerRate": 8,
+        "fov": 58
+      }
+    ],
+    "actions": [
+      {
+        "at": 17.866666666666667,
+        "type": "work-pause",
+        "role": 1
+      }
+    ]
+  },
+  "scifi-pause-resume": {
+    "seconds": 11.3,
+    "fov": 53,
+    "mode": "native-checkpoint-continuation",
+    "segments": [
+      {
+        "seconds": 4.666666666666667,
+        "followRole": 4,
+        "followOffset": [
+          0,
+          30,
+          1
+        ],
+        "lookOffset": [
+          0,
+          -7,
+          0
+        ],
+        "fov": 50,
+        "controllerRate": 2
+      },
+      {
+        "seconds": 6.633333333333334,
+        "followRole": 1,
+        "followOffset": [
+          29,
+          30,
+          40
+        ],
+        "lookOffset": [
+          0,
+          -5,
+          0
+        ],
+        "controllerRate": 8,
+        "fov": 58
+      }
+    ],
+    "actions": [
+      {
+        "at": 4.666666666666667,
+        "type": "work-pause",
+        "role": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Relative to the chassis, the contact patch of each tire must sweep backward against the terrain as the vehicle drives forward, reversing smoothly when backing up.",
+  "seed": 43
+}

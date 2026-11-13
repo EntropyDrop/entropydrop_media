@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "这种射线检测式独立悬挂，带来转弯和过坎时真实可感的机械反馈，而不只是原地空转的装饰车轮。",
+  "seed": 44
+}

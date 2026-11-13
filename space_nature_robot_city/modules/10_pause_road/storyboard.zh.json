@@ -1,0 +1,16 @@
+{
+  "id": "10_pause_road",
+  "title": "故意暂停铺路，观察连锁反应",
+  "status": "rendered_chinese",
+  "planned_duration_seconds": 65,
+  "planned_shots": [
+    "使用脚本内工作暂停按钮，保留通信与进度，不误用会清空状态的全局Stop。",
+    "预先选中具有待开通卸货点的任务，清楚展示路→运输→建筑依赖链。",
+    "暂停和恢复均用连续实时镜头，固定第三人称FOV。"
+  ],
+  "footage": "modules/10_pause_road/module.json",
+  "voice": "modules/10_pause_road/voice.zh.json",
+  "planned_start_seconds": 480,
+  "actual_start_seconds": 379.7,
+  "actual_duration_seconds": 42.766666666666666
+}

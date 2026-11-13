@@ -1,0 +1,27 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "生成瞬间完成。可以看到，机身与前后两组旋翼都是独立的活动实体组件。",
+      "file": "modules/06_chinook_inspect/audio/zh/1df269d4c0a19119931e.wav",
+      "sha256": "aba3222603d78c5267b3f43a81bd1cd89e54504d2dd0d45a00f44821950a8518",
+      "request_sha256": "1df269d4c0a19119931e7e7c04047c5e1be97323c3c46efea08473ec954cfb4e",
+      "trimmed_duration": 5.28
+    },
+    {
+      "text": "驾驶位也值得单独看一眼。在 Space 里，它不只是机舱中的装饰坐垫，而是带有登机逻辑和输入映射的交互定义，负责把玩家的操作交给飞行器。",
+      "file": "modules/06_chinook_inspect/audio/zh/d48a4cbe56000ca84cc6.wav",
+      "sha256": "870e37193040f9ca4280000da832b0b1310233314c12dacb164b5b920c8046b1",
+      "request_sha256": "d48a4cbe56000ca84cc660de8a09354980c8c16da8f0b61eda3f75bbd04f3c41",
+      "trimmed_duration": 10.08
+    },
+    {
+      "text": "绕机身观察，双旋翼间距舒展合理，起落架提供了充裕的离地间隙。最关键的是，整套飞行控制器完全由 Agent 一键生成并编译完成——从双旋翼的反向转矩对冲到自稳悬停算法，复杂的后台代码全部自动搞定，让玩家无需任何编程门槛，直接享受飞行的乐趣。",
+      "file": "modules/06_chinook_inspect/audio/zh/e82fc11efeb26398e795.wav",
+      "sha256": "bdd6ee49c83cb1cacb0db9004c7fb9f14d633bc64d97b5125a296a24e82be1fc",
+      "request_sha256": "e82fc11efeb26398e7958f5a3badbc8691967fa4eb8967734dd55dc04870511f",
+      "trimmed_duration": 18.95
+    }
+  ]
+}

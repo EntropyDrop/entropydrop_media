@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Static buildings belong here too. A windmill, a tower, or an architectural detail can all be saved and shared. One player's creation becomes another player's starting point. Together, we can build a richer world.",
+  "seed": 46
+}

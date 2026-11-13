@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Release the brakes and hammer the throttle across natural terraces! As individual wheels tackle rocks and dirt ledges, the suspension compresses and rebounds smoothly, keeping the chassis level while the amber headlights lead the charge. Conquering the wilderness like this is an absolute blast!",
+  "seed": 44
+}

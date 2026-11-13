@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Unlike the vertical drops of Aether, Nature is an expansive rolling wilderness packed with natural slopes, rocky ledges, and stepped grass terraces.",
+  "seed": 43
+}

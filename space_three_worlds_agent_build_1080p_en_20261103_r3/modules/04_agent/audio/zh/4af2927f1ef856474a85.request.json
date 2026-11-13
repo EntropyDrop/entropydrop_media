@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "无论是主流大模型还是本地 Agent，连接后它就是你的全能建造副驾。它负责理解你的日常自然语言，在几秒内算出三维结构、铺设方块并自动写好底层的控制程序。",
+  "seed": 43
+}

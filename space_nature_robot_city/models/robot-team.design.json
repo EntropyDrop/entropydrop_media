@@ -1,0 +1,45 @@
+{
+  "version": 4,
+  "status": "native_sci_fi_city_chinese_video_complete",
+  "world": "nature",
+  "resources": "unlimited",
+  "robot_count": 5,
+  "all_drones": true,
+  "roles": [
+    "surveyor",
+    "road",
+    "builder_a",
+    "builder_b",
+    "planter"
+  ],
+  "dependency_chain": [
+    "survey_approved",
+    "road_verified",
+    "building_verified",
+    "planting_verified"
+  ],
+  "scope": {
+    "buildings": 33,
+    "tree_instances": 230,
+    "roof_tree_instances": 68,
+    "road_modules": 16,
+    "districts": 6,
+    "standard_cells": 149491,
+    "micro_cells": 4090136
+  },
+  "control": "Independent AssemblyScript root controllers, kinematic flight and spinning rotors. No runtime LLM.",
+  "blueprint_library": "Immutable paged data, no job scheduler or host world edits.",
+  "communication": "status.v2, claim.v2, grant.v2, release.v2, released.v2, blue.get.v2, blue.page.v2",
+  "validation": "All 4,239,627 cells match across resumed functional execution; native footage passes causal checks. Uninterrupted long-run performance is not certified.",
+  "local_capture": "Fixed terrain streaming anchor keeps five entities resident; message routing resolves live entities by public ID.",
+  "market_publication": false,
+  "blueprint": "models/architecture/scifi-construction.json",
+  "controller_revision": "scifi-city-v9-separated-commits",
+  "capture_evidence": {
+    "status": "complete",
+    "master": "exports/space_nature_robot_city_zh_latest.mp4",
+    "qa": "review/final-qa.zh.json",
+    "edited_checkpoint_segments": true,
+    "uninterrupted_runtime_certified": false
+  }
+}

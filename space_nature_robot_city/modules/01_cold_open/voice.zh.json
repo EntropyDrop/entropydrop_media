@@ -1,0 +1,25 @@
+{
+  "duration": 35.5,
+  "file": "voice.zh.wav",
+  "sha256": "1cae2c3593766566199ea724e437217cf3baa738a63ec94ee3f9df2769515b92",
+  "sentences": [
+    {
+      "paragraph": 1,
+      "sentence": 1,
+      "text": "大家好，这里是 Space 的开发日志。上一期，我们让载具动起来。这一期，我想把问题再推进一步：给几个独立运行的机器人不同的工作，它们能不能在同一片自然地形上，共同建起一座城市？这一次，我们要造科幻高楼、立体路网，还有屋顶和街道上的绿化。",
+      "file": "audios/zh/0e2a41d98b4970aef2891f4c.wav",
+      "start": 0.2,
+      "duration": 21.17,
+      "sha256": "a3c5cac22d7b4e63f07c2479b8db030b1e80df6ea02ffffd29739949dc80b639"
+    },
+    {
+      "paragraph": 2,
+      "sentence": 1,
+      "text": "这支队伍全部是无人机。我们假设资源无限，不需要运输机，也不需要等待材料。真正需要协调的是空间、施工顺序，以及谁负责哪一块工作。",
+      "file": "audios/zh/1cc18f7f9ef02aeafaa0afff.wav",
+      "start": 21.62,
+      "duration": 13.48,
+      "sha256": "0b6ea6bbcdacfa8850900da5f5ddec1d7b9001bfb6c7313987ae00a8163ee1ce"
+    }
+  ]
+}

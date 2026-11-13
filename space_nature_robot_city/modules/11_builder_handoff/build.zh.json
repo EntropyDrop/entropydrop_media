@@ -1,0 +1,17 @@
+{
+  "duration": 29.366666666666667,
+  "sha256": "39f7fac8278feb2c1307bf6ef873e60ce3c156f7ca7caae4eb6e4a9413ba9175",
+  "voice_sha256": "b029f34b101e23d83e1ab73b64d3b39c204f982d61da767e2968db3225440ef0",
+  "clips": [
+    {
+      "file": "footage/scifi-builder-handoff.mp4",
+      "start": 0,
+      "duration": 17.3666666667
+    },
+    {
+      "file": "footage/scifi-city-designs.mp4",
+      "start": 0,
+      "duration": 11.999999999966668
+    }
+  ]
+}

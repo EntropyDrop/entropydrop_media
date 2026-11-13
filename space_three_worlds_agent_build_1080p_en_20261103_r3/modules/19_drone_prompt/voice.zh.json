@@ -1,0 +1,27 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "现在，写下无人机的建造要求，重点说明它怎样跟随角色。",
+      "file": "modules/19_drone_prompt/audio/zh/9faf022003df37b51b93.wav",
+      "sha256": "87d0685613a1c6fdfa9b72e5df79f5e0a0166b6a96b337aca878fa71f2d31291",
+      "request_sha256": "9faf022003df37b51b9397a6690172e119278f4e6691b386e0f807450f72bca9",
+      "trimmed_duration": 4.96
+    },
+    {
+      "text": "建造一架小型四旋翼无人机，要有动态机身、四个反向对转的旋翼、着陆脚架和醒目的前方标记。",
+      "file": "modules/19_drone_prompt/audio/zh/bfe05cadaf31e26f3129.wav",
+      "sha256": "5c8980e890c786d09a1518ca17a93f2a806fd9ccebb7b12b49a99b930ab36ac3",
+      "request_sha256": "bfe05cadaf31e26f3129391458ae0aec52a1b8b749c17adc79796a5492f88982",
+      "trimmed_duration": 6.56
+    },
+    {
+      "text": "如果靠人工去编写一套能在 3D 空间内实时解算玩家速度、保持空间偏置、并处理失锁保护的动态追踪算法，代码量极为硬核。而在 Space 里，借助 Agent Build，我们只需用日常语言描述需求，AI 就会在后台全自动写出整套智能行为与姿态力矩控制脚本。",
+      "file": "modules/19_drone_prompt/audio/zh/52256465cfba4ca4b444.wav",
+      "sha256": "d5aeb606750d6a51d09d1a9015fe1420829b1eeb938996715b223042912abc66",
+      "request_sha256": "52256465cfba4ca4b444d6978492fcc84caaafb50cf3e190131b678dd5a70d55",
+      "trimmed_duration": 18.16
+    }
+  ]
+}

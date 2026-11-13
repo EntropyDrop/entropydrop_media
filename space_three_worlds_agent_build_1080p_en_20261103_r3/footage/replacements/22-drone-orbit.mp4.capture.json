@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/space-vlog-rebuild/recordings/22-drone-orbit.mp4",
+  "seconds": 35,
+  "mode": "compositor",
+  "incoming": 1479,
+  "frames": 1050,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793720567094,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

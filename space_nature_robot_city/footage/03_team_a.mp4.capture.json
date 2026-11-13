@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/robot-city-capture/03_team_a.mp4",
+  "seconds": 36,
+  "mode": "compositor",
+  "incoming": 1930,
+  "frames": 1080,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793794891419,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

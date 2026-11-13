@@ -1,0 +1,40 @@
+{
+  "id": "22_drone_flight_b",
+  "title": "Skyline Cruising: Omnidirectional Mobility & Companionship",
+  "label": "空中环顾、侧移与悬停",
+  "duration": 29.533333333333335,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 8.64,
+      "text": "High above the metropolis, our camera pans 360 degrees around player and drone, taking in the sweeping urban ring while maintaining a comfortable, rock-solid field of view.",
+      "source": "modules/22_drone_flight_b/audio/50a35dcc7e243c160708.wav"
+    },
+    {
+      "start": 9.09,
+      "duration": 10.64,
+      "text": "As we strafe sideways, watch the drone roll smoothly into the bank, counter-tilt to arrest momentum, and return to an effortless hover. Pauses between inputs make every aerodynamic response clear and satisfying.",
+      "source": "modules/22_drone_flight_b/audio/2bca4f106a06bbba79b2.wav"
+    },
+    {
+      "start": 19.98,
+      "duration": 9.2,
+      "text": "This behavior turns the drone into a loyal flying sidekick. Exploring a limitless voxel metropolis is infinitely more exciting when you have an intelligent companion tracking your every move!",
+      "source": "modules/22_drone_flight_b/audio/76af7e423d376e421ec9.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "footage/replacements/22-drone-orbit.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/replacements/22-drone-orbit.mp4",
+      "in": 0.0,
+      "out": 29.533333333333335,
+      "duration": 29.533333333333335,
+      "source_sig": "cbc69c1cd7a1f23de0ce317ebe84507c95a81be2a5a7a486e496565a8f19ea82",
+      "mode": "realtime"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "e3c17131cb0cd209235b474a8bee708c7155da3544f5c914e76544c4966a5818",
+  "voice_sig": "2886d0f663ea0f384f4196f4a867d5b9f17c7df8cd64a5c68011b43732e6461f"
+}

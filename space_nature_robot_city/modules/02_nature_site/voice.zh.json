@@ -1,0 +1,25 @@
+{
+  "duration": 31.433333333333334,
+  "file": "voice.zh.wav",
+  "sha256": "2ef2eca7593471c22090c351bdfddfd80bbdb2ba031212853ec8cd7c6f0ff9a3",
+  "sentences": [
+    {
+      "paragraph": 1,
+      "sentence": 1,
+      "text": "我们来到 Nature。城市直接建在原有地形上，不先铺一块巨大的平板。建筑的基础要接到地面，道路要跨过高差，接入口也不能被山坡挡住。",
+      "file": "audios/zh/63a729e91074941f98381e56.wav",
+      "start": 0.2,
+      "duration": 12.3,
+      "sha256": "ce59274a6e67435b6d429bf10668f8ba599e8a529ffdd2c55e337635a9796f5a"
+    },
+    {
+      "paragraph": 2,
+      "sentence": 1,
+      "text": "我的设计理念是，让人工智能帮助我们写出可以反复使用的规则。我们把城区划成六个施工区，让道路、建筑和植被各有自己的参数。改变楼层、轮廓、转弯半径或者随机种子，同一套规则就能生成另一座城市。",
+      "file": "audios/zh/5f4f391d90d6ad3cf4aecaf1.wav",
+      "start": 12.75,
+      "duration": 18.28,
+      "sha256": "c0fc843f6c8448d39bf4c5d0d4e09ea7db57019788be15ae2eca0f119819afdc"
+    }
+  ]
+}

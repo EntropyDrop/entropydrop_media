@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "如果靠人工去编写一套能在 3D 空间内实时解算玩家速度、保持空间偏置、并处理失锁保护的动态追踪算法，代码量极为硬核。而在 Space 里，借助 Agent Build，我们只需用日常语言描述需求，AI 就会在后台全自动写出整套智能行为与姿态力矩控制脚本。",
+  "seed": 44
+}

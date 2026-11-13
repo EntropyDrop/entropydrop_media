@@ -1,0 +1,16 @@
+{
+  "id": "12_rover_prompt",
+  "label": "越野车构建请求",
+  "title": "Ground Build: Prompting an Independent Suspension Rover",
+  "clips": [
+    {
+      "source": "stills/12-rover-prompt.png",
+      "in": 0,
+      "out": "auto",
+      "end_at": "end",
+      "mode": "realtime"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "On-screen prompt card: final existing-site / terrain / stopped / compile-validation paragraph removed as requested. Narration retained."
+}

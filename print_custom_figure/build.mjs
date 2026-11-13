@@ -117,7 +117,7 @@ const screenStart = clips[0].start;
 const timing = (start, duration, track) => `data-start="${start}" data-duration="${duration}" data-track-index="${track}"`;
 const figure = `<svg class="figure" viewBox="0 0 260 350" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M82 18h96v90H82zM77 120h106v111H77zM23 120h42v121H23zM195 120h42v121h-42zM77 244h46v90H77zM137 244h46v90h-46z"/><path opacity=".3" d="M82 42h96M106 18v90M77 145h106M101 120v111M23 145h42M195 145h42M77 270h46M137 270h46"/></svg>`;
 const showcasePanel = showcasePhotos
-  ? `<div class="showcase-gallery">${showcasePhotos.map((photo, i) => `<img id="showcase-photo-${i + 1}" class="showcase-photo clip"${i === 0 ? ' data-layout-allow-overflow' : ''} src="${esc(photo.image)}" alt="Custom figures ${i + 1}" ${timing(photo.startFrame / config.fps, photo.frames / config.fps, 120 + i)}>`).join('')}</div>`
+  ? `<div class="showcase-gallery">${showcasePhotos.map((photo, i) => `<img id="showcase-photo-${i + 1}" class="showcase-photo clip" src="${esc(photo.image)}" alt="Custom figures ${i + 1}" ${timing(photo.startFrame / config.fps, photo.frames / config.fps, 120 + i)}>`).join('')}</div>`
   : `<div class="placeholder"><span class="slot-tag">01 / FINISHED FIGURE</span>${figure}<strong>SHOWCASE VIDEO</strong><p>${introDuration}-second placeholder · footage coming soon</p></div>`;
 const intro = config.showcase.src
   ? `<section id="intro" class="scene clip" ${timing(0, introDuration, 1)}><div class="showcase-label">${esc(config.title)}</div></section><video id="showcase" class="clip showcase-video" src="${esc(config.showcase.src)}" ${timing(0, introDuration, 0)} data-media-start="${config.showcase.mediaStart}" data-volume="0" muted playsinline preload="auto"></video>`

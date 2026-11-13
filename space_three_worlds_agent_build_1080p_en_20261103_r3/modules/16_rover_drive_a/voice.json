@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "Hop into the driver's seat and tap the accelerator! We run a low-speed crawl forward and backward at ground level to examine tire rotation.",
+      "file": "modules/16_rover_drive_a/audio/87e98ccca970c8052900.wav",
+      "sha256": "a8da0cb4b6c32cef730246e1a797b11e4d2df79462f421b20bcd141a26b0583c",
+      "request_sha256": "87e98ccca970c805290079d98cb647169983cdb4c60fa5566b56e3a9d1ea3439"
+    },
+    {
+      "text": "Relative to the chassis, the contact patch of each tire must sweep backward against the terrain as the vehicle drives forward, reversing smoothly when backing up.",
+      "file": "modules/16_rover_drive_a/audio/178745e04b51ad6431c5.wav",
+      "sha256": "1eda7f8b2aeb06ef220573120abfc1b98d6673968f5200ad8de87797c9cc50df",
+      "request_sha256": "178745e04b51ad6431c506cfe84fb68ae9711bd5685a90dff8e1cbf3033e2430"
+    },
+    {
+      "text": "The wide treads grip the grass naturally. Forward acceleration, braking, and reverse motion all synchronize with satisfying mechanical weight. If you ever want to tweak torque or gearing, a single message to your agent updates the script instantly.",
+      "file": "modules/16_rover_drive_a/audio/102d46f37f56a41b5662.wav",
+      "sha256": "5357b453acabdf5b6808d85ad2228e34d0bcfa61504426eafb2e6d80832d565e",
+      "request_sha256": "102d46f37f56a41b56629693194f1b65bcacb327aa5023e3fb8653f2733ae059"
+    }
+  ]
+}

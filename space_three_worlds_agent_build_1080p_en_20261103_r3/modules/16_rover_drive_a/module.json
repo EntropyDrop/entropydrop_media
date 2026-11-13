@@ -1,0 +1,30 @@
+{
+  "id": "16_rover_drive_a",
+  "label": "车轮前进与倒退测试",
+  "title": "Driving Feel: Forward, Reverse & Tire Traction",
+  "clips": [
+    {
+      "source": "footage/16-rover-roll-test.mp4",
+      "in": 0,
+      "out": "auto",
+      "end_at": 11.5,
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/16-rover-roll-test.mp4",
+      "in": 15,
+      "out": "auto",
+      "end_at": 22,
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/16-rover-roll-test.mp4",
+      "in": 24,
+      "out": "auto",
+      "end_at": "end",
+      "mode": "realtime"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "Forward crawl including brake, reverse crawl and return to rest; all realtime with verified wheel direction."
+}

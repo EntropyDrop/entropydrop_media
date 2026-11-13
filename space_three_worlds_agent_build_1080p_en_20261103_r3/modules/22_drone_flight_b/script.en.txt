@@ -1,0 +1,5 @@
+We continue flying quickly around the large circle. Buildings pass below, the drone keeps catching up, and the camera follows our route so the movement reads as one continuous flight.
+
+Watch the drone bank into each turn, redirecting acceleration rather than sliding sideways. When we change speed, it adjusts thrust to correct the tracking error. It's constantly balancing distance and altitude, so the follower stays responsive while the target keeps moving.
+
+Now we release the controls and let it settle. You choose the route; the drone follows through its own logic. Scouting, patrols, or hauling could give this companion more gameplay roles.

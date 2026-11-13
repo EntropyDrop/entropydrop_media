@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "In standard game development, tuning an adaptive multi-wheel suspension is notoriously complex. In Space, the agent generates and balances this entire physics controller automatically. You simply ask for independent suspension, and the AI handles the forces, giving you planted, responsive vehicle handling right out of the box.",
+  "seed": 44
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "玩家角色将作为动态移动目标。选定开阔的楼顶作为起点，随后腾空飞起俯瞰整座城市，为无人机的爬升与跟随留出充裕的空间。",
+  "seed": 45
+}

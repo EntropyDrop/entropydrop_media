@@ -1,0 +1,22 @@
+00:00 开场介绍 | EntropyDrop Space: Game Introduction & Gameplay Showcase
+00:47 空岛地形环顾 | Aether Archipelago: AI Collaboration and Goal-Driven Design
+01:36 工具栏设计与用法 | The Creator's Toolkit: Core Mechanics & Micro-Voxel Workflow
+02:16 Agent Build 授权与工作流 | Connect Agent Build: The AI Co-Creation System
+02:46 支奴干构建请求 | Live Build: Generating a Tandem-Rotor Helicopter
+03:18 支奴干模型检查 | Vehicle Architecture: Multi-Component Assembly & Automation
+03:54 勺子与画笔修补 | Hands-On Polish: Sculpting Micro-Voxels & Custom Paint
+04:23 直升机控制与登机 | Boarding & Cockpit: Zero-Code Flying
+05:02 支奴干起飞 | Maiden Flight: Responsive Controls & Cruising
+05:34 支奴干环绕飞行 | Island Transit: Freedom of Skyward Exploration
+06:14 Nature 地形游览 | Nature: Land Expedition & Route Planning
+06:50 越野车构建请求 | Ground Build: Prompting an Independent Suspension Rover
+07:21 悬挂与车体检查 | Suspension Mechanics: Dynamic Ground Articulation
+07:59 车轮前进与倒退测试 | Driving Feel: Forward, Reverse & Tire Traction
+08:28 左右转向与自然台阶越野 | Off-Road Trail: Steering Control & Hill Climbing
+09:01 铜城地形游览 | Copper Metropolis: Navigating the Vertical Skyline
+09:38 跟随无人机构建请求 | Intelligent Companion: Prompting a Character-Following Drone
+10:06 无人机检查与标记 | Entity Marking: Spraying a Front-Facing Accent
+10:37 角色腾空与无人机跟随 | Synchronized Flight: Continuous Circular Tracking
+11:08 空中环顾、侧移与悬停 | Continuous Flight: A Drone Companion in Motion
+11:39 背包与市场 | Backpack and Market: Share Creations and Reusable Modules
+12:30 结尾三场景回顾 | Conclusion: Build, Refine, and Play in EntropyDrop Space

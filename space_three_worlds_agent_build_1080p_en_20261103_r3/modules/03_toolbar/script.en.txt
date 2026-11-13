@@ -1,0 +1,5 @@
+The toolbar at the bottom anchors your moment-to-moment gameplay. Selector defines 3D regions; Hammer places inventory items; and Wrench grabs, rotates, and configures active entities. Shovel shapes standard one-meter blocks, while Spoon operates at an ultra-fine one-eighth of a meter micro-voxel scale.
+
+Brush changes colors and materials on the fly, while Modeling adds lightweight visual decorations. Keys one through seven let you cycle through tools instantly, with contextual controls updating dynamically to keep the workflow clean and intuitive.
+
+This toolkit ensures you are never trapped by an AI black box. The agent drafts the heavy architecture, while you always hold the precise, intuitive power to refine, personalize, and leave your own creative mark.

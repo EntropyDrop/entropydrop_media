@@ -1,0 +1,23 @@
+00:00 Space: three worlds, three design problems
+00:27 Aether: read the landscape
+01:07 The toolbar as a workflow
+01:39 Connect Agent Build
+02:18 Describe the Chinook
+02:55 Inspect the generated aircraft
+03:28 Refine with Spoon and Brush
+03:59 Review controls and board
+04:28 Lift and first circuit
+05:11 Circle the launch island
+05:47 Nature: choose a driving route
+06:22 Ask for independent suspension
+06:56 Inspect the four supports
+07:27 Select one headlight
+07:56 Paint, inspect, and compare
+08:24 Wheel rotation: forward and reverse
+08:59 Steering test: left, right, center
+09:34 Copper Metropolis: an aerial route
+10:15 Ask for a character-following quadcopter
+10:50 Inspect and mark the drone
+11:17 Third person: take off together
+11:48 Airborne orbit, direction changes, and hover
+12:22 Build, refine, play

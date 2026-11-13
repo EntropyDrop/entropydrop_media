@@ -7,7 +7,9 @@ assets/             Shared images, videos, and fonts.
 print_custom_figure/ Make Your Own Figure at Home; shared assets and timeline, with landscape (1920 × 1080) and portrait (1080 × 1920) exports.
 techno_showcase/    Techno figure showcase; 8-photo opening + centered skin installation + beat-synced cuts + finished-figure ending; landscape and 9:16 Douyin exports.
 zxf_showcase/       ZXF figure; centered reference/figure pair moving left together as the reference fades + product photos + skin installation, beat-synced to licensed Night Sky Hip Hop; 99-second landscape and 64-second portrait exports.
-daweidai_showcase/  Daweidai figure; 3-photo opening + skin installation + 120 BPM electronic soundtrack; 88-second landscape and 59-second portrait exports.
+rick_and_morty_showcase/ Rick and Morty figures; two-source skin application montage + 120 BPM electronic soundtrack; 94-second landscape and 59-second portrait exports.
+brickingbad_showcase/ Bricking Bad figure; 3-photo studio opening + skin application and assembly + 120 BPM electronic soundtrack; 87-second landscape and 59-second portrait exports.
+daweidai_showcase/  Daweidai figure; 3-photo opening + skin installation + centered constant-speed turntable ending + 120 BPM electronic soundtrack; 96-second landscape and 67-second portrait exports.
 3d_printed_mini_gundam/ Mini Gundam; 75-second assembly and skin application montage + 13-second photo ending, with landscape and portrait exports.
 skin_walk_video/    MCModal Walk animation with a full 360-degree turn; MP4/WebM CLI.
 skingen_en/         English Hyperframes project.

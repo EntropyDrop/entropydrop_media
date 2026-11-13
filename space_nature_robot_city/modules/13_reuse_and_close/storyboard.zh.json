@@ -1,0 +1,16 @@
+{
+  "id": "13_reuse_and_close",
+  "title": "把机器人变成可复用的建设工具",
+  "status": "rendered_chinese",
+  "planned_duration_seconds": 45,
+  "planned_shots": [
+    "真实演示保存一个机器人到背包及查看其组件。",
+    "复用上一期已发布风车；本期新机器人未经另外授权不执行市场发布。",
+    "结尾只使用本期真实完成的街区和运行画面。"
+  ],
+  "footage": "modules/13_reuse_and_close/module.json",
+  "voice": "modules/13_reuse_and_close/voice.zh.json",
+  "planned_start_seconds": 650,
+  "actual_start_seconds": 498.933333,
+  "actual_duration_seconds": 35.333333333333336
+}

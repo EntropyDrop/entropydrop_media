@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "接下来，角色沿空中的大圆继续快速飞行。楼宇从身边掠过，无人机持续追上来，镜头跟着航线转动，把这一整圈的移动过程连起来。",
+  "seed": 100
+}

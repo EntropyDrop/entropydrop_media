@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "We continue flying quickly around the large circle. Buildings pass below, the drone keeps catching up, and the camera follows our route so the movement reads as one continuous flight.",
+  "seed": 42
+}

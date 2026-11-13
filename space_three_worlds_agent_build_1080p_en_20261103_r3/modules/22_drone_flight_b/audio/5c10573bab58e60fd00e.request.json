@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Now we release the controls and let it settle. You choose the route; the drone follows through its own logic. Scouting, patrols, or hauling could give this companion more gameplay roles.",
+  "seed": 44
+}

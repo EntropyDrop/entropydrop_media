@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "This toolkit ensures you are never trapped by an AI black box. The agent drafts the heavy architecture, while you always hold the precise, intuitive power to refine, personalize, and leave your own creative mark.",
+  "seed": 44
+}

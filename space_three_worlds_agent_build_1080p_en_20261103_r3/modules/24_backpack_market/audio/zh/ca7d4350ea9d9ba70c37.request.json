@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "结束之前，再打开背包看看。刚才创造的载具，可以保存成背包里的物品，下次需要时再拿出来放置。背包不只是收纳成品，它也可以成为我们自己的零件库。",
+  "seed": 42
+}

@@ -1,0 +1,25 @@
+{
+  "duration": 35.4,
+  "file": "voice.zh.wav",
+  "sha256": "233b7c7f396597e9a3ef892f584d9abe9e3445963601e1213d26a431f36ba413",
+  "sentences": [
+    {
+      "paragraph": 1,
+      "sentence": 1,
+      "text": "道路验收之后，两台建筑无人机就能领取不同施工区。每块区域只会交给一个负责人，避免重复写入。已经获准的建筑可以继续生长，不必等待整座城市的道路全部完成。",
+      "file": "audios/zh/7272e3111b4e34edcb88a2cf.wav",
+      "start": 0.2,
+      "duration": 13.53,
+      "sha256": "df6faa59ad7bf0debaddab36fc241f0d1866b038d56fd187ca1211c4b941aecd"
+    },
+    {
+      "paragraph": 2,
+      "sentence": 1,
+      "text": "我们把高楼和低层建筑混在一起：中央的阶梯地标建立天际线，双塔和退台形成不同轮廓，较低的裙房保留街道尺度。镜头靠近时，还能看到微格窗框、挑檐和空中连廊。这里同样压缩了等待时间，保留实际的施工顺序。",
+      "file": "audios/zh/6c49042becd2e7cb6fe5a1b9.wav",
+      "start": 13.979999999999999,
+      "duration": 20.99,
+      "sha256": "e40a2c38e29081b4114538ec369c21355d48af5bbd232b2e263852c777e5ccf8"
+    }
+  ]
+}

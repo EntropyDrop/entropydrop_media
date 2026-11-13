@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Before hitting the dirt, let's add a quick personalized touch to make the vehicle our own.",
+  "seed": 42
+}

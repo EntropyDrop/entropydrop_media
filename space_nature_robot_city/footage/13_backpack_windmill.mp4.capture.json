@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/robot-city-capture/13_backpack_windmill.mp4",
+  "seconds": 38,
+  "mode": "compositor",
+  "incoming": 1537,
+  "frames": 1140,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793796565221,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

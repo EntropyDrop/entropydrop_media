@@ -1,0 +1,10 @@
+Use case: precise-object-edit — color correction only.
+Asset: a corrected still photograph to replace the first photo in a video.
+
+Image 1 is the EDIT TARGET: the original 4:3 photograph of a real handmade block-shaped figure held in a person's hand. Image 2 is a COLOR REFERENCE ONLY: a frame from the last second of the finished video showing the same figure on a white rotating platform.
+
+Correct ONLY the colors, tonal balance, and exposure of the figure in image 1 so it matches the physical figure's colors in image 2. The reference is authoritative: the face and arms are warm peach/amber-orange, the shirt's dark pixels are neutral charcoal-black, the patterned yellow/gold pixels are warm golden yellow, and the trousers are visibly lighter muted gray-green/olive charcoal, NOT near-black saturated emerald green. Lift the crushed trouser shadows enough to see the gray-green material and separate both legs while retaining depth. Match the reference's naturally lit colors and restrained saturation, without a dramatic filter. The hair remains natural charcoal-black, with visible real material texture.
+
+Preserve image 1's EXACT original viewing angle, camera framing, perspective, pose, facial pixel arrangement, hair silhouette, all clothing pixel patterns, proportions, paper seams, edge imperfections, and the full supporting human hand. The target figure's arms remain hanging down as in image 1: do NOT copy the raised-arm pose from the reference. Do not add a platform, remove the hand, change the face, restage the photo, redraw the product, or turn it into CGI. Keep the original gray photographic backdrop and realistic hand skin tones. Treat the reference as color guidance, not as a composition, lighting-direction or pose template.
+
+Output just ONE edited 4:3 photograph matching image 1's composition, with its complete head, arms, legs and feet preserved. Prefer the original 4032×3024 canvas, or another high-resolution 4:3 canvas with exactly the same framing. No text, arrows, logos, borders, glow, extra objects or new design details. This is a faithful color retouch of the supplied photo, not a new product render.

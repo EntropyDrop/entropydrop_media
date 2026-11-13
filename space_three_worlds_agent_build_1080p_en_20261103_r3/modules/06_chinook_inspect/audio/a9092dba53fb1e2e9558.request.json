@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "The generation finishes in seconds. Right away, you can see the fuselage and the two rotor assemblies are independent, active components.",
+  "seed": 42
+}

@@ -1,0 +1,17 @@
+{
+  "duration": 29.633333333333333,
+  "sha256": "36f810bc67175416e10fe48739c1bf57f25065666e7a425fd2e8ffad49069b50",
+  "voice_sha256": "1714b86bd870af1f9391e4bbab0ffa552b788d0a2672bc9b1a60d14943795451",
+  "clips": [
+    {
+      "file": "footage/scifi-tree-planting.mp4",
+      "start": 0,
+      "duration": 10
+    },
+    {
+      "file": "footage/scifi-tree-varieties.mp4",
+      "start": 0,
+      "duration": 19.633333333333333
+    }
+  ]
+}

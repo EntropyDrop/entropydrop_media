@@ -5,7 +5,8 @@
     "src": "",
     "duration": 10,
     "mediaStart": 0,
-    "manifest": "assets/showcase/manifest.json"
+    "manifest": "assets/showcase/manifest.json",
+    "photos": ["Untitled.png", "Untitled4.png", "Untitled5.png"]
   },
   "clips": [
     {

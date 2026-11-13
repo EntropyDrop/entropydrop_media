@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "The core idea behind Space is bringing AI co-creation and voxel sandbox gameplay together: describe what you want in plain words, and an AI Agent helps build functional mechanisms and control scripts for you. At the same time, you retain complete creative control—sculpting micro details with hands-on tools, and jumping into the driver's seat to explore the world yourself. Today, we'll walk through three distinct worlds to showcase how the systems and gameplay in Space actually work.",
+  "seed": 43
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "In Aether Archipelago, we need a heavy transport capable of leaping between floating islands: a tandem-rotor Chinook helicopter. Prompting the agent in Space is effortless, combining aesthetics, structure, and flight behavior in a single request:",
+  "seed": 43
+}

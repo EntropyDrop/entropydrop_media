@@ -1,0 +1,84 @@
+{
+  "duration": 413.09999999999997,
+  "fps": 30,
+  "chapters": [
+    {
+      "id": "01_cold_open",
+      "title": "五台无人机，共同建设一座城",
+      "start": 0,
+      "duration": 35.5
+    },
+    {
+      "id": "02_nature_site",
+      "title": "从 Nature 地形开始",
+      "start": 35.5,
+      "duration": 31.433333333333334
+    },
+    {
+      "id": "03_team_design",
+      "title": "五个独立的施工角色",
+      "start": 66.933333,
+      "duration": 26.033333333333335
+    },
+    {
+      "id": "04_agent_build",
+      "title": "从提示词到参数化蓝图",
+      "start": 92.966667,
+      "duration": 40.3
+    },
+    {
+      "id": "05_survey_and_tools",
+      "title": "先检查，再开工",
+      "start": 133.266667,
+      "duration": 32.766666666666666
+    },
+    {
+      "id": "06_road_builder",
+      "title": "先建立城市的连接",
+      "start": 166.033333,
+      "duration": 27.5
+    },
+    {
+      "id": "07_overpass",
+      "title": "立交必须真的接得通",
+      "start": 193.533333,
+      "duration": 31.833333333333332
+    },
+    {
+      "id": "08_parallel_builders",
+      "title": "两台建筑无人机并行施工",
+      "start": 225.366667,
+      "duration": 35.4
+    },
+    {
+      "id": "09_tree_planter",
+      "title": "从街道种到屋顶",
+      "start": 260.766667,
+      "duration": 29.633333333333333
+    },
+    {
+      "id": "10_pause_road",
+      "title": "暂停一台机器，会发生什么",
+      "start": 290.4,
+      "duration": 29.633333333333333
+    },
+    {
+      "id": "11_builder_handoff",
+      "title": "把未开工的任务交给另一台",
+      "start": 320.033333,
+      "duration": 29.366666666666667
+    },
+    {
+      "id": "12_city_walkthrough",
+      "title": "飞进建好的城市",
+      "start": 349.4,
+      "duration": 35.36666666666667
+    },
+    {
+      "id": "13_reuse_and_close",
+      "title": "把规则变成可复用的作品",
+      "start": 384.766667,
+      "duration": 28.333333333333332
+    }
+  ]
+}

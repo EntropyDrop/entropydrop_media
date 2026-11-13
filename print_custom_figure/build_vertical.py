@@ -172,6 +172,8 @@ def filter_graph(job):
     image = job.get("still", False)
     # Convert JPEG full-range BT.601 to limited-range BT.709 before compositing.
     normalize = "scale=iw:ih:in_range=pc:out_range=tv:in_color_matrix=bt601:out_color_matrix=bt709," if image and job["src"].lower().endswith(".jpg") else ""
+    if image and job["src"].lower().endswith(".png"):
+        normalize = "scale=iw:ih:in_range=pc:out_range=tv:out_color_matrix=bt709,"
     nodes = [f"[0:v]setpts=PTS-STARTPTS,{normalize}setsar=1,format=yuv420p[src]"]
     mode = job["mode"]
     if mode == "cover":
@@ -252,9 +254,12 @@ def review(source, jobs):
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
         items = list(pool.map(frame, jobs))
-    contact_sheets(items[:10] + items[-1:], "portrait-layout")
-    contact_sheets(items[10:19], "portrait-assembly")
-    contact_sheets(items[19:-1], "portrait-stickers")
+    layout = [item for item in items if item[1].startswith(("opening-", "screen-")) or item[1] in ("bridge", "ending")]
+    stickers = [item for item in items if item[1].startswith("sticker-")]
+    assembly = [item for item in items if item not in layout and item not in stickers]
+    contact_sheets(layout, "portrait-layout")
+    contact_sheets(assembly, "portrait-assembly")
+    contact_sheets(stickers, "portrait-stickers")
     print(f"Portrait previews: {folder}", flush=True)
 
 

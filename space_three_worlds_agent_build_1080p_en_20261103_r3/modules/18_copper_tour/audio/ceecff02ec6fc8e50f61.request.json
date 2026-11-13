@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Our final stop brings us to Copper Metropolis. Packed with soaring skyscrapers, this world presents an entirely different navigation challenge from open wilderness.",
+  "seed": 42
+}

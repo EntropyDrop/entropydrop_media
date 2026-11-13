@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "角色离开楼顶，开始沿着城市上方的大圈持续前进。无人机读取角色的位置和速度来追赶；转弯时需要调整推力方向，所以机身会倾斜，而不是直接平移到目标点。",
+  "seed": 101
+}

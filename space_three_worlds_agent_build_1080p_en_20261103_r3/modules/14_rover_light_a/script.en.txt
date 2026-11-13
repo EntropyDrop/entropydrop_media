@@ -1,0 +1,5 @@
+Before hitting the dirt, let's add a quick personalized touch to make the vehicle our own.
+
+Stepping up to the front bumper in first-person, the stock lamps start with a neutral white. Pressing key six selects Brush, Tab toggles micro-voxel scale, and the I key opens our color palette, where we pick a vibrant amber accent.
+
+In Space, pinpoint recoloring on micro components is effortless and direct. For larger panels, the Selector tool can recolor entire bounded regions in a single click.

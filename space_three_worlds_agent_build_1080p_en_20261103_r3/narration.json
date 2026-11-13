@@ -1,0 +1,235 @@
+[
+  {
+    "id": "01_intro",
+    "title": "Space: three worlds, three design problems",
+    "target_duration": 42,
+    "sentences": [
+      "Hey everyone, welcome back. Today I am taking Space from an idea to three playable machines. We will build a Chinook in Aether Archipelago, a suspension equipped off road vehicle in Nature, and a tilt controlled quadcopter in Copper Metropolis.",
+      "Space combines a voxel world, physical construction, and programmable entities. My focus is the player experience: describe a machine, inspect what the agent builds, make a correction yourself, and test it in the world. I am recording the development build, with the camera and tool preview fixes included."
+    ]
+  },
+  {
+    "id": "02_aether_tour",
+    "title": "Aether: read the landscape",
+    "target_duration": 45,
+    "sentences": [
+      "Before building, I want a full look around Aether Archipelago. The islands create separate destinations, and the continuous ring gives you a much larger sense of place. I have waited for every district of the ring to load before this tour.",
+      "Notice the composition as we turn: a nearby island gives scale, the ring rises diagonally behind it, and sunlight separates the silhouette. That is the visual direction used by the introduction page. Our launch site is existing grass beside the castle. We are working with the landscape, without constructing a new platform.",
+      "I am using this complete circle to choose a route before I build. Open gaps are travel space, while castles and grass ledges become destinations. A good vehicle should make those spaces useful to the player."
+    ]
+  },
+  {
+    "id": "03_toolbar",
+    "title": "The toolbar as a workflow",
+    "target_duration": 50,
+    "sentences": [
+      "The toolbar is organized around intent. Selector defines an area. Hammer places reusable items. Wrench moves, rotates, and manages an entity. Shovel edits one meter blocks, while Spoon works at one eighth of a meter.",
+      "Brush changes color and material. Modeling creates visual decoration, which does not add collision geometry. Keys one through seven select these tools. Extra controls change with the active tool, so a compact toolbar still explains the current operation.",
+      "This matters even when an agent builds the first draft. The player needs predictable ways to inspect, fix, and personalize the result."
+    ]
+  },
+  {
+    "id": "04_agent",
+    "title": "Connect Agent Build",
+    "target_duration": 65,
+    "sentences": [
+      "Here is the Agent Build workflow. Open Agent Build, check the target world, and copy the connection prompt into your external agent. This connection can create structures and entities through the Space interface.",
+      "The agent gives you an authorization link and a code. Open the link yourself, compare the code and the agent name, and authorize that connection. This grants full Space access, so approve only an agent you trust. The agent retrieves its credential; you do not need to paste a secret into the conversation.",
+      "My connection is already authorized. I will reuse it for all three worlds, checking the world identifier each time. The separate assistant inside an entity editor helps with controller code. It is a different entry point from Agent Build."
+    ]
+  },
+  {
+    "id": "05_chinook_prompt",
+    "title": "Describe the Chinook",
+    "target_duration": 55,
+    "sentences": [
+      "For the Chinook, I describe appearance, structure, behavior, and limits in the same request. Build an olive tandem rotor transport helicopter, with a readable cockpit, a hollow cabin, landing wheels, and a pilot seat.",
+      "Make the fuselage a dynamic body. Give the two rotors their own components, spinning in opposite directions. Use thrust and torque for flight. W and S control forward and backward movement, A and D turn, and Space and Shift change altitude.",
+      "Finally, place it on the selected existing ground, leave it stopped, and do not modify terrain. Those constraints make the result easy to inspect before the first test. I also ask the agent to compile every component script and report errors."
+    ]
+  },
+  {
+    "id": "06_chinook_inspect",
+    "title": "Inspect the generated aircraft",
+    "target_duration": 50,
+    "sentences": [
+      "Here is the generated aircraft. The fuselage and two rotor assemblies are separate components. The seat is an interaction definition, not just a cushion drawn inside the cabin.",
+      "I inspect it from outside first. The rotor spacing should make the tandem layout obvious. The windows need to be readable, the landing gear needs ground clearance, and the aircraft needs enough room to leave the island.",
+      "These are the agent generated assets used in this development session. The physics controller uses simplified thrust and attitude control. It is a playable prototype rather than a complete aerodynamic simulation. That distinction sets useful expectations for the flight test."
+    ]
+  },
+  {
+    "id": "07_chinook_refine",
+    "title": "Refine with Spoon and Brush",
+    "target_duration": 60,
+    "sentences": [
+      "Now I return to first person and stop the entity before editing. With Spoon selected, the gray outline shows the containing standard block. The smaller target marks the micro voxel that will change. There is no dense micro grid covering the whole preview.",
+      "A small notch demonstrates the tool. I remove only the targeted detail and inspect it. The scale is one eighth of a meter, so a precise correction does not need to remove a full block.",
+      "Then I switch to Brush. I choose an accent color and paint a small surface detail. The agent gives me the broad design; these manual adjustments make the result intentional."
+    ]
+  },
+  {
+    "id": "08_chinook_controls",
+    "title": "Review controls and board",
+    "target_duration": 45,
+    "sentences": [
+      "Before running the aircraft, I review the fuselage controller and the pilot seat. The script checks whether a driver is mounted before it applies flight control. Rotor animation alone would not prove that a helicopter can fly.",
+      "I close the editor, aim at the pilot seat, and use V to board. F three switches the camera perspective. For this test I choose the rear third person view, because I want to see both rotor clearance and the surrounding islands.",
+      "The follow camera uses a fit calculated in advance. Its field of view does not pump as the rotors turn."
+    ]
+  },
+  {
+    "id": "09_chinook_flight_a",
+    "title": "Lift and first circuit",
+    "target_duration": 55,
+    "sentences": [
+      "I start with a vertical climb, then add forward input gradually. The controller tilts the aircraft and applies lift along its local up direction. Releasing the movement keys asks it to slow down and hold position.",
+      "The first turn is deliberately wide. A transport helicopter should feel like something with size and momentum, especially beside these narrow islands. The goal is a readable route, not a fast lap.",
+      "As the castle moves behind us, watch the ring sweep into the diagonal composition from the introduction image. The landmark makes it easy to understand where we launched and where we are going.",
+      "I keep the first climb slow enough to see the transition from ground contact to flight. Then I hold altitude while turning. Testing one control at a time makes a controller problem much easier to spot than immediately pushing every input together."
+    ]
+  },
+  {
+    "id": "10_chinook_flight_b",
+    "title": "Circle the launch island",
+    "target_duration": 45,
+    "sentences": [
+      "From this side, the aircraft silhouette and floating terrain remain separate. That helps the player judge motion without relying on a minimap.",
+      "I continue around the launch area in third person, keeping enough altitude to clear the buildings. The camera framing stays stable while the body pitches and the rotors spin. This is the practical test of the earlier camera fix.",
+      "Aether gives the Chinook a purpose: crossing gaps, carrying the player between islands, and turning distant landmarks into reachable destinations. Next, we change both the environment and the movement problem.",
+      "The wide view also checks the world loading. The ring remains continuous throughout the turn, and distant terrain stays visible as the aircraft changes heading."
+    ]
+  },
+  {
+    "id": "11_nature_tour",
+    "title": "Nature: choose a driving route",
+    "target_duration": 45,
+    "sentences": [
+      "Our second world is Nature. I check the world selection before asking the agent to build anything. A position from Aether would be meaningless here.",
+      "For the off road vehicle, I want open ground, a gentle change in height, and enough room to brake. I am using the original terrain. No new platform, ramp, or obstacle course is added.",
+      "This orbit again passes through a near ground, diagonal ring composition. The landscape establishes the scale of the world and gives us an immediate reason to care about suspension and wheel contact.",
+      "This is also where I decide what to test first: wheel rotation at low speed, left and right steering, then suspension over the natural steps. Each test should answer one clear question."
+    ]
+  },
+  {
+    "id": "12_rover_prompt",
+    "title": "Ask for independent suspension",
+    "target_duration": 55,
+    "sentences": [
+      "My second request is more specific than simply asking for a car. Build a four wheel off road vehicle with a sand colored body, a pilot seat, generous ground clearance, and clearly visible headlights.",
+      "Use a dynamic chassis and four independently animated wheels. At each wheel, measure ground distance and apply spring and damper forces at that support point. The visible wheel should follow its suspension extension. Add acceleration, steering, braking, and lateral grip.",
+      "Place it stopped on existing ground in Nature and do not modify terrain. This is a raycast suspension model. It gives us behavior we can inspect directly instead of four wheels that only look articulated."
+    ]
+  },
+  {
+    "id": "13_rover_inspect",
+    "title": "Inspect the four supports",
+    "target_duration": 50,
+    "sentences": [
+      "I start the inspection at wheel level. The body has one dynamic root, while the four wheel components provide separate visible motion. The suspension controller samples each support point independently.",
+      "A spring supports the weight. A damper resists rapid compression and rebound. Without damping, the chassis keeps bouncing after a small disturbance. With too much damping, it feels rigid and reluctant to settle.",
+      "The useful question is whether the wheels and body respond coherently when the terrain changes. I will test one side over uneven ground and watch the body return toward a settled position."
+    ]
+  },
+  {
+    "id": "14_rover_light_a",
+    "title": "Select one headlight",
+    "target_duration": 50,
+    "sentences": [
+      "Before driving, I want one small manual customization. I stop the vehicle, switch to first person, and move close to the front. The headlights start with a neutral light color.",
+      "I select Brush with key six and switch to the micro scale with Tab. Then I open the color and material panel with I. I choose a warm amber accent, keeping the rest of the body untouched.",
+      "For a tiny detail, a targeted paint action is easy to understand. For a larger lamp face, Selector and the paint command can recolor a bounded region. Check the highlighted surface before confirming."
+    ]
+  },
+  {
+    "id": "15_rover_light_b",
+    "title": "Paint, inspect, and compare",
+    "target_duration": 50,
+    "sentences": [
+      "Now I apply the new color to the headlight detail. I step back to compare it with the other side. The warm accent makes the front easier to recognize, even when the vehicle is small in the frame.",
+      "This is why I like combining Agent Build with direct tools. A generated vehicle should remain editable. I do not want to rewrite a long prompt whenever I need to change one visible detail.",
+      "Brush changes appearance. Modeling adds visual pieces. Neither should be confused with physical suspension. Keeping those responsibilities clear helps the player predict the result of each tool."
+    ]
+  },
+  {
+    "id": "16_rover_drive_a",
+    "title": "Wheel rotation: forward and reverse",
+    "target_duration": 55,
+    "sentences": [
+      "I start this revised test at wheel level. Watch the tread as the vehicle moves forward, stops, and reverses. The bottom of each tire must roll against the ground in the opposite direction to the chassis motion.",
+      "The earlier controller had the sign reversed. Forward motion is along the vehicle's negative Z axis, so the wheel angle must decrease around its local X axle. Reverse motion increases that angle. The same rule applies on both sides of this model.",
+      "Now I stop again. This slow pass is a useful acceptance test for Agent Build: do not approve a vehicle just because its wheels spin. Check the contact motion, the reverse direction, and the suspension together."
+    ]
+  },
+  {
+    "id": "17_rover_drive_b",
+    "title": "Steering test: left, right, center",
+    "target_duration": 50,
+    "sentences": [
+      "Next I isolate steering. With the brakes held, I press A, release it, press D, and release it again. Both front wheels turn left, return to center, turn right, and return to center. The rear wheels stay straight.",
+      "The steering axis belongs to the chassis, while the rolling axis belongs to each wheel. Keeping that order correct prevents a spinning wheel from making the steering direction wobble. I check the wheel axles as well as the tread.",
+      "Finally I drive through a gentle left turn, then a right turn, and brake. The front wheel angles now agree with the vehicle's path. The independent supports continue following the terrain, and the amber headlight identifies the front."
+    ]
+  },
+  {
+    "id": "18_copper_tour",
+    "title": "Copper Metropolis: an aerial route",
+    "target_duration": 45,
+    "sentences": [
+      "Our final stop is Copper Metropolis. Buildings create a different navigation problem from open ground. For the quadcopter I choose an existing flat roof terrace, then plan a short flight with room to climb, translate, and stop.",
+      "The orbit passes the same kind of orange roof foreground and rising city ring seen on the introduction page. Strong horizontal roofs make small changes in aircraft attitude easy to see.",
+      "The design goal is controlled movement that reads as physical. If the drone slides forward while remaining perfectly level, the motion will not explain where its acceleration comes from.",
+      "For this test, the player will be the moving target. I choose an open roof as the starting point, then fly above it to look around the city. That gives the drone room to climb, follow, and settle without nearby obstacles."
+    ]
+  },
+  {
+    "id": "19_drone_prompt",
+    "title": "Ask for a character-following quadcopter",
+    "target_duration": 55,
+    "sentences": [
+      "The third prompt asks for a compact quadcopter that follows the player. Give it a dynamic center body, four counter rotating rotors, landing feet, and a clear front accent.",
+      "Read the actual character position and velocity every update. Maintain an offset above and to one side, follow the character on the ground or in the air, and settle into a hover when they stop. If the target disappears, hold the last safe target.",
+      "Use local upward thrust and attitude torque. Pitch to accelerate, counter tilt to brake, and roll for sideways motion. Leave the drone stopped on the existing roof. Compile the controller and test tracking, direction changes, stopping, and target loss."
+    ]
+  },
+  {
+    "id": "20_drone_refine",
+    "title": "Inspect and mark the drone",
+    "target_duration": 50,
+    "sentences": [
+      "I inspect the four rotor assemblies and make sure the arms are easy to distinguish. Counter rotating pairs are visible, but rotor animation is separate from the force controller moving the body.",
+      "With the drone stopped, I use Brush to add a small front accent. A directional color cue matters because a nearly symmetrical quadcopter becomes difficult to read when it turns.",
+      "I also check the landing feet and clearance under the body. Modeling can add a camera housing as visual decoration, but collision and flight behavior still come from the actual components and controller."
+    ]
+  },
+  {
+    "id": "21_drone_flight_a",
+    "title": "Third person: take off together",
+    "target_duration": 50,
+    "sentences": [
+      "Now let us test the follow behavior in the air. I start in third person, let the drone settle beside me, then toggle character flight and rise above the roof. The drone has to catch up vertically as well as horizontally.",
+      "I make a short forward move, then pause. The drone reads my real position and velocity. Its body leans to accelerate and tilts back to brake; there is no timed route or position snapping moving it through the scene.",
+      "While hovering, I turn the view across the skyline. Keeping the character and drone together in the frame lets us see the tracking delay, the change in height, and the moment the drone settles into its offset."
+    ]
+  },
+  {
+    "id": "22_drone_flight_b",
+    "title": "Airborne orbit, direction changes, and hover",
+    "target_duration": 45,
+    "sentences": [
+      "From up here, I can look around the city while the drone holds its place beside the character. I sweep the third person camera around us, changing the angle and elevation while the field of view stays fixed.",
+      "Next I make a short sideways move and stop again. Watch the roll into the movement, the opposite tilt while braking, and the return to a steady hover. I leave a pause between inputs so each response is easy to read.",
+      "This makes the drone feel like a flying companion. It follows the character in three dimensions, while the orbit reveals the surrounding city. This prototype has no automatic obstacle avoidance, so I keep the demonstration in clear air above the roof."
+    ]
+  },
+  {
+    "id": "23_close",
+    "title": "Build, refine, play",
+    "target_duration": 35,
+    "sentences": [
+      "Three worlds gave us three design problems: transport between islands, traction over uneven ground, and controlled flight between city landmarks.",
+      "Agent Build helped create the structure and behavior. The toolbar kept the result understandable and editable. The final test was always play: could I use the machine, read its motion, and make a useful correction?",
+      "That is the direction I want for Space. Describe an idea, inspect the result, make it your own, and take it somewhere. Thanks for watching."
+    ]
+  }
+]

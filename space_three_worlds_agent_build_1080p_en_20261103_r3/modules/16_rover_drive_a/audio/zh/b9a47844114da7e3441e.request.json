@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "相对车身来说，向前行驶时，轮胎底部的接触面应该向后滚过地面；倒车时，旋转方向也要随之反过来。",
+  "seed": 43
+}

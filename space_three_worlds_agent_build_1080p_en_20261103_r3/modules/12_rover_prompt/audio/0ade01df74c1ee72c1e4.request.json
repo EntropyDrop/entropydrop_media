@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "The heart of the vehicle is its suspension: dynamic chassis, four independently animated wheels, and spring-and-damper forces calculated at every contact point. The wheels must articulate over bumps with responsive acceleration, steering, braking, and lateral grip.",
+  "seed": 43
+}

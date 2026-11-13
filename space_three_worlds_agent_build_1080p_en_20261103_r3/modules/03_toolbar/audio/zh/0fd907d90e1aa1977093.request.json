@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "这套工具箱确保了游戏绝不会沦为被动的 AI 盲盒——AI 赋予大结构，而你永远拥有最直观、可预期的方式来检查、修复并打上专属的个性化烙印。",
+  "seed": 44
+}

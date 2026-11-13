@@ -1,0 +1,40 @@
+{
+  "id": "21_drone_flight_a",
+  "title": "Synchronized Flight: Autonomous Tracking in Action",
+  "label": "角色腾空与无人机跟随",
+  "duration": 32.9,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 9.2,
+      "text": "Now, let's look at how the drone actually behaves in synchronized flight. In third-person, we let the drone settle beside us, then toggle character flight mode and ascend straight into the air.",
+      "source": "modules/21_drone_flight_a/audio/51dce233fad38f1c5bb7.wav"
+    },
+    {
+      "start": 9.649999999999999,
+      "duration": 11.36,
+      "text": "The drone senses the altitude change immediately, throttling up its rotors to match our climb. As we dash forward and halt, the drone leans forward to accelerate, tilts back to brake, and locks smoothly into its hovering offset.",
+      "source": "modules/21_drone_flight_a/audio/d4fd0be5f9fcf3a81b20.wav"
+    },
+    {
+      "start": 21.259999999999998,
+      "duration": 11.28,
+      "text": "There is no fake teleportation or snapping here—it is pure, fluid physics simulation. Framing character and companion together showcases the organic lag, tilt, and stabilization that make it feel like a living buddy.",
+      "source": "modules/21_drone_flight_a/audio/053ac824506166417f62.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "footage/21-drone-airborne-follow.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/21-drone-airborne-follow.mp4",
+      "in": 0.0,
+      "out": 32.9,
+      "duration": 32.9,
+      "source_sig": "b3a5c2b2854c7e9879eb109a18b4ed583469fa882481ff80ea3df3e76676abaf",
+      "mode": "realtime"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "fad12116ee2c965f37187288f6f533566d5792a2500b28197fc66eaacd4ace29",
+  "voice_sig": "cf7848a2121ada38b83e36e1ad44619a66670d8113289d77cab0d87a7751ee01"
+}

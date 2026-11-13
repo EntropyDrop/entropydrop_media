@@ -1,0 +1,25 @@
+{
+  "duration": 31.833333333333332,
+  "file": "voice.zh.wav",
+  "sha256": "11f24ff04771110a60c96fa713b2f748551e701652efe4100f2a4da7a00b7578",
+  "sentences": [
+    {
+      "paragraph": 1,
+      "sentence": 1,
+      "text": "这座立交有两条分层直行的主线。环形单向匝道负责从南行转向东行，上层匝道负责从东行转向北行。四个主线端部再接回城区道路，其余转向可以通过地面路网完成。",
+      "file": "audios/zh/63b1e28ef957bef7dc15ae82.wav",
+      "start": 0.2,
+      "duration": 14.85,
+      "sha256": "c76e08fced6738edd3ea967ffed9218cc46e510b296b7afdfb64bd16a82222be"
+    },
+    {
+      "paragraph": 2,
+      "sentence": 1,
+      "text": "这里不能只画几条好看的曲线。出口要顺着原来的行驶方向分流，入口要沿目标车道合流，还要检查坡度、桥下净空和桥墩位置。我们也从车道高度看一遍，确认上层桥梁不会挡住下层通行。",
+      "file": "audios/zh/e54214d87a8cf5f0bfa430f1.wav",
+      "start": 15.299999999999999,
+      "duration": 16.13,
+      "sha256": "58aed21aa5ef449bb92d1f1f4813253022cb69040fc8f40b0655d630338bf32d"
+    }
+  ]
+}

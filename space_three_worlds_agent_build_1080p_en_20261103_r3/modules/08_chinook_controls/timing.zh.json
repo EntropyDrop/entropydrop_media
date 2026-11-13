@@ -1,0 +1,67 @@
+{
+  "id": "08_chinook_controls",
+  "title": "Boarding & Cockpit: Zero-Code Flying",
+  "label": "直升机控制与登机",
+  "duration": 38.36666666666667,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 9.2,
+      "text": "Before taking off, we take a quick look at the fuselage controller. The script listens automatically for driver mounting, ensuring flight controls only engage when you are safely in the seat.",
+      "source": "modules/08_chinook_controls/audio/414efd8dab09a43f6edc.wav"
+    },
+    {
+      "start": 9.649999999999999,
+      "duration": 8.37,
+      "text": "Close the editor, aim at the pilot seat, and press V to board. Hitting F three toggles our third-person perspective, giving us an expansive view of both the rotors and the archipelago.",
+      "source": "modules/08_chinook_controls/audio/b30117b7017cec28381e.wav"
+    },
+    {
+      "start": 18.269999999999996,
+      "duration": 19.72,
+      "text": "In traditional sandbox games, building a working multi-rotor aircraft required writing pages of scripts and tedious physics tuning that scared off most players. In Space, you don't need any coding or aerospace knowledge. Attitude control, key bindings, and auto-hover stabilization are fully automated by the agent in seconds. You just board the cockpit, and let your intelligent co-builder handle the rest.",
+      "source": "modules/08_chinook_controls/audio/d1edc100942e175b2631.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "footage/08-chinook-controls-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/08-chinook-controls-clean.mp4",
+      "in": 0.0,
+      "out": 11.5,
+      "duration": 9.649999999999999,
+      "source_sig": "39cc0c8e7fba160e7acc4f2be9b5b9479d080636fa3e3a88f497ccc17823b072",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/08-chinook-controls-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/08-chinook-controls-clean.mp4",
+      "in": 11.5,
+      "out": 19.0,
+      "duration": 8.619999999999997,
+      "source_sig": "39cc0c8e7fba160e7acc4f2be9b5b9479d080636fa3e3a88f497ccc17823b072",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/08-chinook-controls-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/08-chinook-controls-clean.mp4",
+      "in": 19.0,
+      "out": 31.000000000000004,
+      "duration": 12.000000000000004,
+      "source_sig": "39cc0c8e7fba160e7acc4f2be9b5b9479d080636fa3e3a88f497ccc17823b072",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/06-chinook-inspect-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/06-chinook-inspect-clean.mp4",
+      "in": 8.0,
+      "out": 16.096666666666668,
+      "duration": 8.096666666666668,
+      "source_sig": "1a47701f797e1922dffec388a969b6a888a720018e139d9a6acdfcb6c927bb44",
+      "mode": "realtime"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "b7bd718a44f147dabac6613b08678ae0ba1dcbb06a90da694b83db63d8dbef3e",
+  "voice_sig": "6229df1cc146461deed051a01e9aaa99d8f0ab54474f98f5b3cd343284db348d"
+}

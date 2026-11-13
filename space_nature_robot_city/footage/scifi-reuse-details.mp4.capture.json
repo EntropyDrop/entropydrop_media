@@ -1,0 +1,1108 @@
+{
+  "output": "/private/tmp/scifi-reuse-details.mp4",
+  "shot": {
+    "id": "reusable-building-parts",
+    "seconds": 18,
+    "controllerRate": 1,
+    "fov": 50,
+    "segments": [
+      {
+        "seconds": 4.5,
+        "fov": 55,
+        "position": [
+          [
+            5416,
+            95,
+            685
+          ],
+          [
+            5411,
+            96,
+            687
+          ]
+        ],
+        "target": [
+          [
+            5382,
+            64,
+            625
+          ],
+          [
+            5382,
+            64,
+            625
+          ]
+        ]
+      },
+      {
+        "seconds": 4.5,
+        "fov": 45,
+        "position": [
+          [
+            5386,
+            38,
+            652
+          ],
+          [
+            5380,
+            39,
+            652
+          ]
+        ],
+        "target": [
+          [
+            5382,
+            38,
+            638
+          ],
+          [
+            5382,
+            38,
+            638
+          ]
+        ]
+      },
+      {
+        "seconds": 4.5,
+        "fov": 45,
+        "position": [
+          [
+            5480,
+            39,
+            722
+          ],
+          [
+            5488,
+            39,
+            722
+          ]
+        ],
+        "target": [
+          [
+            5486,
+            35,
+            713
+          ],
+          [
+            5493,
+            35,
+            713
+          ]
+        ]
+      },
+      {
+        "seconds": 4.5,
+        "fov": 50,
+        "position": [
+          [
+            5403,
+            79,
+            645
+          ],
+          [
+            5401,
+            80,
+            646
+          ]
+        ],
+        "target": [
+          [
+            5382,
+            68,
+            627
+          ],
+          [
+            5382,
+            68,
+            627
+          ]
+        ]
+      }
+    ]
+  },
+  "mode": "native-fixed-time-frames",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 540,
+  "target": 540,
+  "state": "complete",
+  "errors": "",
+  "samples": [
+    {
+      "frame": 0,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 168.35000000000403,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 30,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 169.35000000000426,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 60,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 170.35000000000448,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 90,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 171.3500000000047,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 120,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 172.35000000000494,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 150,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 173.35000000000517,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 180,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 174.3500000000054,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 210,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 175.35000000000562,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 240,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 176.35000000000585,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 270,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 177.35000000000608,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 300,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 178.3500000000063,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 330,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 179.35000000000653,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 360,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 180.35000000000676,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 390,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 181.350000000007,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 420,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 182.3500000000072,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 450,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 183.35000000000744,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 480,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 184.35000000000767,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    },
+    {
+      "frame": 510,
+      "checkpoint": "approved-complete-city-native-render",
+      "clock": 185.3500000000079,
+      "robots": [
+        {
+          "error": null,
+          "position": [
+            5450.449681657716,
+            119.98458332494752,
+            572.4709474974866
+          ],
+          "role": "surveyor"
+        },
+        {
+          "error": null,
+          "position": [
+            5544,
+            49.05061445457938,
+            760
+          ],
+          "role": "road"
+        },
+        {
+          "error": null,
+          "position": [
+            5326,
+            83.43503531162445,
+            613
+          ],
+          "role": "builder_a"
+        },
+        {
+          "error": null,
+          "position": [
+            5436,
+            43.37918440356199,
+            747
+          ],
+          "role": "builder_b"
+        },
+        {
+          "error": null,
+          "position": [
+            5455,
+            42.319486374162,
+            767
+          ],
+          "role": "planter"
+        }
+      ],
+      "settles": 0,
+      "steps": 1
+    }
+  ],
+  "actions": [],
+  "started": "2026-11-06T05:29:42.911Z",
+  "finished": "2026-11-06T05:32:53.361Z"
+}

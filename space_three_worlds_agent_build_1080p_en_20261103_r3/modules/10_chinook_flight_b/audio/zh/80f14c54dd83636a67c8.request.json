@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "飞行时，远处地形和巨大的世界环始终连贯，展示了无缝加载的效果。空中试飞告一段落，接下来去第二座世界体验越野驾驶！",
+  "seed": 45
+}

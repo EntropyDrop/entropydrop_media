@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Copper highlights how effortlessly Space renders dense, multi-tiered urban architecture. Sharp horizontal rooflines make every subtle tilt and attitude change easy to read.",
+  "seed": 43
+}

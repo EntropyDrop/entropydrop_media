@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "这里的地貌奠定了宏大的世界尺度，也决定了我们接下来的验证顺序：先低速验证车轮滚动，再验证转向几何，最后测试车轮碾过天然台阶时的悬挂形变。",
+  "seed": 46
+}

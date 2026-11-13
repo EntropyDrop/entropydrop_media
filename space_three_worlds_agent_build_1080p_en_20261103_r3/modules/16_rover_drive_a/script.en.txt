@@ -1,0 +1,5 @@
+Hop into the driver's seat and tap the accelerator! We run a low-speed crawl forward and backward at ground level to examine tire rotation.
+
+Relative to the chassis, the contact patch of each tire must sweep backward against the terrain as the vehicle drives forward, reversing smoothly when backing up.
+
+The wide treads grip the grass naturally. Forward acceleration, braking, and reverse motion all synchronize with satisfying mechanical weight. If you ever want to tweak torque or gearing, a single message to your agent updates the script instantly.

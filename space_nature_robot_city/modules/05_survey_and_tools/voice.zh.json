@@ -1,0 +1,25 @@
+{
+  "duration": 32.766666666666666,
+  "file": "voice.zh.wav",
+  "sha256": "5daa07622b86dc34491b232f0e8b1f0bbcbb120123244893c667407d9ce481f7",
+  "sentences": [
+    {
+      "paragraph": 1,
+      "sentence": 1,
+      "text": "开工前，勘测无人机先检查计划区域。遇到已有方块时，它不会直接覆盖，而是等待处理。这个约束很重要：无人机应该和玩家共享世界，不能把玩家留下的东西全部清掉。",
+      "file": "audios/zh/996ea907a02b5c847cd8a92e.wav",
+      "start": 0.2,
+      "duration": 14.93,
+      "sha256": "d9622690b1bf2ebc71253fbec7912be16e75d11e23d7d777e472be89795c0330"
+    },
+    {
+      "paragraph": 2,
+      "sentence": 1,
+      "text": "检查通过后，任务才会开放。施工时，每一批方块都要等写入结果，再从世界里读回来核对。一个区域完成验收以后，才会发出完成消息，让其他成员继续。这让建造进度对应真实的世界状态。",
+      "file": "audios/zh/93ee5228fcbc24f40b63c795.wav",
+      "start": 15.379999999999999,
+      "duration": 16.96,
+      "sha256": "41ef7a2be967cf272f1b74e45f51bbcad98ac1776781eed3d35cae356c8ddae5"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Sturdy landing feet ensure clean clearance. While Modeling tools can easily add camera gimbals or cosmetic housings, genuine flight behavior always flows from the underlying physics components.",
+  "seed": 44
+}

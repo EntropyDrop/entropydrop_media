@@ -1,0 +1,37 @@
+{
+  "id": "08_chinook_controls",
+  "label": "直升机控制与登机",
+  "title": "Boarding & Cockpit: Zero-Code Flying",
+  "clips": [
+    {
+      "source": "footage/08-chinook-controls-clean.mp4",
+      "in": 0,
+      "out": 11.5,
+      "end_at": "voice:2",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/08-chinook-controls-clean.mp4",
+      "in": 11.5,
+      "out": 19,
+      "end_at": "voice:3",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/08-chinook-controls-clean.mp4",
+      "in": 19,
+      "out": "auto",
+      "end_at": 30.27,
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/06-chinook-inspect-clean.mp4",
+      "in": 8,
+      "out": "auto",
+      "end_at": "end",
+      "mode": "realtime"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "Code editor, seat approach and actual boarding align with paragraph two; mounted third-person view and exterior detail follow. Seated footage runs at realtime speed."
+}

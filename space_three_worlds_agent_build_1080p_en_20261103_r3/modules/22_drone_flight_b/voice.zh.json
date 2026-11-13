@@ -1,0 +1,27 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "接下来，角色沿空中的大圆继续快速飞行。楼宇从身边掠过，无人机持续追上来，镜头跟着航线转动，把这一整圈的移动过程连起来。",
+      "file": "modules/22_drone_flight_b/audio/zh/fcbba6f6ffa9bdf19230.wav",
+      "sha256": "e6fb1914e55fe6a3020e9f50609027ea4e68f249fc97e89eb6aa80b263a650f3",
+      "request_sha256": "fcbba6f6ffa9bdf192309229357005e1fd0d6823a7e495a7de8e2069585d9a7f",
+      "trimmed_duration": 9.59
+    },
+    {
+      "text": "留意转弯时的姿态：无人机向弯内侧倾，改变加速度方向；角色调整速度，它也要重新分配推力，修正跟随误差。最后松开输入，我们再看看它怎样减速、回到悬停。",
+      "file": "modules/22_drone_flight_b/audio/zh/be2194cf7324b20ad1aa.wav",
+      "sha256": "d8265c39de4a09ebba9a759215217202040a496c8e3261b87bc005ce0b2a02b2",
+      "request_sha256": "be2194cf7324b20ad1aaa6cccb990d4b735f32d13bff1f9af304b9b0993fff09",
+      "trimmed_duration": 12.45
+    },
+    {
+      "text": "这样的伙伴才和玩法联系起来：你负责探索和选择路线，它用自己的控制逻辑跟上你。以后再加入侦察、巡逻或搬运，就能发展出更多用途。",
+      "file": "modules/22_drone_flight_b/audio/zh/171a4244bd74331910eb.wav",
+      "sha256": "eea17d21b2bce4379a0fe0257e81f887800324991859add26d4e0d9449becb92",
+      "request_sha256": "171a4244bd74331910eb2bea3f859eb205816846fb9c27bc6ab02c1fc2f866f3",
+      "trimmed_duration": 9.79
+    }
+  ]
+}

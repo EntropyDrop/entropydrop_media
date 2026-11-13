@@ -1,0 +1,34 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "最后一站，我们来到壮丽的铜城（Copper Metropolis）。密集林立的摩天大楼，展现出与空旷野外截然不同的城市航线挑战。",
+      "file": "modules/18_copper_tour/audio/zh/81d17b683ee8d4156ceb.wav",
+      "sha256": "c9aaae42ae6b27bb6b28c1c397045b8373cd426159d46bf45f0d9b941eb25aca",
+      "request_sha256": "81d17b683ee8d4156cebfe57ae5d2243aa5183402514c4a0e16bc5b2d57811ab",
+      "trimmed_duration": 8.88
+    },
+    {
+      "text": "密集的建筑层层叠叠，展示了这个世界丰富的立体层次。再看平直的屋顶边缘：有了水平参照，飞行器哪怕只有一点倾斜，也能看得非常清楚。",
+      "file": "modules/18_copper_tour/audio/zh/27c82d4bc522d44459cb.wav",
+      "sha256": "da7f845a705027b502a4ec0d217e4803ee67e06b0bc0ee7189642eeb30075730",
+      "request_sha256": "27c82d4bc522d44459cb88458cbbb876a352ae8446ce0e77b280aafa66f2f3e5",
+      "trimmed_duration": 9.4
+    },
+    {
+      "text": "面对立体的城市空间，我们将尝试一种更前沿的玩法：不再是人工驾驶载具，而是让 AI 打造一只能够伴随身边的自主跟随无人机。",
+      "file": "modules/18_copper_tour/audio/zh/a4d8c9bb8481a69cd212.wav",
+      "sha256": "326f47b7c4bdb465e01528a7c7c68b8bef415af7c49d42ef70f9c1ef083d0ace",
+      "request_sha256": "a4d8c9bb8481a69cd212ab7d059fd33e8020ad2f71fca05e48da4d8e518b58b5",
+      "trimmed_duration": 8.46
+    },
+    {
+      "text": "玩家角色将作为动态移动目标。选定开阔的楼顶作为起点，随后腾空飞起俯瞰整座城市，为无人机的爬升与跟随留出充裕的空间。",
+      "file": "modules/18_copper_tour/audio/zh/daa605b6e22614af68c8.wav",
+      "sha256": "f934038136f3a061a13e6e553fbcd9c93cf9d134303898efb57ea2939930f155",
+      "request_sha256": "daa605b6e22614af68c8d0ffc49bd059930fa3f04d5d59095f6a4659acee5753",
+      "trimmed_duration": 9.26
+    }
+  ]
+}

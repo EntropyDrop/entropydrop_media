@@ -1,0 +1,1045 @@
+{
+  "duration": 791.2666666666665,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "language": "English",
+  "subtitles": false,
+  "chapters": [
+    {
+      "id": "01_intro",
+      "title": "EntropyDrop Space: Game Introduction & Gameplay Showcase",
+      "label": "开场介绍",
+      "start": 0,
+      "duration": 47.43333333333333,
+      "preview": "modules/01_intro/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 22.54,
+          "text": "Hey everyone. Today, I want to introduce EntropyDrop Space, a 3D voxel game running directly in your web browser. In Space, the world isn't just a sandbox made of blocks—it's an interactive, playable world. Building a drivable machine in traditional sandbox games often takes hours of manual block placement and scripting, while typical generative 3D models tend to be static decorations you can neither customize nor actually play with.",
+          "source": "modules/01_intro/audio/6c64b516a34e93083e11.wav"
+        },
+        {
+          "start": 22.99,
+          "duration": 24.07,
+          "text": "The core idea behind Space is bringing AI co-creation and voxel sandbox gameplay together: describe what you want in plain words, and an AI Agent helps build functional mechanisms and control scripts for you. At the same time, you retain complete creative control—sculpting micro details with hands-on tools, and jumping into the driver's seat to explore the world yourself. Today, we'll walk through three distinct worlds to showcase how the systems and gameplay in Space actually work.",
+          "source": "modules/01_intro/audio/d2eaa72e559461754b9f.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/replacements/01-intro-scroll.zh.mp4",
+          "in": 0.4,
+          "out": 23.389999999999997,
+          "duration": 22.99,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/10-chinook-flight-b-clean.mp4",
+          "in": 6.0,
+          "out": 14.147780000000001,
+          "duration": 8.147780000000001,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/replacements/17-rover-terrain.mp4",
+          "in": 5.0,
+          "out": 13.147779999999997,
+          "duration": 8.147779999999997,
+          "mode": "realtime"
+        },
+        {
+          "source": "module:22_drone_flight_b",
+          "in": 3.0,
+          "out": 11.147773333333333,
+          "duration": 8.147773333333333,
+          "mode": "realtime"
+        }
+      ]
+    },
+    {
+      "id": "02_aether_tour",
+      "title": "Aether Archipelago: AI Collaboration and Goal-Driven Design",
+      "label": "空岛地形环顾",
+      "start": 47.43333333333333,
+      "duration": 48.8,
+      "preview": "modules/02_aether_tour/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 12.48,
+          "text": "Here in Aether Archipelago, the terrain gives us a design problem. How do we cross a gap, transport supplies, or let a machine handle repetitive work? We want players to start with a goal, build a solution, and test it in the world.",
+          "source": "modules/02_aether_tour/audio/2579135a5b4fba2d1f19.wav"
+        },
+        {
+          "start": 12.93,
+          "duration": 18.87,
+          "text": "AI is a design partner. Describe appearance, structure, and behavior in plain language, and it can help build vehicles and write their control code. The same idea extends to following or patrolling drones, and bot players that interact with people. Generation is only the beginning: the toolbar lets you refine, test, and make the result your own.",
+          "source": "modules/02_aether_tour/audio/67a6be1a16a52d2cf583.wav"
+        },
+        {
+          "start": 32.05,
+          "duration": 16.39,
+          "text": "We also want to extend this collaboration to automated construction. Imagine an agent directing a road-building robot: it reads the terrain ahead and lays a route as it moves. Vehicles, robots, and the world become connected. You set a goal, AI helps implement it, and real operation puts the design to the test.",
+          "source": "modules/02_aether_tour/audio/5cfd69391afc57388ed5.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/replacements/02-aether-full-ring.mp4",
+          "in": 2.1,
+          "out": 50.9,
+          "duration": 48.8,
+          "mode": "realtime"
+        }
+      ]
+    },
+    {
+      "id": "03_toolbar",
+      "title": "The Creator's Toolkit: Core Mechanics & Micro-Voxel Workflow",
+      "label": "工具栏设计与用法",
+      "start": 96.23333333333332,
+      "duration": 39.93333333333333,
+      "preview": "modules/03_toolbar/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 15.83,
+          "text": "The toolbar at the bottom anchors your moment-to-moment gameplay. Selector defines 3D regions; Hammer places inventory items; and Wrench grabs, rotates, and configures active entities. Shovel shapes standard one-meter blocks, while Spoon operates at an ultra-fine one-eighth of a meter micro-voxel scale.",
+          "source": "modules/03_toolbar/audio/f246f3d9930f00e47daf.wav"
+        },
+        {
+          "start": 16.279999999999998,
+          "duration": 12.24,
+          "text": "Brush changes colors and materials on the fly, while Modeling adds lightweight visual decorations. Keys one through seven let you cycle through tools instantly, with contextual controls updating dynamically to keep the workflow clean and intuitive.",
+          "source": "modules/03_toolbar/audio/16efddee5de6e7397036.wav"
+        },
+        {
+          "start": 28.769999999999996,
+          "duration": 10.8,
+          "text": "This toolkit ensures you are never trapped by an AI black box. The agent drafts the heavy architecture, while you always hold the precise, intuitive power to refine, personalize, and leave your own creative mark.",
+          "source": "modules/03_toolbar/audio/a843c3bfe2bed6edc7c2.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/03-toolbar-clean.mp4",
+          "in": 0.0,
+          "out": 12.6,
+          "duration": 16.279999999999998,
+          "mode": "fit"
+        },
+        {
+          "source": "footage/03-toolbar-clean.mp4",
+          "in": 12.6,
+          "out": 24.0,
+          "duration": 12.489999999999998,
+          "mode": "fit"
+        },
+        {
+          "source": "footage/03-toolbar-clean.mp4",
+          "in": 24.0,
+          "out": 34.0,
+          "duration": 11.163333333333334,
+          "mode": "fit"
+        }
+      ]
+    },
+    {
+      "id": "04_agent",
+      "title": "Connect Agent Build: The AI Co-Creation System",
+      "label": "Agent Build 授权与工作流",
+      "start": 136.16666666666666,
+      "duration": 30.1,
+      "preview": "modules/04_agent/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 11.36,
+          "text": "Here is the centerpiece of Space: the Agent Build system. Simply open the panel and copy the prompt to your favorite external AI agent. Through open interfaces, it connects directly into your active voxel world.",
+          "source": "modules/04_agent/audio/b91b9a0dd60cb19cddff.wav"
+        },
+        {
+          "start": 11.809999999999999,
+          "duration": 11.91,
+          "text": "Whether using cloud frontier models or local AI, the agent becomes your versatile co-builder. It interprets everyday natural language, computing 3D geometry, placing blocks, and writing full controller scripts in seconds.",
+          "source": "modules/04_agent/audio/72b9d0afc276ec79c12f.wav"
+        },
+        {
+          "start": 23.97,
+          "duration": 5.76,
+          "text": "This connection seamlessly carries across every world you visit. Now, let's dive into our first live build!",
+          "source": "modules/04_agent/audio/a976b7424ea5c84cc310.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/reused/04-agent.mp4",
+          "in": 0.0,
+          "out": 30.1,
+          "duration": 30.1,
+          "mode": "fit"
+        }
+      ]
+    },
+    {
+      "id": "05_chinook_prompt",
+      "title": "Live Build: Generating a Tandem-Rotor Helicopter",
+      "label": "支奴干构建请求",
+      "start": 166.26666666666665,
+      "duration": 32.43333333333333,
+      "preview": "modules/05_chinook_prompt/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 12.11,
+          "text": "In Aether Archipelago, we need a heavy transport capable of leaping between floating islands: a tandem-rotor Chinook helicopter. Prompting the agent in Space is effortless, combining aesthetics, structure, and flight behavior in a single request:",
+          "source": "modules/05_chinook_prompt/audio/b3b7b6025aec5627a961.wav"
+        },
+        {
+          "start": 12.559999999999999,
+          "duration": 19.5,
+          "text": "We ask the agent to build an olive transport helicopter with a readable cockpit, a hollow walk-in cabin, landing wheels, and a functional pilot seat. The two rotors should be independent components spinning in opposite directions, powered by thrust and attitude torque, with W and S controlling pitch, A and D turning, and the Spacebar and Shift keys managing altitude.",
+          "source": "modules/05_chinook_prompt/audio/2cdb671aca4d65015e1a.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "stills/05-chinook-prompt.png",
+          "in": 0.0,
+          "out": 32.43333333333333,
+          "duration": 32.43333333333333,
+          "mode": "realtime"
+        }
+      ]
+    },
+    {
+      "id": "06_chinook_inspect",
+      "title": "Vehicle Architecture: Multi-Component Assembly & Automation",
+      "label": "支奴干模型检查",
+      "start": 198.7,
+      "duration": 35.3,
+      "preview": "modules/06_chinook_inspect/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 6.24,
+          "text": "The generation finishes in seconds. Right away, you can see the fuselage and the two rotor assemblies are independent, active components.",
+          "source": "modules/06_chinook_inspect/audio/a9092dba53fb1e2e9558.wav"
+        },
+        {
+          "start": 6.69,
+          "duration": 9.12,
+          "text": "The pilot seat is a standout feature: in Space, this is a fully functional interaction definition with boarding logic and input mapping, not just a static cushion drawn inside the cabin.",
+          "source": "modules/06_chinook_inspect/audio/d04819dddc1d786c32f7.wav"
+        },
+        {
+          "start": 16.06,
+          "duration": 18.86,
+          "text": "Inspecting the exterior, the rotor spacing gives a clear tandem profile, with generous ground clearance under the wheels. Best of all, the entire flight controller was generated and compiled automatically by the agent—from counter-rotating torque cancellation to auto-hover logic, the complex math is handled behind the scenes so you can jump straight into the fun of flying.",
+          "source": "modules/06_chinook_inspect/audio/9d6e9719469bfdb851b5.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/06-chinook-inspect-clean.mp4",
+          "in": 0.0,
+          "out": 35.0,
+          "duration": 35.3,
+          "mode": "fit"
+        }
+      ]
+    },
+    {
+      "id": "07_chinook_refine",
+      "title": "Hands-On Polish: Sculpting Micro-Voxels & Custom Paint",
+      "label": "勺子与画笔修补",
+      "start": 234.0,
+      "duration": 29.9,
+      "preview": "modules/07_chinook_refine/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 6.76,
+          "text": "Now let's see how effortless it is to customize an AI-generated build. We switch into first-person and pause the entity to begin editing.",
+          "source": "modules/07_chinook_refine/audio/146d600c6a0bc7ea04ec.wav"
+        },
+        {
+          "start": 7.21,
+          "duration": 10.24,
+          "text": "Selecting Spoon brings up a targeted reticle focused on an eighth-meter micro-voxel. We carve out a clean notch along the edge without removing a full standard block, shaping the airframe with sculptural precision.",
+          "source": "modules/07_chinook_refine/audio/678cf2eea02f4867a3fb.wav"
+        },
+        {
+          "start": 17.7,
+          "duration": 11.84,
+          "text": "Switching to Brush, we pick an accent color and paint a custom livery detail. This is where Space shines: the AI handles the heavy structural engineering, and in just a few seconds with your own hands, you make the machine truly your own.",
+          "source": "modules/07_chinook_refine/audio/be703f624c5271b2b7ef.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/07-chinook-refine-clean.mp4",
+          "in": 0.0,
+          "out": 7.21,
+          "duration": 7.21,
+          "mode": "fit"
+        },
+        {
+          "source": "footage/07-chinook-refine-clean.mp4",
+          "in": 7.21,
+          "out": 22.1,
+          "duration": 10.489999999999998,
+          "mode": "fit"
+        },
+        {
+          "source": "footage/07-chinook-refine-clean.mp4",
+          "in": 22.1,
+          "out": 33.0,
+          "duration": 12.2,
+          "mode": "fit"
+        }
+      ]
+    },
+    {
+      "id": "08_chinook_controls",
+      "title": "Boarding & Cockpit: Zero-Code Flying",
+      "label": "直升机控制与登机",
+      "start": 263.9,
+      "duration": 38.36666666666667,
+      "preview": "modules/08_chinook_controls/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 9.2,
+          "text": "Before taking off, we take a quick look at the fuselage controller. The script listens automatically for driver mounting, ensuring flight controls only engage when you are safely in the seat.",
+          "source": "modules/08_chinook_controls/audio/414efd8dab09a43f6edc.wav"
+        },
+        {
+          "start": 9.649999999999999,
+          "duration": 8.37,
+          "text": "Close the editor, aim at the pilot seat, and press V to board. Hitting F three toggles our third-person perspective, giving us an expansive view of both the rotors and the archipelago.",
+          "source": "modules/08_chinook_controls/audio/b30117b7017cec28381e.wav"
+        },
+        {
+          "start": 18.269999999999996,
+          "duration": 19.72,
+          "text": "In traditional sandbox games, building a working multi-rotor aircraft required writing pages of scripts and tedious physics tuning that scared off most players. In Space, you don't need any coding or aerospace knowledge. Attitude control, key bindings, and auto-hover stabilization are fully automated by the agent in seconds. You just board the cockpit, and let your intelligent co-builder handle the rest.",
+          "source": "modules/08_chinook_controls/audio/d1edc100942e175b2631.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/08-chinook-controls-clean.mp4",
+          "in": 0.0,
+          "out": 11.5,
+          "duration": 9.649999999999999,
+          "mode": "fit"
+        },
+        {
+          "source": "footage/08-chinook-controls-clean.mp4",
+          "in": 11.5,
+          "out": 19.0,
+          "duration": 8.619999999999997,
+          "mode": "fit"
+        },
+        {
+          "source": "footage/08-chinook-controls-clean.mp4",
+          "in": 19.0,
+          "out": 31.000000000000004,
+          "duration": 12.000000000000004,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/06-chinook-inspect-clean.mp4",
+          "in": 8.0,
+          "out": 16.096666666666668,
+          "duration": 8.096666666666668,
+          "mode": "realtime"
+        }
+      ]
+    },
+    {
+      "id": "09_chinook_flight_a",
+      "title": "Maiden Flight: Responsive Controls & Cruising",
+      "label": "支奴干起飞",
+      "start": 302.26666666666665,
+      "duration": 32.7,
+      "preview": "modules/09_chinook_flight_a/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 7.91,
+          "text": "Hit the throttle, and the helicopter lifts off smoothly from the grass into a clean vertical climb! Nudging forward input pitches the nose down as thrust propels us forward.",
+          "source": "modules/09_chinook_flight_a/audio/a5bbce4ba8c04026a47e.wav"
+        },
+        {
+          "start": 8.36,
+          "duration": 11.84,
+          "text": "Releasing the keys commands the controller to decelerate and settle into a stable hover. Our first turn is wide and deliberate: a heavy tandem transport should feel substantial, carrying realistic momentum and weight rather than feeling twitchy.",
+          "source": "modules/09_chinook_flight_a/audio/effafce6192cc3f0c869.wav"
+        },
+        {
+          "start": 20.45,
+          "duration": 11.87,
+          "text": "As the castle slips behind us, sunlight cuts across the skyward ring, revealing an incredible panoramic skyline. Testing each axis one at a time lets you appreciate just how responsive and natural the handling feels.",
+          "source": "modules/09_chinook_flight_a/audio/d9cd3ec0c8ee2cd4a12a.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/09-chinook-flight-a-clean.mp4",
+          "in": 0.0,
+          "out": 3.5,
+          "duration": 3.5,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/09-chinook-flight-a-clean.mp4",
+          "in": 17.0,
+          "out": 21.86,
+          "duration": 4.859999999999999,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/09-chinook-flight-a-clean.mp4",
+          "in": 40.0,
+          "out": 44.5,
+          "duration": 4.5,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/09-chinook-flight-a-clean.mp4",
+          "in": 22.0,
+          "out": 29.59,
+          "duration": 7.59,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/09-chinook-flight-a-clean.mp4",
+          "in": 30.0,
+          "out": 42.25,
+          "duration": 12.250000000000004,
+          "mode": "realtime"
+        }
+      ]
+    },
+    {
+      "id": "10_chinook_flight_b",
+      "title": "Island Transit: Freedom of Skyward Exploration",
+      "label": "支奴干环绕飞行",
+      "start": 334.96666666666664,
+      "duration": 39.9,
+      "preview": "modules/10_chinook_flight_b/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 8.48,
+          "text": "Cruising over the islands in third-person, the silhouette of the Chinook stands out sharply against the floating terrain, making spatial navigation effortless without needing a minimap.",
+          "source": "modules/10_chinook_flight_b/audio/3881423912d2fedd8e64.wav"
+        },
+        {
+          "start": 8.93,
+          "duration": 11.71,
+          "text": "Throughout every turn and descent, the aircraft maintains rock-solid self-stabilization—simply letting go of the controls parks it in mid-air, a testament to the intelligent auto-hover code generated by the agent.",
+          "source": "modules/10_chinook_flight_b/audio/7b5abe5c5817a9bcc4ee.wav"
+        },
+        {
+          "start": 20.89,
+          "duration": 8.72,
+          "text": "This machine unlocks the true gameplay of Aether Archipelago: impassable voids are now open airways, and remote castles become landing sites waiting to be explored.",
+          "source": "modules/10_chinook_flight_b/audio/684519f1e54f2df5eca8.wav"
+        },
+        {
+          "start": 29.86,
+          "duration": 9.69,
+          "text": "The seamless world streaming keeps distant terrain and the massive ring continuous throughout our flight. With our aerial test complete, it's time to head to our second world for some high-speed off-road driving!",
+          "source": "modules/10_chinook_flight_b/audio/de2cd6d211195eebf8cf.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/10-chinook-flight-b-clean.mp4",
+          "in": 0.0,
+          "out": 29.86,
+          "duration": 29.86,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/09-chinook-flight-a-clean.mp4",
+          "in": 34.5,
+          "out": 44.54,
+          "duration": 10.04,
+          "mode": "realtime"
+        }
+      ]
+    },
+    {
+      "id": "11_nature_tour",
+      "title": "Nature: Land Expedition & Route Planning",
+      "label": "Nature 地形游览",
+      "start": 374.8666666666666,
+      "duration": 35.53333333333333,
+      "preview": "modules/11_nature_tour/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 5.47,
+          "text": "Welcome to our second world: Nature. In Agent Build, we simply update our target world to Nature.",
+          "source": "modules/11_nature_tour/audio/4dc406108b968288b398.wav"
+        },
+        {
+          "start": 5.92,
+          "duration": 7.43,
+          "text": "Unlike the vertical drops of Aether, Nature is an expansive rolling wilderness packed with natural slopes, rocky ledges, and stepped grass terraces.",
+          "source": "modules/11_nature_tour/audio/f147b976f61a4c003d9f.wav"
+        },
+        {
+          "start": 13.6,
+          "duration": 11.84,
+          "text": "We pick an open grassy clearing as our starting point. In Space, you don't need to build artificial ramps or test tracks—the rugged procedural earth is already the ultimate off-road proving ground. Here, we're going to build a heavy-duty all-terrain rover.",
+          "source": "modules/11_nature_tour/audio/4046c81bdfe718748df9.wav"
+        },
+        {
+          "start": 25.689999999999998,
+          "duration": 9.47,
+          "text": "This landscape sets the stage for our driving tests: checking low-speed wheel rotation first, testing steering geometry, and finally pushing the independent suspension across natural terraces.",
+          "source": "modules/11_nature_tour/audio/ad8ce63b263e0df5f507.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/reused/11-nature-tour.mp4",
+          "in": 0.0,
+          "out": 42.0,
+          "duration": 35.53333333333333,
+          "mode": "fit"
+        }
+      ]
+    },
+    {
+      "id": "12_rover_prompt",
+      "title": "Ground Build: Prompting an Independent Suspension Rover",
+      "label": "越野车构建请求",
+      "start": 410.4,
+      "duration": 30.866666666666667,
+      "preview": "modules/12_rover_prompt/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 8.63,
+          "text": "Our second request to the agent focuses on ground physics: build a sand-colored four-wheel, off-road vehicle with a sturdy chassis, high ground clearance, and prominent headlights.",
+          "source": "modules/12_rover_prompt/audio/d9326aeb8ee7922aed84.wav"
+        },
+        {
+          "start": 9.08,
+          "duration": 13.67,
+          "text": "The heart of the vehicle is its suspension: dynamic chassis, four independently animated wheels, and spring-and-damper forces calculated at every contact point. The wheels must articulate over bumps with responsive acceleration, steering, braking, and lateral grip.",
+          "source": "modules/12_rover_prompt/audio/0ade01df74c1ee72c1e4.wav"
+        },
+        {
+          "start": 23.0,
+          "duration": 7.51,
+          "text": "This independent raycast suspension delivers authentic mechanical behavior you can feel in every turn, far beyond cosmetic wheels that only spin in place.",
+          "source": "modules/12_rover_prompt/audio/11ad6678126f1538773b.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "stills/12-rover-prompt.png",
+          "in": 0.0,
+          "out": 30.866666666666667,
+          "duration": 30.866666666666667,
+          "mode": "realtime"
+        }
+      ]
+    },
+    {
+      "id": "13_rover_inspect",
+      "title": "Suspension Mechanics: Dynamic Ground Articulation",
+      "label": "悬挂与车体检查",
+      "start": 441.26666666666665,
+      "duration": 38.13333333333333,
+      "preview": "modules/13_rover_inspect/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 8.28,
+          "text": "The rover appears instantly. Dropping our camera to wheel level reveals the setup: a single dynamic chassis root connected to four independently articulated wheel assemblies.",
+          "source": "modules/13_rover_inspect/audio/632f8bcdeceea24d6490.wav"
+        },
+        {
+          "start": 8.729999999999999,
+          "duration": 12.69,
+          "text": "Each wheel samples the terrain in real time. Springs absorb ground impact while dampers suppress unwanted oscillation. Without damping, a chassis bounces uncontrollably after every bump; with too much, it rides like a rigid brick.",
+          "source": "modules/13_rover_inspect/audio/1e4a025acd775c921aa8.wav"
+        },
+        {
+          "start": 21.669999999999998,
+          "duration": 16.09,
+          "text": "In standard game development, tuning an adaptive multi-wheel suspension is notoriously complex. In Space, the agent generates and balances this entire physics controller automatically. You simply ask for independent suspension, and the AI handles the forces, giving you planted, responsive vehicle handling right out of the box.",
+          "source": "modules/13_rover_inspect/audio/18b8c73214c93581156b.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/reused/13-rover-inspect.mp4",
+          "in": 0.0,
+          "out": 41.0,
+          "duration": 38.13333333333333,
+          "mode": "fit"
+        }
+      ]
+    },
+    {
+      "id": "16_rover_drive_a",
+      "title": "Driving Feel: Forward, Reverse & Tire Traction",
+      "label": "车轮前进与倒退测试",
+      "start": 479.4,
+      "duration": 28.733333333333334,
+      "preview": "modules/16_rover_drive_a/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 6.56,
+          "text": "Hop into the driver's seat and tap the accelerator! We run a low-speed crawl forward and backward at ground level to examine tire rotation.",
+          "source": "modules/16_rover_drive_a/audio/87e98ccca970c8052900.wav"
+        },
+        {
+          "start": 7.01,
+          "duration": 7.76,
+          "text": "Relative to the chassis, the contact patch of each tire must sweep backward against the terrain as the vehicle drives forward, reversing smoothly when backing up.",
+          "source": "modules/16_rover_drive_a/audio/178745e04b51ad6431c5.wav"
+        },
+        {
+          "start": 15.02,
+          "duration": 13.36,
+          "text": "The wide treads grip the grass naturally. Forward acceleration, braking, and reverse motion all synchronize with satisfying mechanical weight. If you ever want to tweak torque or gearing, a single message to your agent updates the script instantly.",
+          "source": "modules/16_rover_drive_a/audio/102d46f37f56a41b5662.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/16-rover-roll-test.mp4",
+          "in": 0.0,
+          "out": 11.5,
+          "duration": 11.5,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/16-rover-roll-test.mp4",
+          "in": 15.0,
+          "out": 25.5,
+          "duration": 10.5,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/16-rover-roll-test.mp4",
+          "in": 24.0,
+          "out": 30.733333333333334,
+          "duration": 6.733333333333334,
+          "mode": "realtime"
+        }
+      ]
+    },
+    {
+      "id": "17_rover_drive_b",
+      "title": "Off-Road Trail: Steering Control & Hill Climbing",
+      "label": "左右转向与自然台阶越野",
+      "start": 508.1333333333333,
+      "duration": 33.03333333333333,
+      "preview": "modules/17_rover_drive_b/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 10.08,
+          "text": "Next, we test steering response. Holding the brake, pressing A steers left, releasing returns to center, and pressing D turns right. The front wheels articulate crisply while the rear axle stays true.",
+          "source": "modules/17_rover_drive_b/audio/50b2d29c6d6131782265.wav"
+        },
+        {
+          "start": 10.53,
+          "duration": 7.5,
+          "text": "Keeping the steering yaw axis on the chassis and the rolling pitch axis on each wheel prevents high-speed wheel wobble, delivering crisp, predictable control.",
+          "source": "modules/17_rover_drive_b/audio/c00e2ae7b488b0a1b369.wav"
+        },
+        {
+          "start": 18.28,
+          "duration": 14.39,
+          "text": "Release the brakes and hammer the throttle across natural terraces! As individual wheels tackle rocks and dirt ledges, the suspension compresses and rebounds smoothly, keeping the chassis level while the amber headlights lead the charge. Conquering the wilderness like this is an absolute blast!",
+          "source": "modules/17_rover_drive_b/audio/5d0bb7b9a15b655f481d.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/17-rover-steering-test.mp4",
+          "in": 0.0,
+          "out": 18.28,
+          "duration": 18.28,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/replacements/17-rover-terrain.mp4",
+          "in": 2.0,
+          "out": 16.75333333333333,
+          "duration": 14.75333333333333,
+          "mode": "realtime"
+        }
+      ]
+    },
+    {
+      "id": "18_copper_tour",
+      "title": "Copper Metropolis: Navigating the Vertical Skyline",
+      "label": "铜城地形游览",
+      "start": 541.1666666666666,
+      "duration": 37.233333333333334,
+      "preview": "modules/18_copper_tour/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 7.92,
+          "text": "Our final stop brings us to Copper Metropolis. Packed with soaring skyscrapers, this world presents an entirely different navigation challenge from open wilderness.",
+          "source": "modules/18_copper_tour/audio/ceecff02ec6fc8e50f61.wav"
+        },
+        {
+          "start": 8.37,
+          "duration": 9.2,
+          "text": "Copper highlights how effortlessly Space renders dense, multi-tiered urban architecture. Sharp horizontal rooflines make every subtle tilt and attitude change easy to read.",
+          "source": "modules/18_copper_tour/audio/8ad86676a7622f457d22.wav"
+        },
+        {
+          "start": 17.82,
+          "duration": 9.76,
+          "text": "In this vertical cityscape, we explore an even more advanced gameplay mechanic: instead of manually piloting a vehicle, we ask the agent to create an autonomous companion drone that follows our every move.",
+          "source": "modules/18_copper_tour/audio/45959e19f7f9a6c86bca.wav"
+        },
+        {
+          "start": 27.83,
+          "duration": 9.05,
+          "text": "The player becomes the moving target. Starting from a spacious rooftop terrace, we take to the air, giving our drone companion plenty of clear airspace to climb, follow, and hover beside us.",
+          "source": "modules/18_copper_tour/audio/8473c6ef8758c7ccb69b.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/reused/18-copper-tour.mp4",
+          "in": 0.0,
+          "out": 42.0,
+          "duration": 37.233333333333334,
+          "mode": "fit"
+        }
+      ]
+    },
+    {
+      "id": "19_drone_prompt",
+      "title": "Intelligent Companion: Prompting a Character-Following Drone",
+      "label": "跟随无人机构建请求",
+      "start": 578.4,
+      "duration": 28.033333333333335,
+      "preview": "modules/19_drone_prompt/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 4.4,
+          "text": "To summon this smart aerial companion, we provide the agent with a clear behavioral prompt:",
+          "source": "modules/19_drone_prompt/audio/a6ea44bc248afddf7d72.wav"
+        },
+        {
+          "start": 4.8500000000000005,
+          "duration": 7.14,
+          "text": "Build a compact quadcopter companion featuring a dynamic center body, four counter-rotating rotors, landing feet, and a distinct front accent.",
+          "source": "modules/19_drone_prompt/audio/9c9d775310ea753182fc.wav"
+        },
+        {
+          "start": 12.24,
+          "duration": 15.43,
+          "text": "Writing a real-time 3D tracking controller that samples velocity, maintains a spatial offset, and handles target loss would normally take hundreds of lines of complex math. In Space, you just describe the behavior in plain English, and the agent automatically writes and compiles the entire autonomous attitude-torque controller for you.",
+          "source": "modules/19_drone_prompt/audio/a64a409c36569ef315db.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "stills/19-drone-prompt.png",
+          "in": 0.0,
+          "out": 28.033333333333335,
+          "duration": 28.033333333333335,
+          "mode": "realtime"
+        }
+      ]
+    },
+    {
+      "id": "20_drone_refine",
+      "title": "Entity Marking: Spraying a Front-Facing Accent",
+      "label": "无人机检查与标记",
+      "start": 606.4333333333333,
+      "duration": 31.4,
+      "preview": "modules/20_drone_refine/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 9.04,
+          "text": "The drone appears instantly on the terrace, with four counter-rotating rotor arms clearly defined. The visual spinning animations work hand-in-hand with genuine dynamic physics forces.",
+          "source": "modules/20_drone_refine/audio/0088895d0713e46b00fe.wav"
+        },
+        {
+          "start": 9.489999999999998,
+          "duration": 11.84,
+          "text": "Because quadcopters are geometrically symmetrical, reading their heading during rapid aerial spins can be tricky. We whip out the Brush and paint a vivid front accent badge—a two-second touch that brings instant personality to the drone.",
+          "source": "modules/20_drone_refine/audio/39b21e5f351e98aac271.wav"
+        },
+        {
+          "start": 21.58,
+          "duration": 9.44,
+          "text": "Sturdy landing feet ensure clean clearance. While Modeling tools can easily add camera gimbals or cosmetic housings, genuine flight behavior always flows from the underlying physics components.",
+          "source": "modules/20_drone_refine/audio/700dee662da4350f181c.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/reused/20-drone-refine.mp4",
+          "in": 0.0,
+          "out": 13.0,
+          "duration": 9.489999999999998,
+          "mode": "fit"
+        },
+        {
+          "source": "footage/reused/20-drone-refine.mp4",
+          "in": 13.0,
+          "out": 25.0,
+          "duration": 12.09,
+          "mode": "fit"
+        },
+        {
+          "source": "footage/reused/20-drone-refine.mp4",
+          "in": 25.0,
+          "out": 38.0,
+          "duration": 9.82,
+          "mode": "fit"
+        }
+      ]
+    },
+    {
+      "id": "21_drone_flight_a",
+      "title": "Synchronized Flight: Continuous Circular Tracking",
+      "label": "角色腾空与无人机跟随",
+      "start": 637.8333333333333,
+      "duration": 30.266666666666666,
+      "preview": "modules/21_drone_flight_a/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 9.2,
+          "text": "Now, let's look at how the drone actually behaves in synchronized flight. In third-person, we let the drone settle beside us, then toggle character flight mode and ascend straight into the air.",
+          "source": "modules/21_drone_flight_a/audio/51dce233fad38f1c5bb7.wav"
+        },
+        {
+          "start": 9.649999999999999,
+          "duration": 9.44,
+          "text": "We leave the rooftop and keep moving around a wide circle above the city. The drone tracks our position and velocity. To turn, it must redirect thrust and bank, rather than slide straight to a target.",
+          "source": "modules/21_drone_flight_a/audio/520af4c2577e21802f2b.wav"
+        },
+        {
+          "start": 19.339999999999996,
+          "duration": 10.57,
+          "text": "This is closer to real exploration. With the target always moving, the drone continuously corrects its distance and altitude. Keeping both characters in third person makes the tracking delay and banking easy to see.",
+          "source": "modules/21_drone_flight_a/audio/b8fc86bb53423faa2cf5.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/replacements/21-takeoff.zh.mp4",
+          "in": 0.4,
+          "out": 10.049999999999999,
+          "duration": 9.649999999999999,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/replacements/21-22-circle.zh.mp4",
+          "in": 0.4,
+          "out": 21.016666666666666,
+          "duration": 20.616666666666667,
+          "mode": "realtime"
+        }
+      ]
+    },
+    {
+      "id": "22_drone_flight_b",
+      "title": "Continuous Flight: A Drone Companion in Motion",
+      "label": "空中环顾、侧移与悬停",
+      "start": 668.0999999999999,
+      "duration": 31.4,
+      "preview": "modules/22_drone_flight_b/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 8.93,
+          "text": "We continue flying quickly around the large circle. Buildings pass below, the drone keeps catching up, and the camera follows our route so the movement reads as one continuous flight.",
+          "source": "modules/22_drone_flight_b/audio/36e595ea08c827f7ad71.wav"
+        },
+        {
+          "start": 9.379999999999999,
+          "duration": 13.0,
+          "text": "Watch the drone bank into each turn, redirecting acceleration rather than sliding sideways. When we change speed, it adjusts thrust to correct the tracking error. It's constantly balancing distance and altitude, so the follower stays responsive while the target keeps moving.",
+          "source": "modules/22_drone_flight_b/audio/d860d5d6168d35f1338b.wav"
+        },
+        {
+          "start": 22.63,
+          "duration": 8.4,
+          "text": "Now we release the controls and let it settle. You choose the route; the drone follows through its own logic. Scouting, patrols, or hauling could give this companion more gameplay roles.",
+          "source": "modules/22_drone_flight_b/audio/5c10573bab58e60fd00e.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/replacements/21-22-circle.zh.mp4",
+          "in": 21.016666666666666,
+          "out": 52.416666666666664,
+          "duration": 31.4,
+          "mode": "realtime"
+        }
+      ]
+    },
+    {
+      "id": "24_backpack_market",
+      "title": "Backpack and Market: Share Creations and Reusable Modules",
+      "label": "背包与市场",
+      "start": 699.4999999999999,
+      "duration": 50.9,
+      "preview": "modules/24_backpack_market/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 8.16,
+          "text": "Before we finish, let's open the backpack. Save a vehicle here and place it again later. Think of it as both a collection of finished creations and your own reusable parts library.",
+          "source": "modules/24_backpack_market/audio/dcafe3c8f08061c236e8.wav"
+        },
+        {
+          "start": 8.61,
+          "duration": 9.12,
+          "text": "Take this rover. Select a wheel component and copy it into the backpack. When you design another vehicle, reuse that wheel, then adjust its size, color, and structure to suit the new build.",
+          "source": "modules/24_backpack_market/audio/d6e1c6eebfdf725d5a12.wav"
+        },
+        {
+          "start": 17.979999999999997,
+          "duration": 11.26,
+          "text": "The helicopter works the same way. Save a rotor as its own module, and organize the fuselage and landing gear separately. New vehicles can start by combining existing parts, leaving more time for design and gameplay.",
+          "source": "modules/24_backpack_market/audio/ec6d0995397bf1f9d0a7.wav"
+        },
+        {
+          "start": 29.489999999999995,
+          "duration": 10.97,
+          "text": "The market lets you browse other players' creations and share your own. Others can download and reuse a complete vehicle, a single tire, or a rotor assembly. Each contribution can become part of someone else's build.",
+          "source": "modules/24_backpack_market/audio/0034c01774fa110b8ad9.wav"
+        },
+        {
+          "start": 40.709999999999994,
+          "duration": 9.84,
+          "text": "Static buildings belong here too. A windmill, a tower, or an architectural detail can all be saved and shared. One player's creation becomes another player's starting point. Together, we can build a richer world.",
+          "source": "modules/24_backpack_market/audio/f8b2718f35fec0f64633.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage/replacements/24-backpack.zh.mp4",
+          "in": 0.0,
+          "out": 8.61,
+          "duration": 8.61,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/replacements/24-wheel.zh.mp4",
+          "in": 0.0,
+          "out": 9.369999999999997,
+          "duration": 9.369999999999997,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/replacements/24-rotor.zh.mp4",
+          "in": 0.0,
+          "out": 11.509999999999998,
+          "duration": 11.509999999999998,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/replacements/24-market.zh.mp4",
+          "in": 0.0,
+          "out": 6.5,
+          "duration": 6.5,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/replacements/24-publish.zh.mp4",
+          "in": 0.0,
+          "out": 4.719999999999999,
+          "duration": 4.719999999999999,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/replacements/24-building.zh.mp4",
+          "in": 0.0,
+          "out": 10.190000000000005,
+          "duration": 10.190000000000005,
+          "mode": "realtime"
+        }
+      ]
+    },
+    {
+      "id": "23_close",
+      "title": "Conclusion: Build, Refine, and Play in EntropyDrop Space",
+      "label": "结尾三场景回顾",
+      "start": 750.3999999999999,
+      "duration": 40.86666666666667,
+      "preview": "modules/23_close/preview.mp4",
+      "voice_timing": [
+        {
+          "start": 0.2,
+          "duration": 10.52,
+          "text": "Looking back across our journey—from air-lifting between floating islands, to tackling wild terrain in an off-road rover, to soaring alongside an autonomous drone—each world highlights the core magic of Space:",
+          "source": "modules/23_close/audio/9cc63bb753d6f85103a6.wav"
+        },
+        {
+          "start": 10.969999999999999,
+          "duration": 14.88,
+          "text": "AI Agents lower the barrier to creation, turning wild ideas into working machinery in seconds; Hands-on voxel toolkits keep you in total control, banishing uneditable AI black boxes; And it all comes together in an interactive 3D universe running right in your web browser.",
+          "source": "modules/23_close/audio/76f1db0d7b33370c7e56.wav"
+        },
+        {
+          "start": 26.1,
+          "duration": 14.39,
+          "text": "This is EntropyDrop Space. With no client to install, you can open entropydrop.com directly in your browser to start building and exploring today. Describe your ideas, refine them with your own hands, and take them wherever your imagination leads. Thanks for watching, and see you in the game!",
+          "source": "modules/23_close/audio/eb9957e48580c180e834.wav"
+        }
+      ],
+      "clips": [
+        {
+          "source": "module:10_chinook_flight_b",
+          "in": 8.0,
+          "out": 16.0,
+          "duration": 8.0,
+          "mode": "realtime"
+        },
+        {
+          "source": "module:17_rover_drive_b",
+          "in": 20.28,
+          "out": 28.28,
+          "duration": 8.0,
+          "mode": "realtime"
+        },
+        {
+          "source": "module:22_drone_flight_b",
+          "in": 3.0,
+          "out": 13.100000000000001,
+          "duration": 10.100000000000001,
+          "mode": "realtime"
+        },
+        {
+          "source": "footage/replacements/01-intro-scroll.zh.mp4",
+          "in": 35.0,
+          "out": 49.766666666666666,
+          "duration": 14.766666666666666,
+          "mode": "realtime"
+        }
+      ]
+    }
+  ]
+}

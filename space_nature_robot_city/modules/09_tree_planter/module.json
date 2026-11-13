@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "09_tree_planter",
+  "language": "zh",
+  "clips": [
+    {
+      "file": "footage/scifi-tree-planting.mp4",
+      "start": 0,
+      "duration": 10
+    },
+    {
+      "file": "footage/scifi-tree-varieties.mp4",
+      "start": 0,
+      "duration": 19.633333333333333
+    }
+  ],
+  "burned_subtitles": false,
+  "editing_notes": "Approved sci-fi city; native fixed-time frames. Construction and work-button events are controller-driven. Prompt example is explicitly authored documentary material.",
+  "blueprint_sha256": "7e27f4c0a19ceda654d8bc3a60920a042f947ab9147199ce944a1cc4ee7abff0"
+}

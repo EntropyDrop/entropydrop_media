@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "Looking back across our journey—from air-lifting between floating islands, to tackling wild terrain in an off-road rover, to soaring alongside an autonomous drone—each world highlights the core magic of Space:",
+      "file": "modules/23_close/audio/9cc63bb753d6f85103a6.wav",
+      "sha256": "0e4758a25f864a7c77fa382239d563d37344d3155456218cd267bf5fe9cf1505",
+      "request_sha256": "9cc63bb753d6f85103a69bb01cfba22f6f3f979040185090ba1df50b439d1860"
+    },
+    {
+      "text": "AI Agents lower the barrier to creation, turning wild ideas into working machinery in seconds; Hands-on voxel toolkits keep you in total control, banishing uneditable AI black boxes; And it all comes together in an interactive 3D universe running right in your web browser.",
+      "file": "modules/23_close/audio/76f1db0d7b33370c7e56.wav",
+      "sha256": "2377b8ac4de1478a795a33404af73bf5dfcf78f722085a79237cbac2727cd23e",
+      "request_sha256": "76f1db0d7b33370c7e56385d68bfc26aec8ba0eb8f627ef0a71f829f0c523c0a"
+    },
+    {
+      "text": "This is EntropyDrop Space. With no client to install, you can open entropydrop.com directly in your browser to start building and exploring today. Describe your ideas, refine them with your own hands, and take them wherever your imagination leads. Thanks for watching, and see you in the game!",
+      "file": "modules/23_close/audio/eb9957e48580c180e834.wav",
+      "sha256": "61c950e4d5b856ba64f9d528bcd32dfefb62adc31b95263fb51ab7e79b445384",
+      "request_sha256": "eb9957e48580c180e8349a4a59802c4c7704a225a7059486a2338a0e6296e839"
+    }
+  ]
+}

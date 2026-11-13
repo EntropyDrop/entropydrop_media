@@ -1,0 +1,16 @@
+{
+  "id": "13_rover_inspect",
+  "label": "悬挂与车体检查",
+  "title": "Suspension Mechanics: Dynamic Ground Articulation",
+  "clips": [
+    {
+      "source": "footage/reused/13-rover-inspect.mp4",
+      "in": 0,
+      "out": 41,
+      "end_at": "end",
+      "mode": "fit"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "Inspection of chassis, wheel assemblies and springs."
+}

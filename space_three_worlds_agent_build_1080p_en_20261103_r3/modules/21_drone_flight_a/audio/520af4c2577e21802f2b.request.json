@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "We leave the rooftop and keep moving around a wide circle above the city. The drone tracks our position and velocity. To turn, it must redirect thrust and bank, rather than slide straight to a target.",
+  "seed": 43
+}

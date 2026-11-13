@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/drone_bridge_complete.mp4",
+  "seconds": 24,
+  "mode": "compositor",
+  "incoming": 961,
+  "frames": 720,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793857796814,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

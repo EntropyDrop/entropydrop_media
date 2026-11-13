@@ -1,0 +1,56 @@
+{
+  "capture": "1920x1080 native, 30fps output, highest quality, no OS cursor, fixed 75 degree FOV",
+  "world_loading": "Near terrain 429/429 ready; all 128/128 distant districts installed from the matching cached full-ring fixture; background regeneration tracked separately; diagnostics hidden.",
+  "runtime_module": ".local/vlog-three-worlds/retake-r3.ts",
+  "takes": [
+    {
+      "file": "02-aether-tour-clean.mp4",
+      "seconds": 41,
+      "action": "vlog.cleanTravel(true); vlog.tour([8265,108,1060],2.45,-.12,39.1)"
+    },
+    {
+      "file": "03-toolbar-clean.mp4",
+      "seconds": 34,
+      "action": "vlog.toolbarTake()"
+    },
+    {
+      "file": "06-chinook-inspect-clean.mp4",
+      "seconds": 35,
+      "setup": "await vlog.create(chinook, [8229,81.375,1022]); stopped",
+      "action": "vlog.cleanTravel(true); vlog.inspect(22,4,33.3,1.2,1.6)"
+    },
+    {
+      "file": "07-chinook-refine-clean.mp4",
+      "seconds": 33,
+      "action": "vlog.refineTake()"
+    },
+    {
+      "file": "08-chinook-controls-clean.mp4",
+      "seconds": 31,
+      "action": "vlog.controlsTake()"
+    },
+    {
+      "file": "09-chinook-flight-a-clean.mp4",
+      "seconds": 45,
+      "action": "vlog.scenicDrive([[0,17,['Space']],[17,22,['KeyW']],[22,40,['KeyW','KeyD']]],45)"
+    },
+    {
+      "file": "10-chinook-flight-b-clean.mp4",
+      "seconds": 37,
+      "action": "vlog.scenicDrive([[0,28,['KeyW','KeyD']]],37)"
+    },
+    {
+      "file": "21-drone-airborne-follow.mp4",
+      "seconds": 34,
+      "setup": "Refined drone at [8253.5,93.5625,1044.875], vlog.prepareFlightFollow(); enable scripts and settle; select Wrench before capture",
+      "action": "vlog.flightFollow(1,33)"
+    },
+    {
+      "file": "22-drone-airborne-orbit.mp4",
+      "seconds": 36,
+      "action": "vlog.flightFollow(2,35)"
+    }
+  ],
+  "recording_order": "One world tab at a time. Start capture then launch sequence immediately; save telemetry/status and proof still after take. Inspect native frame and chronological contact sheet before accepting.",
+  "remaining": "None. Nine retakes captured, assembled, visually reviewed and technically verified."
+}

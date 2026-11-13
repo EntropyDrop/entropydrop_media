@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "The toolbar at the bottom anchors your moment-to-moment gameplay. Selector defines 3D regions; Hammer places inventory items; and Wrench grabs, rotates, and configures active entities. Shovel shapes standard one-meter blocks, while Spoon operates at an ultra-fine one-eighth of a meter micro-voxel scale.",
+  "seed": 42
+}

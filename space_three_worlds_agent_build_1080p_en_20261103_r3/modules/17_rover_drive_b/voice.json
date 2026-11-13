@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "Next, we test steering response. Holding the brake, pressing A steers left, releasing returns to center, and pressing D turns right. The front wheels articulate crisply while the rear axle stays true.",
+      "file": "modules/17_rover_drive_b/audio/50b2d29c6d6131782265.wav",
+      "sha256": "c55155edb69ac8d65c044391237775c8fe23dba2648664583ec7ab20d68503dd",
+      "request_sha256": "50b2d29c6d613178226519d63a5bbdafab2385cbc0fabd28b6990f3db0307348"
+    },
+    {
+      "text": "Keeping the steering yaw axis on the chassis and the rolling pitch axis on each wheel prevents high-speed wheel wobble, delivering crisp, predictable control.",
+      "file": "modules/17_rover_drive_b/audio/c00e2ae7b488b0a1b369.wav",
+      "sha256": "69ce50d5a9a492993b7093d1ddd5d19ae8eb03fbb1bfaa89b0ecf29cc5f5ccc6",
+      "request_sha256": "c00e2ae7b488b0a1b369609bff5ac38cd0050422801f54febb2a8f7c697fdd6f"
+    },
+    {
+      "text": "Release the brakes and hammer the throttle across natural terraces! As individual wheels tackle rocks and dirt ledges, the suspension compresses and rebounds smoothly, keeping the chassis level while the amber headlights lead the charge. Conquering the wilderness like this is an absolute blast!",
+      "file": "modules/17_rover_drive_b/audio/5d0bb7b9a15b655f481d.wav",
+      "sha256": "1b7f9ab4b6bea21fc364e40cb88f0ff855aa676dd6f92725dcfbb931b1105861",
+      "request_sha256": "5d0bb7b9a15b655f481d00084e5cddd888d26826f778495a7f0997b5fa80f080"
+    }
+  ]
+}

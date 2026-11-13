@@ -1,0 +1,216 @@
+{
+  "status": "recorded_chinese",
+  "timings": "actual_chinese_timeline",
+  "planned_total_seconds": 695,
+  "modules": [
+    {
+      "id": "01_cold_open",
+      "title": "六台机器人，共同造城",
+      "status": "rendered_chinese",
+      "planned_duration_seconds": 25,
+      "planned_shots": [
+        "先用成片中真实发生的铺路、运料、双机盖房、植树各2秒组成开场。",
+        "低空拉升展示同一片施工区，不使用完成城市的预渲染替代实机。",
+        "上一期只用短镜头回顾，直接进入新问题。"
+      ],
+      "footage": "modules/01_cold_open/module.json",
+      "voice": "modules/01_cold_open/voice.zh.json",
+      "planned_start_seconds": 0,
+      "actual_start_seconds": 0,
+      "actual_duration_seconds": 26.1
+    },
+    {
+      "id": "02_nature_site",
+      "title": "选址与城市目标",
+      "status": "rendered_chinese",
+      "planned_duration_seconds": 40,
+      "planned_shots": [
+        "等待完整远景与附近地形加载稳定后，匀速360度环顾。",
+        "选自然地面，不预先建立大平台；现场确认无其他玩家建筑。",
+        "保存开工前固定俯瞰机位、地形与施工范围快照。"
+      ],
+      "footage": "modules/02_nature_site/module.json",
+      "voice": "modules/02_nature_site/voice.zh.json",
+      "planned_start_seconds": 25,
+      "actual_start_seconds": 26.1,
+      "actual_duration_seconds": 34.333333333333336
+    },
+    {
+      "id": "03_team_design",
+      "title": "五种分工与六个独立实体",
+      "status": "rendered_chinese",
+      "planned_duration_seconds": 50,
+      "planned_shots": [
+        "六台机器人同框，按角色依次靠近；颜色用于识别分工。",
+        "打开实体列表，证明是六个独立根实体；两台建筑机器人具有不同实体ID。",
+        "用真实任务状态面板或实体指示灯展示等待、工作、完成，不添加虚构进度。"
+      ],
+      "footage": "modules/03_team_design/module.json",
+      "voice": "modules/03_team_design/voice.zh.json",
+      "planned_start_seconds": 65,
+      "actual_start_seconds": 60.433333,
+      "actual_duration_seconds": 44.53333333333333
+    },
+    {
+      "id": "04_agent_build",
+      "title": "用 Agent Build 创建工作队伍",
+      "status": "rendered_chinese",
+      "planned_duration_seconds": 70,
+      "planned_shots": [
+        "显示实际提交的简明提示词和真实生成过程；较长等待剪切到完成回执。",
+        "第一人称检查底盘、工具头、角色颜色；必要时第三人称看结构。",
+        "展示AI生成代码与实体控制器之间的真实连接，不宣称机器人每帧调用大模型。"
+      ],
+      "footage": "modules/04_agent_build/module.json",
+      "voice": "modules/04_agent_build/voice.zh.json",
+      "planned_start_seconds": 115,
+      "actual_start_seconds": 104.966667,
+      "actual_duration_seconds": 55.9
+    },
+    {
+      "id": "05_survey_and_tools",
+      "title": "勘测、规划与手工调整",
+      "status": "rendered_chinese",
+      "planned_duration_seconds": 55,
+      "planned_shots": [
+        "第三人称跟拍勘测飞行；用第一人称扳手调整一个真实规划标记。",
+        "展示重新勘测结果，保留岩石或原生树木。",
+        "标记必须被程序实际读取；未实现动态标记时改为真实修改规划再部署并据实改稿。"
+      ],
+      "footage": "modules/05_survey_and_tools/module.json",
+      "voice": "modules/05_survey_and_tools/voice.zh.json",
+      "planned_start_seconds": 185,
+      "actual_start_seconds": 160.866667,
+      "actual_duration_seconds": 43.8
+    },
+    {
+      "id": "06_road_builder",
+      "title": "道路怎样成为共享基础设施",
+      "status": "rendered_chinese",
+      "planned_duration_seconds": 65,
+      "planned_shots": [
+        "低角度跟拍实体运动与逐段落块，完整保留一段实时施工。",
+        "角色走上已完成道路，验证真实碰撞。",
+        "高位机位同时看到铺路机、道路末端等待的运输车。"
+      ],
+      "footage": "modules/06_road_builder/module.json",
+      "voice": "modules/06_road_builder/voice.zh.json",
+      "planned_start_seconds": 240,
+      "actual_start_seconds": 204.666667,
+      "actual_duration_seconds": 47.43333333333333
+    },
+    {
+      "id": "07_logistics",
+      "title": "运输机器人与施工条件",
+      "status": "rendered_chinese",
+      "planned_duration_seconds": 55,
+      "planned_shots": [
+        "跟随黄色运输车完成一次真实装货、行驶、卸货和交接。",
+        "同镜头观察到货前后的建筑状态变化。",
+        "说明施工批次是自定义玩法规则；不声称接入了尚未实现的原生采矿、背包消耗或经济系统。"
+      ],
+      "footage": "modules/07_logistics/module.json",
+      "voice": "modules/07_logistics/voice.zh.json",
+      "planned_start_seconds": 305,
+      "actual_start_seconds": 252.1,
+      "actual_duration_seconds": 39.46666666666667
+    },
+    {
+      "id": "08_parallel_builders",
+      "title": "两台建筑机器人并行施工",
+      "status": "rendered_chinese",
+      "planned_duration_seconds": 70,
+      "planned_shots": [
+        "保留一栋小房屋从基础到屋顶的可跟踪过程，必要时拆成多段镜头。",
+        "宽景同时展示两个独立施工地块。",
+        "第一人称进入完工建筑，确认门洞可通行；不使用透视假立面冒充建筑。"
+      ],
+      "footage": "modules/08_parallel_builders/module.json",
+      "voice": "modules/08_parallel_builders/voice.zh.json",
+      "planned_start_seconds": 360,
+      "actual_start_seconds": 291.566667,
+      "actual_duration_seconds": 49.5
+    },
+    {
+      "id": "09_tree_planter",
+      "title": "植树机器人理解街区边界",
+      "status": "rendered_chinese",
+      "planned_duration_seconds": 50,
+      "planned_shots": [
+        "实时展示一棵树的分步生成。",
+        "镜头指向入口与路口，验证植树避让；树是静态世界方块。",
+        "行人视角穿过已完成街道，不只用航拍展示远景。"
+      ],
+      "footage": "modules/09_tree_planter/module.json",
+      "voice": "modules/09_tree_planter/voice.zh.json",
+      "planned_start_seconds": 430,
+      "actual_start_seconds": 341.066667,
+      "actual_duration_seconds": 38.63333333333333
+    },
+    {
+      "id": "10_pause_road",
+      "title": "故意暂停铺路，观察连锁反应",
+      "status": "rendered_chinese",
+      "planned_duration_seconds": 65,
+      "planned_shots": [
+        "使用脚本内工作暂停按钮，保留通信与进度，不误用会清空状态的全局Stop。",
+        "预先选中具有待开通卸货点的任务，清楚展示路→运输→建筑依赖链。",
+        "暂停和恢复均用连续实时镜头，固定第三人称FOV。"
+      ],
+      "footage": "modules/10_pause_road/module.json",
+      "voice": "modules/10_pause_road/voice.zh.json",
+      "planned_start_seconds": 480,
+      "actual_start_seconds": 379.7,
+      "actual_duration_seconds": 42.766666666666666
+    },
+    {
+      "id": "11_builder_handoff",
+      "title": "工作重新分配与协作边界",
+      "status": "rendered_chinese",
+      "planned_duration_seconds": 50,
+      "planned_shots": [
+        "只转交未开工任务，现场确认没有两台机器人重复建同一地块。",
+        "任务领取、释放和接手以实际运行状态为准；不以固定秒表触发剧情。",
+        "若可靠接手测试不通过，本模块删减并改为展示已有任务排队，不虚构成功。"
+      ],
+      "footage": "modules/11_builder_handoff/module.json",
+      "voice": "modules/11_builder_handoff/voice.zh.json",
+      "planned_start_seconds": 545,
+      "actual_start_seconds": 422.466667,
+      "actual_duration_seconds": 36.96666666666667
+    },
+    {
+      "id": "12_city_walkthrough",
+      "title": "从开工机位回看城市街区",
+      "status": "rendered_chinese",
+      "planned_duration_seconds": 55,
+      "planned_shots": [
+        "固定机位开工前后对照，然后第一人称步行、第三人称快速大圈飞行。",
+        "相机运动平滑且有变化，第三人称FOV预设固定；完整加载远景。",
+        "展示6–8栋规模目标，以实际完工数量改稿，不称作无限城市或全自动通用规划。"
+      ],
+      "footage": "modules/12_city_walkthrough/module.json",
+      "voice": "modules/12_city_walkthrough/voice.zh.json",
+      "planned_start_seconds": 595,
+      "actual_start_seconds": 459.433333,
+      "actual_duration_seconds": 39.5
+    },
+    {
+      "id": "13_reuse_and_close",
+      "title": "把机器人变成可复用的建设工具",
+      "status": "rendered_chinese",
+      "planned_duration_seconds": 45,
+      "planned_shots": [
+        "真实演示保存一个机器人到背包及查看其组件。",
+        "复用上一期已发布风车；本期新机器人未经另外授权不执行市场发布。",
+        "结尾只使用本期真实完成的街区和运行画面。"
+      ],
+      "footage": "modules/13_reuse_and_close/module.json",
+      "voice": "modules/13_reuse_and_close/voice.zh.json",
+      "planned_start_seconds": 650,
+      "actual_start_seconds": 498.933333,
+      "actual_duration_seconds": 35.333333333333336
+    }
+  ],
+  "actual_total_seconds": 534.2666666666668
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "We pick an open grassy clearing as our starting point. In Space, you don't need to build artificial ramps or test tracks—the rugged procedural earth is already the ultimate off-road proving ground. Here, we're going to build a heavy-duty all-terrain rover.",
+  "seed": 46
+}

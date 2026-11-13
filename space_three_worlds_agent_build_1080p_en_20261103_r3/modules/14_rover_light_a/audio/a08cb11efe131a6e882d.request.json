@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Stepping up to the front bumper in first-person, the stock lamps start with a neutral white. Pressing key six selects Brush, Tab toggles micro-voxel scale, and the I key opens our color palette, where we pick a vibrant amber accent.",
+  "seed": 43
+}

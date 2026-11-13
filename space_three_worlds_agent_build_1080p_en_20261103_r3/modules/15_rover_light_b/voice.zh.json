@@ -1,0 +1,27 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "给车灯点缀上暖色光晕，然后退后几步查看整体效果。整辆车的硬朗气质立刻凸显出来，即便在远景镜头下也能一眼辨识出车头朝向。",
+      "file": "modules/15_rover_light_b/audio/zh/81295c08232ce6995e58.wav",
+      "sha256": "dabccde513da88a38f0d30df40255b97c695f57d46576714d2805ac96bbdf81a",
+      "request_sha256": "81295c08232ce6995e5804ae8b05d048aef56295a3d8058e8273b2e864ac0579",
+      "trimmed_duration": 10.0
+    },
+    {
+      "text": "这正是 Space 玩法体系的核心所在：生成的载具永远保持完全的可编辑性。你不需要为了改动一个细微部件而大费周章地重新生成整辆车——AI 负责搞定复杂的工程架构，而美学与个性完全由你随心定义。",
+      "file": "modules/15_rover_light_b/audio/zh/ea20f9b832b659c415c8.wav",
+      "sha256": "0a293268ee06676a532ea8e1ac2e195870439119096981bfc08327e86691700f",
+      "request_sha256": "ea20f9b832b659c415c87f4c3aa5e9f029c083d38bab12da69df3920ca01c66e",
+      "trimmed_duration": 14.45
+    },
+    {
+      "text": "画笔改变外观，建模工具增加装饰，底层机制负责运动——明确划分这些职责边界，能帮助玩家完全掌控自己的作品。",
+      "file": "modules/15_rover_light_b/audio/zh/89ee05090b96c0cb310a.wav",
+      "sha256": "c90c6e6909c298d11c22b57de8d84f7ac63370634b81c166bbd219c3f6823123",
+      "request_sha256": "89ee05090b96c0cb310ad6d6752ead736437aafa1cc8206860f056a2dbf17ef0",
+      "trimmed_duration": 8.32
+    }
+  ]
+}

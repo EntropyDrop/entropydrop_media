@@ -32,15 +32,23 @@ def main():
         after = ROOT / current["render"]
         assert sha256(before) == previous["render_sha256"]
         assert sha256(after) == current["render_sha256"]
-        assert current["frames"] == previous["frames"]
+        tail_frames = sum(shot["frames"] for shot in current["scenes"] if shot.get("type") == "turntable")
+        assert current["frames"] == previous["frames"] + tail_frames
         assert current["source_sha256"] == previous["source_sha256"]
-        assert current["music"] == previous["music"]
-        assert audio_hash(before) == audio_hash(after)
+        same_audio = audio_hash(before) == audio_hash(after)
+        if not tail_frames:
+            assert current["music"] == previous["music"] and same_audio
+        retouched = []
         for old, new in zip(previous["scenes"], current["scenes"]):
-            assert all(new[key] == value for key, value in old.items())
+            allowed = {"render_image", "render_image_sha256"} if "image" in old else set()
+            assert all(new[key] == value for key, value in old.items() if key not in allowed)
             if "image" in old:
-                time = old["start"] + old["duration"] / 2
-                assert frame_hash(before, time) == frame_hash(after, time), old["id"]
+                if new["render_image_sha256"] != old["render_image_sha256"]:
+                    assert new.get(f"{variant}Image") == new["render_image"]
+                    retouched.append(new["id"])
+                else:
+                    time = old["start"] + old["duration"] / 2
+                    assert frame_hash(before, time) == frame_hash(after, time), old["id"]
         # Use 1:1 export pixels; a resized contact sheet would hide sharpening halos.
         sheet = Image.new("RGB", (1000, 1100), "#eeeeee")
         draw = ImageDraw.Draw(sheet)
@@ -63,9 +71,11 @@ def main():
         report[variant] = dict(before_sha256=previous["render_sha256"],
                                after_sha256=current["render_sha256"],
                                frames=current["frames"],
-                               audio_unchanged=True, photos_pixel_identical=True,
+                               audio_unchanged=same_audio, photos_pixel_identical=not retouched,
+                               retouched_photo_ids=retouched,
+                               appended_frames=tail_frames,
                                comparison=str(comparison.relative_to(ROOT)))
-        print(f"PASS {variant}: edit, audio and photo pixels unchanged; {comparison}", flush=True)
+        print(f"PASS {variant}: original shots matched, {len(retouched)} color-retouched photo scenes; {comparison}", flush=True)
     (folder / "verification.json").write_text(json.dumps(report, indent=2) + "\n")
 
 

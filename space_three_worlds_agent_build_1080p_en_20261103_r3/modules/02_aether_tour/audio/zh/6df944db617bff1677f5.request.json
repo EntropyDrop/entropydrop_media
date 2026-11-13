@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "来到以太群岛，先说说我们的设计理念。这里的地形会给创造提出问题：怎么跨过空隙，怎么运送物资，怎么让机器替玩家完成重复劳动？我们希望玩家带着目标去设计，再回到世界里验证。",
+  "seed": 100
+}

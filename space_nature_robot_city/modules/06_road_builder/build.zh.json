@@ -1,0 +1,22 @@
+{
+  "duration": 27.5,
+  "sha256": "7c65cff0cba9c70a8d7f005a457742d9ef7c31727223cab62211dbf999ad7806",
+  "voice_sha256": "7def509475139b36c13f430c406ed927e335da9526876bde5aada30c6555606a",
+  "clips": [
+    {
+      "file": "footage/scifi-road-close.mp4",
+      "start": 0,
+      "duration": 7
+    },
+    {
+      "file": "footage/scifi-road-timelapse.mp4",
+      "start": 0,
+      "duration": 11
+    },
+    {
+      "file": "footage/scifi-road-details.mp4",
+      "start": 0,
+      "duration": 9.5
+    }
+  ]
+}

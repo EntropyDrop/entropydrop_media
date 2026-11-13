@@ -1,0 +1,30 @@
+{
+  "id": "03_toolbar",
+  "label": "工具栏设计与用法",
+  "title": "The Creator's Toolkit: Core Mechanics & Micro-Voxel Workflow",
+  "clips": [
+    {
+      "source": "footage/03-toolbar-clean.mp4",
+      "in": 0,
+      "out": 12.6,
+      "end_at": "voice:2",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/03-toolbar-clean.mp4",
+      "in": 12.6,
+      "out": 24,
+      "end_at": "voice:3",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/03-toolbar-clean.mp4",
+      "in": 24,
+      "out": 34,
+      "end_at": "end",
+      "mode": "fit"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "Tool changes align with each paragraph; tool demonstration only, no vehicle physics retiming."
+}

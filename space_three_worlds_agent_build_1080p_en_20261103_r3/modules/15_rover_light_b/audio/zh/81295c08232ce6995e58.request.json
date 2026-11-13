@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "给车灯点缀上暖色光晕，然后退后几步查看整体效果。整辆车的硬朗气质立刻凸显出来，即便在远景镜头下也能一眼辨识出车头朝向。",
+  "seed": 42
+}

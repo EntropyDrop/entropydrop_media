@@ -1,0 +1,578 @@
+{
+  "id": "brickingbad-showcase",
+  "title": "Bricking Bad — From Print to Figure",
+  "importDirectory": "~/Downloads/shipin/未命名文件夹 9",
+  "sources": {
+    "brickingbad": "sources/VID_20261021_152118.mp4"
+  },
+  "fps": 30,
+  "bpm": 120,
+  "formats": {
+    "landscape": {
+      "width": 1920,
+      "height": 1080
+    },
+    "portrait": {
+      "width": 1080,
+      "height": 1920
+    }
+  },
+  "defaultLandscape": [
+    0,
+    0,
+    1920,
+    1080
+  ],
+  "defaultPortrait": {
+    "width": 594,
+    "height": 1056,
+    "y": 12
+  },
+  "shots": [
+    {
+      "id": "opening_hero",
+      "image": "sources/showcase/PXL_20261021_191135915.jpg",
+      "landscapeImage": "assets/showcase/hero-landscape-v1.png",
+      "portraitImage": "assets/showcase/hero-portrait-v1.png",
+      "duration": 2,
+      "label": "正面成品"
+    },
+    {
+      "id": "opening_angle_a",
+      "image": "sources/showcase/PXL_20261021_191206103.jpg",
+      "landscapeImage": "assets/showcase/angle-a-landscape-v1.png",
+      "landscapeOnly": true,
+      "duration": 2,
+      "label": "侧面成品"
+    },
+    {
+      "id": "opening_angle_b",
+      "image": "sources/showcase/PXL_20261021_191235152.jpg",
+      "landscapeImage": "assets/showcase/angle-b-landscape-v1.png",
+      "landscapeOnly": true,
+      "duration": 2,
+      "label": "另一侧成品"
+    },
+    {
+      "id": "s01_parts",
+      "source": "brickingbad",
+      "freeze": 0,
+      "duration": 3.5,
+      "portraitDuration": 1.5,
+      "centerX": 1100,
+      "label": "白模与皮肤纸"
+    },
+    {
+      "id": "s02_face",
+      "source": "brickingbad",
+      "in": 97,
+      "out": 100.5,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 1050,
+      "label": "压合脸部",
+      "landscape": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "keyframes": [
+        [
+          0,
+          1340
+        ],
+        [
+          0.875,
+          1230
+        ],
+        [
+          1.75,
+          1090
+        ],
+        [
+          2.625,
+          1140
+        ],
+        [
+          3.5,
+          1060
+        ]
+      ]
+    },
+    {
+      "id": "s03_mouth",
+      "source": "brickingbad",
+      "in": 148,
+      "out": 154,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 940,
+      "label": "嘴部细节",
+      "landscape": [
+        160,
+        90,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "s04_head_back",
+      "source": "brickingbad",
+      "in": 436,
+      "out": 448,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 780,
+      "label": "头部背面",
+      "landscape": [
+        0,
+        90,
+        1600,
+        900
+      ],
+      "keyframes": [
+        [
+          0.0,
+          700
+        ],
+        [
+          0.875,
+          650
+        ],
+        [
+          1.75,
+          670
+        ],
+        [
+          2.625,
+          560
+        ],
+        [
+          3.5,
+          510
+        ]
+      ]
+    },
+    {
+      "id": "s05_head_side",
+      "source": "brickingbad",
+      "in": 532,
+      "out": 546,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 810,
+      "label": "头部侧面",
+      "landscape": [
+        0,
+        0,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "s06_head_turn",
+      "source": "brickingbad",
+      "in": 646.5,
+      "out": 654.5,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 1050,
+      "label": "头部包覆后转动展示",
+      "keyframes": [
+        [
+          0.0,
+          800
+        ],
+        [
+          0.875,
+          1060
+        ],
+        [
+          1.75,
+          1020
+        ],
+        [
+          2.625,
+          1000
+        ],
+        [
+          3.5,
+          800
+        ]
+      ]
+    },
+    {
+      "id": "s07_glasses",
+      "source": "brickingbad",
+      "in": 882.5,
+      "out": 886,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 1020,
+      "label": "贴合眼镜鼻梁",
+      "landscape": [
+        160,
+        180,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "s08_beard",
+      "source": "brickingbad",
+      "in": 941.5,
+      "out": 950,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 980,
+      "label": "方形胡须",
+      "landscape": [
+        80,
+        0,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "s09_shirt",
+      "source": "brickingbad",
+      "in": 1214,
+      "out": 1228,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 900,
+      "label": "蓝色衬衣正面",
+      "landscape": [
+        80,
+        0,
+        1600,
+        900
+      ],
+      "keyframes": [
+        [
+          0.0,
+          920
+        ],
+        [
+          0.875,
+          900
+        ],
+        [
+          1.75,
+          890
+        ],
+        [
+          2.625,
+          1030
+        ],
+        [
+          3.5,
+          1160
+        ]
+      ]
+    },
+    {
+      "id": "s10_jacket_back",
+      "source": "brickingbad",
+      "in": 1314,
+      "out": 1328,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 940,
+      "label": "外套背面",
+      "landscape": [
+        80,
+        90,
+        1600,
+        900
+      ],
+      "keyframes": [
+        [
+          0.0,
+          950
+        ],
+        [
+          0.875,
+          900
+        ],
+        [
+          1.75,
+          840
+        ],
+        [
+          2.625,
+          1020
+        ],
+        [
+          3.5,
+          1170
+        ]
+      ]
+    },
+    {
+      "id": "s11_waist",
+      "source": "brickingbad",
+      "in": 1474,
+      "out": 1488,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 920,
+      "label": "腰部连接孔",
+      "landscape": [
+        80,
+        90,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "s12_head_attach",
+      "source": "brickingbad",
+      "in": 1503.5,
+      "out": 1510,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 1070,
+      "label": "连接头部与躯干",
+      "keyframes": [
+        [
+          0.0,
+          1100
+        ],
+        [
+          0.875,
+          1100
+        ],
+        [
+          1.75,
+          1180
+        ],
+        [
+          2.625,
+          1250
+        ],
+        [
+          3.5,
+          1110
+        ]
+      ],
+      "portraitTrimStart": 1
+    },
+    {
+      "id": "s13_shoulder",
+      "source": "brickingbad",
+      "in": 1556,
+      "out": 1568,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 850,
+      "label": "袖口关节孔",
+      "landscape": [
+        0,
+        90,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "s14_sleeve",
+      "source": "brickingbad",
+      "in": 1614,
+      "out": 1628,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 880,
+      "label": "第一侧袖口",
+      "landscape": [
+        0,
+        90,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "s15_hand",
+      "source": "brickingbad",
+      "in": 1758,
+      "out": 1768,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 870,
+      "label": "手部端面",
+      "landscape": [
+        0,
+        90,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "s16_other_sleeve",
+      "source": "brickingbad",
+      "in": 1854,
+      "out": 1868,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 980,
+      "label": "另一侧袖口",
+      "landscape": [
+        80,
+        90,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "s17_arms_attach",
+      "source": "brickingbad",
+      "in": 2068.2,
+      "out": 2071.7,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 960,
+      "label": "连接手臂",
+      "portrait": {
+        "width": 540,
+        "height": 960,
+        "y": 0
+      },
+      "landscape": [
+        120,
+        0,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "s18_first_leg",
+      "source": "brickingbad",
+      "in": 2212,
+      "out": 2221,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 780,
+      "label": "第一侧裤腿",
+      "landscape": [
+        0,
+        0,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "s19_second_leg",
+      "source": "brickingbad",
+      "in": 2350,
+      "out": 2361,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 850,
+      "label": "另一侧裤腿",
+      "landscape": [
+        0,
+        0,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "s20_leg_joint",
+      "source": "brickingbad",
+      "in": 2416,
+      "out": 2428,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 900,
+      "label": "裤腿连接孔",
+      "landscape": [
+        80,
+        0,
+        1600,
+        900
+      ],
+      "keyframes": [
+        [
+          0.0,
+          950
+        ],
+        [
+          0.875,
+          780
+        ],
+        [
+          1.75,
+          750
+        ],
+        [
+          2.625,
+          650
+        ],
+        [
+          3.5,
+          710
+        ]
+      ]
+    },
+    {
+      "id": "s21_final_assembly",
+      "source": "brickingbad",
+      "in": 2465.5,
+      "out": 2471.5,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 1000,
+      "label": "装回双腿",
+      "keyframes": [
+        [
+          0.0,
+          850
+        ],
+        [
+          0.875,
+          850
+        ],
+        [
+          1.75,
+          830
+        ],
+        [
+          2.625,
+          860
+        ],
+        [
+          3.5,
+          1020
+        ]
+      ]
+    },
+    {
+      "id": "s22_reveal",
+      "source": "brickingbad",
+      "in": 2486,
+      "out": 2495.5,
+      "duration": 3.5,
+      "portraitDuration": 2.5,
+      "centerX": 1080,
+      "label": "成品转动展示"
+    },
+    {
+      "id": "ending",
+      "image": "sources/showcase/PXL_20261021_191135915.jpg",
+      "landscapeImage": "assets/showcase/hero-landscape-v1.png",
+      "portraitImage": "assets/showcase/hero-portrait-v1.png",
+      "duration": 4,
+      "portraitDuration": 3,
+      "label": "完整成品收尾"
+    }
+  ],
+  "music": {
+    "assembly": "s01_parts",
+    "head": "s02_face",
+    "head_attach": "s12_head_attach",
+    "arms": "s13_shoulder",
+    "legs": "s18_first_leg",
+    "leg_attach": "s21_final_assembly",
+    "ending": "ending"
+  }
+}

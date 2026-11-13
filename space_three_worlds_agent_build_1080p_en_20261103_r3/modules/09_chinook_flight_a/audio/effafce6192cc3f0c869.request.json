@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Releasing the keys commands the controller to decelerate and settle into a stable hover. Our first turn is wide and deliberate: a heavy tandem transport should feel substantial, carrying realistic momentum and weight rather than feeling twitchy.",
+  "seed": 43
+}

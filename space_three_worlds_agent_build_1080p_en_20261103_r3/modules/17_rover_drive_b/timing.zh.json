@@ -1,0 +1,49 @@
+{
+  "id": "17_rover_drive_b",
+  "title": "Off-Road Trail: Steering Control & Hill Climbing",
+  "label": "左右转向与自然台阶越野",
+  "duration": 33.03333333333333,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 10.08,
+      "text": "Next, we test steering response. Holding the brake, pressing A steers left, releasing returns to center, and pressing D turns right. The front wheels articulate crisply while the rear axle stays true.",
+      "source": "modules/17_rover_drive_b/audio/50b2d29c6d6131782265.wav"
+    },
+    {
+      "start": 10.53,
+      "duration": 7.5,
+      "text": "Keeping the steering yaw axis on the chassis and the rolling pitch axis on each wheel prevents high-speed wheel wobble, delivering crisp, predictable control.",
+      "source": "modules/17_rover_drive_b/audio/c00e2ae7b488b0a1b369.wav"
+    },
+    {
+      "start": 18.28,
+      "duration": 14.39,
+      "text": "Release the brakes and hammer the throttle across natural terraces! As individual wheels tackle rocks and dirt ledges, the suspension compresses and rebounds smoothly, keeping the chassis level while the amber headlights lead the charge. Conquering the wilderness like this is an absolute blast!",
+      "source": "modules/17_rover_drive_b/audio/5d0bb7b9a15b655f481d.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "footage/17-rover-steering-test.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/17-rover-steering-test.mp4",
+      "in": 0.0,
+      "out": 18.28,
+      "duration": 18.28,
+      "source_sig": "1e47f8446b628a490475e8426fcded840c6549e6e018edcf24a7401308558b71",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/replacements/17-rover-terrain.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/replacements/17-rover-terrain.mp4",
+      "in": 2.0,
+      "out": 16.75333333333333,
+      "duration": 14.75333333333333,
+      "source_sig": "446e89743bce8f123501a2745cf6a4475125c39df4d9d45b6c7c78c1ec112103",
+      "mode": "realtime"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "20fcfca2f677bfb5c9b7fe4ac6b1a9d6591f1f4bfaa73259a122de2e608f26a5",
+  "voice_sig": "32a342c151b50a9bd9260d92c96395a907ebc5e5b4b4339e79c5b54ba32d523a"
+}

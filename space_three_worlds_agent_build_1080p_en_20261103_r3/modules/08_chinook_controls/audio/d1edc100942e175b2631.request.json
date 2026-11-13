@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "In traditional sandbox games, building a working multi-rotor aircraft required writing pages of scripts and tedious physics tuning that scared off most players. In Space, you don't need any coding or aerospace knowledge. Attitude control, key bindings, and auto-hover stabilization are fully automated by the agent in seconds. You just board the cockpit, and let your intelligent co-builder handle the rest.",
+  "seed": 44
+}

@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 VERSION = 3
-COMPARISON_VERSION = 2
+COMPARISON_VERSION = 3
 
 
 def run(*args):
@@ -122,11 +122,20 @@ def comparison_filter(shot,manifest):
     displacement=f'{shift}*{ease}'
     slide=f"{layout['photoX']}-({displacement})"
     repeat=f'loop=loop=-1:size=1:start=0,setpts=N/({fps}*TB)'
+    # Extend only nearby neutral backdrop rows. Reflecting a tall border in one
+    # pass can copy the figure's head into the top margin at smaller scales.
+    vertical_extension=''
+    remaining_top,remaining_bottom=top,bottom
+    while remaining_top or remaining_bottom:
+        extra_top,extra_bottom=min(64,remaining_top),min(64,remaining_bottom)
+        vertical_extension+=(f'pad=iw:ih+{extra_top+extra_bottom}:0:{extra_top},'
+                             f'fillborders=top={extra_top}:bottom={extra_bottom}:mode=reflect,')
+        remaining_top-=extra_top;remaining_bottom-=extra_bottom
     return (
         f"[0:v]crop={w}:{h}:{x}:{y},scale={figure_width}:{figure_height}:flags=lanczos,"
-        f"setsar=1,format=gbrp,pad={width+shift}:{height}:{left}:{top},"
+        f"setsar=1,format=gbrp,pad={width+shift}:{figure_height}:{left}:0,"
         f"fillborders=left={left}:right={right}:mode=smear,"
-        f"fillborders=top={top}:bottom={bottom}:mode=reflect,"
+        f"{vertical_extension}"
         f"{repeat},crop={width}:{height}:x='{displacement}':y=0,format=rgb24[figure];"
         f"[1:v]scale={layout['photoWidth']}:-2:flags=lanczos,setsar=1,format=rgba,{repeat},"
         f"fade=t=out:st={c['exitStart']:.9f}:d={c['exitDuration']:.9f}:alpha=1[reference];"

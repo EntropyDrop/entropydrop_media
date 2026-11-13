@@ -1,0 +1,173 @@
+{
+  "id": "grove",
+  "name": "疏密混合林",
+  "options": {
+    "pattern": "grove",
+    "seed": 802,
+    "count": 12,
+    "width": 48,
+    "depth": 40,
+    "exclusions": [
+      {
+        "minX": -3,
+        "maxX": 3,
+        "minZ": -20,
+        "maxZ": 20,
+        "clearance": 0.75
+      }
+    ]
+  },
+  "recipe": {
+    "pattern": "grove",
+    "seed": 802,
+    "requestedCount": 12,
+    "placedCount": 12,
+    "bounds": {
+      "width": 48,
+      "depth": 40
+    },
+    "exclusions": [
+      {
+        "minX": -3,
+        "maxX": 3,
+        "minZ": -20,
+        "maxZ": 20,
+        "clearance": 0.75
+      }
+    ],
+    "placements": [
+      {
+        "assetId": "17_birch",
+        "kind": "birch",
+        "position": [
+          11,
+          0,
+          3.875
+        ],
+        "rotationY": 3.141592653589793,
+        "crownRadius": 2.25
+      },
+      {
+        "assetId": "20_cherry",
+        "kind": "cherry",
+        "position": [
+          -15.375,
+          0,
+          10.75
+        ],
+        "rotationY": 3.141592653589793,
+        "crownRadius": 4.25
+      },
+      {
+        "assetId": "21_willow",
+        "kind": "willow",
+        "position": [
+          -15.25,
+          0,
+          -8.25
+        ],
+        "rotationY": 0,
+        "crownRadius": 4.5
+      },
+      {
+        "assetId": "19_maple",
+        "kind": "maple",
+        "position": [
+          11,
+          0,
+          -14.75
+        ],
+        "rotationY": 4.71238898038469,
+        "crownRadius": 4.25
+      },
+      {
+        "assetId": "16_oak",
+        "kind": "oak",
+        "position": [
+          -17.375,
+          0,
+          1.25
+        ],
+        "rotationY": 0,
+        "crownRadius": 4
+      },
+      {
+        "assetId": "17_birch",
+        "kind": "birch",
+        "position": [
+          -12.5,
+          0,
+          -17.25
+        ],
+        "rotationY": 1.5707963267948966,
+        "crownRadius": 2.25
+      },
+      {
+        "assetId": "18_pine",
+        "kind": "pine",
+        "position": [
+          -7.25,
+          0,
+          -14.25
+        ],
+        "rotationY": 4.71238898038469,
+        "crownRadius": 3
+      },
+      {
+        "assetId": "17_birch",
+        "kind": "birch",
+        "position": [
+          20.625,
+          0,
+          10.25
+        ],
+        "rotationY": 1.5707963267948966,
+        "crownRadius": 2.25
+      },
+      {
+        "assetId": "19_maple",
+        "kind": "maple",
+        "position": [
+          14.75,
+          0,
+          -3.25
+        ],
+        "rotationY": 4.71238898038469,
+        "crownRadius": 4.25
+      },
+      {
+        "assetId": "17_birch",
+        "kind": "birch",
+        "position": [
+          -21.25,
+          0,
+          -13.125
+        ],
+        "rotationY": 3.141592653589793,
+        "crownRadius": 2.25
+      },
+      {
+        "assetId": "18_pine",
+        "kind": "pine",
+        "position": [
+          -7.875,
+          0,
+          -4.25
+        ],
+        "rotationY": 1.5707963267948966,
+        "crownRadius": 3
+      },
+      {
+        "assetId": "17_birch",
+        "kind": "birch",
+        "position": [
+          10.25,
+          0,
+          10.625
+        ],
+        "rotationY": 4.71238898038469,
+        "crownRadius": 2.25
+      }
+    ]
+  }
+}

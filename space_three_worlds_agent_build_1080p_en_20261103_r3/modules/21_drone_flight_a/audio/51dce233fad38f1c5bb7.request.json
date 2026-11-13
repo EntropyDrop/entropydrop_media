@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Now, let's look at how the drone actually behaves in synchronized flight. In third-person, we let the drone settle beside us, then toggle character flight mode and ascend straight into the air.",
+  "seed": 42
+}

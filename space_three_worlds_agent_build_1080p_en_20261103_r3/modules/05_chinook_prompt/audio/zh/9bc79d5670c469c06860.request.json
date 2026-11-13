@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "请建造一架橄榄绿的运输直升机，包含清晰的座舱、中空的可进入机舱、起落轮和可用的驾驶位。两组旋翼独立旋转，方向相反，通过推力和姿态力矩实现飞行。W 和 S 控制俯仰，A 和 D 控制转向，空格和 Shift 控制升降。",
+  "seed": 43
+}

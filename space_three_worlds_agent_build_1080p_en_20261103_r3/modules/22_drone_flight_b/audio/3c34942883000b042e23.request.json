@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Now the companion supports the gameplay. You choose a route, and its own control logic follows you. Future tasks like scouting, patrolling, or hauling could give it more uses.",
+  "seed": 44
+}

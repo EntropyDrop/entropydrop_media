@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "This is closer to real exploration. With the target always moving, the drone continuously corrects its distance and altitude. Keeping both characters in third person makes the tracking delay and banking easy to see.",
+  "seed": 44
+}

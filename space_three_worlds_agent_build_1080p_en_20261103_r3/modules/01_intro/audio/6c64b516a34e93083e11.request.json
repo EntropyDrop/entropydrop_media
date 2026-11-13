@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Hey everyone. Today, I want to introduce EntropyDrop Space, a 3D voxel game running directly in your web browser. In Space, the world isn't just a sandbox made of blocks—it's an interactive, playable world. Building a drivable machine in traditional sandbox games often takes hours of manual block placement and scripting, while typical generative 3D models tend to be static decorations you can neither customize nor actually play with.",
+  "seed": 42
+}

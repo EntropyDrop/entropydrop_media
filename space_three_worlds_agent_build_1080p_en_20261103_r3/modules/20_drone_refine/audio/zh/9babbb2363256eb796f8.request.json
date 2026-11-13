@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "无人机出现在露台上，四组反向旋转的旋翼清晰可见。旋转动画配合真实的动态受力，共同构成我们看到的飞行效果。",
+  "seed": 42
+}

@@ -69,6 +69,16 @@ node_modules/
 *.bak
 *.orig
 
+# AppleDouble metadata
+._*
+
+# Video artifacts
+*.mp4
+*.webm
+*.mov
+*.avi
+*.mkv
+
 # Additional local credential files and backups
 .minimax_api_key.*
 .netrc

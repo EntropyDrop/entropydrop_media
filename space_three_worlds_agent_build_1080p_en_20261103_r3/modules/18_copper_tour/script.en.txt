@@ -1,0 +1,7 @@
+Our final stop brings us to Copper Metropolis. Packed with soaring skyscrapers, this world presents an entirely different navigation challenge from open wilderness.
+
+Copper highlights how effortlessly Space renders dense, multi-tiered urban architecture. Sharp horizontal rooflines make every subtle tilt and attitude change easy to read.
+
+In this vertical cityscape, we explore an even more advanced gameplay mechanic: instead of manually piloting a vehicle, we ask the agent to create an autonomous companion drone that follows our every move.
+
+The player becomes the moving target. Starting from a spacious rooftop terrace, we take to the air, giving our drone companion plenty of clear airspace to climb, follow, and hover beside us.

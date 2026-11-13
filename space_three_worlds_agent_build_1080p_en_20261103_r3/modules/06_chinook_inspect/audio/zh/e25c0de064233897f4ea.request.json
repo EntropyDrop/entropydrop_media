@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "尤为亮眼的是驾驶位：在 Space 里，这不仅是一个装饰模型，而是一个带有登机判定与控制监听的功能性实体。",
+  "seed": 43
+}

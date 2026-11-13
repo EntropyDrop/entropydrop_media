@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "We continue flying quickly around the large circle. Buildings pass below, the drone keeps catching up, and the camera follows our route so the movement reads as one continuous flight.",
+      "file": "modules/22_drone_flight_b/audio/36e595ea08c827f7ad71.wav",
+      "sha256": "6aabe768e28128e4e854c6090e0068ca3e374b5547339fd3c2b60a667e384656",
+      "request_sha256": "36e595ea08c827f7ad712b2504f4d2fabfe1c993430fb29b56e5e02af82035d4"
+    },
+    {
+      "text": "Watch the drone bank into each turn, redirecting acceleration rather than sliding sideways. When we change speed, it adjusts thrust to correct the tracking error. It's constantly balancing distance and altitude, so the follower stays responsive while the target keeps moving.",
+      "file": "modules/22_drone_flight_b/audio/d860d5d6168d35f1338b.wav",
+      "sha256": "6ee6f60da9e67e9e6290ab8a7211595ae87d53d3009ab9aa8a0c97e8a57e067b",
+      "request_sha256": "d860d5d6168d35f1338b415238f7191c7927e04012269e79813f1345556a5b8d"
+    },
+    {
+      "text": "Now we release the controls and let it settle. You choose the route; the drone follows through its own logic. Scouting, patrols, or hauling could give this companion more gameplay roles.",
+      "file": "modules/22_drone_flight_b/audio/5c10573bab58e60fd00e.wav",
+      "sha256": "9d8c79cb2608f3145a1d06932efeeb25ae8471d1d6a86863f8a742a80b42fc7e",
+      "request_sha256": "5c10573bab58e60fd00ea4f5d9bc0501dc801b93aeb546cc849bb042803b485a"
+    }
+  ]
+}

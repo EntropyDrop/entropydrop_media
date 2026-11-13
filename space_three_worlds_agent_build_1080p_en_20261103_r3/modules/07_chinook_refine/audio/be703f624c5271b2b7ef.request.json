@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Switching to Brush, we pick an accent color and paint a custom livery detail. This is where Space shines: the AI handles the heavy structural engineering, and in just a few seconds with your own hands, you make the machine truly your own.",
+  "seed": 44
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "我们还想把这种协作扩展到自动化建造。比如让智能体指挥铺路机器人，观察前方地形，一边移动一边修路。载具、机器人和世界因此形成联系：你提出目标，AI 帮你实现，再用实际运行来检验设计。",
+  "seed": 102
+}

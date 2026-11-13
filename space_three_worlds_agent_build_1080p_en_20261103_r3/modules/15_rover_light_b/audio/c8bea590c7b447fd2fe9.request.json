@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Applying the amber accent and stepping back, the rover's visual character transforms immediately. Even at long camera distances, the vehicle's front heading is instantly recognizable.",
+  "seed": 42
+}

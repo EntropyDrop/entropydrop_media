@@ -1,0 +1,985 @@
+{
+  "version": 2,
+  "stage": "style_review_only",
+  "nativeResolution": 0.125,
+  "notIntegratedIntoRobotPlan": true,
+  "roadPortContractVerified": true,
+  "bridge": {
+    "moduleLength": 12,
+    "width": 7.75,
+    "carriagewayWidth": 5,
+    "height": 5.5,
+    "rampRise": 1.375,
+    "rampCount": 4,
+    "grade": 0.11458333333333333,
+    "minimumClearance": 4.375
+  },
+  "assemblies": [
+    {
+      "id": "overpass",
+      "name": "双层跨线立交与缓坡引道",
+      "layout": "interchange-layout.json"
+    }
+  ],
+  "planting": [
+    {
+      "id": "avenue",
+      "name": "错列行道树",
+      "count": 8
+    },
+    {
+      "id": "grove",
+      "name": "疏密混合林",
+      "count": 12
+    },
+    {
+      "id": "courtyard",
+      "name": "庭院留白组团",
+      "count": 6
+    }
+  ],
+  "assets": [
+    {
+      "id": "01_cottage",
+      "category": "house",
+      "name": "石基花窗小屋",
+      "description": "单层暖灰石基、赭红双坡瓦顶、拱门、百叶窗与花箱。",
+      "options": {
+        "kind": "cottage",
+        "seed": 101,
+        "roof": "clay",
+        "shutters": 6388837,
+        "flowers": true
+      },
+      "microSize": 0.125,
+      "voxels": 22219,
+      "bounds": {
+        "lo": [
+          -3.375,
+          -1,
+          -5.5
+        ],
+        "hi": [
+          3.375,
+          6,
+          3.375
+        ],
+        "size": [
+          6.75,
+          7,
+          8.875
+        ]
+      },
+      "parts": {
+        "details": 4323,
+        "foundation": 5550,
+        "frame": 1382,
+        "walls": 5172,
+        "interior": 232,
+        "roof": 5560
+      },
+      "bytes": 429024,
+      "sha256": "cea33a07d810c88a9e80bd536fc194c9b12d570a749138d275fda0e2be8dc044",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "02_townhouse",
+      "category": "house",
+      "name": "木构阳台排屋",
+      "description": "窄面双层、外露木梁、挑出阳台与蓝灰高屋顶。",
+      "options": {
+        "kind": "townhouse",
+        "seed": 202,
+        "roof": "slate",
+        "shutters": 7047056,
+        "flowers": true
+      },
+      "microSize": 0.125,
+      "voxels": 31890,
+      "bounds": {
+        "lo": [
+          -3.125,
+          -1,
+          -5.5
+        ],
+        "hi": [
+          3.125,
+          9.125,
+          3.375
+        ],
+        "size": [
+          6.25,
+          10.125,
+          8.875
+        ]
+      },
+      "parts": {
+        "details": 6793,
+        "foundation": 4838,
+        "frame": 1908,
+        "walls": 8558,
+        "stairs": 1033,
+        "balcony": 906,
+        "floor": 2516,
+        "roof": 5338
+      },
+      "bytes": 622167,
+      "sha256": "1fa6a9106b981a657787beefe10f1ba64c12b43c507ab98400fda32d60b75c75",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "03_workshop",
+      "category": "house",
+      "name": "街角工匠作坊",
+      "description": "宽门工作间、布篷、露天工作台和木料，区别于住宅。",
+      "options": {
+        "kind": "workshop",
+        "seed": 303,
+        "roof": "clay",
+        "shutters": 10188112,
+        "flowers": false
+      },
+      "microSize": 0.125,
+      "voxels": 23380,
+      "bounds": {
+        "lo": [
+          -3.875,
+          -1,
+          -5
+        ],
+        "hi": [
+          3.875,
+          5.75,
+          2.875
+        ],
+        "size": [
+          7.75,
+          6.75,
+          7.875
+        ]
+      },
+      "parts": {
+        "details": 4042,
+        "foundation": 5438,
+        "awning": 1558,
+        "frame": 1228,
+        "walls": 5794,
+        "roof": 5320
+      },
+      "bytes": 448478,
+      "sha256": "f5de9ca590796990708c460084bb0a26fd10f8fb6f20b21e5ab9ba3fa7338be5",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "04_inn",
+      "category": "house",
+      "name": "L形乡村旅舍",
+      "description": "双层主屋连接低矮侧翼，入口凹院、悬挂牌和烟囱。",
+      "options": {
+        "kind": "inn",
+        "seed": 404,
+        "roof": "slate",
+        "shutters": 8216651,
+        "flowers": true
+      },
+      "microSize": 0.125,
+      "voxels": 38050,
+      "bounds": {
+        "lo": [
+          -3.125,
+          -1,
+          -5.5
+        ],
+        "hi": [
+          6.125,
+          8.625,
+          3.5
+        ],
+        "size": [
+          9.25,
+          9.625,
+          9
+        ]
+      },
+      "parts": {
+        "details": 7973,
+        "foundation": 6665,
+        "frame": 2540,
+        "walls": 9919,
+        "stairs": 924,
+        "roof": 7611,
+        "floor": 2418
+      },
+      "bytes": 742575,
+      "sha256": "0d97e4591cdc76a6beb7df713e1a3beb2b19460b96cdeeacab12bb46894f37a8",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "05_farmhouse",
+      "category": "house",
+      "name": "四坡顶廊屋",
+      "description": "绿色四坡屋顶、带护栏的前廊、石阶和暖色窗框。",
+      "options": {
+        "kind": "farmhouse",
+        "seed": 505,
+        "roof": "moss",
+        "shutters": 8096610,
+        "flowers": true
+      },
+      "microSize": 0.125,
+      "voxels": 23981,
+      "bounds": {
+        "lo": [
+          -3.625,
+          -1,
+          -5.5
+        ],
+        "hi": [
+          3.625,
+          6.375,
+          3.25
+        ],
+        "size": [
+          7.25,
+          7.375,
+          8.75
+        ]
+      },
+      "parts": {
+        "details": 6290,
+        "foundation": 5842,
+        "frame": 1658,
+        "walls": 4204,
+        "roof": 5987
+      },
+      "bytes": 461523,
+      "sha256": "82ff8dbc476fa42faba93fa78d7a8d14bf64f6d44d8c47be4506b4d8d9802d6b",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "06_tower",
+      "category": "house",
+      "name": "八角角楼住宅",
+      "description": "八角石木塔身、锥形瓦顶、低矮侧屋，作为街区地标。",
+      "options": {
+        "kind": "tower",
+        "seed": 606,
+        "roof": "clay",
+        "shutters": 6716530,
+        "flowers": false
+      },
+      "microSize": 0.125,
+      "voxels": 27969,
+      "bounds": {
+        "lo": [
+          -6.125,
+          -1,
+          -5.125
+        ],
+        "hi": [
+          2.875,
+          8.25,
+          3.125
+        ],
+        "size": [
+          9,
+          9.25,
+          8.25
+        ]
+      },
+      "parts": {
+        "frame": 5387,
+        "details": 2846,
+        "foundation": 5805,
+        "walls": 7721,
+        "roof": 6210
+      },
+      "bytes": 540720,
+      "sha256": "c730a9bfd8dd0e32a06bd16e841d2338914bb385095cdad39e70b4ce6dca7744",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "07_cobble_straight",
+      "category": "road",
+      "name": "暖灰石板主路",
+      "description": "5米车行带、拱形路面、石砖人行道、排水槽与分段路沿。",
+      "options": {
+        "kind": "straight",
+        "finish": "cobble",
+        "seed": 71
+      },
+      "microSize": 0.125,
+      "voxels": 15040,
+      "bounds": {
+        "lo": [
+          -6,
+          -1,
+          -3.875
+        ],
+        "hi": [
+          6,
+          0.5,
+          3.875
+        ],
+        "size": [
+          12,
+          1.5,
+          7.75
+        ]
+      },
+      "parts": {
+        "sidewalk": 4632,
+        "curb": 1224,
+        "drain": 824,
+        "road": 8360
+      },
+      "bytes": 275661,
+      "sha256": "383feecba3445a57bc24879376dee72ff58ff4b6e6caa58245dd262fef8d862a",
+      "importVerified": true,
+      "deterministic": true,
+      "ports": [
+        "W",
+        "E"
+      ],
+      "portWidth": 7.75,
+      "length": 12
+    },
+    {
+      "id": "08_cobble_curve",
+      "category": "road",
+      "name": "石板弧形转角",
+      "description": "与直路同宽同标高的四分之一圆转弯。",
+      "options": {
+        "kind": "curve",
+        "finish": "cobble",
+        "seed": 71
+      },
+      "microSize": 0.125,
+      "voxels": 11870,
+      "bounds": {
+        "lo": [
+          -6,
+          -1,
+          -3.875
+        ],
+        "hi": [
+          3.875,
+          0.5,
+          6
+        ],
+        "size": [
+          9.875,
+          1.5,
+          9.875
+        ]
+      },
+      "parts": {
+        "sidewalk": 3548,
+        "curb": 960,
+        "drain": 650,
+        "road": 6712
+      },
+      "bytes": 216864,
+      "sha256": "eb3e182058242ffe181b5712af7c5a50b4102b95d309d9d6045cf20bfe8fb911",
+      "importVerified": true,
+      "deterministic": true,
+      "ports": [
+        "W",
+        "S"
+      ],
+      "portWidth": 7.75,
+      "length": 12
+    },
+    {
+      "id": "09_brick_tee",
+      "category": "road",
+      "name": "赭红砖丁字街口",
+      "description": "交替铺向的砖石面与连续的人行道，适合工坊街区。",
+      "options": {
+        "kind": "tee",
+        "finish": "brick",
+        "seed": 72
+      },
+      "microSize": 0.125,
+      "voxels": 17420,
+      "bounds": {
+        "lo": [
+          -6,
+          -1,
+          -6
+        ],
+        "hi": [
+          6,
+          0.5,
+          3.875
+        ],
+        "size": [
+          12,
+          1.5,
+          9.875
+        ]
+      },
+      "parts": {
+        "sidewalk": 4292,
+        "curb": 1288,
+        "drain": 900,
+        "road": 10940
+      },
+      "bytes": 318348,
+      "sha256": "a9423bc372cf962e66812fdbfe561375e4ed5b12ff0dffe100749a13bcdc4b2e",
+      "importVerified": true,
+      "deterministic": true,
+      "ports": [
+        "W",
+        "E",
+        "N"
+      ],
+      "portWidth": 7.75,
+      "length": 12
+    },
+    {
+      "id": "10_slate_cross",
+      "category": "road",
+      "name": "蓝灰石十字街口",
+      "description": "冷灰细石铺地，适合旅舍、广场和街区中心。",
+      "options": {
+        "kind": "cross",
+        "finish": "slate",
+        "seed": 73
+      },
+      "microSize": 0.125,
+      "voxels": 19800,
+      "bounds": {
+        "lo": [
+          -6,
+          -1,
+          -6
+        ],
+        "hi": [
+          6,
+          0.5,
+          6
+        ],
+        "size": [
+          12,
+          1.5,
+          12
+        ]
+      },
+      "parts": {
+        "sidewalk": 3952,
+        "curb": 1352,
+        "drain": 976,
+        "road": 13520
+      },
+      "bytes": 362356,
+      "sha256": "aa57d185b3386671fdd3fdd46d91d46b2ae877bf92fd7d6e8b8a700842231bcc",
+      "importVerified": true,
+      "deterministic": true,
+      "ports": [
+        "W",
+        "E",
+        "N",
+        "S"
+      ],
+      "portWidth": 7.75,
+      "length": 12
+    },
+    {
+      "id": "11_overpass_core",
+      "category": "bridge",
+      "name": "双层跨线立交 · 主桥",
+      "description": "石砌桥墩、双侧纵梁与金属护栏，上下层道路正交分离。",
+      "options": {
+        "kind": "core",
+        "seed": 111
+      },
+      "microSize": 0.125,
+      "voxels": 42354,
+      "bounds": {
+        "lo": [
+          -6,
+          -3,
+          -6
+        ],
+        "hi": [
+          6,
+          7.125,
+          6
+        ],
+        "size": [
+          12,
+          10.125,
+          12
+        ]
+      },
+      "parts": {
+        "lower_road": 20032,
+        "piers": 7952,
+        "girders": 912,
+        "sidewalk": 3222,
+        "curb": 956,
+        "drain": 704,
+        "deck": 7296,
+        "rails": 1280
+      },
+      "bytes": 822744,
+      "sha256": "d315a1303ac035c5b5f8ad4e732097730e044fe68a676fb6dabac54de1df5004",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "12_ramp_1",
+      "category": "bridge",
+      "name": "缓坡引道 · 第 1 段",
+      "description": "12米拼接模块，上升1.375米；四段接至主桥，另一侧旋转180度。",
+      "options": {
+        "kind": "ramp",
+        "level": 0,
+        "seed": 111
+      },
+      "microSize": 0.125,
+      "voxels": 17356,
+      "bounds": {
+        "lo": [
+          -6,
+          -3,
+          -3.875
+        ],
+        "hi": [
+          6,
+          2.875,
+          3.875
+        ],
+        "size": [
+          12,
+          5.875,
+          7.75
+        ]
+      },
+      "parts": {
+        "ramp_support": 2228,
+        "girders": 968,
+        "sidewalk": 3302,
+        "curb": 964,
+        "drain": 720,
+        "deck": 7896,
+        "rails": 1278
+      },
+      "bytes": 327812,
+      "sha256": "37adffd40a78f195b1f3b5e0030440d176d7a800763ec103e8a552f1d8caeec0",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "13_ramp_2",
+      "category": "bridge",
+      "name": "缓坡引道 · 第 2 段",
+      "description": "12米拼接模块，上升1.375米；四段接至主桥，另一侧旋转180度。",
+      "options": {
+        "kind": "ramp",
+        "level": 1,
+        "seed": 111
+      },
+      "microSize": 0.125,
+      "voxels": 18236,
+      "bounds": {
+        "lo": [
+          -6,
+          -3,
+          -3.875
+        ],
+        "hi": [
+          6,
+          4.25,
+          3.875
+        ],
+        "size": [
+          12,
+          7.25,
+          7.75
+        ]
+      },
+      "parts": {
+        "ramp_support": 3108,
+        "girders": 968,
+        "sidewalk": 3302,
+        "curb": 964,
+        "drain": 720,
+        "deck": 7896,
+        "rails": 1278
+      },
+      "bytes": 361544,
+      "sha256": "c28a7d27d928de94323f3f9f01185e3a9e6a41078cba086fc341158c8e0bb916",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "14_ramp_3",
+      "category": "bridge",
+      "name": "缓坡引道 · 第 3 段",
+      "description": "12米拼接模块，上升1.375米；四段接至主桥，另一侧旋转180度。",
+      "options": {
+        "kind": "ramp",
+        "level": 2,
+        "seed": 111
+      },
+      "microSize": 0.125,
+      "voxels": 19116,
+      "bounds": {
+        "lo": [
+          -6,
+          -3,
+          -3.875
+        ],
+        "hi": [
+          6,
+          5.625,
+          3.875
+        ],
+        "size": [
+          12,
+          8.625,
+          7.75
+        ]
+      },
+      "parts": {
+        "ramp_support": 3988,
+        "girders": 968,
+        "sidewalk": 3302,
+        "curb": 964,
+        "drain": 720,
+        "deck": 7896,
+        "rails": 1278
+      },
+      "bytes": 379532,
+      "sha256": "3380cf0e194bf118097fb695be5e5374220d85554a8f8f54ca11810510ce4bf3",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "15_ramp_4",
+      "category": "bridge",
+      "name": "缓坡引道 · 第 4 段",
+      "description": "12米拼接模块，上升1.375米；四段接至主桥，另一侧旋转180度。",
+      "options": {
+        "kind": "ramp",
+        "level": 3,
+        "seed": 111
+      },
+      "microSize": 0.125,
+      "voxels": 19996,
+      "bounds": {
+        "lo": [
+          -6,
+          -3,
+          -3.875
+        ],
+        "hi": [
+          6,
+          7,
+          3.875
+        ],
+        "size": [
+          12,
+          10,
+          7.75
+        ]
+      },
+      "parts": {
+        "ramp_support": 4868,
+        "girders": 968,
+        "sidewalk": 3302,
+        "curb": 964,
+        "drain": 720,
+        "deck": 7896,
+        "rails": 1278
+      },
+      "bytes": 397280,
+      "sha256": "c10cdfbbda99eaf1a3829d8169d88f09392a0eb10b64dcfa6f64485d29cd4044",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "bridge_lower_street",
+      "category": "bridge",
+      "name": "立交下层道路衔接模块",
+      "description": "与主桥下层街道连续连接的深基础道路模块。",
+      "options": {
+        "kind": "street",
+        "seed": 111
+      },
+      "microSize": 0.125,
+      "voxels": 20032,
+      "bounds": {
+        "lo": [
+          -3.875,
+          -3,
+          -6
+        ],
+        "hi": [
+          3.875,
+          0.5,
+          6
+        ],
+        "size": [
+          7.75,
+          3.5,
+          12
+        ]
+      },
+      "parts": {
+        "lower_road": 20032
+      },
+      "bytes": 375107,
+      "sha256": "e1c06e272d66b17774dd2c822f0e69565056930e0e2c76ed5e9b6c6d13c05ea7",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "16_oak",
+      "category": "tree",
+      "name": "分枝橡树",
+      "description": "粗干分叉、不对称团簇树冠，适合广场边缘与混合林。",
+      "options": {
+        "kind": "oak",
+        "seed": 161,
+        "height": 7.5
+      },
+      "microSize": 0.125,
+      "voxels": 6653,
+      "bounds": {
+        "lo": [
+          -3.5,
+          -0.75,
+          -3.25
+        ],
+        "hi": [
+          3.375,
+          7.375,
+          3.25
+        ],
+        "size": [
+          6.875,
+          8.125,
+          6.5
+        ]
+      },
+      "parts": {
+        "trunk": 298,
+        "roots": 75,
+        "branches": 302,
+        "foliage": 5978
+      },
+      "bytes": 128458,
+      "sha256": "6e827a4d06d3cf3e5f22a13d1b87dee99b745642e251f4df6d706b9e51f159f3",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "17_birch",
+      "category": "tree",
+      "name": "白桦行道树",
+      "description": "带深色节纹的白色细干、疏松卵形树冠，适合道路两侧。",
+      "options": {
+        "kind": "birch",
+        "seed": 172,
+        "height": 8.25
+      },
+      "microSize": 0.125,
+      "voxels": 3603,
+      "bounds": {
+        "lo": [
+          -2,
+          -0.5,
+          -1.75
+        ],
+        "hi": [
+          2,
+          8.125,
+          1.75
+        ],
+        "size": [
+          4,
+          8.625,
+          3.5
+        ]
+      },
+      "parts": {
+        "trunk": 166,
+        "roots": 108,
+        "branches": 84,
+        "foliage": 3245
+      },
+      "bytes": 68346,
+      "sha256": "1e5a6018b11692ab7a697924508a3fbdbcc4a6181accded484b114c186a88046",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "18_pine",
+      "category": "tree",
+      "name": "层叠松树",
+      "description": "高挑主干与分层针叶轮廓，形成树林的高度变化。",
+      "options": {
+        "kind": "pine",
+        "seed": 183,
+        "height": 9.25
+      },
+      "microSize": 0.125,
+      "voxels": 5844,
+      "bounds": {
+        "lo": [
+          -2.75,
+          -0.75,
+          -2.75
+        ],
+        "hi": [
+          2.75,
+          9.5,
+          2.625
+        ],
+        "size": [
+          5.5,
+          10.25,
+          5.375
+        ]
+      },
+      "parts": {
+        "trunk": 256,
+        "roots": 87,
+        "foliage": 5501
+      },
+      "bytes": 111912,
+      "sha256": "6d3ae285c1abd004b316774e91c51249af5fc8c7fc93b95cee37cdae95edefae",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "19_maple",
+      "category": "tree",
+      "name": "秋色红枫",
+      "description": "低位分枝、横向展开的橙红树冠，作为街角色彩重点。",
+      "options": {
+        "kind": "maple",
+        "seed": 194,
+        "height": 6.75
+      },
+      "microSize": 0.125,
+      "voxels": 6861,
+      "bounds": {
+        "lo": [
+          -3.375,
+          -0.75,
+          -3.75
+        ],
+        "hi": [
+          3.5,
+          7.375,
+          3.375
+        ],
+        "size": [
+          6.875,
+          8.125,
+          7.125
+        ]
+      },
+      "parts": {
+        "trunk": 294,
+        "roots": 76,
+        "branches": 331,
+        "foliage": 6160
+      },
+      "bytes": 132597,
+      "sha256": "f9a1f7e31814a387cdd26bb89ad3703827cbbbb35a86e0371f29daa887169f56",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "20_cherry",
+      "category": "tree",
+      "name": "粉白花树",
+      "description": "弯曲枝条和粉白花簇组成伞形树冠，适合庭院和步道。",
+      "options": {
+        "kind": "cherry",
+        "seed": 205,
+        "height": 6.25
+      },
+      "microSize": 0.125,
+      "voxels": 6396,
+      "bounds": {
+        "lo": [
+          -3.625,
+          -0.75,
+          -3.875
+        ],
+        "hi": [
+          3.875,
+          6.25,
+          3.375
+        ],
+        "size": [
+          7.5,
+          7,
+          7.25
+        ]
+      },
+      "parts": {
+        "trunk": 301,
+        "roots": 80,
+        "branches": 317,
+        "foliage": 5698
+      },
+      "bytes": 124047,
+      "sha256": "0d27dc71bbd95e5403f76e32df9613599ded36f17e83eb06bab0d92ae2732db3",
+      "importVerified": true,
+      "deterministic": true
+    },
+    {
+      "id": "21_willow",
+      "category": "tree",
+      "name": "垂枝柳树",
+      "description": "宽阔冠顶与长短错落的下垂枝叶，适合水边和公园。",
+      "options": {
+        "kind": "willow",
+        "seed": 216,
+        "height": 7.5
+      },
+      "microSize": 0.125,
+      "voxels": 10144,
+      "bounds": {
+        "lo": [
+          -3.75,
+          -0.75,
+          -3.875
+        ],
+        "hi": [
+          3.625,
+          7.25,
+          3.75
+        ],
+        "size": [
+          7.375,
+          8,
+          7.625
+        ]
+      },
+      "parts": {
+        "trunk": 307,
+        "roots": 75,
+        "foliage": 9398,
+        "branches": 364
+      },
+      "bytes": 198035,
+      "sha256": "df63c72f083a555310a2400d4deae2154e6e6c1a31a98a85062a0fb5a804f18c",
+      "importVerified": true,
+      "deterministic": true
+    }
+  ]
+}

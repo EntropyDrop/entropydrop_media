@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "角色向侧方平移时，留意无人机先侧倾跟进，再反向倾斜抵消惯性，最后回到悬停。每次操作之间稍作停顿，姿态变化就看得更清楚。",
+  "seed": 42
+}

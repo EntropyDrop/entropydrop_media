@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "以太群岛高低错落。来到 Nature，眼前是一片连绵的自然荒野，布满天然坡道、岩石和草地阶梯。",
+  "seed": 46
+}

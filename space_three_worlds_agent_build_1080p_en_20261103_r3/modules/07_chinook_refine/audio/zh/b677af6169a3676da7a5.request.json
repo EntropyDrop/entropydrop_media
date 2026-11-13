@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "随后换上画笔（Brush），挑选亮眼的辅色为机体喷绘个性化标识。这就是 Space 的创作魅力：AI 快速帮你完成繁重的基础搭建，而你只需花几秒钟，就能赋予它专属于你的视觉细节。",
+  "seed": 44
+}

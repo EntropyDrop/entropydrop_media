@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "铜城展现了 Space 处理复杂高密度立体景观的非凡实力。鲜明平直的水平屋顶边缘，让飞行器微小的姿态变化一目了然。",
+  "seed": 43
+}

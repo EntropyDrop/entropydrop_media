@@ -1,0 +1,16 @@
+{
+  "id": "18_copper_tour",
+  "label": "铜城地形游览",
+  "title": "Copper Metropolis: Navigating the Vertical Skyline",
+  "clips": [
+    {
+      "source": "footage/reused/18-copper-tour.mp4",
+      "in": 0,
+      "out": 42,
+      "end_at": "end",
+      "mode": "fit"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "Scenic urban free-camera survey, paced to the new introduction."
+}

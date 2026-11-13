@@ -1,0 +1,5 @@
+The rover appears instantly. Dropping our camera to wheel level reveals the setup: a single dynamic chassis root connected to four independently articulated wheel assemblies.
+
+Each wheel samples the terrain in real time. Springs absorb ground impact while dampers suppress unwanted oscillation. Without damping, a chassis bounces uncontrollably after every bump; with too much, it rides like a rigid brick.
+
+In standard game development, tuning an adaptive multi-wheel suspension is notoriously complex. In Space, the agent generates and balances this entire physics controller automatically. You simply ask for independent suspension, and the AI handles the forces, giving you planted, responsive vehicle handling right out of the box.

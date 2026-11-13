@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Take this rover. Select a wheel component and copy it into the backpack. When you design another vehicle, reuse that wheel, then adjust its size, color, and structure to suit the new build.",
+  "seed": 43
+}

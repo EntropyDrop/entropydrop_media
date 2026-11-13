@@ -1,0 +1,3 @@
+In Aether Archipelago, we need a heavy transport capable of leaping between floating islands: a tandem-rotor Chinook helicopter. Prompting the agent in Space is effortless, combining aesthetics, structure, and flight behavior in a single request:
+
+We ask the agent to build an olive transport helicopter with a readable cockpit, a hollow walk-in cabin, landing wheels, and a functional pilot seat. The two rotors should be independent components spinning in opposite directions, powered by thrust and attitude torque, with W and S controlling pitch, A and D turning, and the Spacebar and Shift keys managing altitude.

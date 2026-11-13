@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "Our second request to the agent focuses on ground physics: build a sand-colored four-wheel, off-road vehicle with a sturdy chassis, high ground clearance, and prominent headlights.",
+      "file": "modules/12_rover_prompt/audio/d9326aeb8ee7922aed84.wav",
+      "sha256": "be9408953211f82c998205fb1241895c038094244249bceec1219c8b127470d0",
+      "request_sha256": "d9326aeb8ee7922aed84d521300b89d011884857209af88d43d65c82fb9791a0"
+    },
+    {
+      "text": "The heart of the vehicle is its suspension: dynamic chassis, four independently animated wheels, and spring-and-damper forces calculated at every contact point. The wheels must articulate over bumps with responsive acceleration, steering, braking, and lateral grip.",
+      "file": "modules/12_rover_prompt/audio/0ade01df74c1ee72c1e4.wav",
+      "sha256": "3a1b0b8abfd9ca29ddb72288eb8de72f985c2a4968a52c82239f02c0b980e740",
+      "request_sha256": "0ade01df74c1ee72c1e40918887f5a4eaf0857c068b467d90c5c8a9cd0158fa3"
+    },
+    {
+      "text": "This independent raycast suspension delivers authentic mechanical behavior you can feel in every turn, far beyond cosmetic wheels that only spin in place.",
+      "file": "modules/12_rover_prompt/audio/11ad6678126f1538773b.wav",
+      "sha256": "ad381fac16226f5ceff43e5d7cb42fd127e277b727e3ee2b980663c3ef1a605a",
+      "request_sha256": "11ad6678126f1538773b9f8462c9a9145a5b503fb04d92cfcb20a927bcaecd5c"
+    }
+  ]
+}

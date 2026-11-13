@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/drone_team.mp4",
+  "seconds": 28,
+  "mode": "compositor",
+  "incoming": 1260,
+  "frames": 840,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793853475335,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

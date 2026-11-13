@@ -1,0 +1,19 @@
+{
+  "id": "05_chinook_prompt",
+  "label": "支奴干构建请求",
+  "title": "Live Build: Generating a Tandem-Rotor Helicopter",
+  "clips": [
+    {
+      "source": "stills/05-chinook-prompt.png",
+      "in": 0,
+      "out": "auto",
+      "end_at": "end",
+      "mode": "realtime"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "On-screen prompt card: final existing-site / terrain / stopped / compile-validation paragraph removed as requested. Narration retained.",
+  "tts_seeds": {
+    "1": 43
+  }
+}

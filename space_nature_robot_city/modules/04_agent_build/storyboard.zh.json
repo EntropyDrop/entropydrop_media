@@ -1,0 +1,16 @@
+{
+  "id": "04_agent_build",
+  "title": "用 Agent Build 创建工作队伍",
+  "status": "rendered_chinese",
+  "planned_duration_seconds": 70,
+  "planned_shots": [
+    "显示实际提交的简明提示词和真实生成过程；较长等待剪切到完成回执。",
+    "第一人称检查底盘、工具头、角色颜色；必要时第三人称看结构。",
+    "展示AI生成代码与实体控制器之间的真实连接，不宣称机器人每帧调用大模型。"
+  ],
+  "footage": "modules/04_agent_build/module.json",
+  "voice": "modules/04_agent_build/voice.zh.json",
+  "planned_start_seconds": 115,
+  "actual_start_seconds": 104.966667,
+  "actual_duration_seconds": 55.9
+}

@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/robot-city-capture/02_nature_site_b.mp4",
+  "seconds": 44,
+  "mode": "compositor",
+  "incoming": 1752,
+  "frames": 1320,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793794447125,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

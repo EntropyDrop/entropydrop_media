@@ -1,0 +1,34 @@
+{
+  "id": "05_chinook_prompt",
+  "title": "Live Build: Generating a Tandem-Rotor Helicopter",
+  "label": "支奴干构建请求",
+  "duration": 32.43333333333333,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 12.11,
+      "text": "In Aether Archipelago, we need a heavy transport capable of leaping between floating islands: a tandem-rotor Chinook helicopter. Prompting the agent in Space is effortless, combining aesthetics, structure, and flight behavior in a single request:",
+      "source": "modules/05_chinook_prompt/audio/b3b7b6025aec5627a961.wav"
+    },
+    {
+      "start": 12.559999999999999,
+      "duration": 19.5,
+      "text": "We ask the agent to build an olive transport helicopter with a readable cockpit, a hollow walk-in cabin, landing wheels, and a functional pilot seat. The two rotors should be independent components spinning in opposite directions, powered by thrust and attitude torque, with W and S controlling pitch, A and D turning, and the Spacebar and Shift keys managing altitude.",
+      "source": "modules/05_chinook_prompt/audio/2cdb671aca4d65015e1a.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "stills/05-chinook-prompt.png",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/stills/05-chinook-prompt.png",
+      "in": 0.0,
+      "out": 32.43333333333333,
+      "duration": 32.43333333333333,
+      "source_sig": "8797e220d1f1a132357e8913a7a24d07b2a2293e34d5df235e6e2f472d28afee",
+      "mode": "realtime"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "6f55cfa0d92d4bfdebfad9bb9ac61d2a606cc55619514009034d871d7387ee27",
+  "voice_sig": "f773dfded45b56c2fef4a3ccb2154d60cc4c02b87a22f1c88f150e192b773ded"
+}

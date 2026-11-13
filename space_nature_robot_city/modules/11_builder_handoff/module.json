@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "11_builder_handoff",
+  "language": "zh",
+  "clips": [
+    {
+      "file": "footage/scifi-builder-handoff.mp4",
+      "start": 0,
+      "duration": 17.3666666667
+    },
+    {
+      "file": "footage/scifi-city-designs.mp4",
+      "start": 0,
+      "duration": 11.999999999966668
+    }
+  ],
+  "burned_subtitles": false,
+  "editing_notes": "Approved sci-fi city; native fixed-time frames. Construction and work-button events are controller-driven. Prompt example is explicitly authored documentary material.",
+  "blueprint_sha256": "7e27f4c0a19ceda654d8bc3a60920a042f947ab9147199ce944a1cc4ee7abff0"
+}

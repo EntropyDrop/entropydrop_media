@@ -1,0 +1,40 @@
+{
+  "id": "06_chinook_inspect",
+  "title": "Vehicle Architecture: Multi-Component Assembly & Automation",
+  "label": "支奴干模型检查",
+  "duration": 35.3,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 6.24,
+      "text": "The generation finishes in seconds. Right away, you can see the fuselage and the two rotor assemblies are independent, active components.",
+      "source": "modules/06_chinook_inspect/audio/a9092dba53fb1e2e9558.wav"
+    },
+    {
+      "start": 6.69,
+      "duration": 9.12,
+      "text": "The pilot seat is a standout feature: in Space, this is a fully functional interaction definition with boarding logic and input mapping, not just a static cushion drawn inside the cabin.",
+      "source": "modules/06_chinook_inspect/audio/d04819dddc1d786c32f7.wav"
+    },
+    {
+      "start": 16.06,
+      "duration": 18.86,
+      "text": "Inspecting the exterior, the rotor spacing gives a clear tandem profile, with generous ground clearance under the wheels. Best of all, the entire flight controller was generated and compiled automatically by the agent—from counter-rotating torque cancellation to auto-hover logic, the complex math is handled behind the scenes so you can jump straight into the fun of flying.",
+      "source": "modules/06_chinook_inspect/audio/9d6e9719469bfdb851b5.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "footage/06-chinook-inspect-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/06-chinook-inspect-clean.mp4",
+      "in": 0.0,
+      "out": 35.0,
+      "duration": 35.3,
+      "source_sig": "1a47701f797e1922dffec388a969b6a888a720018e139d9a6acdfcb6c927bb44",
+      "mode": "fit"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "78131470f8a081754c7a9b54a858bb3e58d40ac6cfbb5df13956bfb0cbddc4c5",
+  "voice_sig": "4b4bee40952c00bda0bf934143bb6bb6f42311da335752cf8b9ec9476decc3b8"
+}

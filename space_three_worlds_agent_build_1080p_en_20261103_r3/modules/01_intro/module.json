@@ -1,0 +1,37 @@
+{
+  "id": "01_intro",
+  "label": "开场介绍",
+  "title": "EntropyDrop Space: Game Introduction & Gameplay Showcase",
+  "clips": [
+    {
+      "source": "footage/replacements/01-intro-scroll.zh.mp4",
+      "in": 0.4,
+      "out": "auto",
+      "end_at": "voice:2",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/10-chinook-flight-b-clean.mp4",
+      "in": 6,
+      "out": "auto",
+      "end_at": 31.13778,
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/replacements/17-rover-terrain.mp4",
+      "in": 5,
+      "out": "auto",
+      "end_at": 39.28556,
+      "mode": "realtime"
+    },
+    {
+      "source": "module:22_drone_flight_b",
+      "in": 3,
+      "out": "auto",
+      "end_at": "end",
+      "mode": "realtime"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "User-approved Chinese revision synchronized to English. Shared recorded source footage; English narration uses its own natural timing. Physics clips remain real time."
+}

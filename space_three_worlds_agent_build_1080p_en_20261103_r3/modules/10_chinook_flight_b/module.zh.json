@@ -1,0 +1,23 @@
+{
+  "id": "10_chinook_flight_b",
+  "label": "支奴干环绕飞行",
+  "title": "Island Transit: Freedom of Skyward Exploration",
+  "clips": [
+    {
+      "source": "footage/10-chinook-flight-b-clean.mp4",
+      "in": 0,
+      "out": "auto",
+      "end_at": "voice:4",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/09-chinook-flight-a-clean.mp4",
+      "in": 34.5,
+      "out": "auto",
+      "end_at": "end",
+      "mode": "realtime"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "Realtime island transit plus matching skyline cutaway for the streaming/world transition paragraph."
+}

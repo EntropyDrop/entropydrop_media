@@ -1,0 +1,27 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "无人机出现在露台上，四组反向旋转的旋翼清晰可见。旋转动画配合真实的动态受力，共同构成我们看到的飞行效果。",
+      "file": "modules/20_drone_refine/audio/zh/9babbb2363256eb796f8.wav",
+      "sha256": "ec17de993cf9ad4d60ccd58fd2daa4352b44aefcb7e5897c1fdf70f7fc11851d",
+      "request_sha256": "9babbb2363256eb796f866de86dfa449546e0360865f8b0984219c8e6d7dd055",
+      "trimmed_duration": 8.05
+    },
+    {
+      "text": "因为四旋翼在造型上高度对称，在空中快速转动时肉眼很难分清朝向。我们再次拿出画笔，随手在无人机前端点上一抹醒目的亮色标记。一个简单的小动作，就能让飞行器的灵动感倍增。",
+      "file": "modules/20_drone_refine/audio/zh/926fe0288880afd59b20.wav",
+      "sha256": "978a28a1199fae32612b198b98f649769611ada9738852ee34f709ee179b2ca0",
+      "request_sha256": "926fe0288880afd59b20869c958678ecf92624f04f8e06f09611259e09227fa5",
+      "trimmed_duration": 13.88
+    },
+    {
+      "text": "底部的脚架保证了起降离地间隙。虽然建模工具可以给它外挂精美的装饰外壳，但机体的物理边界始终由核心组件决定。",
+      "file": "modules/20_drone_refine/audio/zh/9d3ef09a28f5c4fa2a88.wav",
+      "sha256": "ae557b49d43da1a532ddc639d033d92e3c3d93e4153e9a6ef117795197feb2c1",
+      "request_sha256": "9d3ef09a28f5c4fa2a88de9e7358906b07ac0baefa5cc61597d9d80e6fb7ff47",
+      "trimmed_duration": 8.4
+    }
+  ]
+}

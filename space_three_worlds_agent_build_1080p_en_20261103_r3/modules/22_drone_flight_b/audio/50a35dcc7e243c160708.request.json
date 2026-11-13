@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "High above the metropolis, our camera pans 360 degrees around player and drone, taking in the sweeping urban ring while maintaining a comfortable, rock-solid field of view.",
+  "seed": 42
+}

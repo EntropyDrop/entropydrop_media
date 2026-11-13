@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "底部的脚架保证了起降离地间隙。虽然建模工具可以给它外挂精美的装饰外壳，但机体的物理边界始终由核心组件决定。",
+  "seed": 44
+}

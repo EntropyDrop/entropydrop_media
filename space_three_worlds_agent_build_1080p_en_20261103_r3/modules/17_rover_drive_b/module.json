@@ -1,0 +1,23 @@
+{
+  "id": "17_rover_drive_b",
+  "label": "左右转向与自然台阶越野",
+  "title": "Off-Road Trail: Steering Control & Hill Climbing",
+  "clips": [
+    {
+      "source": "footage/17-rover-steering-test.mp4",
+      "in": 0,
+      "out": "auto",
+      "end_at": "voice:3",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/replacements/17-rover-terrain.mp4",
+      "in": 2,
+      "out": "auto",
+      "end_at": "end",
+      "mode": "realtime"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "Stationary A/center/D steering test, followed by newly recorded real spring-and-damper suspension over untouched natural terraces."
+}

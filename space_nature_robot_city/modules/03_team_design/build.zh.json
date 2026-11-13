@@ -1,0 +1,47 @@
+{
+  "duration": 26.033333333333335,
+  "sha256": "5ba5c4bac83b07a0a4abf28c655b4375121f1e4720850afd549ec4f97d19a9b4",
+  "voice_sha256": "9ae2ce3d87b7363135685b10b5f700bb170eb623415c3059b54770568063661a",
+  "clips": [
+    {
+      "file": "footage/scifi-team-design.mp4",
+      "start": 0,
+      "duration": 2.4
+    },
+    {
+      "file": "footage/scifi-survey-and-tools.mp4",
+      "start": 0,
+      "duration": 3.8
+    },
+    {
+      "file": "footage/scifi-road-close.mp4",
+      "start": 0,
+      "duration": 1.8
+    },
+    {
+      "file": "footage/scifi-builder-handoff.mp4",
+      "start": 0,
+      "duration": 2.5
+    },
+    {
+      "file": "footage/scifi-tree-planting.mp4",
+      "start": 0,
+      "duration": 2
+    },
+    {
+      "file": "footage/scifi-builder-handoff.mp4",
+      "start": 0,
+      "duration": 3.533333333333335
+    },
+    {
+      "file": "footage/scifi-road-close.mp4",
+      "start": 3,
+      "duration": 4
+    },
+    {
+      "file": "footage/scifi-parallel-builders.mp4",
+      "start": 9,
+      "duration": 6
+    }
+  ]
+}

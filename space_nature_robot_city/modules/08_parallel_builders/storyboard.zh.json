@@ -1,0 +1,16 @@
+{
+  "id": "08_parallel_builders",
+  "title": "两台建筑机器人并行施工",
+  "status": "rendered_chinese",
+  "planned_duration_seconds": 70,
+  "planned_shots": [
+    "保留一栋小房屋从基础到屋顶的可跟踪过程，必要时拆成多段镜头。",
+    "宽景同时展示两个独立施工地块。",
+    "第一人称进入完工建筑，确认门洞可通行；不使用透视假立面冒充建筑。"
+  ],
+  "footage": "modules/08_parallel_builders/module.json",
+  "voice": "modules/08_parallel_builders/voice.zh.json",
+  "planned_start_seconds": 360,
+  "actual_start_seconds": 291.566667,
+  "actual_duration_seconds": 49.5
+}

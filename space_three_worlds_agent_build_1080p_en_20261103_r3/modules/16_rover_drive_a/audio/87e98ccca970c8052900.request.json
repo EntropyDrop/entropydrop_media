@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Hop into the driver's seat and tap the accelerator! We run a low-speed crawl forward and backward at ground level to examine tire rotation.",
+  "seed": 42
+}

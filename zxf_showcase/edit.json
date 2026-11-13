@@ -54,18 +54,18 @@
         "exitStartBeat": 3,
         "exitEndBeat": 5,
         "landscape": {
-          "photoWidth": 520,
-          "photoX": 416,
-          "photoY": 280,
-          "groupShiftX": 324,
+          "photoWidth": 760,
+          "photoX": 312,
+          "photoY": 158,
+          "groupShiftX": 428,
           "figureHeight": 1080
         },
         "portrait": {
-          "photoWidth": 320,
-          "photoX": 34,
-          "photoY": 800,
-          "groupShiftX": 184,
-          "figureHeight": 1568
+          "photoWidth": 480,
+          "photoX": 22,
+          "photoY": 720,
+          "groupShiftX": 256,
+          "figureHeight": 1280
         },
         "layout": "reference and figure visible bounds centered as one group; equal leftward translation; reference fades; figure ends centered"
       }

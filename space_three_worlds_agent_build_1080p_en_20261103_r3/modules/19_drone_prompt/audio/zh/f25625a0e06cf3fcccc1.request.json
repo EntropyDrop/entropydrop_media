@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "接下来，把无人机的结构和跟随方式，写成清晰的建造要求。",
+  "seed": 42
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "AI is a design partner. Describe appearance, structure, and behavior in plain language, and it can help build vehicles and write their control code. The same idea extends to following or patrolling drones, and bot players that interact with people. Generation is only the beginning: the toolbar lets you refine, test, and make the result your own.",
+  "seed": 43
+}

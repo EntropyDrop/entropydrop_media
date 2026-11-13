@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "This connection seamlessly carries across every world you visit. Now, let's dive into our first live build!",
+  "seed": 44
+}

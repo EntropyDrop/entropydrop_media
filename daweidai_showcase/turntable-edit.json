@@ -1,0 +1,10 @@
+{
+  "source": "sources/VID_20261027_105759.mp4",
+  "duration": 8,
+  "fps": 30,
+  "sourceFrames": [120, 220],
+  "topPlaneSeed960": [[461, 39], [600, 47], [604, 116], [453, 109]],
+  "angleAnchors": [[120, 0], [147, 45], [156, 90], [165, 135], [174, 180], [184, 225], [195, 270], [208, 315], [220, 360]],
+  "figureHeight": {"landscape": 0.76, "portrait": 0.74},
+  "notes": "One forward revolution from the first uninterrupted cycle. Track the head's top plane and calibrate against visual eighth-turn landmarks; remove pauses and resample to uniform target angle. Normalize the silhouette center and height before motion-compensated frame interpolation."
+}

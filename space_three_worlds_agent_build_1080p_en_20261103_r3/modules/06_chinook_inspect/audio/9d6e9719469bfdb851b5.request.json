@@ -1,0 +1,38 @@
+{
+  "segmentation": "phrase-boundaries",
+  "requests": [
+    {
+      "model": "qwen3-tts",
+      "voice": "entropydrop",
+      "language": "English",
+      "response_format": "wav",
+      "input": "Inspecting the exterior, the rotor spacing gives a clear tandem profile, with generous ground clearance under the wheels.",
+      "seed": 100
+    },
+    {
+      "model": "qwen3-tts",
+      "voice": "entropydrop",
+      "language": "English",
+      "response_format": "wav",
+      "input": "Best of all, the entire flight controller was generated and compiled automatically by the agent",
+      "seed": 101
+    },
+    {
+      "model": "qwen3-tts",
+      "voice": "entropydrop",
+      "language": "English",
+      "response_format": "wav",
+      "input": "from counter-rotating torque cancellation to auto-hover logic,",
+      "seed": 102
+    },
+    {
+      "model": "qwen3-tts",
+      "voice": "entropydrop",
+      "language": "English",
+      "response_format": "wav",
+      "input": "the complex math is handled behind the scenes so you can jump straight into the fun of flying.",
+      "seed": 103
+    }
+  ],
+  "gap_seconds": 0.1
+}

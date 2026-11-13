@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Before we finish, let's open the backpack. Save a vehicle here and place it again later. Think of it as both a collection of finished creations and your own reusable parts library.",
+  "seed": 42
+}

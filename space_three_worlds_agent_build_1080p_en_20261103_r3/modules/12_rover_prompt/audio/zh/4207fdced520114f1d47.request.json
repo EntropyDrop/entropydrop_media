@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "核心是独立悬挂：一个动态底盘，四只独立活动的车轮。每个接地点都计算弹簧和阻尼力，让轮子随地形起伏，同时具备加速、前轮转向、刹车和侧向抓地力。",
+  "seed": 43
+}

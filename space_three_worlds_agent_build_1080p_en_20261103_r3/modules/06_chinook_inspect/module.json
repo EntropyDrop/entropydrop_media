@@ -1,0 +1,27 @@
+{
+  "id": "06_chinook_inspect",
+  "label": "支奴干模型检查",
+  "title": "Vehicle Architecture: Multi-Component Assembly & Automation",
+  "clips": [
+    {
+      "source": "footage/06-chinook-inspect-clean.mp4",
+      "in": 0,
+      "out": 35,
+      "end_at": "end",
+      "mode": "fit"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "tts_seeds": {
+    "3": 100
+  },
+  "tts_segments": {
+    "3": [
+      "Inspecting the exterior, the rotor spacing gives a clear tandem profile, with generous ground clearance under the wheels.",
+      "Best of all, the entire flight controller was generated and compiled automatically by the agent",
+      "from counter-rotating torque cancellation to auto-hover logic,",
+      "the complex math is handled behind the scenes so you can jump straight into the fun of flying."
+    ]
+  },
+  "edit_notes": "Exterior inspection camera sweep paced to revised architecture explanation."
+}

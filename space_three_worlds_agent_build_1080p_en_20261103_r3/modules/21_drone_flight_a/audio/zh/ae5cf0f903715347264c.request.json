@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "这个测试更接近真正的探索：目标一直在移动，无人机要不断修正距离和高度。把角色和无人机同时留在第三人称画面里，跟随的延迟、转弯的侧倾，就能直接看出来。",
+  "seed": 102
+}

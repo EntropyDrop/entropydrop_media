@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Finally, we place it right on the existing grass, leaving the terrain untouched, and ask the agent to compile and validate all scripts before delivery. These clear constraints make the result instantly ready for inspection.",
+  "seed": 44
+}

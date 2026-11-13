@@ -1,0 +1,5 @@
+Next, we test steering response. Holding the brake, pressing A steers left, releasing returns to center, and pressing D turns right. The front wheels articulate crisply while the rear axle stays true.
+
+Keeping the steering yaw axis on the chassis and the rolling pitch axis on each wheel prevents high-speed wheel wobble, delivering crisp, predictable control.
+
+Release the brakes and hammer the throttle across natural terraces! As individual wheels tackle rocks and dirt ledges, the suspension compresses and rebounds smoothly, keeping the chassis level while the amber headlights lead the charge. Conquering the wilderness like this is an absolute blast!

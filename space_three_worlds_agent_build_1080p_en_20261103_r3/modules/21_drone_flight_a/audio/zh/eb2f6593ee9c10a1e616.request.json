@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "身旁的无人机瞬间响应高度变化，旋翼转速提升，轻巧地向上跟进。角色向前冲刺骤停，无人机自然前倾加速追赶、随后后仰制动稳稳落锁在身旁。",
+  "seed": 42
+}

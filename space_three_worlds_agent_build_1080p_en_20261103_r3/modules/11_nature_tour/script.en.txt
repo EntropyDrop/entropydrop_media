@@ -1,0 +1,7 @@
+Welcome to our second world: Nature. In Agent Build, we simply update our target world to Nature.
+
+Unlike the vertical drops of Aether, Nature is an expansive rolling wilderness packed with natural slopes, rocky ledges, and stepped grass terraces.
+
+We pick an open grassy clearing as our starting point. In Space, you don't need to build artificial ramps or test tracks—the rugged procedural earth is already the ultimate off-road proving ground. Here, we're going to build a heavy-duty all-terrain rover.
+
+This landscape sets the stage for our driving tests: checking low-speed wheel rotation first, testing steering geometry, and finally pushing the independent suspension across natural terraces.

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "先把想法描述清楚，系统就会帮你搭好机械结构，并生成控制程序。",
+  "seed": 42
+}

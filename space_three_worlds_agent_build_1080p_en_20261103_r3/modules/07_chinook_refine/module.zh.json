@@ -1,0 +1,30 @@
+{
+  "id": "07_chinook_refine",
+  "label": "勺子与画笔修补",
+  "title": "Hands-On Polish: Sculpting Micro-Voxels & Custom Paint",
+  "clips": [
+    {
+      "source": "footage/07-chinook-refine-clean.mp4",
+      "in": 0,
+      "out": 7.21,
+      "end_at": "voice:2",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/07-chinook-refine-clean.mp4",
+      "in": 7.21,
+      "out": 22.1,
+      "end_at": "voice:3",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/07-chinook-refine-clean.mp4",
+      "in": 22.1,
+      "out": 33,
+      "end_at": "end",
+      "mode": "fit"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "Spoon removal and Brush palette/paint are retained and synchronized to the matching paragraphs; entity paused for edits."
+}

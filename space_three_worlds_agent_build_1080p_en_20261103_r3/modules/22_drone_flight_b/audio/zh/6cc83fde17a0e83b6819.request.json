@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "这样，无人机就成了随身的飞行伙伴。在体素都市中探索时，它会追上你的每一步，让一个人的旅行也有了同行的乐趣。",
+  "seed": 44
+}

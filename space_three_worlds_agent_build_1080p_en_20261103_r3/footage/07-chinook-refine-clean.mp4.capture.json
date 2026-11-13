@@ -1,0 +1,14 @@
+{
+  "output": "footage/07-chinook-refine-clean.mp4",
+  "seconds": 33,
+  "mode": "compositor",
+  "incoming": 1735,
+  "frames": 990,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793705926435,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

@@ -1,0 +1,27 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "增加升力，直升机从草坪平稳垂直起飞！接下来，轻轻按下前进键，机头自然下俯，推力带着我们向前飞行。",
+      "file": "modules/09_chinook_flight_a/audio/zh/0371fe19bf2d7e1a6363.wav",
+      "sha256": "b496484ed69f63098706dbf77c6d3e0f0935427b17629069b49ab10c942e53ef",
+      "request_sha256": "0371fe19bf2d7e1a6363f5aa1e7b1409e437deebaa81818156bad80979c5577e",
+      "trimmed_duration": 8.04
+    },
+    {
+      "text": "松开按键，飞机自动减速，重新进入稳定悬停。第一个弯我们转得宽一些，让这架重型运输机保留应有的重量和惯性，操控起来沉稳而不急躁。",
+      "file": "modules/09_chinook_flight_a/audio/zh/43ddd745977b0fbb594c.wav",
+      "sha256": "fdee084e2eaf0667ad6305427df1f721e694a1a8d7674a737c689a14eb698a1b",
+      "request_sha256": "43ddd745977b0fbb594cf92a0a298d8ef11c15a32319f05668fda00359dbbfc9",
+      "trimmed_duration": 10.59
+    },
+    {
+      "text": "转过身来，城堡退向身后，阳光穿透天空中的巨环，在云海中勾勒出壮丽的轮廓。逐一测试单项控制，能帮助你在第一时间轻松摸透飞机的操控特性。",
+      "file": "modules/09_chinook_flight_a/audio/zh/7cb11882a2f3f15b84cc.wav",
+      "sha256": "c2a3232a89e7864e877e824ebb55c75dbb201458802bbf640153f546903e96af",
+      "request_sha256": "7cb11882a2f3f15b84cc99b79833dad15d5234b66ad7b87007a8133d13ca73e7",
+      "trimmed_duration": 10.4
+    }
+  ]
+}

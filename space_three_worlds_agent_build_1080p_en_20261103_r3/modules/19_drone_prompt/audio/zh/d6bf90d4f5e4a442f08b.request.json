@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "要创造这位空中伙伴，我们先给 Agent 一段清晰的行为要求：",
+  "seed": 42
+}

@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "The toolbar at the bottom anchors your moment-to-moment gameplay. Selector defines 3D regions; Hammer places inventory items; and Wrench grabs, rotates, and configures active entities. Shovel shapes standard one-meter blocks, while Spoon operates at an ultra-fine one-eighth of a meter micro-voxel scale.",
+      "file": "modules/03_toolbar/audio/f246f3d9930f00e47daf.wav",
+      "sha256": "4d50f1136db54cd3c7a2dc940f69be122d08bf758376244c17b3681ac6ed1133",
+      "request_sha256": "f246f3d9930f00e47daf87c5923c682efe065d21b712795025bfbe0fae5c8b86"
+    },
+    {
+      "text": "Brush changes colors and materials on the fly, while Modeling adds lightweight visual decorations. Keys one through seven let you cycle through tools instantly, with contextual controls updating dynamically to keep the workflow clean and intuitive.",
+      "file": "modules/03_toolbar/audio/16efddee5de6e7397036.wav",
+      "sha256": "04b529415e6602914d9309cdd08e07b6bfb50312039778fd1dc4b3ff943f4a5a",
+      "request_sha256": "16efddee5de6e73970366424954155881d1d79b888640fc76e9049b617fb2bab"
+    },
+    {
+      "text": "This toolkit ensures you are never trapped by an AI black box. The agent drafts the heavy architecture, while you always hold the precise, intuitive power to refine, personalize, and leave your own creative mark.",
+      "file": "modules/03_toolbar/audio/a843c3bfe2bed6edc7c2.wav",
+      "sha256": "f264c65b09f8b20ad2ccb0780e1913c696fcf9f0d35f70d3108d96797232125f",
+      "request_sha256": "a843c3bfe2bed6edc7c28ae43fbf2c5a5420a0d8fc30bd6919d9c3aec8f1bb8e"
+    }
+  ]
+}

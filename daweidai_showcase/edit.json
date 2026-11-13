@@ -33,7 +33,7 @@
     "arms": "12_arm_front",
     "legs": "16_leg_front",
     "leg_attach": "21_pose",
-    "ending": "ending"
+    "ending": "23_turntable"
   },
   "shots": [
     {
@@ -43,7 +43,28 @@
       "imageCenterX": 2150,
       "imageY": 460,
       "landscapeOnly": false,
-      "label": "成品正面"
+      "label": "成品正面",
+      "landscapeImage": "assets/showcase/color-match/01-front-v1.png",
+      "portraitImage": "assets/showcase/color-match/01-front-v1.png",
+      "comparison": {
+        "image": "sources/showcase/dwd.png",
+        "fadeStart": 0.65,
+        "fadeDuration": 0.9,
+        "moveStart": 0.65,
+        "moveEnd": 1.75,
+        "landscape": {
+          "shiftX": 360,
+          "photoWidth": 740,
+          "photoX": 64,
+          "photoY": 216
+        },
+        "portrait": {
+          "shiftX": 160,
+          "photoWidth": 420,
+          "photoX": 24,
+          "photoY": 350
+        }
+      }
     },
     {
       "id": "opening_02",
@@ -52,7 +73,9 @@
       "imageCenterX": 2250,
       "imageY": 450,
       "landscapeOnly": true,
-      "label": "成品侧面"
+      "label": "成品侧面",
+      "landscapeImage": "assets/showcase/color-match/02-side-v1.png",
+      "portraitImage": "assets/showcase/color-match/02-side-v1.png"
     },
     {
       "id": "opening_03",
@@ -446,7 +469,16 @@
       "portraitDuration": 3,
       "imageCenterX": 2150,
       "imageY": 460,
-      "label": "正面成品收尾"
+      "label": "正面成品收尾",
+      "landscapeImage": "assets/showcase/color-match/01-front-v1.png",
+      "portraitImage": "assets/showcase/color-match/01-front-v1.png"
+    },
+    {
+      "id": "23_turntable",
+      "type": "turntable",
+      "duration": 8,
+      "portraitDuration": 8,
+      "label": "角色居中，完整一圈匀速旋转展示"
     }
   ],
   "enhancement": {

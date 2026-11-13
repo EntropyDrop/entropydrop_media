@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "不同于以太群岛的垂直落差，Nature 是一片广袤连绵的自然荒野，充满了天然的坡道、岩石与草地阶梯。",
+  "seed": 43
+}

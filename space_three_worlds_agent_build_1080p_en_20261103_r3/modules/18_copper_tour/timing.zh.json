@@ -1,0 +1,46 @@
+{
+  "id": "18_copper_tour",
+  "title": "Copper Metropolis: Navigating the Vertical Skyline",
+  "label": "铜城地形游览",
+  "duration": 37.233333333333334,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 7.92,
+      "text": "Our final stop brings us to Copper Metropolis. Packed with soaring skyscrapers, this world presents an entirely different navigation challenge from open wilderness.",
+      "source": "modules/18_copper_tour/audio/ceecff02ec6fc8e50f61.wav"
+    },
+    {
+      "start": 8.37,
+      "duration": 9.2,
+      "text": "Copper highlights how effortlessly Space renders dense, multi-tiered urban architecture. Sharp horizontal rooflines make every subtle tilt and attitude change easy to read.",
+      "source": "modules/18_copper_tour/audio/8ad86676a7622f457d22.wav"
+    },
+    {
+      "start": 17.82,
+      "duration": 9.76,
+      "text": "In this vertical cityscape, we explore an even more advanced gameplay mechanic: instead of manually piloting a vehicle, we ask the agent to create an autonomous companion drone that follows our every move.",
+      "source": "modules/18_copper_tour/audio/45959e19f7f9a6c86bca.wav"
+    },
+    {
+      "start": 27.83,
+      "duration": 9.05,
+      "text": "The player becomes the moving target. Starting from a spacious rooftop terrace, we take to the air, giving our drone companion plenty of clear airspace to climb, follow, and hover beside us.",
+      "source": "modules/18_copper_tour/audio/8473c6ef8758c7ccb69b.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "footage/reused/18-copper-tour.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/reused/18-copper-tour.mp4",
+      "in": 0.0,
+      "out": 42.0,
+      "duration": 37.233333333333334,
+      "source_sig": "bd485e5a5f52905312bf0fb3e0f095549c077521acbf69ed856279b5e9d5eb8d",
+      "mode": "fit"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "c0b81f571491368667e8227d174e378854455744924f7845f57f4cd0e899e592",
+  "voice_sig": "2eedfc1cc687f9eeaa3ff24c02928be2f897d6f416f27585645332246b9fa25b"
+}

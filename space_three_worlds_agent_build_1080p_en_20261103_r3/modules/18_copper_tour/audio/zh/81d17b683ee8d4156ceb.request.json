@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "最后一站，我们来到壮丽的铜城（Copper Metropolis）。密集林立的摩天大楼，展现出与空旷野外截然不同的城市航线挑战。",
+  "seed": 42
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Brush alters appearances, Modeling adds cosmetic detail, and underlying physics controllers govern motion. Keeping these boundaries modular gives you absolute creative freedom.",
+  "seed": 44
+}

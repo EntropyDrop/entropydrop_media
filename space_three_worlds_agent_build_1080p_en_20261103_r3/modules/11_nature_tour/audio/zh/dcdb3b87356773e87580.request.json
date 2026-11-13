@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "我们选定了一片天然起伏的开阔草坡。在 Space 中，你不需要特意修建赛道，崎岖的自然地表本身就是最棒的驾驶乐园。接下来，我们要在这里打造一辆能够征服复杂地形的全地形越野车。",
+  "seed": 44
+}

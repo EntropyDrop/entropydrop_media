@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "一套连接可以在所有世界中无缝复用，省心又高效。现在，让我们进入第一个实机实装演示！",
+  "seed": 44
+}

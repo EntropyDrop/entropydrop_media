@@ -37,12 +37,41 @@ def main():
         assert (manifest["duration"], manifest["frames"]) == (duration, frames)
         assert len(manifest["scenes"]) == len(scenes)
         assert manifest.get("enhancement") == edit.get("enhancement"), "Enhancement config changed"
+        if "photo_color_manifest_sha256" in manifest:
+            color_manifest = ROOT / "photo-color-match.json"
+            assert manifest["photo_color_manifest_sha256"] == sha256(color_manifest)
+            colors = json.loads(color_manifest.read_text())
+            assert colors["reference"]["sha256"] == sha256(ROOT / colors["reference"]["image"])
+            for photo in colors["photos"]:
+                assert photo["source_sha256"] == sha256(ROOT / photo["source"])
+                assert photo["sha256"] == sha256(ROOT / photo["image"])
+        turntable = [shot for shot in scenes if shot.get("type") == "turntable"]
+        if turntable:
+            assert len(turntable) == 1 and scenes[-1]["id"] == turntable[0]["id"]
+            saved = manifest["turntable"]
+            settings = json.loads((ROOT / "turntable-edit.json").read_text())
+            assert saved["signature"]["config"] == settings
+            assert saved["signature"]["source_sha256"] == sha256(ROOT / settings["source"])
+            assert saved["signature"]["generator_sha256"] == sha256(ROOT / "build_turntable.py")
+            assert saved["duration"] == turntable[0]["duration"] == 8
+            assert saved["targetDegreesPerSecond"] == 45
+            clip = saved["formats"][variant]
+            assert clip["sha256"] == sha256(ROOT / clip["path"])
+            assert clip["frames"] == 240
+            for frame in clip["framing"]:
+                x, y, w, h = frame["bbox"]
+                assert 0 <= x <= clip["width"] - w and 0 <= y <= clip["height"] - h
+                assert max(abs(error) for error in frame["centerError"]) < 12
         for shot, saved in zip(scenes, manifest["scenes"]):
             assert all(saved[key] == value for key, value in shot.items()), shot["id"]
             assert saved["framing"] == framing(edit, shot, variant), shot["id"]
             assert saved.get("enhancement") == enhancement(edit, shot, variant), shot["id"]
             if "image" in shot:
                 assert saved["original_image_sha256"] == sha256(ROOT / shot["image"])
+                assert saved["render_image_sha256"] == sha256(ROOT / saved["render_image"])
+            if shot.get("comparison"):
+                assert saved["comparison_image_sha256"] == sha256(ROOT / shot["comparison"]["image"])
+                assert saved["comparison_generator_sha256"] == sha256(ROOT / "opening_comparison.py")
         metadata = probe(output)
         video = next(s for s in metadata["streams"] if s["codec_type"] == "video")
         audio = next(s for s in metadata["streams"] if s["codec_type"] == "audio")

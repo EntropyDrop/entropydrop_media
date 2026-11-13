@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Next, we test steering response. Holding the brake, pressing A steers left, releasing returns to center, and pressing D turns right. The front wheels articulate crisply while the rear axle stays true.",
+  "seed": 42
+}

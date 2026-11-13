@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "生成瞬间完成。可以看到，机身与前后两组旋翼都是独立的活动实体组件。",
+  "seed": 42
+}

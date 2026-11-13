@@ -1,0 +1,27 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "这一次向 AI 发起的建造请求聚焦于陆地动力学：建造一辆沙色涂装的硬派四轮越野车，配备坚固车身、明亮前大灯以及充裕的离地间隙。",
+      "file": "modules/12_rover_prompt/audio/zh/a8b3e2ce4dec2e72d0b7.wav",
+      "sha256": "6399d79048620b3017550986b99cd7990a72af92be19ded6e0a87fb5796ce94b",
+      "request_sha256": "a8b3e2ce4dec2e72d0b73b09bb1a5802715950d8fb25e6c87ff72259640618c8",
+      "trimmed_duration": 10.44
+    },
+    {
+      "text": "核心是独立悬挂：一个动态底盘，四只独立活动的车轮。每个接地点都计算弹簧和阻尼力，让轮子随地形起伏，同时具备加速、前轮转向、刹车和侧向抓地力。",
+      "file": "modules/12_rover_prompt/audio/zh/4207fdced520114f1d47.wav",
+      "sha256": "056ca9efb23fe4b5e92d12c7270723dd8cde7344e4aa6551142a95e4396500a9",
+      "request_sha256": "4207fdced520114f1d47d5a232c771698769a0351fc03527b77fc08c3c0e0819",
+      "trimmed_duration": 11.42
+    },
+    {
+      "text": "这种射线检测式独立悬挂，带来转弯和过坎时真实可感的机械反馈，而不只是原地空转的装饰车轮。",
+      "file": "modules/12_rover_prompt/audio/zh/a30c03bab97d74bdd0a4.wav",
+      "sha256": "7f5b1aa937a33c67954eafbac8245a36095fe7671001d1b86b1c60ddc2343ecd",
+      "request_sha256": "a30c03bab97d74bdd0a4c892684afc12d2ea8f1f0646ab40d81930a73ebc9e32",
+      "trimmed_duration": 7.26
+    }
+  ]
+}

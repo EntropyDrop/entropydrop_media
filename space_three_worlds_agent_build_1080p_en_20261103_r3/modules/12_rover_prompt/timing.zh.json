@@ -1,0 +1,40 @@
+{
+  "id": "12_rover_prompt",
+  "title": "Ground Build: Prompting an Independent Suspension Rover",
+  "label": "越野车构建请求",
+  "duration": 30.866666666666667,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 8.63,
+      "text": "Our second request to the agent focuses on ground physics: build a sand-colored four-wheel, off-road vehicle with a sturdy chassis, high ground clearance, and prominent headlights.",
+      "source": "modules/12_rover_prompt/audio/d9326aeb8ee7922aed84.wav"
+    },
+    {
+      "start": 9.08,
+      "duration": 13.67,
+      "text": "The heart of the vehicle is its suspension: dynamic chassis, four independently animated wheels, and spring-and-damper forces calculated at every contact point. The wheels must articulate over bumps with responsive acceleration, steering, braking, and lateral grip.",
+      "source": "modules/12_rover_prompt/audio/0ade01df74c1ee72c1e4.wav"
+    },
+    {
+      "start": 23.0,
+      "duration": 7.51,
+      "text": "This independent raycast suspension delivers authentic mechanical behavior you can feel in every turn, far beyond cosmetic wheels that only spin in place.",
+      "source": "modules/12_rover_prompt/audio/11ad6678126f1538773b.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "stills/12-rover-prompt.png",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/stills/12-rover-prompt.png",
+      "in": 0.0,
+      "out": 30.866666666666667,
+      "duration": 30.866666666666667,
+      "source_sig": "67b59a22d69dbd866ff574e76d5ea640aad7e885d52d934887cd93831960c36a",
+      "mode": "realtime"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "05e5ff74dc041a0e4cbc3f3a479f5115926be3fd97c7a49c48cb4f73491a7527",
+  "voice_sig": "e8c60407b0217a2a92b4e056ac099af72d44b32c2269c787087db3ec99472820"
+}

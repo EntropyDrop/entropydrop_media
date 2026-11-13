@@ -1,0 +1,12 @@
+{
+  "duration": 32.766666666666666,
+  "sha256": "53a28cee23cfc8df22aeb32b5f7a63819dd15ea1386c91c389d70c5a4cd154e8",
+  "voice_sha256": "5daa07622b86dc34491b232f0e8b1f0bbcbb120123244893c667407d9ce481f7",
+  "clips": [
+    {
+      "file": "footage/scifi-survey-and-tools.mp4",
+      "start": 0,
+      "duration": 32.766666666666666
+    }
+  ]
+}

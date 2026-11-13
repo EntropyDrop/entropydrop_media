@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "我们来到了第二座世界——Nature 原野。在 Agent Build 中将目标世界切换为 Nature。",
+  "seed": 42
+}

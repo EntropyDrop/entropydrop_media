@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Build a compact quadcopter companion featuring a dynamic center body, four counter-rotating rotors, landing feet, and a distinct front accent.",
+  "seed": 43
+}

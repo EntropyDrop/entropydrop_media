@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "在传统开发中，配置一套能随地形自适应贴合的独立悬挂极其繁琐。但在 Space 里，这套复杂的底盘动力学算法同样由 Agent 全自动生成。你只需提出“要有弹性避震悬挂”，AI 就会自动计算受力并生成控制器，为驾驶提供极其扎实的操控手感。",
+  "seed": 44
+}

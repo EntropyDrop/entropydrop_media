@@ -1,0 +1,14 @@
+{
+  "output": "footage/08-chinook-controls-clean.mp4",
+  "seconds": 31,
+  "mode": "compositor",
+  "incoming": 1502,
+  "frames": 930,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793705969058,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

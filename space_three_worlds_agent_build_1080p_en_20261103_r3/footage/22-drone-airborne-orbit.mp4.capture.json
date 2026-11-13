@@ -1,0 +1,14 @@
+{
+  "output": "footage/22-drone-airborne-orbit.mp4",
+  "seconds": 36,
+  "mode": "compositor",
+  "incoming": 1725,
+  "frames": 1080,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793706735235,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "role": "surveyor",
+    "components": 7,
+    "voxels": 2132,
+    "bytes": 37761,
+    "compiled": true
+  },
+  {
+    "role": "road",
+    "components": 7,
+    "voxels": 2208,
+    "bytes": 38843,
+    "compiled": true
+  },
+  {
+    "role": "builder_a",
+    "components": 7,
+    "voxels": 2112,
+    "bytes": 37317,
+    "compiled": true
+  },
+  {
+    "role": "builder_b",
+    "components": 7,
+    "voxels": 2112,
+    "bytes": 37317,
+    "compiled": true
+  },
+  {
+    "role": "planter",
+    "components": 7,
+    "voxels": 2144,
+    "bytes": 37757,
+    "compiled": true
+  }
+]

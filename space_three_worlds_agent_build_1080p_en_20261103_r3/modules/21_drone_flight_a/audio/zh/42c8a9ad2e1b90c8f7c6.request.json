@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "没有生硬的坐标吸附瞬移，完全是自然流畅的真实物理互动。将角色与无人机置于同一画面取景框内，你能清晰观察到这种灵动而默契的跟随手感。",
+  "seed": 44
+}

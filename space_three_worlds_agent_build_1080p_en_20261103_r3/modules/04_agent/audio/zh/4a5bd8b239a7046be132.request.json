@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "这就是 Space 的核心系统：Agent Build。只需打开面板，把提示词复制给你常用的外部 AI Agent，它就能通过开放接口，直接连入当前的体素世界。",
+  "seed": 42
+}

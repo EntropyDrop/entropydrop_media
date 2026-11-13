@@ -1,0 +1,27 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "接下来测试转向。踩住刹车，按 A 键向左打轮，松开回正，再按 D 键向右打轮。两只前轮转向清晰，后轮保持直行方向。",
+      "file": "modules/17_rover_drive_b/audio/zh/31bba662e426029c9706.wav",
+      "sha256": "32488af549378fc10deff75c92ac47d8fdb84fbbde395e9db0b183157d83909c",
+      "request_sha256": "31bba662e426029c97060ce4fc471efc02accac0cdce6757c4905bbc97196638",
+      "trimmed_duration": 9.76
+    },
+    {
+      "text": "理顺转向轴与车轮车轴的层级关系，可以防止滚动的车轮导致转向轴心晃动，保证高速行驶中的稳定可控。",
+      "file": "modules/17_rover_drive_b/audio/zh/37f42e4941970bfd2182.wav",
+      "sha256": "0d9fbbbfef48edffaf2b5111c71c93645a28360e21c6d032f6478a36a23f23bc",
+      "request_sha256": "37f42e4941970bfd2182620d4cb2fd2eb61ceb8995f9bbc749255ef2fd9f60d3",
+      "trimmed_duration": 8.56
+    },
+    {
+      "text": "松开刹车，直接全油门冲向天然台阶！可以看到，当单侧车轮碾过起伏不平的土块时，独立悬挂灵敏压缩回弹，车身平稳跨过障碍，琥珀大灯在原野上划出帅气的弧线。陆地越野的狂飙体验令人大呼过瘾！",
+      "file": "modules/17_rover_drive_b/audio/zh/5427378dd1805a3eca27.wav",
+      "sha256": "75eb36a918a7702ba87be7884143a64b3b941f9c4729c60143683e3019dff41d",
+      "request_sha256": "5427378dd1805a3eca27534a497e204a5c4f360ef9a90563d322dbb50520dc98",
+      "trimmed_duration": 15.04
+    }
+  ]
+}

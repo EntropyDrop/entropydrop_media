@@ -1,0 +1,27 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "现在，我们来看看无人机同行的实际效果。切到第三人称视角，让无人机在身边悬停，随后开启角色飞行模式垂直腾空！",
+      "file": "modules/21_drone_flight_a/audio/zh/3955ea7432872b785f89.wav",
+      "sha256": "b8534a176d7920b23616ac718aef7049f7e0da94e706dfef9709c29cf1786d09",
+      "request_sha256": "3955ea7432872b785f898b6c4c65b60db4685e891f43ac97c129da34118cc04c",
+      "trimmed_duration": 8.32
+    },
+    {
+      "text": "角色离开楼顶，开始沿着城市上方的大圈持续前进。无人机读取角色的位置和速度来追赶；转弯时需要调整推力方向，所以机身会倾斜，而不是直接平移到目标点。",
+      "file": "modules/21_drone_flight_a/audio/zh/cef4dd9fec1466f01594.wav",
+      "sha256": "97124820d108353ffdf15407d094a77bca348e9325de0e1d6d2f6b5c3fe66d40",
+      "request_sha256": "cef4dd9fec1466f01594bae8f1926319b321128509220b000004c2f3e2156d60",
+      "trimmed_duration": 11.03
+    },
+    {
+      "text": "这个测试更接近真正的探索：目标一直在移动，无人机要不断修正距离和高度。把角色和无人机同时留在第三人称画面里，跟随的延迟、转弯的侧倾，就能直接看出来。",
+      "file": "modules/21_drone_flight_a/audio/zh/ae5cf0f903715347264c.wav",
+      "sha256": "074e19099dcf730e39a7e41500136447645eb2029c89d71574958d546fb06412",
+      "request_sha256": "ae5cf0f903715347264cdd0d8f5758a7e177c1f83b74567a0fcff5f26a57e123",
+      "trimmed_duration": 11.3
+    }
+  ]
+}

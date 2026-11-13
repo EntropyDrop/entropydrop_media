@@ -1,0 +1,12 @@
+{
+  "duration": 29.633333333333333,
+  "sha256": "a341d8bd72cebff72995b2b4598b7e667325868df68926f481de55b9d838651f",
+  "voice_sha256": "d314531d275b61c77947b5ef5339720bb3fdd638f6c7946978ef3877949eca8c",
+  "clips": [
+    {
+      "file": "footage/scifi-pause-road.mp4",
+      "start": 0,
+      "duration": 29.633333333333333
+    }
+  ]
+}

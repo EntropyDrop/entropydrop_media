@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "This machine unlocks the true gameplay of Aether Archipelago: impassable voids are now open airways, and remote castles become landing sites waiting to be explored.",
+  "seed": 44
+}

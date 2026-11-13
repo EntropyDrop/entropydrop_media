@@ -1,0 +1,110 @@
+{
+  "output": "/private/tmp/scifi-prompt-example.mp4",
+  "shot": {
+    "id": "04_prompt_example",
+    "mode": "authored-prompt-document",
+    "seconds": 12.4333333333,
+    "position": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "target": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "controllerRate": 0
+  },
+  "mode": "authored-prompt-document",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 373,
+  "target": 373,
+  "state": "complete",
+  "errors": "",
+  "samples": [
+    {
+      "frame": 0,
+      "kind": "authored-prompt-example-document",
+      "time": 0
+    },
+    {
+      "frame": 30,
+      "kind": "authored-prompt-example-document",
+      "time": 1
+    },
+    {
+      "frame": 60,
+      "kind": "authored-prompt-example-document",
+      "time": 2
+    },
+    {
+      "frame": 90,
+      "kind": "authored-prompt-example-document",
+      "time": 3
+    },
+    {
+      "frame": 120,
+      "kind": "authored-prompt-example-document",
+      "time": 4
+    },
+    {
+      "frame": 150,
+      "kind": "authored-prompt-example-document",
+      "time": 5
+    },
+    {
+      "frame": 180,
+      "kind": "authored-prompt-example-document",
+      "time": 6
+    },
+    {
+      "frame": 210,
+      "kind": "authored-prompt-example-document",
+      "time": 7
+    },
+    {
+      "frame": 240,
+      "kind": "authored-prompt-example-document",
+      "time": 8
+    },
+    {
+      "frame": 270,
+      "kind": "authored-prompt-example-document",
+      "time": 9
+    },
+    {
+      "frame": 300,
+      "kind": "authored-prompt-example-document",
+      "time": 10
+    },
+    {
+      "frame": 330,
+      "kind": "authored-prompt-example-document",
+      "time": 11
+    },
+    {
+      "frame": 360,
+      "kind": "authored-prompt-example-document",
+      "time": 12
+    }
+  ],
+  "started": "2026-11-06T03:39:15.342Z",
+  "finished": "2026-11-06T03:39:34.812Z"
+}

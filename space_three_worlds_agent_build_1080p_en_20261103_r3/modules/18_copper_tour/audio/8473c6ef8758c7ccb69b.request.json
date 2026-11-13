@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "The player becomes the moving target. Starting from a spacious rooftop terrace, we take to the air, giving our drone companion plenty of clear airspace to climb, follow, and hover beside us.",
+  "seed": 45
+}

@@ -1,0 +1,28 @@
+{
+  "chunks": [
+    {
+      "text": "Welcome to our second world: Nature. In Agent Build, we simply update our target world to Nature.",
+      "file": "modules/11_nature_tour/audio/4dc406108b968288b398.wav",
+      "sha256": "181bbda3f19b967bc85475e305b2383258612427abd6a3acd19a75fcac564265",
+      "request_sha256": "4dc406108b968288b398da52b15e6de8f17ef981aa83aad0e9b6ec01f608bd09"
+    },
+    {
+      "text": "Unlike the vertical drops of Aether, Nature is an expansive rolling wilderness packed with natural slopes, rocky ledges, and stepped grass terraces.",
+      "file": "modules/11_nature_tour/audio/f147b976f61a4c003d9f.wav",
+      "sha256": "f37ce2c4900c460dc10f1d9d88da0a2c8168875a638873809162aad0df80c80c",
+      "request_sha256": "f147b976f61a4c003d9f120b2cb6ebc48bada4ad8f5e68309333ed52941b5942"
+    },
+    {
+      "text": "We pick an open grassy clearing as our starting point. In Space, you don't need to build artificial ramps or test tracks—the rugged procedural earth is already the ultimate off-road proving ground. Here, we're going to build a heavy-duty all-terrain rover.",
+      "file": "modules/11_nature_tour/audio/4046c81bdfe718748df9.wav",
+      "sha256": "477df93348f9d2ee1d8be8a71dd28e6acbc69e905f5e9b520dc7004a3baa497f",
+      "request_sha256": "4046c81bdfe718748df9bc4c0f794f1a3f099986e7532488c3da0322ada6a80f"
+    },
+    {
+      "text": "This landscape sets the stage for our driving tests: checking low-speed wheel rotation first, testing steering geometry, and finally pushing the independent suspension across natural terraces.",
+      "file": "modules/11_nature_tour/audio/ad8ce63b263e0df5f507.wav",
+      "sha256": "52bb7d1c0cc79ebe95e6326a5af69744dfa8d1553647a2a179697e205f1d04ed",
+      "request_sha256": "ad8ce63b263e0df5f50781862a17660c4d665366d54464cf7de14d10eaa0de87"
+    }
+  ]
+}

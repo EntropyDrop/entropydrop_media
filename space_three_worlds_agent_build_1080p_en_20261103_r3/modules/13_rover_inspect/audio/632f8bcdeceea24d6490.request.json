@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "The rover appears instantly. Dropping our camera to wheel level reveals the setup: a single dynamic chassis root connected to four independently articulated wheel assemblies.",
+  "seed": 42
+}

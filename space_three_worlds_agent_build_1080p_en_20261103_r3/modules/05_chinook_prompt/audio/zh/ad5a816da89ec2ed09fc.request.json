@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "我们要求 AI 建造一架橄榄绿配色的直升机，包含清晰通透的座舱、中空机舱、起落轮组和可交互的驾驶位；前后两个旋翼作为独立活动部件向相反方向旋转；使用真实的推力与姿态控制，W/S 控制前后行进，A/D 控制转向，空格与 Shift 控制升降。",
+  "seed": 43
+}

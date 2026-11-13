@@ -1,0 +1,16 @@
+{
+  "chunks": [
+    {
+      "text": "Hey everyone. Today, I want to introduce EntropyDrop Space, a 3D voxel game running directly in your web browser. In Space, the world isn't just a sandbox made of blocks—it's an interactive, playable world. Building a drivable machine in traditional sandbox games often takes hours of manual block placement and scripting, while typical generative 3D models tend to be static decorations you can neither customize nor actually play with.",
+      "file": "modules/01_intro/audio/6c64b516a34e93083e11.wav",
+      "sha256": "2d1a7ef164f9fa645457699ce406d257482cc0b8a3ea2ecc9578723828645458",
+      "request_sha256": "6c64b516a34e93083e111adea78f4282468119304945190c10c782c27f766dd2"
+    },
+    {
+      "text": "The core idea behind Space is bringing AI co-creation and voxel sandbox gameplay together: describe what you want in plain words, and an AI Agent helps build functional mechanisms and control scripts for you. At the same time, you retain complete creative control—sculpting micro details with hands-on tools, and jumping into the driver's seat to explore the world yourself. Today, we'll walk through three distinct worlds to showcase how the systems and gameplay in Space actually work.",
+      "file": "modules/01_intro/audio/d2eaa72e559461754b9f.wav",
+      "sha256": "d36c40dcc59b4ef775c068ca3c50735fc8c4b8e46a18a6174cf68099dbf6b563",
+      "request_sha256": "d2eaa72e559461754b9f19ed260135f5740578a9d3825fb92f872d4a6c806ee3"
+    }
+  ]
+}

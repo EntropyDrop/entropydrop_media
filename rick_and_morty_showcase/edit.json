@@ -1,0 +1,501 @@
+{
+  "id": "rick-and-morty-showcase",
+  "title": "Rick and Morty — From Print to Figure",
+  "importDirectory": "~/Downloads/shipin/未命名文件夹 7",
+  "sources": {
+    "rick": "sources/VID_20261016_123013.mp4",
+    "morty": "sources/VID_20261020_145224.mp4"
+  },
+  "fps": 30,
+  "bpm": 120,
+  "formats": {
+    "landscape": {
+      "width": 1920,
+      "height": 1080
+    },
+    "portrait": {
+      "width": 1080,
+      "height": 1920
+    }
+  },
+  "defaultLandscape": [
+    0,
+    0,
+    1920,
+    1080
+  ],
+  "defaultPortrait": {
+    "width": 594,
+    "height": 1056,
+    "y": 12
+  },
+  "music": {
+    "assembly": "rick_01_parts",
+    "head": "rick_02_face",
+    "head_attach": "rick_06_first_sleeve",
+    "arms": "rick_11_leg_back",
+    "legs": "morty_02_face",
+    "leg_attach": "morty_13_attach",
+    "ending": "ending"
+  },
+  "shots": [
+    {
+      "id": "opening_duo",
+      "image": "sources/showcase/PXL_20261021_012201689.jpg",
+      "duration": 2,
+      "landscapeOnly": false,
+      "label": "opening_duo",
+      "portraitImage": "assets/showcase/duo-portrait-matched-v2.png",
+      "landscapeImage": "assets/showcase/duo-landscape-matched-v1.png"
+    },
+    {
+      "id": "opening_rick",
+      "image": "sources/showcase/PXL_20261016_122308891.jpg",
+      "duration": 2,
+      "landscapeOnly": true,
+      "label": "opening_rick",
+      "landscapeImage": "assets/showcase/rick-landscape-v1.png"
+    },
+    {
+      "id": "opening_morty",
+      "image": "sources/showcase/PXL_20261021_012224465.jpg",
+      "duration": 2,
+      "landscapeOnly": true,
+      "label": "opening_morty",
+      "landscapeImage": "assets/showcase/morty-landscape-centered-v1.png"
+    },
+    {
+      "id": "rick_01_parts",
+      "source": "rick",
+      "duration": 3,
+      "portraitDuration": 1.5,
+      "centerX": 650,
+      "label": "白模与关节",
+      "landscape": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "freeze": 0
+    },
+    {
+      "id": "rick_02_face",
+      "source": "rick",
+      "in": 140,
+      "out": 152,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 850,
+      "label": "贴合脸部",
+      "landscape": [
+        160,
+        180,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "rick_03_hair_side",
+      "source": "rick",
+      "in": 274,
+      "out": 286,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 860,
+      "label": "蓝发侧面",
+      "landscape": [
+        160,
+        180,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "rick_04_hair_back",
+      "source": "rick",
+      "in": 867,
+      "out": 873,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 920,
+      "label": "头部贴合后的转动展示",
+      "landscape": [
+        160,
+        180,
+        1600,
+        900
+      ],
+      "keyframes": [
+        [
+          0,
+          980
+        ],
+        [
+          0.5,
+          835
+        ],
+        [
+          1,
+          875
+        ],
+        [
+          1.5,
+          880
+        ],
+        [
+          1.875,
+          990
+        ],
+        [
+          1.916667,
+          1040
+        ],
+        [
+          2,
+          890
+        ],
+        [
+          2.125,
+          825
+        ],
+        [
+          2.25,
+          800
+        ],
+        [
+          3,
+          800
+        ]
+      ]
+    },
+    {
+      "id": "rick_05_hair_detail",
+      "source": "rick",
+      "in": 938,
+      "out": 945,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 900,
+      "label": "压合头发边缘",
+      "landscape": [
+        240,
+        180,
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "rick_06_first_sleeve",
+      "source": "rick",
+      "in": 1074,
+      "out": 1086,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 840,
+      "label": "贴合第一侧袖口"
+    },
+    {
+      "id": "rick_07_shirt",
+      "source": "rick",
+      "in": 1148,
+      "out": 1160,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 1000,
+      "label": "衬衣与白大褂正面"
+    },
+    {
+      "id": "rick_08_other_sleeve",
+      "source": "rick",
+      "in": 1258,
+      "out": 1270,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 1100,
+      "label": "包覆另一侧袖口"
+    },
+    {
+      "id": "rick_09_trousers",
+      "source": "rick",
+      "in": 1518,
+      "out": 1528,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 1000,
+      "label": "裤腿正面"
+    },
+    {
+      "id": "rick_10_leg_wrap",
+      "source": "rick",
+      "in": 1694,
+      "out": 1706,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 970,
+      "label": "裤腿边缘",
+      "keyframes": [
+        [
+          0,
+          940
+        ],
+        [
+          1.5,
+          1100
+        ],
+        [
+          3,
+          1000
+        ]
+      ]
+    },
+    {
+      "id": "rick_11_leg_back",
+      "source": "rick",
+      "in": 1910,
+      "out": 1922,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 1040,
+      "label": "裤腿背面"
+    },
+    {
+      "id": "rick_12_sleeve_detail",
+      "source": "rick",
+      "in": 2602,
+      "out": 2614,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 1020,
+      "label": "补齐袖口边缘"
+    },
+    {
+      "id": "rick_13_attach",
+      "source": "rick",
+      "in": 3048,
+      "out": 3056,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 890,
+      "label": "组装后调整关节",
+      "keyframes": [
+        [
+          0,
+          820
+        ],
+        [
+          1.5,
+          820
+        ],
+        [
+          3,
+          900
+        ]
+      ]
+    },
+    {
+      "id": "rick_14_reveal",
+      "source": "rick",
+      "in": 3199,
+      "out": 3203,
+      "duration": 3,
+      "portraitDuration": 1.5,
+      "centerX": 900,
+      "label": "Rick 成品",
+      "landscape": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "keyframes": [
+        [
+          0,
+          1030
+        ],
+        [
+          1.5,
+          900
+        ],
+        [
+          3,
+          930
+        ]
+      ]
+    },
+    {
+      "id": "morty_01_parts",
+      "source": "morty",
+      "duration": 3,
+      "portraitDuration": 1.5,
+      "centerX": 930,
+      "label": "白模与关节",
+      "landscape": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "freeze": 0
+    },
+    {
+      "id": "morty_02_face",
+      "source": "morty",
+      "in": 87,
+      "out": 99,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 810,
+      "label": "贴合脸部"
+    },
+    {
+      "id": "morty_03_hair_side",
+      "source": "morty",
+      "in": 174,
+      "out": 186,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 1040,
+      "label": "棕发侧面"
+    },
+    {
+      "id": "morty_04_hair_top",
+      "source": "morty",
+      "in": 442,
+      "out": 454,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 1050,
+      "label": "棕发顶部"
+    },
+    {
+      "id": "morty_05_eyes",
+      "source": "morty",
+      "in": 625,
+      "out": 637,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 1090,
+      "label": "立体眼睛贴合"
+    },
+    {
+      "id": "morty_06_shirt",
+      "source": "morty",
+      "in": 746,
+      "out": 758,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 870,
+      "label": "黄色上衣正面"
+    },
+    {
+      "id": "morty_07_shirt_back",
+      "source": "morty",
+      "in": 798,
+      "out": 810,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 970,
+      "label": "黄色上衣背面"
+    },
+    {
+      "id": "morty_08_waist",
+      "source": "morty",
+      "in": 985,
+      "out": 997,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 910,
+      "label": "腰部与连接孔"
+    },
+    {
+      "id": "morty_09_sleeve",
+      "source": "morty",
+      "in": 1074,
+      "out": 1086,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 790,
+      "label": "黄色袖口"
+    },
+    {
+      "id": "morty_10_sleeve_wrap",
+      "source": "morty",
+      "in": 1344,
+      "out": 1356,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 870,
+      "label": "另一侧袖口"
+    },
+    {
+      "id": "morty_11_arm_attach",
+      "source": "morty",
+      "in": 1417,
+      "out": 1425,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 780,
+      "label": "装回手臂"
+    },
+    {
+      "id": "morty_12_trousers",
+      "source": "morty",
+      "in": 1524,
+      "out": 1536,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 800,
+      "label": "蓝色裤腿"
+    },
+    {
+      "id": "morty_13_attach",
+      "source": "morty",
+      "in": 1889,
+      "out": 1895,
+      "duration": 3,
+      "portraitDuration": 2,
+      "centerX": 850,
+      "label": "连接双腿",
+      "keyframes": [
+        [
+          0,
+          740
+        ],
+        [
+          1.5,
+          820
+        ],
+        [
+          3,
+          1000
+        ]
+      ]
+    },
+    {
+      "id": "morty_14_reveal",
+      "source": "morty",
+      "in": 1895,
+      "out": 1901,
+      "duration": 3,
+      "portraitDuration": 1.5,
+      "centerX": 940,
+      "label": "Morty 成品",
+      "landscape": [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    },
+    {
+      "id": "ending",
+      "image": "sources/showcase/PXL_20261021_012201689.jpg",
+      "portraitImage": "assets/showcase/duo-portrait-matched-v2.png",
+      "duration": 4,
+      "portraitDuration": 3,
+      "label": "Rick & Morty 双人成品",
+      "landscapeImage": "assets/showcase/duo-landscape-matched-v1.png"
+    }
+  ]
+}

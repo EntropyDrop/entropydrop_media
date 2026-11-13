@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "在 Space 中，针对微小构件的点选上色极其便捷直观；若是更大面积的表面，使用选择器也可以快速区域重绘。",
+  "seed": 44
+}

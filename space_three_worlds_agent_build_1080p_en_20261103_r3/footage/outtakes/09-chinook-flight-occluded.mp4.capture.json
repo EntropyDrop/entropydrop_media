@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/space-three-worlds-vlog-r3/footage/09-chinook-flight-a-clean.mp4",
+  "seconds": 45,
+  "mode": "compositor",
+  "incoming": 2065,
+  "frames": 1350,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793706011865,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

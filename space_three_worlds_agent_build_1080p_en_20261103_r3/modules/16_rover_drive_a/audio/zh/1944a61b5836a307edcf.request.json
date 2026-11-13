@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "坐进驾驶席，轻踩油门！在车轮高度做极低速的前进与后退测试，仔细观察轮胎花纹的运动趋势。",
+  "seed": 42
+}

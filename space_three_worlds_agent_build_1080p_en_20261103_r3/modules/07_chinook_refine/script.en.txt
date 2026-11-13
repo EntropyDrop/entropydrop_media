@@ -1,0 +1,5 @@
+Now let's see how effortless it is to customize an AI-generated build. We switch into first-person and pause the entity to begin editing.
+
+Selecting Spoon brings up a targeted reticle focused on an eighth-meter micro-voxel. We carve out a clean notch along the edge without removing a full standard block, shaping the airframe with sculptural precision.
+
+Switching to Brush, we pick an accent color and paint a custom livery detail. This is where Space shines: the AI handles the heavy structural engineering, and in just a few seconds with your own hands, you make the machine truly your own.

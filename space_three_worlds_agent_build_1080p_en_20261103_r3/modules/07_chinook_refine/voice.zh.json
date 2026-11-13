@@ -1,0 +1,27 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "接下来，我们看看生成以后怎样亲手微调。切换到第一人称，暂时停用实体，开始编辑。",
+      "file": "modules/07_chinook_refine/audio/zh/e3f003aaad8ee8872419.wav",
+      "sha256": "97e882dd22396044db2f039c7f5284f5fc47cbfd09e64f93ad864a7b3380fb9d",
+      "request_sha256": "e3f003aaad8ee8872419ce7a96009f8512a05ee0d09578aebee9b1c150c851b2",
+      "trimmed_duration": 6.78
+    },
+    {
+      "text": "拿出勺子工具，对准八分之一米的微体素。沿着机身边缘削出一道小缺口，不用移除整块标准方块，就能像雕刻一样精细地修饰外形。",
+      "file": "modules/07_chinook_refine/audio/zh/6a0b39c2681bb1b19cb4.wav",
+      "sha256": "97bdff0c5e61feebf754553ab8e2236607ec48f3870d3725ca325a53aa86f2d1",
+      "request_sha256": "6a0b39c2681bb1b19cb46961ce31102a9f17a822c38c35dde2b56c10609e6992",
+      "trimmed_duration": 10.0
+    },
+    {
+      "text": "随后换上画笔（Brush），挑选亮眼的辅色为机体喷绘个性化标识。这就是 Space 的创作魅力：AI 快速帮你完成繁重的基础搭建，而你只需花几秒钟，就能赋予它专属于你的视觉细节。",
+      "file": "modules/07_chinook_refine/audio/zh/b677af6169a3676da7a5.wav",
+      "sha256": "fff9045bba5c3c65151577d885e6c55e08aa5aacd85d2ba5d34823a7a67f35a8",
+      "request_sha256": "b677af6169a3676da7a5a0a800173e48836da79555550168adf35a9a8900cd92",
+      "trimmed_duration": 12.76
+    }
+  ]
+}

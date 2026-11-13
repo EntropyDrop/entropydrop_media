@@ -1,0 +1,14 @@
+{
+  "output": "footage/10-chinook-flight-b-clean.mp4",
+  "seconds": 37,
+  "mode": "compositor",
+  "incoming": 1629,
+  "frames": 1110,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793706564379,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

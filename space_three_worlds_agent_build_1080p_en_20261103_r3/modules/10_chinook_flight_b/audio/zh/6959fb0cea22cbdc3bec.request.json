@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "切到第三人称，我们从浮岛上空飞过。直升机和远处地形的轮廓清晰，即使没有小地图，也能判断彼此的位置和航向。",
+  "seed": 43
+}

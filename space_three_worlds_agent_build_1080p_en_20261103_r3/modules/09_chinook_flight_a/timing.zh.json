@@ -1,0 +1,76 @@
+{
+  "id": "09_chinook_flight_a",
+  "title": "Maiden Flight: Responsive Controls & Cruising",
+  "label": "支奴干起飞",
+  "duration": 32.7,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 7.91,
+      "text": "Hit the throttle, and the helicopter lifts off smoothly from the grass into a clean vertical climb! Nudging forward input pitches the nose down as thrust propels us forward.",
+      "source": "modules/09_chinook_flight_a/audio/a5bbce4ba8c04026a47e.wav"
+    },
+    {
+      "start": 8.36,
+      "duration": 11.84,
+      "text": "Releasing the keys commands the controller to decelerate and settle into a stable hover. Our first turn is wide and deliberate: a heavy tandem transport should feel substantial, carrying realistic momentum and weight rather than feeling twitchy.",
+      "source": "modules/09_chinook_flight_a/audio/effafce6192cc3f0c869.wav"
+    },
+    {
+      "start": 20.45,
+      "duration": 11.87,
+      "text": "As the castle slips behind us, sunlight cuts across the skyward ring, revealing an incredible panoramic skyline. Testing each axis one at a time lets you appreciate just how responsive and natural the handling feels.",
+      "source": "modules/09_chinook_flight_a/audio/d9cd3ec0c8ee2cd4a12a.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "footage/09-chinook-flight-a-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/09-chinook-flight-a-clean.mp4",
+      "in": 0.0,
+      "out": 3.5,
+      "duration": 3.5,
+      "source_sig": "7637ce63e7bc57e8529a620457aab9ef195aaf91e2953ab7b0f0818b6706acb6",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/09-chinook-flight-a-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/09-chinook-flight-a-clean.mp4",
+      "in": 17.0,
+      "out": 21.86,
+      "duration": 4.859999999999999,
+      "source_sig": "7637ce63e7bc57e8529a620457aab9ef195aaf91e2953ab7b0f0818b6706acb6",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/09-chinook-flight-a-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/09-chinook-flight-a-clean.mp4",
+      "in": 40.0,
+      "out": 44.5,
+      "duration": 4.5,
+      "source_sig": "7637ce63e7bc57e8529a620457aab9ef195aaf91e2953ab7b0f0818b6706acb6",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/09-chinook-flight-a-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/09-chinook-flight-a-clean.mp4",
+      "in": 22.0,
+      "out": 29.59,
+      "duration": 7.59,
+      "source_sig": "7637ce63e7bc57e8529a620457aab9ef195aaf91e2953ab7b0f0818b6706acb6",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/09-chinook-flight-a-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/09-chinook-flight-a-clean.mp4",
+      "in": 30.0,
+      "out": 42.25,
+      "duration": 12.250000000000004,
+      "source_sig": "7637ce63e7bc57e8529a620457aab9ef195aaf91e2953ab7b0f0818b6706acb6",
+      "mode": "realtime"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "6d8372151c5f6952052478c3de54bb33f9f08db1abdc0809d1cf83f76e18b585",
+  "voice_sig": "d3afe3f7a67f0dc98d8648fe55f5c0a4b1974a6bcfc146b1cef0c75eec083660"
+}

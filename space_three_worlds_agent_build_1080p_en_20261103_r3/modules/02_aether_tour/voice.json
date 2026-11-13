@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "Here in Aether Archipelago, the terrain gives us a design problem. How do we cross a gap, transport supplies, or let a machine handle repetitive work? We want players to start with a goal, build a solution, and test it in the world.",
+      "file": "modules/02_aether_tour/audio/2579135a5b4fba2d1f19.wav",
+      "sha256": "da654e153879429632dbc51a66ea6b0fdcaa04fa42b8654dd957cfe3598a7141",
+      "request_sha256": "2579135a5b4fba2d1f19b11961e70353c348e355a1694827b545155708fdb740"
+    },
+    {
+      "text": "AI is a design partner. Describe appearance, structure, and behavior in plain language, and it can help build vehicles and write their control code. The same idea extends to following or patrolling drones, and bot players that interact with people. Generation is only the beginning: the toolbar lets you refine, test, and make the result your own.",
+      "file": "modules/02_aether_tour/audio/67a6be1a16a52d2cf583.wav",
+      "sha256": "67a1f4ff0d452ac0715df0fb1794f5f9420bcc11a05c947ce4e4d587e2cb3a1c",
+      "request_sha256": "67a6be1a16a52d2cf583fff8fcd29acc7e99623655ebca92a2799103e24cd4ef"
+    },
+    {
+      "text": "We also want to extend this collaboration to automated construction. Imagine an agent directing a road-building robot: it reads the terrain ahead and lays a route as it moves. Vehicles, robots, and the world become connected. You set a goal, AI helps implement it, and real operation puts the design to the test.",
+      "file": "modules/02_aether_tour/audio/5cfd69391afc57388ed5.wav",
+      "sha256": "2ba8f656904f7a35a7c7079b5b36ab799a5e67b554da453d2c438031941b4c3b",
+      "request_sha256": "5cfd69391afc57388ed519fad27a3852634fba65c3581fcef8f064c22d7f6a53"
+    }
+  ]
+}

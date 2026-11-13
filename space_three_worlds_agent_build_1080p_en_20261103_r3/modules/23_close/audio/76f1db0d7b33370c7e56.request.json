@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "AI Agents lower the barrier to creation, turning wild ideas into working machinery in seconds; Hands-on voxel toolkits keep you in total control, banishing uneditable AI black boxes; And it all comes together in an interactive 3D universe running right in your web browser.",
+  "seed": 43
+}

@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "The drone appears instantly on the terrace, with four counter-rotating rotor arms clearly defined. The visual spinning animations work hand-in-hand with genuine dynamic physics forces.",
+      "file": "modules/20_drone_refine/audio/0088895d0713e46b00fe.wav",
+      "sha256": "85e68e2ced0f912094de72d6faab46c7b2e9a62ba06abc6e8be9360590311a13",
+      "request_sha256": "0088895d0713e46b00feff3f26744ba29d4e2ae11b277888ae7ba9f51c50384e"
+    },
+    {
+      "text": "Because quadcopters are geometrically symmetrical, reading their heading during rapid aerial spins can be tricky. We whip out the Brush and paint a vivid front accent badge—a two-second touch that brings instant personality to the drone.",
+      "file": "modules/20_drone_refine/audio/39b21e5f351e98aac271.wav",
+      "sha256": "d58d30f370720ff5e9516fd5fbbe826bb5976948ac32d4537191551f1041d48d",
+      "request_sha256": "39b21e5f351e98aac2716984044bbd13a2df7c338270505f7247a79edcc0a732"
+    },
+    {
+      "text": "Sturdy landing feet ensure clean clearance. While Modeling tools can easily add camera gimbals or cosmetic housings, genuine flight behavior always flows from the underlying physics components.",
+      "file": "modules/20_drone_refine/audio/700dee662da4350f181c.wav",
+      "sha256": "665db1962668aded621f2fa39bbf894306842a8b21e41a049c04411523c0b430",
+      "request_sha256": "700dee662da4350f181cc785632e701ce68c186162eb13326f8b3844ee96266c"
+    }
+  ]
+}

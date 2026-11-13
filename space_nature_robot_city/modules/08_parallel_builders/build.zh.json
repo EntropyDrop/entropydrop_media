@@ -1,0 +1,17 @@
+{
+  "duration": 35.4,
+  "sha256": "cc3917cffcacd80b6432374c5b973a7211fc69094005dfa72831cbd900046f92",
+  "voice_sha256": "233b7c7f396597e9a3ef892f584d9abe9e3445963601e1213d26a431f36ba413",
+  "clips": [
+    {
+      "file": "footage/scifi-parallel-builders.mp4",
+      "start": 0,
+      "duration": 15
+    },
+    {
+      "file": "footage/scifi-city-designs.mp4",
+      "start": 21.4,
+      "duration": 20.4
+    }
+  ]
+}

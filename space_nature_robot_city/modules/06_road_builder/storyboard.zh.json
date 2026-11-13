@@ -1,0 +1,16 @@
+{
+  "id": "06_road_builder",
+  "title": "道路怎样成为共享基础设施",
+  "status": "rendered_chinese",
+  "planned_duration_seconds": 65,
+  "planned_shots": [
+    "低角度跟拍实体运动与逐段落块，完整保留一段实时施工。",
+    "角色走上已完成道路，验证真实碰撞。",
+    "高位机位同时看到铺路机、道路末端等待的运输车。"
+  ],
+  "footage": "modules/06_road_builder/module.json",
+  "voice": "modules/06_road_builder/voice.zh.json",
+  "planned_start_seconds": 240,
+  "actual_start_seconds": 204.666667,
+  "actual_duration_seconds": 47.43333333333333
+}

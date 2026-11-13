@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "There is no fake teleportation or snapping here—it is pure, fluid physics simulation. Framing character and companion together showcases the organic lag, tilt, and stabilization that make it feel like a living buddy.",
+  "seed": 44
+}

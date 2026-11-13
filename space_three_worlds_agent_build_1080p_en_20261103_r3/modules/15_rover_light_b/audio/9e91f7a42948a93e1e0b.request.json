@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "This highlights the core gameplay philosophy of Space: every generated machine remains completely editable. You never need to reroll a hundred-word prompt just to tweak a headlight color—the AI lays down the engineering, and you shape the personality with your own hands.",
+  "seed": 43
+}

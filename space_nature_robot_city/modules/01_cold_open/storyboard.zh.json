@@ -1,0 +1,16 @@
+{
+  "id": "01_cold_open",
+  "title": "六台机器人，共同造城",
+  "status": "rendered_chinese",
+  "planned_duration_seconds": 25,
+  "planned_shots": [
+    "先用成片中真实发生的铺路、运料、双机盖房、植树各2秒组成开场。",
+    "低空拉升展示同一片施工区，不使用完成城市的预渲染替代实机。",
+    "上一期只用短镜头回顾，直接进入新问题。"
+  ],
+  "footage": "modules/01_cold_open/module.json",
+  "voice": "modules/01_cold_open/voice.zh.json",
+  "planned_start_seconds": 0,
+  "actual_start_seconds": 0,
+  "actual_duration_seconds": 26.1
+}

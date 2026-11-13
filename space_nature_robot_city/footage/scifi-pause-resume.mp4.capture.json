@@ -1,0 +1,1234 @@
+{
+  "output": "/private/tmp/scifi-pause-resume.mp4",
+  "shot": {
+    "seconds": 11.3,
+    "fov": 53,
+    "mode": "native-checkpoint-continuation",
+    "segments": [
+      {
+        "seconds": 4.666666666666667,
+        "followRole": 4,
+        "followOffset": [
+          0,
+          30,
+          1
+        ],
+        "lookOffset": [
+          0,
+          -7,
+          0
+        ],
+        "fov": 50,
+        "controllerRate": 2
+      },
+      {
+        "seconds": 6.633333333333334,
+        "followRole": 1,
+        "followOffset": [
+          29,
+          30,
+          40
+        ],
+        "lookOffset": [
+          0,
+          -5,
+          0
+        ],
+        "controllerRate": 8,
+        "fov": 58
+      }
+    ],
+    "actions": [
+      {
+        "at": 4.666666666666667,
+        "type": "work-pause",
+        "role": 1
+      }
+    ]
+  },
+  "mode": "native-checkpoint-continuation",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 339,
+  "target": 339,
+  "state": "complete",
+  "errors": "",
+  "samples": [
+    {
+      "frame": 0,
+      "capturePacing": {
+        "idleEverySteps": 10,
+        "idleMs": 100
+      },
+      "checkpoint": "pause_resume_take",
+      "clock": 11824.199999968208,
+      "controllerRevision": "scifi-city-v9-separated-commits",
+      "robots": [
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5269.289627800182,
+            119.97879195685294,
+            634.052692046166
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "paused": true,
+          "planted": 4,
+          "position": [
+            5592,
+            39.92363214093734,
+            696
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "road",
+          "status": "NEW ROADS PAUSED",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5326,
+            84.06368458245552,
+            613
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 3,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5403.837367553535,
+            36.175720049968625,
+            689.6701279334558
+          ],
+          "progress": 13344,
+          "road": 13,
+          "role": "builder_b",
+          "status": "FOUNDATION & OPENINGS",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 0,
+          "planted": 4,
+          "position": [
+            5397.45441558773,
+            50.444406425986706,
+            613.4544155877284
+          ],
+          "progress": 10909,
+          "road": 13,
+          "role": "planter",
+          "status": "CLIMB TO CLEAR OBSTACLE",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 1,
+      "validationAtRestore": "resumed-functional-validation-complete"
+    },
+    {
+      "frame": 30,
+      "capturePacing": {
+        "idleEverySteps": 10,
+        "idleMs": 100
+      },
+      "checkpoint": "pause_resume_take",
+      "clock": 11826.199999968178,
+      "controllerRevision": "scifi-city-v9-separated-commits",
+      "robots": [
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5277.152758698926,
+            119.99414248933574,
+            616.9893026832651
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "paused": true,
+          "planted": 4,
+          "position": [
+            5592,
+            40.06397216457177,
+            696
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "road",
+          "status": "NEW ROADS PAUSED",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5326,
+            84.19998612672326,
+            613
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 3,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5403,
+            36.097935014601866,
+            690
+          ],
+          "progress": 13572,
+          "road": 13,
+          "role": "builder_b",
+          "status": "FOUNDATION & OPENINGS",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 0,
+          "planted": 4,
+          "position": [
+            5395.545227278526,
+            74.44440642598664,
+            611.5452272785246
+          ],
+          "progress": 10909,
+          "road": 13,
+          "role": "planter",
+          "status": "CLIMB TO CLEAR OBSTACLE",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 1,
+      "validationAtRestore": "resumed-functional-validation-complete"
+    },
+    {
+      "frame": 60,
+      "capturePacing": {
+        "idleEverySteps": 10,
+        "idleMs": 100
+      },
+      "checkpoint": "pause_resume_take",
+      "clock": 11828.199999968148,
+      "controllerRevision": "scifi-city-v9-separated-commits",
+      "robots": [
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5287.159608485906,
+            120.03224619796404,
+            603.1557700477364
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "paused": true,
+          "planted": 4,
+          "position": [
+            5592,
+            39.95581585378349,
+            696
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "road",
+          "status": "NEW ROADS PAUSED",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5326,
+            84.04500820986877,
+            613
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 3,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5403,
+            36.12528241781462,
+            690
+          ],
+          "progress": 13812,
+          "road": 13,
+          "role": "builder_b",
+          "status": "FOUNDATION & OPENINGS",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 0,
+          "planted": 4,
+          "position": [
+            5376.919721880968,
+            85.41907787370688,
+            601.9949515185915
+          ],
+          "progress": 11015,
+          "road": 13,
+          "role": "planter",
+          "status": "PLANTING PARAMETRIC TREES",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 1,
+      "validationAtRestore": "resumed-functional-validation-complete"
+    },
+    {
+      "frame": 90,
+      "capturePacing": {
+        "idleEverySteps": 10,
+        "idleMs": 100
+      },
+      "checkpoint": "pause_resume_take",
+      "clock": 11830.19999996812,
+      "controllerRevision": "scifi-city-v9-separated-commits",
+      "robots": [
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5299.793560629509,
+            119.94509133441846,
+            590.7743478939877
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "paused": true,
+          "planted": 4,
+          "position": [
+            5592,
+            40.01929041476415,
+            696
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "road",
+          "status": "NEW ROADS PAUSED",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5326,
+            84.20075397673799,
+            613
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 3,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5403,
+            36.15153278464947,
+            690
+          ],
+          "progress": 14040,
+          "road": 13,
+          "role": "builder_b",
+          "status": "FOUNDATION & OPENINGS",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 0,
+          "planted": 4,
+          "position": [
+            5368.9,
+            85.3558332623535,
+            600
+          ],
+          "progress": 11237,
+          "road": 13,
+          "role": "planter",
+          "status": "PLANTING PARAMETRIC TREES",
+          "survey": 63
+        }
+      ],
+      "settles": 1,
+      "steps": 1,
+      "validationAtRestore": "resumed-functional-validation-complete"
+    },
+    {
+      "frame": 120,
+      "capturePacing": {
+        "idleEverySteps": 10,
+        "idleMs": 100
+      },
+      "checkpoint": "pause_resume_take",
+      "clock": 11832.19999996809,
+      "controllerRevision": "scifi-city-v9-separated-commits",
+      "robots": [
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5314.73187534858,
+            120.07122614484892,
+            580.1613250151703
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "paused": true,
+          "planted": 4,
+          "position": [
+            5592,
+            40.00783242671394,
+            696
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "road",
+          "status": "NEW ROADS PAUSED",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5326,
+            84.06223761157925,
+            613
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 3,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5403,
+            36.07471801727234,
+            690
+          ],
+          "progress": 14280,
+          "road": 13,
+          "role": "builder_b",
+          "status": "FOUNDATION & OPENINGS",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 0,
+          "planted": 4,
+          "position": [
+            5373.43324975174,
+            85.61704078310912,
+            599.8285322863275
+          ],
+          "progress": 11450,
+          "road": 13,
+          "role": "planter",
+          "status": "PLANTING PARAMETRIC TREES",
+          "survey": 63
+        }
+      ],
+      "settles": 1,
+      "steps": 1,
+      "validationAtRestore": "resumed-functional-validation-complete"
+    },
+    {
+      "frame": 150,
+      "capturePacing": {
+        "idleEverySteps": 10,
+        "idleMs": 100
+      },
+      "checkpoint": "pause_resume_take",
+      "clock": 11836.399999968027,
+      "controllerRevision": "scifi-city-v9-separated-commits",
+      "robots": [
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5351.845641255563,
+            120.07980659768872,
+            564.7722900536166
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 1,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5559.390918517667,
+            27.038441612162213,
+            655.2386481470824
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5326,
+            84.08673358569635,
+            613
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 3,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5403,
+            36.17933655990813,
+            690
+          ],
+          "progress": 14784,
+          "road": 13,
+          "role": "builder_b",
+          "status": "FOUNDATION & OPENINGS",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 0,
+          "planted": 4,
+          "position": [
+            5368,
+            85.96144669814257,
+            600
+          ],
+          "progress": 11924,
+          "road": 13,
+          "role": "planter",
+          "status": "PLANTING PARAMETRIC TREES",
+          "survey": 63
+        }
+      ],
+      "settles": 6,
+      "steps": 5,
+      "validationAtRestore": "resumed-functional-validation-complete"
+    },
+    {
+      "frame": 180,
+      "capturePacing": {
+        "idleEverySteps": 10,
+        "idleMs": 100
+      },
+      "checkpoint": "pause_resume_take",
+      "clock": 11844.399999967913,
+      "controllerRevision": "scifi-city-v9-separated-commits",
+      "robots": [
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5430.483493544401,
+            120.02164477140822,
+            565.3897705304449
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 1,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5502.606138694984,
+            45.47467774741789,
+            584.2576733687268
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5326,
+            84.18602328133215,
+            613
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 3,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5403,
+            36.19893022265869,
+            690
+          ],
+          "progress": 15699,
+          "road": 13,
+          "role": "builder_b",
+          "status": "FOUNDATION & OPENINGS",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 0,
+          "planted": 4,
+          "position": [
+            5368.030421486019,
+            86.6735356972151,
+            599.9998696796333
+          ],
+          "progress": 12801,
+          "road": 13,
+          "role": "planter",
+          "status": "PLANTING PARAMETRIC TREES",
+          "survey": 63
+        }
+      ],
+      "settles": 10,
+      "steps": 5,
+      "validationAtRestore": "resumed-functional-validation-complete"
+    },
+    {
+      "frame": 210,
+      "capturePacing": {
+        "idleEverySteps": 10,
+        "idleMs": 100
+      },
+      "checkpoint": "pause_resume_take",
+      "clock": 11852.399999967796,
+      "controllerRevision": "scifi-city-v9-separated-commits",
+      "robots": [
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5493.097635617476,
+            119.9289813900486,
+            603.4547825253527
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 1,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5426.70569041714,
+            26.99261880826032,
+            489.3821130214195
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5326,
+            84.18804246011739,
+            613
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 3,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5403.837367553535,
+            37.42492861371932,
+            689.6701279334558
+          ],
+          "progress": 16633,
+          "road": 13,
+          "role": "builder_b",
+          "status": "FOUNDATION & OPENINGS",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 0,
+          "planted": 4,
+          "position": [
+            5340.958778116197,
+            87.01433237573288,
+            620.8965953598017
+          ],
+          "progress": 13305,
+          "road": 13,
+          "role": "planter",
+          "status": "CLIMB TO CLEAR OBSTACLE",
+          "survey": 63
+        }
+      ],
+      "settles": 4,
+      "steps": 5,
+      "validationAtRestore": "resumed-functional-validation-complete"
+    },
+    {
+      "frame": 240,
+      "capturePacing": {
+        "idleEverySteps": 10,
+        "idleMs": 100
+      },
+      "checkpoint": "pause_resume_take",
+      "clock": 11860.39999996768,
+      "controllerRevision": "scifi-city-v9-separated-commits",
+      "robots": [
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5514.904858810104,
+            119.94952098213088,
+            663.9008713388057
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 1,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5400,
+            34.2955014986735,
+            456.9000000000002
+          ],
+          "progress": 713,
+          "road": 13,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5326,
+            84.08957257070958,
+            613
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 3,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5403,
+            38.19634128018288,
+            690
+          ],
+          "progress": 17580,
+          "road": 13,
+          "role": "builder_b",
+          "status": "FOUNDATION & OPENINGS",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 0,
+          "planted": 4,
+          "position": [
+            5336.415920185682,
+            87.32951264457857,
+            632.9717039285312
+          ],
+          "progress": 13608,
+          "road": 13,
+          "role": "planter",
+          "status": "PLANTING PARAMETRIC TREES",
+          "survey": 63
+        }
+      ],
+      "settles": 6,
+      "steps": 5,
+      "validationAtRestore": "resumed-functional-validation-complete"
+    },
+    {
+      "frame": 270,
+      "capturePacing": {
+        "idleEverySteps": 10,
+        "idleMs": 100
+      },
+      "checkpoint": "pause_resume_take",
+      "clock": 11868.399999967563,
+      "controllerRevision": "scifi-city-v9-separated-commits",
+      "robots": [
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5487.273679165359,
+            120.05052363767106,
+            722.8029621805078
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 1,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5400,
+            34.600104026893895,
+            456
+          ],
+          "progress": 1632,
+          "road": 13,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5326,
+            84.04757365897682,
+            613
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 3,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5403,
+            39.72903663999427,
+            690
+          ],
+          "progress": 18509,
+          "road": 13,
+          "role": "builder_b",
+          "status": "FOUNDATION & OPENINGS",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 0,
+          "planted": 4,
+          "position": [
+            5342.542096760142,
+            78.49718957556357,
+            635.6430601264403
+          ],
+          "progress": 13947,
+          "road": 13,
+          "role": "planter",
+          "status": "CLIMB TO CLEAR OBSTACLE",
+          "survey": 63
+        }
+      ],
+      "settles": 7,
+      "steps": 5,
+      "validationAtRestore": "resumed-functional-validation-complete"
+    },
+    {
+      "frame": 300,
+      "capturePacing": {
+        "idleEverySteps": 10,
+        "idleMs": 100
+      },
+      "checkpoint": "pause_resume_take",
+      "clock": 11876.399999967449,
+      "controllerRevision": "scifi-city-v9-separated-commits",
+      "robots": [
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5421.1407520156445,
+            120.07099210622307,
+            756.8471077570006
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 1,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5400,
+            34.81939049407436,
+            456
+          ],
+          "progress": 2567,
+          "road": 13,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5326,
+            84.12899158168435,
+            613
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 3,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5403,
+            40.04514739173752,
+            690
+          ],
+          "progress": 19469,
+          "road": 13,
+          "role": "builder_b",
+          "status": "FOUNDATION & OPENINGS",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 0,
+          "planted": 4,
+          "position": [
+            5340.685526664674,
+            74.94124590242114,
+            639.2114877030047
+          ],
+          "progress": 14232,
+          "road": 13,
+          "role": "planter",
+          "status": "CLIMB TO CLEAR OBSTACLE",
+          "survey": 63
+        }
+      ],
+      "settles": 2,
+      "steps": 5,
+      "validationAtRestore": "resumed-functional-validation-complete"
+    },
+    {
+      "frame": 330,
+      "capturePacing": {
+        "idleEverySteps": 10,
+        "idleMs": 100
+      },
+      "checkpoint": "pause_resume_take",
+      "clock": 11884.39999996733,
+      "controllerRevision": "scifi-city-v9-separated-commits",
+      "robots": [
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5342.682051013126,
+            119.97829984801832,
+            752.558346411074
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 1,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5400,
+            34.92806918868372,
+            456
+          ],
+          "progress": 3518,
+          "road": 13,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": -1,
+          "planted": 4,
+          "position": [
+            5326,
+            84.2040469620144,
+            613
+          ],
+          "progress": 0,
+          "road": 13,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 3,
+          "paused": false,
+          "planted": 4,
+          "position": [
+            5403,
+            41.363542424299425,
+            690
+          ],
+          "progress": 20407,
+          "road": 13,
+          "role": "builder_b",
+          "status": "FOUNDATION & OPENINGS",
+          "survey": 63
+        },
+        {
+          "built": 5,
+          "error": null,
+          "job": 0,
+          "planted": 4,
+          "position": [
+            5343.671591304061,
+            84.22079396075777,
+            638.0530246366076
+          ],
+          "progress": 14493,
+          "road": 13,
+          "role": "planter",
+          "status": "PLANTING PARAMETRIC TREES",
+          "survey": 63
+        }
+      ],
+      "settles": 9,
+      "steps": 5,
+      "validationAtRestore": "resumed-functional-validation-complete"
+    }
+  ],
+  "actions": [
+    {
+      "frame": 140,
+      "at": 4.666666666666667,
+      "type": "work-pause",
+      "role": 1,
+      "result": true
+    }
+  ],
+  "started": "2026-11-06T08:09:41.426Z",
+  "finished": "2026-11-06T08:11:40.508Z"
+}

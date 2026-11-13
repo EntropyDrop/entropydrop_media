@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "先看底部工具栏。选择器负责框选空间，锤子用来放置物品，扳手可以抓取、旋转和配置活动实体。铁锹编辑一米见方的标准方块，勺子则用于更细的微体素，每格只有十二点五厘米。",
+  "seed": 42
+}

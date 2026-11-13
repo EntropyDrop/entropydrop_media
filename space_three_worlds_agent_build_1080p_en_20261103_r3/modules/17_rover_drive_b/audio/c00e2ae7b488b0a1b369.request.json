@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Keeping the steering yaw axis on the chassis and the rolling pitch axis on each wheel prevents high-speed wheel wobble, delivering crisp, predictable control.",
+  "seed": 43
+}

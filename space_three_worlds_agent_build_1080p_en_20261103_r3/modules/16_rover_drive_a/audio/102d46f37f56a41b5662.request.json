@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "The wide treads grip the grass naturally. Forward acceleration, braking, and reverse motion all synchronize with satisfying mechanical weight. If you ever want to tweak torque or gearing, a single message to your agent updates the script instantly.",
+  "seed": 44
+}

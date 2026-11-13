@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/robot-city-capture/04_structure.mp4",
+  "seconds": 17,
+  "mode": "compositor",
+  "incoming": 883,
+  "frames": 510,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793797999934,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

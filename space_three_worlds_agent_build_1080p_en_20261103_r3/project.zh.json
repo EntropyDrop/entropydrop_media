@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "language": "Chinese",
+  "order": [
+    "01_intro",
+    "02_aether_tour",
+    "03_toolbar",
+    "04_agent",
+    "05_chinook_prompt",
+    "06_chinook_inspect",
+    "07_chinook_refine",
+    "08_chinook_controls",
+    "09_chinook_flight_a",
+    "10_chinook_flight_b",
+    "11_nature_tour",
+    "12_rover_prompt",
+    "13_rover_inspect",
+    "16_rover_drive_a",
+    "17_rover_drive_b",
+    "18_copper_tour",
+    "19_drone_prompt",
+    "20_drone_refine",
+    "21_drone_flight_a",
+    "22_drone_flight_b",
+    "24_backpack_market",
+    "23_close"
+  ],
+  "excluded": [
+    "14_rover_light_a",
+    "15_rover_light_b"
+  ],
+  "independent": true,
+  "natural_timing_modules": [
+    "24_backpack_market"
+  ],
+  "english_reference_sha256": "86f43398c4af2419387e95b60f005d0081e8be0e329263e3c2f5de118e4f0733"
+}

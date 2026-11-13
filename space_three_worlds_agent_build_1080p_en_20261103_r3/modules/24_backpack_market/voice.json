@@ -1,0 +1,34 @@
+{
+  "chunks": [
+    {
+      "text": "Before we finish, let's open the backpack. Save a vehicle here and place it again later. Think of it as both a collection of finished creations and your own reusable parts library.",
+      "file": "modules/24_backpack_market/audio/dcafe3c8f08061c236e8.wav",
+      "sha256": "2c610a1c5d26e6e3832b5f057f4928c14d59ac89421d1b8ae504126228c83622",
+      "request_sha256": "dcafe3c8f08061c236e8a0ba5bcfb2ac8339a75d89e07e6f142044cfba000af5"
+    },
+    {
+      "text": "Take this rover. Select a wheel component and copy it into the backpack. When you design another vehicle, reuse that wheel, then adjust its size, color, and structure to suit the new build.",
+      "file": "modules/24_backpack_market/audio/d6e1c6eebfdf725d5a12.wav",
+      "sha256": "26107631ab4e10c2944e5d9358da576f06df240711557be5b5ca5fd87d480c7f",
+      "request_sha256": "d6e1c6eebfdf725d5a121d6dcf9a6080a32923ec5159945f886660ef94504269"
+    },
+    {
+      "text": "The helicopter works the same way. Save a rotor as its own module, and organize the fuselage and landing gear separately. New vehicles can start by combining existing parts, leaving more time for design and gameplay.",
+      "file": "modules/24_backpack_market/audio/ec6d0995397bf1f9d0a7.wav",
+      "sha256": "72908ff970eafa6bc18cae1bef2ffa40aba21d18aec5f9c2f13f2a6b250c38a8",
+      "request_sha256": "ec6d0995397bf1f9d0a767fa172519e7d93b9ab500404485faf1d29a226bbd05"
+    },
+    {
+      "text": "The market lets you browse other players' creations and share your own. Others can download and reuse a complete vehicle, a single tire, or a rotor assembly. Each contribution can become part of someone else's build.",
+      "file": "modules/24_backpack_market/audio/0034c01774fa110b8ad9.wav",
+      "sha256": "c62584a593c047267ea21471a59231ac4f7faabfc77dccc310e318166f375471",
+      "request_sha256": "0034c01774fa110b8ad9cf83cdc0e1b80344c1798a890e9046213548599fa4c5"
+    },
+    {
+      "text": "Static buildings belong here too. A windmill, a tower, or an architectural detail can all be saved and shared. One player's creation becomes another player's starting point. Together, we can build a richer world.",
+      "file": "modules/24_backpack_market/audio/f8b2718f35fec0f64633.wav",
+      "sha256": "1aa4ca349e7d705c4e8d96d576e9982954571ca10e1ab6ede5c141c2131996e4",
+      "request_sha256": "f8b2718f35fec0f646333b9c24ed3d8c36c69c9f82e54a75977ed1817262c460"
+    }
+  ]
+}

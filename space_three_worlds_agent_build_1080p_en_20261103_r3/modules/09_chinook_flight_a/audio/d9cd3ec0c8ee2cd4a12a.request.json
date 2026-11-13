@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "As the castle slips behind us, sunlight cuts across the skyward ring, revealing an incredible panoramic skyline. Testing each axis one at a time lets you appreciate just how responsive and natural the handling feels.",
+  "seed": 44
+}

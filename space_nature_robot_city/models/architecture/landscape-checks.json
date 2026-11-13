@@ -1,0 +1,72 @@
+{
+  "nativeRootPivotsVerified": true,
+  "nativeImportAndDeterminismVerified": true,
+  "trees": [
+    {
+      "id": "16_oak",
+      "radius": 3.782263871935482,
+      "placementRadius": 4,
+      "seedChangesGeometry": true
+    },
+    {
+      "id": "17_birch",
+      "radius": 2.1306034646643135,
+      "placementRadius": 2.25,
+      "seedChangesGeometry": true
+    },
+    {
+      "id": "18_pine",
+      "radius": 2.8640426276465183,
+      "placementRadius": 3,
+      "seedChangesGeometry": true
+    },
+    {
+      "id": "19_maple",
+      "radius": 3.820155827844193,
+      "placementRadius": 4.25,
+      "seedChangesGeometry": true
+    },
+    {
+      "id": "20_cherry",
+      "radius": 3.963991804327934,
+      "placementRadius": 4.25,
+      "seedChangesGeometry": true
+    },
+    {
+      "id": "21_willow",
+      "radius": 4.083158211240822,
+      "placementRadius": 4.5,
+      "seedChangesGeometry": true
+    }
+  ],
+  "planting": [
+    {
+      "id": "avenue",
+      "count": 8,
+      "deterministic": true,
+      "crownSpacingAndExclusionsVerified": true
+    },
+    {
+      "id": "grove",
+      "count": 12,
+      "deterministic": true,
+      "crownSpacingAndExclusionsVerified": true
+    },
+    {
+      "id": "courtyard",
+      "count": 6,
+      "deterministic": true,
+      "crownSpacingAndExclusionsVerified": true
+    }
+  ],
+  "bridge": {
+    "parts": 11,
+    "voxels": 231826,
+    "overlapFree": true,
+    "upperRouteContinuous": true,
+    "maxMicroStep": 0.125,
+    "clearance": 4.375,
+    "grade": 0.11458333333333333
+  },
+  "scope": "Geometric checks only; vehicle driving, natural-terrain earthworks and robot construction acceptance are not yet tested."
+}

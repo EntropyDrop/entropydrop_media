@@ -1,0 +1,5 @@
+Here is the centerpiece of Space: the Agent Build system. Simply open the panel and copy the prompt to your favorite external AI agent. Through open interfaces, it connects directly into your active voxel world.
+
+Whether using cloud frontier models or local AI, the agent becomes your versatile co-builder. It interprets everyday natural language, computing 3D geometry, placing blocks, and writing full controller scripts in seconds.
+
+This connection seamlessly carries across every world you visit. Now, let's dive into our first live build!

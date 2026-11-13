@@ -23,7 +23,7 @@ def capture_time(path):
         date = camera.get(36867) or exif.get(306)
         fraction = str(camera.get(37521, "0"))
     if not date:
-        raise ValueError(f"Missing capture date: {path.name}")
+        return None
     stamp = datetime.strptime(str(date), "%Y:%m:%d %H:%M:%S")
     return stamp.replace(microsecond=int(fraction.ljust(6, "0")[:6]))
 
@@ -33,11 +33,26 @@ def main():
     parser.add_argument("--source-dir", type=Path, default=ROOT / "sources/showcase")
     args = parser.parse_args()
     config = json.loads((ROOT / "project.json").read_text())
-    originals = sorted(p for p in args.source_dir.iterdir()
-                       if p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"})
+    selected = config["showcase"].get("photos")
+    if selected is not None:
+        if not selected or len(set(selected)) != len(selected):
+            raise ValueError("Showcase photos must be a nonempty list of unique filenames")
+        originals = [args.source_dir / name for name in selected]
+        for source in originals:
+            if not source.is_file() or source.suffix.lower() not in {".jpg", ".jpeg", ".png", ".webp"}:
+                raise ValueError(f"Invalid showcase photo: {source}")
+        ordered = [(capture_time(p), p) for p in originals]
+        order_description = "Explicit project.json showcase.photos order"
+    else:
+        originals = sorted(p for p in args.source_dir.iterdir()
+                           if p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"})
+        dated = [(capture_time(p), p) for p in originals]
+        if any(captured is None for captured, _ in dated):
+            raise ValueError("Photos without capture dates require project.json showcase.photos order")
+        ordered = sorted(dated, key=lambda item: (item[0], item[1].name))
+        order_description = "EXIF DateTimeOriginal and SubSecTimeOriginal, then filename"
     if not originals:
         raise ValueError("No showcase photos found")
-    ordered = sorted(((capture_time(p), p) for p in originals), key=lambda item: (item[0], item[1].name))
     retained = ROOT / "sources/showcase"
     photos = ROOT / "assets/showcase/photos"
     retained.mkdir(parents=True, exist_ok=True)
@@ -64,14 +79,14 @@ def main():
         start = round(index * frames / len(ordered))
         end = round((index + 1) * frames / len(ordered))
         entries.append({"source": str(original.relative_to(ROOT)), "source_sha256": source_hash,
-                        "captured_at_local": captured.isoformat(timespec="milliseconds"),
+                        "captured_at_local": captured.isoformat(timespec="milliseconds") if captured else None,
                         "image": str(output.relative_to(ROOT)), "image_sha256": image_hash,
                         "width": width, "height": height,
                         "startFrame": start, "frames": end - start,
                         "start": start / fps, "duration": (end - start) / fps})
     manifest = {"fps": fps, "frames": frames, "duration": frames / fps,
                 "imageCount": len(entries), "transition": "cut", "imagePreparation": "original-byte-copy",
-                "sort": "EXIF DateTimeOriginal and SubSecTimeOriginal, then filename", "photos": entries}
+                "sort": order_description, "photos": entries}
     target = ROOT / config["showcase"]["manifest"]
     target.write_text(json.dumps(manifest, indent=2) + "\n")
     print(f"Prepared {len(entries)} showcase photos over {frames} frames / {frames / fps}s.")

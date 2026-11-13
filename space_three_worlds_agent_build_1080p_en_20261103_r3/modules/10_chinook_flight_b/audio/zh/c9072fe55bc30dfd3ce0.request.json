@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "在侧倾转弯和俯仰巡航中，整台飞行器表现出极其平顺的自稳质感——松开按键就能稳稳泊在半空，这正是 Agent 智能算法带来的省心体验。",
+  "seed": 43
+}

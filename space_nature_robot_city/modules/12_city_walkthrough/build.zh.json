@@ -1,0 +1,12 @@
+{
+  "duration": 35.36666666666667,
+  "sha256": "eb08051a6d99e3f4086d2c1ddafe33bbb6251bce502366a4f315e16e88ef225f",
+  "voice_sha256": "db20cdeab51426f50e3ae49a85b7e566647600397caf94f86cc91e235e5fcd37",
+  "clips": [
+    {
+      "file": "footage/scifi-city-walkthrough.mp4",
+      "start": 0,
+      "duration": 35.36666666666667
+    }
+  ]
+}

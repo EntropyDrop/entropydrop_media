@@ -1,0 +1,5 @@
+Before taking off, we take a quick look at the fuselage controller. The script listens automatically for driver mounting, ensuring flight controls only engage when you are safely in the seat.
+
+Close the editor, aim at the pilot seat, and press V to board. Hitting F three toggles our third-person perspective, giving us an expansive view of both the rotors and the archipelago.
+
+In traditional sandbox games, building a working multi-rotor aircraft required writing pages of scripts and tedious physics tuning that scared off most players. In Space, you don't need any coding or aerospace knowledge. Attitude control, key bindings, and auto-hover stabilization are fully automated by the agent in seconds. You just board the cockpit, and let your intelligent co-builder handle the rest.

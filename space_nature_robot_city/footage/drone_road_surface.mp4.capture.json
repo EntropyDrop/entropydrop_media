@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/drone_road_surface.mp4",
+  "seconds": 18,
+  "mode": "compositor",
+  "incoming": 608,
+  "frames": 540,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793857567035,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

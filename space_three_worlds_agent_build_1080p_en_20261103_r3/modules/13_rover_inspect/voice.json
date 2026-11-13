@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "The rover appears instantly. Dropping our camera to wheel level reveals the setup: a single dynamic chassis root connected to four independently articulated wheel assemblies.",
+      "file": "modules/13_rover_inspect/audio/632f8bcdeceea24d6490.wav",
+      "sha256": "a083de040fab222d471a017e7b8e1ac1b6a703375d89b88304cd863438c1ce55",
+      "request_sha256": "632f8bcdeceea24d6490b8f84af4965b575c930259bfbd7b9527ee46b30793ce"
+    },
+    {
+      "text": "Each wheel samples the terrain in real time. Springs absorb ground impact while dampers suppress unwanted oscillation. Without damping, a chassis bounces uncontrollably after every bump; with too much, it rides like a rigid brick.",
+      "file": "modules/13_rover_inspect/audio/1e4a025acd775c921aa8.wav",
+      "sha256": "35d343f4f3c2b6b9f163d0dc20fb8606492d9977567ae127972521b2f9f521c6",
+      "request_sha256": "1e4a025acd775c921aa8928a34d6c7eef909061d64d8fa8e6acd4e01d4de55fb"
+    },
+    {
+      "text": "In standard game development, tuning an adaptive multi-wheel suspension is notoriously complex. In Space, the agent generates and balances this entire physics controller automatically. You simply ask for independent suspension, and the AI handles the forces, giving you planted, responsive vehicle handling right out of the box.",
+      "file": "modules/13_rover_inspect/audio/18b8c73214c93581156b.wav",
+      "sha256": "46548f9a4055a1820c639479f82a9039ba1415a04ab47f9343d3927f3894925e",
+      "request_sha256": "18b8c73214c93581156bc52c7e37307ffae0106e586aeef5a995205007357549"
+    }
+  ]
+}

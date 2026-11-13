@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "在发车试驾前，我们再体验一次高效的个性化涂装。",
+  "seed": 42
+}

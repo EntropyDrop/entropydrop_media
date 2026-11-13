@@ -1,0 +1,25 @@
+{
+  "duration": 35.36666666666667,
+  "file": "voice.zh.wav",
+  "sha256": "db20cdeab51426f50e3ae49a85b7e566647600397caf94f86cc91e235e5fcd37",
+  "sentences": [
+    {
+      "paragraph": 1,
+      "sentence": 1,
+      "text": "最后，我们飞进完成后的城市。先从街道和广场看起，再沿建筑向上，经过连廊、退台和屋顶花园。三十三栋建筑使用不同的轮廓和比例，既有集中的高楼，也有围绕它们展开的低层街区。",
+      "file": "audios/zh/a9da93c0ad00d0f4a1c39bf9.wav",
+      "start": 0.2,
+      "duration": 17.15,
+      "sha256": "5e32c69477cee1f12210277c6524c76878735fd5635879c04d021680afac2d4c"
+    },
+    {
+      "paragraph": 2,
+      "sentence": 1,
+      "text": "再拉高镜头，看看道路怎样穿过城市、接上立交，并返回原有地形。对我来说，乐趣就在于设计一套规则，然后观察不同的机器人怎样把规则实现出来。改变参数和布局，下一次施工就会有新的结果。",
+      "file": "audios/zh/d5e6de6e27145bd6b0272dfe.wav",
+      "start": 17.599999999999998,
+      "duration": 17.36,
+      "sha256": "cc2b93b993169dd574acfd0282605b0c30fd81f4c9758e6de3551d46a9881dbc"
+    }
+  ]
+}

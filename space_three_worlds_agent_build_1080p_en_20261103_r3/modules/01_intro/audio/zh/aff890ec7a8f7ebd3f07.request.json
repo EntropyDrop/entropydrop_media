@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "Space 的核心理念，是将“AI 协同建造”与“体素沙盒玩法”结合起来：你可以用自然语言让 AI Agent 协助搭建机械结构与编写控制程序；同时你拥有完整的操作权，随时能拿起工具雕琢微观细节，并亲自坐进驾驶舱在世界中驾驶和探索。接下来，我们将通过三座风貌各异的世界，带大家了解 Space 的整体框架与核心玩法。",
+  "seed": 43
+}

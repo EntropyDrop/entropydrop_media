@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "接下来测试转向。踩住刹车，按 A 键向左打轮，松开回正，再按 D 键向右打轮。两只前轮转向清晰，后轮保持直行方向。",
+  "seed": 42
+}

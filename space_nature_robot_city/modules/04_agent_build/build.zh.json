@@ -1,0 +1,22 @@
+{
+  "duration": 40.3,
+  "sha256": "7e996db000275d375c1a670905fb470c619ce52ca932db6c74745b21429283ba",
+  "voice_sha256": "c8017484fb76edb9b27b49b23bc59a008f54450b7d21e7e20bb5a988504bf679",
+  "clips": [
+    {
+      "file": "footage/scifi-agent-build-panel.mp4",
+      "start": 0,
+      "duration": 6.5
+    },
+    {
+      "file": "footage/scifi-prompt-example.mp4",
+      "start": 0,
+      "duration": 12.4333333333
+    },
+    {
+      "file": "footage/scifi-city-designs.mp4",
+      "start": 0,
+      "duration": 21.3666666667
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "13_rover_inspect",
+  "title": "Suspension Mechanics: Dynamic Ground Articulation",
+  "label": "悬挂与车体检查",
+  "duration": 38.13333333333333,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 8.28,
+      "text": "The rover appears instantly. Dropping our camera to wheel level reveals the setup: a single dynamic chassis root connected to four independently articulated wheel assemblies.",
+      "source": "modules/13_rover_inspect/audio/632f8bcdeceea24d6490.wav"
+    },
+    {
+      "start": 8.729999999999999,
+      "duration": 12.69,
+      "text": "Each wheel samples the terrain in real time. Springs absorb ground impact while dampers suppress unwanted oscillation. Without damping, a chassis bounces uncontrollably after every bump; with too much, it rides like a rigid brick.",
+      "source": "modules/13_rover_inspect/audio/1e4a025acd775c921aa8.wav"
+    },
+    {
+      "start": 21.669999999999998,
+      "duration": 16.09,
+      "text": "In standard game development, tuning an adaptive multi-wheel suspension is notoriously complex. In Space, the agent generates and balances this entire physics controller automatically. You simply ask for independent suspension, and the AI handles the forces, giving you planted, responsive vehicle handling right out of the box.",
+      "source": "modules/13_rover_inspect/audio/18b8c73214c93581156b.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "footage/reused/13-rover-inspect.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/reused/13-rover-inspect.mp4",
+      "in": 0.0,
+      "out": 41.0,
+      "duration": 38.13333333333333,
+      "source_sig": "426f19bbe00f26494ae8121e085a12b7f8c19034df28b8eb02f3b208ba73b0ff",
+      "mode": "fit"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "6a06163dc4db2f1f9ba9159aac2ecdce9a822d8fa50b39b13cb3dcd137106279",
+  "voice_sig": "a55f316e38087c8d8e751b70aa86cbbba5c9112abc0ce329dd7aa935e03dd128"
+}

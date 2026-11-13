@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "比如这辆越野车，不必每次都从零制作四个轮子。我们可以选中轮胎组件，把它单独复制进背包。以后设计另一辆车，就能复用这套轮胎，再按照新车的需求调整尺寸、颜色和结构。",
+  "seed": 43
+}

@@ -1,0 +1,77 @@
+{
+  "tool": "built-in image_gen",
+  "images": [
+    {
+      "source": "sources/showcase/PXL_20261021_012201689.jpg",
+      "image": "assets/showcase/duo-portrait-v1.png",
+      "prompt": "Use case: precise-object-edit. Edit target: the supplied original photograph of two physical block-shaped Rick and Morty figures. Create a vertical 9:16 product photograph for a video opening and ending, preferably 1152x2048. Expand the neutral grey photographic sweep above and below, reframing the pair together comfortably inside a tall canvas. Preserve both complete original figures EXACTLY: Rick on left with light blue angular hair, white coat, cyan shirt, brown trousers and black shoes; Morty on right with brown cuboid hair, protruding white eyes, yellow shirt and navy trousers. Preserve all pixel colors, geometry, proportions, paper seams, physical printing imperfections, poses, camera angle, relative sizes and relative placement, and natural shadows. Do not redesign or beautify. Both heads and both pairs of feet must fit, with the pair spanning about 85% of canvas width and centered vertically; extra gray negative space above and below is intentional. Seamlessly continue original grey tabletop, fine texture, lighting and subtle focus falloff. No black bars, no blurred duplicate background, no stretched edges, no new props, no text, no logos, no border.",
+      "source_sha256": "4c3b3f2863af254b8c056c46612079961db915911bcb919cf53fba2aeff54e03",
+      "image_sha256": "f40a55201ff35097601fe69e299fdf08da87b9770f0f418abdf5d1a6dc526ca5",
+      "dimensions": [
+        941,
+        1672
+      ]
+    },
+    {
+      "source": "sources/showcase/PXL_20261016_122308891.jpg",
+      "image": "assets/showcase/rick-landscape-v1.png",
+      "prompt": "Use case: precise-object-edit. Edit target: the supplied original photograph of a real hand holding a block-shaped Rick figure. Outpaint only the grey background left and right into one full-frame landscape 16:9 photograph, preferably 2048x1152. Preserve the complete original figure EXACTLY, including blue angular hair and every protrusion, pixel face and eyes, white coat with original seam geometry, cyan shirt, brown trousers, black shoes, pose, camera angle, dimensions and physical material imperfections. Preserve the real hand, fingers and wrist with the same shape, number of fingers, skin texture and grip, naturally entering the bottom edge. Keep complete hair and shoes with comfortable margins; whole figure occupies about 75% of frame height. Seamlessly continue neutral grey photographic sweep/tabletop, gradients and natural lighting into expanded areas. Do not repaint, stylize, redesign or beautify the toy. No new objects, no black bars, no blurry duplicate background, no stretched edges, no text, no logos, no watermark.",
+      "source_sha256": "d0be21b30af0f58caab3fdef839510caa1164364313a32e755886d8bce9a2172",
+      "image_sha256": "389950538e898fc5e519e59db83f3a02f8b9c400677aa943bf395ac186e650e9",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "source": "sources/showcase/PXL_20261021_012224465.jpg",
+      "image": "assets/showcase/morty-landscape-centered-v1.png",
+      "prompt": "Use case: precise-object-edit. Edit target: the supplied original photograph of one real, physical, block-shaped Morty figure. Re-render this as one clean landscape 16:9 full-frame product photograph for a showcase video, ideally 2048x1152. Center the FIGURE ITSELF precisely in the frame horizontally and vertically: its complete silhouette bounding box is centered at x=50% and y=50%, with equal empty gray space to left and right and comfortable matching space above its hair and below both feet. The full figure should occupy approximately 76% of frame height. Preserve the original viewing angle, pose, proportions and identity exactly: brown cuboid hair and pixelated side hairline, protruding white square eyes with gray square pupils, peach face and orange horizontal mouth, yellow short-sleeved shirt, peach arms, navy trousers with pale shoe details. Preserve the real handmade physical construction, paper seams, thin edges and surface texture; do not turn it into a smooth cartoon, CGI or another toy design. Re-render only to improve clear photographic presentation, soft studio lighting, neutral color and centered composition. Seamlessly continue the original neutral gray sweep/tabletop and subtle grounded contact shadow across the entire wide image. Full head, both arms and both feet entirely visible. No hands, no additional characters, no props, no text, no logos, no watermarks, no borders, no blurred duplicate background or stretched edges.",
+      "promptFile": "prompts/morty-landscape-centered-v1.txt",
+      "source_sha256": "7ab5ecee560cf02d80a1d64e8fbd009034dbc9483c776e944de45712c6f4490a",
+      "image_sha256": "022af76fb710ae076a6de4bc1d52f127cba2c8921d1703c882b50c1de8126dfb",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "source": "sources/showcase/PXL_20261021_012201689.jpg",
+      "image": "assets/showcase/duo-landscape-matched-v1.png",
+      "prompt": "Use case: style-transfer.\nAsset type: landscape 16:9 product photograph used identically for the opening and ending of a handmade Rick and Morty figure showcase video.\nInput image 1 is the EDIT TARGET: the original photograph of Rick on the left and Morty on the right standing together on a gray surface. Input image 2 is a STYLE REFERENCE ONLY: the clean photograph of a hand holding Rick.\nPrimary request: carefully re-render and retouch the two-figure photograph so its photographic quality, lighting, gray background, tonal depth, crisp edges and tangible handmade material texture match input image 2. Produce one landscape 16:9 image, ideally 2048x1152.\nKeep BOTH original figures from input 1 exactly recognizable and unchanged in design: every cuboid shape, protruding eye, hair block, pixel pattern, printed color, limb length, clothing seam, shoe shape, pose, original viewing angle, relative height, relative placement and the gap between them. Rick remains left, Morty right, both standing on the tabletop. Do not copy the reference hand or reference pose.\nMatch the reference's softly directional studio light, clean neutral-to-cool mid-gray photographic sweep, subtle surface grain, naturally bright whites, pale blue hair, realistic paper/printed plastic highlights and clear shadow depth. Improve focus, local contrast, fine construction detail and edge definition to the reference's polished photographic finish. Clean stray dust from the background, while retaining fine real material texture and believable paper seams. Avoid waxy smoothing, exaggerated gloss, cartoon or CGI appearance.\nReframe the full pair centered as one group horizontally and vertically, with their combined silhouette occupying approximately 78% of frame height, balanced gray margins on both sides, and comfortable clear space above Rick's hair and below both pairs of feet. Keep the complete figures visible and grounded with soft contact shadows. Seamlessly extend gray background as needed.\nNo hands, extra objects, extra characters, text, logos, watermarks, borders, blurred duplicate backgrounds or stretched edges. Only deliver the edited duo photograph.",
+      "promptFile": "prompts/duo-landscape-matched-v1.txt",
+      "source_sha256": "4c3b3f2863af254b8c056c46612079961db915911bcb919cf53fba2aeff54e03",
+      "image_sha256": "f61c3c5d0ca05202269b6c09eeafd4edca2ab751d1d5759cda6260db09d393d8",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "references": [
+        {
+          "role": "style",
+          "image": "assets/showcase/rick-landscape-v1.png",
+          "sha256": "389950538e898fc5e519e59db83f3a02f8b9c400677aa943bf395ac186e650e9"
+        }
+      ]
+    },
+    {
+      "source": "assets/showcase/duo-landscape-matched-v1.png",
+      "image": "assets/showcase/duo-portrait-matched-v2.png",
+      "prompt": "Use case: precise-object-edit.\nAsset type: vertical 9:16 opening and ending product photograph for a showcase video.\nInput image 1 is the EDIT TARGET and definitive appearance reference: the newly retouched landscape photograph of two real block-shaped figures, Rick left and Morty right, standing on a gray photographic sweep. Input image 2 is a COMPOSITION REFERENCE ONLY for fitting the same two figures into a tall 9:16 frame.\nPrimary request: adapt image 1 into one portrait 9:16 photograph, ideally 1152x2048, by expanding the same gray sweep above and below and scaling the complete pair uniformly into the new composition. Preserve the polished photographic finish of image 1 exactly. Keep its directional soft studio light, clean cool-neutral mid-gray background, fine tabletop grain, vivid but natural colors, bright clean whites, crisp edges, subtle handmade seams, material highlights and grounded contact shadows.\nPreserve both complete figures from image 1 with exactly the same designs, proportions, viewing angle, poses, relative height, spacing, facial pixels, eyes, hair blocks, clothes, shoes, construction details and photographic realism. Do not move individual limbs, rotate either figure, redesign features or copy the softer material rendering of image 2. Use image 2 only to understand portrait framing.\nThe pair should span approximately 86% of the portrait canvas width with comfortable side margins. Center the complete pair horizontally and vertically as a group: equal gray negative space above the tallest hair and below the lowest foot. Both complete heads, all hair blocks, all arms and both pairs of feet must be fully visible. Substantial gray background above and below is intentional.\nNo new hands, characters, objects, text, logo, watermark, border, black bars, stretched edges or blurred duplicate background. Deliver only the portrait adaptation, keeping the photographic texture and tone of image 1.",
+      "promptFile": "prompts/duo-portrait-matched-v2.txt",
+      "source_sha256": "f61c3c5d0ca05202269b6c09eeafd4edca2ab751d1d5759cda6260db09d393d8",
+      "image_sha256": "4143d4a553e091cb7cd7da582d54b16fa573a27b41fbbdd332ec8a43e2488882",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "references": [
+        {
+          "role": "composition",
+          "image": "assets/showcase/duo-portrait-v1.png",
+          "sha256": "f40a55201ff35097601fe69e299fdf08da87b9770f0f418abdf5d1a6dc526ca5"
+        }
+      ]
+    }
+  ]
+}

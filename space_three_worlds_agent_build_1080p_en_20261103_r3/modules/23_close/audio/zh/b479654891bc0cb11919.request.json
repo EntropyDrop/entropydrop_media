@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "AI Agent 极大地降低了搭建门槛，让任何构想都能在数秒内跃然眼前； 直观精确的体素工具箱让创作权始终掌握在玩家手中，拒绝无法微调的 AI 黑盒； 而这一切最终汇聚成一个充满生命力、随时随地在浏览器中即可畅玩的 3D 虚拟世界。",
+  "seed": 42
+}

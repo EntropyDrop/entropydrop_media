@@ -1,0 +1,16 @@
+{
+  "id": "12_city_walkthrough",
+  "title": "从开工机位回看城市街区",
+  "status": "rendered_chinese",
+  "planned_duration_seconds": 55,
+  "planned_shots": [
+    "固定机位开工前后对照，然后第一人称步行、第三人称快速大圈飞行。",
+    "相机运动平滑且有变化，第三人称FOV预设固定；完整加载远景。",
+    "展示6–8栋规模目标，以实际完工数量改稿，不称作无限城市或全自动通用规划。"
+  ],
+  "footage": "modules/12_city_walkthrough/module.json",
+  "voice": "modules/12_city_walkthrough/voice.zh.json",
+  "planned_start_seconds": 595,
+  "actual_start_seconds": 459.433333,
+  "actual_duration_seconds": 39.5
+}

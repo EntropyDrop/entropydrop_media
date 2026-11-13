@@ -1,0 +1,40 @@
+{
+  "id": "02_aether_tour",
+  "title": "Aether Archipelago: World Exploration & Atmosphere",
+  "label": "空岛地形环顾",
+  "duration": 47.2,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 14.08,
+      "text": "Our journey begins in Aether Archipelago. This world is defined by floating islands suspended across the void, framed by a continuous, colossal ring spanning the sky. In Space, every piece of terrain is procedurally generated from seamless, live voxels.",
+      "source": "modules/02_aether_tour/audio/f65fc07ce7e35fc9c46b.wav"
+    },
+    {
+      "start": 14.53,
+      "duration": 18.92,
+      "text": "As we look around, nearby islands establish a dramatic sense of scale, while the skyward ring creates a striking silhouette against the sun. In Space, you don't need to pave an artificial runway—the natural grass beside the castle is our launchpad. The true purpose of vehicles here is to transform scattered floating islands into an open highway for aerial exploration.",
+      "source": "modules/02_aether_tour/audio/7d6ba908255910f30010.wav"
+    },
+    {
+      "start": 33.7,
+      "duration": 13.120041666666667,
+      "text": "I'm using this panoramic sweep to plan our flight route: the open voids become flight corridors, while distant castles and grass ledges turn into rewarding destinations. A great vehicle gives the player a real reason to navigate and conquer these spaces.",
+      "source": "modules/02_aether_tour/audio/e4de5845eb9deedf2fb7.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "footage/replacements/02-aether-full-ring.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/replacements/02-aether-full-ring.mp4",
+      "in": 2.1,
+      "out": 49.300000000000004,
+      "duration": 47.2,
+      "source_sig": "c09479b2150991e93464f35e525da558f73c17be08921ffe6b85183844f2b36b",
+      "mode": "realtime"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "165b8a4af5516ad1da611e3f822c8b99b7476cccf494924afd339f2f4fb00f82",
+  "voice_sig": "0b080031eabe00751cce2cc722a5bd8aa27799f3f3fb007290d057588c6aaf8d"
+}

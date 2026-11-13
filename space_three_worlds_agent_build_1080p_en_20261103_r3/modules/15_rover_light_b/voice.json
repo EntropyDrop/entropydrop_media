@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "Applying the amber accent and stepping back, the rover's visual character transforms immediately. Even at long camera distances, the vehicle's front heading is instantly recognizable.",
+      "file": "modules/15_rover_light_b/audio/c8bea590c7b447fd2fe9.wav",
+      "sha256": "ddb8d0805214f4e2f95a087271a81ae898f8a32fd302fd84b047d1a455e397c1",
+      "request_sha256": "c8bea590c7b447fd2fe9460e0c59a5defc61b56c98150b14fea6ffdba9c47b51"
+    },
+    {
+      "text": "This highlights the core gameplay philosophy of Space: every generated machine remains completely editable. You never need to reroll a hundred-word prompt just to tweak a headlight color—the AI lays down the engineering, and you shape the personality with your own hands.",
+      "file": "modules/15_rover_light_b/audio/9e91f7a42948a93e1e0b.wav",
+      "sha256": "1575bfc5e159a57c458bcebc352df61cfb8d17702cacfcd0f1e54d01ce25b2c6",
+      "request_sha256": "9e91f7a42948a93e1e0bdd92959bcfcd6853a608fed247f425dd4ce4f3664118"
+    },
+    {
+      "text": "Brush alters appearances, Modeling adds cosmetic detail, and underlying physics controllers govern motion. Keeping these boundaries modular gives you absolute creative freedom.",
+      "file": "modules/15_rover_light_b/audio/c14896d2d66be5a03009.wav",
+      "sha256": "ca4bb93a8d8e5c2d5003e6103c6aae6443e2f712ce0991ccd95279070ecd08c9",
+      "request_sha256": "c14896d2d66be5a030092c87673c3d8492b531ffca89e6568e02fca36540df2e"
+    }
+  ]
+}

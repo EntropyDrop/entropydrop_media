@@ -1,0 +1,16 @@
+{
+  "id": "07_logistics",
+  "title": "运输机器人与施工条件",
+  "status": "rendered_chinese",
+  "planned_duration_seconds": 55,
+  "planned_shots": [
+    "跟随黄色运输车完成一次真实装货、行驶、卸货和交接。",
+    "同镜头观察到货前后的建筑状态变化。",
+    "说明施工批次是自定义玩法规则；不声称接入了尚未实现的原生采矿、背包消耗或经济系统。"
+  ],
+  "footage": "modules/07_logistics/module.json",
+  "voice": "modules/07_logistics/voice.zh.json",
+  "planned_start_seconds": 305,
+  "actual_start_seconds": 252.1,
+  "actual_duration_seconds": 39.46666666666667
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "回顾今天的探索之旅，从以太群岛跨越虚空的直升机，到 Nature 原野中征服坎坷的越野车，再到铜城天际线间形影不离的随身无人机，三座世界生动诠释了 Space 的核心魅力：",
+  "seed": 42
+}

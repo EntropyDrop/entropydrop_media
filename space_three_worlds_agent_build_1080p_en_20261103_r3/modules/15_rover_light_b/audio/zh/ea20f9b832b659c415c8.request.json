@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "这正是 Space 玩法体系的核心所在：生成的载具永远保持完全的可编辑性。你不需要为了改动一个细微部件而大费周章地重新生成整辆车——AI 负责搞定复杂的工程架构，而美学与个性完全由你随心定义。",
+  "seed": 43
+}

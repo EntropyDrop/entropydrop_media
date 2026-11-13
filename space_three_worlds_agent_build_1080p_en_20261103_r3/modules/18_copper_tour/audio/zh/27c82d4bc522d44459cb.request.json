@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "密集的建筑层层叠叠，展示了这个世界丰富的立体层次。再看平直的屋顶边缘：有了水平参照，飞行器哪怕只有一点倾斜，也能看得非常清楚。",
+  "seed": 46
+}

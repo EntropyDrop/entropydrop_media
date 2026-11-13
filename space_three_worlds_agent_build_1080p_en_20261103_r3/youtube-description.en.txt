@@ -1,0 +1,29 @@
+I'm building EntropyDrop Space, a programmable voxel sandbox game that runs in your browser. In this devlog, I use Agent Build to create three playable machines, customize them with voxel tools, and put their physics to the test across three different worlds.
+
+• Aether Archipelago: Build and fly a tandem-rotor Chinook helicopter between floating islands.
+• Nature: Create an off-road rover with independent suspension, recolor its headlights, and test wheel rotation, steering, and rough-terrain handling.
+• Copper Metropolis: Build a quadcopter companion that follows the player through the air, tilting to accelerate, brake, and move sideways.
+
+I also walk through the toolbar and the design behind the workflow: let an AI agent build the structure and controllers, then use hands-on tools to sculpt, paint, and refine the result. The goal is a world where your creations are editable, programmable, and ready to play with.
+
+Try EntropyDrop Space in your browser:
+https://entropydrop.com
+
+CHAPTERS
+00:00 Introducing EntropyDrop Space
+00:47 Exploring Aether Archipelago
+01:34 The voxel toolkit
+02:14 The Agent Build workflow
+02:44 Building a Chinook helicopter
+03:52 Sculpting, painting, and boarding
+05:00 Flying through the archipelago
+06:13 Nature and the suspension rover
+07:57 Customizing the headlights
+08:56 Wheel, steering, and off-road tests
+09:58 Copper Metropolis and the companion drone
+11:34 Airborne character-following and camera orbit
+12:37 Build, refine, and play
+
+Let me know what you'd like to build or see tested next. Subscribe to follow the development of Space!
+
+#IndieGame #GameDev #Devlog #VoxelGame #SandboxGame #GamePhysics #AIAgents #EntropyDropSpace

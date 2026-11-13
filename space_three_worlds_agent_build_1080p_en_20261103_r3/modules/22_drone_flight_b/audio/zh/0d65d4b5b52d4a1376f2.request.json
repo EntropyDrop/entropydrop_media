@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "来到铜城上空，我们围绕角色和无人机转动一圈镜头，看看完整的环形都市。环顾时视场角固定，远近变化看起来更平稳舒适。",
+  "seed": 42
+}

@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/robot-city-capture/11_handoff_clean.mp4",
+  "seconds": 54,
+  "mode": "compositor",
+  "incoming": 2524,
+  "frames": 1620,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793798224686,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

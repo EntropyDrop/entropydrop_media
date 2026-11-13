@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Here is the centerpiece of Space: the Agent Build system. Simply open the panel and copy the prompt to your favorite external AI agent. Through open interfaces, it connects directly into your active voxel world.",
+  "seed": 42
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Close the editor, aim at the pilot seat, and press V to board. Hitting F three toggles our third-person perspective, giving us an expansive view of both the rotors and the archipelago.",
+  "seed": 43
+}

@@ -1,0 +1,28 @@
+{
+  "chunks": [
+    {
+      "text": "Our final stop brings us to Copper Metropolis. Packed with soaring skyscrapers, this world presents an entirely different navigation challenge from open wilderness.",
+      "file": "modules/18_copper_tour/audio/ceecff02ec6fc8e50f61.wav",
+      "sha256": "79baf0a816ed3c3e408e5ec652daca31a6d86e3b6656de702dbe42c32547c3f3",
+      "request_sha256": "ceecff02ec6fc8e50f616c0289b5ce17734774fa87d0de1440046078a83078de"
+    },
+    {
+      "text": "Copper highlights how effortlessly Space renders dense, multi-tiered urban architecture. Sharp horizontal rooflines make every subtle tilt and attitude change easy to read.",
+      "file": "modules/18_copper_tour/audio/8ad86676a7622f457d22.wav",
+      "sha256": "7ba82fcb5f2f76511b8792030fe0e811b0888101ee400b13892ab5c1d27e2e45",
+      "request_sha256": "8ad86676a7622f457d229c2950431a54cf781ea441f6103cfd8d1fe43978431a"
+    },
+    {
+      "text": "In this vertical cityscape, we explore an even more advanced gameplay mechanic: instead of manually piloting a vehicle, we ask the agent to create an autonomous companion drone that follows our every move.",
+      "file": "modules/18_copper_tour/audio/45959e19f7f9a6c86bca.wav",
+      "sha256": "99a982b6909a4ed473e4b69f47b8330bcffdfde913aa6db6dc4901b09f338345",
+      "request_sha256": "45959e19f7f9a6c86bcae1d75e7c5b6c141682b8abd256f52fdc539f599f59fa"
+    },
+    {
+      "text": "The player becomes the moving target. Starting from a spacious rooftop terrace, we take to the air, giving our drone companion plenty of clear airspace to climb, follow, and hover beside us.",
+      "file": "modules/18_copper_tour/audio/8473c6ef8758c7ccb69b.wav",
+      "sha256": "b995113451bdb6ba818e30ed9b3075d4cbecb50c3a55e698454becfccda014e8",
+      "request_sha256": "8473c6ef8758c7ccb69b4fa0c298d4f53360e752b557dc079b12b22615d2b81b"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "面对立体的城市空间，我们将尝试一种更前沿的玩法：不再是人工驾驶载具，而是让 AI 打造一只能够伴随身边的自主跟随无人机。",
+  "seed": 44
+}

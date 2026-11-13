@@ -1,0 +1,189 @@
+// City crew v1. Independent AssemblyScript controller. No host-side job scheduler.
+const role:i32=2;const peers:string[]=["8a8f4c9f-4d4e-4b03-a30b-7d306029611d","7bb6a811-99c9-40f2-a2d9-dac0805f8441","bd77e7e5-0fd8-4e8a-8238-5b939015c20f","268e72fe-e069-4ae4-9b79-50400b4eda88","2d8f7c84-a054-4f25-aa77-d4fe137efd54","e1e6c75f-33f8-46aa-bba3-ffc42ef10eed"];
+const px:f64[]=[5342,5342,5366,5366,5390,5390], pz:f64[]=[774,810,774,810,774,810], py:f64[]=[18,17,17,17,18,18];
+const segments:i32[]=[1,1,3,3,5,5];
+const groups:string[]=[]; const palette:i32[]=[];
+if(!self.state.getBoolean("initialized")){
+ self.state.setBoolean("initialized",true); self.state.setNumber("job",-1); self.state.setNumber("grant",-1);
+ self.state.setNumber("tx",ctx.position[0]);self.state.setNumber("tz",ctx.position[2]);self.state.setString("status","WAIT SURVEY");
+}
+let paused:bool=self.state.getBoolean("workPaused");
+if(!ctx.clickedBlock.isNull&&ctx.clickedBlock.getString("nodeId")=="work_button"){
+ paused=!paused;self.state.setBoolean("workPaused",paused);ctx.log(paused?"Work paused; communication remains active":"Work resumed");
+}
+let survey:i32=i32(self.state.getNumber("survey"));let road:i32=i32(self.state.getNumber("road"));
+let delivery:i32=i32(self.state.getNumber("delivery"));let built:i32=i32(self.state.getNumber("built"));let planted:i32=i32(self.state.getNumber("planted"));
+let job:i32=i32(self.state.getNumber("job",-1));let progress:i32=i32(self.state.getNumber("progress"));
+const incoming:Value=ctx.messages.received;
+for(let m:i32=0;m<incoming.length;m++){
+ const msg=incoming.at(m),source=msg.getString("sourceId"),kind=msg.getString("type"),parts=msg.getString("payload").split("|");
+ let sender:i32=-1;for(let k:i32=0;k<6;k++)if(peers[k]==source)sender=k;
+ if(sender<0||parts.length<2||parts[0]!="1")continue;
+ if(kind=="status.v1"&&parts.length==7){
+  // Only each role's authenticated source can advance its own completion facts.
+  if(sender==0)survey|=I32.parseInt(parts[2]);
+  if(sender==1)road|=I32.parseInt(parts[3]);
+  if(sender==2)delivery|=I32.parseInt(parts[4]);
+  if(sender==3||sender==4)built|=I32.parseInt(parts[5]);
+  if(sender==5)planted|=I32.parseInt(parts[6]);
+  self.state.setNumber("seen"+sender.toString(),I32.parseInt(parts[1]));
+  ctx.messages.send(source,"ack.v1","1|"+parts[1]);
+ }
+ if(kind=="ack.v1")self.state.setNumber("ack"+sender.toString(),I32.parseInt(parts[1]));
+ if(role==0&&kind=="claim.v1"&&(sender==3||sender==4)){
+  let chosen:i32=-1;
+  // Repeating a claim returns the same grant, never a second simultaneous job.
+  for(let k:i32=0;k<6;k++)if(i32(self.state.getNumber("owner"+k.toString()))==sender&&(built&(1<<k))==0)chosen=k;
+  if(chosen<0)for(let k:i32=0;k<6;k++)if(chosen<0&&(survey&(1<<k))!=0&&(delivery&(1<<k))!=0&&(built&(1<<k))==0&&self.state.getNumber("owner"+k.toString())==0)chosen=k;
+  if(chosen>=0){self.state.setNumber("owner"+chosen.toString(),sender);ctx.messages.send(source,"grant.v1","1|"+chosen.toString());}
+ }
+ if(role==0&&kind=="release.v1"&&(sender==3||sender==4)){
+  const released=I32.parseInt(parts[1]);if(released>=0&&released<6){const owner=self.state.getNumber("owner"+released.toString());if(owner==sender){self.state.setNumber("owner"+released.toString(),0);ctx.log("Unstarted plot released: "+released.toString());}if(owner==sender||owner==0)ctx.messages.send(source,"released.v1","1|"+released.toString());}
+ }
+ if((role==3||role==4)&&sender==0&&kind=="released.v1"&&self.state.getNumber("releaseJob",-1)==I32.parseInt(parts[1]))self.state.setNumber("releaseJob",-1);
+ if((role==3||role==4)&&sender==0&&kind=="grant.v1"){
+  const granted=I32.parseInt(parts[1]);if(job<0&&granted>=0&&granted<6&&(built&(1<<granted))==0){job=granted;progress=0;self.state.setNumber("verify",0);ctx.log("Plot claimed: "+job.toString());}
+ }
+}
+let tx:f64=self.state.getNumber("tx"),tz:f64=self.state.getNumber("tz");
+let work:bool=false;let group:i32=-1;
+if(role==0){
+ // Validate all intended road and building cells before approving the plan.
+ let groupIndex:i32=i32(self.state.getNumber("surveyGroup"));let cellIndex:i32=i32(self.state.getNumber("surveyCell"));
+ if(groupIndex<groups.length&&!paused){
+  const cells=groups[groupIndex];let blocked:bool=false;
+  for(let n:i32=0;n<24&&cellIndex<cells.length/8;n++){
+   const at=cellIndex*8,x=I32.parseInt(cells.substr(at,2),16)+5312,y=I32.parseInt(cells.substr(at+2,2),16),z=I32.parseInt(cells.substr(at+4,2),16)+744,color=palette[I32.parseInt(cells.substr(at+6,2),16)];
+   const actual=ctx.world.voxels.get([f64(x),f64(y),f64(z)]);
+   if(actual.getNumber("block")!=0&&actual.getNumber("color")!=color){blocked=true;self.state.setString("status","SURVEY BLOCKED");self.state.setVector("blockedCell",[f64(x),f64(y),f64(z)]);break;}
+   cellIndex++;
+  }
+  if(!blocked){self.state.setString("status","SURVEYING");if(cellIndex>=cells.length/8){groupIndex++;cellIndex=0;}}
+  self.state.setNumber("surveyGroup",groupIndex);self.state.setNumber("surveyCell",cellIndex);
+  if(groupIndex>=groups.length){survey=63;self.state.setString("status","PLAN APPROVED");ctx.log("Roads and six plots verified clear");}
+ }
+ if(survey!=0){const a=ctx.time*.10;tx=5362+Math.cos(a)*28;tz=792+Math.sin(a)*25;}
+}
+if(role==1){
+ if(job<0&&survey==63&&!paused){for(let k:i32=0;k<6;k++)if(job<0&&(road&(1<<k))==0){job=k;progress=0;self.state.setNumber("verify",0);}}
+ if(job>=0){group=job;const row=Math.floor(f64(progress)/7);tx=5328+job*12+Math.min(11,row);tz=787;work=true;self.state.setString("status",paused?"FINISH CURRENT SEGMENT":"LAYING ROAD");}
+ else self.state.setString("status",road==63?"ROAD COMPLETE":paused?"WORK PAUSED":"WAIT SURVEY");
+}
+if(role==2){
+ if(job<0&&!paused&&survey==63){for(let k:i32=0;k<6;k++)if(job<0&&(delivery&(1<<k))==0){job=k;self.state.setNumber("route",0);}}
+ const cargo=self.child("cargo");
+ if(job>=0){
+  let route:i32=i32(self.state.getNumber("route"));
+  // Return to the depot and use the finished trunk. Never cut across unbuilt extension.
+  if(route==0){tx=5330;tz=792;if(Math.hypot(tx-ctx.position[0],tz-ctx.position[2])<.8){route=1;self.state.setNumber("route",route);}}
+  if(route==1){
+   let end:f64=5329;for(let k:i32=0;k<6;k++){if((road&(1<<k))!=0)end=5328+(k+1)*12-3;else break;}
+   tx=Math.min(px[job],end);tz=792;self.state.setString("status",(road&(1<<segments[job]))==0?"WAIT ROAD":"DELIVERING");
+   if((road&(1<<segments[job]))!=0&&Math.hypot(px[job]-ctx.position[0],tz-ctx.position[2])<.8){route=2;self.state.setNumber("unloadUntil",ctx.time+1.5);self.state.setNumber("route",route);}
+  }
+  if(route==2){self.state.setString("status","UNLOADING");if(ctx.time>self.state.getNumber("unloadUntil")){delivery|=1<<job;ctx.log("Construction batch delivered to plot "+job.toString());job=-1;}}
+  if(cargo!==null)cargo.setLocalPosition([0,route==2?0.5:1.0,route==2?2.3:0.5]);
+ }else self.state.setString("status",delivery==63?"ALL BATCHES DELIVERED":"WAIT SURVEY");
+}
+if(role==3||role==4){
+ if(paused&&job>=0&&progress==0){self.state.setNumber("releaseJob",job);self.state.setNumber("releaseRetry",0);job=-1;self.state.setNumber("nextClaim",ctx.time+3);}
+ if(self.state.getNumber("releaseJob",-1)>=0&&ctx.time>=self.state.getNumber("releaseRetry")){ctx.messages.send(peers[0],"release.v1","1|"+i32(self.state.getNumber("releaseJob")).toString());self.state.setNumber("releaseRetry",ctx.time+2);}
+ if(job<0&&!paused&&ctx.time>=self.state.getNumber("nextClaim")){ctx.messages.send(peers[0],"claim.v1","1|-1");self.state.setNumber("nextClaim",ctx.time+2);}
+ if(job>=0){tx=px[job]-8;tz=pz[job]+(job%2==0?8:-8);group=job;work=(delivery&(1<<job))!=0&&(road&(1<<segments[job]))!=0;self.state.setString("status",work?progress<121?"FOUNDATION":progress<400?"WALLS & OPENINGS":"ROOF & PORCH":"WAIT MATERIAL");}
+ else {self.state.setString("status",paused?"NEW TASKS PAUSED":built==63?"DISTRICT COMPLETE":"WAIT MATERIAL / CLAIM");if(paused){tx=5320;tz=792;}}
+}
+if(role==5){
+ if(job<0&&!paused){for(let k:i32=0;k<6;k++)if(job<0&&(built&(1<<k))!=0&&(planted&(1<<k))==0){job=k;progress=0;self.state.setNumber("verify",0);}}
+ if(job>=0){tx=px[job]+8;tz=pz[job]+(job%2==0?8:-8);group=job;work=true;self.state.setString("status","PLANTING VERIFIED PLOT");}
+ else self.state.setString("status",planted==63?"GREENERY COMPLETE":"WAIT BUILDING");
+}
+// Terrain-following kinematic controllers: motion responds to route, rays and neighbors.
+let dx:f64=tx-ctx.position[0],dz:f64=tz-ctx.position[2],dist:f64=Math.hypot(dx,dz);
+let speed:f64=role==0?5:role==2?5:3;let traffic:bool=false;
+if(dist>.2&&role!=0&&ctx.time>self.state.getNumber("avoidUntil")){
+ const near=ctx.world.entities(ctx.position,5);
+ for(let k:i32=0;k<near.length;k++){
+  const other=near.at(k),otherId=other.getString("id");if(otherId==ctx.entityId)continue;
+  let priority:i32=-1;for(let p:i32=1;p<6;p++)if(peers[p]==otherId)priority=p;if(priority<0)continue;
+  const pos=other.get("position").asVector();if(pos.length!=3)continue;
+  const ox=pos[0]-ctx.position[0],oz=pos[2]-ctx.position[2];
+  if(ox*dx+oz*dz>0&&Math.hypot(ox,oz)<4.8&&role>priority){
+   const length=Math.max(.1,Math.hypot(ox,oz));
+   self.state.setNumber("avoidX",ctx.position[0]-oz/length*3.5);self.state.setNumber("avoidZ",ctx.position[2]+ox/length*3.5);self.state.setNumber("avoidUntil",ctx.time+2);traffic=true;break;
+  }
+ }
+}
+if(ctx.time<self.state.getNumber("avoidUntil")){dx=self.state.getNumber("avoidX")-ctx.position[0];dz=self.state.getNumber("avoidZ")-ctx.position[2];dist=Math.hypot(dx,dz);work=false;self.state.setString("status","YIELD TO ROBOT");}
+let heading:f64=ctx.rotation[1];if(dist>.2)heading=Math.atan2(-dx,-dz);
+const step:f64=Math.min(dist,speed*ctx.deltaTime),nx=ctx.position[0]+(dist>.01?dx/dist*step:0),nz=ctx.position[2]+(dist>.01?dz/dist*step:0);
+const hit=ctx.world.raycast([nx,64,nz],[0,-1,0],64);let ground:f64=ctx.position[1]-1.1;
+if(!hit.isNull)ground=64-hit.getNumber("distance");
+const desiredY:f64=ground+(role==0?12:1.0),ny=ctx.position[1]+Math.max(-ctx.deltaTime*8,Math.min(ctx.deltaTime*8,desiredY-ctx.position[1]));
+self.setLocalPosition([nx,ny,nz]);self.setLocalEuler([0,heading,0]);
+const spin=self.state.getNumber("wheelSpin")-step/.65;self.state.setNumber("wheelSpin",spin);
+let headingDelta:f64=heading-ctx.rotation[1];while(headingDelta>Math.PI)headingDelta-=2*Math.PI;while(headingDelta<-Math.PI)headingDelta+=2*Math.PI;
+for(let k:i32=0;k<4;k++){
+ const wheel=self.child("wheel"+k.toString());
+ if(wheel!==null){
+  const wx:f64=k%2==0?-1.25:1.25,wz:f64=k<2?-1:1;
+  const ox=Math.cos(heading)*wx+Math.sin(heading)*wz,oz=-Math.sin(heading)*wx+Math.cos(heading)*wz;
+  const contact=ctx.world.raycast([nx+ox,64,nz+oz],[0,-1,0],64);
+  const extension=contact.isNull?-.3:Math.max(-1.1,Math.min(.2,64-contact.getNumber("distance")+.65-ny));
+  wheel.setLocalPosition([wx,extension,wz]);wheel.setLocalEuler([spin,k<2?Math.max(-.45,Math.min(.45,headingDelta*3)):0,0]);
+ }
+}
+const tool=self.child("tool");if(tool!==null&&(role==3||role==4||role==5))tool.setLocalEuler([0,work?Math.sin(ctx.time*1.3)*.18:0,0]);
+self.state.setNumber("tx",tx);self.state.setNumber("tz",tz);
+if(work&&group>=0&&dist<1.2){
+ const cells=groups[group];const count:i32=cells.length/8;
+ if(progress<count){
+  const at=progress*8,x=I32.parseInt(cells.substr(at,2),16)+5312,y=I32.parseInt(cells.substr(at+2,2),16),z=I32.parseInt(cells.substr(at+4,2),16)+744,color=palette[I32.parseInt(cells.substr(at+6,2),16)];
+  const pos:f64[]=[f64(x),f64(y),f64(z)],actual=ctx.world.voxels.get(pos),pending=self.state.getString("pending");
+  if(role==3||role==4||role==5){
+   // The visible fabrication beam is driven by the same cell as the actual voxel command.
+   const ex=f64(x)+.5-ctx.position[0],ey=f64(y)+.5-ctx.position[1],ez=f64(z)+.5-ctx.position[2];
+   const lx=Math.cos(heading)*ex-Math.sin(heading)*ez,lz=Math.sin(heading)*ex+Math.cos(heading)*ez;
+   const by=ey-2,bz=lz+1,length=Math.max(.01,Math.sqrt(lx*lx+by*by+bz*bz));
+   const qx=-by/length,qy=lx/length,qw=1+bz/length,qn=Math.max(.001,Math.sqrt(qx*qx+qy*qy+qw*qw));
+   const rotation=Value.array().push(Value.number(qx/qn)).push(Value.number(qy/qn)).push(Value.number(0)).push(Value.number(qw/qn));
+   self.decorations.upsert("fabrication_beam",Value.object().setVector("position",[lx/2,(ey+2)/2,(lz-1)/2]).set("rotation",rotation).setVector("scale",[.06,.06,length]).setNumber("color",role==5?0x9fc95b:0x74cce5).setNumber("materialId",1));
+   self.state.setBoolean("beamActive",true);
+  }
+  if(pending!=""){
+   const result=ctx.commands.result(pending);
+   if(!result.isNull){
+    if(result.getBoolean("ok")&&actual.getNumber("block")!=0&&actual.getNumber("color")==color){progress++;self.state.setString("pending","");self.state.setNumber("writeFailures",0);}
+    else{self.state.setString("pending","");self.state.setNumber("writeFailures",self.state.getNumber("writeFailures")+1);self.state.setString("status","WRITE FAILED: "+result.getString("reason"));}
+   }
+  }else if(actual.getNumber("block")!=0){
+   if(actual.getNumber("color")==color)progress++;
+   else{self.state.setString("status","OCCUPIED: HOLD");self.state.setVector("blockedCell",pos);}
+  }else if(self.state.getNumber("writeFailures")<3){
+   const result=ctx.world.voxels.set(pos,Value.object().setNumber("color",color));
+   if(result.getBoolean("ok"))self.state.setString("pending",result.getString("commandId"));
+  }
+ }else{
+  let verify:i32=i32(self.state.getNumber("verify"));let valid:bool=true;
+  for(let n:i32=0;n<24&&verify<count;n++){
+   const at=verify*8,x=I32.parseInt(cells.substr(at,2),16)+5312,y=I32.parseInt(cells.substr(at+2,2),16),z=I32.parseInt(cells.substr(at+4,2),16)+744,color=palette[I32.parseInt(cells.substr(at+6,2),16)];
+   const actual=ctx.world.voxels.get([f64(x),f64(y),f64(z)]);
+   if(actual.getNumber("block")==0||actual.getNumber("color")!=color){valid=false;self.state.setString("status","VERIFY FAILED");break;}verify++;
+  }
+  self.state.setNumber("verify",verify);
+  if(valid&&verify==count){
+   if(role==1)road|=1<<job;if(role==3||role==4)built|=1<<job;if(role==5)planted|=1<<job;
+   ctx.log("Verified complete: "+job.toString()+" / "+count.toString()+" cells");job=-1;progress=0;self.state.setNumber("verify",0);
+  }
+ }
+}
+if((!work||job<0)&&self.state.getBoolean("beamActive")){self.decorations.remove("fabrication_beam");self.state.setBoolean("beamActive",false);}
+self.state.setNumber("job",job);self.state.setNumber("progress",progress);
+self.state.setNumber("survey",survey);self.state.setNumber("road",road);self.state.setNumber("delivery",delivery);self.state.setNumber("built",built);self.state.setNumber("planted",planted);
+const label=self.state.getString("status");if(label!=self.state.getString("lastStatus")){ctx.log(label);self.state.setString("lastStatus",label);}
+// Periodic monotonic snapshots recover a missed message; acks carry sequence numbers.
+if(ctx.time>=self.state.getNumber("nextStatus")){
+ let peer:i32=i32(self.state.getNumber("peer"));if(peer==role)peer=(peer+1)%6;
+ const sequence:i32=i32(self.state.getNumber("sequence"))+1;
+ ctx.messages.send(peers[peer],"status.v1","1|"+sequence.toString()+"|"+survey.toString()+"|"+road.toString()+"|"+delivery.toString()+"|"+built.toString()+"|"+planted.toString());
+ self.state.setNumber("peer",(peer+1)%6);self.state.setNumber("sequence",sequence);self.state.setNumber("nextStatus",ctx.time+.4);
+}

@@ -1,0 +1,22 @@
+{
+  "duration": 39.46666666666667,
+  "sha256": "bb7704d58c7335942cb748993e9d6380327153b596648dcc1032fc022d5a234c",
+  "voice_sha256": "bfa5a7af45da172440afdc9deff9b00617402764bf52bad22dd5b6905e546385",
+  "clips": [
+    {
+      "file": "footage/07_logistics_clean.mp4",
+      "start": 0,
+      "duration": 24.4
+    },
+    {
+      "file": "footage/06_road_clean.mp4",
+      "start": 17,
+      "duration": 9.26
+    },
+    {
+      "file": "footage/07_logistics_clean.mp4",
+      "start": 35,
+      "duration": 5.806667
+    }
+  ]
+}

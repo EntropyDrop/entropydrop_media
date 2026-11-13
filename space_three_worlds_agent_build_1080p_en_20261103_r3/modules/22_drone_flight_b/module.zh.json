@@ -1,0 +1,16 @@
+{
+  "id": "22_drone_flight_b",
+  "label": "空中环顾、侧移与悬停",
+  "title": "Skyline Cruising: Omnidirectional Mobility & Companionship",
+  "clips": [
+    {
+      "source": "footage/replacements/21-22-circle.zh.mp4",
+      "in": 23.65,
+      "out": "auto",
+      "end_at": "end",
+      "mode": "realtime"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "Chinese review: real player movement at 14 m/s around a 194 m diameter circle; force/torque drone follow; fixed 75-degree FOV; no time remapping. English unchanged."
+}

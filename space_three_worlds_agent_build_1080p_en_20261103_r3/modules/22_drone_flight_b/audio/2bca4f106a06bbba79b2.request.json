@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "As we strafe sideways, watch the drone roll smoothly into the bank, counter-tilt to arrest momentum, and return to an effortless hover. Pauses between inputs make every aerodynamic response clear and satisfying.",
+  "seed": 43
+}

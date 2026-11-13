@@ -1,0 +1,16 @@
+{
+  "id": "11_builder_handoff",
+  "title": "工作重新分配与协作边界",
+  "status": "rendered_chinese",
+  "planned_duration_seconds": 50,
+  "planned_shots": [
+    "只转交未开工任务，现场确认没有两台机器人重复建同一地块。",
+    "任务领取、释放和接手以实际运行状态为准；不以固定秒表触发剧情。",
+    "若可靠接手测试不通过，本模块删减并改为展示已有任务排队，不虚构成功。"
+  ],
+  "footage": "modules/11_builder_handoff/module.json",
+  "voice": "modules/11_builder_handoff/voice.zh.json",
+  "planned_start_seconds": 545,
+  "actual_start_seconds": 422.466667,
+  "actual_duration_seconds": 36.96666666666667
+}

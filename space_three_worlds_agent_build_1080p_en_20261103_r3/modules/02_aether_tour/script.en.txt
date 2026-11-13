@@ -1,0 +1,5 @@
+Here in Aether Archipelago, the terrain gives us a design problem. How do we cross a gap, transport supplies, or let a machine handle repetitive work? We want players to start with a goal, build a solution, and test it in the world.
+
+AI is a design partner. Describe appearance, structure, and behavior in plain language, and it can help build vehicles and write their control code. The same idea extends to following or patrolling drones, and bot players that interact with people. Generation is only the beginning: the toolbar lets you refine, test, and make the result your own.
+
+We also want to extend this collaboration to automated construction. Imagine an agent directing a road-building robot: it reads the terrain ahead and lays a route as it moves. Vehicles, robots, and the world become connected. You set a goal, AI helps implement it, and real operation puts the design to the test.

@@ -1,0 +1,20 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "在以太群岛，我们需要一架能够跨越空岛的重型空中载具——支奴干纵列双旋翼运输直升机。在 Space 中与 AI 交互非常直观，一段精准的提示词通常涵盖外观、功能结构与操作方式：",
+      "file": "modules/05_chinook_prompt/audio/zh/bdb109c54cdb80346b95.wav",
+      "sha256": "5d46821e8900eadf6d5e88f55758fc01ac53e42774f5cfd6b095c15b1e60b260",
+      "request_sha256": "bdb109c54cdb80346b9579e00b5a9931904ebb3fa1b76069770cc5e5dac7253b",
+      "trimmed_duration": 13.53
+    },
+    {
+      "text": "请建造一架橄榄绿的运输直升机，包含清晰的座舱、中空的可进入机舱、起落轮和可用的驾驶位。两组旋翼独立旋转，方向相反，通过推力和姿态力矩实现飞行。W 和 S 控制俯仰，A 和 D 控制转向，空格和 Shift 控制升降。",
+      "file": "modules/05_chinook_prompt/audio/zh/9bc79d5670c469c06860.wav",
+      "sha256": "09831e1378dc1d1a0042d9adc8b2f62bc881f8f5d7bf085c03bb13f234deafac",
+      "request_sha256": "9bc79d5670c469c06860ab0ca1db2d3289105091218e05cf512d601e29d6493a",
+      "trimmed_duration": 16.91
+    }
+  ]
+}

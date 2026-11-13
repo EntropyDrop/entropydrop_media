@@ -1,0 +1,61 @@
+{
+  "id": "01_intro",
+  "title": "EntropyDrop Space: Game Introduction & Gameplay Showcase",
+  "label": "开场介绍",
+  "duration": 47.43333333333333,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 22.54,
+      "text": "Hey everyone. Today, I want to introduce EntropyDrop Space, a 3D voxel game running directly in your web browser. In Space, the world isn't just a sandbox made of blocks—it's an interactive, playable world. Building a drivable machine in traditional sandbox games often takes hours of manual block placement and scripting, while typical generative 3D models tend to be static decorations you can neither customize nor actually play with.",
+      "source": "modules/01_intro/audio/6c64b516a34e93083e11.wav"
+    },
+    {
+      "start": 22.99,
+      "duration": 24.07,
+      "text": "The core idea behind Space is bringing AI co-creation and voxel sandbox gameplay together: describe what you want in plain words, and an AI Agent helps build functional mechanisms and control scripts for you. At the same time, you retain complete creative control—sculpting micro details with hands-on tools, and jumping into the driver's seat to explore the world yourself. Today, we'll walk through three distinct worlds to showcase how the systems and gameplay in Space actually work.",
+      "source": "modules/01_intro/audio/d2eaa72e559461754b9f.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "footage/reused/01-intro.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/reused/01-intro.mp4",
+      "in": 0.0,
+      "out": 22.99,
+      "duration": 22.99,
+      "source_sig": "e34e800de79dcab97fea3df223e478418f92fd1e207c6fd717e171bff4bccfdd",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/10-chinook-flight-b-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/10-chinook-flight-b-clean.mp4",
+      "in": 6.0,
+      "out": 14.147780000000001,
+      "duration": 8.147780000000001,
+      "source_sig": "e1375a327ea2549b4337d281f79622746ec90225cb8016120bea5efae8709e77",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/replacements/17-rover-terrain.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/replacements/17-rover-terrain.mp4",
+      "in": 5.0,
+      "out": 13.147779999999997,
+      "duration": 8.147779999999997,
+      "source_sig": "446e89743bce8f123501a2745cf6a4475125c39df4d9d45b6c7c78c1ec112103",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/replacements/22-drone-orbit.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/replacements/22-drone-orbit.mp4",
+      "in": 5.0,
+      "out": 13.147773333333333,
+      "duration": 8.147773333333333,
+      "source_sig": "cbc69c1cd7a1f23de0ce317ebe84507c95a81be2a5a7a486e496565a8f19ea82",
+      "mode": "realtime"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "7ee804bb5c2a906792b7c93e83d92d3895d9525fe4952503294019643ca42080",
+  "voice_sig": "4cebea639dc4c50d88ac344c1ec8474432c48cc3fa0e678996045566e333e17e"
+}

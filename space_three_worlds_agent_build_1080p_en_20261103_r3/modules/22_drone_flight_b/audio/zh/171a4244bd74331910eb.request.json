@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "这样的伙伴才和玩法联系起来：你负责探索和选择路线，它用自己的控制逻辑跟上你。以后再加入侦察、巡逻或搬运，就能发展出更多用途。",
+  "seed": 102
+}

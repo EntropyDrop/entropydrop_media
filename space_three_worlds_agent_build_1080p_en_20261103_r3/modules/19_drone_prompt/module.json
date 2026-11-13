@@ -1,0 +1,16 @@
+{
+  "id": "19_drone_prompt",
+  "label": "跟随无人机构建请求",
+  "title": "Intelligent Companion: Prompting a Character-Following Drone",
+  "clips": [
+    {
+      "source": "stills/19-drone-prompt.png",
+      "in": 0,
+      "out": "auto",
+      "end_at": "end",
+      "mode": "realtime"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "On-screen prompt card: final existing-site / terrain / stopped / compile-validation paragraph removed as requested. Narration retained."
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "We spawn it resting directly on existing terrain. This independent raycast suspension delivers authentic mechanical behavior you can feel in every turn, far beyond cosmetic wheels that only spin in place.",
+  "seed": 44
+}

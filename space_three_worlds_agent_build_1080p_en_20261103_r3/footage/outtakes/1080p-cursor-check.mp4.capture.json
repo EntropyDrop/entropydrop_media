@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/space-three-worlds-vlog-r3/footage/outtakes/1080p-cursor-check.mp4",
+  "seconds": 3,
+  "mode": "compositor",
+  "incoming": 143,
+  "frames": 90,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793705680617,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Brush changes colors and materials on the fly, while Modeling adds lightweight visual decorations. Keys one through seven let you cycle through tools instantly, with contextual controls updating dynamically to keep the workflow clean and intuitive.",
+  "seed": 43
+}

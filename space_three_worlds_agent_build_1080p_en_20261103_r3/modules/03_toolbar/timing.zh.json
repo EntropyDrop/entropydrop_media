@@ -1,0 +1,58 @@
+{
+  "id": "03_toolbar",
+  "title": "The Creator's Toolkit: Core Mechanics & Micro-Voxel Workflow",
+  "label": "工具栏设计与用法",
+  "duration": 39.93333333333333,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 15.83,
+      "text": "The toolbar at the bottom anchors your moment-to-moment gameplay. Selector defines 3D regions; Hammer places inventory items; and Wrench grabs, rotates, and configures active entities. Shovel shapes standard one-meter blocks, while Spoon operates at an ultra-fine one-eighth of a meter micro-voxel scale.",
+      "source": "modules/03_toolbar/audio/f246f3d9930f00e47daf.wav"
+    },
+    {
+      "start": 16.279999999999998,
+      "duration": 12.24,
+      "text": "Brush changes colors and materials on the fly, while Modeling adds lightweight visual decorations. Keys one through seven let you cycle through tools instantly, with contextual controls updating dynamically to keep the workflow clean and intuitive.",
+      "source": "modules/03_toolbar/audio/16efddee5de6e7397036.wav"
+    },
+    {
+      "start": 28.769999999999996,
+      "duration": 10.8,
+      "text": "This toolkit ensures you are never trapped by an AI black box. The agent drafts the heavy architecture, while you always hold the precise, intuitive power to refine, personalize, and leave your own creative mark.",
+      "source": "modules/03_toolbar/audio/a843c3bfe2bed6edc7c2.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "footage/03-toolbar-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/03-toolbar-clean.mp4",
+      "in": 0.0,
+      "out": 12.6,
+      "duration": 16.279999999999998,
+      "source_sig": "97e05dd9cdd9dd76dcc7008c2369188c2707161a4b9b2f0b00dde6567567e237",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/03-toolbar-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/03-toolbar-clean.mp4",
+      "in": 12.6,
+      "out": 24.0,
+      "duration": 12.489999999999998,
+      "source_sig": "97e05dd9cdd9dd76dcc7008c2369188c2707161a4b9b2f0b00dde6567567e237",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/03-toolbar-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/03-toolbar-clean.mp4",
+      "in": 24.0,
+      "out": 34.0,
+      "duration": 11.163333333333334,
+      "source_sig": "97e05dd9cdd9dd76dcc7008c2369188c2707161a4b9b2f0b00dde6567567e237",
+      "mode": "fit"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "2c2d378eca9d460051a5310eeca6abccc6ea0c6c71130a6308bb815fc883badd",
+  "voice_sig": "90938f074f81c5250736656f4f8a37cf6340ce5df72b96b5e728f4f433bba260"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "在宏伟的铜城天际线上空，镜头围绕着角色与无人机 360 度顺畅环顾，周围环形都市的壮阔全景一览无余，视场角全程保持恒定舒适。",
+  "seed": 42
+}

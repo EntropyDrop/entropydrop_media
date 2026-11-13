@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Here in Aether Archipelago, the terrain gives us a design problem. How do we cross a gap, transport supplies, or let a machine handle repetitive work? We want players to start with a goal, build a solution, and test it in the world.",
+  "seed": 42
+}

@@ -1,0 +1,25 @@
+{
+  "duration": 26.033333333333335,
+  "file": "voice.zh.wav",
+  "sha256": "9ae2ce3d87b7363135685b10b5f700bb170eb623415c3059b54770568063661a",
+  "sentences": [
+    {
+      "paragraph": 1,
+      "sentence": 1,
+      "text": "这支队伍有五台四旋翼。浅色的是勘测无人机，负责检查区域和分配建筑任务。橙色的是铺路无人机。蓝色和青色是两台建筑无人机。绿色的负责植树。",
+      "file": "audios/zh/31df352920a2bf7d013a2241.wav",
+      "start": 0.2,
+      "duration": 11.98,
+      "sha256": "a76b292059d23f8e7bd136088dd62645fb5a11e3931c73c0e26dddacdf3ae71a"
+    },
+    {
+      "paragraph": 2,
+      "sentence": 1,
+      "text": "它们有各自的程序、进度和消息。底部也换上不同的工具头，方便看出分工。这里采用脚本控制悬停和移动，重点先放在协作逻辑；真实飞行动力学，可以在后续版本继续扩展。",
+      "file": "audios/zh/a45941f68df697fde5726d37.wav",
+      "start": 12.43,
+      "duration": 13.190041666666668,
+      "sha256": "85bba4165b7a9164e4e76aca3e90ba7cf8b4a211c141ff2886dcdcb20944be30"
+    }
+  ]
+}

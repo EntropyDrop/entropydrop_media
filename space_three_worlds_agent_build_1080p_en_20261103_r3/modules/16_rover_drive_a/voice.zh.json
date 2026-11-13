@@ -1,0 +1,27 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "坐进驾驶席，轻踩油门！在车轮高度做极低速的前进与后退测试，仔细观察轮胎花纹的运动趋势。",
+      "file": "modules/16_rover_drive_a/audio/zh/1944a61b5836a307edcf.wav",
+      "sha256": "e7cf51abd66f56f15de90420bac9316963ef4b804079b42274546d90177cae34",
+      "request_sha256": "1944a61b5836a307edcf12c9d7feaed794610a6cf0c33b83b79afb687833d501",
+      "trimmed_duration": 7.43
+    },
+    {
+      "text": "相对车身来说，向前行驶时，轮胎底部的接触面应该向后滚过地面；倒车时，旋转方向也要随之反过来。",
+      "file": "modules/16_rover_drive_a/audio/zh/b9a47844114da7e3441e.wav",
+      "sha256": "a20501abcfcda90556328cdad77a661b9c2de3c7b60e573ce7450617189708ff",
+      "request_sha256": "b9a47844114da7e3441e01e3338a6e4e9b1d5c5f47a242531f5189a0905b81a3",
+      "trimmed_duration": 6.82
+    },
+    {
+      "text": "四只宽厚的轮胎牢牢咬住草地，无论是向前开动、平稳刹停，还是挂倒挡后退，轮胎的旋转都与车身动作严丝合缝。如果需要微调动力参数，也随时可以呼叫 Agent 一句话快速优化。",
+      "file": "modules/16_rover_drive_a/audio/zh/c712021062b9e1376c10.wav",
+      "sha256": "816b162a04d6aa3cefa08ba840368c23cad1ed30ed7f5ada2edf9a4767f2c252",
+      "request_sha256": "c712021062b9e1376c10ca41ee3fc110522f818352add1d1ca7b876b9985766b",
+      "trimmed_duration": 12.72
+    }
+  ]
+}

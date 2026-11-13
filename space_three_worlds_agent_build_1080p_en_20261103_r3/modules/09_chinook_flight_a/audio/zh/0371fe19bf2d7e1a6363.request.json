@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "增加升力，直升机从草坪平稳垂直起飞！接下来，轻轻按下前进键，机头自然下俯，推力带着我们向前飞行。",
+  "seed": 43
+}

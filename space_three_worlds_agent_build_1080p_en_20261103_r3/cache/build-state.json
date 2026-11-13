@@ -1,0 +1,223 @@
+{
+  "modules": {
+    "01_intro": {
+      "video_sig": "b3831d86f99dda2bd5a83b6455aae5a2711279982c7e5767e7174d19ed3cbb9e",
+      "video_sha256": "5bcaceb0eaa9da783e912f5f748ca1c2fe686cd0cbf295b41c2d8e948bb1f441",
+      "adopted_from": "review/edited-chapters/01_intro.mp4",
+      "voice_sig": "4cebea639dc4c50d88ac344c1ec8474432c48cc3fa0e678996045566e333e17e",
+      "voice_sha256": "7b5eed33a672d43d72763a8a5ff2e5440850275724b0cbd4fc0aabf63f46f8eb",
+      "preview_sig": "d679544d825d09da1c1b5edcca0357ba05b76cc64037112fc0b58cc75a0b430a",
+      "preview_sha256": "812ec96c5ab8aa0a42d95c183ad6a8d14b3d1caefddaf993ce888327e774ad80"
+    },
+    "02_aether_tour": {
+      "video_sig": "9d44f657062d41209f91840f176a1975bea74970214ed1456cc36aff165713a6",
+      "video_sha256": "c64903952488d3ba7d013ca1db6959a24fdf677b24444fb13c795eb1e95af94e",
+      "adopted_from": "review/edited-chapters/02_aether_tour.mp4",
+      "voice_sig": "78e1bfba6fd9201d26c958b8f48cf78b3fc4bb6424fe3fbbddd1bba0e06a602f",
+      "voice_sha256": "335d67434128ad87be0470c95635a4a15afa517e3b6a5ef3e25cfaba09575ea3",
+      "preview_sig": "3f41bc8b21ac04838b346e58668f84befeeabf09b8737a7e9cf1fb5c53beb774",
+      "preview_sha256": "df7d05b9ab856c2d2c5e4e9a9768602ec8f0afd01db8c2c3212f6964a8183645"
+    },
+    "03_toolbar": {
+      "video_sig": "2c2d378eca9d460051a5310eeca6abccc6ea0c6c71130a6308bb815fc883badd",
+      "video_sha256": "19a4bf75fc61f80af98dbb454f92663a5ab60b44e159e0b471b28e6157df79ca",
+      "adopted_from": "review/edited-chapters/03_toolbar.mp4",
+      "voice_sig": "90938f074f81c5250736656f4f8a37cf6340ce5df72b96b5e728f4f433bba260",
+      "voice_sha256": "1341e30713f342a481e717086babed7dfa493caf731881b1987128b715dfb367",
+      "preview_sig": "134d41d27fd060efcb86726dea25463054a4585b57155a3b7fea1aff9c98f218",
+      "preview_sha256": "3ed3239dfd7f4cd32df9b5e3b4b758c7bc780c73a62e8f144ef7276de5d7e570"
+    },
+    "04_agent": {
+      "video_sig": "36ab797095737e98fae54da737eaeed326e8cff72a3116f110855a95a2e6030a",
+      "video_sha256": "d1b4e5ddfae28943ae5fbbcca56eb56c9fd1fdc5b87cc721cdc4cf456c3c98ae",
+      "adopted_from": "review/edited-chapters/04_agent.mp4",
+      "voice_sig": "1379305e871568a21a44962ab0284f8207d129ff1927b5870d991799bd50db91",
+      "voice_sha256": "fd4216c9e79da2bb97954f710006497bb295a2f8437bba975e91903e13eaeccf",
+      "preview_sig": "d50a4e96489c331b8e208909c52b33611b2514e7692920cb91874fcb423534f0",
+      "preview_sha256": "54aa5c356a0c4ab29e6df3554f1966de8fbb099118666bbe509675e6dc2fda84"
+    },
+    "05_chinook_prompt": {
+      "video_sig": "6f55cfa0d92d4bfdebfad9bb9ac61d2a606cc55619514009034d871d7387ee27",
+      "video_sha256": "f9e8be21d29b48a8468e43f61381910182562cbdea459971b4e635ceec208b62",
+      "adopted_from": "review/edited-chapters/05_chinook_prompt.mp4",
+      "voice_sig": "f773dfded45b56c2fef4a3ccb2154d60cc4c02b87a22f1c88f150e192b773ded",
+      "voice_sha256": "c30cbdb79eafbb205ca5c8a5e9dc812b41fb2f3d806021d8e35109d3028dca25",
+      "preview_sig": "7c2e1e3d6deeb87b7422aa0e534208293e7304f73b3771f5717fc4145d704ba6",
+      "preview_sha256": "7f9ee0132f5935c4f1270a33a4e947d46d7a1deb1a0d67c04b8462335608d8b0"
+    },
+    "06_chinook_inspect": {
+      "video_sig": "78131470f8a081754c7a9b54a858bb3e58d40ac6cfbb5df13956bfb0cbddc4c5",
+      "video_sha256": "2a4349213716b40358bf019d1a8d12e004684aa903d126985d3cb1a196298e02",
+      "adopted_from": "review/edited-chapters/06_chinook_inspect.mp4",
+      "voice_sig": "4b4bee40952c00bda0bf934143bb6bb6f42311da335752cf8b9ec9476decc3b8",
+      "voice_sha256": "2949fac2adad0e69367a9c479e9c06e4d9bbec9d91478bd64a2d7699d981495f",
+      "preview_sig": "addaddce01e9c769af3408a5f60aa110b7cb512c070b14084f647f54d145da34",
+      "preview_sha256": "854914fcea3a8717a4685dfb9b227881c9e8ce60933627b43e219cddcd81dc73"
+    },
+    "07_chinook_refine": {
+      "video_sig": "7d9fd724ef739f63424a96bd8570a87c738c049acb987eb4a1b49a353459843b",
+      "video_sha256": "15742a2e58799a6d194ce00cd8bcb5040e47bc6485e81cb30dd62c5a366d3da4",
+      "adopted_from": "review/edited-chapters/07_chinook_refine.mp4",
+      "voice_sig": "261a58c19fa781c2293aedcf89e71e6d8ac4c6b1c848cf097fa21af51afb88a5",
+      "voice_sha256": "50d59b1378808c7ff4fb196528aca7190aeebc1c23355436ecde2a745e9f1aea",
+      "preview_sig": "7d64ef529c1c6f24f1fe2c08da65ce7bb650a6fdeef0d1269f4c300804264c99",
+      "preview_sha256": "549f7c71bc025c67c827dadad449e38f8b18de0e109b68a27d06e42965842051"
+    },
+    "08_chinook_controls": {
+      "video_sig": "b7bd718a44f147dabac6613b08678ae0ba1dcbb06a90da694b83db63d8dbef3e",
+      "video_sha256": "900d0ef70ad53b6db3e0322b499c3670d06c380a5cc114eead643e35818eccbe",
+      "adopted_from": "review/edited-chapters/08_chinook_controls.mp4",
+      "voice_sig": "6229df1cc146461deed051a01e9aaa99d8f0ab54474f98f5b3cd343284db348d",
+      "voice_sha256": "ecd1abea7d332674606b0768ec9a174b6259d69a41043c368d3c31edbd9e1ea5",
+      "preview_sig": "c6097a0ba54fb0d2a49dc3db85eb6e32b0905295880e029ff7ae65075849dac6",
+      "preview_sha256": "dfee3e5d53ec311956c86b193f0acb751ee5f595e0f2dec386b4ae93bc86c7bd"
+    },
+    "09_chinook_flight_a": {
+      "video_sig": "6d8372151c5f6952052478c3de54bb33f9f08db1abdc0809d1cf83f76e18b585",
+      "video_sha256": "8d8cc7e5f4ac4dac073ebb850afb8de03c6956e0680264a1f79b6081b7df7f60",
+      "adopted_from": "review/edited-chapters/09_chinook_flight_a.mp4",
+      "voice_sig": "d3afe3f7a67f0dc98d8648fe55f5c0a4b1974a6bcfc146b1cef0c75eec083660",
+      "voice_sha256": "d5fcaaf6fa435d97de27f8129e4c4f05c0b008afe5673b9caeba4c96d817291e",
+      "preview_sig": "b0035e7acc39e14abf0e3f302db97616b97796c1eae63360a58db2decaa687bd",
+      "preview_sha256": "4c9211336c313839aba6d86927ccbdce16b3502335880c38a25cc7cc90a13e86"
+    },
+    "10_chinook_flight_b": {
+      "video_sig": "870461ffd52582173feba54aef32e691f5a25c92b58da70fa75e9137cd40c243",
+      "video_sha256": "07440172a948cdf2256e52b48dd738a18992b307c1f94f6c1699cae8824c89e4",
+      "adopted_from": "review/edited-chapters/10_chinook_flight_b.mp4",
+      "voice_sig": "b308cd81b3b5647a02bc3a7b2e27be6de8b6fadc4256f9a4f3faa083e9c8222a",
+      "voice_sha256": "90af5903fbe7395450fb0a37a0e1d96931735c49e05c9139992c5291a33196c2",
+      "preview_sig": "ec108e474eae2df356bb9aba22ef5cd0e24a303deb00a6e8904f7e7f8ad6841c",
+      "preview_sha256": "ca92aeca8864313f5fd731e21d06e9a25908c44fcd921828d1d27bef358f8711"
+    },
+    "11_nature_tour": {
+      "video_sig": "d0224644abcc90622cc23488cc4e2d2efc39b45a29b1e40b80188adfa90988fd",
+      "video_sha256": "a12aa1df3dba9022f193a092476855f1bd37841349817a734d1832efc1d228dd",
+      "adopted_from": "review/edited-chapters/11_nature_tour.mp4",
+      "voice_sig": "d44a917b8db65d2b8c054733b9b93da42a1765db884e71feec9a023e7c452f22",
+      "voice_sha256": "70deb4dfcdfcf556873713ef2278293cb03dc8f0b57f55996c9e51ff5d1f2b2a",
+      "preview_sig": "8aa6590019b4de8bf96024ba0b84340ca4282a95eacb79354d8e9eca9d802228",
+      "preview_sha256": "d72a750798a2cba162cc73eb5f178de845e041d325d064bdb79f77f38100b428"
+    },
+    "12_rover_prompt": {
+      "video_sig": "05e5ff74dc041a0e4cbc3f3a479f5115926be3fd97c7a49c48cb4f73491a7527",
+      "video_sha256": "6854d10362da193e2ae3bec3cf3402f4dddc391b8bd8ca1d89d99d9326054b4b",
+      "adopted_from": "review/edited-chapters/12_rover_prompt.mp4",
+      "voice_sig": "e8c60407b0217a2a92b4e056ac099af72d44b32c2269c787087db3ec99472820",
+      "voice_sha256": "6cad817b831c7acbac8eaac9a8be7e15e6324a566b2d2e9d5d89c0ed1845181c",
+      "preview_sig": "165c191f87f65ae5307467bfaeffb8745da0051e0f67fb38cc02cb95353fe196",
+      "preview_sha256": "433539c827d89755c1a6c72d1bae351594840a0c700ba0d185ca5566db75e734"
+    },
+    "13_rover_inspect": {
+      "video_sig": "6a06163dc4db2f1f9ba9159aac2ecdce9a822d8fa50b39b13cb3dcd137106279",
+      "video_sha256": "9e5e9c17d2667802011c260a384d2e79b7c572d64911a33cd44807107f221959",
+      "adopted_from": "review/edited-chapters/13_rover_inspect.mp4",
+      "voice_sig": "a55f316e38087c8d8e751b70aa86cbbba5c9112abc0ce329dd7aa935e03dd128",
+      "voice_sha256": "425c3560fd09e898208d31bee46981317d167b37f72d4110e0a71dc54d77ab2d",
+      "preview_sig": "b4a44534f19adc64977425134901d6814d33dca043b10c82c43edc28011d06c8",
+      "preview_sha256": "8a64241bb76d02dd121860f67479771f41b123b0815f7194c9d76508e5d283fd"
+    },
+    "14_rover_light_a": {
+      "video_sig": "e89f4c57e25232246d79dd0cea8ec5a068b4c67ee2c4e3a9651876ffcd106d0b",
+      "video_sha256": "a4cf0921a93621fd176187d4566594b42acea036c92b78451d7839c504269a95",
+      "adopted_from": "review/edited-chapters/14_rover_light_a.mp4",
+      "voice_sig": "ba7757237848eee0d02dddb4e25245aacaf28bba46f17c0cb7a560bf4fa05e12",
+      "voice_sha256": "03f6812338535d58f7a3fd8bb64d14217c81992107258c5ed9160d3ae8126771",
+      "preview_sig": "59c18270bab32e9d1a405578590330c4141a05a018079dfa8d7c02f07952b267",
+      "preview_sha256": "fd8e96570072561c49b3760d5a949bcef95b30ebf2bdabf1cd5aac78e452d765"
+    },
+    "15_rover_light_b": {
+      "video_sig": "6808e4741fb66afff9c8c93156c295050280dfc2bfff5adfd6911adf2468736c",
+      "video_sha256": "d3d9c136f333e54a7401565421e0d9245bf926da79294be87850559169f85d9c",
+      "adopted_from": "review/edited-chapters/15_rover_light_b.mp4",
+      "voice_sig": "898b12e5ff1ff486ca8130ce480dff6cacc185dabcf6d54532c12a17104ae7ec",
+      "voice_sha256": "b07bf3c215f77e24f5a97651876a30de5a7bfa153cab329ff17c58407920548e",
+      "preview_sig": "cb4b29571e6d858064bd3ac841cca715b8473f5ab29d3c69eb3166a830c7129b",
+      "preview_sha256": "e09dd8922c15f8c35f384f1977e035c4ce63291f8b1d472a8f7d097c6750e3a4"
+    },
+    "16_rover_drive_a": {
+      "video_sig": "e47ed7bb806bf1d0c0c5cbbf44e86209e886c9868b57834606b564672ffc049d",
+      "video_sha256": "8d9942e3e15f4aa054a8165cea0fdf22a65ae0ae14864e1b562b3db4dcb084b3",
+      "adopted_from": "review/edited-chapters/16_rover_drive_a.mp4",
+      "voice_sig": "b1f1b66db41322cf638ea59e9d981cf79d827d6551b6fd2bcdd58d467b0594b4",
+      "voice_sha256": "e6cb1405117fc4ea0c832de1630ad6353eae1e08c954a72f75fed1c11936d874",
+      "preview_sig": "6528e7288f2e3b4b4d16486c2cfdf6782f911a318ac2020b356393a3870d4751",
+      "preview_sha256": "26a5950e48d34af407a8762ec20c90f4875f4e17757a5817ad8bb6ab2dc5ce52"
+    },
+    "17_rover_drive_b": {
+      "video_sig": "20fcfca2f677bfb5c9b7fe4ac6b1a9d6591f1f4bfaa73259a122de2e608f26a5",
+      "video_sha256": "1377b135e88698299a3624be32c5d22bd401979276a2d8c6baede43315100484",
+      "adopted_from": "review/edited-chapters/17_rover_drive_b.mp4",
+      "voice_sig": "32a342c151b50a9bd9260d92c96395a907ebc5e5b4b4339e79c5b54ba32d523a",
+      "voice_sha256": "07afbad22791cfbdd13ce6fd7f0923960a44078775c0a2b4d02a4dc0908d23fd",
+      "preview_sig": "a220bb8d39cbe1846f30f1911aaa46176eabaff042b9c6741443c6f1ecd9bd7e",
+      "preview_sha256": "e9be7c9b416824f9a2280dfda17cf7c54e56015b2b630f972e9072b3b938b137"
+    },
+    "18_copper_tour": {
+      "video_sig": "c0b81f571491368667e8227d174e378854455744924f7845f57f4cd0e899e592",
+      "video_sha256": "49c20c5c7cf597fe58b6dd0bc82b63765bf17ef9ed16fbd875538ffedb552654",
+      "adopted_from": "review/edited-chapters/18_copper_tour.mp4",
+      "voice_sig": "2eedfc1cc687f9eeaa3ff24c02928be2f897d6f416f27585645332246b9fa25b",
+      "voice_sha256": "c338348397fbb9c621d1e6ee23fa42d976f13dc16b89ff2faa705fe357ed2d6d",
+      "preview_sig": "3baa50ac750c99b093da540b24bfa72fbe99496fd8992258e48b38230e4c33cb",
+      "preview_sha256": "d2a29afc7acd0be9e27e06c20280bbb82d0c909a64a158e621f2cb7924ceaee2"
+    },
+    "19_drone_prompt": {
+      "video_sig": "38a3e8f90a5f5a9a1baba95c55e0138c2ab0f6b7b48c399c37ac44534a36b25f",
+      "video_sha256": "8a3efdd281b5f44e70a005f783522e8718c48f265eb470dc10321dae23c67dde",
+      "adopted_from": "review/edited-chapters/19_drone_prompt.mp4",
+      "voice_sig": "5c15623a705f9f779b685e586fd616938a92c533eeb7edff8db5237298ce3b54",
+      "voice_sha256": "8dc8d45bfaa38b12d3352fc62e85451c1ae8be48a0c4acd0fa020a79af231694",
+      "preview_sig": "cb06475d20b8e6d01fe4d84efd26ddb90a70d5b1e607b9f6e5f3ae2a3f932c5e",
+      "preview_sha256": "cfce79182f9ba68411af381e6a93a931aedc660d0982db402d420b6e0422d6d1"
+    },
+    "20_drone_refine": {
+      "video_sig": "66e0c82f34e9667b0a5f5bb2c6e8df5c4f3c44e5a56cfe91e7b384ab105455ff",
+      "video_sha256": "aeacb48a2d97cf6d3c826652620df8ae21ed567c7e8cbdfb9fa6c9cc676423af",
+      "adopted_from": "review/edited-chapters/20_drone_refine.mp4",
+      "voice_sig": "7a37959f55d2e8ba30ec16ab1b7266730459c7b8a95af59ecc872d615d5f2b49",
+      "voice_sha256": "a101de538af5018cc3776901ad1800f66cbcc93004f0599fe1ccd045e9abee6b",
+      "preview_sig": "298d325923b86277fb523936b207351b76391cd3c2b7f44f0ce87d81c6aeff04",
+      "preview_sha256": "b76a60a14f06f1d2a773fa2ae9f970b1c5a2ad28a1ba6a34640d394583acbe5b"
+    },
+    "21_drone_flight_a": {
+      "video_sig": "f512968820f1b19813b1c0d18d53fd80a8977244220f68de218aebffda15ed56",
+      "video_sha256": "225dc343b56f9c9ecbb7d122c6b43259565f5d695b7e5928f605937220b3c200",
+      "adopted_from": "review/edited-chapters/21_drone_flight_a.mp4",
+      "voice_sig": "89657fdb55ce11394c1051eaea1813d12f5b5554fe7c9e79ecbe5e0f376becb3",
+      "voice_sha256": "3e35d215ca144af650abdc0b3c4a948c537b3ecdc8d0c5f67945e5ac5bcb8410",
+      "preview_sig": "28ca2ec060750334875096eb5bd0ee60bfc1e2dd77e76c73ade9c3a07e545ad5",
+      "preview_sha256": "fed5bbf131f4e2dd12a05e4d38a1304eeb7de1809d54ac04dc141e2d449be995"
+    },
+    "22_drone_flight_b": {
+      "video_sig": "3d2a97502e04a37b84a8ecaca35cc13173e6a69e91d051f801b87d2e275590dd",
+      "video_sha256": "c3dd52562b18c5493765f333b019aaab042f1dc29dc3a7bbed17766780c6fa7b",
+      "adopted_from": "review/edited-chapters/22_drone_flight_b.mp4",
+      "voice_sig": "7eca1817018284e01e92dbd3ee5ae3c983ac9c67a144d0b17c41fa85706227b9",
+      "voice_sha256": "a6acbfbab13dad7e791e05567023c25485a959e9302313be97be21693e88ccc1",
+      "preview_sig": "c432dc2cce151dd07027203ad1719c4cbe3716610a153ffb8dae3910b5f00631",
+      "preview_sha256": "c4dc9e1327c7324d624538c3d809d9b24d6e9150f58d747567dfb93ea9f161d6"
+    },
+    "23_close": {
+      "video_sig": "abac00d0950ee221bcdd1e64dffd170611964e9e4ee95e4c6e6e8351e90eed2b",
+      "video_sha256": "30f91b899227012c93a71b9bc47acc7cbbb1fd3fab5ece1e8d7ea72fa816cae2",
+      "adopted_from": "review/edited-chapters/23_close.mp4",
+      "voice_sig": "af3331bdb9b96eb9035f5cce4d96e5571f58c18b1491659f39fa3a2a6bc0685c",
+      "voice_sha256": "1d79c21d7c4d239f0fef3f51aac7ada344b3dac9212246835f8be0783cfa21d5",
+      "preview_sig": "65c3bb3007f4f14bd8f3811d3f45ab4896aa13b1c5ebaed23cd83934d0224f6d",
+      "preview_sha256": "3b9c22353e3037a11fe8566b49ba70848bed70d9c19ab241796c9c919918f105"
+    },
+    "24_backpack_market": {
+      "video_sig": "dd26f802189bfc6d8e68246acc0d116f26c9d8f57cfef1b26fea2f1eacf33976",
+      "video_sha256": "c16993dd361af3d7e7a36baabdfb2893b3b6591a9eda50369616eb2162afb184",
+      "voice_sig": "5cfbe11065ede9d16652c105765fdd6fdc2914cf127223d0a47df0022f4dc5c3",
+      "voice_sha256": "a8914628c47ca9c0a3cf3b8a81710956e3912cd250fefa8c4aebc6e0229bc147",
+      "preview_sig": "2b56d65709ce6e6b4f90087d73dd521afaab5c8c08efe179c69c0a85c763e05b",
+      "preview_sha256": "7c7539e25f2a10c7ca74ab7daa6cd4a0f1b6a23230e373df54a290c631715086"
+    }
+  },
+  "mix_sig": "6e0bbccfd4abbd00bbd98f6980f38991e4fac172f3e01bc2cde4127b250b0263",
+  "mix_sha256": "c9400b730c695df7f595d17bc867962ddf6ae3e69c2cd458eec5bf9ea0a57150",
+  "master_sig": "d2751f50517346e12fea65f2dc0589c3345bc9a0738e873a67507b98c392e80b",
+  "master_sha256": "0268a585745a42c43e9966ce0232232ef9b75b5b1e95e47076ca1d3331b7b8b3"
+}

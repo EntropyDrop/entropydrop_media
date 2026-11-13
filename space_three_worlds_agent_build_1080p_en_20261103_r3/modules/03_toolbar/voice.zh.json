@@ -1,0 +1,27 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "先看底部工具栏。选择器负责框选空间，锤子用来放置物品，扳手可以抓取、旋转和配置活动实体。铁锹编辑一米见方的标准方块，勺子则用于更细的微体素，每格只有十二点五厘米。",
+      "file": "modules/03_toolbar/audio/zh/a96df3a9acb9ccb2c522.wav",
+      "sha256": "19343890fe7cc52652ad5236e91de613195710bdf10782c93b006c9457dc5d75",
+      "request_sha256": "a96df3a9acb9ccb2c522e5804067fab88216c1f2393e3a66dcdbdae5e7c003de",
+      "trimmed_duration": 14.4
+    },
+    {
+      "text": "画笔（Brush）负责改变颜色与材质，而建模工具（Modeling）则可以添加精致的视觉装饰构件。数字键 1 到 7 随时切换工具，下方选项也会随当前操作智能切换，简单又直观。",
+      "file": "modules/03_toolbar/audio/zh/41b09f3ffff25304aff9.wav",
+      "sha256": "65bfd921743cb0aac7f957e92a740b51920d94c0b185fc8d89c50b522971366b",
+      "request_sha256": "41b09f3ffff25304aff9d7c5fd4abfe626a76e7a472c2e0437ff59a4e0353dc5",
+      "trimmed_duration": 12.54
+    },
+    {
+      "text": "这套工具箱确保了游戏绝不会沦为被动的 AI 盲盒——AI 赋予大结构，而你永远拥有最直观、可预期的方式来检查、修复并打上专属的个性化烙印。",
+      "file": "modules/03_toolbar/audio/zh/0fd907d90e1aa1977093.wav",
+      "sha256": "210b8f76973f6fd35767f80d5b6b427155296fda604e7997782c4b04d6d9b8a6",
+      "request_sha256": "0fd907d90e1aa197709353afdb54de7d0263936fedbea21c7c2aee6e431cbe2f",
+      "trimmed_duration": 10.0
+    }
+  ]
+}

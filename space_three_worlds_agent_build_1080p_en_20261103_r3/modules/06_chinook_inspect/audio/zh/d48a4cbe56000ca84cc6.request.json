@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "驾驶位也值得单独看一眼。在 Space 里，它不只是机舱中的装饰坐垫，而是带有登机逻辑和输入映射的交互定义，负责把玩家的操作交给飞行器。",
+  "seed": 43
+}

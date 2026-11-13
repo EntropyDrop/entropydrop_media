@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Because quadcopters are geometrically symmetrical, reading their heading during rapid aerial spins can be tricky. We whip out the Brush and paint a vivid front accent badge—a two-second touch that brings instant personality to the drone.",
+  "seed": 43
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "id": "03_team_design",
+  "language": "zh",
+  "clips": [
+    {
+      "file": "footage/scifi-team-design.mp4",
+      "start": 0,
+      "duration": 2.4
+    },
+    {
+      "file": "footage/scifi-survey-and-tools.mp4",
+      "start": 0,
+      "duration": 3.8
+    },
+    {
+      "file": "footage/scifi-road-close.mp4",
+      "start": 0,
+      "duration": 1.8
+    },
+    {
+      "file": "footage/scifi-builder-handoff.mp4",
+      "start": 0,
+      "duration": 2.5
+    },
+    {
+      "file": "footage/scifi-tree-planting.mp4",
+      "start": 0,
+      "duration": 2
+    },
+    {
+      "file": "footage/scifi-builder-handoff.mp4",
+      "start": 0,
+      "duration": 3.533333333333335
+    },
+    {
+      "file": "footage/scifi-road-close.mp4",
+      "start": 3,
+      "duration": 4
+    },
+    {
+      "file": "footage/scifi-parallel-builders.mp4",
+      "start": 9,
+      "duration": 6
+    }
+  ],
+  "burned_subtitles": false,
+  "editing_notes": "Approved sci-fi city; native fixed-time frames. Construction and work-button events are controller-driven. Prompt example is explicitly authored documentary material.",
+  "blueprint_sha256": "7e27f4c0a19ceda654d8bc3a60920a042f947ab9147199ce944a1cc4ee7abff0"
+}

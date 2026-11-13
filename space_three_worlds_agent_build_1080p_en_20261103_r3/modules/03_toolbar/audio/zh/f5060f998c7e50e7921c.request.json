@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "底部的工具栏构成了游戏的核心操作体系。选择器（Selector）用于空间框选，锤子（Hammer）负责物品部署，扳手（Wrench）用于抓取、旋转与配置活动实体。铁锹（Shovel）编辑一米见方的标准方块，而勺子（Spoon）则在八分之一米的微体素（Micro-voxel）尺度上工作。",
+  "seed": 42
+}

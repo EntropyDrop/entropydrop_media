@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "画笔改变外观，建模工具增加装饰，底层机制负责运动——明确划分这些职责边界，能帮助玩家完全掌控自己的作品。",
+  "seed": 44
+}

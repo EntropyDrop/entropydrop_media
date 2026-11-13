@@ -1,0 +1,23 @@
+{
+  "id": "15_rover_light_b",
+  "label": "车灯改色：完成与检查",
+  "title": "Creative Agency: Instant Edits, No AI Black Box",
+  "clips": [
+    {
+      "source": "footage/reused/15-rover-light-b.mp4",
+      "in": 4,
+      "out": 20,
+      "end_at": "voice:2",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/reused/15-rover-light-b.mp4",
+      "in": 26,
+      "out": 41,
+      "end_at": "end",
+      "mode": "fit"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "Apply amber accent, then step back for the result."
+}

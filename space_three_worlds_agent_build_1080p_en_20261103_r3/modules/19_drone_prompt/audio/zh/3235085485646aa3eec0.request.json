@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "打造一架小巧敏捷的四旋翼伴侣无人机，配备动态中心机体、四只反向对转的旋翼、着陆脚架以及醒目的前向点缀。",
+  "seed": 42
+}

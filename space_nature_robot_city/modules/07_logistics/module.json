@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "07_logistics",
+  "language": "zh",
+  "clips": [
+    {
+      "file": "footage/07_logistics_clean.mp4",
+      "start": 0,
+      "duration": 24.4
+    },
+    {
+      "file": "footage/06_road_clean.mp4",
+      "start": 17,
+      "duration": 9.26
+    },
+    {
+      "file": "footage/07_logistics_clean.mp4",
+      "start": 35,
+      "duration": 5.806667
+    }
+  ],
+  "editing_notes": "材料交付为程序定义的施工批次规则，不宣称原生资源经济。",
+  "retime": 1,
+  "burned_subtitles": false
+}

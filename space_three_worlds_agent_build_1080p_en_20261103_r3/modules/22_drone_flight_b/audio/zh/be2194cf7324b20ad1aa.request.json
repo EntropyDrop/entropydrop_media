@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "留意转弯时的姿态：无人机向弯内侧倾，改变加速度方向；角色调整速度，它也要重新分配推力，修正跟随误差。最后松开输入，我们再看看它怎样减速、回到悬停。",
+  "seed": 101
+}

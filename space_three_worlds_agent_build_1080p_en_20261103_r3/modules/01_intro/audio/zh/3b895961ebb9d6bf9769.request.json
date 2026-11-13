@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "seed": 42,
+  "input": "大家好。今天向大家介绍 EntropyDrop Space，一款直接运行在网页浏览器中的 3D 体素游戏。在 Space 里，世界不仅是由方块构成的沙盒，更是一个能够真正运转、可交互的游戏世界。以往在沙盒游戏里制作一台可以驾驶的载具，往往需要耗费大量时间逐块搭建与调试；而单纯依靠文本生成的 3D 模型，又往往是无法微调、不能互动的静态摆件。"
+}

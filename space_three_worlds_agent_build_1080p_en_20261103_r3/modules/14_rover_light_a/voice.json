@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "Before hitting the dirt, let's add a quick personalized touch to make the vehicle our own.",
+      "file": "modules/14_rover_light_a/audio/93b1c32216b413abdf67.wav",
+      "sha256": "d36a2a3c09ea0517bd257a935abc15886f8ee0f2548fcfb568f38b6480735d8d",
+      "request_sha256": "93b1c32216b413abdf670cb3cf054da0f804500481ad3ca0e27e3730be0b569a"
+    },
+    {
+      "text": "Stepping up to the front bumper in first-person, the stock lamps start with a neutral white. Pressing key six selects Brush, Tab toggles micro-voxel scale, and the I key opens our color palette, where we pick a vibrant amber accent.",
+      "file": "modules/14_rover_light_a/audio/a08cb11efe131a6e882d.wav",
+      "sha256": "554794b0315b8a0e53478671444083b5d27c5a699b74e995023e8602e773bd3b",
+      "request_sha256": "a08cb11efe131a6e882d00f1393ee5f1032e522b1634fe5fc745583c8a8cfe63"
+    },
+    {
+      "text": "In Space, pinpoint recoloring on micro components is effortless and direct. For larger panels, the Selector tool can recolor entire bounded regions in a single click.",
+      "file": "modules/14_rover_light_a/audio/67f25e00de521747c016.wav",
+      "sha256": "01eebb6950a574cee649725b18f632f74b175d1510cc231acc25c16de8f0c9da",
+      "request_sha256": "67f25e00de521747c01664832740d2dfecbdb6e54b6af093b9c24a2e4b3c03b4"
+    }
+  ]
+}

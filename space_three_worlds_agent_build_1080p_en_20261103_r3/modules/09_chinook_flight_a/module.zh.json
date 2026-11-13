@@ -1,0 +1,44 @@
+{
+  "id": "09_chinook_flight_a",
+  "label": "支奴干起飞",
+  "title": "Maiden Flight: Responsive Controls & Cruising",
+  "clips": [
+    {
+      "source": "footage/09-chinook-flight-a-clean.mp4",
+      "in": 0,
+      "out": "auto",
+      "end_at": 3.5,
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/09-chinook-flight-a-clean.mp4",
+      "in": 17,
+      "out": "auto",
+      "end_at": "voice:2",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/09-chinook-flight-a-clean.mp4",
+      "in": 40,
+      "out": "auto",
+      "end_at": 12.86,
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/09-chinook-flight-a-clean.mp4",
+      "in": 22,
+      "out": "auto",
+      "end_at": "voice:3",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/09-chinook-flight-a-clean.mp4",
+      "in": 30,
+      "out": "auto",
+      "end_at": "end",
+      "mode": "realtime"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "Realtime cuts show climb, forward pitch, release/braking, wide turn, then skyline. No speeding up the physics demonstration."
+}

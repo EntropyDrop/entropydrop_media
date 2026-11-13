@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "The drone appears instantly on the terrace, with four counter-rotating rotor arms clearly defined. The visual spinning animations work hand-in-hand with genuine dynamic physics forces.",
+  "seed": 42
+}

@@ -1,0 +1,38 @@
+{
+  "nativeImport": true,
+  "doorChecks": [
+    {
+      "id": "01_cottage",
+      "sha256": "cea33a07d810c88a9e80bd536fc194c9b12d570a749138d275fda0e2be8dc044",
+      "primaryDoorCenterClear": true
+    },
+    {
+      "id": "02_townhouse",
+      "sha256": "1fa6a9106b981a657787beefe10f1ba64c12b43c507ab98400fda32d60b75c75",
+      "primaryDoorCenterClear": true
+    },
+    {
+      "id": "03_workshop",
+      "sha256": "f5de9ca590796990708c460084bb0a26fd10f8fb6f20b21e5ab9ba3fa7338be5",
+      "primaryDoorCenterClear": true
+    },
+    {
+      "id": "04_inn",
+      "sha256": "0d97e4591cdc76a6beb7df713e1a3beb2b19460b96cdeeacab12bb46894f37a8",
+      "primaryDoorCenterClear": true
+    },
+    {
+      "id": "05_farmhouse",
+      "sha256": "82ff8dbc476fa42faba93fa78d7a8d14bf64f6d44d8c47be4506b4d8d9802d6b",
+      "primaryDoorCenterClear": true
+    },
+    {
+      "id": "06_tower",
+      "sha256": "c730a9bfd8dd0e32a06bd16e841d2338914bb385095cdad39e70b4ce6dca7744",
+      "primaryDoorCenterClear": true
+    }
+  ],
+  "doorChecksScope": "Door-centre clearance only; not a full navigation/physics validation.",
+  "terrainFoundationDepth": 1,
+  "terrainSlopeAdaptation": "not implemented; site height survey and approaches required"
+}

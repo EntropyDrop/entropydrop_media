@@ -1,0 +1,25 @@
+{
+  "duration": 27.5,
+  "file": "voice.zh.wav",
+  "sha256": "7def509475139b36c13f430c406ed927e335da9526876bde5aada30c6555606a",
+  "sentences": [
+    {
+      "paragraph": 1,
+      "sentence": 1,
+      "text": "先看铺路无人机。它负责地面街道，也负责高架的桥墩、桥面和护栏。这里的路网是城市的骨架：先让地块获得连接，建筑无人机才能进入对应区域。",
+      "file": "audios/zh/594ebc608d594611eff76ab7.wav",
+      "start": 0.2,
+      "duration": 12.56,
+      "sha256": "e520e09729a4488dcf672c48820b85ea35e6d5173218c0d589956d4d8f34d177"
+    },
+    {
+      "paragraph": 2,
+      "sentence": 1,
+      "text": "道路宽度、坡度和转弯半径必须一起考虑。微格用来制作边缘和标线，方向箭头则告诉我们车流应该怎样通过。下面的连续施工过程做了加速，便于看清道路从无到有的变化。",
+      "file": "audios/zh/d83aaf55247979a2709ec5c3.wav",
+      "start": 13.01,
+      "duration": 14.08,
+      "sha256": "04ee01b032dc8c8c3e3ad19bb2f56144772d7dcc40ee76160e963edbfec849de"
+    }
+  ]
+}

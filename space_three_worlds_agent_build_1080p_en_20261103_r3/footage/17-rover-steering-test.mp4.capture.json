@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/space-three-worlds-vlog-r2/footage/17-rover-steering-test.mp4",
+  "seconds": 40,
+  "mode": "compositor",
+  "incoming": 2069,
+  "frames": 1200,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793700500195,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

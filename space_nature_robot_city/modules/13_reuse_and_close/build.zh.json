@@ -1,0 +1,27 @@
+{
+  "duration": 28.333333333333332,
+  "sha256": "a0e9c551a89e4b2af58f0281456a7b5c9a95f5a141a0c008e4fd4e6fe54910f8",
+  "voice_sha256": "bf3403b726041864efd8e6d3a7f540e78c17e45747339337579d9130ab4743d7",
+  "clips": [
+    {
+      "file": "footage/scifi-reuse-details.mp4",
+      "start": 0,
+      "duration": 4.5
+    },
+    {
+      "file": "footage/scifi-city-designs.mp4",
+      "start": 21.4,
+      "duration": 4.833333333333332
+    },
+    {
+      "file": "footage/scifi-reuse-details.mp4",
+      "start": 9,
+      "duration": 9
+    },
+    {
+      "file": "footage/scifi-city-hero.mp4",
+      "start": 20,
+      "duration": 10
+    }
+  ]
+}

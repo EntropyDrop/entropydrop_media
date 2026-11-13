@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "关闭编辑器，准星对准驾驶位，按下 V 键即可无缝登机；按 F3 键切换至第三人称视角，开阔的视野非常适合空中漫游。",
+  "seed": 43
+}

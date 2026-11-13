@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "打开旁边的市场，就能浏览其他玩家分享的作品。自己的组件也可以发布到这里，让其他玩家下载使用。分享的既可以是一辆完整载具，也可以只是一个轮胎或一组旋翼。",
+  "seed": 45
+}

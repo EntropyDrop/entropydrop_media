@@ -1,0 +1,16 @@
+{
+  "id": "02_aether_tour",
+  "label": "空岛地形环顾",
+  "title": "Aether Archipelago: AI Collaboration and Goal-Driven Design",
+  "clips": [
+    {
+      "source": "footage/replacements/02-aether-full-ring.mp4",
+      "in": 2.1,
+      "out": "auto",
+      "end_at": "end",
+      "mode": "realtime"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "Full 360-degree replacement recorded only after all 128 ring districts and renderer geometry were stable. No pending LOD work during recording; highest in-game graphics, FOV75, 1080p."
+}

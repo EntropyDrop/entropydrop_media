@@ -1,0 +1,34 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "我们来到第二座世界，自然原野。先把智能建造工具的目标世界，切换到这张地图。",
+      "file": "modules/11_nature_tour/audio/zh/90a89ef3dd635d5fd51c.wav",
+      "sha256": "cb82ade08e4ac6eae141c690825a51348787f4e226e2246fd15a0cbf3b95b77a",
+      "request_sha256": "90a89ef3dd635d5fd51c0a5fa579acb3b414fa2fb29f177a41eef9ff3a2e4417",
+      "trimmed_duration": 5.71
+    },
+    {
+      "text": "以太群岛高低错落。来到 Nature，眼前是一片连绵的自然荒野，布满天然坡道、岩石和草地阶梯。",
+      "file": "modules/11_nature_tour/audio/zh/02019ad12596848a1f05.wav",
+      "sha256": "462484d8a60c863bc4933e69ed2ccc36f19b3aa6c513969242332e519d47651c",
+      "request_sha256": "02019ad12596848a1f0540f13ffa3a75b10692e0fe0810b79b3453b00dc60e1d",
+      "trimmed_duration": 8.1
+    },
+    {
+      "text": "我们选定了一片天然起伏的开阔草坡。在 Space 中，你不需要特意修建赛道，崎岖的自然地表本身就是最棒的驾驶乐园。接下来，我们要在这里打造一辆能够征服复杂地形的全地形越野车。",
+      "file": "modules/11_nature_tour/audio/zh/dcdb3b87356773e87580.wav",
+      "sha256": "57e27ad2bb5ba0e266a8a85b2849007aad7b6ed1f1f5a92e9bb21c41f2d5d1df",
+      "request_sha256": "dcdb3b87356773e875806b676a223889ad99a009b7bea590c8d9524de0511a62",
+      "trimmed_duration": 13.44
+    },
+    {
+      "text": "这里的地貌奠定了宏大的世界尺度，也决定了我们接下来的验证顺序：先低速验证车轮滚动，再验证转向几何，最后测试车轮碾过天然台阶时的悬挂形变。",
+      "file": "modules/11_nature_tour/audio/zh/0e5eddef567138add437.wav",
+      "sha256": "70b4f046fd0d9bfd0180ebf6e364d71bd50df140746368a845ac4042dbb44e9b",
+      "request_sha256": "0e5eddef567138add437d63ce9c835942594a60304d30928bc2caf1a24d26683",
+      "trimmed_duration": 10.62
+    }
+  ]
+}

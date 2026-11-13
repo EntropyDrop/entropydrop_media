@@ -1,0 +1,58 @@
+{
+  "id": "07_chinook_refine",
+  "title": "Hands-On Polish: Sculpting Micro-Voxels & Custom Paint",
+  "label": "勺子与画笔修补",
+  "duration": 29.9,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 6.76,
+      "text": "Now let's see how effortless it is to customize an AI-generated build. We switch into first-person and pause the entity to begin editing.",
+      "source": "modules/07_chinook_refine/audio/146d600c6a0bc7ea04ec.wav"
+    },
+    {
+      "start": 7.21,
+      "duration": 10.24,
+      "text": "Selecting Spoon brings up a targeted reticle focused on an eighth-meter micro-voxel. We carve out a clean notch along the edge without removing a full standard block, shaping the airframe with sculptural precision.",
+      "source": "modules/07_chinook_refine/audio/678cf2eea02f4867a3fb.wav"
+    },
+    {
+      "start": 17.7,
+      "duration": 11.84,
+      "text": "Switching to Brush, we pick an accent color and paint a custom livery detail. This is where Space shines: the AI handles the heavy structural engineering, and in just a few seconds with your own hands, you make the machine truly your own.",
+      "source": "modules/07_chinook_refine/audio/be703f624c5271b2b7ef.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "footage/07-chinook-refine-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/07-chinook-refine-clean.mp4",
+      "in": 0.0,
+      "out": 7.21,
+      "duration": 7.21,
+      "source_sig": "dc4564bb2eb49da97269d9fd81f3f1e2727ef27ee2c585c15957fca77a3ee413",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/07-chinook-refine-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/07-chinook-refine-clean.mp4",
+      "in": 7.21,
+      "out": 22.1,
+      "duration": 10.489999999999998,
+      "source_sig": "dc4564bb2eb49da97269d9fd81f3f1e2727ef27ee2c585c15957fca77a3ee413",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/07-chinook-refine-clean.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/07-chinook-refine-clean.mp4",
+      "in": 22.1,
+      "out": 33.0,
+      "duration": 12.2,
+      "source_sig": "dc4564bb2eb49da97269d9fd81f3f1e2727ef27ee2c585c15957fca77a3ee413",
+      "mode": "fit"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "7d9fd724ef739f63424a96bd8570a87c738c049acb987eb4a1b49a353459843b",
+  "voice_sig": "261a58c19fa781c2293aedcf89e71e6d8ac4c6b1c848cf097fa21af51afb88a5"
+}

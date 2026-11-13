@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Watch it bank into each turn, redirecting acceleration. When we change speed, it adjusts thrust to correct the tracking error. Finally, we release the controls and watch it slow down into a hover.",
+  "seed": 43
+}

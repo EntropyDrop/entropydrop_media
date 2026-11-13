@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "The drone senses the altitude change immediately, throttling up its rotors to match our climb. As we dash forward and halt, the drone leans forward to accelerate, tilts back to brake, and locks smoothly into its hovering offset.",
+  "seed": 43
+}

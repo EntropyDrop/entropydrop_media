@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "13_reuse_and_close",
+  "language": "zh",
+  "clips": [
+    {
+      "file": "footage/scifi-reuse-details.mp4",
+      "start": 0,
+      "duration": 4.5
+    },
+    {
+      "file": "footage/scifi-city-designs.mp4",
+      "start": 21.4,
+      "duration": 4.833333333333332
+    },
+    {
+      "file": "footage/scifi-reuse-details.mp4",
+      "start": 9,
+      "duration": 9
+    },
+    {
+      "file": "footage/scifi-city-hero.mp4",
+      "start": 20,
+      "duration": 10
+    }
+  ],
+  "burned_subtitles": false,
+  "editing_notes": "Approved sci-fi city; native fixed-time frames. Construction and work-button events are controller-driven. Prompt example is explicitly authored documentary material.",
+  "blueprint_sha256": "7e27f4c0a19ceda654d8bc3a60920a042f947ab9147199ce944a1cc4ee7abff0"
+}

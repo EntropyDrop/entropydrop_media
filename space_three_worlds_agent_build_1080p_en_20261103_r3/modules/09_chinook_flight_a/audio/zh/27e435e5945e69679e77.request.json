@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "松开按键，飞机自动减速，重新进入稳定悬停。第一个弯我们转得宽一些，让这架重型运输机保留应有的重量和惯性，操控起来沉稳而不急躁。",
+  "seed": 43
+}

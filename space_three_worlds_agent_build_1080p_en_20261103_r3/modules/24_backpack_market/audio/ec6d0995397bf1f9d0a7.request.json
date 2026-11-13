@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "The helicopter works the same way. Save a rotor as its own module, and organize the fuselage and landing gear separately. New vehicles can start by combining existing parts, leaving more time for design and gameplay.",
+  "seed": 44
+}

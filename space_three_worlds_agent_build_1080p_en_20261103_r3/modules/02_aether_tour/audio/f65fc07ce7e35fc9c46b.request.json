@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Our journey begins in Aether Archipelago. This world is defined by floating islands suspended across the void, framed by a continuous, colossal ring spanning the sky. In Space, every piece of terrain is procedurally generated from seamless, live voxels.",
+  "seed": 42
+}

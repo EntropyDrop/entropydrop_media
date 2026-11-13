@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "以第三人称视角掠过岛屿上空，飞行器的剪影与远方的浮岛层次分明，无需小地图也能直观感受风驰电掣的乐趣。",
+  "seed": 42
+}

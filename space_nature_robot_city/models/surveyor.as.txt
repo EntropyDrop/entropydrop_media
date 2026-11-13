@@ -1,0 +1,1 @@
+// Local construction template. Bind controller and blueprint library using runtime.ts. Leave stopped until installed.

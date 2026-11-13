@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "越野车瞬间交付。将镜头贴近车轮：车身主体是一个坚固的刚体，而四只车轮则各自安装在独立的悬挂系统上。",
+  "seed": 42
+}

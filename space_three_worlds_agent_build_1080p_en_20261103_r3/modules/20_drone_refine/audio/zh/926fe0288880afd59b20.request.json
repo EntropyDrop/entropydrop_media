@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "因为四旋翼在造型上高度对称，在空中快速转动时肉眼很难分清朝向。我们再次拿出画笔，随手在无人机前端点上一抹醒目的亮色标记。一个简单的小动作，就能让飞行器的灵动感倍增。",
+  "seed": 42
+}

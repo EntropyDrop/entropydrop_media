@@ -1,0 +1,119 @@
+;FFMETADATA1
+title=Space Devlog | Three Worlds, Three Machines | Revised
+artist=EntropyDrop
+comment=1080p development-client footage. English synthetic narration; no subtitles. Cursor-free Aether retakes; airborne character-following quadcopter with orbit camera.
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=27933
+title=Space: three worlds, three design problems
+[CHAPTER]
+TIMEBASE=1/1000
+START=27933
+END=67033
+title=Aether: read the landscape
+[CHAPTER]
+TIMEBASE=1/1000
+START=67033
+END=99767
+title=The toolbar as a workflow
+[CHAPTER]
+TIMEBASE=1/1000
+START=99767
+END=138900
+title=Connect Agent Build
+[CHAPTER]
+TIMEBASE=1/1000
+START=138900
+END=175100
+title=Describe the Chinook
+[CHAPTER]
+TIMEBASE=1/1000
+START=175100
+END=208700
+title=Inspect the generated aircraft
+[CHAPTER]
+TIMEBASE=1/1000
+START=208700
+END=239367
+title=Refine with Spoon and Brush
+[CHAPTER]
+TIMEBASE=1/1000
+START=239367
+END=268367
+title=Review controls and board
+[CHAPTER]
+TIMEBASE=1/1000
+START=268367
+END=311900
+title=Lift and first circuit
+[CHAPTER]
+TIMEBASE=1/1000
+START=311900
+END=347233
+title=Circle the launch island
+[CHAPTER]
+TIMEBASE=1/1000
+START=347233
+END=382333
+title=Nature: choose a driving route
+[CHAPTER]
+TIMEBASE=1/1000
+START=382333
+END=416833
+title=Ask for independent suspension
+[CHAPTER]
+TIMEBASE=1/1000
+START=416833
+END=447467
+title=Inspect the four supports
+[CHAPTER]
+TIMEBASE=1/1000
+START=447467
+END=476133
+title=Select one headlight
+[CHAPTER]
+TIMEBASE=1/1000
+START=476133
+END=504933
+title=Paint, inspect, and compare
+[CHAPTER]
+TIMEBASE=1/1000
+START=504933
+END=539200
+title=Wheel rotation: forward and reverse
+[CHAPTER]
+TIMEBASE=1/1000
+START=539200
+END=574833
+title=Steering test: left, right, center
+[CHAPTER]
+TIMEBASE=1/1000
+START=574833
+END=615567
+title=Copper Metropolis: an aerial route
+[CHAPTER]
+TIMEBASE=1/1000
+START=615567
+END=650200
+title=Ask for a character-following quadcopter
+[CHAPTER]
+TIMEBASE=1/1000
+START=650200
+END=677100
+title=Inspect and mark the drone
+[CHAPTER]
+TIMEBASE=1/1000
+START=677100
+END=708500
+title=Third person: take off together
+[CHAPTER]
+TIMEBASE=1/1000
+START=708500
+END=742667
+title=Airborne orbit, direction changes, and hover
+[CHAPTER]
+TIMEBASE=1/1000
+START=742667
+END=767067
+title=Build, refine, play

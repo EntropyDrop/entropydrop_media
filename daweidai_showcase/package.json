@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "review": "python3 build_video.py --review",
+    "turntable:review": "python3 build_turntable.py --preview",
     "render": "python3 build_video.py",
     "render:landscape": "python3 build_video.py --format landscape",
     "render:portrait": "python3 build_video.py --format portrait",

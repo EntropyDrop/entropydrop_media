@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "现在，写下无人机的建造要求，重点说明它怎样跟随角色。",
+  "seed": 100
+}

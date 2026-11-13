@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/drone_city_final_walk.mp4",
+  "seconds": 15,
+  "mode": "compositor",
+  "incoming": 416,
+  "frames": 450,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793858660275,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

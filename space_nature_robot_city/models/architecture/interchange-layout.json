@@ -1,0 +1,121 @@
+{
+  "id": "overpass",
+  "name": "双层跨线立交与缓坡引道",
+  "bounds": [
+    108,
+    10.125,
+    36
+  ],
+  "spec": {
+    "moduleLength": 12,
+    "width": 7.75,
+    "carriagewayWidth": 5,
+    "height": 5.5,
+    "rampRise": 1.375,
+    "rampCount": 4,
+    "grade": 0.11458333333333333,
+    "minimumClearance": 4.375
+  },
+  "parts": [
+    {
+      "assetId": "11_overpass_core",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotationY": 0
+    },
+    {
+      "assetId": "12_ramp_1",
+      "position": [
+        -48,
+        0,
+        0
+      ],
+      "rotationY": 0
+    },
+    {
+      "assetId": "12_ramp_1",
+      "position": [
+        48,
+        0,
+        0
+      ],
+      "rotationY": 3.141592653589793
+    },
+    {
+      "assetId": "13_ramp_2",
+      "position": [
+        -36,
+        0,
+        0
+      ],
+      "rotationY": 0
+    },
+    {
+      "assetId": "13_ramp_2",
+      "position": [
+        36,
+        0,
+        0
+      ],
+      "rotationY": 3.141592653589793
+    },
+    {
+      "assetId": "14_ramp_3",
+      "position": [
+        -24,
+        0,
+        0
+      ],
+      "rotationY": 0
+    },
+    {
+      "assetId": "14_ramp_3",
+      "position": [
+        24,
+        0,
+        0
+      ],
+      "rotationY": 3.141592653589793
+    },
+    {
+      "assetId": "15_ramp_4",
+      "position": [
+        -12,
+        0,
+        0
+      ],
+      "rotationY": 0
+    },
+    {
+      "assetId": "15_ramp_4",
+      "position": [
+        12,
+        0,
+        0
+      ],
+      "rotationY": 3.141592653589793
+    },
+    {
+      "assetId": "bridge_lower_street",
+      "position": [
+        0,
+        0,
+        -12
+      ],
+      "rotationY": 0
+    },
+    {
+      "assetId": "bridge_lower_street",
+      "position": [
+        0,
+        0,
+        12
+      ],
+      "rotationY": 0
+    }
+  ],
+  "notes": "Style prototype. Grade-separated crossing, not a full four-way interchange with turning slip roads. Ramps reach grade at both ends; vehicle navigation and terrain-fit acceptance remain pending."
+}

@@ -1,0 +1,50 @@
+{
+  "id": "24_backpack_market",
+  "title": "Backpack and Market: Share Creations and Reusable Modules",
+  "label": "背包与市场",
+  "clips": [
+    {
+      "source": "footage/replacements/24-backpack.zh.mp4",
+      "in": 0,
+      "out": "auto",
+      "end_at": "voice:2",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/replacements/24-wheel.zh.mp4",
+      "in": 0,
+      "out": "auto",
+      "end_at": "voice:3",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/replacements/24-rotor.zh.mp4",
+      "in": 0,
+      "out": "auto",
+      "end_at": "voice:4",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/replacements/24-market.zh.mp4",
+      "in": 0,
+      "out": "auto",
+      "end_at": 35.989999999999995,
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/replacements/24-publish.zh.mp4",
+      "in": 0,
+      "out": "auto",
+      "end_at": "voice:5",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/replacements/24-building.zh.mp4",
+      "in": 0,
+      "out": "auto",
+      "end_at": "end",
+      "mode": "realtime"
+    }
+  ],
+  "edit_notes": "User-approved Chinese revision synchronized to English. Shared recorded source footage; English narration uses its own natural timing. Physics clips remain real time."
+}

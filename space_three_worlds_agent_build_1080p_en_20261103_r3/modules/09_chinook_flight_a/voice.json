@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "Hit the throttle, and the helicopter lifts off smoothly from the grass into a clean vertical climb! Nudging forward input pitches the nose down as thrust propels us forward.",
+      "file": "modules/09_chinook_flight_a/audio/a5bbce4ba8c04026a47e.wav",
+      "sha256": "687ee838c8e420efe2ae5ad83188aadda3078a989976c5ada56388c2a56d86d9",
+      "request_sha256": "a5bbce4ba8c04026a47e1334945613871dc5153e56d5e040ed6c4ac9f5e864e8"
+    },
+    {
+      "text": "Releasing the keys commands the controller to decelerate and settle into a stable hover. Our first turn is wide and deliberate: a heavy tandem transport should feel substantial, carrying realistic momentum and weight rather than feeling twitchy.",
+      "file": "modules/09_chinook_flight_a/audio/effafce6192cc3f0c869.wav",
+      "sha256": "ee0a30447b74a4c7b9ef80a06e100246257e83f8d307fc27516c706f9eb5e9d3",
+      "request_sha256": "effafce6192cc3f0c86955c76510525545e67f99102f651eeda4b6b79cd937f8"
+    },
+    {
+      "text": "As the castle slips behind us, sunlight cuts across the skyward ring, revealing an incredible panoramic skyline. Testing each axis one at a time lets you appreciate just how responsive and natural the handling feels.",
+      "file": "modules/09_chinook_flight_a/audio/d9cd3ec0c8ee2cd4a12a.wav",
+      "sha256": "bed82b4cefe91165b0ddf5092b0da8091a9f71b037efb13182f09efa5cb8a138",
+      "request_sha256": "d9cd3ec0c8ee2cd4a12afadae79c1be9143ac15128d0174229caead3fcda744e"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "20_drone_refine",
+  "title": "Entity Marking: Spraying a Front-Facing Accent",
+  "label": "无人机检查与标记",
+  "duration": 31.4,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 9.04,
+      "text": "The drone appears instantly on the terrace, with four counter-rotating rotor arms clearly defined. The visual spinning animations work hand-in-hand with genuine dynamic physics forces.",
+      "source": "modules/20_drone_refine/audio/0088895d0713e46b00fe.wav"
+    },
+    {
+      "start": 9.489999999999998,
+      "duration": 11.84,
+      "text": "Because quadcopters are geometrically symmetrical, reading their heading during rapid aerial spins can be tricky. We whip out the Brush and paint a vivid front accent badge—a two-second touch that brings instant personality to the drone.",
+      "source": "modules/20_drone_refine/audio/39b21e5f351e98aac271.wav"
+    },
+    {
+      "start": 21.58,
+      "duration": 9.44,
+      "text": "Sturdy landing feet ensure clean clearance. While Modeling tools can easily add camera gimbals or cosmetic housings, genuine flight behavior always flows from the underlying physics components.",
+      "source": "modules/20_drone_refine/audio/700dee662da4350f181c.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "footage/reused/20-drone-refine.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/reused/20-drone-refine.mp4",
+      "in": 0.0,
+      "out": 13.0,
+      "duration": 9.489999999999998,
+      "source_sig": "55cae3a0f002ce870209fd39a1b2e61de1a81e94f5ac9aa89b31be090d8ad683",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/reused/20-drone-refine.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/reused/20-drone-refine.mp4",
+      "in": 13.0,
+      "out": 25.0,
+      "duration": 12.09,
+      "source_sig": "55cae3a0f002ce870209fd39a1b2e61de1a81e94f5ac9aa89b31be090d8ad683",
+      "mode": "fit"
+    },
+    {
+      "source": "footage/reused/20-drone-refine.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/reused/20-drone-refine.mp4",
+      "in": 25.0,
+      "out": 38.0,
+      "duration": 9.82,
+      "source_sig": "55cae3a0f002ce870209fd39a1b2e61de1a81e94f5ac9aa89b31be090d8ad683",
+      "mode": "fit"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "66e0c82f34e9667b0a5f5bb2c6e8df5c4f3c44e5a56cfe91e7b384ab105455ff",
+  "voice_sig": "7a37959f55d2e8ba30ec16ab1b7266730459c7b8a95af59ecc872d615d5f2b49"
+}

@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/robot-city-capture/07_logistics_clean.mp4",
+  "seconds": 44,
+  "mode": "compositor",
+  "incoming": 2173,
+  "frames": 1320,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793798075739,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

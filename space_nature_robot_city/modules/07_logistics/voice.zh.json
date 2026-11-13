@@ -1,0 +1,43 @@
+{
+  "duration": 39.46666666666667,
+  "file": "voice.zh.wav",
+  "sha256": "bfa5a7af45da172440afdc9deff9b00617402764bf52bad22dd5b6905e546385",
+  "sentences": [
+    {
+      "paragraph": 1,
+      "sentence": 1,
+      "text": "现在轮到运输机器人。它从材料区出发，沿已经完成的道路前往卸货点。路口有其他机器人通过时，先减速或等待，再继续行驶。",
+      "file": "audios/zh/7d730a19a7d956950a3c0e22.wav",
+      "start": 0.2,
+      "duration": 8.71,
+      "sha256": "1afefc43656bcd1b44e3315c3114d17aa5cb55d3b58ef01cce51eb7a456053e3"
+    },
+    {
+      "paragraph": 2,
+      "sentence": 1,
+      "text": "为了让协作关系清楚可见，我在这期控制程序里设定了一条规则：每完成一次材料箱的运输，就为对应地块提供一个施工批次。建筑机器人收到到货确认，才能继续这一批施工。这是本期设计的建造规则。",
+      "file": "audios/zh/0f9e05b156a6cc69d58624c7.wav",
+      "start": 9.16,
+      "duration": 14.99,
+      "sha256": "ec10b10a903af803e2a1e622565f896f4b5f98ad4a198f6716cbbd7a264b7f5a"
+    },
+    {
+      "paragraph": 3,
+      "sentence": 1,
+      "text": "从施工进度也能看出来，材料没有送到的地块，还没有开始建造。运输车完成卸货后，建筑机器人就会领取对应任务，开始施工。",
+      "file": "audios/zh/d2bc43b84202522ecc713aee.wav",
+      "start": 24.4,
+      "duration": 9.01,
+      "sha256": "af0e1bab70f3220d3f960a9210d39b6bde87dad8372d07a0437ddaf16735f09a"
+    },
+    {
+      "paragraph": 4,
+      "sentence": 1,
+      "text": "材料箱、运输路线和卸货动作，都是让玩家看懂这条因果关系的线索。",
+      "file": "audios/zh/a3b46e2f47c0546866bde3e6.wav",
+      "start": 33.66,
+      "duration": 5.4,
+      "sha256": "e5b437216308e3f654d4e9aa052eadc46665e159ea383ea3c8976d333ce1d92b"
+    }
+  ]
+}

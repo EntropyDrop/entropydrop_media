@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "This behavior turns the drone into a loyal flying sidekick. Exploring a limitless voxel metropolis is infinitely more exciting when you have an intelligent companion tracking your every move!",
+  "seed": 44
+}

@@ -1,0 +1,16 @@
+{
+  "id": "05_survey_and_tools",
+  "title": "勘测、规划与手工调整",
+  "status": "rendered_chinese",
+  "planned_duration_seconds": 55,
+  "planned_shots": [
+    "第三人称跟拍勘测飞行；用第一人称扳手调整一个真实规划标记。",
+    "展示重新勘测结果，保留岩石或原生树木。",
+    "标记必须被程序实际读取；未实现动态标记时改为真实修改规划再部署并据实改稿。"
+  ],
+  "footage": "modules/05_survey_and_tools/module.json",
+  "voice": "modules/05_survey_and_tools/voice.zh.json",
+  "planned_start_seconds": 185,
+  "actual_start_seconds": 160.866667,
+  "actual_duration_seconds": 43.8
+}

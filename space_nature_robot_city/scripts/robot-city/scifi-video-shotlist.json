@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "language": "zh",
+  "format": {"width":1920,"height":1080,"fps":30,"burnedSubtitles":false,"captureCursor":false},
+  "sourceBlueprintSha256":"7e27f4c0a19ceda654d8bc3a60920a042f947ab9147199ce944a1cc4ee7abff0",
+  "requirements":["Five independently scripted quadrotors; unlimited resources; no hauler","Only controller-committed native construction may appear as construction footage","Prior checkpoints must be labeled in evidence and verified after native restore","Complete ring terrain and city mesh preparation before capture","Fixed FOV within each shot; varied camera movement; no silent padding"],
+  "modules":[
+    {"id":"01_cold_open","shots":["Completed city reveal along the approved hero angle","Paver building a real native road section","Both building drones working on different districts"]},
+    {"id":"02_nature_site","shots":["Unbuilt Nature site with complete torus terrain","Slow wide orbit of natural terrain and planned urban footprint"]},
+    {"id":"03_team_design","shots":["Five drones in surveyor, paver, builder A, builder B, planter order","Closeups of tool heads and rotors"]},
+    {"id":"04_agent_build","shots":["Native Agent Build panel with the episode design prompt, clearly an example","High-rise silhouettes, facade details, repeatable parameter changes"]},
+    {"id":"05_survey_and_tools","shots":["Actual survey blocked by a test block","Player removes that exact test block with native tools","Survey resumes; immutable page requests and acceptance remain controller owned"]},
+    {"id":"06_road_builder","shots":["Continuous native road construction, sped up in edit","Vehicle arrows and continuous road edges"]},
+    {"id":"07_overpass","shots":["Southbound to eastbound loop, following the lane direction","Eastbound to northbound flyover","Road-height underpass camera with clear piers"]},
+    {"id":"08_parallel_builders","shots":["Both independent builder roots constructing simultaneously","Stepped landmark, twins, terraces and skybridges"]},
+    {"id":"09_tree_planter","shots":["Native planting after a building district is verified","Street trees, plaza, roof planting and six tree shapes"]},
+    {"id":"10_pause_road","shots":["Pause control on paver; current work finishes","Hold new roads while accepted buildings continue","Resume the paver and observe newly available work"]},
+    {"id":"11_builder_handoff","shots":["Pause builder before any writes in a newly claimed district","Surveyor releases ownership; other builder claims and starts","No overlapping owners or double writes"]},
+    {"id":"12_city_walkthrough","shots":["Low flight through the plaza","Rise past facade and skybridge","Wide moving aerial through interchange and skyline"]},
+    {"id":"13_reuse_and_close","shots":["Close details suitable for reuse: window group, railing, crown","Final orbit over the actual completed city"]}
+  ],
+  "agentBuildPrompt":"Create a Nature city construction team with five independent quadrotor robots: surveyor, road paver, two builders and planter. Assume unlimited resources; do not create a hauler. Use parameterized futuristic high-rises, low-rise blocks, six tree generators and a connected multi-level interchange. Keep right-hand traffic, tangential same-direction merges, ramp grades below 8%, and at least 5 m structural clearance. Builders wait for their district's road acceptance; planting waits for building acceptance. Use exclusive task ownership, retryable messages, actual command results and world readback. Work pause keeps messaging active; only unstarted tasks may be released. Keep all construction inside the surveyed area."
+}

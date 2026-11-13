@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "这一次向 AI 发起的建造请求聚焦于陆地动力学：建造一辆沙色涂装的硬派四轮越野车，配备坚固车身、明亮前大灯以及充裕的离地间隙。",
+  "seed": 42
+}

@@ -1,0 +1,27 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "回顾这次旅程：我们在以太群岛驾驶直升机跨越虚空，在自然原野开越野车翻过台阶，最后与无人机结伴飞过铜城。三种体验，展示了 Space 的核心魅力。",
+      "file": "modules/23_close/audio/zh/04920c45802980fbe123.wav",
+      "sha256": "15bbe934a9bac0e3dc40d9d414ff7a77141e731adf9dea65cbfb3d646c1a4acb",
+      "request_sha256": "04920c45802980fbe1232dd97641ec546bf02bee66b5b4b4ba4e688119a75a73",
+      "trimmed_duration": 11.92
+    },
+    {
+      "text": "先把想法描述清楚，系统就会帮你搭好机械结构，并生成控制程序。精细的体素工具把修改权留在玩家手里，生成之后也能亲手调整。最后，这一切汇聚成一个可以互动、可以探索的三维世界，直接打开浏览器就能体验。",
+      "file": "modules/23_close/audio/zh/49ffae6763752226e61c.wav",
+      "sha256": "36ce9f101c2bea61e6fdb2aa7c3b269aa5b86eb94cbec8458a0f4e1e99a3b741",
+      "request_sha256": "49ffae6763752226e61c6d3fcf5f234336ae4216f937ba712d22eaed1fe07061",
+      "trimmed_duration": 16.05
+    },
+    {
+      "text": "这就是 EntropyDrop Space。无需下载客户端，直接在浏览器中打开 entropydrop.com，就能开启你的创造与探索。用想法描述构想，亲手赋予它细节，然后开着它驶向远方。感谢大家收看，我们游戏里见！",
+      "file": "modules/23_close/audio/zh/5ddede6fd77951a34655.wav",
+      "sha256": "eacbf5bc96b43658bd592cf28fd2be97ce2544e690247419407e31045e0b7592",
+      "request_sha256": "5ddede6fd77951a3465531605ba8979e6a20a5507fbf3b11795fc4b63a4b5b0c",
+      "trimmed_duration": 14.88
+    }
+  ]
+}

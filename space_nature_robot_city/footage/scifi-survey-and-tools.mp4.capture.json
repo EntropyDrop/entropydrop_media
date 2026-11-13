@@ -1,0 +1,3135 @@
+{
+  "output": "/private/tmp/scifi-survey-and-tools.mp4",
+  "shot": {
+    "seconds": 32.7666666667,
+    "segments": [
+      {
+        "seconds": 3.8,
+        "position": [
+          [
+            5282,
+            128,
+            646
+          ],
+          [
+            5280,
+            128,
+            646
+          ]
+        ],
+        "target": [
+          [
+            5268,
+            120,
+            630
+          ],
+          [
+            5268,
+            120,
+            630
+          ]
+        ],
+        "controllerRate": 1,
+        "fov": 55
+      },
+      {
+        "seconds": 9.9,
+        "position": [
+          [
+            5371.2,
+            18.2,
+            617.2
+          ],
+          [
+            5371.2,
+            18.2,
+            617.2
+          ]
+        ],
+        "target": [
+          [
+            5368.5,
+            15.5,
+            612.5
+          ],
+          [
+            5368.5,
+            15.5,
+            612.5
+          ]
+        ],
+        "controllerRate": 1,
+        "fov": 55
+      },
+      {
+        "seconds": 1.7,
+        "position": [
+          [
+            5290,
+            134,
+            666
+          ],
+          [
+            5290,
+            134,
+            666
+          ]
+        ],
+        "target": [
+          [
+            5268,
+            118,
+            630
+          ],
+          [
+            5268,
+            118,
+            630
+          ]
+        ],
+        "controllerRate": 650,
+        "fov": 55
+      },
+      {
+        "seconds": 7,
+        "position": [
+          [
+            5310,
+            150,
+            710
+          ],
+          [
+            5310,
+            150,
+            710
+          ]
+        ],
+        "target": [
+          [
+            5330,
+            24,
+            625
+          ],
+          [
+            5330,
+            24,
+            625
+          ]
+        ],
+        "controllerRate": 30,
+        "fov": 55
+      },
+      {
+        "seconds": 10.3666666667,
+        "followRole": 1,
+        "followOffset": [
+          22,
+          13,
+          28
+        ],
+        "lookOffset": [
+          0,
+          -5,
+          0
+        ],
+        "controllerRate": 10,
+        "fov": 55
+      }
+    ],
+    "actions": [
+      {
+        "at": 3.8,
+        "type": "tool-demo",
+        "show": true
+      },
+      {
+        "at": 13.6,
+        "type": "shovel-remove"
+      },
+      {
+        "at": 13.7,
+        "type": "tool-demo",
+        "show": false
+      }
+    ],
+    "id": "scifi-survey-and-tools",
+    "controllerRate": 1,
+    "fov": 55
+  },
+  "mode": "native-fixed-time-frames",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 983,
+  "target": 983,
+  "state": "complete",
+  "errors": "",
+  "samples": [
+    {
+      "frame": 0,
+      "checkpoint": "new-world",
+      "clock": 21.600000000000172,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            119.9261562670346,
+            630.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "SURVEY BLOCKED",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.98599836422259,
+            642.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "road",
+          "status": "WAIT SURVEY",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.05871350077249,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.07744771548334,
+            666.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.02497685774725,
+            678.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 0
+        }
+      ],
+      "settles": 0,
+      "steps": 0
+    },
+    {
+      "frame": 30,
+      "checkpoint": "new-world",
+      "clock": 22.600000000000183,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            120.01777624678104,
+            630.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "SURVEY BLOCKED",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.075239311182465,
+            642.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "road",
+          "status": "WAIT SURVEY",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.06352769986659,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.99340901426637,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.929350050553765,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 0
+        }
+      ],
+      "settles": 0,
+      "steps": 0
+    },
+    {
+      "frame": 60,
+      "checkpoint": "new-world",
+      "clock": 23.6000000000002,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            120.07988648871913,
+            630.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "SURVEY BLOCKED",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.03957805728833,
+            642.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "road",
+          "status": "WAIT SURVEY",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.962881742510206,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.92031178248858,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.95100680214591,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 0
+        }
+      ],
+      "settles": 0,
+      "steps": 0
+    },
+    {
+      "frame": 90,
+      "checkpoint": "new-world",
+      "clock": 24.600000000000215,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            120.0093799097068,
+            630.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "SURVEY BLOCKED",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.93821462745522,
+            642.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "road",
+          "status": "WAIT SURVEY",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.92385453178346,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.97950222842717,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.05399548172463,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 0
+        }
+      ],
+      "settles": 0,
+      "steps": 0
+    },
+    {
+      "frame": 120,
+      "checkpoint": "new-world",
+      "clock": 25.60000000000023,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            119.92330206418792,
+            630.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "SURVEY BLOCKED",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.93941897622274,
+            642.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "road",
+          "status": "WAIT SURVEY",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.01123380213467,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.072720322171314,
+            666.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.0673481133706,
+            678.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 0
+        }
+      ],
+      "settles": 0,
+      "steps": 0
+    },
+    {
+      "frame": 150,
+      "checkpoint": "new-world",
+      "clock": 26.600000000000243,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            119.96454783226056,
+            630.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "SURVEY BLOCKED",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.041191805494,
+            642.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "road",
+          "status": "WAIT SURVEY",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.07996422272201,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.04521790235331,
+            666.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.96889845109402,
+            678.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 0
+        }
+      ],
+      "settles": 0,
+      "steps": 0
+    },
+    {
+      "frame": 180,
+      "checkpoint": "new-world",
+      "clock": 27.600000000000257,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            120.0646465284915,
+            630.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "SURVEY BLOCKED",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.074583530758694,
+            642.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "road",
+          "status": "WAIT SURVEY",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.01594877880593,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.94265079317056,
+            666.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.92207940381475,
+            678.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 0
+        }
+      ],
+      "settles": 0,
+      "steps": 0
+    },
+    {
+      "frame": 210,
+      "checkpoint": "new-world",
+      "clock": 28.60000000000027,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            120.05742773923168,
+            630.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "SURVEY BLOCKED",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.98416169376693,
+            642.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "road",
+          "status": "WAIT SURVEY",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.92545731401077,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.9352871359819,
+            666.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.004613666692606,
+            678.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 0
+        }
+      ],
+      "settles": 0,
+      "steps": 0
+    },
+    {
+      "frame": 240,
+      "checkpoint": "new-world",
+      "clock": 29.60000000000029,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            119.95487512902936,
+            630.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "SURVEY BLOCKED",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.92003248592368,
+            642.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "road",
+          "status": "WAIT SURVEY",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.95871160647068,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.03535108561735,
+            666.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.07948893967732,
+            678.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 0
+        }
+      ],
+      "settles": 0,
+      "steps": 0
+    },
+    {
+      "frame": 270,
+      "checkpoint": "new-world",
+      "clock": 30.6000000000003,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            119.92723276998308,
+            630.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "SURVEY BLOCKED",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.9886546064483,
+            642.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "road",
+          "status": "WAIT SURVEY",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.06050734542299,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.076729910059704,
+            666.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.02240734924563,
+            678.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 0
+        }
+      ],
+      "settles": 0,
+      "steps": 0
+    },
+    {
+      "frame": 300,
+      "checkpoint": "new-world",
+      "clock": 31.60000000000031,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            120.02038879460515,
+            630.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "SURVEY BLOCKED",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.0761108258222,
+            642.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "road",
+          "status": "WAIT SURVEY",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.061856914781366,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.99073204155832,
+            666.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.92812808658518,
+            678.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 0
+        }
+      ],
+      "settles": 0,
+      "steps": 0
+    },
+    {
+      "frame": 330,
+      "checkpoint": "new-world",
+      "clock": 32.600000000000286,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            120.07969808034936,
+            630.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "SURVEY BLOCKED",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.03721807276926,
+            642.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "road",
+          "status": "WAIT SURVEY",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.960519940725035,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.9201195931066,
+            666.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.95316092319858,
+            678.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 0
+        }
+      ],
+      "settles": 0,
+      "steps": 0
+    },
+    {
+      "frame": 360,
+      "checkpoint": "new-world",
+      "clock": 33.60000000000023,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            120.00670331541808,
+            630.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "SURVEY BLOCKED",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.936540873163494,
+            642.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "road",
+          "status": "WAIT SURVEY",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.924722459465634,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.982113869374906,
+            666.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.05594970529477,
+            678.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 0
+        }
+      ],
+      "settles": 0,
+      "steps": 0
+    },
+    {
+      "frame": 390,
+      "checkpoint": "new-world",
+      "clock": 34.60000000000017,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            119.9225806063898,
+            630.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "SURVEY BLOCKED",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            39.94120999427204,
+            642.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "road",
+          "status": "WAIT SURVEY",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.01389064229659,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.07380029785362,
+            666.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5267.999999999999,
+            40.065858299911554,
+            678.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 0
+        }
+      ],
+      "settles": 0,
+      "steps": 0
+    },
+    {
+      "frame": 420,
+      "checkpoint": "new-world",
+      "clock": 251.95000000002304,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            120.06122994826896,
+            630.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "SURVEYING FOOTPRINTS",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.07640735391567,
+            642.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "road",
+          "status": "WAIT SURVEY",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.021336190742886,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.94664863219798,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 0
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.92101207516781,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 0
+        }
+      ],
+      "settles": 0,
+      "steps": 433
+    },
+    {
+      "frame": 450,
+      "checkpoint": "new-world",
+      "clock": 901.9499999997274,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            119.98487190461071,
+            630.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "SURVEYING FOOTPRINTS",
+          "survey": 31
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.05792936184655,
+            642.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "road",
+          "status": "WAIT SURVEY",
+          "survey": 31
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.0777268309556,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 31
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.02606261013972,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 31
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.95043654575527,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 31
+        }
+      ],
+      "settles": 0,
+      "steps": 433
+    },
+    {
+      "frame": 480,
+      "checkpoint": "new-world",
+      "clock": 1159.2999999994934,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5398.370820702811,
+            120.07407172243056,
+            560.2244779974202
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5320,
+            30.639590038032257,
+            552
+          ],
+          "progress": 44189,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.941694339952505,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.9224045968301,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.97445570953256,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 20
+    },
+    {
+      "frame": 510,
+      "checkpoint": "new-world",
+      "clock": 1189.299999999466,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5468.070773711305,
+            119.99807167450994,
+            738.0971878300087
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5309.200000000004,
+            28.191256241242705,
+            584
+          ],
+          "progress": 47802,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.073525125333234,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.01319534827087,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.94073382886174,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 20
+    },
+    {
+      "frame": 540,
+      "checkpoint": "new-world",
+      "clock": 1219.2999999994388,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5266.491383493101,
+            119.92747088132666,
+            644.5987709882248
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5313.899999999996,
+            28.557406914916292,
+            568
+          ],
+          "progress": 50634,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.99948771921041,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.06703951209997,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.07295548673337,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 20
+    },
+    {
+      "frame": 570,
+      "checkpoint": "new-world",
+      "clock": 1249.2999999994115,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5494.078181543093,
+            120.0599494902519,
+            604.616351139735
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5315.500000000002,
+            29.36281624161851,
+            568
+          ],
+          "progress": 53621,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.926884684252784,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.93317501099649,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.0009039244508,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 20
+    },
+    {
+      "frame": 600,
+      "checkpoint": "new-world",
+      "clock": 1279.2999999993842,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5360.015422517531,
+            120.02457128718557,
+            757.0803382382169
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5320,
+            26.452339733952485,
+            584
+          ],
+          "progress": 56379,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.05900238599396,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.986418516456034,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.92632140025421,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 20
+    },
+    {
+      "frame": 630,
+      "checkpoint": "new-world",
+      "clock": 1309.299999999357,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5330.142696454283,
+            119.92039420165722,
+            572.2107862215921
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5317.4999999999945,
+            27.575314242683874,
+            584
+          ],
+          "progress": 63631,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.02591513984937,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.077689776951146,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.0580367914088,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 20
+    },
+    {
+      "frame": 660,
+      "checkpoint": "new-world",
+      "clock": 1339.2999999993297,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5508.261376410005,
+            120.0391110134701,
+            692.3900908265341
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5320,
+            27.712407412632047,
+            584
+          ],
+          "progress": 66205,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.92026626325299,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.95143194372817,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.0272508711566,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 1,
+      "steps": 20
+    },
+    {
+      "frame": 690,
+      "checkpoint": "new-world",
+      "clock": 1356.599999999314,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5372.179245556636,
+            120.07913437024024,
+            758.97852926309
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5311.900000000003,
+            27.782880342895194,
+            584
+          ],
+          "progress": 67344,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.956396279927795,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.92000127610592,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.95715673009925,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 6
+    },
+    {
+      "frame": 720,
+      "checkpoint": "new-world",
+      "clock": 1366.5999999993048,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5288.83059726979,
+            119.9991940966039,
+            718.7319440234705
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5315.500000000002,
+            27.9322503055814,
+            584
+          ],
+          "progress": 68789,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.92759527116363,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.98950881052651,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.06106790110871,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 6
+    },
+    {
+      "frame": 750,
+      "checkpoint": "new-world",
+      "clock": 1376.5999999992955,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5266.849951117694,
+            119.9206452357827,
+            642.8593496452795
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5311.900000000003,
+            28.073591847604636,
+            584
+          ],
+          "progress": 69515,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.02380287765803,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.07712965176522,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.05954377974109,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 6
+    },
+    {
+      "frame": 780,
+      "checkpoint": "new-world",
+      "clock": 1386.5999999992866,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5319.570472104613,
+            119.97910440397288,
+            577.3840437670963
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5307.400000000005,
+            28.42869087891381,
+            584
+          ],
+          "progress": 71133,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.078914207389566,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.03158417752287,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.955215800499545,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 6
+    },
+    {
+      "frame": 810,
+      "checkpoint": "new-world",
+      "clock": 1396.5999999992775,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5415.012599640494,
+            120.07364035286967,
+            562.0224683414427
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5317.300000000001,
+            28.691091235248333,
+            584
+          ],
+          "progress": 72416,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.997778140735015,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.93150781338329,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.928208886539075,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 6
+    },
+    {
+      "frame": 840,
+      "checkpoint": "new-world",
+      "clock": 1406.5999999992684,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5495.282419870906,
+            120.04103435002747,
+            606.092748889219
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5312.800000000003,
+            28.83938338439941,
+            584
+          ],
+          "progress": 73295,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.92047817090009,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.94968496034152,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.025151165205266,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 6
+    },
+    {
+      "frame": 870,
+      "checkpoint": "new-world",
+      "clock": 1416.5999999992594,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5511.689336960348,
+            119.9375814928788,
+            682.8624445958139
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5320,
+            29.049168530872365,
+            600
+          ],
+          "progress": 74873,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.980474671867135,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.0547323095016,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.078669314191266,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 6
+    },
+    {
+      "frame": 900,
+      "checkpoint": "new-world",
+      "clock": 1426.5999999992505,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5454.281135161785,
+            119.94189578391408,
+            745.7640881947677
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5312.800000000003,
+            29.389878647316426,
+            600
+          ],
+          "progress": 75594,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.07418215099245,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.06528292715454,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.99636288115838,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 6
+    },
+    {
+      "frame": 930,
+      "checkpoint": "new-world",
+      "clock": 1436.5999999992412,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5357.880859343055,
+            120.04652848937226,
+            756.6423867369489
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5316.4000000000015,
+            29.454900398817497,
+            600
+          ],
+          "progress": 76287,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            40.039812250069495,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.963120902211195,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.920336026783254,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 6
+    },
+    {
+      "frame": 960,
+      "checkpoint": "new-world",
+      "clock": 1446.599999999232,
+      "robots": [
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5280.963623249863,
+            120.07082856849546,
+            708.8987102992448
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "surveyor",
+          "status": "PLAN APPROVED / DISPATCH",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": 0,
+          "planted": 0,
+          "position": [
+            5318.200000000001,
+            29.631972069221597,
+            600
+          ],
+          "progress": 77005,
+          "road": 0,
+          "role": "road",
+          "status": "PRINTING MICRO ROAD",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.93670548165875,
+            654.0000000000002
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_a",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.92463158236122,
+            666
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "builder_b",
+          "status": "WAIT ROAD / CLAIM",
+          "survey": 63
+        },
+        {
+          "built": 0,
+          "error": null,
+          "job": -1,
+          "planted": 0,
+          "position": [
+            5268,
+            39.98185105866152,
+            678
+          ],
+          "progress": 0,
+          "road": 0,
+          "role": "planter",
+          "status": "WAIT BUILDING",
+          "survey": 63
+        }
+      ],
+      "settles": 0,
+      "steps": 6
+    }
+  ],
+  "actions": [
+    {
+      "frame": 114,
+      "at": 3.8,
+      "type": "tool-demo",
+      "show": true
+    },
+    {
+      "frame": 408,
+      "at": 13.6,
+      "type": "shovel-remove",
+      "result": {
+        "method": "native-shovel-left-click",
+        "removed": [
+          5368,
+          15,
+          612
+        ]
+      }
+    },
+    {
+      "frame": 411,
+      "at": 13.7,
+      "type": "tool-demo",
+      "show": false
+    }
+  ],
+  "started": "2026-11-06T04:18:30.168Z",
+  "finished": "2026-11-06T04:23:58.170Z"
+}

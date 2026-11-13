@@ -1,0 +1,113 @@
+;FFMETADATA1
+title=Space Devlog | Three Worlds, Three Machines
+artist=EntropyDrop
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=47433
+title=EntropyDrop Space: Game Introduction & Gameplay Showcase
+[CHAPTER]
+TIMEBASE=1/1000
+START=47433
+END=96233
+title=Aether Archipelago: AI Collaboration and Goal-Driven Design
+[CHAPTER]
+TIMEBASE=1/1000
+START=96233
+END=136167
+title=The Creator's Toolkit: Core Mechanics & Micro-Voxel Workflow
+[CHAPTER]
+TIMEBASE=1/1000
+START=136167
+END=166267
+title=Connect Agent Build: The AI Co-Creation System
+[CHAPTER]
+TIMEBASE=1/1000
+START=166267
+END=198700
+title=Live Build: Generating a Tandem-Rotor Helicopter
+[CHAPTER]
+TIMEBASE=1/1000
+START=198700
+END=234000
+title=Vehicle Architecture: Multi-Component Assembly & Automation
+[CHAPTER]
+TIMEBASE=1/1000
+START=234000
+END=263900
+title=Hands-On Polish: Sculpting Micro-Voxels & Custom Paint
+[CHAPTER]
+TIMEBASE=1/1000
+START=263900
+END=302267
+title=Boarding & Cockpit: Zero-Code Flying
+[CHAPTER]
+TIMEBASE=1/1000
+START=302267
+END=334967
+title=Maiden Flight: Responsive Controls & Cruising
+[CHAPTER]
+TIMEBASE=1/1000
+START=334967
+END=374867
+title=Island Transit: Freedom of Skyward Exploration
+[CHAPTER]
+TIMEBASE=1/1000
+START=374867
+END=410400
+title=Nature: Land Expedition & Route Planning
+[CHAPTER]
+TIMEBASE=1/1000
+START=410400
+END=441267
+title=Ground Build: Prompting an Independent Suspension Rover
+[CHAPTER]
+TIMEBASE=1/1000
+START=441267
+END=479400
+title=Suspension Mechanics: Dynamic Ground Articulation
+[CHAPTER]
+TIMEBASE=1/1000
+START=479400
+END=508133
+title=Driving Feel: Forward, Reverse & Tire Traction
+[CHAPTER]
+TIMEBASE=1/1000
+START=508133
+END=541167
+title=Off-Road Trail: Steering Control & Hill Climbing
+[CHAPTER]
+TIMEBASE=1/1000
+START=541167
+END=578400
+title=Copper Metropolis: Navigating the Vertical Skyline
+[CHAPTER]
+TIMEBASE=1/1000
+START=578400
+END=606433
+title=Intelligent Companion: Prompting a Character-Following Drone
+[CHAPTER]
+TIMEBASE=1/1000
+START=606433
+END=637833
+title=Entity Marking: Spraying a Front-Facing Accent
+[CHAPTER]
+TIMEBASE=1/1000
+START=637833
+END=668100
+title=Synchronized Flight: Continuous Circular Tracking
+[CHAPTER]
+TIMEBASE=1/1000
+START=668100
+END=699500
+title=Continuous Flight: A Drone Companion in Motion
+[CHAPTER]
+TIMEBASE=1/1000
+START=699500
+END=750400
+title=Backpack and Market: Share Creations and Reusable Modules
+[CHAPTER]
+TIMEBASE=1/1000
+START=750400
+END=791267
+title=Conclusion: Build, Refine, and Play in EntropyDrop Space

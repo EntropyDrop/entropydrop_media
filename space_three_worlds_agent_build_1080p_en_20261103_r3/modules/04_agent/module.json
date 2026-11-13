@@ -1,0 +1,16 @@
+{
+  "id": "04_agent",
+  "label": "Agent Build 授权与工作流",
+  "title": "Connect Agent Build: The AI Co-Creation System",
+  "clips": [
+    {
+      "source": "footage/reused/04-agent.mp4",
+      "in": 0,
+      "out": 30.1,
+      "end_at": "end",
+      "mode": "fit"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "Agent Build panel and copy-prompt workflow; no generation progress fabricated."
+}

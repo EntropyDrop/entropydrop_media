@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "这套创造和分享的方式，也适用于静态建筑。一座风车、一座塔，或者一段建筑装饰，都可以保存并分享。我们希望每位玩家的创造，都能成为其他人的起点，让大家一起把这个世界搭建得更丰富。",
+  "seed": 46
+}

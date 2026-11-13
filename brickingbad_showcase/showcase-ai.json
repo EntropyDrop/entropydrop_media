@@ -1,0 +1,75 @@
+{
+  "tool": "built-in image_gen",
+  "images": [
+    {
+      "source": "sources/showcase/PXL_20261021_191135915.jpg",
+      "image": "assets/showcase/hero-landscape-v1.png",
+      "promptFile": "prompts/hero-landscape-v1.txt",
+      "prompt": "Use case: style-transfer.\nAsset: a centered landscape 16:9 product photograph for a handmade figure showcase video opening and ending, ideally 2048x1152.\nInput 1 is the EDIT TARGET, a real standing block-shaped bald figure with gray block glasses and a dark goatee. Input 2 is a STYLE REFERENCE ONLY, a polished photo of a hand holding a different figure.\nRetouch and re-render input 1 to match input 2's clear physical material texture, crisp handmade edges, subtle printed surface detail, clean neutral-cool gray photographic sweep, soft directional studio lighting and natural contrast. Keep the exact subject in input 1, its original viewing angle and pose: bald peach cuboid head, brown eyebrows, white eyes with dark rectangular pupils, distinctive protruding gray square eyeglass pieces with visible pale edges and gray temples, dark brown rectangular goatee around the open pale mouth, pale cream jacket, blue shirt, peach hands, black trousers and feet. Preserve every pixel pattern, physical geometry, seam and proportion. Do not copy the reference character or hand. Do not invent conventional curved eyeglasses or change the handmade square frame construction. No redesign, CGI or cartoon look.\nCenter the complete FIGURE itself horizontally and vertically, equal gray margins on both sides, clear space above the head and below the feet. Full silhouette should occupy about 76% of frame height. Seamlessly extend the gray backdrop left and right. Remove incidental background dust and distractions; retain fine real object texture and grounded soft contact shadows. No hands, additional objects, text, logos, borders, watermark, stretched edges, or blurred duplicate background.",
+      "source_sha256": "1d12b690d8236c4312c125791702396980ece103947ec94255e76ed1098945a8",
+      "image_sha256": "b118eff669b5212cdf7fbf7e6e1ea55f62ad7ff4807f4c409ececd051b0dd2af",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "references": [
+        {
+          "role": "style",
+          "image": "assets/showcase/reference-rick.png",
+          "sha256": "389950538e898fc5e519e59db83f3a02f8b9c400677aa943bf395ac186e650e9"
+        }
+      ]
+    },
+    {
+      "source": "sources/showcase/PXL_20261021_191206103.jpg",
+      "image": "assets/showcase/angle-a-landscape-v1.png",
+      "promptFile": "prompts/angle-a-landscape-v1.txt",
+      "prompt": "Use case: style-transfer.\nAsset: one clean centered landscape 16:9 product photo for a showcase opening, ideally 2048x1152.\nImage 1 is the EDIT TARGET: the second original photograph of a real block-shaped bald, bespectacled figure seen at a three-quarter angle. Image 2 is the appearance and lighting REFERENCE: the newly retouched front photograph of this same figure.\nRe-render image 1 to match image 2's neutral-cool gray studio sweep, soft directional lighting, crisp edges, detailed real handmade surface texture, subtle paper seams, colors and contrast. Preserve image 1's EXACT camera angle and pose; its visible side must remain the same. Keep its geometry, block glasses with gray squares and pale edges, eyebrows, eyes, dark brown squared goatee, bald peach scalp, cream jacket, blue shirt, peach hands, black trousers, proportions and all physical details. Do not replace it with the camera view of image 2. No smooth CGI or cartoon appearance.\nCenter the complete figure precisely horizontally and vertically; it should occupy about 76% of the full image height with comfortable space above the head and below the feet. Both arms and both feet fully visible. Extend the gray photographic sweep across the wide frame. Remove the intrusive dark object at upper right and incidental background dust, preserving believable fine surface texture and soft contact shadow. No additional objects, hands, characters, text, logos, watermarks, borders, stretched edges or blurred duplicate background.",
+      "source_sha256": "42fcee2958647db22534380a638ede3144faf2a17eb849ec81c90a4cc0e3fc62",
+      "image_sha256": "d29800d468eb77e7829015fe6337d98e2c0f18ab852168164a15904ae63be175",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "references": [
+        {
+          "role": "style",
+          "image": "assets/showcase/hero-landscape-v1.png",
+          "sha256": "b118eff669b5212cdf7fbf7e6e1ea55f62ad7ff4807f4c409ececd051b0dd2af"
+        }
+      ]
+    },
+    {
+      "source": "sources/showcase/PXL_20261021_191235152.jpg",
+      "image": "assets/showcase/angle-b-landscape-v1.png",
+      "promptFile": "prompts/angle-b-landscape-v1.txt",
+      "prompt": "Use case: style-transfer.\nAsset: one clean centered landscape 16:9 product photograph for a showcase opening, ideally 2048x1152.\nImage 1 is the EDIT TARGET: the third original photograph of the standing block-shaped bald figure, with its opposite cheek and side visible. Image 2 is the lighting, color and surface-quality REFERENCE: the newly retouched front photograph of the same figure.\nRetouch and re-render image 1 into the exact photographic family of image 2: softly directional studio lighting, neutral-cool gray sweep, crisp real handmade edges, clear printed color and fine surface grain, subtle seams, natural material highlights and soft grounded shadows.\nPreserve image 1's original three-quarter camera angle, visible side, pose, character design and proportions exactly. Keep the peach bald cuboid scalp, brown eyebrows, white eyes with dark pupils, distinctive protruding gray square eyeglass pieces with pale edges and block temples, dark brown squared goatee and pale mouth, cream jacket, blue shirt, peach hands, black trousers and complete feet. Preserve the geometry and physical construction instead of inventing conventional eyeglasses, smoothing it into CGI, or changing the pose to match image 2.\nCenter the full figure itself horizontally and vertically with equal left/right gray margins, clear space above the head and below both feet. Figure height about 76% of the wide image. Expand the original gray background seamlessly, remove the intrusive dark object in the upper right and incidental background dust. No hands, extra objects or characters, text, logo, watermark, borders, black bars, stretched edges or blurred duplicate background.",
+      "source_sha256": "8e96aa12adaf09114e461d916a9fbcc7318c5d4ae524446fd08c74c7b9199dd1",
+      "image_sha256": "00e753fdc3898bf311a3cc4ff531d6314f977ed6b1173b940bfa944ff81cee21",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "references": [
+        {
+          "role": "style",
+          "image": "assets/showcase/hero-landscape-v1.png",
+          "sha256": "b118eff669b5212cdf7fbf7e6e1ea55f62ad7ff4807f4c409ececd051b0dd2af"
+        }
+      ]
+    },
+    {
+      "source": "assets/showcase/hero-landscape-v1.png",
+      "image": "assets/showcase/hero-portrait-v1.png",
+      "promptFile": "prompts/hero-portrait-v1.txt",
+      "prompt": "Use case: precise-object-edit.\nAsset type: a portrait 9:16 opening and ending product photograph for a video, ideally 1152x2048.\nThe supplied image is the EDIT TARGET and definitive appearance reference, a finished landscape photograph of a real handmade bald block-shaped figure with gray square glasses, dark squared goatee, cream jacket, blue shirt and black trousers.\nAdapt this exact photo to a vertical 9:16 composition. Keep the complete figure's physical shape, camera angle, pose, all facial pixels, protruding square glasses and pale edges, hairless scalp, clothing, material detail, handmade seams, proportions and colors unchanged. Retain the same crisp physical photographic finish, cool-neutral gray sweep, soft directional studio light, fine tabletop grain and grounded contact shadow.\nUniformly scale and reframe the full figure so its entire silhouette is centered horizontally and vertically and occupies about 74% of the portrait frame height; leave clear matching gray space above the scalp and below both feet, plus comfortable side margins around both arms and every glasses protrusion. Extend the matching gray sweep above and below as needed. No redesign, added limbs, hands, props, text, logos, watermarks, borders, black bars, stretched edges or blurred duplicate background. Output just the portrait photograph.",
+      "source_sha256": "b118eff669b5212cdf7fbf7e6e1ea55f62ad7ff4807f4c409ececd051b0dd2af",
+      "image_sha256": "47ef6fd0698dd4ac5a431a3014fd166eb84b996ed4d10a6a4fdce62bfb7c0357",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "references": []
+    }
+  ]
+}

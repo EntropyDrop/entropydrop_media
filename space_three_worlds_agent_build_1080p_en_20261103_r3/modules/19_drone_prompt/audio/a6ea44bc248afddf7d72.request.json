@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "To summon this smart aerial companion, we provide the agent with a clear behavioral prompt:",
+  "seed": 42
+}

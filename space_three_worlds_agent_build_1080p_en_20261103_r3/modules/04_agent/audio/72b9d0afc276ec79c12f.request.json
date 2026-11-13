@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Whether using cloud frontier models or local AI, the agent becomes your versatile co-builder. It interprets everyday natural language, computing 3D geometry, placing blocks, and writing full controller scripts in seconds.",
+  "seed": 43
+}

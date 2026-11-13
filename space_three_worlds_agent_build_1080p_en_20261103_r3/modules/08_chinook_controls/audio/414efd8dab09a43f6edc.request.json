@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Before taking off, we take a quick look at the fuselage controller. The script listens automatically for driver mounting, ensuring flight controls only engage when you are safely in the seat.",
+  "seed": 42
+}

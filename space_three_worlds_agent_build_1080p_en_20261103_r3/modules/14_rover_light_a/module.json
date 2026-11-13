@@ -1,0 +1,30 @@
+{
+  "id": "14_rover_light_a",
+  "label": "车灯改色：选中与准备",
+  "title": "Quick Customization: Headlight Palette & Micro-Coloring",
+  "clips": [
+    {
+      "source": "footage/reused/13-rover-inspect.mp4",
+      "in": 30,
+      "out": "auto",
+      "end_at": "voice:2",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/reused/15-rover-light-b.mp4",
+      "in": 0,
+      "out": "auto",
+      "end_at": 7.53,
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/reused/14-rover-light-a.mp4",
+      "in": 0,
+      "out": "auto",
+      "end_at": "end",
+      "mode": "realtime"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "Exterior introduction, white-lamp first-person closeup, then the Brush color picker at the matching explanation."
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "In this vertical cityscape, we explore an even more advanced gameplay mechanic: instead of manually piloting a vehicle, we ask the agent to create an autonomous companion drone that follows our every move.",
+  "seed": 44
+}

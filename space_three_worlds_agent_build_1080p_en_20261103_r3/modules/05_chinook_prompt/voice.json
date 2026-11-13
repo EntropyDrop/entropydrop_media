@@ -1,0 +1,16 @@
+{
+  "chunks": [
+    {
+      "text": "In Aether Archipelago, we need a heavy transport capable of leaping between floating islands: a tandem-rotor Chinook helicopter. Prompting the agent in Space is effortless, combining aesthetics, structure, and flight behavior in a single request:",
+      "file": "modules/05_chinook_prompt/audio/b3b7b6025aec5627a961.wav",
+      "sha256": "f37633baaa454e5c6be1185c833beecd214ed425d2cde2de97cdae92b0f861d3",
+      "request_sha256": "b3b7b6025aec5627a961dab970870dbe519c33d45587dcf43048edd65463281e"
+    },
+    {
+      "text": "We ask the agent to build an olive transport helicopter with a readable cockpit, a hollow walk-in cabin, landing wheels, and a functional pilot seat. The two rotors should be independent components spinning in opposite directions, powered by thrust and attitude torque, with W and S controlling pitch, A and D turning, and the Spacebar and Shift keys managing altitude.",
+      "file": "modules/05_chinook_prompt/audio/2cdb671aca4d65015e1a.wav",
+      "sha256": "c5e832798b59fe2a45329fbe95497d153d9f5b82bea8470660dfcc8ff3ea94d0",
+      "request_sha256": "2cdb671aca4d65015e1afc216e8b9a71697ff6eb174201ef258fa078f9a3833a"
+    }
+  ]
+}

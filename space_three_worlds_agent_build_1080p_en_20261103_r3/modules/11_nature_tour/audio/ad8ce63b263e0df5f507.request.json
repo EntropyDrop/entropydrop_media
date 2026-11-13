@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "This landscape sets the stage for our driving tests: checking low-speed wheel rotation first, testing steering geometry, and finally pushing the independent suspension across natural terraces.",
+  "seed": 45
+}

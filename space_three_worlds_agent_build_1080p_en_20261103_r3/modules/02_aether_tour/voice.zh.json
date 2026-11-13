@@ -1,0 +1,27 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "来到以太群岛，先说说我们的设计理念。这里的地形会给创造提出问题：怎么跨过空隙，怎么运送物资，怎么让机器替玩家完成重复劳动？我们希望玩家带着目标去设计，再回到世界里验证。",
+      "file": "modules/02_aether_tour/audio/zh/6df944db617bff1677f5.wav",
+      "sha256": "32e4b1a9c8b560e927c3a6039a6076e67a72a03d923fa2e6824b84dfe14c428a",
+      "request_sha256": "6df944db617bff1677f5b029746ad949fd4aec6b45dbcdcc1aa61e453a429f9b",
+      "trimmed_duration": 12.800041666666667
+    },
+    {
+      "text": "在这里，人工智能更像一位设计搭档。你用自然语言说明外观、结构和行为，它可以协助搭建载具，编写控制程序；也可以设计会跟随、巡逻的无人机，或者能和玩家互动的机器人玩家。生成只是起点，工具栏让你继续修改、测试，把结果真正变成自己的作品。",
+      "file": "modules/02_aether_tour/audio/zh/d462466d218364e45918.wav",
+      "sha256": "db50e3ed8ae0165d6477b946c5b2b740ba0f7582039ea60ea9516d5c1e0f06fa",
+      "request_sha256": "d462466d218364e45918e28412b6a7c6566cd5453a985f96095422eda506bae6",
+      "trimmed_duration": 17.11
+    },
+    {
+      "text": "我们还想把这种协作扩展到自动化建造。比如让智能体指挥铺路机器人，观察前方地形，一边移动一边修路。载具、机器人和世界因此形成联系：你提出目标，AI 帮你实现，再用实际运行来检验设计。",
+      "file": "modules/02_aether_tour/audio/zh/4daf0344c76562cb4f42.wav",
+      "sha256": "8aadf358c9c1f582f0d4d3ba1a193b25f3362abea7e49a485568ae8bb0c403ee",
+      "request_sha256": "4daf0344c76562cb4f4262120f4d51fdbb1a6d186ba33b3df34f25c9c92c3183",
+      "trimmed_duration": 14.93
+    }
+  ]
+}

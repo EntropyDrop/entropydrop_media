@@ -1,0 +1,27 @@
+{
+  "duration": 35.5,
+  "sha256": "a4e59b7164b30cbb415f0685e6af6fdc9409828488f57fcf99148ccff2e9d7e4",
+  "voice_sha256": "1cae2c3593766566199ea724e437217cf3baa738a63ec94ee3f9df2769515b92",
+  "clips": [
+    {
+      "file": "footage/scifi-city-hero.mp4",
+      "start": 0,
+      "duration": 9
+    },
+    {
+      "file": "footage/scifi-road-close.mp4",
+      "start": 0,
+      "duration": 7
+    },
+    {
+      "file": "footage/scifi-parallel-builders.mp4",
+      "start": 0,
+      "duration": 9
+    },
+    {
+      "file": "footage/scifi-interchange.mp4",
+      "start": 0,
+      "duration": 10.5
+    }
+  ]
+}

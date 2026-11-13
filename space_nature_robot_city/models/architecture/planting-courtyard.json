@@ -1,0 +1,107 @@
+{
+  "id": "courtyard",
+  "name": "庭院留白组团",
+  "options": {
+    "pattern": "courtyard",
+    "seed": 803,
+    "count": 6,
+    "width": 34,
+    "depth": 34,
+    "exclusions": [
+      {
+        "minX": -5,
+        "maxX": 5,
+        "minZ": -5,
+        "maxZ": 5,
+        "clearance": 1
+      }
+    ]
+  },
+  "recipe": {
+    "pattern": "courtyard",
+    "seed": 803,
+    "requestedCount": 6,
+    "placedCount": 6,
+    "bounds": {
+      "width": 34,
+      "depth": 34
+    },
+    "exclusions": [
+      {
+        "minX": -5,
+        "maxX": 5,
+        "minZ": -5,
+        "maxZ": 5,
+        "clearance": 1
+      }
+    ],
+    "placements": [
+      {
+        "assetId": "20_cherry",
+        "kind": "cherry",
+        "position": [
+          0,
+          0,
+          12.75
+        ],
+        "rotationY": 1.5707963267948966,
+        "crownRadius": 4.25
+      },
+      {
+        "assetId": "19_maple",
+        "kind": "maple",
+        "position": [
+          11,
+          0,
+          6.375
+        ],
+        "rotationY": 0,
+        "crownRadius": 4.25
+      },
+      {
+        "assetId": "17_birch",
+        "kind": "birch",
+        "position": [
+          11,
+          0,
+          -6.375
+        ],
+        "rotationY": 1.5707963267948966,
+        "crownRadius": 2.25
+      },
+      {
+        "assetId": "20_cherry",
+        "kind": "cherry",
+        "position": [
+          0,
+          0,
+          -12.75
+        ],
+        "rotationY": 4.71238898038469,
+        "crownRadius": 4.25
+      },
+      {
+        "assetId": "19_maple",
+        "kind": "maple",
+        "position": [
+          -11,
+          0,
+          -6.375
+        ],
+        "rotationY": 4.71238898038469,
+        "crownRadius": 4.25
+      },
+      {
+        "assetId": "17_birch",
+        "kind": "birch",
+        "position": [
+          -11,
+          0,
+          6.375
+        ],
+        "rotationY": 1.5707963267948966,
+        "crownRadius": 2.25
+      }
+    ]
+  }
+}

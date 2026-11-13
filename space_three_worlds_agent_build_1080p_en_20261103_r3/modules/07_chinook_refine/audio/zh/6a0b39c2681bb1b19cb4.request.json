@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "拿出勺子工具，对准八分之一米的微体素。沿着机身边缘削出一道小缺口，不用移除整块标准方块，就能像雕刻一样精细地修饰外形。",
+  "seed": 43
+}

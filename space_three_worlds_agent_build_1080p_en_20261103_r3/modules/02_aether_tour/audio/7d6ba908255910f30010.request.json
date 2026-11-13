@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "As we look around, nearby islands establish a dramatic sense of scale, while the skyward ring creates a striking silhouette against the sun. In Space, you don't need to pave an artificial runway—the natural grass beside the castle is our launchpad. The true purpose of vehicles here is to transform scattered floating islands into an open highway for aerial exploration.",
+  "seed": 43
+}

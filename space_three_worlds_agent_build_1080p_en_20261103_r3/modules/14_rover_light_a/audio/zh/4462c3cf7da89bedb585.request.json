@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "切到第一人称靠近车头，默认的车灯是单调的浅白色。按 6 键拿出画笔，Tab 键切到微格模式，按 I 键唤出材质调色板，挑选一款明亮的琥珀橙色，保持车身其他部位完好不动。",
+  "seed": 43
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Selecting Spoon brings up a targeted reticle focused on an eighth-meter micro-voxel. We carve out a clean notch along the edge without removing a full standard block, shaping the airframe with sculptural precision.",
+  "seed": 43
+}

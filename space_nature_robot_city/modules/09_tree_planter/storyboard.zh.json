@@ -1,0 +1,16 @@
+{
+  "id": "09_tree_planter",
+  "title": "植树机器人理解街区边界",
+  "status": "rendered_chinese",
+  "planned_duration_seconds": 50,
+  "planned_shots": [
+    "实时展示一棵树的分步生成。",
+    "镜头指向入口与路口，验证植树避让；树是静态世界方块。",
+    "行人视角穿过已完成街道，不只用航拍展示远景。"
+  ],
+  "footage": "modules/09_tree_planter/module.json",
+  "voice": "modules/09_tree_planter/voice.zh.json",
+  "planned_start_seconds": 430,
+  "actual_start_seconds": 341.066667,
+  "actual_duration_seconds": 38.63333333333333
+}

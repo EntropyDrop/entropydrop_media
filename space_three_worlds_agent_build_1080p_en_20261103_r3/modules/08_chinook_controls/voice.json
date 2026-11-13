@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "Before taking off, we take a quick look at the fuselage controller. The script listens automatically for driver mounting, ensuring flight controls only engage when you are safely in the seat.",
+      "file": "modules/08_chinook_controls/audio/414efd8dab09a43f6edc.wav",
+      "sha256": "80a536a18490a71663af951a00d63d9796df319d7ec0ca5aeb0578a48edd89bb",
+      "request_sha256": "414efd8dab09a43f6edc2577abc1ef8a8f61c1966de9cdd19cd33ba975cc692c"
+    },
+    {
+      "text": "Close the editor, aim at the pilot seat, and press V to board. Hitting F three toggles our third-person perspective, giving us an expansive view of both the rotors and the archipelago.",
+      "file": "modules/08_chinook_controls/audio/b30117b7017cec28381e.wav",
+      "sha256": "4535ddb3138c63c836bdb143f48bf3e47ff7f6bfef0445572c42629dcf2cf52f",
+      "request_sha256": "b30117b7017cec28381e735f9d7cb2c8b8415fcc82e4038723b60d5487e609f7"
+    },
+    {
+      "text": "In traditional sandbox games, building a working multi-rotor aircraft required writing pages of scripts and tedious physics tuning that scared off most players. In Space, you don't need any coding or aerospace knowledge. Attitude control, key bindings, and auto-hover stabilization are fully automated by the agent in seconds. You just board the cockpit, and let your intelligent co-builder handle the rest.",
+      "file": "modules/08_chinook_controls/audio/d1edc100942e175b2631.wav",
+      "sha256": "388e276f2fad53c940b01e82219731c11260157a63aaa9d6b6857be56bbbd403",
+      "request_sha256": "d1edc100942e175b2631e746169923e38fb436390d0521c2899751d78478f0ac"
+    }
+  ]
+}

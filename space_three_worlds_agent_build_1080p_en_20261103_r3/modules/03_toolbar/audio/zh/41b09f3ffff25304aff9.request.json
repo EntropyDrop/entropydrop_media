@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "画笔（Brush）负责改变颜色与材质，而建模工具（Modeling）则可以添加精致的视觉装饰构件。数字键 1 到 7 随时切换工具，下方选项也会随当前操作智能切换，简单又直观。",
+  "seed": 43
+}

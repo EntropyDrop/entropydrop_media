@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/robot-city-capture/09_tree_planting.mp4",
+  "seconds": 42,
+  "mode": "compositor",
+  "incoming": 1956,
+  "frames": 1260,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793795557100,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

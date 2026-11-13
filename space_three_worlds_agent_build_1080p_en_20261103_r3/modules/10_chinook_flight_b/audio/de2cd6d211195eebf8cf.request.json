@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "The seamless world streaming keeps distant terrain and the massive ring continuous throughout our flight. With our aerial test complete, it's time to head to our second world for some high-speed off-road driving!",
+  "seed": 45
+}

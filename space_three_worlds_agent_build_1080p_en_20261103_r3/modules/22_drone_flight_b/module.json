@@ -1,0 +1,16 @@
+{
+  "id": "22_drone_flight_b",
+  "label": "空中环顾、侧移与悬停",
+  "title": "Continuous Flight: A Drone Companion in Motion",
+  "clips": [
+    {
+      "source": "footage/replacements/21-22-circle.zh.mp4",
+      "in": 21.016666666666666,
+      "out": "auto",
+      "end_at": "end",
+      "mode": "realtime"
+    }
+  ],
+  "notes": "Times are seconds. end_at=end follows narration; voice:N aligns to paragraph N. realtime keeps physics speed; fit explicitly retimes scenic footage. Sources are project-relative or module:ID.",
+  "edit_notes": "User-approved Chinese revision synchronized to English. Shared recorded source footage; English narration uses its own natural timing. Physics clips remain real time."
+}

@@ -1,0 +1,25 @@
+{
+  "duration": 29.633333333333333,
+  "file": "voice.zh.wav",
+  "sha256": "1714b86bd870af1f9391e4bbab0ffa552b788d0a2672bc9b1a60d14943795451",
+  "sentences": [
+    {
+      "paragraph": 1,
+      "sentence": 1,
+      "text": "建筑完成以后，植树无人机才进入对应区域。这样，绿化不会提前占住施工位置，屋顶上的树也会等楼体完成以后再种上去。",
+      "file": "audios/zh/dcbdffd7b0381e9234908c91.wav",
+      "start": 0.2,
+      "duration": 11.56,
+      "sha256": "b42a4b12e60b3ae035fbcd535258abbcd77c15f67c18f634da3318ad560704e6"
+    },
+    {
+      "paragraph": 2,
+      "sentence": 1,
+      "text": "我们给它准备了橡树、桦树、松树、枫树、樱树和柳树六种生成方式。同一种树也有不同的高度、冠幅和分枝。树木沿街排列，在广场成组出现，也可以进入退台和屋顶花园，但都需要给入口和车道留出空间。",
+      "file": "audios/zh/82e05dfe16e226fb7d586b7f.wav",
+      "start": 12.01,
+      "duration": 17.2,
+      "sha256": "06ed37134d626b57766c8e90b87637844193f5766c6ed877cd530d94ebcdb24e"
+    }
+  ]
+}

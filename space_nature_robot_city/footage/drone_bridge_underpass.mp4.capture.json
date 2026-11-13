@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/drone_bridge_underpass.mp4",
+  "seconds": 15,
+  "mode": "compositor",
+  "incoming": 502,
+  "frames": 450,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793857837538,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "建造一架小型四旋翼无人机，要有动态机身、四个反向对转的旋翼、着陆脚架和醒目的前方标记。",
+  "seed": 42
+}

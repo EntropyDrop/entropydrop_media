@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "I'm using this panoramic sweep to plan our flight route: the open voids become flight corridors, while distant castles and grass ledges turn into rewarding destinations. A great vehicle gives the player a real reason to navigate and conquer these spaces.",
+  "seed": 44
+}

@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Space — Build requests</title><style>
+*{box-sizing:border-box}body{margin:0;background:#101719;color:#e3e9e6;font:23px/1.6 system-ui}main{max-width:1540px;margin:70px auto}header{color:#84c959;font-size:19px;letter-spacing:.12em}h1{font-size:48px;letter-spacing:-.03em;margin:15px 0 30px}nav{display:flex;gap:12px;margin-bottom:35px}button{font:inherit;color:#b7c2bd;background:#1b2528;border:1px solid #3a4747;padding:12px 20px;cursor:pointer}button[aria-pressed=true]{color:#e6f3df;border-color:#84c959;background:#263b24}textarea{display:block;resize:none;width:100%;height:640px;border:1px solid #50614d;background:#182125;color:#e8eee8;font:24px/1.65 ui-monospace,monospace;padding:32px;outline:none}footer{color:#8fa19b;font-size:18px;margin-top:20px}.tag{color:#84c959}
+</style><main><header>ENTROPYDROP SPACE / DEVELOPMENT VLOG</header><h1>Describe the machine. Define the test.</h1><nav><button data-n="0">01 / Aether · Chinook</button><button data-n="1">02 / Nature · Off-road</button><button data-n="2">03 / Copper · Quadcopter</button></nav><textarea aria-label="Agent Build request" spellcheck="false"></textarea><footer><span class="tag">BUILD REQUEST</span> · Copy this brief into your authorized external agent. Inspect the result before running.</footer></main><script>
+fetch('./prompts.json').then(r=>r.json()).then(prompts=>{
+function select(i){document.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-pressed',j===i));document.querySelector('textarea').value=prompts[i]}
+document.querySelectorAll('button').forEach(b=>b.onclick=()=>select(+b.dataset.n));select(+(new URLSearchParams(location.search).get('request')||0));
+});
+</script></html>

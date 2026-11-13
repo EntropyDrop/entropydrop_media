@@ -1,0 +1,22 @@
+{
+  "chunks": [
+    {
+      "text": "To summon this smart aerial companion, we provide the agent with a clear behavioral prompt:",
+      "file": "modules/19_drone_prompt/audio/a6ea44bc248afddf7d72.wav",
+      "sha256": "a6d25d1ab09ffef7a198ab5ad515f719b1a67bcc649f6873f4ac349e112bfca4",
+      "request_sha256": "a6ea44bc248afddf7d723f9cdc1be9bbd8dcb15a32947ba552ac7a1dd93f83b4"
+    },
+    {
+      "text": "Build a compact quadcopter companion featuring a dynamic center body, four counter-rotating rotors, landing feet, and a distinct front accent.",
+      "file": "modules/19_drone_prompt/audio/9c9d775310ea753182fc.wav",
+      "sha256": "6db4a6ddb94c6a602c01cb4c88f70806d542bbeeaf7f4b3d672983f89c6665dc",
+      "request_sha256": "9c9d775310ea753182fca9118282e261b87ace0751a4fc9d85ef553a8860b56e"
+    },
+    {
+      "text": "Writing a real-time 3D tracking controller that samples velocity, maintains a spatial offset, and handles target loss would normally take hundreds of lines of complex math. In Space, you just describe the behavior in plain English, and the agent automatically writes and compiles the entire autonomous attitude-torque controller for you.",
+      "file": "modules/19_drone_prompt/audio/a64a409c36569ef315db.wav",
+      "sha256": "1e6d90ddf0a6ef6cbe2aebf64571df64a3ef8e423767cce913ff0d8853851f03",
+      "request_sha256": "a64a409c36569ef315db2fe61b39fd7dfb1b674e11f16437ed3c2ea248938593"
+    }
+  ]
+}

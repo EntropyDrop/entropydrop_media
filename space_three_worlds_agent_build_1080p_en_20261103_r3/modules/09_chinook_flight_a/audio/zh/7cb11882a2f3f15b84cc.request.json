@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "转过身来，城堡退向身后，阳光穿透天空中的巨环，在云海中勾勒出壮丽的轮廓。逐一测试单项控制，能帮助你在第一时间轻松摸透飞机的操控特性。",
+  "seed": 44
+}

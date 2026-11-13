@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/space-vlog-zh/24-backpack.zh.mp4",
+  "seconds": 12,
+  "mode": "compositor",
+  "incoming": 603,
+  "frames": 360,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793779212707,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

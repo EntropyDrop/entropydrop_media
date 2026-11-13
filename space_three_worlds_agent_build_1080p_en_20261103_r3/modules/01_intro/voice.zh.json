@@ -1,0 +1,20 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "大家好。今天向大家介绍 EntropyDrop Space，一款直接运行在网页浏览器中的 3D 体素游戏。在 Space 里，世界不仅是由方块构成的沙盒，更是一个能够真正运转、可交互的游戏世界。以往在沙盒游戏里制作一台可以驾驶的载具，往往需要耗费大量时间逐块搭建与调试；而单纯依靠文本生成的 3D 模型，又往往是无法微调、不能互动的静态摆件。",
+      "file": "modules/01_intro/audio/zh/3b895961ebb9d6bf9769.wav",
+      "sha256": "06d6dacc8125671f0c81a17bcf18d5b64d867167b74a91520cbaf4a10800665f",
+      "request_sha256": "3b895961ebb9d6bf97691fbd6c7a58c13ab77d19bb21d7d8082b21db9571bafb",
+      "trimmed_duration": 24.72
+    },
+    {
+      "text": "Space 的核心理念，是将“AI 协同建造”与“体素沙盒玩法”结合起来：你可以用自然语言让 AI Agent 协助搭建机械结构与编写控制程序；同时你拥有完整的操作权，随时能拿起工具雕琢微观细节，并亲自坐进驾驶舱在世界中驾驶和探索。接下来，我们将通过三座风貌各异的世界，带大家了解 Space 的整体框架与核心玩法。",
+      "file": "modules/01_intro/audio/zh/aff890ec7a8f7ebd3f07.wav",
+      "sha256": "fb4eb76eb9d0ed37574b9df8357c9e9e28279a249c300de3b77ea3f3c4c357a2",
+      "request_sha256": "aff890ec7a8f7ebd3f07b4ec04d82e4fe1be889a22e1c2fb38614aa705e02de2",
+      "trimmed_duration": 22.23
+    }
+  ]
+}

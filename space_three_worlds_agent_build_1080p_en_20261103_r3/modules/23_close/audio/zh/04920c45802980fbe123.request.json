@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "回顾这次旅程：我们在以太群岛驾驶直升机跨越虚空，在自然原野开越野车翻过台阶，最后与无人机结伴飞过铜城。三种体验，展示了 Space 的核心魅力。",
+  "seed": 42
+}

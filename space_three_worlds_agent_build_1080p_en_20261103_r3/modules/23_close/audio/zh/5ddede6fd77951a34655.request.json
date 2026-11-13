@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "Chinese",
+  "response_format": "wav",
+  "input": "这就是 EntropyDrop Space。无需下载客户端，直接在浏览器中打开 entropydrop.com，就能开启你的创造与探索。用想法描述构想，亲手赋予它细节，然后开着它驶向远方。感谢大家收看，我们游戏里见！",
+  "seed": 44
+}

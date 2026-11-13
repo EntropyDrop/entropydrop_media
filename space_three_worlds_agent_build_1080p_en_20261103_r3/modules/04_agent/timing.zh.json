@@ -1,0 +1,40 @@
+{
+  "id": "04_agent",
+  "title": "Connect Agent Build: The AI Co-Creation System",
+  "label": "Agent Build 授权与工作流",
+  "duration": 30.1,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 11.36,
+      "text": "Here is the centerpiece of Space: the Agent Build system. Simply open the panel and copy the prompt to your favorite external AI agent. Through open interfaces, it connects directly into your active voxel world.",
+      "source": "modules/04_agent/audio/b91b9a0dd60cb19cddff.wav"
+    },
+    {
+      "start": 11.809999999999999,
+      "duration": 11.91,
+      "text": "Whether using cloud frontier models or local AI, the agent becomes your versatile co-builder. It interprets everyday natural language, computing 3D geometry, placing blocks, and writing full controller scripts in seconds.",
+      "source": "modules/04_agent/audio/72b9d0afc276ec79c12f.wav"
+    },
+    {
+      "start": 23.97,
+      "duration": 5.76,
+      "text": "This connection seamlessly carries across every world you visit. Now, let's dive into our first live build!",
+      "source": "modules/04_agent/audio/a976b7424ea5c84cc310.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "footage/reused/04-agent.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/reused/04-agent.mp4",
+      "in": 0.0,
+      "out": 30.1,
+      "duration": 30.1,
+      "source_sig": "c643a91228783635db5a34bd76facd085ef2db838696cfbb274c759e28b695bc",
+      "mode": "fit"
+    }
+  ],
+  "dependencies": [],
+  "video_sig": "36ab797095737e98fae54da737eaeed326e8cff72a3116f110855a95a2e6030a",
+  "voice_sig": "1379305e871568a21a44962ab0284f8207d129ff1927b5870d991799bd50db91"
+}

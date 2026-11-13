@@ -1,0 +1,5 @@
+Applying the amber accent and stepping back, the rover's visual character transforms immediately. Even at long camera distances, the vehicle's front heading is instantly recognizable.
+
+This highlights the core gameplay philosophy of Space: every generated machine remains completely editable. You never need to reroll a hundred-word prompt just to tweak a headlight color—the AI lays down the engineering, and you shape the personality with your own hands.
+
+Brush alters appearances, Modeling adds cosmetic detail, and underlying physics controllers govern motion. Keeping these boundaries modular gives you absolute creative freedom.

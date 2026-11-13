@@ -1,0 +1,25 @@
+{
+  "duration": 29.366666666666667,
+  "file": "voice.zh.wav",
+  "sha256": "b029f34b101e23d83e1ab73b64d3b39c204f982d61da767e2968db3225440ef0",
+  "sentences": [
+    {
+      "paragraph": 1,
+      "sentence": 1,
+      "text": "再看建筑任务的接手。我暂停其中一台建筑无人机，让它交回尚未开工的区域。勘测无人机重新开放这个任务，另一台建筑无人机就可以领取。",
+      "file": "audios/zh/272082345dd5a57b8b80c017.wav",
+      "start": 0.2,
+      "duration": 11.47,
+      "sha256": "df984028fa66f38a0e88a912d07e007966f7f34833b43686c579f75edba7c547"
+    },
+    {
+      "paragraph": 2,
+      "sentence": 1,
+      "text": "这里刻意只转交还没有动工的任务。已经开始的工程先由原来的负责人完成，避免两边同时写入。消息可能延迟或丢失，所以状态需要重发；最终能不能进入下一步，仍然以实际建成和验收结果为准。",
+      "file": "audios/zh/5223cfc8e6254ece86597d36.wav",
+      "start": 11.92,
+      "duration": 17.02,
+      "sha256": "9ba6429e4e93cee549f15999a62ef531ab7dc80a515506fe31e7cab7f66f2fae"
+    }
+  ]
+}

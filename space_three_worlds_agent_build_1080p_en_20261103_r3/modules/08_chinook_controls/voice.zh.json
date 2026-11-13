@@ -1,0 +1,27 @@
+{
+  "language": "Chinese",
+  "voice": "entropydrop",
+  "chunks": [
+    {
+      "text": "在启动飞行前，我们快速看一眼机身控制器。脚本会在后台自动监听驾驶状态：只有当你真正坐进座舱时，按键动力才会解锁。",
+      "file": "modules/08_chinook_controls/audio/zh/08089ce2670e16c29d51.wav",
+      "sha256": "0d5e16d72d8e6c7e9526f7794d6e3cad2393847ffa4f4332e6d731935ccb7957",
+      "request_sha256": "08089ce2670e16c29d51a118da500d12ce14b7c60a4e1e99fa7a53464bb5309a",
+      "trimmed_duration": 8.81
+    },
+    {
+      "text": "关闭编辑器，准星对准驾驶位，按下 V 键即可无缝登机；按 F3 键切换至第三人称视角，开阔的视野非常适合空中漫游。",
+      "file": "modules/08_chinook_controls/audio/zh/92d5e63e318ddc762f4e.wav",
+      "sha256": "d8782c885da19a96b3408b14b97947f36cadbbf993caec2f9182e879a0136a92",
+      "request_sha256": "92d5e63e318ddc762f4edcae6f6ceede9e7d9eb8f4b175fd4ce60017d3320ef5",
+      "trimmed_duration": 8.91
+    },
+    {
+      "text": "以往在沙盒游戏里，制作这种复杂的多旋翼飞行器需要手写大量的控制代码和物理绑定，足以让绝大多数玩家望而却步。而在 Space 里，你根本不需要懂任何飞行力学或编程，复杂的姿态控制、按键映射与自动悬停逻辑，全部由 Agent 在几秒内全自动化完成。你只管坐进驾驶舱，剩下的全部交给智能副驾。",
+      "file": "modules/08_chinook_controls/audio/zh/3455959f3749a1123262.wav",
+      "sha256": "11585f96893d1abca3f2a79e43ee5fc5221077c1dbc92cd67c739c1548feb521",
+      "request_sha256": "3455959f3749a1123262fbd534c0ae4ef9cb579a8f946f53c31c7a360cb358f7",
+      "trimmed_duration": 22.01
+    }
+  ]
+}

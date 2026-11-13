@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "Now let's see how effortless it is to customize an AI-generated build. We switch into first-person and pause the entity to begin editing.",
+  "seed": 42
+}

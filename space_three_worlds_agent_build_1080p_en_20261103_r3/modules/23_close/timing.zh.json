@@ -1,0 +1,71 @@
+{
+  "id": "23_close",
+  "title": "Conclusion: Build, Refine, and Play in EntropyDrop Space",
+  "label": "结尾三场景回顾",
+  "duration": 40.86666666666667,
+  "voice_timing": [
+    {
+      "start": 0.2,
+      "duration": 10.52,
+      "text": "Looking back across our journey—from air-lifting between floating islands, to tackling wild terrain in an off-road rover, to soaring alongside an autonomous drone—each world highlights the core magic of Space:",
+      "source": "modules/23_close/audio/9cc63bb753d6f85103a6.wav"
+    },
+    {
+      "start": 10.969999999999999,
+      "duration": 14.88,
+      "text": "AI Agents lower the barrier to creation, turning wild ideas into working machinery in seconds; Hands-on voxel toolkits keep you in total control, banishing uneditable AI black boxes; And it all comes together in an interactive 3D universe running right in your web browser.",
+      "source": "modules/23_close/audio/76f1db0d7b33370c7e56.wav"
+    },
+    {
+      "start": 26.1,
+      "duration": 14.39,
+      "text": "This is EntropyDrop Space. With no client to install, you can open entropydrop.com directly in your browser to start building and exploring today. Describe your ideas, refine them with your own hands, and take them wherever your imagination leads. Thanks for watching, and see you in the game!",
+      "source": "modules/23_close/audio/eb9957e48580c180e834.wav"
+    }
+  ],
+  "clips": [
+    {
+      "source": "module:10_chinook_flight_b",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/modules/10_chinook_flight_b/video.mp4",
+      "in": 8.0,
+      "out": 16.0,
+      "duration": 8.0,
+      "source_sig": "870461ffd52582173feba54aef32e691f5a25c92b58da70fa75e9137cd40c243",
+      "mode": "realtime"
+    },
+    {
+      "source": "module:17_rover_drive_b",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/modules/17_rover_drive_b/video.mp4",
+      "in": 20.28,
+      "out": 28.28,
+      "duration": 8.0,
+      "source_sig": "20fcfca2f677bfb5c9b7fe4ac6b1a9d6591f1f4bfaa73259a122de2e608f26a5",
+      "mode": "realtime"
+    },
+    {
+      "source": "module:22_drone_flight_b",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/modules/22_drone_flight_b/video.mp4",
+      "in": 3.0,
+      "out": 13.100000000000001,
+      "duration": 10.100000000000001,
+      "source_sig": "e3c17131cb0cd209235b474a8bee708c7155da3544f5c914e76544c4966a5818",
+      "mode": "realtime"
+    },
+    {
+      "source": "footage/reused/01-intro.mp4",
+      "path": "/Users/ha/Documents/entropydrop_website/entropydrop_media/space_three_worlds_agent_build_1080p_en_20261103_r3/footage/reused/01-intro.mp4",
+      "in": 10.0,
+      "out": 24.766666666666666,
+      "duration": 14.766666666666666,
+      "source_sig": "e34e800de79dcab97fea3df223e478418f92fd1e207c6fd717e171bff4bccfdd",
+      "mode": "realtime"
+    }
+  ],
+  "dependencies": [
+    "10_chinook_flight_b",
+    "17_rover_drive_b",
+    "22_drone_flight_b"
+  ],
+  "video_sig": "51722d940184301f795ef2856101c02ab2dc75e70525eccbe16c9900c8e3cf05",
+  "voice_sig": "af3331bdb9b96eb9035f5cce4d96e5571f58c18b1491659f39fa3a2a6bc0685c"
+}

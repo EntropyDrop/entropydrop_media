@@ -1,0 +1,25 @@
+{
+  "duration": 29.633333333333333,
+  "file": "voice.zh.wav",
+  "sha256": "d314531d275b61c77947b5ef5339720bb3fdd638f6c7946978ef3877949eca8c",
+  "sentences": [
+    {
+      "paragraph": 1,
+      "sentence": 1,
+      "text": "现在回看施工中的一个实验：暂停铺路无人机的新任务。它会把当前区域做完并验收，然后等待。还没有道路连接的区域，不会提前开始建楼。",
+      "file": "audios/zh/7eebfae95de2c05dc3ddb653.wav",
+      "start": 0.2,
+      "duration": 12.23,
+      "sha256": "751dffe8b7fa67c0ef69a7200a719b9d0bfc64f0d62ee95d68bc876c8605bd12"
+    },
+    {
+      "paragraph": 2,
+      "sentence": 1,
+      "text": "但已经获得许可的建筑仍然可以继续，植树无人机也能处理已经完工的区域。恢复铺路以后，后续任务才逐步开放。这就是我想要的相互影响：一台机器改变其他机器能做的事，但不会让整个世界一起停住。",
+      "file": "audios/zh/97aad695308171773a0274e4.wav",
+      "start": 12.68,
+      "duration": 16.55,
+      "sha256": "2ef5dd5b57aa9f45e416cb49d05488fd169dbc37df45b9c5c404a2b879bd068c"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "output": "/private/tmp/drone_tree_planting.mp4",
+  "seconds": 27,
+  "mode": "compositor",
+  "incoming": 747,
+  "frames": 810,
+  "rejected": 0,
+  "errors": "",
+  "state": "complete",
+  "start": 1793853839165,
+  "sourceWidth": 1920,
+  "sourceHeight": 1080,
+  "exitCode": 0
+}

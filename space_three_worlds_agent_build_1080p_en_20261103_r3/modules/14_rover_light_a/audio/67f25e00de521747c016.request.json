@@ -1,0 +1,8 @@
+{
+  "model": "qwen3-tts",
+  "voice": "entropydrop",
+  "language": "English",
+  "response_format": "wav",
+  "input": "In Space, pinpoint recoloring on micro components is effortless and direct. For larger panels, the Selector tool can recolor entire bounded regions in a single click.",
+  "seed": 44
+}
