@@ -1,0 +1,16 @@
+{
+  "stats": {
+    "blocks": 1214,
+    "microVoxels": 640,
+    "terrainDecorations": 5,
+    "entityDecorations": 20,
+    "scriptLines": 26
+  },
+  "assembleInfo": {
+    "result": "boolean",
+    "ent": false
+  },
+  "mountedOk": true,
+  "entBlocks": 85,
+  "entDecorations": 20
+}

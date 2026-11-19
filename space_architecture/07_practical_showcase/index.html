@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>07 综合演示：从悬崖基地到飞行器 — Space 架构设计分享</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./vendor/gsap.min.js"></script>
+</head>
+<body>
+  <div id="root" data-composition-id="root" data-start="0" data-duration="28.6" data-width="1920" data-height="1080">
+    <div class="arch-grid"></div>
+
+    <audio id="vo" class="clip voiceover-track" src="./audios/07_practical_showcase/voice.zh.wav"
+      data-start="0" data-duration="28" data-volume="1"></audio>
+
+    <!-- Space footage: dev Space (Aether), one continuous take driven through the real editor / assembly / script / seat APIs -->
+    <video id="vid-main" class="clip bg-video" src="./footage/07_player_a.mp4"
+      data-start="0" data-duration="25" data-media-start="0" data-volume="0" muted playsinline></video>
+    <video id="vid-pa" class="clip pane-video" src="./footage/07_player_a.mp4"
+      data-start="24.35" data-duration="4.25" data-media-start="24.35" data-volume="0" muted playsinline></video>
+    <video id="vid-pb" class="clip pane-video" src="./footage/07_player_b.mp4"
+      data-start="24.35" data-duration="4.25" data-media-start="0.35" data-volume="0" muted playsinline></video>
+
+    <div class="topbar">
+      <div class="topbar-left">
+        <span class="topbar-tab"><span class="topbar-dot"></span><span>SPACE // 07</span></span>
+      </div>
+      <div class="topbar-right">07 综合演示：从悬崖基地到飞行器</div>
+    </div>
+
+    <!-- S1 TITLE (0 – 2.45) -->
+    <section id="s1" class="scene clip" data-start="0" data-duration="2.45">
+      <div class="scene-inner">
+        <div class="scrim scrim-left-strong"></div>
+        <div class="op-stack c07">
+          <div class="op-badge"><i></i>SPACE 架构设计分享 · 07</div>
+          <h1 class="op-title">综合演示：<br>从<span>悬崖基地</span>到飞行器</h1>
+          <p class="op-sub">两类需求，一次走完</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- S2 BUILD + ASSEMBLE + FLY (2.35 – 24.4): two-column rail, data card, script card -->
+    <section id="s2" class="scene clip" data-start="2.35" data-duration="22.05">
+      <div class="scene-inner">
+        <div id="rail" class="rail">
+          <div class="rail-col sky">
+            <div class="kick">需求一 · SHAPE</div>
+            <div class="ttl">造型</div>
+            <div id="st-found" class="step"><i></i>标准体素 · 地基<em>1 m</em></div>
+            <div id="st-micro" class="step"><i></i>微体素 · 窗框<em>1/8 m</em></div>
+            <div id="st-eave" class="step"><i></i>装饰体素 · 斜屋檐<em>自由变换</em></div>
+            <div id="st-glass" class="step"><i></i>半透明玻璃幕墙<em>材质</em></div>
+            <div id="st-glow" class="step"><i></i>发光能源站<em>自发光</em></div>
+            <div id="st-wing" class="step"><i></i>装饰体素 · 机翼喷口<em>实体</em></div>
+          </div>
+          <div class="rail-col green">
+            <div class="kick">需求二 · BEHAVIOR</div>
+            <div class="ttl">行为</div>
+            <div id="st-select" class="step"><i></i>框选中央平台<em>选区</em></div>
+            <div id="st-asm" class="step"><i></i>组装为实体<em>刚体</em></div>
+            <div id="st-script" class="step"><i></i>写入驾驶脚本<em>脚本</em></div>
+            <div id="st-fly" class="step"><i></i>登机推杆 · 起飞<em>输入</em></div>
+            <div id="st-sync" class="step"><i></i>多人同步<em>位姿</em></div>
+          </div>
+        </div>
+
+        <div id="stat-card" class="dcard stat-card">
+          <div class="kick">实测 // 这架飞行器</div>
+          <div class="ttl">少量方块 + 装饰 + 一段脚本</div>
+          <div class="stats">
+            <div class="stat"><div id="n-blocks" class="n">85</div><div class="u">个方块</div></div>
+            <div class="stat"><div id="n-deco" class="n">20</div><div class="u">个装饰体素</div></div>
+            <div id="stat-lines" class="stat"><div id="n-lines" class="n">26</div><div class="u">行脚本</div></div>
+          </div>
+          <div class="stat-foot">整座场景：1214 方块 · 640 微体素 · 5 屋檐装饰</div>
+        </div>
+
+        <div id="code-card" class="dcard code-card">
+          <div class="kick">驾驶脚本 // AssemblyScript · 26 行</div>
+<pre><span class="c">// 登机推杆：W 加推力；推力托起后向前掠出悬崖</span>
+<span class="k">const</span> held = !ctx.driver.isNull &amp;&amp; ctx.input.<span class="h">down("KeyW")</span>;
+spool = held ? min(1, spool + dt*0.55) : max(0, spool - dt*0.4);
+<span class="k">let</span> lift = max(0, spool - 0.5) * 12.0;
+h = h + lift * dt;
+<span class="k">if</span> (h &gt; 1.2) v = min(22.0, v + spool*9.0*dt);
+self.<span class="h">setLocalPosition</span>([x0, y0 + h, z0 + d]);</pre>
+          <div class="drive"><span id="key-w" class="key">W</span>登机 · 按住推杆</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S3 PLAYER B (24.35 – 28.6) -->
+    <section id="s3" class="scene clip" data-start="24.35" data-duration="4.25">
+      <div class="scene-inner">
+        <div class="split-head">
+          <div class="eyebrow">多人同步 · 呼应 06</div>
+          <h2 class="scene-title">另一位玩家的画面中，它<span class="hl-green">同步飞过</span></h2>
+        </div>
+        <div class="pane a"><span class="pane-tag">玩家 A 的画面</span><span class="pane-role">驾驶者</span></div>
+        <div class="pane b"><span class="pane-tag">玩家 B 的画面</span><span class="pane-role">旁观者</span></div>
+        <div id="sync-line" class="sync-line">
+          <span>A 驾驶</span><span class="arr">→</span><span class="hl">同步位姿</span><span class="arr">→</span><span>B 看到同一架飞行器</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="progress-track"><div class="progress-fill"></div></div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const TOTAL = 28.6;
+    const pop = (sel, at, from = { y: 24 }) =>
+      tl.from(sel, { ...from, opacity: 0, duration: 0.45, ease: "power3.out" }, at);
+
+    // S1 title over the establishing shot
+    tl.from("#s1 .op-badge, #s1 .op-title, #s1 .op-sub", { y: 26, opacity: 0, duration: 0.55, stagger: 0.1, ease: "power3.out" }, 0.1);
+    tl.to("#s1 > .scene-inner", { opacity: 0, duration: 0.3, ease: "power2.in" }, 2.05);
+    tl.set("#s1 > .scene-inner", { opacity: 0 }, 2.35);
+
+    // S2 two-column rail lights up in spoken order
+    tl.fromTo("#s2 > .scene-inner", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, 2.35);
+    pop("#rail", 2.4, { x: -40 });
+    const steps = [
+      ["#st-found", 2.45], ["#st-micro", 5.55], ["#st-eave", 7.42], ["#st-glass", 9.72], ["#st-glow", 11.1],
+      ["#st-select", 12.96], ["#st-asm", 14.22], ["#st-wing", 15.84], ["#st-script", 19.55], ["#st-fly", 20.4],
+    ];
+    steps.forEach(([sel, at], i) => {
+      tl.set(sel, { className: "step on cur" }, at);
+      if (i > 0) tl.set(steps[i - 1][0], { className: "step on" }, at);
+      tl.from(sel, { x: -10, duration: 0.3, ease: "power2.out" }, at);
+    });
+    tl.set("#st-fly", { className: "step on" }, 24.3);
+
+    // Measured numbers for the aircraft: blocks + decorations as the wings go on, script lines once written
+    pop("#stat-card", 15.95, { x: 40 });
+    tl.from("#n-blocks", { textContent: 0, duration: 0.9, snap: { textContent: 1 }, ease: "power2.out" }, 16.1);
+    tl.from("#n-deco", { textContent: 0, duration: 2.6, snap: { textContent: 1 }, ease: "none" }, 16.1);
+    tl.from("#stat-lines", { opacity: 0.25, duration: 0.3 }, 19.6);
+    tl.from("#n-lines", { textContent: 0, duration: 0.8, snap: { textContent: 1 }, ease: "power2.out" }, 19.6);
+    tl.to("#stat-card", { opacity: 0, x: 30, duration: 0.35, ease: "power2.in" }, 23.2);
+
+    // Script card while the script is written and the pilot boards
+    pop("#code-card", 19.6, { x: 40 });
+    tl.to("#key-w", { backgroundColor: "rgba(74,222,128,0.85)", color: "#0b0f0c", duration: 0.12 }, 21.1);
+    tl.to("#code-card", { opacity: 0, x: 30, duration: 0.35, ease: "power2.in" }, 22.15);
+    tl.to("#s2 > .scene-inner", { opacity: 0, duration: 0.3, ease: "power2.in" }, 24.1);
+
+    // S3 split: player A (driver) and player B (observer) see the same aircraft
+    tl.to("#vid-main", { opacity: 0, duration: 0.35, ease: "power2.in" }, 24.35);
+    tl.fromTo("#vid-pa, #vid-pb", { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 0.12, ease: "power2.out" }, 24.4);
+    tl.fromTo("#s3 > .scene-inner", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" }, 24.4);
+    pop("#s3 .split-head", 24.45, { y: -16 });
+    pop("#s3 .pane.b", 24.55, { x: 30 });
+    pop("#sync-line", 25.4, { y: 16 });
+
+    tl.to(".progress-fill", { width: "100%", duration: TOTAL, ease: "none" }, 0);
+
+    window.__timelines = window.__timelines || {};
+    window.__timelines["root"] = tl;
+  </script>
+</body>
+</html>

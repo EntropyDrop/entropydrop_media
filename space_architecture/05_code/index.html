@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>05 代码：控制与自动化 — Space 架构设计分享</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./vendor/gsap.min.js"></script>
+</head>
+<body>
+  <div id="root" data-composition-id="root" data-start="0" data-duration="110" data-width="1920" data-height="1080">
+    <div class="arch-grid"></div>
+
+    <audio id="vo" class="clip voiceover-track" src="./audios/05_code/voice.zh.wav"
+      data-start="0" data-duration="109.4" data-volume="1"></audio>
+
+    <!-- Space footage (each clip stays within its native length) -->
+    <video id="vid-open" class="clip bg-video" src="./footage/05_code_propeller.mp4"
+      data-start="0" data-duration="5.4" data-media-start="1.2" data-volume="0" muted playsinline></video>
+    <video id="vid-editor" class="clip bg-video" src="./footage/05_code_editor.mp4"
+      data-start="57.9" data-duration="4.75" data-media-start="3.1" data-volume="0" muted playsinline></video>
+    <video id="vid-vehicle" class="clip bg-video" src="./footage/05_code_vehicle.mp4"
+      data-start="62.6" data-duration="11.55" data-media-start="0" data-volume="0" muted playsinline></video>
+    <video id="vid-prop" class="clip bg-video" src="./footage/05_code_propeller.mp4"
+      data-start="74.1" data-duration="10.9" data-media-start="0" data-volume="0" muted playsinline></video>
+    <video id="vid-paver" class="clip bg-video" src="./footage/05_code_paver.mp4"
+      data-start="97.2" data-duration="4.8" data-media-start="2" data-volume="0" muted playsinline></video>
+    <video id="vid-radar" class="clip bg-video" src="./footage/05_code_radar.mp4"
+      data-start="102" data-duration="4.95" data-media-start="0.3" data-volume="0" muted playsinline></video>
+    <video id="vid-paver2" class="clip bg-video" src="./footage/05_code_paver.mp4"
+      data-start="106.95" data-duration="3.05" data-media-start="11.4" data-volume="0" muted playsinline></video>
+
+    <!-- Behaviour HUD -->
+    <div id="hud" class="hud">
+      <span class="hk">行为</span>
+      <span class="hs done"><span>物理</span></span><span class="sep">→</span>
+      <span id="hud-ctl" class="hs"><i class="lit"></i><span>控制</span></span><span class="sep">→</span>
+      <span id="hud-auto" class="hs"><i class="lit"></i><span>自动化</span></span>
+    </div>
+
+    <!-- S1 OPENING (0 – 5.4) -->
+    <section id="s1" class="scene clip" data-start="0" data-duration="5.4">
+      <div class="scene-inner">
+        <div class="scrim scrim-left-strong"></div>
+        <div class="op-stack">
+          <h1 class="op-title">代码：<span>控制</span>与<span>自动化</span></h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- S2 MC THRUST & LIFT (5.35 – 22.75) -->
+    <section id="s2" class="scene clip scene-solid" data-start="5.35" data-duration="17.4">
+      <div class="scene-inner">
+        <div class="scene-header">
+          <div class="eyebrow amber">Minecraft · 推力与控制</div>
+          <h2 class="scene-title">由 <span class="hl-amber">功能方块</span> 实现</h2>
+        </div>
+        <div class="fb">
+          <div id="s2-ca" class="panel">
+            <div class="panel-top"><span class="kick">MOD</span><span class="name">Create Aeronautics</span></div>
+            <div class="media">
+              <img id="s2-ca-img" data-layout-allow-overflow src="./assets/mods/create_aero_airship.png" alt="Create Aeronautics airship">
+              <span class="source">Modrinth · Create Aeronautics</span>
+            </div>
+            <div class="chips">
+              <div id="s2-c1" class="chip"><div class="ico"><img src="./assets/mods/ca_propeller_bearing.png" alt=""></div><div class="ct"><b>螺旋桨轴承</b><i>接 Create 旋转动力</i></div></div>
+              <div id="s2-c2" class="chip"><div class="ico"><img src="./assets/mods/ca_hot_air_burner.png" alt=""></div><div class="ct"><b>热空气燃烧室</b><i>给气囊充气</i></div></div>
+              <div id="s2-c3" class="chip"><div class="ico"><img src="./assets/mods/ca_hot_air_envelope.png" alt=""></div><div class="ct"><b>气囊</b><i>提供升力</i></div></div>
+            </div>
+            <div id="s2-u1" class="under">功能方块产生推力 / 升力</div>
+          </div>
+          <div id="s2-vs" class="panel">
+            <div class="panel-top"><span class="kick">MOD</span><span class="name">Valkyrien Skies + Eureka!</span></div>
+            <div class="media">
+              <img id="s2-vs-img" data-layout-allow-overflow src="./assets/mods/vs_2.png" alt="Valkyrien Skies">
+              <img id="s2-eu-img" data-layout-allow-overflow src="./assets/mods/eureka_2.png" alt="Eureka!" style="opacity:0">
+              <span class="source">Modrinth · Valkyrien Skies / Eureka!</span>
+            </div>
+            <div class="chips">
+              <div id="s2-c4" class="chip plain"><div class="ct"><b>Valkyrien Skies</b><i>负责物理</i></div></div>
+              <div id="s2-c5" class="chip plain"><div class="ct"><b>Eureka! 引擎 · 气球</b><i>推力与升力</i></div></div>
+              <div id="s2-c6" class="chip plain"><div class="ct"><b>船舵</b><i>驾驶</i></div></div>
+            </div>
+            <div id="s2-u2" class="under">功能方块产生推力 / 升力</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S3 FUNCTION PARTS ARE BLOCKS (22.7 – 37.25) -->
+    <section id="s3" class="scene clip scene-solid" data-start="22.7" data-duration="14.55">
+      <div class="scene-inner">
+        <div class="scene-header">
+          <div class="eyebrow amber">Minecraft · 信号、传动与编程</div>
+          <h2 class="scene-title"><span class="hl-amber">功能部件</span>也是方块</h2>
+        </div>
+        <div class="blocks4">
+          <div id="b-rs" class="mod">
+            <div class="mimg"><img src="./assets/mods/mc_redstone_door.png" alt="Redstone"><span class="source">Minecraft Wiki</span></div>
+            <div class="mmeta"><div class="mname">Redstone</div><div class="mdesc">红石线路传递信号</div><span class="btag">功能部件也是方块</span></div>
+          </div>
+          <div id="b-cr" class="mod">
+            <div class="mimg"><img src="./assets/mods/create_cogwheels.png" alt="Create cogwheels"><span class="source">Create Wiki</span></div>
+            <div class="mmeta"><div class="mname">Create</div><div class="mdesc">齿轮与传动轴传递转速</div><span class="btag">功能部件也是方块</span></div>
+          </div>
+          <div id="b-cc" class="mod">
+            <div class="mimg"><img src="./assets/mods/cc_terminal.png" alt="CC: Tweaked computer"><span class="source">CC: Tweaked</span></div>
+            <div class="mmeta"><div class="mname">CC: Tweaked</div><div class="mdesc">计算机本身是方块</div><span class="btag">功能部件也是方块</span></div>
+          </div>
+          <div id="b-cp" class="mod">
+            <div class="mimg split">
+              <div><img src="./assets/mods/cc_peripheral.png" alt="CC: Tweaked peripherals"></div>
+              <div><img src="./assets/mods/cc_turtle.png" alt="CC: Tweaked turtle"></div>
+            </div>
+            <div class="mmeta"><div class="mname">CC: Tweaked</div><div class="mdesc">红石 · 外设 · 海龟机器人</div><span class="btag">功能部件也是方块</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S4 SPACE: NO FUNCTION PARTS (37.2 – 57.95) -->
+    <section id="s4" class="scene clip scene-solid" data-start="37.2" data-duration="20.75">
+      <div class="scene-inner">
+        <div class="scene-header">
+          <div class="eyebrow">Space 的取舍</div>
+          <h2 class="scene-title">Space <span class="hl-green">不设</span>这类功能部件</h2>
+        </div>
+        <div class="dec">
+          <div id="s4-mc" class="dcard amber">
+            <div class="kick">MINECRAFT</div>
+            <div class="ttl">外观与逻辑在同一个方块里</div>
+            <div class="eq"><span class="node k">功能方块</span><span class="op">=</span><span class="node">外形</span><span class="op">+</span><span class="node">功能</span></div>
+            <div class="flist"><span>螺旋桨轴承</span><span>燃烧室</span><span>引擎 / 气球 / 船舵</span><span>红石线路</span><span>齿轮 / 传动轴</span><span>计算机</span></div>
+            <div id="s4-mcimg" class="dimg">
+              <img data-layout-allow-overflow src="./assets/mods/create_aero_car.png" alt="Create Aeronautics vehicle">
+              <span class="source">Modrinth · Create Aeronautics</span>
+              <span class="cap" style="border-color:var(--amber-border);color:var(--amber-light)">外形方块 + 功能方块</span>
+            </div>
+            <div id="s4-drop" class="drop">
+              <span class="lbl">SPACE 不采用</span>
+              <span class="x" id="s4-x1">Create 式传动机制<i class="strike"></i></span>
+              <span class="x" id="s4-x2">红石式控制系统<i class="strike"></i></span>
+            </div>
+          </div>
+          <div id="s4-sp" class="dcard green">
+            <div class="kick">SPACE</div>
+            <div class="ttl">外观与逻辑解耦</div>
+            <div class="eq"><span class="node s">方块</span><span class="op">→</span><span class="node">只负责形状</span></div>
+            <div id="s4-eq2" class="eq"><span class="node k">实体脚本</span><span class="op">→</span><span class="node">逻辑</span></div>
+            <div id="s4-img" class="dimg">
+              <img data-layout-allow-overflow src="./assets/stills/space_vehicle.jpg" alt="Space 游戏中的青白色越野车">
+              <span class="cap">外形方块 + 一段脚本</span>
+            </div>
+          </div>
+        </div>
+        <div class="dec-bottom">
+          <div id="s4-goal" class="goal">
+            <span class="item">计算以 <span style="color:var(--green)">实体</span> 为单位</span><span class="arr">→</span>
+            <span id="s4-g2" class="item">跨设备</span><span class="arr">→</span>
+            <span id="s4-g3" class="item hl">在不同核心中运行</span>
+          </div>
+          <div id="s4-vox" class="vox"><b>其次</b><span>体素数量</span><span class="dn">↓</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S5 SCRIPT EDITOR (57.9 – 62.65) -->
+    <section id="s5" class="scene clip" data-start="57.9" data-duration="4.75">
+      <div class="scene-inner">
+        <div class="scrim scrim-bottom"></div>
+        <div class="lower">
+          <div class="headline">取而代之的是 <span class="g">脚本</span></div>
+          <div id="s5-flow" class="next"><b>SCRIPT</b><span>推力 · 升力 · 控制</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S6 VEHICLE (62.6 – 74.15) -->
+    <section id="s6" class="scene clip" data-start="62.6" data-duration="11.55">
+      <div class="scene-inner">
+        <div class="scrim scrim-bottom"></div>
+        <div class="lower" style="max-width:1020px">
+          <div id="s6-code" class="code">
+            <div class="code-title">ROVER · 组件脚本</div>
+            <span id="l1" class="ln"><i class="hl"></i><span>const throttle = seated &amp;&amp; ctx.input.<span class="fn">down</span>(<span class="st">"KeyW"</span>) ? 1.0 : 0.0;</span></span>
+            <span id="l2" class="ln"><i class="hl"></i><span>self.<span class="fn">applyThrust</span>([throttle * 9500.0, 0.0, 0.0]);</span></span>
+            <span id="l3" class="ln"><i class="hl"></i><span>self.<span class="fn">applyTorque</span>([0.0, steer * 16800.0, 0.0]);</span></span>
+            <span id="l4" class="ln"><i class="hl"></i><span>wheel.<span class="fn">setLocalSpin</span>([0.0, 0.0, 1.0], -rpm);</span></span>
+            <span id="l5" class="ln"><i class="hl"></i><span>hatch.<span class="fn">setLocalEuler</span>([0.0, 0.0, angle]);</span></span>
+          </div>
+        </div>
+        <div class="callouts">
+          <div id="co1" class="co sky"><span class="n">READ</span><span class="t">读取 <em>座椅 · 按键 · 点击</em></span></div>
+          <div id="co2" class="co"><span class="n">BODY</span><span class="t">对刚体施加 <em>推力 / 力矩</em></span></div>
+          <div id="co3" class="co amber"><span class="n">CHILD</span><span class="t">子组件 · <em>车轮转动</em></span></div>
+          <div id="co4" class="co amber"><span class="n">CHILD</span><span class="t">子组件 · <em>舱门开合</em></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S7 PROPELLER (74.1 – 80.75) -->
+    <section id="s7" class="scene clip" data-start="74.1" data-duration="6.65">
+      <div class="scene-inner">
+        <div class="scrim scrim-bottom"></div>
+        <div class="lower" style="max-width:1100px">
+          <div class="headline">前面的 <span class="g">螺旋桨</span> 也是这样</div>
+          <div id="s7-code" class="code">
+            <div class="code-title">PROPELLER · 组件脚本</div>
+            <span id="p1" class="ln"><i class="hl"></i><span class="cm">// 桨叶怎么转</span></span>
+            <span id="p2" class="ln"><i class="hl"></i><span>hub.<span class="fn">setLocalSpin</span>([1.0, 0.0, 0.0], 24.0 + spool * 116.0);</span></span>
+            <span id="p3" class="ln"><i class="hl"></i><span class="cm">// 前向推力与机翼升力</span></span>
+            <span id="p4" class="ln"><i class="hl"></i><span>self.<span class="fn">applyThrust</span>([thrust, 0.0, 0.0]);</span></span>
+            <span id="p5" class="ln"><i class="hl"></i><span>self.<span class="fn">applyForce</span>([0.0, ctx.mass * lift, 0.0]);</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S8 SANDBOX (80.75 – 85.05) -->
+    <section id="s8" class="scene clip" data-start="80.75" data-duration="4.3">
+      <div class="scene-inner">
+        <div class="scrim scrim-full"></div>
+        <div class="sbx">
+          <div class="pipe">
+            <div id="sb1" class="pnode as"><b>脚本</b><span>AssemblyScript</span></div>
+            <span class="parr">→</span>
+            <div id="sb2" class="pnode wa"><b>编译</b><span>WebAssembly</span></div>
+            <span class="parr">→</span>
+            <div id="sb3" class="pnode box"><b>运行</b><span>沙盒</span></div>
+          </div>
+          <div id="sb4" class="safe">加载他人分享的作品同样 <span>安全</span></div>
+        </div>
+        <div class="subtitle-cap">AssemblyScript → WebAssembly 沙盒</div>
+      </div>
+    </section>
+
+    <!-- S9 AUTOMATION IN MINECRAFT (85.0 – 97.25) -->
+    <section id="s9" class="scene clip scene-solid" data-start="85" data-duration="12.25">
+      <div class="scene-inner">
+        <div class="scene-header">
+          <div class="eyebrow">控制之外</div>
+          <h2 class="scene-title">是 <span class="hl-green">自动化</span></h2>
+        </div>
+        <div class="auto">
+          <div id="s9-farm" class="panel amber">
+            <div class="panel-top"><span class="kick">MINECRAFT</span><span class="name">自动农场</span><span class="desc">侦测器 · 活塞 · 漏斗</span></div>
+            <div class="media">
+              <img id="s9-farm-img" data-layout-allow-overflow src="./assets/mods/mc_redstone_farm.png" alt="Redstone farm">
+              <span class="sub">原版红石</span>
+              <span class="source">Minecraft Wiki</span>
+            </div>
+            <div class="panel-foot"><span class="tag">红石搭建</span></div>
+          </div>
+          <div id="s9-turtle" class="panel amber">
+            <div class="panel-top"><span class="kick">MOD</span><span class="name">CC: Tweaked</span><span class="desc">海龟机器人</span></div>
+            <div class="media">
+              <img id="s9-turtle-img" data-layout-allow-overflow src="./assets/mods/cc_turtle.png" alt="CC: Tweaked turtle">
+              <span class="sub">可编程的海龟机器人</span>
+              <span class="source">CC: Tweaked</span>
+            </div>
+            <div class="panel-foot">
+              <span id="s9-t1" class="tag">探测</span><span id="s9-t2" class="tag">挖掘</span><span id="s9-t3" class="tag">铺设方块</span><span id="s9-t4" class="tag">联网通信</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S10 PAVER (97.2 – 102.0) -->
+    <section id="s10" class="scene clip" data-start="97.2" data-duration="4.8">
+      <div class="scene-inner">
+        <div class="scrim scrim-bottom"></div>
+        <div class="lower">
+          <div id="s10-head" class="headline">Space 用 <span class="g">脚本</span> 做到同样的事</div>
+        </div>
+        <div class="callouts">
+          <div id="s10-k" class="co"><span class="n">PAVER</span><span class="t">铺路机</span></div>
+          <div id="s10-a" class="co sky"><span class="n">raycast</span><span class="t">探测地面</span></div>
+          <div id="s10-b" class="co amber"><span class="n">voxels.paint</span><span class="t">逐格铺设</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S11 RADAR (102.0 – 106.95) -->
+    <section id="s11" class="scene clip" data-start="102" data-duration="4.95">
+      <div class="scene-inner">
+        <div class="scrim scrim-bottom"></div>
+        <div class="callouts">
+          <div id="s11-k" class="co"><span class="n">RADAR</span><span class="t">雷达塔</span></div>
+          <div id="s11-a" class="co sky"><span class="n">world.entities</span><span class="t">发现实体靠近</span></div>
+          <div id="s11-b" class="co amber"><span class="n">messages.send</span><span class="t"><em>"gate.open"</em> → 闸门</span></div>
+          <div id="s11-c" class="co"><span class="n">GATE</span><span class="t">闸门自动打开</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S12 OUTRO (106.4 – 110) -->
+    <section id="s12" class="scene clip" data-start="106.4" data-duration="3.6">
+      <div class="scene-inner">
+        <div class="scrim scrim-bottom"></div>
+        <div class="outro">
+          <div class="big">区别在于 <span>计算发生在哪里</span></div>
+          <div id="s12-next" class="next"><b>NEXT · 06</b><span>运行机制：计算在哪里发生</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="progress-track"><div class="progress-fill"></div></div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const TOTAL = 110;
+    const pop = (sel, at, from = { y: 24 }) =>
+      tl.from(sel, { ...from, opacity: 0, duration: 0.45, ease: "power3.out" }, at);
+    const fadeIn = (sel, at, d = 0.4) => tl.to(sel, { opacity: 1, duration: d, ease: "power2.out" }, at);
+    const fadeOut = (sel, at, d = 0.35) => tl.to(sel, { opacity: 0, duration: d, ease: "power2.in" }, at);
+    function scene(id, start, dur) {
+      const inner = `#${id} > .scene-inner`;
+      tl.fromTo(inner, { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, start);
+      tl.to(inner, { opacity: 0, duration: 0.3, ease: "power2.in" }, start + dur - 0.3);
+      tl.set(inner, { opacity: 0 }, start + dur);
+    }
+    const light = (id, at) => {
+      tl.to(`${id} .lit`, { opacity: 1, duration: 0.35, ease: "power2.out" }, at);
+      tl.set(id, { className: "hs on" }, at);
+      tl.fromTo(id, { scale: 1 }, { scale: 1.12, duration: 0.2, yoyo: true, repeat: 1, ease: "power1.inOut" }, at);
+    };
+    const hl = (sel, at, d) => {
+      tl.to(`${sel} .hl`, { opacity: 1, duration: 0.25 }, at);
+      if (d) tl.to(`${sel} .hl`, { opacity: 0, duration: 0.25 }, at + d);
+    };
+
+    // HUD
+    pop("#hud", 0.3, { x: 30 });
+    light("#hud-ctl", 1.3);
+    light("#hud-auto", 85.2);
+
+    // S1 opening
+    tl.from("#s1 .op-title", { y: 26, opacity: 0, duration: 0.6, ease: "power3.out" }, 0.1);
+    tl.to("#s1 > .scene-inner", { opacity: 0, duration: 0.3, ease: "power2.in" }, 5.0);
+    tl.set("#s1 > .scene-inner", { opacity: 0 }, 5.35);
+
+    // S2 MC thrust / lift blocks, in spoken order
+    scene("s2", 5.35, 17.4);
+    pop("#s2-ca", 5.5, { x: -40 });
+    tl.fromTo("#s2-ca-img", { scale: 1.0 }, { scale: 1.1, duration: 17, ease: "none" }, 5.5);
+    pop("#s2-c1", 6.3, { y: 14 });
+    pop("#s2-c2", 10.3, { y: 14 });
+    pop("#s2-c3", 11.6, { y: 14 });
+    pop("#s2-u1", 12.8, { y: 10 });
+    pop("#s2-vs", 14.4, { x: 40 });
+    tl.fromTo("#s2-vs-img", { scale: 1.0 }, { scale: 1.07, duration: 4, ease: "none" }, 14.4);
+    pop("#s2-c4", 14.8, { y: 14 });
+    fadeOut("#s2-vs-img", 17.4, 0.5); fadeIn("#s2-eu-img", 17.4, 0.5);
+    tl.fromTo("#s2-eu-img", { scale: 1.0 }, { scale: 1.07, duration: 5.4, ease: "none" }, 17.4);
+    pop("#s2-c5", 17.7, { y: 14 });
+    pop("#s2-c6", 20.6, { y: 14 });
+    pop("#s2-u2", 21.4, { y: 10 });
+
+    // S3 function parts are blocks
+    scene("s3", 22.7, 14.55);
+    pop("#b-rs", 23.2); pop("#b-cr", 24.6);
+    pop("#b-cc", 27.3); pop("#b-cp", 32.6);
+    tl.from("#s3 .btag", { opacity: 0, scale: 0.8, duration: 0.3, stagger: 0.25, ease: "back.out(2)" }, 34.6);
+
+    // S4 Space decoupling
+    scene("s4", 37.2, 20.75);
+    pop("#s4-mc", 37.4, { x: -40 });
+    pop("#s4-mcimg", 38.0, { y: 16 });
+    pop("#s4-sp", 39.3, { x: 40 });
+    pop("#s4-eq2", 42.6, { y: 12 });
+    pop("#s4-img", 44.2, { y: 16 });
+    pop("#s4-goal", 45.8, { y: 20 });
+    tl.from("#s4-g2", { opacity: 0.15, duration: 0.4 }, 47.6);
+    tl.from("#s4-g3", { opacity: 0.15, duration: 0.4 }, 48.7);
+    tl.from("#s4-goal .arr", { opacity: 0.15, duration: 0.4, stagger: 1.1 }, 47.5);
+    pop("#s4-drop", 50.5, { y: 12 });
+    tl.from("#s4-x1 .strike", { scaleX: 0, duration: 0.35, ease: "power2.out" }, 52.0);
+    tl.from("#s4-x2 .strike", { scaleX: 0, duration: 0.35, ease: "power2.out" }, 53.6);
+    pop("#s4-vox", 55.2, { x: 30 });
+
+    // S5 script editor
+    scene("s5", 57.9, 4.75);
+    pop("#s5 .headline", 58.05, { y: 20 });
+    pop("#s5-flow", 59.6, { y: 12 });
+
+    // S6 vehicle: read input -> thrust/torque -> child spin / tailgate
+    scene("s6", 62.6, 11.55);
+    pop("#s6-code", 62.8, { x: -30 });
+    pop("#co1", 64.3, { x: 30 }); hl("#l1", 64.3, 2.6);
+    pop("#co2", 67.0, { x: 30 }); hl("#l2", 67.0, 2.4); hl("#l3", 67.3, 2.1);
+    pop("#co3", 70.6, { x: 30 }); hl("#l4", 70.6, 3.4);
+    pop("#co4", 72.4, { x: 30 }); hl("#l5", 72.4);
+
+    // S7 propeller: spin first, thrust lifts the body
+    scene("s7", 74.1, 6.65);
+    pop("#s7 .headline", 74.25, { y: 20 });
+    pop("#s7-code", 75.0, { y: 16 });
+    hl("#p1", 76.6); hl("#p2", 76.6);
+    hl("#p3", 78.2); hl("#p4", 78.2); hl("#p5", 78.4);
+
+    // S8 sandbox
+    scene("s8", 80.75, 4.3);
+    pop("#sb1", 80.9, { y: 18 }); pop("#sb2", 81.3, { y: 18 }); pop("#sb3", 81.7, { y: 18 });
+    pop("#sb4", 82.7, { y: 14 });
+
+    // S9 automation in Minecraft
+    scene("s9", 85, 12.25);
+    pop("#s9-farm", 87.2, { x: -40 });
+    tl.fromTo("#s9-farm-img", { scale: 1.0 }, { scale: 1.08, duration: 10, ease: "none" }, 87.2);
+    pop("#s9-turtle", 90.7, { x: 40 });
+    tl.fromTo("#s9-turtle-img", { scale: 1.15, transformOrigin: "54% 44%" }, { scale: 1.6, duration: 6.5, ease: "none" }, 90.7);
+    pop("#s9-t1", 92.7, { y: 12 }); pop("#s9-t2", 93.3, { y: 12 }); pop("#s9-t3", 93.9, { y: 12 });
+    pop("#s9-t4", 95.6, { y: 12 });
+
+    // S10 paver
+    scene("s10", 97.2, 4.8);
+    pop("#s10-head", 97.35, { y: 20 });
+    pop("#s10-k", 99.7, { x: 30 }); pop("#s10-a", 100.3, { x: 30 }); pop("#s10-b", 101.0, { x: 30 });
+
+    // S11 radar -> message -> gate
+    scene("s11", 102, 4.95);
+    pop("#s11-k", 102.2, { x: 30 }); pop("#s11-a", 103.2, { x: 30 });
+    pop("#s11-b", 104.4, { x: 30 }); pop("#s11-c", 105.4, { x: 30 });
+
+    // S12 outro
+    tl.fromTo("#s12 > .scene-inner", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 106.4);
+    pop("#s12 .big", 106.5, { y: 24 });
+    pop("#s12-next", 108.0, { x: -24 });
+    tl.to("#s12 > .scene-inner, #hud", { opacity: 0, duration: 0.4, ease: "power2.in" }, 109.55);
+
+    tl.to(".progress-fill", { width: "100%", duration: TOTAL, ease: "none" }, 0);
+
+    window.__timelines = window.__timelines || {};
+    window.__timelines["root"] = tl;
+  </script>
+</body>
+</html>

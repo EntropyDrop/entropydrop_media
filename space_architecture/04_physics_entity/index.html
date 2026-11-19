@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>04 物理：从地形到刚体 — Space 架构设计分享</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./vendor/gsap.min.js"></script>
+  <script src="./assets/com_track.js"></script>
+</head>
+<body>
+  <div id="root" data-composition-id="root" data-start="0" data-duration="66" data-width="1920" data-height="1080">
+    <div class="arch-grid"></div>
+
+    <audio id="vo" class="clip voiceover-track" src="./audios/04_physics_entity/voice.zh.wav"
+      data-start="0" data-duration="65.85" data-volume="1"></audio>
+
+    <!-- assembly / split clacks (SFX only, not narrated) -->
+    <audio id="sfx-asm" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="22.63" data-duration="0.3" data-volume="0.55"></audio>
+    <audio id="sfx-s1" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="32.8" data-duration="0.3" data-volume="0.4"></audio>
+    <audio id="sfx-s2" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="33.7" data-duration="0.3" data-volume="0.4"></audio>
+    <audio id="sfx-s3" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="34.6" data-duration="0.3" data-volume="0.4"></audio>
+    <audio id="sfx-s4" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="35.5" data-duration="0.3" data-volume="0.4"></audio>
+    <audio id="sfx-s5" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="36.5" data-duration="0.3" data-volume="0.4"></audio>
+    <audio id="sfx-s6" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="37.6" data-duration="0.3" data-volume="0.4"></audio>
+    <audio id="sfx-s7" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="55.05" data-duration="0.3" data-volume="0.4"></audio>
+
+    <!-- Space footage (each clip stays within its native length) -->
+    <video id="vid-open" class="clip bg-video" src="./footage/04_ab_assemble_physics.mp4"
+      data-start="0" data-duration="3.1" data-media-start="13.2" data-volume="0" muted playsinline></video>
+    <video id="vid-ab" class="clip bg-video" src="./footage/04_ab_assemble_physics.mp4"
+      data-start="18.2" data-duration="13.6" data-media-start="0" data-volume="0" muted playsinline></video>
+    <video id="vid-c" class="clip bg-video" src="./footage/04_c_component_tree.mp4"
+      data-start="31.8" data-duration="14.75" data-media-start="0" data-volume="0" muted playsinline></video>
+    <video id="vid-d" class="clip bg-video" src="./footage/04_d_propeller.mp4"
+      data-start="53.75" data-duration="11.95" data-media-start="0" data-volume="0" muted playsinline></video>
+
+    <!-- S1 OPENING (0 – 3.1) -->
+    <section id="s1" class="scene clip" data-start="0" data-duration="3.1">
+      <div class="scene-inner">
+        <div class="scrim scrim-left-strong"></div>
+        <div class="op-stack">
+          <h1 class="op-title">物理：<br><span>从地形到刚体</span></h1>
+          <div class="op-needs">
+            <div id="s1-lane-phys" class="need-chip green"><b>行为 ①</b><span>物理</span></div>
+            <div class="need-chip" style="opacity:0.45"><b>行为 ②</b><span>代码</span></div>
+            <div class="need-chip" style="opacity:0.45"><b>行为 ③</b><span>运行</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S2 COMMUNITY MODS (3.0 – 18.25) -->
+    <section id="s2" class="scene clip scene-solid" data-start="3" data-duration="15.25">
+      <div class="scene-inner">
+        <div class="scene-header">
+          <div class="eyebrow">Minecraft 社区模组</div>
+          <h2 class="scene-title"><span class="hl-sky">预设运动</span> 与 <span class="hl-green">物理刚体</span></h2>
+        </div>
+        <div class="duo">
+          <div id="s2-left" class="panel sky">
+            <div class="panel-top"><span class="kick">CREATE</span><span class="name">机械动力</span><span class="desc">装置按预设方式运动</span></div>
+            <div class="media">
+              <img id="s2-bearing" data-layout-allow-overflow src="./assets/mods/create_bearing_1.png" alt="Create windmill bearing">
+              <img id="s2-cart" data-layout-allow-overflow src="./assets/mods/create_cart_1.png" alt="Create cart contraption" style="opacity:0">
+              <img id="s2-train" data-layout-allow-overflow src="./assets/mods/create_train_1.png" alt="Create train" style="opacity:0">
+              <span id="s2-cap-bearing" class="cap">风车轴承 · 绕轴旋转</span>
+              <span id="s2-cap-cart" class="cap" style="opacity:0">矿车装置 · 沿铁轨移动</span>
+              <span id="s2-cap-train" class="cap" style="opacity:0">列车 · 沿轨道行驶</span>
+              <span id="s2-src-bearing" class="source">FusionSwarly · Modrinth</span>
+              <span id="s2-src-cart" class="source" style="opacity:0">Create Mod Wiki</span>
+              <span id="s2-src-train" class="source" style="opacity:0">HadesScience · Modrinth</span>
+            </div>
+            <div class="panel-foot">
+              <span id="s2-t1" class="tag">轴承</span><span id="s2-t2" class="tag">活塞</span><span id="s2-t3" class="tag">轨道</span>
+            </div>
+          </div>
+          <div id="s2-right" class="panel green">
+            <div class="panel-top"><span class="kick">附属模组</span><span class="name">物理引擎</span><span class="desc">方块结构 → 刚体</span></div>
+            <div class="media">
+              <img id="s2-aero2" data-layout-allow-overflow src="./assets/mods/create_aero_2.png" alt="Create Aeronautics airship">
+              <img id="s2-vs" data-layout-allow-overflow src="./assets/mods/vs_2.png" alt="Valkyrien Skies ship" style="opacity:0">
+              <img id="s2-aero1" data-layout-allow-overflow src="./assets/mods/create_aero_1.png" alt="Create Aeronautics aircraft" style="opacity:0">
+              <span id="s2-cap-aero2" class="cap">Create Aeronautics</span>
+              <span id="s2-cap-vs" class="cap" style="opacity:0">Valkyrien Skies</span>
+              <span id="s2-cap-aero1" class="cap" style="opacity:0">Create Aeronautics</span>
+              <span id="s2-src-aero" class="source">Simulated Team · Modrinth</span>
+              <span id="s2-src-vs" class="source" style="opacity:0">Valkyrien Skies Team · Modrinth</span>
+            </div>
+            <div class="panel-foot">
+              <span id="s2-g1" class="tag">物理引擎</span><span id="s2-g2" class="tag">真正的刚体</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S3 ASSEMBLE + PHYSICS (18.2 – 31.8) over Space footage -->
+    <section id="s3" class="scene clip" data-start="18.2" data-duration="13.6">
+      <div class="scene-inner">
+        <div id="ab-card1" class="ov ov-card" style="left:0; top:96px; width:520px">
+          <div class="ov-kick">SPACE · 引擎原生物理</div>
+          <div class="ov-title">框选地形<br>执行<span>组装</span></div>
+          <div class="chips">
+            <div id="ab-c1" class="chip"><i></i>框选任意一块地形</div>
+            <div id="ab-c2" class="chip"><i></i>组装</div>
+            <div id="ab-c3" class="chip"><i></i>成为刚体实体</div>
+          </div>
+        </div>
+        <div id="ab-card2" class="ov ov-card amber" style="left:0; top:96px; width:520px; opacity:0">
+          <div class="ov-kick">按方块分布计算</div>
+          <div class="chips" style="margin-top:12px">
+            <div id="ab-f1" class="chip"><i></i>质心</div>
+            <div id="ab-f2" class="chip"><i></i>转动惯量</div>
+            <div id="ab-f3" class="chip"><i></i>重力</div>
+            <div id="ab-f4" class="chip"><i></i>推力</div>
+            <div id="ab-f5" class="chip"><i></i>碰撞</div>
+            <div id="ab-f6" class="chip"><i></i>摩擦</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="com" class="com">
+      <div class="ring"></div>
+      <div class="lab">质心</div>
+      <div id="arr-g" class="arrow down"><span>重力</span></div>
+      <div id="arr-t" class="arrow up"><span>推力</span></div>
+    </div>
+    <div id="flash" class="flash"></div>
+
+    <!-- S4 SPLIT + COMPONENT TREE (31.8 – 46.55) -->
+    <section id="s4" class="scene clip" data-start="31.8" data-duration="14.75">
+      <div class="scene-inner">
+        <div id="c-card" class="ov ov-card" style="left:0; top:96px; width:470px">
+          <div class="ov-kick">选区工具 · 拆分</div>
+          <div class="ov-title">拆成<span>独立组件</span></div>
+          <div class="chips">
+            <div id="c-w" class="chip"><i></i>车轮<small id="c-wn">×0</small></div>
+            <div id="c-h" class="chip"><i></i>舱门</div>
+            <div id="c-t" class="chip"><i></i>炮塔</div>
+          </div>
+        </div>
+        <div id="tree" class="ov ov-card tree-card" style="right:-16px; top:96px">
+          <div class="ov-kick">组件树</div>
+          <svg width="510" height="300" viewBox="0 0 510 300">
+            <g id="t-edges">
+              <path class="edge" d="M255 62 V100 H45 V150"/>
+              <path class="edge" d="M255 100 H125 V150"/>
+              <path class="edge" d="M255 100 H205 V150"/>
+              <path class="edge" d="M255 100 H285 V150"/>
+              <path class="edge" d="M255 100 H375 V150"/>
+              <path class="edge" d="M255 100 H465 V150"/>
+            </g>
+            <g class="node root" id="t-root"><rect x="185" y="14" width="140" height="48"/><text x="255" y="38">车体</text></g>
+            <g id="t-kids">
+              <g class="node"><rect x="10" y="150" width="70" height="48"/><text x="45" y="174">轮</text></g>
+              <g class="node"><rect x="90" y="150" width="70" height="48"/><text x="125" y="174">轮</text></g>
+              <g class="node"><rect x="170" y="150" width="70" height="48"/><text x="205" y="174">轮</text></g>
+              <g class="node"><rect x="250" y="150" width="70" height="48"/><text x="285" y="174">轮</text></g>
+              <g class="node"><rect x="335" y="150" width="80" height="48"/><text x="375" y="174">舱门</text></g>
+              <g class="node"><rect x="425" y="150" width="80" height="48"/><text x="465" y="174">炮塔</text></g>
+            </g>
+            <g id="t-mv">
+              <text class="mv" x="165" y="232">↻ 转动</text>
+              <text class="mv" x="375" y="232">↻ 开合</text>
+              <text class="mv" x="465" y="232">↻ 转动</text>
+              <text class="mv" x="255" y="280" style="font-size:22px">相对上一级组件 转动 / 平移</text>
+            </g>
+          </svg>
+        </div>
+        <div id="c-cap" class="ov ov-cap" style="left:50%; bottom:20px; transform:translateX(-50%); white-space:nowrap">
+          每个实体最多 <b>64</b> 个组件 · 最多 <b>16</b> 层
+        </div>
+      </div>
+    </section>
+
+    <!-- S5 GENERIC RIGID BODY (46.5 – 53.8) -->
+    <section id="s5" class="scene clip scene-solid" data-start="46.5" data-duration="7.3">
+      <div class="scene-inner">
+        <div class="scene-header">
+          <div class="eyebrow">引擎的取舍</div>
+          <h2 class="scene-title">只提供 <span class="hl-green">通用的刚体物理</span></h2>
+        </div>
+        <div class="rb-wrap">
+          <div id="rb-core" class="rb-core">
+            <span class="k">ENGINE · RIGID BODY</span>
+            <h3>任何实体都一样</h3>
+            <ul>
+              <li><i></i>质量 · 质心 · 转动惯量</li>
+              <li><i></i>重力 · 碰撞 · 摩擦</li>
+              <li><i></i>施加力与力矩</li>
+            </ul>
+            <p class="note">没有“螺旋桨方块”，也没有“车轮方块”</p>
+          </div>
+          <div class="rb-parts">
+            <div id="p1" class="part">
+              <div class="pimg"><img src="./assets/mods/create_aero_1.png" alt="propeller aircraft" style="object-position:30% 50%"><span class="source">Create Aeronautics</span></div>
+              <div class="pname">螺旋桨</div><div class="pdesc">Create Aeronautics</div>
+              <div class="strike"></div><div id="x1" class="x">不单独建模</div>
+            </div>
+            <div id="p2" class="part">
+              <div class="pimg"><img src="./assets/mods/create_aero_2.png" alt="balloon airship" style="object-position:20% 40%"><span class="source">Create Aeronautics</span></div>
+              <div class="pname">热气球</div><div class="pdesc">Create Aeronautics</div>
+              <div class="strike"></div><div id="x2" class="x">不单独建模</div>
+            </div>
+            <div id="p3" class="part">
+              <div class="pimg"><img src="./assets/mods/create_train_1.png" alt="train wheels" style="object-position:60% 50%"><span class="source">Create</span></div>
+              <div class="pname">车轮</div><div class="pdesc">Create</div>
+              <div class="strike"></div><div id="x3" class="x">不单独建模</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S6 PROPELLER (53.75 – 61.4) -->
+    <section id="s6" class="scene clip" data-start="53.75" data-duration="7.65">
+      <div class="scene-inner">
+        <div id="d-card" class="ov ov-card" style="left:0; top:96px; width:500px">
+          <div class="ov-kick">外观 · 用组件树搭</div>
+          <div class="ov-title"><span>螺旋桨</span></div>
+          <div class="chips">
+            <div id="d-c1" class="chip"><i></i>桨毂 → 可转动的子组件</div>
+            <div id="d-c2" class="chip"><i></i>桨叶 → 装饰体素</div>
+            <div id="d-c3" class="chip"><i></i>转起来，机身不动</div>
+          </div>
+        </div>
+        <div id="d-cap" class="ov ov-cap" style="left:50%; bottom:20px; transform:translateX(-50%); white-space:nowrap">
+          外观：<b>组件树</b> · 推力与升力：<b>代码</b>
+        </div>
+      </div>
+    </section>
+
+    <!-- S7 END QUESTION (61.3 – 66) -->
+    <section id="s7" class="scene clip" data-start="61.3" data-duration="4.7">
+      <div class="scene-inner">
+        <div id="s7-scrim" class="scrim scrim-full"></div>
+        <div class="endq">
+          <div id="s7-q" class="q">那么，<span>推力、平衡与升力</span>从何而来？</div>
+          <div id="s7-n" class="n">下一节 · <b>05 代码：控制与自动化</b></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="progress-track"><div class="progress-fill"></div></div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const TOTAL = 66;
+    const pop = (sel, at, from = { y: 24 }) =>
+      tl.from(sel, { ...from, opacity: 0, duration: 0.45, ease: "power3.out" }, at);
+    const fadeIn = (sel, at, d = 0.4) => tl.to(sel, { opacity: 1, duration: d, ease: "power2.out" }, at);
+    const fadeOut = (sel, at, d = 0.35) => tl.to(sel, { opacity: 0, duration: d, ease: "power2.in" }, at);
+    const on = (sel, at) => tl.set(sel, { className: "chip on" }, at)
+      .from(sel, { x: -16, duration: 0.3, ease: "power3.out" }, at);
+    function scene(id, start, dur) {
+      const inner = `#${id} > .scene-inner`;
+      tl.fromTo(inner, { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, start);
+      tl.to(inner, { opacity: 0, duration: 0.3, ease: "power2.in" }, start + dur - 0.3);
+      tl.set(inner, { opacity: 0 }, start + dur);
+    }
+
+    // S1 opening over the thrust-lift shot
+    tl.from("#s1 .op-title, #s1 .op-needs", { y: 26, opacity: 0, duration: 0.6, stagger: 0.15, ease: "power3.out" }, 0.1);
+    tl.fromTo("#s1-lane-phys", { scale: 1 }, { scale: 1.08, duration: 0.25, yoyo: true, repeat: 1 }, 1.4);
+    tl.to("#s1 > .scene-inner", { opacity: 0, duration: 0.3, ease: "power2.in" }, 2.8);
+    tl.set("#s1 > .scene-inner", { opacity: 0 }, 3.1);
+
+    // S2 Create (preset motion) vs. physics add-ons
+    scene("s2", 3.0, 15.25);
+    pop("#s2-left", 3.15, { x: -40 });
+    tl.fromTo("#s2-bearing", { scale: 1.0 }, { scale: 1.08, duration: 2.6, ease: "none" }, 3.15);
+    pop("#s2-t1", 4.6, { y: 12 });
+    fadeOut("#s2-bearing, #s2-cap-bearing, #s2-src-bearing", 5.2, 0.4); fadeIn("#s2-cart, #s2-cap-cart, #s2-src-cart", 5.2, 0.4);
+    tl.fromTo("#s2-cart", { scale: 1.0 }, { scale: 1.06, duration: 1.8, ease: "none" }, 5.2);
+    pop("#s2-t2", 5.3, { y: 12 }); pop("#s2-t3", 5.95, { y: 12 });
+    fadeOut("#s2-cart, #s2-cap-cart, #s2-src-cart", 6.8, 0.4); fadeIn("#s2-train, #s2-cap-train, #s2-src-train", 6.8, 0.4);
+    tl.fromTo("#s2-train", { scale: 1.0 }, { scale: 1.08, duration: 11.4, ease: "none" }, 6.8);
+    pop("#s2-right", 8.2, { x: 40 });
+    tl.fromTo("#s2-aero2", { scale: 1.0 }, { scale: 1.07, duration: 3.4, ease: "none" }, 8.2);
+    fadeOut("#s2-aero2, #s2-cap-aero2, #s2-src-aero", 11.3, 0.45); fadeIn("#s2-vs, #s2-cap-vs, #s2-src-vs", 11.3, 0.45);
+    tl.fromTo("#s2-vs", { scale: 1.0 }, { scale: 1.07, duration: 3.2, ease: "none" }, 11.3);
+    fadeOut("#s2-vs, #s2-cap-vs, #s2-src-vs", 14.2, 0.45); fadeIn("#s2-aero1, #s2-cap-aero1, #s2-src-aero", 14.2, 0.45);
+    tl.fromTo("#s2-aero1", { scale: 1.0 }, { scale: 1.08, duration: 4.0, ease: "none" }, 14.2);
+    pop("#s2-g1", 14.3, { y: 12 }); pop("#s2-g2", 16.6, { y: 12 });
+
+    // S3 assemble (clip t=0 at 18.2; assemble at clip 4.43 -> 22.63) then physics
+    scene("s3", 18.2, 13.6);
+    pop("#ab-card1", 18.4, { x: -36 });
+    on("#ab-c1", 19.6);
+    tl.to("#flash", { opacity: 0.85, duration: 0.06, ease: "none" }, 22.52)
+      .to("#flash", { opacity: 0, duration: 0.35, ease: "power2.out" }, 22.62);
+    on("#ab-c2", 22.6);
+    on("#ab-c3", 23.3);
+    fadeOut("#ab-card1", 24.7, 0.3);
+    fadeIn("#ab-card2", 24.95, 0.35);
+    on("#ab-f1", 27.2);
+    on("#ab-f2", 28.0);
+    on("#ab-f3", 29.15);
+    on("#ab-f4", 29.7);
+    on("#ab-f5", 30.3);
+    on("#ab-f6", 30.85);
+
+    // centre-of-mass marker follows the recorded screen-space track (clip time + 18.2)
+    (function () {
+      const T0 = 18.2, FROM = 27.0, TO = 31.75, STEP = 0.1;
+      const pts = window.__COM_TRACK;
+      const at = (t) => {
+        let i = 0;
+        while (i < pts.length - 1 && pts[i + 1][0] <= t) i++;
+        return pts[i];
+      };
+      let p = at(FROM - T0);
+      tl.set("#com", { x: p[1], y: p[2] }, 0);
+      for (let c = FROM; c < TO - 1e-6; c += STEP) {
+        const q = at(c + STEP - T0);
+        tl.to("#com", { x: q[1], y: q[2], duration: STEP, ease: "none" }, c);
+      }
+      tl.fromTo("#com", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, FROM);
+      tl.to("#arr-g", { opacity: 1, duration: 0.25 }, 29.15);
+      tl.to("#arr-t", { opacity: 1, duration: 0.25 }, 29.7);
+      tl.to("#com", { opacity: 0, duration: 0.25 }, 31.5);
+    })();
+
+    // S4 split into components (clip t=0 at 31.8)
+    scene("s4", 31.8, 14.75);
+    pop("#c-card", 32.0, { x: -36 });
+    const wn = document.getElementById("c-wn");
+    [32.8, 33.7, 34.6, 35.5].forEach((t, i) => {
+      if (i === 0) on("#c-w", t);
+      tl.set(wn, { textContent: "×" + (i + 1) }, t);
+      tl.fromTo("#c-w", { scale: 1.06 }, { scale: 1, duration: 0.25 }, t);
+    });
+    on("#c-h", 36.5);
+    on("#c-t", 37.6);
+    pop("#tree", 38.7, { x: 36 });
+    tl.from("#t-root", { opacity: 0, duration: 0.3 }, 38.9);
+    tl.from("#t-edges path", { opacity: 0, duration: 0.25, stagger: 0.06 }, 39.5);
+    tl.from("#t-kids > g", { opacity: 0, y: 12, duration: 0.3, stagger: 0.08, ease: "power3.out" }, 39.6);
+    tl.from("#t-mv text", { opacity: 0, duration: 0.3, stagger: 0.15 }, 40.3);
+    pop("#c-cap", 42.4, { y: 20 });
+
+    // S5 generic rigid body physics
+    scene("s5", 46.5, 7.3);
+    pop("#s5 .scene-header", 46.6, { y: -16 });
+    pop("#rb-core", 46.75, { x: -40 });
+    tl.from("#rb-core li", { opacity: 0, x: -16, duration: 0.3, stagger: 0.25 }, 47.2);
+    tl.from(".rb-parts .part", { opacity: 0, y: 24, duration: 0.4, stagger: 0.15, ease: "power3.out" }, 48.4);
+    [["#p1", "#x1", 50.55], ["#p2", "#x2", 51.35], ["#p3", "#x3", 52.05]].forEach(([p, x, t]) => {
+      tl.to(`${p} .strike`, { opacity: 1, duration: 0.25 }, t);
+      tl.fromTo(x, { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, t);
+    });
+    tl.set("#x1, #x2, #x3", { opacity: 0 }, 0);
+
+    // S6 propeller (clip t=0 at 53.75; hub split 55.05, blades 56.75-58.55, spin 59.95)
+    scene("s6", 53.75, 7.65);
+    pop("#d-card", 53.95, { x: -36 });
+    on("#d-c1", 55.05);
+    on("#d-c2", 56.75);
+    on("#d-c3", 59.95);
+    pop("#d-cap", 58.9, { y: 20 });
+
+    // S7 closing question over the spinning propeller
+    tl.fromTo("#s7 > .scene-inner", { opacity: 0 }, { opacity: 1, duration: 0.45 }, 61.3);
+    tl.fromTo("#s7-scrim", { opacity: 0 }, { opacity: 0.75, duration: 0.6 }, 61.3);
+    pop("#s7-q", 61.45, { y: 26 });
+    pop("#s7-n", 63.4, { y: 14 });
+    tl.to("#s7 > .scene-inner", { opacity: 0, duration: 0.4, ease: "power2.in" }, 65.55);
+
+    tl.to(".progress-fill", { width: "100%", duration: TOTAL, ease: "none" }, 0);
+
+    window.__timelines = window.__timelines || {};
+    window.__timelines["root"] = tl;
+  </script>
+</body>
+</html>

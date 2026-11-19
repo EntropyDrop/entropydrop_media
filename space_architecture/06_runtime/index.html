@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>06 运行机制：计算在哪里发生 — Space 架构设计分享</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./vendor/gsap.min.js"></script>
+</head>
+<body>
+  <div id="root" data-composition-id="root" data-start="0" data-duration="90.7" data-width="1920" data-height="1080">
+    <div class="arch-grid"></div>
+
+    <audio id="vo" class="clip voiceover-track" src="./audios/06_runtime/voice.zh.wav"
+      data-start="0" data-duration="90.2" data-volume="1"></audio>
+
+    <!-- Space footage: offline dev Space, multiplayer authority simulated with the real nameplate / menu / toast UI -->
+    <video id="vid-a" class="clip pane-video" src="./footage/06_runtime_view_a.mp4"
+      data-start="35.6" data-duration="38.7" data-media-start="0" data-volume="0" muted playsinline></video>
+    <video id="vid-b" class="clip pane-video" src="./footage/06_runtime_view_b.mp4"
+      data-start="35.6" data-duration="38.7" data-media-start="0" data-volume="0" muted playsinline></video>
+    <video id="vid-h" class="clip pane-video" src="./footage/06_runtime_hosted.mp4"
+      data-start="74.3" data-duration="16.4" data-media-start="0" data-volume="0" muted playsinline></video>
+
+    <div class="topbar">
+      <div class="topbar-left">
+        <span class="topbar-tab"><span class="topbar-dot"></span><span>SPACE // 06</span></span>
+      </div>
+      <div class="topbar-right">06 运行机制：计算在哪里发生</div>
+    </div>
+
+    <!-- S1 ONE LOOP vs SELF-CONTAINED ENTITIES (0 – 35.6) -->
+    <section id="s1" class="scene clip scene-solid" data-start="0" data-duration="35.6">
+      <div class="scene-inner">
+        <div class="scene-header s1-head">
+          <div class="eyebrow">计算在哪里发生</div>
+          <h2 class="scene-title"><span class="hl-amber">一个循环</span>推进整个世界，还是<span class="hl-green">交给各自的设备</span>？</h2>
+        </div>
+        <div class="dist">
+          <div id="s1-left" class="dcard mc">
+            <div class="kick">MINECRAFT // 服务端</div>
+            <div class="ttl">所有计算排进同一个游戏循环</div>
+            <svg viewBox="0 0 800 560" font-family="Fusion-Pixel-Zh-Hans, sans-serif">
+              <defs>
+                <clipPath id="clq0"><rect x="20" y="8" width="230" height="96"/></clipPath>
+                <clipPath id="clq1"><rect x="285" y="8" width="230" height="96"/></clipPath>
+                <clipPath id="clq2"><rect x="550" y="8" width="230" height="96"/></clipPath>
+              </defs>
+              <g id="q0">
+                <image href="./assets/mods/mc_redstone_door.png" x="20" y="8" width="230" height="96" preserveAspectRatio="xMidYMid slice" clip-path="url(#clq0)"/>
+                <rect x="20" y="8" width="230" height="96" fill="none" stroke="#f87171" stroke-width="3"/>
+                <text x="135" y="138" text-anchor="middle" fill="#fca5a5" font-size="24">红石信号</text>
+              </g>
+              <g id="q1">
+                <image href="./assets/mods/create_cogwheels.png" x="285" y="8" width="230" height="96" preserveAspectRatio="xMidYMid slice" clip-path="url(#clq1)"/>
+                <rect id="q1-frame" x="285" y="8" width="230" height="96" fill="none" stroke="#fbbf24" stroke-width="3"/>
+                <text x="400" y="138" text-anchor="middle" fill="#fde68a" font-size="24">Create 装置</text>
+              </g>
+              <g id="q2">
+                <image href="./assets/mods/mc_village.png" x="550" y="8" width="230" height="96" preserveAspectRatio="xMidYMid slice" clip-path="url(#clq2)"/>
+                <rect x="550" y="8" width="230" height="96" fill="none" stroke="#38bdf8" stroke-width="3"/>
+                <text x="665" y="138" text-anchor="middle" fill="#7dd3fc" font-size="24">各种实体</text>
+              </g>
+              <g id="q-arrows" stroke="rgba(255,255,255,0.45)" stroke-width="2" stroke-dasharray="6 6" fill="none">
+                <path d="M135 150 L300 202"/><path d="M400 150 L400 202"/><path d="M665 150 L500 202"/>
+              </g>
+              <g id="loop">
+                <rect x="20" y="205" width="760" height="170" fill="rgba(248,113,113,0.06)" stroke="#f87171" stroke-width="3"/>
+                <text x="40" y="238" fill="#fca5a5" font-size="22">服务端 · 同一个游戏循环 · 依次计算</text>
+                <circle cx="100" cy="304" r="44" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="8"/>
+                <g id="ring-hand"><circle cx="100" cy="260" r="10" fill="#fbbf24"/></g>
+                <text x="100" y="312" text-anchor="middle" fill="#fff" font-size="24">tick</text>
+                <text x="180" y="270" fill="#a1a1aa" font-size="20">单个 tick 耗时</text>
+                <text id="ms50" x="580" y="270" text-anchor="middle" fill="#e4e4e7" font-size="20">50 ms</text>
+                <rect x="180" y="280" width="580" height="40" fill="rgba(255,255,255,0.06)"/>
+                <rect id="sg-r" x="180" y="280" width="100" height="40" fill="#f87171"/>
+                <rect id="sg-c" x="280" y="280" width="120" height="40" fill="#fbbf24"/>
+                <rect id="sg-e" x="400" y="280" width="90" height="40" fill="#38bdf8"/>
+                <line id="cursor" x1="180" y1="276" x2="180" y2="324" stroke="#fff" stroke-width="4"/>
+                <line x1="580" y1="274" x2="580" y2="328" stroke="#fff" stroke-width="3" stroke-dasharray="5 4"/>
+                <text id="tag20" x="180" y="356" fill="#fde68a" font-size="24">每秒 20 tick · 每 tick 50 ms</text>
+                <text id="over" x="760" y="356" text-anchor="end" fill="#f87171" font-size="24">超时 → 世界变慢</text>
+              </g>
+              <g id="pl-links" stroke="rgba(248,113,113,0.55)" stroke-width="2" stroke-dasharray="6 6">
+                <line x1="400" y1="375" x2="107" y2="420"/><line x1="400" y1="375" x2="302" y2="420"/>
+                <line x1="400" y1="375" x2="497" y2="420"/><line x1="400" y1="375" x2="692" y2="420"/>
+              </g>
+              <g id="players">
+                <g id="pl0"><rect x="20" y="420" width="175" height="110" fill="#0e1310" stroke="rgba(255,255,255,0.45)" stroke-width="2"/><text x="107" y="462" text-anchor="middle" fill="#d4d4d8" font-size="24">玩家 1</text><text class="st-ok" x="107" y="504" text-anchor="middle" fill="#4ade80" font-size="24">流畅</text><text class="st-lag" x="107" y="504" text-anchor="middle" fill="#f87171" font-size="24" opacity="0">卡顿</text></g>
+                <g id="pl1"><rect x="215" y="420" width="175" height="110" fill="#0e1310" stroke="rgba(255,255,255,0.45)" stroke-width="2"/><text x="302" y="462" text-anchor="middle" fill="#d4d4d8" font-size="24">玩家 2</text><text class="st-ok" x="302" y="504" text-anchor="middle" fill="#4ade80" font-size="24">流畅</text><text class="st-lag" x="302" y="504" text-anchor="middle" fill="#f87171" font-size="24" opacity="0">卡顿</text></g>
+                <g id="pl2"><rect x="410" y="420" width="175" height="110" fill="#0e1310" stroke="rgba(255,255,255,0.45)" stroke-width="2"/><text x="497" y="462" text-anchor="middle" fill="#d4d4d8" font-size="24">玩家 3</text><text class="st-ok" x="497" y="504" text-anchor="middle" fill="#4ade80" font-size="24">流畅</text><text class="st-lag" x="497" y="504" text-anchor="middle" fill="#f87171" font-size="24" opacity="0">卡顿</text></g>
+                <g id="pl3"><rect x="605" y="420" width="175" height="110" fill="#0e1310" stroke="rgba(255,255,255,0.45)" stroke-width="2"/><text x="692" y="462" text-anchor="middle" fill="#d4d4d8" font-size="24">玩家 4</text><text class="st-ok" x="692" y="504" text-anchor="middle" fill="#4ade80" font-size="24">流畅</text><text class="st-lag" x="692" y="504" text-anchor="middle" fill="#f87171" font-size="24" opacity="0">卡顿</text></g>
+              </g>
+            </svg>
+          </div>
+          <div id="s1-right" class="dcard sp">
+            <div class="kick">SPACE // 玩家的浏览器</div>
+            <div class="ttl">实体自包含，整体交给一台设备</div>
+            <svg viewBox="0 0 800 560" font-family="Fusion-Pixel-Zh-Hans, sans-serif">
+              <g id="cap">
+                <rect x="250" y="6" width="300" height="180" fill="rgba(74,222,128,0.07)" stroke="#4ade80" stroke-width="3" stroke-dasharray="10 6"/>
+                <text x="400" y="38" text-anchor="middle" fill="#fff" font-size="24">实体 · 自包含</text>
+                <g id="cr0"><rect x="270" y="54" width="260" height="34" fill="rgba(56,189,248,0.2)" stroke="#38bdf8" stroke-width="2"/><text x="400" y="79" text-anchor="middle" fill="#7dd3fc" font-size="22">方块</text></g>
+                <g id="cr1"><rect x="270" y="96" width="260" height="34" fill="rgba(251,191,36,0.2)" stroke="#fbbf24" stroke-width="2"/><text x="400" y="121" text-anchor="middle" fill="#fde68a" font-size="22">刚体</text></g>
+                <g id="cr2"><rect x="270" y="138" width="260" height="34" fill="rgba(74,222,128,0.2)" stroke="#4ade80" stroke-width="2"/><text x="400" y="163" text-anchor="middle" fill="#a6df7a" font-size="22">脚本状态</text></g>
+              </g>
+              <g id="links2" stroke="#fbbf24" stroke-width="3" stroke-dasharray="10 8" fill="none">
+                <line x1="140" y1="400" x2="360" y2="334"/><line x1="400" y1="400" x2="400" y2="334"/><line x1="660" y1="400" x2="440" y2="334"/>
+              </g>
+              <circle id="pq0" cx="140" cy="400" r="9" fill="#fde68a"/>
+              <circle id="pq1" cx="400" cy="400" r="9" fill="#fde68a"/>
+              <circle id="pq2" cx="660" cy="400" r="9" fill="#fde68a"/>
+              <g id="srv2"><rect x="300" y="250" width="200" height="84" fill="#0e1310" stroke="#fbbf24" stroke-width="3"/><text x="400" y="286" text-anchor="middle" fill="#fff" font-size="28">服务器</text><text x="400" y="320" text-anchor="middle" fill="#fde68a" font-size="20">只做转发</text></g>
+              <text id="lk2-label" x="515" y="276" fill="#fde68a" font-size="20">同步：位姿 · 地形修改</text>
+              <g id="d0"><rect class="dbox" x="20" y="400" width="240" height="150" fill="#0e1310" stroke="rgba(255,255,255,0.5)" stroke-width="2"/><text x="140" y="432" text-anchor="middle" fill="#d4d4d8" font-size="22">玩家 A 的浏览器</text><rect class="dent" x="55" y="465" width="32" height="32" fill="#4ade80" transform="rotate(45 71 481)"/><text class="dst" x="175" y="490" text-anchor="middle" fill="#4ade80" font-size="24">流畅</text><rect x="40" y="524" width="200" height="8" fill="rgba(255,255,255,0.1)"/><rect id="bt0" x="40" y="524" width="0" height="8" fill="#4ade80"/></g>
+              <g id="d1"><rect class="dbox" x="280" y="400" width="240" height="150" fill="#0e1310" stroke="rgba(255,255,255,0.5)" stroke-width="2"/><text x="400" y="432" text-anchor="middle" fill="#d4d4d8" font-size="22">玩家 B 的浏览器</text><rect class="dent" x="315" y="465" width="32" height="32" fill="#f472b6" transform="rotate(45 331 481)"/><text class="dst" x="435" y="490" text-anchor="middle" fill="#4ade80" font-size="24">流畅</text><text class="dslow" x="435" y="490" text-anchor="middle" fill="#f87171" font-size="24" opacity="0">变慢</text><rect x="300" y="524" width="200" height="8" fill="rgba(255,255,255,0.1)"/><rect id="bt1" x="300" y="524" width="0" height="8" fill="#4ade80"/></g>
+              <g id="d2"><rect class="dbox" x="540" y="400" width="240" height="150" fill="#0e1310" stroke="rgba(255,255,255,0.5)" stroke-width="2"/><text x="660" y="432" text-anchor="middle" fill="#d4d4d8" font-size="22">玩家 C 的浏览器</text><rect class="dent" x="575" y="465" width="32" height="32" fill="#38bdf8" transform="rotate(45 591 481)"/><text class="dst" x="695" y="490" text-anchor="middle" fill="#4ade80" font-size="24">流畅</text><rect x="560" y="524" width="200" height="8" fill="rgba(255,255,255,0.1)"/><rect id="bt2" x="560" y="524" width="0" height="8" fill="#4ade80"/></g>
+            </svg>
+          </div>
+        </div>
+        <div id="s1-goal" class="goal">
+          <span id="g1" class="item">实体计算量再大</span><span class="arr">→</span>
+          <span id="g2" class="item">只拖慢运行它的那台设备</span><span class="arr">→</span>
+          <span id="g3" class="item hl">世界不会一起卡顿</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- S2 AUTHORITY: split screen, player A | player B (35.6 – 74.3) -->
+    <section id="s2" class="scene clip" data-start="35.6" data-duration="38.7">
+      <div class="scene-inner">
+        <div class="scene-header compact">
+          <div class="eyebrow">运行权</div>
+          <h2 class="scene-title">实体交给谁运行？<span class="hl-green">谁先启动，谁的浏览器运行</span></h2>
+        </div>
+        <div id="pane-a" class="pane a">
+          <div class="pane-tag">玩家 A 的浏览器</div>
+          <span id="ra0" class="role off">未运行</span>
+          <span id="ra1" class="role run" style="opacity:0">运行者 · 计算脚本与物理</span>
+          <span id="ra2" class="role off" style="opacity:0">已停止 · 运行权释放</span>
+          <span id="ra3" class="role view" style="opacity:0">插值显示</span>
+          <span id="ra4" class="role run" style="opacity:0">运行者 · 接管</span>
+          <div id="ca1" class="callout g" style="opacity:0">A 启动 · 名牌显示执行者 Player A</div>
+          <div id="ca2" class="callout" style="opacity:0">A 手动停止 → 立即释放运行权</div>
+          <div id="ca3" class="callout" style="opacity:0">B 离开 → 运行权几秒内空出</div>
+          <div id="ca4" class="callout g" style="opacity:0">A 的浏览器抢占 · 机器继续运转</div>
+        </div>
+        <div id="pane-b" class="pane b">
+          <div class="pane-tag">玩家 B 的浏览器</div>
+          <span id="rb0" class="role off">未运行</span>
+          <span id="rb1" class="role view" style="opacity:0">插值显示</span>
+          <span id="rb2" class="role run" style="opacity:0">运行者</span>
+          <span id="rb3" class="role off" style="opacity:0">已离开</span>
+          <div id="cb1" class="callout s" style="opacity:0">同一台机器 · 只接收结果，插值显示</div>
+          <div id="cb2" class="callout" style="opacity:0">只读 · 无法停止或修改</div>
+          <div id="cb3" class="callout g" style="opacity:0">B 先启动 → 执行者变为 Player B</div>
+          <div id="b-dim" class="pane-dim" style="opacity:0">玩家 B 已离开</div>
+        </div>
+        <div id="sync" class="sync-badge" style="opacity:0"><div>同步</div><div id="sync-ab">A → B</div><div id="sync-ba" style="position:absolute;left:0;right:0;bottom:8px;opacity:0;background:rgba(6,11,8,0.94)">B → A</div></div>
+        <div class="facts">
+          <div id="f1" class="fact"><i></i>默认：运行权靠抢占，谁先启动谁运行</div>
+          <div id="f2" class="fact sky"><i></i>只同步结果：位置 · 姿态 · 速度（20 Hz）+ 地形修改</div>
+          <div id="f3" class="fact amber"><i></i>运行权：8 秒租约，由运行者的设备独占并持续续期</div>
+          <div id="f4" class="fact amber"><i></i>运行者可随时停止 → 立即释放运行权</div>
+          <div id="f5" class="fact"><i></i>离开或掉线 → 几秒内空出 → 附近玩家立即抢占</div>
+          <div id="f6" class="fact sky"><i></i>每个浏览器最多同时运行 8 个实体</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S3 SERVER HOSTING (74.3 – 90.7) -->
+    <section id="s3" class="scene clip" data-start="74.3" data-duration="16.4">
+      <div class="scene-inner">
+        <div class="scene-header compact">
+          <div class="eyebrow">服务器托管</div>
+          <h2 class="scene-title">需要不间断运行 → <span class="hl-green">交给服务器托管</span></h2>
+        </div>
+        <div id="pane-h" class="pane h">
+          <div class="pane-tag">第三位玩家的视角</div>
+          <span id="rh0" class="role run">运行者 · Player A</span>
+          <span id="rh1" class="role srv" style="opacity:0">执行者：服务器</span>
+          <div id="ch1" class="callout v" style="opacity:0">实体菜单 → Host…</div>
+          <div id="ch2" class="callout v" style="opacity:0">名牌显示 Server hosting</div>
+          <div id="ch3" class="callout v" style="opacity:0">Hosted Entities 列表里出现这台铺路机</div>
+        </div>
+        <div id="host-card" class="dcard host-card">
+          <div class="kick" style="color:#a78bfa">HOSTED // 服务器</div>
+          <div class="ttl">运行权固定在服务器上</div>
+          <svg viewBox="0 0 580 460" font-family="Fusion-Pixel-Zh-Hans, sans-serif">
+            <g id="hs">
+              <rect x="10" y="8" width="560" height="244" fill="rgba(167,139,250,0.08)" stroke="#a78bfa" stroke-width="3"/>
+              <text x="30" y="44" fill="#ddd6fe" font-size="26">服务器</text>
+            </g>
+            <g id="hp"><rect x="34" y="64" width="512" height="78" fill="#0e1310" stroke="#4ade80" stroke-width="3"/><rect x="56" y="88" width="30" height="30" fill="#4ade80" transform="rotate(45 71 103)"/><text x="108" y="112" fill="#fff" font-size="28">独立进程 · 铺路机</text></g>
+            <g id="he"><rect x="34" y="158" width="512" height="70" fill="rgba(56,189,248,0.12)" stroke="#38bdf8" stroke-width="2"/><text x="290" y="202" text-anchor="middle" fill="#7dd3fc" font-size="26">同一套引擎：脚本 + 物理</text></g>
+            <g id="hlinks" stroke="#a78bfa" stroke-width="3" stroke-dasharray="10 8" fill="none">
+              <line x1="290" y1="252" x2="100" y2="350"/><line x1="290" y1="252" x2="290" y2="350"/><line x1="290" y1="252" x2="480" y2="350"/>
+            </g>
+            <circle id="hq0" cx="290" cy="252" r="8" fill="#ddd6fe"/>
+            <circle id="hq1" cx="290" cy="252" r="8" fill="#ddd6fe"/>
+            <circle id="hq2" cx="290" cy="252" r="8" fill="#ddd6fe"/>
+            <text id="nolease" x="290" y="300" text-anchor="middle" fill="#fde68a" font-size="22" style="paint-order:stroke" stroke="#0b0f0c" stroke-width="6">不再参与抢占</text>
+            <g id="hpl">
+              <g><rect x="20" y="350" width="160" height="100" fill="#0e1310" stroke="rgba(255,255,255,0.45)" stroke-width="2"/><text x="100" y="390" text-anchor="middle" fill="#d4d4d8" font-size="24">玩家 A</text><text x="100" y="426" text-anchor="middle" fill="#7dd3fc" font-size="20">只接收结果</text></g>
+              <g><rect x="210" y="350" width="160" height="100" fill="#0e1310" stroke="rgba(255,255,255,0.45)" stroke-width="2"/><text x="290" y="390" text-anchor="middle" fill="#d4d4d8" font-size="24">玩家 B</text><text x="290" y="426" text-anchor="middle" fill="#7dd3fc" font-size="20">只接收结果</text></g>
+              <g><rect x="400" y="350" width="160" height="100" fill="#0e1310" stroke="rgba(255,255,255,0.45)" stroke-width="2"/><text x="480" y="390" text-anchor="middle" fill="#d4d4d8" font-size="24">玩家 C</text><text x="480" y="426" text-anchor="middle" fill="#7dd3fc" font-size="20">只接收结果</text></g>
+            </g>
+          </svg>
+        </div>
+        <div class="facts host">
+          <div id="fh1" class="fact violet"><i></i>运行权固定在服务器上，不再参与抢占</div>
+          <div id="fh2" class="fact violet"><i></i>托管：每个实体一个独立进程</div>
+          <div id="fh3" class="fact sky"><i></i>同一套引擎运行脚本与物理</div>
+          <div id="fh4" class="fact"><i></i>其他玩家同样只接收结果</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="progress-track"><div class="progress-fill"></div></div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const TOTAL = 90.7;
+    const pop = (sel, at, from = { y: 24 }) =>
+      tl.from(sel, { ...from, opacity: 0, duration: 0.45, ease: "power3.out" }, at);
+    const fadeIn = (sel, at, d = 0.4) => tl.to(sel, { opacity: 1, duration: d, ease: "power2.out" }, at);
+    const fadeOut = (sel, at, d = 0.35) => tl.to(sel, { opacity: 0, duration: d, ease: "power2.in" }, at);
+    const show = (sel, from, to) => { fadeIn(sel, from, 0.3); if (to != null) fadeOut(sel, to - 0.3, 0.3); };
+    const swap = (offSel, onSel, at) => { tl.set(offSel, { opacity: 0 }, at); tl.set(onSel, { opacity: 1 }, at); };
+    function scene(id, start, dur) {
+      const inner = `#${id} > .scene-inner`;
+      tl.fromTo(inner, { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, start);
+      tl.to(inner, { opacity: 0, duration: 0.3, ease: "power2.in" }, start + dur - 0.3);
+      tl.set(inner, { opacity: 0 }, start + dur);
+    }
+
+    // ---- S1: one server loop vs self-contained entities on player devices
+    scene("s1", 0, 35.6);
+    pop("#s1-left", 0.3, { x: -36 });
+    tl.from("#loop", { opacity: 0, y: 16, duration: 0.45 }, 0.8);
+    tl.fromTo("#ring-hand", { rotation: 0 }, { rotation: 360 * 11, svgOrigin: "100 304", duration: 11.5, ease: "none" }, 1.5);
+    tl.to("#ring-hand", { rotation: 360 * 19, svgOrigin: "100 304", duration: 22, ease: "none" }, 13.0);
+    tl.fromTo("#cursor", { x: 0 }, { x: 310, duration: 0.5, ease: "none", repeat: 22 }, 1.5);
+    pop("#tag20", 3.6, { y: 10 });
+    tl.from("#ms50", { opacity: 0, duration: 0.3 }, 3.8);
+    pop("#q0", 7.3); pop("#q1", 8.8); pop("#q2", 10.3);
+    tl.from("#q-arrows path", { opacity: 0, duration: 0.3, stagger: 1.5 }, 7.5);
+    tl.from("#players, #pl-links", { opacity: 0, y: 16, duration: 0.45 }, 11.2);
+    // one machine gets heavy: the tick overruns 50 ms and the whole world slows
+    tl.to("#q1-frame", { attr: { "stroke-width": 7 }, duration: 0.2, yoyo: true, repeat: 3 }, 12.6);
+    tl.to("#sg-c", { attr: { width: 300 }, duration: 0.6, ease: "power2.inOut" }, 12.9);
+    tl.to("#sg-e", { attr: { x: 580 }, fill: "#ef4444", duration: 0.6, ease: "power2.inOut" }, 12.9);
+    tl.fromTo("#cursor", { x: 0 }, { x: 490, duration: 1.3, ease: "none", repeat: 16, immediateRender: false }, 13.0);
+    pop("#over", 13.6, { x: 16 });
+    tl.to("#players .st-ok", { opacity: 0, duration: 0.2 }, 15.6);
+    tl.to("#players .st-lag", { opacity: 1, duration: 0.2 }, 15.6);
+    tl.to("#players > g rect", { attr: { stroke: "#f87171" }, duration: 0.2 }, 15.6);
+    tl.to("#players > g", { x: 4, duration: 0.07, yoyo: true, repeat: 11, stagger: 0.05 }, 15.7);
+
+    pop("#s1-right", 18.2, { x: 36 });
+    tl.from("#cap > rect, #cap > text", { opacity: 0, duration: 0.35 }, 18.4);
+    pop("#cr0", 21.0, { x: -20 }); pop("#cr1", 21.9, { x: -20 }); pop("#cr2", 22.8, { x: -20 });
+    tl.from("#srv2, #d0, #d1, #d2", { opacity: 0, y: 16, duration: 0.35, stagger: 0.12 }, 23.5);
+    tl.from("#d0 .dent, #d1 .dent, #d2 .dent, #d0 .dst, #d1 .dst, #d2 .dst", { opacity: 0, duration: 0.01 }, 23.5);
+    tl.to("#cap", { x: -312, y: 386, scale: 0.12, transformOrigin: "50% 50%", opacity: 0, duration: 0.8, ease: "power2.in" }, 24.6);
+    tl.fromTo("#d0 .dent", { opacity: 0 }, { opacity: 1, duration: 0.25, immediateRender: false }, 25.3);
+    tl.fromTo("#d1 .dent, #d2 .dent", { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.25, immediateRender: false }, 25.7);
+    tl.fromTo(".dst", { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: false }, 26.3);
+    tl.fromTo("#bt0", { attr: { width: 0 } }, { attr: { width: 200 }, duration: 0.7, ease: "none", repeat: 13 }, 26.3);
+    tl.fromTo("#bt1", { attr: { width: 0 } }, { attr: { width: 200 }, duration: 0.95, ease: "none", repeat: 3 }, 26.3);
+    tl.fromTo("#bt2", { attr: { width: 0 } }, { attr: { width: 200 }, duration: 0.82, ease: "none", repeat: 11 }, 26.3);
+    tl.from("#links2 line, #lk2-label", { opacity: 0, duration: 0.3, stagger: 0.1 }, 26.8);
+    [["#pq0", 140, 400, 360], ["#pq1", 400, 400, 400], ["#pq2", 660, 400, 440]].forEach(([sel, x, y, tx], i) => {
+      tl.fromTo(sel, { attr: { cx: x, cy: y }, opacity: 0 }, { attr: { cx: tx, cy: 334 }, opacity: 1, duration: 0.9, ease: "none", repeat: 8, delay: i * 0.25 }, 27.0);
+    });
+    // a heavy entity only slows the device that runs it
+    tl.to("#d1 .dent", { scale: 1.7, transformOrigin: "50% 50%", fill: "#ef4444", duration: 0.5, ease: "back.out(2)" }, 29.6);
+    tl.to("#d1 .dbox", { attr: { stroke: "#f87171" }, duration: 0.3 }, 29.8);
+    tl.to("#d1 .dst", { opacity: 0, duration: 0.2 }, 29.9);
+    tl.to("#d1 .dslow", { opacity: 1, duration: 0.2 }, 29.9);
+    tl.fromTo("#bt1", { attr: { width: 0 } }, { attr: { width: 200 }, fill: "#f87171", duration: 2.4, ease: "none", repeat: 2, immediateRender: false }, 30.1);
+    tl.to("#d0 .dbox, #d2 .dbox", { attr: { stroke: "#4ade80" }, duration: 0.3 }, 31.6);
+    pop("#s1-goal", 31.9, { y: 20 });
+    tl.from("#g2", { opacity: 0.15, duration: 0.4 }, 32.6);
+    tl.from("#g3", { opacity: 0.15, duration: 0.4 }, 33.6);
+    tl.from("#s1-goal .arr", { opacity: 0.15, duration: 0.4, stagger: 1.0 }, 32.5);
+
+    // ---- S2: authority, split screen (clip time + 35.6)
+    scene("s2", 35.6, 38.7);
+    tl.fromTo("#vid-a, #vid-b", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 35.6);
+    fadeOut("#vid-a, #vid-b", 74.0, 0.3);
+    swap("#ra0", "#ra1", 38.2); swap("#rb0", "#rb1", 38.2);
+    swap("#ra1", "#ra2", 59.2); swap("#rb1", "#rb0", 59.2);
+    swap("#ra2", "#ra3", 62.6); swap("#rb0", "#rb2", 62.6);
+    swap("#rb2", "#rb3", 67.9);
+    swap("#ra3", "#ra4", 70.6);
+    show("#ca1", 38.4, 44.0);
+    show("#cb1", 44.4, 53.2);
+    show("#cb2", 53.5, 59.0);
+    show("#ca2", 59.3, 62.5);
+    show("#cb3", 62.8, 67.7);
+    show("#ca3", 68.0, 70.6);
+    show("#ca4", 70.8, 74.3);
+    fadeIn("#b-dim", 68.8, 0.6);
+    show("#sync", 46.4, 59.2);
+    show("#sync", 62.8, 67.9);
+    swap("#sync-ab", "#sync-ba", 62.6);
+    swap("#sync-ba", "#sync-ab", 70.6);
+    show("#sync", 70.8, 74.3);
+    pop("#f1", 39.0, { y: 14 });
+    pop("#f2", 47.0, { y: 14 });
+    pop("#f3", 53.6, { y: 14 });
+    pop("#f4", 59.4, { y: 14 });
+    pop("#f5", 66.4, { y: 14 });
+    pop("#f6", 71.4, { y: 14 });
+
+    // ---- S3: server hosting (clip time + 74.3)
+    scene("s3", 74.3, 16.4);
+    tl.fromTo("#vid-h", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 74.3);
+    show("#ch1", 74.7, 76.7);
+    swap("#rh0", "#rh1", 76.9);
+    show("#ch2", 77.0, 79.4);
+    show("#ch3", 79.6, 83.6);
+    pop("#host-card", 74.8, { x: 36 });
+    tl.from("#hs", { opacity: 0, duration: 0.35 }, 75.0);
+    tl.from("#hpl > g", { opacity: 0, y: 12, duration: 0.3, stagger: 0.12 }, 75.2);
+    pop("#fh1", 78.4, { y: 14 });
+    pop("#nolease", 79.4, { scale: 0.8, transformOrigin: "50% 50%" });
+    pop("#hp", 81.4, { x: -20 });
+    pop("#fh2", 81.7, { y: 14 });
+    pop("#he", 84.4, { x: -20 });
+    pop("#fh3", 84.6, { y: 14 });
+    tl.from("#hlinks line", { opacity: 0, duration: 0.3, stagger: 0.1 }, 87.2);
+    [["#hq0", 100], ["#hq1", 290], ["#hq2", 480]].forEach(([sel, tx], i) => {
+      tl.fromTo(sel, { attr: { cx: 290, cy: 252 }, opacity: 0 }, { attr: { cx: tx, cy: 350 }, opacity: 1, duration: 0.8, ease: "none", repeat: 3, delay: i * 0.2 }, 87.4);
+    });
+    pop("#fh4", 87.4, { y: 14 });
+
+    tl.to(".progress-fill", { width: "100%", duration: TOTAL, ease: "none" }, 0);
+    window.__timelines = window.__timelines || {};
+    window.__timelines["root"] = tl;
+  </script>
+</body>
+</html>

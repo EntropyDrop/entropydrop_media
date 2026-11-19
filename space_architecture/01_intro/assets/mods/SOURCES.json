@@ -1,0 +1,136 @@
+[
+  {
+    "file": "mc_castle.png",
+    "subject": "Minecraft 原版建筑造型",
+    "author": "Minecraft Official / Minecraft Wiki",
+    "source": "minecraft.wiki/w/File:AMCM_The_castle.png"
+  },
+  {
+    "file": "mc_piston_door.png",
+    "subject": "Minecraft 原版活塞门与红石中继器",
+    "author": "Minecraft Community / Minecraft Wiki",
+    "source": "minecraft.wiki"
+  },
+  {
+    "file": "mc_redstone_door.png",
+    "subject": "Minecraft 原版红石线路",
+    "author": "Minecraft Wiki",
+    "source": "minecraft.wiki/w/File:Double_door_redstone_switch.png"
+  },
+  {
+    "file": "mc_redstone_farm.png",
+    "subject": "Minecraft 原版红石自动农场",
+    "author": "Minecraft Wiki",
+    "source": "minecraft.wiki/w/File:Automatic_Bamboo_Farm_Redstone.png"
+  },
+  {
+    "file": "cb_bridge_1.png",
+    "subject": "Chisels & Bits 雕刻桥梁栏杆与台阶",
+    "author": "Chisels & Bits Official Gallery (AlgorithmX2 / OrionOnline)",
+    "source": "curseforge.com/minecraft/mc-mods/chisels-bits"
+  },
+  {
+    "file": "cb_sculp_screen15.png",
+    "subject": "Chisels & Bits 微型桌椅与雕刻内饰",
+    "author": "Chisels & Bits Official Gallery",
+    "source": "github.com/ChiselsAndBits/Assets"
+  },
+  {
+    "file": "cb_user_submission_windows.png",
+    "subject": "Chisels & Bits 精细窗格雕刻",
+    "author": "Chisels & Bits Community Submission",
+    "source": "github.com/ChiselsAndBits/Assets"
+  },
+  {
+    "file": "littletiles_1.png",
+    "subject": "LittleTiles 精细吧台与高脚凳",
+    "author": "CreativeMD (Modrinth Gallery)",
+    "source": "modrinth.com/mod/littletiles"
+  },
+  {
+    "file": "littletiles_2.png",
+    "subject": "LittleTiles 自动售货机与栏杆细节",
+    "author": "CreativeMD (Modrinth Gallery)",
+    "source": "modrinth.com/mod/littletiles"
+  },
+  {
+    "file": "yuushya_modelling_1.jpg",
+    "subject": "Yuushya Modelling 位移/旋转/缩放模型编辑",
+    "author": "Yuushya Team (Modrinth Gallery)",
+    "source": "modrinth.com/mod/yuushya-modelling"
+  },
+  {
+    "file": "yuushya_townscape_1.png",
+    "subject": "Yuushya Townscape 旋转与缩放室内道具",
+    "author": "Yuushya Team (Modrinth Gallery)",
+    "source": "modrinth.com/mod/yuushya-townscape"
+  },
+  {
+    "file": "yuushya_townscape_2.jpg",
+    "subject": "Yuushya Townscape 街道斜向扶手与建筑装饰",
+    "author": "Yuushya Team (Modrinth Gallery)",
+    "source": "modrinth.com/mod/yuushya-townscape"
+  },
+  {
+    "file": "create_waterwheel.png",
+    "subject": "Create 水车旋转动力生成",
+    "author": "Create Mod Wiki (Fandom)",
+    "source": "create.fandom.com/wiki/Water_Wheel"
+  },
+  {
+    "file": "create_ponder.png",
+    "subject": "Create Ponder 水车传动示意",
+    "author": "Create Mod Wiki (Fandom)",
+    "source": "create.fandom.com/wiki/Water_Wheel"
+  },
+  {
+    "file": "create_aero_1.png",
+    "subject": "Create Aeronautics 飞行器与螺旋桨",
+    "author": "Simulated Team (Modrinth Gallery)",
+    "source": "modrinth.com/mod/create-aeronautics"
+  },
+  {
+    "file": "cc_terminal.png",
+    "subject": "CC: Tweaked 计算机终端界面",
+    "author": "SquidDev (Modrinth Gallery)",
+    "source": "modrinth.com/mod/cc-tweaked"
+  },
+  {
+    "file": "cc_turtle.png",
+    "subject": "CC: Tweaked 海龟机器人地下采掘",
+    "author": "SquidDev (Modrinth Gallery)",
+    "source": "modrinth.com/mod/cc-tweaked"
+  },
+  {
+    "file": "vs_2.png",
+    "subject": "Valkyrien Skies 倾斜帆船刚体",
+    "author": "Triode / Valkyrien Skies Team (Modrinth Gallery)",
+    "source": "modrinth.com/mod/valkyrien-skies"
+  },
+  {
+    "file": "vs_3.png",
+    "subject": "Valkyrien Skies 漂浮刚体木筏与矿车轨道",
+    "author": "Triode / Valkyrien Skies Team (Modrinth Gallery)",
+    "source": "modrinth.com/mod/valkyrien-skies"
+  },
+  {
+    "file": "eureka_2.png",
+    "subject": "Eureka! Ships! 船舵、引擎与气球功能方块",
+    "author": "Valkyrien Skies / Eureka! Team (Modrinth Gallery)",
+    "source": "modrinth.com/mod/eureka"
+  },
+  {
+    "file": "mc_village.png",
+    "subject": "Minecraft 原版平原村庄",
+    "author": "Minecraft Wiki",
+    "source": "https://minecraft.wiki/w/File:Village_in_Plains_biomes.png",
+    "license": "CC BY-NC-SA 3.0 (Minecraft Wiki)"
+  },
+  {
+    "file": "create_cogwheels.png",
+    "subject": "Create 齿轮与大齿轮（机械传动）",
+    "author": "Create Mod Wiki (Fandom)",
+    "source": "https://create.fandom.com/wiki/File:Cogwheel_and_Large_Cogwheel.png",
+    "license": "CC BY-SA (Fandom)"
+  }
+]

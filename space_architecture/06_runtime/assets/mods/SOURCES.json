@@ -1,0 +1,25 @@
+[
+  {
+    "file": "mc_redstone_door.png",
+    "subject": "Minecraft 原版红石线路",
+    "author": "Minecraft Wiki",
+    "source": "minecraft.wiki/w/File:Double_door_redstone_switch.png",
+    "note": "copied from 01_intro/assets/mods, downscaled to 640px"
+  },
+  {
+    "file": "mc_village.png",
+    "subject": "Minecraft 原版平原村庄",
+    "author": "Minecraft Wiki",
+    "source": "https://minecraft.wiki/w/File:Village_in_Plains_biomes.png",
+    "license": "CC BY-NC-SA 3.0 (Minecraft Wiki)",
+    "note": "copied from 01_intro/assets/mods, downscaled to 640px"
+  },
+  {
+    "file": "create_cogwheels.png",
+    "subject": "Create 齿轮与大齿轮（机械传动）",
+    "author": "Create Mod Wiki (Fandom)",
+    "source": "https://create.fandom.com/wiki/File:Cogwheel_and_Large_Cogwheel.png",
+    "license": "CC BY-SA (Fandom)",
+    "note": "copied from 01_intro/assets/mods, downscaled to 640px"
+  }
+]

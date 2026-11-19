@@ -1,0 +1,10 @@
+{
+  "name": "space-architecture-05-code",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.6.6 preview",
+    "check": "npx --yes hyperframes@0.6.6 lint && npx --yes hyperframes@0.6.6 validate && npx --yes hyperframes@0.6.6 inspect",
+    "render": "npx --yes hyperframes@0.6.6 render -w 1 --crf 18 -o exports/05_code.mp4"
+  }
+}

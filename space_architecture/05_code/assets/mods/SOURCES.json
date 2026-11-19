@@ -1,0 +1,15 @@
+[
+  {"file": "create_aero_airship.png", "subject": "Create Aeronautics 飞艇：螺旋桨 + 热气气囊", "author": "Create Aeronautics team (Modrinth gallery: Cloud Skipper)", "source": "https://modrinth.com/mod/create-aeronautics/gallery"},
+  {"file": "create_aero_car.png", "subject": "Create Aeronautics 陆地载具（车轮）", "author": "Create Aeronautics team (Modrinth gallery: Big Car)", "source": "https://modrinth.com/mod/create-aeronautics/gallery"},
+  {"file": "ca_propeller_bearing.png", "subject": "Create Aeronautics 螺旋桨轴承方块", "author": "Create Aeronautics Wiki (Fandom)", "source": "https://create-aeronautics.fandom.com/wiki/Propeller_Bearing"},
+  {"file": "ca_hot_air_burner.png", "subject": "Create Aeronautics 热空气燃烧室方块", "author": "Create Aeronautics Wiki (Fandom)", "source": "https://create-aeronautics.fandom.com/wiki/Hot_Air_Burner"},
+  {"file": "ca_hot_air_envelope.png", "subject": "Create Aeronautics 热气气囊方块", "author": "Create Aeronautics Wiki (Fandom)", "source": "https://create-aeronautics.fandom.com/wiki/Hot_Air_Envelope"},
+  {"file": "eureka_2.png", "subject": "Eureka! Ships! 船舵、引擎与气球功能方块", "author": "Valkyrien Skies team", "source": "https://modrinth.com/mod/eureka"},
+  {"file": "vs_2.png", "subject": "Valkyrien Skies 刚体帆船", "author": "Valkyrien Skies team", "source": "https://modrinth.com/mod/valkyrien-skies"},
+  {"file": "create_cogwheels.png", "subject": "Create 齿轮与大齿轮（机械传动）", "author": "Create Wiki (Fandom)", "source": "https://create.fandom.com/wiki/File:Cogwheel_and_Large_Cogwheel.png"},
+  {"file": "mc_redstone_door.png", "subject": "Minecraft 原版红石线路", "author": "Minecraft Wiki", "source": "https://minecraft.wiki/w/File:Double_door_redstone_switch.png"},
+  {"file": "mc_redstone_farm.png", "subject": "Minecraft 原版红石自动农场", "author": "Minecraft Wiki", "source": "https://minecraft.wiki/w/File:Automatic_Bamboo_Farm_Redstone.png"},
+  {"file": "cc_terminal.png", "subject": "CC: Tweaked 计算机终端", "author": "SquidDev (Modrinth gallery)", "source": "https://modrinth.com/mod/cc-tweaked/gallery"},
+  {"file": "cc_peripheral.png", "subject": "CC: Tweaked 计算机经外设读取箱子并显示到显示器", "author": "SquidDev (Modrinth gallery)", "source": "https://modrinth.com/mod/cc-tweaked/gallery"},
+  {"file": "cc_turtle.png", "subject": "CC: Tweaked 海龟机器人挖掘隧道", "author": "SquidDev (Modrinth gallery)", "source": "https://modrinth.com/mod/cc-tweaked/gallery"}
+]

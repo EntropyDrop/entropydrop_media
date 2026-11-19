@@ -1,0 +1,66 @@
+[
+  {
+    "file": "create_aero_1.png",
+    "subject": "Create Aeronautics 飞行器与螺旋桨",
+    "author": "Simulated Team (Modrinth Gallery)",
+    "source": "modrinth.com/mod/create-aeronautics"
+  },
+  {
+    "file": "vs_2.png",
+    "subject": "Valkyrien Skies 倾斜帆船刚体",
+    "author": "Triode / Valkyrien Skies Team (Modrinth Gallery)",
+    "source": "modrinth.com/mod/valkyrien-skies"
+  },
+  {
+    "file": "vs_3.png",
+    "subject": "Valkyrien Skies 漂浮刚体木筏与矿车轨道",
+    "author": "Triode / Valkyrien Skies Team (Modrinth Gallery)",
+    "source": "modrinth.com/mod/valkyrien-skies"
+  },
+  {
+    "file": "eureka_2.png",
+    "subject": "Eureka! Ships! 船舵、引擎与气球功能方块",
+    "author": "Valkyrien Skies / Eureka! Team (Modrinth Gallery)",
+    "source": "modrinth.com/mod/eureka"
+  },
+  {
+    "file": "create_ponder.png",
+    "subject": "Create Ponder 水车传动示意",
+    "author": "Create Mod Wiki (Fandom)",
+    "source": "create.fandom.com/wiki/Water_Wheel"
+  },
+  {
+    "file": "create_waterwheel.png",
+    "subject": "Create 水车旋转动力生成",
+    "author": "Create Mod Wiki (Fandom)",
+    "source": "create.fandom.com/wiki/Water_Wheel"
+  },
+  {
+    "file": "create_bearing_1.png",
+    "subject": "Create 风车轴承驱动帆叶旋转（平原村庄风车）",
+    "author": "FusionSwarly (Create: Structures, Modrinth Gallery)",
+    "source": "modrinth.com/mod/create-structures",
+    "url": "https://cdn.modrinth.com/data/IAnP4np7/images/2d9a9fd558fb43cd353877b781c99dbe9bd4c951.png"
+  },
+  {
+    "file": "create_train_1.png",
+    "subject": "Create 列车沿铁轨行驶（雪原高架）",
+    "author": "HadesScience (Create Train modpack, Modrinth Gallery)",
+    "source": "modrinth.com/modpack/create_train",
+    "url": "https://cdn.modrinth.com/data/ercfLWTY/images/ca42e5670a026c4ab4a4c6b5c2fe045873babf18.png"
+  },
+  {
+    "file": "create_cart_1.png",
+    "subject": "Create 矿车装配站：矿车装置沿铁轨移动铺设",
+    "author": "CaptiousToady (Create Mod Wiki, Fandom)",
+    "source": "create.fandom.com/wiki/Tutorials/Mining_Contraptions",
+    "url": "https://static.wikia.nocookie.net/create_mod/images/e/e3/Contraption_w_auto_rails.png"
+  },
+  {
+    "file": "create_aero_2.png",
+    "subject": "Create Aeronautics 飞艇悬停于悬崖旁（Cloud Skipper）",
+    "author": "Simulated Team (Modrinth Gallery)",
+    "source": "modrinth.com/mod/create-aeronautics",
+    "url": "https://cdn.modrinth.com/data/oWaK0Q19/images/b0f37794880f9da33cb27db1f8782ef40a6611df.png"
+  }
+]

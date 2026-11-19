@@ -1,0 +1,11 @@
+{
+  "name": "space-architecture-01-intro",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "python3 scripts/build_iso.py",
+    "dev": "npx --yes hyperframes@0.6.6 preview",
+    "check": "npx --yes hyperframes@0.6.6 lint && npx --yes hyperframes@0.6.6 validate && npx --yes hyperframes@0.6.6 inspect",
+    "render": "npx --yes hyperframes@0.6.6 render -w 2 --crf 18 -o exports/01_intro.mp4"
+  }
+}

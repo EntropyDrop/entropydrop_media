@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>Space 体素游戏架构设计</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./vendor/gsap.min.js"></script>
+</head>
+<body>
+  <div id="root" data-composition-id="root" data-start="0" data-duration="90.5" data-width="1920" data-height="1080">
+    <div class="arch-grid"></div>
+
+    <audio id="vo" class="clip voiceover-track" src="./audios/01_intro/voice.zh.wav"
+      data-start="0" data-duration="90.5" data-volume="1"></audio>
+
+    <!-- Space footage (each clip stays within its native length) -->
+    <video id="vid-open" class="clip bg-video" src="./footage/01_intro_aether_flight.mp4"
+      data-start="0" data-duration="7.8" data-media-start="0" data-volume="0" muted playsinline></video>
+    <video id="vid-principle" class="clip bg-video" src="./footage/01_intro_copper_world.mp4"
+      data-start="59.2" data-duration="14.3" data-media-start="0.5" data-volume="0" muted playsinline></video>
+    <video id="vid-overview" class="clip bg-video" src="./footage/01_intro_overview.mp4"
+      data-start="73.3" data-duration="13.6" data-media-start="0" data-volume="0" muted playsinline></video>
+    <video id="vid-outro" class="clip bg-video" src="./footage/01_intro_aether_flight.mp4"
+      data-start="86.7" data-duration="3.8" data-media-start="8" data-volume="0" muted playsinline></video>
+
+    <!-- S1 OPENING (0 – 7.65) -->
+    <section id="s1" class="scene clip" data-start="0" data-duration="7.65">
+      <div class="scene-inner">
+        <div class="scrim scrim-left-strong"></div>
+        <div class="op-stack">
+          <h1 class="op-title">Space 体素游戏<br><span>架构设计</span></h1>
+          <div class="op-needs">
+            <div id="s1-need-shape" class="need-chip sky"><b>需求一</b><span>造型</span></div>
+            <div id="s1-need-behav" class="need-chip green"><b>需求二</b><span>行为</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S2 MINECRAFT VANILLA (7.6 – 23.1) -->
+    <section id="s2" class="scene clip scene-solid" data-start="7.6" data-duration="15.5">
+      <div class="scene-inner">
+        <div class="scene-header">
+          <div class="eyebrow">以 Minecraft 为例</div>
+          <h2 class="scene-title">两类需求：<span class="hl-sky">造型</span> 与 <span class="hl-green">行为</span></h2>
+        </div>
+        <div class="duo">
+          <div id="s2-shape" class="panel sky">
+            <div class="panel-top"><span class="kick">需求一</span><span class="name">造型</span><span class="desc">搭出城堡与城市</span></div>
+            <div class="media">
+              <img id="s2-castle" data-layout-allow-overflow src="./assets/mods/mc_castle.png" alt="Minecraft castle">
+              <img id="s2-village" data-layout-allow-overflow src="./assets/mods/mc_village.png" alt="Minecraft village" style="opacity:0">
+              <span class="source">Minecraft Wiki</span>
+            </div>
+            <div class="panel-foot">
+              <span id="s2-t1" class="tag">方块</span><span id="s2-t2" class="tag">台阶</span><span id="s2-t3" class="tag">楼梯</span>
+            </div>
+          </div>
+          <div id="s2-behav" class="panel green">
+            <div class="panel-top"><span class="kick">需求二</span><span class="name">行为</span><span class="desc">红石 · 活塞</span></div>
+            <div class="media">
+              <img id="s2-door" src="./assets/mods/mc_piston_door.png" alt="Piston door">
+              <img id="s2-farm" src="./assets/mods/mc_redstone_farm.png" alt="Redstone farm" style="opacity:0">
+              <span id="s2-cap-door" class="cap">自动门</span>
+              <span id="s2-cap-farm" class="cap" style="opacity:0">自动农场</span>
+              <span class="source">Minecraft Wiki</span>
+            </div>
+            <div class="panel-foot">
+              <span id="s2-b1" class="tag">动起来</span><span id="s2-b2" class="tag">受控制</span><span id="s2-b3" class="tag">能自动运转</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S3 COMMUNITY MODS (23.1 – 40.5) -->
+    <section id="s3" class="scene clip scene-solid" data-start="23.1" data-duration="17.4">
+      <div class="scene-inner">
+        <div class="scene-header">
+          <div class="eyebrow">社区模组</div>
+          <h2 class="scene-title">把两类需求推得更远</h2>
+        </div>
+        <div class="mods-grid">
+          <div class="mods-row shape">
+            <div id="s3-lab-shape" class="row-label sky"><b>SHAPE</b><span>造型</span></div>
+            <div id="m-cb" class="mod">
+              <div class="mimg"><img src="./assets/mods/cb_sculp_screen15.png" alt="Chisels & Bits"></div>
+              <div class="mmeta"><div class="mname">Chisels &amp; Bits</div><div class="mdesc">把方块切得更细</div></div>
+            </div>
+            <div id="m-lt" class="mod">
+              <div class="mimg"><img src="./assets/mods/littletiles_1.png" alt="LittleTiles"></div>
+              <div class="mmeta"><div class="mname">LittleTiles</div><div class="mdesc">把方块切得更细</div></div>
+            </div>
+            <div id="m-yu" class="mod">
+              <div class="mimg"><img src="./assets/mods/yuushya_modelling_1.jpg" alt="Yuushya Modelling"></div>
+              <div class="mmeta"><div class="mname">Yuushya Modelling</div><div class="mdesc">模型自由旋转与缩放</div></div>
+            </div>
+          </div>
+          <div class="mods-row behav">
+            <div id="s3-lab-behav" class="row-label green"><b>BEHAVIOR</b><span>行为</span></div>
+            <div id="m-cr" class="mod">
+              <div class="mimg"><img src="./assets/mods/create_waterwheel.png" alt="Create"></div>
+              <div class="mmeta"><div class="mname">Create</div><div class="mdesc">机械传动</div></div>
+            </div>
+            <div id="m-cc" class="mod">
+              <div class="mimg split">
+                <div><img src="./assets/mods/cc_turtle.png" alt="CC: Tweaked turtle"></div>
+                <div><img src="./assets/mods/cc_terminal.png" alt="CC: Tweaked terminal"></div>
+              </div>
+              <div class="mmeta"><div class="mname">CC: Tweaked</div><div class="mdesc">游戏内编程</div></div>
+            </div>
+            <div id="m-vs" class="mod">
+              <div class="mimg"><img src="./assets/mods/vs_2.png" alt="Valkyrien Skies"></div>
+              <div class="mmeta"><div class="mname">Valkyrien Skies</div><div class="mdesc">刚体物理</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S4 HOST ARCHITECTURE CONSTRAINT (40.5 – 59.3) -->
+    <section id="s4" class="scene clip scene-solid" data-start="40.5" data-duration="18.8">
+      <div class="scene-inner">
+        <div class="scene-header">
+          <div class="eyebrow amber">Minecraft 的既有架构</div>
+          <h2 class="scene-title">世界由 <span class="hl-amber">一米网格</span> 中的方块构成</h2>
+        </div>
+        <div class="cons">
+          <div id="s4-gridcard" class="grid-card" data-layout-ignore>
+            <img id="s4-photo" data-layout-allow-overflow src="./assets/mods/mc_castle.png" alt="Minecraft world">
+            <div id="s4-iso" class="grid-iso" style="opacity:0"><!--ISO--><svg id="iso-svg" viewBox="0 0 860 720" width="860" height="720" xmlns="http://www.w3.org/2000/svg"><polygon points="430.0,146.0 485.4,178.0 430.0,210.0 374.6,178.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,178.0 430.0,210.0 430.0,274.0 374.6,242.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,178.0 430.0,210.0 430.0,274.0 485.4,242.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,178.0 430.0,210.0 374.6,242.0 319.1,210.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="319.1,210.0 374.6,242.0 374.6,306.0 319.1,274.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,210.0 374.6,242.0 374.6,306.0 430.0,274.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,178.0 540.9,210.0 485.4,242.0 430.0,210.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,210.0 485.4,242.0 485.4,306.0 430.0,274.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,210.0 485.4,242.0 485.4,306.0 540.9,274.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="319.1,210.0 374.6,242.0 319.1,274.0 263.7,242.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="263.7,242.0 319.1,274.0 319.1,338.0 263.7,306.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,242.0 319.1,274.0 319.1,338.0 374.6,306.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,210.0 485.4,242.0 430.0,274.0 374.6,242.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,242.0 430.0,274.0 430.0,338.0 374.6,306.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,242.0 430.0,274.0 430.0,338.0 485.4,306.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,210.0 596.3,242.0 540.9,274.0 485.4,242.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,242.0 540.9,274.0 540.9,338.0 485.4,306.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="596.3,242.0 540.9,274.0 540.9,338.0 596.3,306.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="263.7,242.0 319.1,274.0 263.7,306.0 208.3,274.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="208.3,274.0 263.7,306.0 263.7,370.0 208.3,338.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="319.1,274.0 263.7,306.0 263.7,370.0 319.1,338.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,242.0 430.0,274.0 374.6,306.0 319.1,274.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="319.1,274.0 374.6,306.0 374.6,370.0 319.1,338.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,274.0 374.6,306.0 374.6,370.0 430.0,338.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,242.0 540.9,274.0 485.4,306.0 430.0,274.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,274.0 485.4,306.0 485.4,370.0 430.0,338.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,274.0 485.4,306.0 485.4,370.0 540.9,338.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="596.3,242.0 651.7,274.0 596.3,306.0 540.9,274.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,274.0 596.3,306.0 596.3,370.0 540.9,338.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="651.7,274.0 596.3,306.0 596.3,370.0 651.7,338.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="208.3,274.0 263.7,306.0 208.3,338.0 152.9,306.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="152.9,306.0 208.3,338.0 208.3,402.0 152.9,370.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="263.7,306.0 208.3,338.0 208.3,402.0 263.7,370.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="319.1,274.0 374.6,306.0 319.1,338.0 263.7,306.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="263.7,306.0 319.1,338.0 319.1,402.0 263.7,370.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,306.0 319.1,338.0 319.1,402.0 374.6,370.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,274.0 485.4,306.0 430.0,338.0 374.6,306.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,306.0 430.0,338.0 430.0,402.0 374.6,370.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,306.0 430.0,338.0 430.0,402.0 485.4,370.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,274.0 596.3,306.0 540.9,338.0 485.4,306.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,306.0 540.9,338.0 540.9,402.0 485.4,370.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="596.3,306.0 540.9,338.0 540.9,402.0 596.3,370.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="651.7,274.0 707.1,306.0 651.7,338.0 596.3,306.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="596.3,306.0 651.7,338.0 651.7,402.0 596.3,370.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="707.1,306.0 651.7,338.0 651.7,402.0 707.1,370.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,178.0 540.9,210.0 485.4,242.0 430.0,210.0" fill="#a3a3a3" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,210.0 485.4,242.0 485.4,306.0 430.0,274.0" fill="#7a7a7a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,210.0 485.4,242.0 485.4,306.0 540.9,274.0" fill="#666666" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="152.9,306.0 208.3,338.0 152.9,370.0 97.4,338.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="97.4,338.0 152.9,370.0 152.9,434.0 97.4,402.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="208.3,338.0 152.9,370.0 152.9,434.0 208.3,402.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="263.7,306.0 319.1,338.0 263.7,370.0 208.3,338.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="208.3,338.0 263.7,370.0 263.7,434.0 208.3,402.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="319.1,338.0 263.7,370.0 263.7,434.0 319.1,402.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,306.0 430.0,338.0 374.6,370.0 319.1,338.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="319.1,338.0 374.6,370.0 374.6,434.0 319.1,402.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,338.0 374.6,370.0 374.6,434.0 430.0,402.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,306.0 540.9,338.0 485.4,370.0 430.0,338.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,338.0 485.4,370.0 485.4,434.0 430.0,402.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,338.0 485.4,370.0 485.4,434.0 540.9,402.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="596.3,306.0 651.7,338.0 596.3,370.0 540.9,338.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,338.0 596.3,370.0 596.3,434.0 540.9,402.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="651.7,338.0 596.3,370.0 596.3,434.0 651.7,402.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="707.1,306.0 762.6,338.0 707.1,370.0 651.7,338.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="651.7,338.0 707.1,370.0 707.1,434.0 651.7,402.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="762.6,338.0 707.1,370.0 707.1,434.0 762.6,402.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,210.0 596.3,242.0 540.9,274.0 485.4,242.0" fill="#a3a3a3" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,242.0 540.9,274.0 540.9,338.0 485.4,306.0" fill="#7a7a7a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="596.3,242.0 540.9,274.0 540.9,338.0 596.3,306.0" fill="#666666" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,210.0 485.4,242.0 430.0,274.0 374.6,242.0" fill="#a3a3a3" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,242.0 430.0,274.0 430.0,338.0 374.6,306.0" fill="#7a7a7a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,242.0 430.0,274.0 430.0,338.0 485.4,306.0" fill="#666666" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,114.0 540.9,146.0 485.4,178.0 430.0,146.0" fill="#a3a3a3" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,146.0 485.4,178.0 485.4,242.0 430.0,210.0" fill="#7a7a7a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,146.0 485.4,178.0 485.4,242.0 540.9,210.0" fill="#666666" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="97.4,338.0 152.9,370.0 97.4,402.0 42.0,370.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="42.0,370.0 97.4,402.0 97.4,466.0 42.0,434.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="152.9,370.0 97.4,402.0 97.4,466.0 152.9,434.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="208.3,338.0 263.7,370.0 208.3,402.0 152.9,370.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="152.9,370.0 208.3,402.0 208.3,466.0 152.9,434.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="263.7,370.0 208.3,402.0 208.3,466.0 263.7,434.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="319.1,338.0 374.6,370.0 319.1,402.0 263.7,370.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="263.7,370.0 319.1,402.0 319.1,466.0 263.7,434.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,370.0 319.1,402.0 319.1,466.0 374.6,434.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,338.0 485.4,370.0 430.0,402.0 374.6,370.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,370.0 430.0,402.0 430.0,466.0 374.6,434.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,370.0 430.0,402.0 430.0,466.0 485.4,434.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,338.0 596.3,370.0 540.9,402.0 485.4,370.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,370.0 540.9,402.0 540.9,466.0 485.4,434.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="596.3,370.0 540.9,402.0 540.9,466.0 596.3,434.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="651.7,338.0 707.1,370.0 651.7,402.0 596.3,370.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="596.3,370.0 651.7,402.0 651.7,466.0 596.3,434.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="707.1,370.0 651.7,402.0 651.7,466.0 707.1,434.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="762.6,338.0 818.0,370.0 762.6,402.0 707.1,370.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="707.1,370.0 762.6,402.0 762.6,466.0 707.1,434.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="818.0,370.0 762.6,402.0 762.6,466.0 818.0,434.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><g id="iso-attach-block"><polygon points="263.7,242.0 319.1,274.0 263.7,306.0 208.3,274.0" fill="#b8874f" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="208.3,274.0 263.7,306.0 263.7,370.0 208.3,338.0" fill="#8a6136" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="319.1,274.0 263.7,306.0 263.7,370.0 319.1,338.0" fill="#77522c" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/></g><polygon points="152.9,370.0 208.3,402.0 152.9,434.0 97.4,402.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="97.4,402.0 152.9,434.0 152.9,498.0 97.4,466.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="208.3,402.0 152.9,434.0 152.9,498.0 208.3,466.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="263.7,370.0 319.1,402.0 263.7,434.0 208.3,402.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="208.3,402.0 263.7,434.0 263.7,498.0 208.3,466.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="319.1,402.0 263.7,434.0 263.7,498.0 319.1,466.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,370.0 430.0,402.0 374.6,434.0 319.1,402.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="319.1,402.0 374.6,434.0 374.6,498.0 319.1,466.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,402.0 374.6,434.0 374.6,498.0 430.0,466.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,370.0 540.9,402.0 485.4,434.0 430.0,402.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,402.0 485.4,434.0 485.4,498.0 430.0,466.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,402.0 485.4,434.0 485.4,498.0 540.9,466.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="596.3,370.0 651.7,402.0 596.3,434.0 540.9,402.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,402.0 596.3,434.0 596.3,498.0 540.9,466.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="651.7,402.0 596.3,434.0 596.3,498.0 651.7,466.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="707.1,370.0 762.6,402.0 707.1,434.0 651.7,402.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="651.7,402.0 707.1,434.0 707.1,498.0 651.7,466.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="762.6,402.0 707.1,434.0 707.1,498.0 762.6,466.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><g id="iso-func-block"><polygon points="651.7,274.0 707.1,306.0 651.7,338.0 596.3,306.0" fill="#9b2c2c" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="596.3,306.0 651.7,338.0 651.7,402.0 596.3,370.0" fill="#6e1f1f" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="707.1,306.0 651.7,338.0 651.7,402.0 707.1,370.0" fill="#5a1919" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><ellipse cx="651.7" cy="306.0" rx="16" ry="9" fill="#ff4b3b"/><ellipse cx="596.3" cy="402.0" rx="9" ry="5" fill="#d42a1e" opacity="0.9"/><ellipse cx="540.9" cy="434.0" rx="9" ry="5" fill="#d42a1e" opacity="0.9"/><ellipse cx="485.4" cy="466.0" rx="9" ry="5" fill="#d42a1e" opacity="0.9"/></g><polygon points="208.3,402.0 263.7,434.0 208.3,466.0 152.9,434.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="152.9,434.0 208.3,466.0 208.3,530.0 152.9,498.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="263.7,434.0 208.3,466.0 208.3,530.0 263.7,498.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="319.1,402.0 374.6,434.0 319.1,466.0 263.7,434.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="263.7,434.0 319.1,466.0 319.1,530.0 263.7,498.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,434.0 319.1,466.0 319.1,530.0 374.6,498.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,402.0 485.4,434.0 430.0,466.0 374.6,434.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,434.0 430.0,466.0 430.0,530.0 374.6,498.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,434.0 430.0,466.0 430.0,530.0 485.4,498.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,402.0 596.3,434.0 540.9,466.0 485.4,434.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,434.0 540.9,466.0 540.9,530.0 485.4,498.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="596.3,434.0 540.9,466.0 540.9,530.0 596.3,498.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="651.7,402.0 707.1,434.0 651.7,466.0 596.3,434.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="596.3,434.0 651.7,466.0 651.7,530.0 596.3,498.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="707.1,434.0 651.7,466.0 651.7,530.0 707.1,498.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="263.7,434.0 319.1,466.0 263.7,498.0 208.3,466.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="208.3,466.0 263.7,498.0 263.7,562.0 208.3,530.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="319.1,466.0 263.7,498.0 263.7,562.0 319.1,530.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,434.0 430.0,466.0 374.6,498.0 319.1,466.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="319.1,466.0 374.6,498.0 374.6,562.0 319.1,530.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,466.0 374.6,498.0 374.6,562.0 430.0,530.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,434.0 540.9,466.0 485.4,498.0 430.0,466.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,466.0 485.4,498.0 485.4,562.0 430.0,530.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,466.0 485.4,498.0 485.4,562.0 540.9,530.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="596.3,434.0 651.7,466.0 596.3,498.0 540.9,466.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,466.0 596.3,498.0 596.3,562.0 540.9,530.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="651.7,466.0 596.3,498.0 596.3,562.0 651.7,530.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><g id="iso-carve-block"><polygon points="430.0,386.0 443.9,394.0 430.0,402.0 416.1,394.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,394.0 430.0,402.0 430.0,418.0 416.1,410.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,394.0 430.0,402.0 430.0,418.0 443.9,410.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,394.0 430.0,402.0 416.1,410.0 402.3,402.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,402.0 416.1,410.0 416.1,426.0 402.3,418.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,402.0 416.1,410.0 416.1,426.0 430.0,418.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,394.0 457.7,402.0 443.9,410.0 430.0,402.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,402.0 443.9,410.0 443.9,426.0 430.0,418.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="457.7,402.0 443.9,410.0 443.9,426.0 457.7,418.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,370.0 443.9,378.0 430.0,386.0 416.1,378.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,378.0 430.0,386.0 430.0,402.0 416.1,394.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,378.0 430.0,386.0 430.0,402.0 443.9,394.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,402.0 416.1,410.0 402.3,418.0 388.4,410.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="388.4,410.0 402.3,418.0 402.3,434.0 388.4,426.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,410.0 402.3,418.0 402.3,434.0 416.1,426.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,402.0 443.9,410.0 430.0,418.0 416.1,410.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,410.0 430.0,418.0 430.0,434.0 416.1,426.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,410.0 430.0,418.0 430.0,434.0 443.9,426.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="457.7,402.0 471.6,410.0 457.7,418.0 443.9,410.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,410.0 457.7,418.0 457.7,434.0 443.9,426.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="471.6,410.0 457.7,418.0 457.7,434.0 471.6,426.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,378.0 430.0,386.0 416.1,394.0 402.3,386.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,386.0 416.1,394.0 416.1,410.0 402.3,402.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,386.0 416.1,394.0 416.1,410.0 430.0,402.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,378.0 457.7,386.0 443.9,394.0 430.0,386.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,386.0 443.9,394.0 443.9,410.0 430.0,402.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="457.7,386.0 443.9,394.0 443.9,410.0 457.7,402.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,354.0 443.9,362.0 430.0,370.0 416.1,362.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,362.0 430.0,370.0 430.0,386.0 416.1,378.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,362.0 430.0,370.0 430.0,386.0 443.9,378.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="388.4,410.0 402.3,418.0 388.4,426.0 374.6,418.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="374.6,418.0 388.4,426.0 388.4,442.0 374.6,434.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,418.0 388.4,426.0 388.4,442.0 402.3,434.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,410.0 430.0,418.0 416.1,426.0 402.3,418.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,418.0 416.1,426.0 416.1,442.0 402.3,434.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,418.0 416.1,426.0 416.1,442.0 430.0,434.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,410.0 457.7,418.0 443.9,426.0 430.0,418.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,418.0 443.9,426.0 443.9,442.0 430.0,434.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="457.7,418.0 443.9,426.0 443.9,442.0 457.7,434.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="471.6,410.0 485.4,418.0 471.6,426.0 457.7,418.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="457.7,418.0 471.6,426.0 471.6,442.0 457.7,434.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="485.4,418.0 471.6,426.0 471.6,442.0 485.4,434.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,386.0 416.1,394.0 402.3,402.0 388.4,394.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="388.4,394.0 402.3,402.0 402.3,418.0 388.4,410.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,394.0 402.3,402.0 402.3,418.0 416.1,410.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,386.0 443.9,394.0 430.0,402.0 416.1,394.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,394.0 430.0,402.0 430.0,418.0 416.1,410.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,394.0 430.0,402.0 430.0,418.0 443.9,410.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="457.7,386.0 471.6,394.0 457.7,402.0 443.9,394.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,394.0 457.7,402.0 457.7,418.0 443.9,410.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="471.6,394.0 457.7,402.0 457.7,418.0 471.6,410.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,362.0 430.0,370.0 416.1,378.0 402.3,370.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,370.0 416.1,378.0 416.1,394.0 402.3,386.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,370.0 416.1,378.0 416.1,394.0 430.0,386.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,362.0 457.7,370.0 443.9,378.0 430.0,370.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,370.0 443.9,378.0 443.9,394.0 430.0,386.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="457.7,370.0 443.9,378.0 443.9,394.0 457.7,386.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,418.0 416.1,426.0 402.3,434.0 388.4,426.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="388.4,426.0 402.3,434.0 402.3,450.0 388.4,442.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,426.0 402.3,434.0 402.3,450.0 416.1,442.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,418.0 443.9,426.0 430.0,434.0 416.1,426.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,426.0 430.0,434.0 430.0,450.0 416.1,442.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,426.0 430.0,434.0 430.0,450.0 443.9,442.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="457.7,418.0 471.6,426.0 457.7,434.0 443.9,426.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,426.0 457.7,434.0 457.7,450.0 443.9,442.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="471.6,426.0 457.7,434.0 457.7,450.0 471.6,442.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="388.4,394.0 402.3,402.0 388.4,410.0 374.6,402.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="374.6,402.0 388.4,410.0 388.4,426.0 374.6,418.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,402.0 388.4,410.0 388.4,426.0 402.3,418.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,394.0 430.0,402.0 416.1,410.0 402.3,402.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,402.0 416.1,410.0 416.1,426.0 402.3,418.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,402.0 416.1,410.0 416.1,426.0 430.0,418.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,394.0 457.7,402.0 443.9,410.0 430.0,402.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,402.0 443.9,410.0 443.9,426.0 430.0,418.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="457.7,402.0 443.9,410.0 443.9,426.0 457.7,418.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="471.6,394.0 485.4,402.0 471.6,410.0 457.7,402.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="457.7,402.0 471.6,410.0 471.6,426.0 457.7,418.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="485.4,402.0 471.6,410.0 471.6,426.0 485.4,418.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,370.0 416.1,378.0 402.3,386.0 388.4,378.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="388.4,378.0 402.3,386.0 402.3,402.0 388.4,394.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,378.0 402.3,386.0 402.3,402.0 416.1,394.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,370.0 443.9,378.0 430.0,386.0 416.1,378.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,378.0 430.0,386.0 430.0,402.0 416.1,394.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,378.0 430.0,386.0 430.0,402.0 443.9,394.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,346.0 457.7,354.0 443.9,362.0 430.0,354.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,354.0 443.9,362.0 443.9,378.0 430.0,370.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="457.7,354.0 443.9,362.0 443.9,378.0 457.7,370.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,426.0 430.0,434.0 416.1,442.0 402.3,434.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,434.0 416.1,442.0 416.1,458.0 402.3,450.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,434.0 416.1,442.0 416.1,458.0 430.0,450.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,426.0 457.7,434.0 443.9,442.0 430.0,434.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,434.0 443.9,442.0 443.9,458.0 430.0,450.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="457.7,434.0 443.9,442.0 443.9,458.0 457.7,450.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,402.0 416.1,410.0 402.3,418.0 388.4,410.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="388.4,410.0 402.3,418.0 402.3,434.0 388.4,426.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,410.0 402.3,418.0 402.3,434.0 416.1,426.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,402.0 443.9,410.0 430.0,418.0 416.1,410.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,410.0 430.0,418.0 430.0,434.0 416.1,426.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,410.0 430.0,418.0 430.0,434.0 443.9,426.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="457.7,402.0 471.6,410.0 457.7,418.0 443.9,410.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,410.0 457.7,418.0 457.7,434.0 443.9,426.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="471.6,410.0 457.7,418.0 457.7,434.0 471.6,426.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="388.4,378.0 402.3,386.0 388.4,394.0 374.6,386.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="374.6,386.0 388.4,394.0 388.4,410.0 374.6,402.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,386.0 388.4,394.0 388.4,410.0 402.3,402.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,378.0 430.0,386.0 416.1,394.0 402.3,386.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,386.0 416.1,394.0 416.1,410.0 402.3,402.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,386.0 416.1,394.0 416.1,410.0 430.0,402.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,354.0 443.9,362.0 430.0,370.0 416.1,362.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,362.0 430.0,370.0 430.0,386.0 416.1,378.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,362.0 430.0,370.0 430.0,386.0 443.9,378.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,434.0 443.9,442.0 430.0,450.0 416.1,442.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,442.0 430.0,450.0 430.0,466.0 416.1,458.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,442.0 430.0,450.0 430.0,466.0 443.9,458.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,410.0 430.0,418.0 416.1,426.0 402.3,418.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,418.0 416.1,426.0 416.1,442.0 402.3,434.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,418.0 416.1,426.0 416.1,442.0 430.0,434.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,410.0 457.7,418.0 443.9,426.0 430.0,418.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,418.0 443.9,426.0 443.9,442.0 430.0,434.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="457.7,418.0 443.9,426.0 443.9,442.0 457.7,434.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,386.0 416.1,394.0 402.3,402.0 388.4,394.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="388.4,394.0 402.3,402.0 402.3,418.0 388.4,410.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,394.0 402.3,402.0 402.3,418.0 416.1,410.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,386.0 443.9,394.0 430.0,402.0 416.1,394.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,394.0 430.0,402.0 430.0,418.0 416.1,410.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,394.0 430.0,402.0 430.0,418.0 443.9,410.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,362.0 430.0,370.0 416.1,378.0 402.3,370.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,370.0 416.1,378.0 416.1,394.0 402.3,386.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,370.0 416.1,378.0 416.1,394.0 430.0,386.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,418.0 443.9,426.0 430.0,434.0 416.1,426.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,426.0 430.0,434.0 430.0,450.0 416.1,442.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,426.0 430.0,434.0 430.0,450.0 443.9,442.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,394.0 430.0,402.0 416.1,410.0 402.3,402.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,402.0 416.1,410.0 416.1,426.0 402.3,418.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,402.0 416.1,410.0 416.1,426.0 430.0,418.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,394.0 457.7,402.0 443.9,410.0 430.0,402.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,402.0 443.9,410.0 443.9,426.0 430.0,418.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="457.7,402.0 443.9,410.0 443.9,426.0 457.7,418.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,370.0 416.1,378.0 402.3,386.0 388.4,378.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="388.4,378.0 402.3,386.0 402.3,402.0 388.4,394.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,378.0 402.3,386.0 402.3,402.0 416.1,394.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,370.0 443.9,378.0 430.0,386.0 416.1,378.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,378.0 430.0,386.0 430.0,402.0 416.1,394.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,378.0 430.0,386.0 430.0,402.0 443.9,394.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,402.0 443.9,410.0 430.0,418.0 416.1,410.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,410.0 430.0,418.0 430.0,434.0 416.1,426.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,410.0 430.0,418.0 430.0,434.0 443.9,426.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,378.0 430.0,386.0 416.1,394.0 402.3,386.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="402.3,386.0 416.1,394.0 416.1,410.0 402.3,402.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,386.0 416.1,394.0 416.1,410.0 430.0,402.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,378.0 457.7,386.0 443.9,394.0 430.0,386.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,386.0 443.9,394.0 443.9,410.0 430.0,402.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="457.7,386.0 443.9,394.0 443.9,410.0 457.7,402.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/><polygon points="430.0,386.0 443.9,394.0 430.0,402.0 416.1,394.0" fill="#e2c38c" stroke="#6b5130" stroke-width="0.8"/><polygon points="416.1,394.0 430.0,402.0 430.0,418.0 416.1,410.0" fill="#b8955e" stroke="#6b5130" stroke-width="0.8"/><polygon points="443.9,394.0 430.0,402.0 430.0,418.0 443.9,410.0" fill="#a07f4c" stroke="#6b5130" stroke-width="0.8"/></g><polygon points="319.1,466.0 374.6,498.0 319.1,530.0 263.7,498.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="263.7,498.0 319.1,530.0 319.1,594.0 263.7,562.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,498.0 319.1,530.0 319.1,594.0 374.6,562.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,466.0 485.4,498.0 430.0,530.0 374.6,498.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,498.0 430.0,530.0 430.0,594.0 374.6,562.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,498.0 430.0,530.0 430.0,594.0 485.4,562.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,466.0 596.3,498.0 540.9,530.0 485.4,498.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,498.0 540.9,530.0 540.9,594.0 485.4,562.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="596.3,498.0 540.9,530.0 540.9,594.0 596.3,562.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,498.0 430.0,530.0 374.6,562.0 319.1,530.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="319.1,530.0 374.6,562.0 374.6,626.0 319.1,594.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,530.0 374.6,562.0 374.6,626.0 430.0,594.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,498.0 540.9,530.0 485.4,562.0 430.0,530.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,530.0 485.4,562.0 485.4,626.0 430.0,594.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="540.9,530.0 485.4,562.0 485.4,626.0 540.9,594.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="430.0,530.0 485.4,562.0 430.0,594.0 374.6,562.0" fill="#6fae4a" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="374.6,562.0 430.0,594.0 430.0,658.0 374.6,626.0" fill="#4b7a33" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><polygon points="485.4,562.0 430.0,594.0 430.0,658.0 485.4,626.0" fill="#3e6a2b" stroke="rgba(0,0,0,0.55)" stroke-width="1.5"/><g id="iso-attach-model"><line x1="263.7" y1="274.0" x2="281.7" y2="241.2" stroke="#7dd3fc" stroke-width="2" stroke-dasharray="5 4"/><polygon points="224.9,238.8 319.1,242.0 319.1,252.0 224.9,248.8" fill="#3a7da0"/><polygon points="244.3,240.4 338.5,243.6 319.1,242.0 224.9,238.8" fill="#7dd3fc" stroke="#0c4a6e" stroke-width="1.5"/></g><g id="iso-grid" stroke="#fbbf24" stroke-width="2.5" opacity="0"><line x1="430.0" y1="146.0" x2="42.0" y2="370.0"/><line x1="430.0" y1="146.0" x2="818.0" y2="370.0"/><line x1="485.4" y1="178.0" x2="97.4" y2="402.0"/><line x1="374.6" y1="178.0" x2="762.6" y2="402.0"/><line x1="540.9" y1="210.0" x2="152.9" y2="434.0"/><line x1="319.1" y1="210.0" x2="707.1" y2="434.0"/><line x1="596.3" y1="242.0" x2="208.3" y2="466.0"/><line x1="263.7" y1="242.0" x2="651.7" y2="466.0"/><line x1="651.7" y1="274.0" x2="263.7" y2="498.0"/><line x1="208.3" y1="274.0" x2="596.3" y2="498.0"/><line x1="707.1" y1="306.0" x2="319.1" y2="530.0"/><line x1="152.9" y1="306.0" x2="540.9" y2="530.0"/><line x1="762.6" y1="338.0" x2="374.6" y2="562.0"/><line x1="97.4" y1="338.0" x2="485.4" y2="562.0"/><line x1="818.0" y1="370.0" x2="430.0" y2="594.0"/><line x1="42.0" y1="370.0" x2="430.0" y2="594.0"/></g><g id="iso-dim" opacity="0"><line x1="374.6" y1="644.0" x2="430.0" y2="676.0" stroke="#fbbf24" stroke-width="3"/><text x="408.3" y="698.0" fill="#fde68a" font-family="ui-monospace, Menlo, monospace" font-weight="700" font-size="28">1 m</text></g><polygon id="iso-ring-carve" points="430.0,338.0 485.4,370.0 485.4,434.0 430.0,466.0 374.6,434.0 374.6,370.0" fill="none" stroke="#fbbf24" stroke-width="5" stroke-linejoin="round" opacity="0" style="filter: drop-shadow(0 0 8px rgba(251,191,36,0.9))"/><polygon id="iso-ring-attach" points="261.0,176.4 346.9,226.0 319.1,338.0 263.7,370.0 208.3,338.0 213.8,245.2" fill="none" stroke="#fbbf24" stroke-width="5" stroke-linejoin="round" opacity="0" style="filter: drop-shadow(0 0 8px rgba(251,191,36,0.9))"/><polygon id="iso-ring-func" points="651.7,274.0 707.1,306.0 707.1,370.0 651.7,402.0 596.3,370.0 596.3,306.0" fill="none" stroke="#fbbf24" stroke-width="5" stroke-linejoin="round" opacity="0" style="filter: drop-shadow(0 0 8px rgba(251,191,36,0.9))"/><g id="iso-lab-carve" opacity="0"><line x1="430.0" y1="370.0" x2="580.0" y2="410.0" stroke="#7dd3fc" stroke-width="2"/><rect x="482.0" y="386.0" width="196" height="44" fill="rgba(0,0,0,0.86)" stroke="#7dd3fc" stroke-width="2"/><text x="580.0" y="418.0" text-anchor="middle" fill="#fff" font-family="Fusion-Pixel-Zh-Hans, sans-serif" font-size="24">切分在方块内部</text></g><g id="iso-lab-attach" opacity="0"><line x1="263.7" y1="274.0" x2="153.7" y2="144.0" stroke="#7dd3fc" stroke-width="2"/><rect x="67.7" y="120.0" width="172" height="44" fill="rgba(0,0,0,0.86)" stroke="#7dd3fc" stroke-width="2"/><text x="153.7" y="152.0" text-anchor="middle" fill="#fff" font-family="Fusion-Pixel-Zh-Hans, sans-serif" font-size="24">附着在方块上</text></g><g id="iso-lab-func" opacity="0"><line x1="651.7" y1="306.0" x2="791.7" y2="236.0" stroke="#4ade80" stroke-width="2"/><rect x="729.7" y="212.0" width="124" height="44" fill="rgba(0,0,0,0.86)" stroke="#4ade80" stroke-width="2"/><text x="791.7" y="244.0" text-anchor="middle" fill="#fff" font-family="Fusion-Pixel-Zh-Hans, sans-serif" font-size="24">功能方块</text></g></svg><!--/ISO--></div>
+            <div id="s4-gridlabel" class="grid-label" style="opacity:0">1 m 网格 · 方块</div>
+            <div id="s4-foot" class="grid-foot" style="opacity:0">造型和行为，都要通过<em>方块</em>来实现</div>
+          </div>
+          <div class="ev-stack">
+            <div id="ev1" class="ev">
+              <div class="ev-text"><span class="ev-k">更精细的形状 · 1</span><span class="ev-t">切分在方块内部</span><span class="ev-s">Chisels &amp; Bits · LittleTiles</span></div>
+              <div class="ev-img" style="grid-template-columns:1fr 1fr">
+                <div><img src="./assets/mods/cb_bridge_1.png" alt="C&B"></div>
+                <div><img src="./assets/mods/littletiles_2.png" alt="LittleTiles"></div>
+              </div>
+              <div class="ring"></div>
+            </div>
+            <div id="ev2" class="ev">
+              <div class="ev-text"><span class="ev-k">更精细的形状 · 2</span><span class="ev-t">附着在某个方块上</span><span class="ev-s">Yuushya Modelling</span></div>
+              <div class="ev-img" style="grid-template-columns:1fr 1fr">
+                <div><img src="./assets/mods/yuushya_townscape_1.png" alt="Yuushya"></div>
+                <div><img src="./assets/mods/yuushya_townscape_2.jpg" alt="Yuushya"></div>
+              </div>
+              <div class="ring"></div>
+            </div>
+            <div id="ev3" class="ev">
+              <div class="ev-text"><span class="ev-k">信号 · 传动 · 驾驶</span><span class="ev-t">专门的功能方块</span><span class="ev-s">红石线 · Create 齿轮 · Eureka! 船舵</span></div>
+              <div class="ev-img" style="grid-template-columns:1fr 1fr 1fr">
+                <div><img src="./assets/mods/mc_redstone_door.png" alt="Redstone"></div>
+                <div><img src="./assets/mods/create_cogwheels.png" alt="Create cogwheels"></div>
+                <div><img src="./assets/mods/eureka_2.png" alt="Eureka helm"></div>
+              </div>
+              <div class="ring"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S5 SPACE PRINCIPLE (59.3 – 73.4) -->
+    <section id="s5" class="scene clip" data-start="59.3" data-duration="14.1">
+      <div class="scene-inner">
+        <div class="scrim scrim-bottom"></div>
+        <div class="pr-wrap">
+          <div id="s5-head" class="pr-head">Space 把<span>造型</span>和<span>逻辑</span>分开</div>
+          <div class="pr-row">
+            <div id="s5-left" class="pr-col sky">
+              <div class="kick">造型</div>
+              <div class="ttl">方块描述形状和材质</div>
+              <div id="s5-example-l" class="example">直升机的机身和桨叶</div>
+              <div id="s5-note-l" class="note">地形按区块组织</div>
+            </div>
+            <div id="s5-right" class="pr-col green">
+              <div class="kick">逻辑</div>
+              <div class="ttl">实体代码控制行为</div>
+              <div id="s5-example-r" class="example">代码设定桨叶转速</div>
+              <div id="s5-note-r" class="note">代码随实体运行</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S6 DISTRIBUTED COMPUTE (73.4 – 86.75) -->
+    <section id="s6" class="scene clip" data-start="73.4" data-duration="13.35">
+      <div class="scene-inner">
+        <div class="scrim scrim-full"></div>
+        <div class="scene-header" style="position:relative">
+          <div class="eyebrow">计算可以拆开</div>
+          <h2 class="scene-title">按区块、按实体拆分 · 多核并行 · 跨设备运行</h2>
+        </div>
+        <div class="dist" style="position:relative">
+          <div id="s6-left" class="dcard">
+            <div class="kick">并行 // 多个处理器核心</div>
+            <div class="ttl">区块与实体，分给多个核心</div>
+            <svg viewBox="0 0 800 540" font-family="Fusion-Pixel-Zh-Hans, sans-serif">
+              <text x="20" y="34" fill="#a1a1aa" font-size="24">地形区块（纯数据）</text>
+              <g id="chunks">
+                <rect id="ch0" x="20" y="52" width="66" height="66" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+                <rect id="ch1" x="94" y="52" width="66" height="66" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+                <rect id="ch2" x="168" y="52" width="66" height="66" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+                <rect id="ch3" x="242" y="52" width="66" height="66" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+                <rect id="ch4" x="316" y="52" width="66" height="66" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+                <rect id="ch5" x="20" y="126" width="66" height="66" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+                <rect id="ch6" x="94" y="126" width="66" height="66" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+                <rect id="ch7" x="168" y="126" width="66" height="66" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+                <rect id="ch8" x="242" y="126" width="66" height="66" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+                <rect id="ch9" x="316" y="126" width="66" height="66" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+                <rect id="ch10" x="20" y="200" width="66" height="66" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+                <rect id="ch11" x="94" y="200" width="66" height="66" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+                <rect id="ch12" x="168" y="200" width="66" height="66" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+                <rect id="ch13" x="242" y="200" width="66" height="66" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+                <rect id="ch14" x="316" y="200" width="66" height="66" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+              </g>
+              <g id="s6-ents" data-layout-allow-overflow>
+                <text x="430" y="34" fill="#a1a1aa" font-size="20">实体进程 · 分配到不同核心</text>
+                <g id="pr0">
+                  <rect x="430" y="52" width="350" height="62" fill="rgba(255,255,255,0.06)" stroke="#fbbf24" stroke-width="2"/>
+                  <rect x="446" y="68" width="30" height="30" fill="#fbbf24" transform="rotate(45 461 83)"/>
+                  <text x="494" y="92" fill="#fff" font-size="26">进程 · 飞行器</text>
+                  <rect x="686" y="65" width="80" height="36" fill="rgba(251,191,36,0.18)" stroke="#fbbf24" stroke-width="1.5"/>
+                  <text x="726" y="90" text-anchor="middle" fill="#fde68a" font-size="20">核心 2</text>
+                </g>
+                <g id="pr1">
+                  <rect x="430" y="128" width="350" height="62" fill="rgba(255,255,255,0.06)" stroke="#f472b6" stroke-width="2"/>
+                  <rect x="446" y="144" width="30" height="30" fill="#f472b6" transform="rotate(45 461 159)"/>
+                  <text x="494" y="168" fill="#fff" font-size="26">进程 · 铺路机</text>
+                  <rect x="686" y="141" width="80" height="36" fill="rgba(244,114,182,0.18)" stroke="#f472b6" stroke-width="1.5"/>
+                  <text x="726" y="166" text-anchor="middle" fill="#f9a8d4" font-size="20">核心 3</text>
+                </g>
+                <g id="pr2">
+                  <rect x="430" y="204" width="350" height="62" fill="rgba(255,255,255,0.06)" stroke="#4ade80" stroke-width="2"/>
+                  <rect x="446" y="220" width="30" height="30" fill="#4ade80" transform="rotate(45 461 235)"/>
+                  <text x="494" y="244" fill="#fff" font-size="26">进程 · 雷达塔</text>
+                  <rect x="686" y="217" width="80" height="36" fill="rgba(74,222,128,0.18)" stroke="#4ade80" stroke-width="1.5"/>
+                  <text x="726" y="242" text-anchor="middle" fill="#a6df7a" font-size="20">核心 4</text>
+                </g>
+              </g>
+              <g id="cores">
+                <!-- Chunks to Core 1 -->
+                <path d="M108 270 L108 360" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="6 6"/>
+                <!-- Entity 1 (飞行器) to Core 2 -->
+                <path d="M450 270 C450 320, 302 310, 302 360" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6 6"/>
+                <!-- Entity 2 (铺路机) to Core 3 -->
+                <path d="M570 270 C570 320, 496 310, 496 360" stroke="#f472b6" stroke-width="2.5" stroke-dasharray="6 6"/>
+                <!-- Entity 3 (雷达塔) to Core 4 -->
+                <path d="M690 270 L690 360" stroke="#4ade80" stroke-width="2.5" stroke-dasharray="6 6"/>
+                <text x="20" y="372" fill="#a1a1aa" font-size="24">处理器核心 · 并行运行</text>
+                <g id="core0"><rect x="20" y="392" width="176" height="96" fill="rgba(56,189,248,0.18)" stroke="#38bdf8" stroke-width="3"/><text x="108" y="450" text-anchor="middle" fill="#7dd3fc" font-size="30">核心 1</text></g>
+                <g id="core1"><rect x="214" y="392" width="176" height="96" fill="rgba(251,191,36,0.18)" stroke="#fbbf24" stroke-width="3"/><text x="302" y="450" text-anchor="middle" fill="#fde68a" font-size="30">核心 2</text></g>
+                <g id="core2"><rect x="408" y="392" width="176" height="96" fill="rgba(244,114,182,0.18)" stroke="#f472b6" stroke-width="3"/><text x="496" y="450" text-anchor="middle" fill="#f9a8d4" font-size="30">核心 3</text></g>
+                <g id="core3"><rect x="602" y="392" width="176" height="96" fill="rgba(74,222,128,0.18)" stroke="#4ade80" stroke-width="3"/><text x="690" y="450" text-anchor="middle" fill="#a6df7a" font-size="30">核心 4</text></g>
+              </g>
+            </svg>
+          </div>
+          <div id="s6-right" class="dcard">
+            <div class="kick">跨设备 // 玩家的浏览器</div>
+            <div class="ttl">实体分散到玩家设备上运行</div>
+            <svg viewBox="0 0 800 540" font-family="Fusion-Pixel-Zh-Hans, sans-serif">
+              <g id="links" stroke="#fbbf24" stroke-width="3" stroke-dasharray="10 8" fill="none">
+                <line id="lk0" x1="150" y1="150" x2="400" y2="270"/>
+                <line id="lk1" x1="650" y1="150" x2="400" y2="270"/>
+                <line id="lk2" x1="400" y1="450" x2="400" y2="320"/>
+              </g>
+              <circle id="pk0" cx="150" cy="150" r="9" fill="#fde68a"/>
+              <circle id="pk1" cx="650" cy="150" r="9" fill="#fde68a"/>
+              <circle id="pk2" cx="400" cy="450" r="9" fill="#fde68a"/>
+              <g id="srv"><rect x="290" y="226" width="220" height="96" fill="#0e1310" stroke="#fbbf24" stroke-width="3"/><text x="400" y="266" text-anchor="middle" fill="#fff" font-size="30">服务器</text><text x="400" y="302" text-anchor="middle" fill="#fde68a" font-size="22">只做转发</text></g>
+              <g id="dev0"><rect x="30" y="30" width="240" height="140" fill="#0e1310" stroke="rgba(255,255,255,0.5)" stroke-width="2"/><text x="150" y="66" text-anchor="middle" fill="#d4d4d8" font-size="24">玩家 A 的浏览器</text><rect class="dent" x="88" y="100" width="34" height="34" fill="#4ade80" transform="rotate(45 105 117)"/><rect class="dent" x="176" y="100" width="34" height="34" fill="#38bdf8" transform="rotate(45 193 117)"/></g>
+              <g id="dev1"><rect x="530" y="30" width="240" height="140" fill="#0e1310" stroke="rgba(255,255,255,0.5)" stroke-width="2"/><text x="650" y="66" text-anchor="middle" fill="#d4d4d8" font-size="24">玩家 B 的浏览器</text><rect class="dent" x="633" y="100" width="34" height="34" fill="#f472b6" transform="rotate(45 650 117)"/></g>
+              <g id="dev2"><rect x="280" y="380" width="240" height="140" fill="#0e1310" stroke="rgba(255,255,255,0.5)" stroke-width="2"/><text x="400" y="416" text-anchor="middle" fill="#d4d4d8" font-size="24">玩家 C 的浏览器</text><rect class="dent" x="338" y="450" width="34" height="34" fill="#fbbf24" transform="rotate(45 355 467)"/><rect class="dent" x="426" y="450" width="34" height="34" fill="#4ade80" transform="rotate(45 443 467)"/></g>
+              <text id="lk-label" data-layout-allow-overflow x="530" y="300" fill="#fde68a" font-size="20">同步结果：位姿 · 地形修改</text>
+            </svg>
+          </div>
+        </div>
+        <div id="s6-goal" class="goal" style="position:relative">
+          <span id="g1" class="item">不牺牲自由度</span><span class="arr">→</span>
+          <span id="g2" class="item">计算尽可能分布出去</span><span class="arr">→</span>
+          <span id="g3" class="item hl">同一个世界，容纳更多玩家</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- S7 ROADMAP (86.75 – 90.5) -->
+    <section id="s7" class="scene clip" data-start="86.75" data-duration="3.75">
+      <div class="scene-inner">
+        <div class="scrim scrim-full"></div>
+        <div id="s7-road" class="road">
+          <div class="road-lanes">
+            <div id="lane-shape" class="lane sky">
+              <div class="ttl">造型</div>
+              <div class="chs"><span class="ch"><b>02</b>三种体素</span><span class="ch"><b>03</b>材质与光学</span></div>
+            </div>
+            <div id="lane-behav" class="lane green">
+              <div class="ttl">行为</div>
+              <div class="chs"><span class="ch"><b>04</b>物理</span><span class="ch"><b>05</b>代码</span><span class="ch"><b>06</b>运行机制</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="progress-track"><div class="progress-fill"></div></div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const TOTAL = 90.5;
+    const pop = (sel, at, from = { y: 24 }) =>
+      tl.from(sel, { ...from, opacity: 0, duration: 0.45, ease: "power3.out" }, at);
+    const fadeIn = (sel, at, d = 0.4) => tl.to(sel, { opacity: 1, duration: d, ease: "power2.out" }, at);
+    const fadeOut = (sel, at, d = 0.35) => tl.to(sel, { opacity: 0, duration: d, ease: "power2.in" }, at);
+    function scene(id, start, dur) {
+      const inner = `#${id} > .scene-inner`;
+      tl.fromTo(inner, { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, start);
+      tl.to(inner, { opacity: 0, duration: 0.3, ease: "power2.in" }, start + dur - 0.3);
+      tl.set(inner, { opacity: 0 }, start + dur);
+    }
+
+    // S1 opening over aircraft fly-by
+    tl.from("#s1 .op-title", { y: 26, opacity: 0, duration: 0.6, ease: "power3.out" }, 0.1);
+    pop("#s1-need-shape", 6.9, { x: -30 });
+    pop("#s1-need-behav", 7.1, { x: 30 });
+    tl.to("#s1 > .scene-inner", { opacity: 0, duration: 0.3, ease: "power2.in" }, 7.3);
+    tl.set("#s1 > .scene-inner", { opacity: 0 }, 7.6);
+
+    // S2 Minecraft vanilla: shape vs behaviour
+    scene("s2", 7.6, 15.5);
+    pop("#s2-shape", 7.75, { x: -40 });
+    tl.fromTo("#s2-castle", { scale: 1.0 }, { scale: 1.08, duration: 6.4, ease: "none" }, 7.75);
+    pop("#s2-t1", 11.5, { y: 12 }); pop("#s2-t2", 12.0, { y: 12 }); pop("#s2-t3", 12.5, { y: 12 });
+    fadeOut("#s2-castle", 13.9, 0.5); fadeIn("#s2-village", 13.9, 0.5);
+    tl.fromTo("#s2-village", { scale: 1.0 }, { scale: 1.07, duration: 9, ease: "none" }, 13.9);
+    pop("#s2-behav", 15.2, { x: 40 });
+    fadeOut("#s2-door, #s2-cap-door", 18.6, 0.45); fadeIn("#s2-farm, #s2-cap-farm", 18.6, 0.45);
+    pop("#s2-b1", 20.2, { y: 12 }); pop("#s2-b2", 21.0, { y: 12 }); pop("#s2-b3", 21.75, { y: 12 });
+
+    // S3 community mods, named in spoken order
+    scene("s3", 23.1, 17.4);
+    pop("#s3-lab-shape", 23.3, { x: -24 });
+    pop("#m-cb", 25.0); pop("#m-lt", 27.1); pop("#m-yu", 29.6);
+    pop("#s3-lab-behav", 33.2, { x: -24 });
+    pop("#m-cr", 33.3); pop("#m-cc", 35.1); pop("#m-vs", 37.3);
+
+    // S4 constraint: 1 m grid, then carved / attached / function blocks
+    scene("s4", 40.5, 18.8);
+    pop("#s4-gridcard", 40.65, { x: -36 });
+    tl.fromTo("#s4-photo", { scale: 1.0 }, { scale: 1.1, duration: 5, ease: "none" }, 40.65);
+    fadeIn("#s4-iso", 45.4, 0.5);
+    fadeIn("#s4-gridlabel", 45.5);
+    tl.to("#iso-grid", { opacity: 1, duration: 0.6, ease: "power2.out" }, 45.6);
+    tl.to("#iso-dim", { opacity: 1, duration: 0.4 }, 46.0);
+    fadeIn("#s4-foot", 47.4);
+    tl.to("#iso-grid", { opacity: 0.35, duration: 0.4 }, 51.2);
+    pop("#ev1", 51.4, { x: 36 });
+    tl.to("#iso-ring-carve, #iso-lab-carve", { opacity: 1, duration: 0.35 }, 51.45);
+    tl.to("#ev1 .ring", { opacity: 1, duration: 0.3 }, 51.5);
+    pop("#ev2", 52.95, { x: 36 });
+    tl.to("#ev1 .ring, #iso-ring-carve", { opacity: 0, duration: 0.3 }, 52.95);
+    tl.to("#iso-ring-attach, #iso-lab-attach", { opacity: 1, duration: 0.35 }, 53.0);
+    tl.to("#ev2 .ring", { opacity: 1, duration: 0.3 }, 53.05);
+    pop("#ev3", 54.85, { x: 36 });
+    tl.to("#ev2 .ring, #iso-ring-attach", { opacity: 0, duration: 0.3 }, 54.85);
+    tl.to("#iso-ring-func, #iso-lab-func", { opacity: 1, duration: 0.35 }, 57.7);
+    tl.to("#ev3 .ring", { opacity: 1, duration: 0.3 }, 57.7);
+    tl.fromTo("#iso-func-block", { opacity: 1 }, { opacity: 0.55, duration: 0.25, yoyo: true, repeat: 3 }, 57.8);
+
+    // S5 Space: separate voxel data from entity code
+    scene("s5", 59.3, 14.1);
+    pop("#s5-head", 59.5, { y: -20 });
+    pop("#s5-left", 61.7, { x: -40 });
+    pop("#s5-right", 61.9, { x: 40 });
+    pop("#s5-example-l", 64.2, { y: 10 });
+    pop("#s5-example-r", 67.0, { y: 10 });
+    pop("#s5-note-l", 69.95, { y: 10 });
+    pop("#s5-note-r", 71.7, { y: 10 });
+
+    // S6 distributed compute
+    scene("s6", 73.4, 13.35);
+    pop("#s6-left", 73.55, { x: -36 });
+    tl.from("#chunks rect", { opacity: 0, scale: 0.6, transformOrigin: "50% 50%", duration: 0.3, stagger: 0.04, ease: "back.out(2)" }, 73.8);
+    tl.from("#s6-ents > g", { opacity: 0, x: 24, duration: 0.35, stagger: 0.18, ease: "power3.out" }, 75.5);
+    tl.from("#s6-ents > text", { opacity: 0, duration: 0.3 }, 75.5);
+    pop("#s6-right", 77.0, { x: 36 });
+    tl.from("#srv", { opacity: 0, scale: 0.8, transformOrigin: "50% 50%", duration: 0.35 }, 77.2);
+    tl.from("#dev0, #dev1, #dev2", { opacity: 0, y: 16, duration: 0.35, stagger: 0.15 }, 77.35);
+    tl.from("#links line", { opacity: 0, duration: 0.3, stagger: 0.1 }, 77.8);
+    tl.from("#lk-label", { opacity: 0, duration: 0.3 }, 78.0);
+    [["#pk0", 150, 150], ["#pk1", 650, 150], ["#pk2", 400, 450]].forEach(([sel, x, y], i) => {
+      tl.fromTo(sel, { attr: { cx: x, cy: y }, opacity: 0 }, { attr: { cx: 400, cy: i === 2 ? 320 : 270 }, opacity: 1, duration: 1.1, ease: "none", repeat: 7, delay: i * 0.3 }, 78.0);
+    });
+    tl.from("#cores", { opacity: 0, y: 20, duration: 0.4 }, 78.35);
+    const coreFill = ["rgba(56,189,248,0.6)", "rgba(251,191,36,0.6)", "rgba(244,114,182,0.6)", "rgba(74,222,128,0.6)"];
+    for (let i = 0; i < 15; i++) {
+      const col = i % 5;
+      const core = col < 2 ? 0 : col < 3 ? 1 : col < 4 ? 2 : 3;
+      tl.to(`#ch${i}`, { attr: { fill: coreFill[(core + Math.floor(i / 5)) % 4] }, duration: 0.25 }, 78.6 + i * 0.05);
+    }
+    pop("#s6-goal", 80.7, { y: 20 });
+    tl.from("#g2", { opacity: 0.15, duration: 0.4 }, 83.4);
+    tl.from("#g3", { opacity: 0.15, duration: 0.4 }, 85.7);
+    tl.from("#s6-goal .arr", { opacity: 0.15, duration: 0.4, stagger: 2.3 }, 83.3);
+
+    // S7 roadmap (two clean cards, no matrix table)
+    tl.fromTo("#s7 > .scene-inner", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 86.75);
+    pop("#lane-shape", 87.1, { x: -40 });
+    pop("#lane-behav", 88.2, { x: 40 });
+    tl.to("#s7 > .scene-inner", { opacity: 0, duration: 0.35, ease: "power2.in" }, 90.15);
+
+    tl.to(".progress-fill", { width: "100%", duration: TOTAL, ease: "none" }, 0);
+
+    window.__timelines = window.__timelines || {};
+    window.__timelines["root"] = tl;
+  </script>
+</body>
+</html>
