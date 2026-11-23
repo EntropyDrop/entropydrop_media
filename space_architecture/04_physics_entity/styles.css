@@ -259,7 +259,7 @@ html, body {
 }
 
 /* ---- S1 opening ---- */
-.op-stack { position: relative; margin-top: 210px; max-width: 1100px; }
+.op-stack { position: relative; margin-top: 250px; max-width: 1100px; }
 .op-badge {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 8px 16px; border: 2px solid #000; background: rgba(6,11,8,0.85);
@@ -268,7 +268,8 @@ html, body {
 }
 .op-badge i { width: 10px; height: 10px; background: var(--green); display: block; }
 .op-title {
-  margin-top: 0; font-size: 104px; line-height: 1.12; font-weight: 400;
+  margin-top: 0; font-size: 86px; line-height: 1.15; font-weight: 400;
+  letter-spacing: 0.02em; white-space: nowrap;
   text-shadow: 5px 5px 0 rgba(0,0,0,0.85);
 }
 .op-title span { color: var(--green); }

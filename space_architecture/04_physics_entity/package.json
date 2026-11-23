@@ -5,6 +5,6 @@
   "scripts": {
     "dev": "npx --yes hyperframes@0.6.6 preview",
     "check": "npx --yes hyperframes@0.6.6 lint && npx --yes hyperframes@0.6.6 validate && npx --yes hyperframes@0.6.6 inspect",
-    "render": "npx --yes hyperframes@0.6.6 render -w 2 --crf 18 -o exports/04_physics_entity.mp4"
+    "render": "npx --yes hyperframes@0.6.6 render -w 1 --crf 18 -o exports/04_physics_entity.mp4"
   }
 }

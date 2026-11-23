@@ -1,0 +1,2540 @@
+{
+  "aircraft": 50,
+  "modelPerAircraft": {
+    "authoredVoxels": 21766,
+    "surfaceVoxels": 9390,
+    "surfaceQuads": 13312,
+    "meshTriangles": 26624,
+    "collisionBoxes": 575,
+    "decorationBoxes": 188
+  },
+  "fleet": {
+    "authoredVoxels": 1088300,
+    "surfaceVoxels": 469500,
+    "surfaceQuads": 665600,
+    "meshTriangles": 1331200,
+    "collisionBoxes": 28750,
+    "decorationBoxes": 9400
+  },
+  "exactBoxPairTests": {
+    "sampleSteps": 500,
+    "total": 453010,
+    "meanPerStep": 906.02,
+    "peakPerStep": 8171,
+    "peakStep": 493
+  },
+  "sweptBoxPairTests": {
+    "total": 310030,
+    "peakPerStep": 4420
+  },
+  "traceSha256": "53f024d9a6d726d01e72b48e8de2334a68fc0d14fbf15ccf7cc3a01e047a21cd",
+  "sameAircraftAndTrajectoryAsCpuBenchmark": true,
+  "scope": {
+    "rendering": "Authored standard and micro voxels that emit at least one quadrilateral using the actual component mesh and neighbor visibility/material rules. Triangle count is taken from the voxel mesh buffers, before camera culling and depth testing. Decoration meshes are separate.",
+    "collisionBoxes": "Entity-to-entity collision boxes for 50 unique aircraft; merged ordinary voxel boxes and rotated decoration footprints are both included. Per-worker replica data is not multiplied into fleet totals.",
+    "exactTests": "Number of non-null oriented-box pairs passed to the WASM narrow phase, across all 50 worker executions. Counts include substeps, iterations and replica checks. This is a count of tests, not successful or distinct collisions.",
+    "measurement": "Identical physics and contact trace verified against the timed run. Benchmark CPU numbers use the existing uninstrumented run."
+  },
+  "ticks": [
+    {
+      "tick": 1,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 2,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 3,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 4,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 5,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 6,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 7,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 8,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 9,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 10,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 11,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 12,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 13,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 14,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 15,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 16,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 17,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 18,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 19,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 20,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 21,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 22,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 23,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 24,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 25,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 26,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 27,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 28,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 29,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 30,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 31,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 32,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 33,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 34,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 35,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 36,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 37,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 38,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 39,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 40,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 41,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 42,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 43,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 44,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 45,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 46,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 47,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 48,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 49,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 50,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 51,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 52,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 53,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 54,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 55,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 56,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 57,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 58,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 59,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 60,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 61,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 62,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 63,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 64,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 65,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 66,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 67,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 68,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 69,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 70,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 71,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 72,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 73,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 74,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 75,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 76,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 77,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 78,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 79,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 80,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 81,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 82,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 83,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 84,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 85,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 86,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 87,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 88,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 89,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 90,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 91,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 92,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 93,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 94,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 95,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 96,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 97,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 98,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 99,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 100,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 101,
+      "exactPairs": 0,
+      "sweptPairs": 1
+    },
+    {
+      "tick": 102,
+      "exactPairs": 2,
+      "sweptPairs": 5
+    },
+    {
+      "tick": 103,
+      "exactPairs": 17,
+      "sweptPairs": 13
+    },
+    {
+      "tick": 104,
+      "exactPairs": 0,
+      "sweptPairs": 4
+    },
+    {
+      "tick": 105,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 106,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 107,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 108,
+      "exactPairs": 0,
+      "sweptPairs": 3
+    },
+    {
+      "tick": 109,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 110,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 111,
+      "exactPairs": 0,
+      "sweptPairs": 5
+    },
+    {
+      "tick": 112,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 113,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 114,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 115,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 116,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 117,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 118,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 119,
+      "exactPairs": 2,
+      "sweptPairs": 3
+    },
+    {
+      "tick": 120,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 121,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 122,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 123,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 124,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 125,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 126,
+      "exactPairs": 3,
+      "sweptPairs": 3
+    },
+    {
+      "tick": 127,
+      "exactPairs": 3,
+      "sweptPairs": 6
+    },
+    {
+      "tick": 128,
+      "exactPairs": 5,
+      "sweptPairs": 10
+    },
+    {
+      "tick": 129,
+      "exactPairs": 13,
+      "sweptPairs": 21
+    },
+    {
+      "tick": 130,
+      "exactPairs": 22,
+      "sweptPairs": 39
+    },
+    {
+      "tick": 131,
+      "exactPairs": 93,
+      "sweptPairs": 45
+    },
+    {
+      "tick": 132,
+      "exactPairs": 0,
+      "sweptPairs": 6
+    },
+    {
+      "tick": 133,
+      "exactPairs": 0,
+      "sweptPairs": 4
+    },
+    {
+      "tick": 134,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 135,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 136,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 137,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 138,
+      "exactPairs": 1,
+      "sweptPairs": 1
+    },
+    {
+      "tick": 139,
+      "exactPairs": 7,
+      "sweptPairs": 16
+    },
+    {
+      "tick": 140,
+      "exactPairs": 0,
+      "sweptPairs": 0
+    },
+    {
+      "tick": 141,
+      "exactPairs": 7,
+      "sweptPairs": 11
+    },
+    {
+      "tick": 142,
+      "exactPairs": 1,
+      "sweptPairs": 1
+    },
+    {
+      "tick": 143,
+      "exactPairs": 0,
+      "sweptPairs": 2
+    },
+    {
+      "tick": 144,
+      "exactPairs": 0,
+      "sweptPairs": 5
+    },
+    {
+      "tick": 145,
+      "exactPairs": 0,
+      "sweptPairs": 13
+    },
+    {
+      "tick": 146,
+      "exactPairs": 124,
+      "sweptPairs": 219
+    },
+    {
+      "tick": 147,
+      "exactPairs": 1048,
+      "sweptPairs": 1179
+    },
+    {
+      "tick": 148,
+      "exactPairs": 1315,
+      "sweptPairs": 1460
+    },
+    {
+      "tick": 149,
+      "exactPairs": 1988,
+      "sweptPairs": 1851
+    },
+    {
+      "tick": 150,
+      "exactPairs": 2440,
+      "sweptPairs": 2658
+    },
+    {
+      "tick": 151,
+      "exactPairs": 4122,
+      "sweptPairs": 3327
+    },
+    {
+      "tick": 152,
+      "exactPairs": 5463,
+      "sweptPairs": 3807
+    },
+    {
+      "tick": 153,
+      "exactPairs": 2167,
+      "sweptPairs": 1980
+    },
+    {
+      "tick": 154,
+      "exactPairs": 4385,
+      "sweptPairs": 2603
+    },
+    {
+      "tick": 155,
+      "exactPairs": 2883,
+      "sweptPairs": 2690
+    },
+    {
+      "tick": 156,
+      "exactPairs": 2912,
+      "sweptPairs": 3028
+    },
+    {
+      "tick": 157,
+      "exactPairs": 3200,
+      "sweptPairs": 3359
+    },
+    {
+      "tick": 158,
+      "exactPairs": 3533,
+      "sweptPairs": 3760
+    },
+    {
+      "tick": 159,
+      "exactPairs": 5979,
+      "sweptPairs": 4082
+    },
+    {
+      "tick": 160,
+      "exactPairs": 5293,
+      "sweptPairs": 3607
+    },
+    {
+      "tick": 161,
+      "exactPairs": 4740,
+      "sweptPairs": 4420
+    },
+    {
+      "tick": 162,
+      "exactPairs": 3849,
+      "sweptPairs": 3492
+    },
+    {
+      "tick": 163,
+      "exactPairs": 3481,
+      "sweptPairs": 1537
+    },
+    {
+      "tick": 164,
+      "exactPairs": 1681,
+      "sweptPairs": 1244
+    },
+    {
+      "tick": 165,
+      "exactPairs": 906,
+      "sweptPairs": 1089
+    },
+    {
+      "tick": 166,
+      "exactPairs": 300,
+      "sweptPairs": 375
+    },
+    {
+      "tick": 167,
+      "exactPairs": 130,
+      "sweptPairs": 134
+    },
+    {
+      "tick": 168,
+      "exactPairs": 70,
+      "sweptPairs": 91
+    },
+    {
+      "tick": 169,
+      "exactPairs": 94,
+      "sweptPairs": 122
+    },
+    {
+      "tick": 170,
+      "exactPairs": 165,
+      "sweptPairs": 200
+    },
+    {
+      "tick": 171,
+      "exactPairs": 167,
+      "sweptPairs": 181
+    },
+    {
+      "tick": 172,
+      "exactPairs": 192,
+      "sweptPairs": 198
+    },
+    {
+      "tick": 173,
+      "exactPairs": 206,
+      "sweptPairs": 209
+    },
+    {
+      "tick": 174,
+      "exactPairs": 117,
+      "sweptPairs": 145
+    },
+    {
+      "tick": 175,
+      "exactPairs": 79,
+      "sweptPairs": 93
+    },
+    {
+      "tick": 176,
+      "exactPairs": 815,
+      "sweptPairs": 333
+    },
+    {
+      "tick": 177,
+      "exactPairs": 688,
+      "sweptPairs": 905
+    },
+    {
+      "tick": 178,
+      "exactPairs": 130,
+      "sweptPairs": 171
+    },
+    {
+      "tick": 179,
+      "exactPairs": 157,
+      "sweptPairs": 199
+    },
+    {
+      "tick": 180,
+      "exactPairs": 228,
+      "sweptPairs": 219
+    },
+    {
+      "tick": 181,
+      "exactPairs": 791,
+      "sweptPairs": 274
+    },
+    {
+      "tick": 182,
+      "exactPairs": 1373,
+      "sweptPairs": 2626
+    },
+    {
+      "tick": 183,
+      "exactPairs": 9,
+      "sweptPairs": 20
+    },
+    {
+      "tick": 184,
+      "exactPairs": 15,
+      "sweptPairs": 21
+    },
+    {
+      "tick": 185,
+      "exactPairs": 6,
+      "sweptPairs": 9
+    },
+    {
+      "tick": 186,
+      "exactPairs": 20,
+      "sweptPairs": 27
+    },
+    {
+      "tick": 187,
+      "exactPairs": 71,
+      "sweptPairs": 39
+    },
+    {
+      "tick": 188,
+      "exactPairs": 90,
+      "sweptPairs": 38
+    },
+    {
+      "tick": 189,
+      "exactPairs": 36,
+      "sweptPairs": 33
+    },
+    {
+      "tick": 190,
+      "exactPairs": 88,
+      "sweptPairs": 28
+    },
+    {
+      "tick": 191,
+      "exactPairs": 84,
+      "sweptPairs": 14
+    },
+    {
+      "tick": 192,
+      "exactPairs": 39,
+      "sweptPairs": 29
+    },
+    {
+      "tick": 193,
+      "exactPairs": 89,
+      "sweptPairs": 103
+    },
+    {
+      "tick": 194,
+      "exactPairs": 201,
+      "sweptPairs": 197
+    },
+    {
+      "tick": 195,
+      "exactPairs": 628,
+      "sweptPairs": 316
+    },
+    {
+      "tick": 196,
+      "exactPairs": 219,
+      "sweptPairs": 199
+    },
+    {
+      "tick": 197,
+      "exactPairs": 470,
+      "sweptPairs": 218
+    },
+    {
+      "tick": 198,
+      "exactPairs": 206,
+      "sweptPairs": 177
+    },
+    {
+      "tick": 199,
+      "exactPairs": 297,
+      "sweptPairs": 111
+    },
+    {
+      "tick": 200,
+      "exactPairs": 246,
+      "sweptPairs": 124
+    },
+    {
+      "tick": 201,
+      "exactPairs": 114,
+      "sweptPairs": 109
+    },
+    {
+      "tick": 202,
+      "exactPairs": 78,
+      "sweptPairs": 146
+    },
+    {
+      "tick": 203,
+      "exactPairs": 44,
+      "sweptPairs": 51
+    },
+    {
+      "tick": 204,
+      "exactPairs": 89,
+      "sweptPairs": 82
+    },
+    {
+      "tick": 205,
+      "exactPairs": 87,
+      "sweptPairs": 101
+    },
+    {
+      "tick": 206,
+      "exactPairs": 109,
+      "sweptPairs": 76
+    },
+    {
+      "tick": 207,
+      "exactPairs": 125,
+      "sweptPairs": 85
+    },
+    {
+      "tick": 208,
+      "exactPairs": 392,
+      "sweptPairs": 87
+    },
+    {
+      "tick": 209,
+      "exactPairs": 138,
+      "sweptPairs": 98
+    },
+    {
+      "tick": 210,
+      "exactPairs": 260,
+      "sweptPairs": 125
+    },
+    {
+      "tick": 211,
+      "exactPairs": 116,
+      "sweptPairs": 127
+    },
+    {
+      "tick": 212,
+      "exactPairs": 199,
+      "sweptPairs": 100
+    },
+    {
+      "tick": 213,
+      "exactPairs": 137,
+      "sweptPairs": 89
+    },
+    {
+      "tick": 214,
+      "exactPairs": 119,
+      "sweptPairs": 113
+    },
+    {
+      "tick": 215,
+      "exactPairs": 104,
+      "sweptPairs": 96
+    },
+    {
+      "tick": 216,
+      "exactPairs": 89,
+      "sweptPairs": 87
+    },
+    {
+      "tick": 217,
+      "exactPairs": 79,
+      "sweptPairs": 96
+    },
+    {
+      "tick": 218,
+      "exactPairs": 121,
+      "sweptPairs": 158
+    },
+    {
+      "tick": 219,
+      "exactPairs": 144,
+      "sweptPairs": 136
+    },
+    {
+      "tick": 220,
+      "exactPairs": 171,
+      "sweptPairs": 143
+    },
+    {
+      "tick": 221,
+      "exactPairs": 271,
+      "sweptPairs": 119
+    },
+    {
+      "tick": 222,
+      "exactPairs": 55,
+      "sweptPairs": 70
+    },
+    {
+      "tick": 223,
+      "exactPairs": 73,
+      "sweptPairs": 85
+    },
+    {
+      "tick": 224,
+      "exactPairs": 232,
+      "sweptPairs": 168
+    },
+    {
+      "tick": 225,
+      "exactPairs": 383,
+      "sweptPairs": 297
+    },
+    {
+      "tick": 226,
+      "exactPairs": 261,
+      "sweptPairs": 234
+    },
+    {
+      "tick": 227,
+      "exactPairs": 1563,
+      "sweptPairs": 365
+    },
+    {
+      "tick": 228,
+      "exactPairs": 799,
+      "sweptPairs": 551
+    },
+    {
+      "tick": 229,
+      "exactPairs": 1138,
+      "sweptPairs": 416
+    },
+    {
+      "tick": 230,
+      "exactPairs": 1296,
+      "sweptPairs": 425
+    },
+    {
+      "tick": 231,
+      "exactPairs": 1687,
+      "sweptPairs": 575
+    },
+    {
+      "tick": 232,
+      "exactPairs": 1659,
+      "sweptPairs": 272
+    },
+    {
+      "tick": 233,
+      "exactPairs": 1423,
+      "sweptPairs": 258
+    },
+    {
+      "tick": 234,
+      "exactPairs": 1230,
+      "sweptPairs": 221
+    },
+    {
+      "tick": 235,
+      "exactPairs": 755,
+      "sweptPairs": 174
+    },
+    {
+      "tick": 236,
+      "exactPairs": 935,
+      "sweptPairs": 226
+    },
+    {
+      "tick": 237,
+      "exactPairs": 1043,
+      "sweptPairs": 330
+    },
+    {
+      "tick": 238,
+      "exactPairs": 581,
+      "sweptPairs": 393
+    },
+    {
+      "tick": 239,
+      "exactPairs": 1623,
+      "sweptPairs": 435
+    },
+    {
+      "tick": 240,
+      "exactPairs": 748,
+      "sweptPairs": 535
+    },
+    {
+      "tick": 241,
+      "exactPairs": 1529,
+      "sweptPairs": 520
+    },
+    {
+      "tick": 242,
+      "exactPairs": 1272,
+      "sweptPairs": 446
+    },
+    {
+      "tick": 243,
+      "exactPairs": 1338,
+      "sweptPairs": 388
+    },
+    {
+      "tick": 244,
+      "exactPairs": 778,
+      "sweptPairs": 328
+    },
+    {
+      "tick": 245,
+      "exactPairs": 329,
+      "sweptPairs": 305
+    },
+    {
+      "tick": 246,
+      "exactPairs": 254,
+      "sweptPairs": 252
+    },
+    {
+      "tick": 247,
+      "exactPairs": 519,
+      "sweptPairs": 212
+    },
+    {
+      "tick": 248,
+      "exactPairs": 1541,
+      "sweptPairs": 695
+    },
+    {
+      "tick": 249,
+      "exactPairs": 450,
+      "sweptPairs": 424
+    },
+    {
+      "tick": 250,
+      "exactPairs": 454,
+      "sweptPairs": 351
+    },
+    {
+      "tick": 251,
+      "exactPairs": 229,
+      "sweptPairs": 254
+    },
+    {
+      "tick": 252,
+      "exactPairs": 93,
+      "sweptPairs": 143
+    },
+    {
+      "tick": 253,
+      "exactPairs": 97,
+      "sweptPairs": 110
+    },
+    {
+      "tick": 254,
+      "exactPairs": 138,
+      "sweptPairs": 116
+    },
+    {
+      "tick": 255,
+      "exactPairs": 96,
+      "sweptPairs": 113
+    },
+    {
+      "tick": 256,
+      "exactPairs": 72,
+      "sweptPairs": 86
+    },
+    {
+      "tick": 257,
+      "exactPairs": 119,
+      "sweptPairs": 139
+    },
+    {
+      "tick": 258,
+      "exactPairs": 224,
+      "sweptPairs": 258
+    },
+    {
+      "tick": 259,
+      "exactPairs": 280,
+      "sweptPairs": 348
+    },
+    {
+      "tick": 260,
+      "exactPairs": 414,
+      "sweptPairs": 543
+    },
+    {
+      "tick": 261,
+      "exactPairs": 656,
+      "sweptPairs": 646
+    },
+    {
+      "tick": 262,
+      "exactPairs": 630,
+      "sweptPairs": 765
+    },
+    {
+      "tick": 263,
+      "exactPairs": 1727,
+      "sweptPairs": 837
+    },
+    {
+      "tick": 264,
+      "exactPairs": 662,
+      "sweptPairs": 784
+    },
+    {
+      "tick": 265,
+      "exactPairs": 647,
+      "sweptPairs": 656
+    },
+    {
+      "tick": 266,
+      "exactPairs": 511,
+      "sweptPairs": 591
+    },
+    {
+      "tick": 267,
+      "exactPairs": 560,
+      "sweptPairs": 522
+    },
+    {
+      "tick": 268,
+      "exactPairs": 513,
+      "sweptPairs": 567
+    },
+    {
+      "tick": 269,
+      "exactPairs": 1740,
+      "sweptPairs": 736
+    },
+    {
+      "tick": 270,
+      "exactPairs": 797,
+      "sweptPairs": 834
+    },
+    {
+      "tick": 271,
+      "exactPairs": 637,
+      "sweptPairs": 709
+    },
+    {
+      "tick": 272,
+      "exactPairs": 650,
+      "sweptPairs": 722
+    },
+    {
+      "tick": 273,
+      "exactPairs": 1309,
+      "sweptPairs": 762
+    },
+    {
+      "tick": 274,
+      "exactPairs": 909,
+      "sweptPairs": 763
+    },
+    {
+      "tick": 275,
+      "exactPairs": 1141,
+      "sweptPairs": 627
+    },
+    {
+      "tick": 276,
+      "exactPairs": 541,
+      "sweptPairs": 504
+    },
+    {
+      "tick": 277,
+      "exactPairs": 359,
+      "sweptPairs": 405
+    },
+    {
+      "tick": 278,
+      "exactPairs": 250,
+      "sweptPairs": 297
+    },
+    {
+      "tick": 279,
+      "exactPairs": 194,
+      "sweptPairs": 235
+    },
+    {
+      "tick": 280,
+      "exactPairs": 153,
+      "sweptPairs": 239
+    },
+    {
+      "tick": 281,
+      "exactPairs": 146,
+      "sweptPairs": 224
+    },
+    {
+      "tick": 282,
+      "exactPairs": 490,
+      "sweptPairs": 177
+    },
+    {
+      "tick": 283,
+      "exactPairs": 117,
+      "sweptPairs": 145
+    },
+    {
+      "tick": 284,
+      "exactPairs": 124,
+      "sweptPairs": 130
+    },
+    {
+      "tick": 285,
+      "exactPairs": 212,
+      "sweptPairs": 231
+    },
+    {
+      "tick": 286,
+      "exactPairs": 282,
+      "sweptPairs": 312
+    },
+    {
+      "tick": 287,
+      "exactPairs": 330,
+      "sweptPairs": 382
+    },
+    {
+      "tick": 288,
+      "exactPairs": 432,
+      "sweptPairs": 507
+    },
+    {
+      "tick": 289,
+      "exactPairs": 559,
+      "sweptPairs": 634
+    },
+    {
+      "tick": 290,
+      "exactPairs": 783,
+      "sweptPairs": 819
+    },
+    {
+      "tick": 291,
+      "exactPairs": 931,
+      "sweptPairs": 958
+    },
+    {
+      "tick": 292,
+      "exactPairs": 1905,
+      "sweptPairs": 1215
+    },
+    {
+      "tick": 293,
+      "exactPairs": 1273,
+      "sweptPairs": 1501
+    },
+    {
+      "tick": 294,
+      "exactPairs": 1263,
+      "sweptPairs": 1431
+    },
+    {
+      "tick": 295,
+      "exactPairs": 1223,
+      "sweptPairs": 1353
+    },
+    {
+      "tick": 296,
+      "exactPairs": 1095,
+      "sweptPairs": 1332
+    },
+    {
+      "tick": 297,
+      "exactPairs": 1212,
+      "sweptPairs": 1440
+    },
+    {
+      "tick": 298,
+      "exactPairs": 2797,
+      "sweptPairs": 1409
+    },
+    {
+      "tick": 299,
+      "exactPairs": 1003,
+      "sweptPairs": 1310
+    },
+    {
+      "tick": 300,
+      "exactPairs": 915,
+      "sweptPairs": 1189
+    },
+    {
+      "tick": 301,
+      "exactPairs": 934,
+      "sweptPairs": 1202
+    },
+    {
+      "tick": 302,
+      "exactPairs": 2010,
+      "sweptPairs": 1348
+    },
+    {
+      "tick": 303,
+      "exactPairs": 1383,
+      "sweptPairs": 1520
+    },
+    {
+      "tick": 304,
+      "exactPairs": 1530,
+      "sweptPairs": 1628
+    },
+    {
+      "tick": 305,
+      "exactPairs": 1615,
+      "sweptPairs": 1743
+    },
+    {
+      "tick": 306,
+      "exactPairs": 2537,
+      "sweptPairs": 2120
+    },
+    {
+      "tick": 307,
+      "exactPairs": 2442,
+      "sweptPairs": 2432
+    },
+    {
+      "tick": 308,
+      "exactPairs": 2720,
+      "sweptPairs": 2335
+    },
+    {
+      "tick": 309,
+      "exactPairs": 5353,
+      "sweptPairs": 2307
+    },
+    {
+      "tick": 310,
+      "exactPairs": 4093,
+      "sweptPairs": 2335
+    },
+    {
+      "tick": 311,
+      "exactPairs": 2324,
+      "sweptPairs": 2321
+    },
+    {
+      "tick": 312,
+      "exactPairs": 2886,
+      "sweptPairs": 2494
+    },
+    {
+      "tick": 313,
+      "exactPairs": 4212,
+      "sweptPairs": 2641
+    },
+    {
+      "tick": 314,
+      "exactPairs": 4429,
+      "sweptPairs": 2798
+    },
+    {
+      "tick": 315,
+      "exactPairs": 4400,
+      "sweptPairs": 2639
+    },
+    {
+      "tick": 316,
+      "exactPairs": 3308,
+      "sweptPairs": 2668
+    },
+    {
+      "tick": 317,
+      "exactPairs": 2598,
+      "sweptPairs": 2805
+    },
+    {
+      "tick": 318,
+      "exactPairs": 2811,
+      "sweptPairs": 2810
+    },
+    {
+      "tick": 319,
+      "exactPairs": 4430,
+      "sweptPairs": 2863
+    },
+    {
+      "tick": 320,
+      "exactPairs": 3116,
+      "sweptPairs": 3000
+    },
+    {
+      "tick": 321,
+      "exactPairs": 4479,
+      "sweptPairs": 2875
+    },
+    {
+      "tick": 322,
+      "exactPairs": 6062,
+      "sweptPairs": 2752
+    },
+    {
+      "tick": 323,
+      "exactPairs": 3169,
+      "sweptPairs": 2968
+    },
+    {
+      "tick": 324,
+      "exactPairs": 3239,
+      "sweptPairs": 3136
+    },
+    {
+      "tick": 325,
+      "exactPairs": 3711,
+      "sweptPairs": 3208
+    },
+    {
+      "tick": 326,
+      "exactPairs": 5539,
+      "sweptPairs": 3293
+    },
+    {
+      "tick": 327,
+      "exactPairs": 6119,
+      "sweptPairs": 3063
+    },
+    {
+      "tick": 328,
+      "exactPairs": 3453,
+      "sweptPairs": 2859
+    },
+    {
+      "tick": 329,
+      "exactPairs": 5117,
+      "sweptPairs": 2588
+    },
+    {
+      "tick": 330,
+      "exactPairs": 4540,
+      "sweptPairs": 2499
+    },
+    {
+      "tick": 331,
+      "exactPairs": 4084,
+      "sweptPairs": 2392
+    },
+    {
+      "tick": 332,
+      "exactPairs": 5220,
+      "sweptPairs": 2279
+    },
+    {
+      "tick": 333,
+      "exactPairs": 6172,
+      "sweptPairs": 2252
+    },
+    {
+      "tick": 334,
+      "exactPairs": 5677,
+      "sweptPairs": 2300
+    },
+    {
+      "tick": 335,
+      "exactPairs": 6079,
+      "sweptPairs": 2378
+    },
+    {
+      "tick": 336,
+      "exactPairs": 4580,
+      "sweptPairs": 2408
+    },
+    {
+      "tick": 337,
+      "exactPairs": 8018,
+      "sweptPairs": 2336
+    },
+    {
+      "tick": 338,
+      "exactPairs": 3922,
+      "sweptPairs": 2174
+    },
+    {
+      "tick": 339,
+      "exactPairs": 3506,
+      "sweptPairs": 1995
+    },
+    {
+      "tick": 340,
+      "exactPairs": 4230,
+      "sweptPairs": 1863
+    },
+    {
+      "tick": 341,
+      "exactPairs": 2309,
+      "sweptPairs": 1366
+    },
+    {
+      "tick": 342,
+      "exactPairs": 2410,
+      "sweptPairs": 1404
+    },
+    {
+      "tick": 343,
+      "exactPairs": 2957,
+      "sweptPairs": 1346
+    },
+    {
+      "tick": 344,
+      "exactPairs": 4039,
+      "sweptPairs": 1719
+    },
+    {
+      "tick": 345,
+      "exactPairs": 1114,
+      "sweptPairs": 964
+    },
+    {
+      "tick": 346,
+      "exactPairs": 1177,
+      "sweptPairs": 910
+    },
+    {
+      "tick": 347,
+      "exactPairs": 919,
+      "sweptPairs": 898
+    },
+    {
+      "tick": 348,
+      "exactPairs": 1616,
+      "sweptPairs": 833
+    },
+    {
+      "tick": 349,
+      "exactPairs": 2790,
+      "sweptPairs": 870
+    },
+    {
+      "tick": 350,
+      "exactPairs": 1070,
+      "sweptPairs": 897
+    },
+    {
+      "tick": 351,
+      "exactPairs": 1285,
+      "sweptPairs": 948
+    },
+    {
+      "tick": 352,
+      "exactPairs": 1379,
+      "sweptPairs": 993
+    },
+    {
+      "tick": 353,
+      "exactPairs": 1430,
+      "sweptPairs": 1052
+    },
+    {
+      "tick": 354,
+      "exactPairs": 2845,
+      "sweptPairs": 1024
+    },
+    {
+      "tick": 355,
+      "exactPairs": 1476,
+      "sweptPairs": 1043
+    },
+    {
+      "tick": 356,
+      "exactPairs": 2172,
+      "sweptPairs": 1088
+    },
+    {
+      "tick": 357,
+      "exactPairs": 4350,
+      "sweptPairs": 1275
+    },
+    {
+      "tick": 358,
+      "exactPairs": 1583,
+      "sweptPairs": 1392
+    },
+    {
+      "tick": 359,
+      "exactPairs": 5314,
+      "sweptPairs": 1437
+    },
+    {
+      "tick": 360,
+      "exactPairs": 2121,
+      "sweptPairs": 1394
+    },
+    {
+      "tick": 361,
+      "exactPairs": 5081,
+      "sweptPairs": 1214
+    },
+    {
+      "tick": 362,
+      "exactPairs": 2263,
+      "sweptPairs": 1067
+    },
+    {
+      "tick": 363,
+      "exactPairs": 1699,
+      "sweptPairs": 923
+    },
+    {
+      "tick": 364,
+      "exactPairs": 977,
+      "sweptPairs": 843
+    },
+    {
+      "tick": 365,
+      "exactPairs": 1840,
+      "sweptPairs": 893
+    },
+    {
+      "tick": 366,
+      "exactPairs": 1779,
+      "sweptPairs": 419
+    },
+    {
+      "tick": 367,
+      "exactPairs": 1693,
+      "sweptPairs": 443
+    },
+    {
+      "tick": 368,
+      "exactPairs": 2052,
+      "sweptPairs": 523
+    },
+    {
+      "tick": 369,
+      "exactPairs": 1602,
+      "sweptPairs": 546
+    },
+    {
+      "tick": 370,
+      "exactPairs": 1521,
+      "sweptPairs": 566
+    },
+    {
+      "tick": 371,
+      "exactPairs": 653,
+      "sweptPairs": 569
+    },
+    {
+      "tick": 372,
+      "exactPairs": 508,
+      "sweptPairs": 544
+    },
+    {
+      "tick": 373,
+      "exactPairs": 597,
+      "sweptPairs": 559
+    },
+    {
+      "tick": 374,
+      "exactPairs": 576,
+      "sweptPairs": 589
+    },
+    {
+      "tick": 375,
+      "exactPairs": 1433,
+      "sweptPairs": 655
+    },
+    {
+      "tick": 376,
+      "exactPairs": 940,
+      "sweptPairs": 790
+    },
+    {
+      "tick": 377,
+      "exactPairs": 799,
+      "sweptPairs": 822
+    },
+    {
+      "tick": 378,
+      "exactPairs": 2538,
+      "sweptPairs": 949
+    },
+    {
+      "tick": 379,
+      "exactPairs": 1056,
+      "sweptPairs": 654
+    },
+    {
+      "tick": 380,
+      "exactPairs": 942,
+      "sweptPairs": 468
+    },
+    {
+      "tick": 381,
+      "exactPairs": 30,
+      "sweptPairs": 60
+    },
+    {
+      "tick": 382,
+      "exactPairs": 40,
+      "sweptPairs": 31
+    },
+    {
+      "tick": 383,
+      "exactPairs": 32,
+      "sweptPairs": 34
+    },
+    {
+      "tick": 384,
+      "exactPairs": 67,
+      "sweptPairs": 63
+    },
+    {
+      "tick": 385,
+      "exactPairs": 34,
+      "sweptPairs": 52
+    },
+    {
+      "tick": 386,
+      "exactPairs": 36,
+      "sweptPairs": 46
+    },
+    {
+      "tick": 387,
+      "exactPairs": 40,
+      "sweptPairs": 44
+    },
+    {
+      "tick": 388,
+      "exactPairs": 59,
+      "sweptPairs": 63
+    },
+    {
+      "tick": 389,
+      "exactPairs": 65,
+      "sweptPairs": 91
+    },
+    {
+      "tick": 390,
+      "exactPairs": 114,
+      "sweptPairs": 142
+    },
+    {
+      "tick": 391,
+      "exactPairs": 335,
+      "sweptPairs": 187
+    },
+    {
+      "tick": 392,
+      "exactPairs": 147,
+      "sweptPairs": 179
+    },
+    {
+      "tick": 393,
+      "exactPairs": 153,
+      "sweptPairs": 191
+    },
+    {
+      "tick": 394,
+      "exactPairs": 213,
+      "sweptPairs": 210
+    },
+    {
+      "tick": 395,
+      "exactPairs": 187,
+      "sweptPairs": 197
+    },
+    {
+      "tick": 396,
+      "exactPairs": 522,
+      "sweptPairs": 219
+    },
+    {
+      "tick": 397,
+      "exactPairs": 226,
+      "sweptPairs": 217
+    },
+    {
+      "tick": 398,
+      "exactPairs": 224,
+      "sweptPairs": 199
+    },
+    {
+      "tick": 399,
+      "exactPairs": 182,
+      "sweptPairs": 155
+    },
+    {
+      "tick": 400,
+      "exactPairs": 104,
+      "sweptPairs": 125
+    },
+    {
+      "tick": 401,
+      "exactPairs": 88,
+      "sweptPairs": 101
+    },
+    {
+      "tick": 402,
+      "exactPairs": 174,
+      "sweptPairs": 83
+    },
+    {
+      "tick": 403,
+      "exactPairs": 166,
+      "sweptPairs": 81
+    },
+    {
+      "tick": 404,
+      "exactPairs": 56,
+      "sweptPairs": 65
+    },
+    {
+      "tick": 405,
+      "exactPairs": 150,
+      "sweptPairs": 85
+    },
+    {
+      "tick": 406,
+      "exactPairs": 95,
+      "sweptPairs": 52
+    },
+    {
+      "tick": 407,
+      "exactPairs": 126,
+      "sweptPairs": 63
+    },
+    {
+      "tick": 408,
+      "exactPairs": 60,
+      "sweptPairs": 65
+    },
+    {
+      "tick": 409,
+      "exactPairs": 83,
+      "sweptPairs": 91
+    },
+    {
+      "tick": 410,
+      "exactPairs": 157,
+      "sweptPairs": 121
+    },
+    {
+      "tick": 411,
+      "exactPairs": 439,
+      "sweptPairs": 165
+    },
+    {
+      "tick": 412,
+      "exactPairs": 134,
+      "sweptPairs": 171
+    },
+    {
+      "tick": 413,
+      "exactPairs": 225,
+      "sweptPairs": 235
+    },
+    {
+      "tick": 414,
+      "exactPairs": 354,
+      "sweptPairs": 343
+    },
+    {
+      "tick": 415,
+      "exactPairs": 310,
+      "sweptPairs": 357
+    },
+    {
+      "tick": 416,
+      "exactPairs": 413,
+      "sweptPairs": 343
+    },
+    {
+      "tick": 417,
+      "exactPairs": 335,
+      "sweptPairs": 381
+    },
+    {
+      "tick": 418,
+      "exactPairs": 586,
+      "sweptPairs": 303
+    },
+    {
+      "tick": 419,
+      "exactPairs": 616,
+      "sweptPairs": 434
+    },
+    {
+      "tick": 420,
+      "exactPairs": 455,
+      "sweptPairs": 522
+    },
+    {
+      "tick": 421,
+      "exactPairs": 422,
+      "sweptPairs": 349
+    },
+    {
+      "tick": 422,
+      "exactPairs": 337,
+      "sweptPairs": 299
+    },
+    {
+      "tick": 423,
+      "exactPairs": 528,
+      "sweptPairs": 444
+    },
+    {
+      "tick": 424,
+      "exactPairs": 605,
+      "sweptPairs": 632
+    },
+    {
+      "tick": 425,
+      "exactPairs": 437,
+      "sweptPairs": 333
+    },
+    {
+      "tick": 426,
+      "exactPairs": 323,
+      "sweptPairs": 395
+    },
+    {
+      "tick": 427,
+      "exactPairs": 234,
+      "sweptPairs": 302
+    },
+    {
+      "tick": 428,
+      "exactPairs": 318,
+      "sweptPairs": 317
+    },
+    {
+      "tick": 429,
+      "exactPairs": 351,
+      "sweptPairs": 416
+    },
+    {
+      "tick": 430,
+      "exactPairs": 428,
+      "sweptPairs": 462
+    },
+    {
+      "tick": 431,
+      "exactPairs": 581,
+      "sweptPairs": 622
+    },
+    {
+      "tick": 432,
+      "exactPairs": 843,
+      "sweptPairs": 669
+    },
+    {
+      "tick": 433,
+      "exactPairs": 587,
+      "sweptPairs": 605
+    },
+    {
+      "tick": 434,
+      "exactPairs": 605,
+      "sweptPairs": 574
+    },
+    {
+      "tick": 435,
+      "exactPairs": 464,
+      "sweptPairs": 509
+    },
+    {
+      "tick": 436,
+      "exactPairs": 357,
+      "sweptPairs": 438
+    },
+    {
+      "tick": 437,
+      "exactPairs": 352,
+      "sweptPairs": 413
+    },
+    {
+      "tick": 438,
+      "exactPairs": 421,
+      "sweptPairs": 425
+    },
+    {
+      "tick": 439,
+      "exactPairs": 590,
+      "sweptPairs": 530
+    },
+    {
+      "tick": 440,
+      "exactPairs": 672,
+      "sweptPairs": 621
+    },
+    {
+      "tick": 441,
+      "exactPairs": 938,
+      "sweptPairs": 524
+    },
+    {
+      "tick": 442,
+      "exactPairs": 714,
+      "sweptPairs": 495
+    },
+    {
+      "tick": 443,
+      "exactPairs": 544,
+      "sweptPairs": 474
+    },
+    {
+      "tick": 444,
+      "exactPairs": 471,
+      "sweptPairs": 464
+    },
+    {
+      "tick": 445,
+      "exactPairs": 636,
+      "sweptPairs": 397
+    },
+    {
+      "tick": 446,
+      "exactPairs": 456,
+      "sweptPairs": 479
+    },
+    {
+      "tick": 447,
+      "exactPairs": 516,
+      "sweptPairs": 551
+    },
+    {
+      "tick": 448,
+      "exactPairs": 640,
+      "sweptPairs": 579
+    },
+    {
+      "tick": 449,
+      "exactPairs": 415,
+      "sweptPairs": 481
+    },
+    {
+      "tick": 450,
+      "exactPairs": 352,
+      "sweptPairs": 380
+    },
+    {
+      "tick": 451,
+      "exactPairs": 725,
+      "sweptPairs": 577
+    },
+    {
+      "tick": 452,
+      "exactPairs": 1011,
+      "sweptPairs": 1114
+    },
+    {
+      "tick": 453,
+      "exactPairs": 2020,
+      "sweptPairs": 1433
+    },
+    {
+      "tick": 454,
+      "exactPairs": 1953,
+      "sweptPairs": 1295
+    },
+    {
+      "tick": 455,
+      "exactPairs": 958,
+      "sweptPairs": 818
+    },
+    {
+      "tick": 456,
+      "exactPairs": 607,
+      "sweptPairs": 550
+    },
+    {
+      "tick": 457,
+      "exactPairs": 2791,
+      "sweptPairs": 2053
+    },
+    {
+      "tick": 458,
+      "exactPairs": 186,
+      "sweptPairs": 204
+    },
+    {
+      "tick": 459,
+      "exactPairs": 189,
+      "sweptPairs": 218
+    },
+    {
+      "tick": 460,
+      "exactPairs": 296,
+      "sweptPairs": 342
+    },
+    {
+      "tick": 461,
+      "exactPairs": 371,
+      "sweptPairs": 457
+    },
+    {
+      "tick": 462,
+      "exactPairs": 708,
+      "sweptPairs": 590
+    },
+    {
+      "tick": 463,
+      "exactPairs": 621,
+      "sweptPairs": 643
+    },
+    {
+      "tick": 464,
+      "exactPairs": 684,
+      "sweptPairs": 670
+    },
+    {
+      "tick": 465,
+      "exactPairs": 543,
+      "sweptPairs": 630
+    },
+    {
+      "tick": 466,
+      "exactPairs": 554,
+      "sweptPairs": 628
+    },
+    {
+      "tick": 467,
+      "exactPairs": 599,
+      "sweptPairs": 661
+    },
+    {
+      "tick": 468,
+      "exactPairs": 833,
+      "sweptPairs": 698
+    },
+    {
+      "tick": 469,
+      "exactPairs": 2229,
+      "sweptPairs": 799
+    },
+    {
+      "tick": 470,
+      "exactPairs": 1058,
+      "sweptPairs": 902
+    },
+    {
+      "tick": 471,
+      "exactPairs": 859,
+      "sweptPairs": 816
+    },
+    {
+      "tick": 472,
+      "exactPairs": 552,
+      "sweptPairs": 682
+    },
+    {
+      "tick": 473,
+      "exactPairs": 930,
+      "sweptPairs": 573
+    },
+    {
+      "tick": 474,
+      "exactPairs": 563,
+      "sweptPairs": 488
+    },
+    {
+      "tick": 475,
+      "exactPairs": 526,
+      "sweptPairs": 365
+    },
+    {
+      "tick": 476,
+      "exactPairs": 598,
+      "sweptPairs": 312
+    },
+    {
+      "tick": 477,
+      "exactPairs": 268,
+      "sweptPairs": 329
+    },
+    {
+      "tick": 478,
+      "exactPairs": 272,
+      "sweptPairs": 387
+    },
+    {
+      "tick": 479,
+      "exactPairs": 341,
+      "sweptPairs": 490
+    },
+    {
+      "tick": 480,
+      "exactPairs": 513,
+      "sweptPairs": 572
+    },
+    {
+      "tick": 481,
+      "exactPairs": 506,
+      "sweptPairs": 611
+    },
+    {
+      "tick": 482,
+      "exactPairs": 508,
+      "sweptPairs": 632
+    },
+    {
+      "tick": 483,
+      "exactPairs": 526,
+      "sweptPairs": 619
+    },
+    {
+      "tick": 484,
+      "exactPairs": 653,
+      "sweptPairs": 762
+    },
+    {
+      "tick": 485,
+      "exactPairs": 730,
+      "sweptPairs": 926
+    },
+    {
+      "tick": 486,
+      "exactPairs": 1014,
+      "sweptPairs": 988
+    },
+    {
+      "tick": 487,
+      "exactPairs": 904,
+      "sweptPairs": 984
+    },
+    {
+      "tick": 488,
+      "exactPairs": 966,
+      "sweptPairs": 928
+    },
+    {
+      "tick": 489,
+      "exactPairs": 1250,
+      "sweptPairs": 1017
+    },
+    {
+      "tick": 490,
+      "exactPairs": 1440,
+      "sweptPairs": 1329
+    },
+    {
+      "tick": 491,
+      "exactPairs": 1702,
+      "sweptPairs": 1678
+    },
+    {
+      "tick": 492,
+      "exactPairs": 2171,
+      "sweptPairs": 1819
+    },
+    {
+      "tick": 493,
+      "exactPairs": 8171,
+      "sweptPairs": 2101
+    },
+    {
+      "tick": 494,
+      "exactPairs": 5949,
+      "sweptPairs": 2190
+    },
+    {
+      "tick": 495,
+      "exactPairs": 2105,
+      "sweptPairs": 2076
+    },
+    {
+      "tick": 496,
+      "exactPairs": 2474,
+      "sweptPairs": 2242
+    },
+    {
+      "tick": 497,
+      "exactPairs": 2406,
+      "sweptPairs": 2326
+    },
+    {
+      "tick": 498,
+      "exactPairs": 2781,
+      "sweptPairs": 2551
+    },
+    {
+      "tick": 499,
+      "exactPairs": 2529,
+      "sweptPairs": 2841
+    },
+    {
+      "tick": 500,
+      "exactPairs": 3371,
+      "sweptPairs": 2881
+    }
+  ]
+}

@@ -8,136 +8,60 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
-import puppeteer from '/Users/ha/.npm/_npx/c691da254a52985f/node_modules/puppeteer-core/lib/esm/puppeteer/puppeteer-core.js';
+import { fileURLToPath } from 'node:url';
+import { buildCodeModels } from '../../05_code/scripts/nature_code_models.mjs';
+import { launchSpace, setupBaseScene, installFixedTimeCapture } from '../../07_practical_showcase/scripts/harness.mjs';
 
-const ROOT = '/Volumes/zxf/entropydrop_media/space_architecture/06_runtime';
-const SCRATCH = '/tmp/m06';
-fs.mkdirSync(SCRATCH, { recursive: true });
+const ROOT = process.env.SPACE_RUNTIME_OUTPUT || fileURLToPath(new URL('../', import.meta.url));
+const SCRATCH = fs.mkdtempSync(path.join(process.env.TMPDIR || '/tmp', 'space-runtime-record-'));
 const clipArg = process.argv[2] || 'probe';
 const PROBE = process.argv.includes('--probe') || clipArg === 'probe';
-const SPACE_SRC = '/@fs/Users/ha/Documents/entropydrop_website/entropydrop_space';
 const FPS = 30;
-
-async function launchSpace({ world = 'nature', width = 1920, height = 1080, dsf = 1 } = {}) {
-  const browser = await puppeteer.launch({
-    executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-    headless: false,
-    defaultViewport: { width, height, deviceScaleFactor: dsf },
-    userDataDir: path.join(SCRATCH, 'chrome-profile'),
-    args: ['--no-sandbox', `--window-size=${width},${height + 90}`],
-  });
-  const page = await browser.newPage();
-  await page.setViewport({ width, height, deviceScaleFactor: dsf });
-  page.on('pageerror', err => console.log('PAGEERR:', err.message));
-  page.on('console', msg => { const t = msg.text(); if (/\[06rec\]/.test(t)) console.log('CONSOLE:', t.slice(0, 600)); });
-  await page.goto(`http://localhost:5173/space/app/?dev_offline=1&world=${world}&dev_lod=1`, { waitUntil: 'domcontentloaded', timeout: 60000 });
-  await page.evaluate((src) => {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = `${src}/client/src/entry.css`;
-    document.head.appendChild(link);
-    const s = document.createElement('script');
-    s.type = 'module';
-    s.src = `${src}/client/src/entry.ts`;
-    document.body.appendChild(s);
-  }, SPACE_SRC);
-  for (let i = 0; i < 70; i++) {
-    await new Promise(r => setTimeout(r, 1000));
-    const info = await page.evaluate(() => {
-      const g = window.game;
-      return { hasGame: !!g, aoi: g?.world?.getTerrainAoiLoadProgress?.()?.ready, surface: window.offlineSurfaceStatus?.complete,
-        gateHidden: document.getElementById('space-entry-gate')?.hidden };
-    });
-    if (i % 5 === 0) console.log(`[${world}] t=${i + 1}s`, JSON.stringify(info));
-    if (info.hasGame && info.gateHidden && info.aoi && info.surface) break;
-  }
-  return { browser, page };
-}
-
-async function setupBaseScene(page) {
-  return page.evaluate(async (src) => {
-    const g = window.game;
-    const Vec3 = g.playerPhysics.position.constructor;
-    const { encodeInventoryResource } = await import(`${src}/engine/src/storage/InventoryProtobuf.ts`);
-    const { parseInventoryImport } = await import(`${src}/client/src/engine/inventory/InventoryImport.ts`);
-    g.uiStore.startGame(false);
-    g.uiStore.setLightingQuality('ultra', false);
-    g.uiStore.setShadowsEnabled(true, false);
-    g.uiStore.setResolutionScale(1, false);
-    g.uiStore.setRenderDistance(16, false);
-    g.uiStore.setDistantSurfaceEnabled(true, false);
-    g.controller.setPerspective('first_person', false);
-    const render = g.sceneRenderer;
-    const origAvatarVis = render.setPlayerAvatarVisible.bind(render);
-    origAvatarVis(false, false);
-    render.setPlayerAvatarVisible = () => origAvatarVis(false, false);
-    render.renderer.toneMappingExposure = 1.15;
-    const origLinks = render.setComponentHierarchyLinks?.bind(render);
-    if (origLinks) render.setComponentHierarchyLinks = () => origLinks(null);
-    if (render.sunLight?.shadow) {
-      const sh = render.sunLight.shadow;
-      sh.camera.left = sh.camera.bottom = -120;
-      sh.camera.right = sh.camera.top = 120;
-      sh.camera.updateProjectionMatrix();
-      sh.needsUpdate = true;
-    }
-    g.controller.setFov(55);
-    let fixedCam = null;
-    window.__spaceCamHook = null;
-    const origUpdateCam = g.controller.updateCameraPosition.bind(g.controller);
-    g.controller.updateCameraPosition = () => {
-      if (window.__spaceCamHook) window.__spaceCamHook();
-      if (fixedCam) {
-        g.controller.camera.position.set(...fixedCam.pos);
-        g.controller.camera.up.set(0, 1, 0);
-        g.controller.camera.lookAt(...fixedCam.target);
-        g.controller.camera.updateMatrixWorld();
-      } else origUpdateCam();
-    };
-    const pose = (pos, target) => {
-      fixedCam = { pos, target };
-      g.playerPhysics.isFlying = true;
-      g.playerPhysics.position.set(pos[0], pos[1], pos[2]);
-      g.playerPhysics.previousPosition.set(pos[0], pos[1], pos[2]);
-      g.playerPhysics.renderSimulationPosition.set(pos[0], pos[1], pos[2]);
-      g.playerPhysics.velocity.set(0, 0, 0);
-    };
-    const spawnModel = async (model, pos, yaw = 0) => {
-      const parsed = parseInventoryImport(encodeInventoryResource('entity', model), 'entity');
-      if (!parsed.ok) throw new Error(parsed.error);
-      const ent = g.contraptionManager.buildFromSlot(parsed.item, new Vec3(...pos), null, false);
-      ent.quaternion.set(0, Math.sin(yaw / 2), 0, Math.cos(yaw / 2));
-      ent.syncBodyFromTransform?.();
-      await ent.scriptRuntimeClient?.ready?.();
-      ent.stopAllNodeScripts?.();
-      return ent;
-    };
-    const groundY = (x, z) => {
-      for (let y = 180; y >= -20; y--) if (g.world.getBlock(Math.floor(x), y, Math.floor(z))) return y + 1;
-      return 20;
-    };
-    window.__rec = { g, Vec3, pose, spawnModel, groundY };
-    return g.playerPhysics.position.toArray();
-  }, SPACE_SRC);
-}
 
 // Clean capture: no cursor, no dev overlays, no hotbar/chat; keep nameplates, toasts,
 // entity menu and (for the hosting clip) the Hosted Entities section.
 async function installUiStyle(page, { keepHud = false } = {}) {
   await page.evaluate((keepHud) => {
+    const { g } = window.__rec;
+    const render = g.sceneRenderer;
+    const canvas = render.renderer.domElement;
+    canvas.classList.add('runtime-recording-canvas');
     const style = document.createElement('style');
     const keep = ['#entity-nameplates', '#toast', '#entity-context-menu-layer', ...(keepHud ? ['.hud-top .hud-card'] : [])];
+    // The shared harness hides the game UI during cinematic recording.
+    // Restore just the ancestors needed by the authority and hosting overlays.
+    for (const selector of keep) for (const element of document.querySelectorAll(selector)) {
+      for (let parent = element.parentElement; parent && parent !== document.body; parent = parent.parentElement) {
+        if (parent.style.display === 'none') parent.style.removeProperty('display');
+      }
+    }
+    const draw = render.render.bind(render);
+    render.render = (...args) => {
+      if (render.playerFirstPersonHand) render.playerFirstPersonHand.visible = false;
+      return draw(...args);
+    };
+    g.controller.getCursorHighlight = () => null;
     style.textContent = `
       html, body { cursor: none !important; overflow: hidden !important; }
       body * { visibility: hidden !important; }
-      canvas, ${keep.map(k => `${k}, ${k} *`).join(', ')} { visibility: visible !important; }
+      canvas:not(.runtime-recording-canvas) { display: none !important; }
+      .runtime-recording-canvas, ${keep.map(k => `${k}, ${k} *`).join(', ')} { visibility: visible !important; }
       #crosshair, #dev-render-diagnostics, #dev-frame-profiler { display: none !important; }
       .hud-top .hud-card .hud-metrics, .hud-top .hud-card details { display: none !important; }
       /* never show hosting billing or core details */
       #hud-hosted-entities .hud-hosting-capacity, #hud-hosted-entities .hud-hosting-row-actions,
       #hud-hosted-entities .hud-entity-meta ~ .hud-entity-meta,
       #hud-hosted-entities .hud-entity-meta span + span, .entity-hosting-confirm { display: none !important; }
-      #toast { font-size: 17px; }
+      #toast { font-size: 22px; }
+      #entity-nameplates .entity-nameplate:not([style*="display: none"]) {
+        display: flex !important;
+        opacity: 1 !important;
+        padding: 7px 10px;
+        font-size: 20px;
+      }
+      #entity-nameplates .entity-nameplate-executor,
+      #entity-nameplates .entity-run-status { font-size: 16px; line-height: 18px; }
+      #entity-context-menu-layer .selector-context-details { display: none !important; }
       #entity-context-menu-layer button[aria-label="Disassemble entity"] { display: none !important; }
     `;
     document.head.appendChild(style);
@@ -145,33 +69,11 @@ async function installUiStyle(page, { keepHud = false } = {}) {
   }, keepHud);
 }
 
-async function installFixedTimeCapture(page) {
-  await page.evaluate(() => {
-    const rec = window.__rec;
-    const g = rec.g;
-    const savedAnimate = g.animate;
-    let frozen = false;
-    let frameDelta = 0;
-    g.animate = () => { frozen = true; };
-    g.clock.getDelta = () => { g.clock.elapsedTime += frameDelta; return frameDelta; };
-    rec.stepAndRender = async (dt, cameraCb) => {
-      while (!frozen) await new Promise(r => requestAnimationFrame(r));
-      frozen = false;
-      window.__spaceCamHook = cameraCb || null;
-      frameDelta = dt;
-      savedAnimate();
-      window.__spaceCamHook = null;
-      await g.sceneRenderer.renderer.backend.device.queue.onSubmittedWorkDone();
-      await new Promise(r => requestAnimationFrame(r));
-    };
-  });
-}
-
-function startEncoder(outMp4) {
+function startEncoder(outMp4, holdFrames) {
   fs.mkdirSync(path.dirname(outMp4), { recursive: true });
   const tmpMp4 = outMp4 + '.pending.mp4';
   const ff = spawn('ffmpeg', ['-y', '-v', 'warning', '-f', 'image2pipe', '-vcodec', 'mjpeg', '-r', String(FPS), '-i', 'pipe:0',
-    '-vf', 'scale=1920:1080:flags=lanczos', '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-r', String(FPS), '-g', '15', '-keyint_min', '15',
+    '-vf', `scale=1920:1080:flags=lanczos,tpad=stop_mode=clone:stop=${holdFrames}`, '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-r', String(FPS), '-g', '15', '-keyint_min', '15',
     '-pix_fmt', 'yuv420p', '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-movflags', '+faststart', tmpMp4],
   { stdio: ['pipe', 'inherit', 'inherit'] });
   return {
@@ -187,69 +89,76 @@ function startEncoder(outMp4) {
 
 // ---------------------------------------------------------------- paver
 
-function paverModel() {
-  const blocks = [];
-  for (let x = -2; x <= 2; x++) for (let z = -2; z <= 2; z++) blocks.push({ dx: x, dy: 0, dz: z, color: (z === -2 || z === 2) ? 0x2c3a42 : 0xf2a93b });
-  for (let x = -1; x <= 1; x++) for (let z = -1; z <= 1; z++) blocks.push({ dx: x, dy: 1, dz: z, color: 0xf2a93b });
-  blocks.push({ dx: 0, dy: 2, dz: 1, color: 0x7dd3fc, materialId: 87 }, { dx: 0, dy: 2, dz: 0, color: 0xd8dee4 });
-  blocks.push({ dx: -1, dy: 2, dz: 0, color: 0x3b4852 }, { dx: 1, dy: 2, dz: 0, color: 0x3b4852 });
-  for (let x = -2; x <= 2; x++) blocks.push({ dx: x, dy: -1, dz: 3, color: 0x2c3a42 });
-  for (const x of [-2, 2]) blocks.push({ dx: x, dy: 1, dz: -2, color: 0x4ade80, materialId: 1 });
-  const seen = new Map();
-  for (const b of blocks) seen.set(`${b.dx},${b.dy},${b.dz}`, b);
-  return {
-    type: 'space-entity', version: 8,
-    root: {
-      id: 'paver', name: 'Paver', pivot: [0, 0, 0],
-      body: { type: 'kinematic', mass: 2000, useGravity: false, collisionEnabled: false },
-      blocks: [...seen.values()],
-      decorations: [
-        { id: 'probe_beam', position: [0, -2.2, -3.0], scale: [0.18, 3.4, 0.18], color: 0x38bdf8, materialId: 1 },
-        { id: 'probe_head', position: [0, -0.4, -3.0], scale: [0.6, 0.4, 0.6], color: 0x3b4852, materialId: 0 },
-      ],
-      children: [], seats: [],
-    },
-  };
-}
+const qEuler = (x, y, z) => {
+  const sx = Math.sin(x / 2), sy = Math.sin(y / 2), sz = Math.sin(z / 2);
+  const cx = Math.cos(x / 2), cy = Math.cos(y / 2), cz = Math.cos(z / 2);
+  return [
+    sx * cy * cz + cx * sy * sz,
+    cx * sy * cz - sx * cy * sz,
+    cx * cy * sz + sx * sy * cz,
+    cx * cy * cz - sx * sy * sz,
+  ];
+};
+const paverModel = buildCodeModels(qEuler).paver('');
+const PAVER_SPEED = 1.6;
 
-// Authority timeline for the S2 split screen, in clip time (scene starts at 35.6 s in the chapter).
+// Authority timeline for the S2 split screen, relative to the start of the footage.
 // Each segment: who executes, whether the paver advances.
 const S2 = {
-  duration: 38.8,
+  duration: 836 / FPS,
   segments: [
-    { t: 0.0, state: 'stopped' },
-    { t: 2.6, state: 'run', executor: 'Player A' },            // 38.2 A starts first
-    { t: 23.6, state: 'stopped' },                               // 59.2 A stops manually
-    { t: 27.0, state: 'run', executor: 'Player B' },             // 62.6 B restarts first
-    { t: 32.3, state: 'waiting' },                               // 67.9 B leaves, lease runs out
-    { t: 35.0, state: 'run', executor: 'Player A' },             // 70.6 A's browser claims it
+    { t: 0, state: 'stopped' },
+    { t: 78 / FPS, state: 'run', executor: 'Player A' },
+    { t: 568 / FPS, state: 'stopped' },
+    { t: 627 / FPS, state: 'run', executor: 'Player B' },
+    { t: 699 / FPS, state: 'waiting' },
+    { t: 780 / FPS, state: 'run', executor: 'Player A' },
   ],
   events: {
-    a: [{ t: 2.6, toast: 'start' }, { t: 23.6, toast: 'stop' }],
-    b: [{ t: 17.8, menu: true }, { t: 19.4, menuClose: true, toast: 'occupied' }, { t: 27.0, toast: 'start' }],
+    a: [{ t: 78 / FPS, toast: 'start' }, { t: 568 / FPS, toast: 'stop' }],
+    b: [{ t: 627 / FPS, toast: 'start' }],
   },
 };
 const HOST = {
-  duration: 16.4,
-  runOffset: 0,  // filled in from S2 total run time so the road continues
+  duration: 276 / FPS,
+  runOffset: 0,
   segments: [
-    { t: 0.0, state: 'run', executor: 'Player A' },
-    { t: 2.6, state: 'hosted' },                                  // 76.9 hosting takes effect
+    { t: 0, state: 'run', executor: 'Player A' },
+    { t: 2.6, state: 'hosted' },
   ],
-  events: { c: [{ t: 0.4, menu: true }, { t: 2.3, menuClose: true }, { t: 3.4, hud: true }, { t: 5.2, menu: true }, { t: 7.4, menuClose: true }] },
+  events: { c: [{ t: 0.4, menu: true }, { t: 2.3, menuClose: true }, { t: 3.4, hud: true }] },
 };
+
+// Integrate an eased speed curve inside each uninterrupted movement segment.
+const isMoving = segment => segment?.state === 'run' || segment?.state === 'hosted';
+function rampDistance(seconds, duration) {
+  if (!duration || seconds >= duration) return seconds - duration / 2;
+  const u = seconds / duration;
+  return duration * u ** 3 * (1 - u / 2);
+}
 
 function runTimeAt(timeline, t) {
   let run = timeline.runOffset || 0;
-  const segs = timeline.segments;
-  for (let i = 0; i < segs.length; i++) {
-    const a = segs[i].t;
-    const b = i + 1 < segs.length ? segs[i + 1].t : Infinity;
-    if (t <= a) break;
-    if (segs[i].state === 'run' || segs[i].state === 'hosted') run += Math.min(t, b) - a;
+  const segments = timeline.segments;
+  for (const [i, segment] of segments.entries()) {
+    if (t <= segment.t) break;
+    if (!isMoving(segment)) continue;
+
+    const next = segments[i + 1];
+    const duration = (next?.t ?? timeline.duration) - segment.t;
+    const elapsed = Math.min(t - segment.t, duration);
+    const easing = Math.min(0.45, duration / 2);
+    const acceleration = i > 0 && !isMoving(segments[i - 1]) ? easing : 0;
+    const braking = next && !isMoving(next) ? easing : 0;
+    run += rampDistance(elapsed, acceleration);
+    if (braking && duration - elapsed < braking) {
+      const brakingTime = elapsed - (duration - braking);
+      run -= rampDistance(brakingTime, braking);
+    }
   }
   return run;
 }
+
 function segAt(timeline, t) {
   let cur = timeline.segments[0];
   for (const s of timeline.segments) if (t >= s.t) cur = s;
@@ -260,64 +169,71 @@ HOST.runOffset = runTimeAt(S2, S2.duration);
 // ---------------------------------------------------------------- page-side helpers
 
 async function installPaver(page) {
-  return page.evaluate(async (model) => {
-    const rec = window.__rec;
-    const g = rec.g;
-    const sp = g.playerPhysics.position;
-    const sx = Math.round(sp.x), sz = Math.round(sp.z);
-    // a long +x lane with gentle relief so ground following is visible but smooth
-    let best = null;
-    for (let oz = -40; oz <= 40; oz += 4) for (let ox = -40; ox <= 20; ox += 6) {
-      const hs = [];
-      for (let dx = -6; dx <= 84; dx += 2) {
-        let h = 0; for (let dz = -2; dz <= 2; dz++) h = Math.max(h, rec.groundY(sx + ox + dx, sz + oz + dz));
-        hs.push(h);
-      }
-      const steps = hs.slice(1).map((h, i) => Math.abs(h - hs[i]));
-      const relief = Math.max(...hs) - Math.min(...hs);
-      const maxStep = Math.max(...steps);
-      const score = (maxStep <= 1 ? 10 : -maxStep * 4) - Math.abs(relief - 4);
-      if (!best || score > best.score) best = { x: sx + ox, z: sz + oz, y: hs[3], relief, maxStep, score };
+  // Same survey lane as chapter 05, extended to cover the handoff and hosting.
+  const lane = { x: 5364, y: 20, z: 827 };
+  await page.evaluate(({ x, y, z }) => window.__rec.cam([x + 12, y + 12, z + 17], [x, y + 2, z]), lane);
+  await page.waitForFunction(() => {
+    const { g, groundY } = window.__rec;
+    return g.world.getTerrainAoiLoadProgress().ready && groundY(5364, 827) > 0
+      && g.world.getBlock(5364, groundY(5364, 827) - 1, 827);
+  }, { timeout: 30000 });
+  return page.evaluate(async ({ model, lane }) => {
+    const { g, spawnModel, groundY } = window.__rec;
+    const totalLength = 96;
+    const initialGround = [0, 16, 36, 60].map(dx => [-12, 0, 12].map(dz => groundY(lane.x + dx, lane.z + dz)));
+    const centerHeights = initialGround.map(row => row[1]).sort((a,b) => a-b);
+    lane.y = Math.round((centerHeights[1]+centerHeights[2])/2);
+
+    function grade(x, y, z, color) {
+      const ground = groundY(x, z);
+      for (let h = y; h < ground; h++) g.world.setBlock(x, h, z, 0, true);
+      for (let h = Math.min(ground, y - 1); h < y - 1; h++) g.world.setBlock(x, h, z, 1, true, 0x58615b);
+      g.world.setBlock(x, y - 1, z, 1, true, color);
     }
-    const ent = await rec.spawnModel(model, [best.x + 0.5, best.y + 1.3, best.z + 0.5], -Math.PI / 2);
+    for (let x = lane.x - 20; x <= lane.x + totalLength; x++) {
+      for (let dz = -4; dz <= 4; dz++) {
+        grade(x, lane.y, lane.z + dz, (x + dz) % 3 ? 0x91886d : 0x9a9472);
+      }
+      for (const sign of [-1, 1]) for (let d = 1; d <= 4; d++) {
+        const z = lane.z + sign * (4 + d);
+        const natural = groundY(x, z);
+        const shoulder = Math.round(lane.y + (natural - lane.y) * d / 5);
+        if (shoulder !== natural) grade(x, shoulder, z, d < 2 ? 0x777b65 : 0x68734e);
+      }
+    }
+    const ent = await spawnModel(model, [lane.x + 0.5, lane.y + 0.025, lane.z + 0.5]);
+    ent.position.set(lane.x + 0.5, lane.y + 0.025, lane.z + 0.5);
+    ent.syncAllBodyTransforms();
+    ent.setPhysicsSimulationEnabled(ent.isPhysicsSimulationEnabled());
     ent.serverManaged = true;
-    ent.serverCanControl = false;
-    ent.serverCanEdit = false;
     ent.serverExecutesLocally = false;
-    ent.serverDesiredRunState = 'stopped';
     window.__paver = ent;
-    window.__lane = best;
-    window.__paverGround = best.y;
-    window.__paved = -1e9;
-    console.log('[06rec] lane', JSON.stringify(best), 'entity', ent.id, ent.publicId);
-    return { lane: best, id: ent.id, publicId: ent.publicId };
-  }, paverModel());
+    window.__lane = lane;
+    window.__paved = lane.x - 17;
+    return { lane, initialGround, id: ent.id, publicId: ent.publicId, model: model.root.name, decorations: model.root.decorations.length };
+  }, { model: paverModel, lane });
 }
 
-// Runs in page each frame: place paver by run time, pave behind it, apply authority state.
+// Deterministic poses and laid road for the offline replay of authority states.
 function pageFrame(st) {
-  const rec = window.__rec, g = rec.g, ent = window.__paver, lane = window.__lane;
-  const speed = 1.6;
-  const x = lane.x + 0.5 + st.run * speed;
+  const { g } = window.__rec;
+  const ent = window.__paver;
+  const lane = window.__lane;
+  const x = lane.x + 0.5 + st.run * st.speed;
   const z = lane.z + 0.5;
-  let gnd = -1e9;
-  for (let dx = 0; dx <= 3; dx++) for (let dz = -2; dz <= 2; dz++) gnd = Math.max(gnd, rec.groundY(x + dx, z + dz));
-  window.__paverGround += (gnd - window.__paverGround) * (st.dtRun > 0 ? 0.12 : 0);
-  ent.position.set(x, window.__paverGround + 0.3, z);
-  ent.quaternion.set(0, Math.sin(-Math.PI / 4), 0, Math.cos(-Math.PI / 4));
-  ent.syncBodyFromTransform?.();
-  ent.rootGroup?.position?.set?.(x, window.__paverGround + 0.3, z);
-  // pave each crossed metre just behind the machine
-  const cx = Math.floor(x - 2.0);
-  for (let c = Math.max(window.__paved + 1, Math.floor(lane.x - 2)); c <= cx; c++) {
-    for (let dz = -2; dz <= 2; dz++) {
-      const top = rec.groundY(c, z + dz) - 1;
-      const edge = dz === -2 || dz === 2;
-      const mid = dz === 0 && (((c % 3) + 3) % 3 !== 0);
-      g.world.setBlock(c, top, Math.floor(z) + dz, 1, true, mid ? 0xfbbf24 : (edge ? 0x9aa5ad : 0x3a4148), mid ? 1 : 0);
+  ent.position.set(x, lane.y + 0.025, z);
+  // The capture has already evaluated the exact pose for this frame.
+  ent.previousPosition.copy(ent.position);
+  ent.previousQuaternion.copy(ent.quaternion);
+  ent.updateTransform();
+  const column = Math.floor(x - 4.75);
+  for (let c = window.__paved + 1; c <= column; c++) {
+    for (let dz = -3; dz <= 3; dz++) {
+      const color = dz === 0 && c % 5 < 2 ? 0xd8b56a : Math.abs(dz) === 3 ? 0x808981 : 0x4c5556;
+      g.world.setBlock(c, lane.y - 1, lane.z + dz, 1, true, color);
     }
-    window.__paved = c;
   }
+  window.__paved = column;
   // authority state -> the same fields the online sync layer maintains
   const now = Date.now();
   ent.serverExecutionMode = st.state === 'hosted' ? 'hosted' : 'browser';
@@ -338,7 +254,7 @@ function pageFrame(st) {
   if (st.hud) {
     g.uiStore.patch({ hosting: { ...(g.uiStore.getSnapshot().hosting || {}), enabled: true, worker_available: true,
       capacity: { available: 3, total: 4 },
-      items: [{ entity_id: String(ent.publicId || ent.id), name: 'Paver', state: 'running', enabled: true, core_id: null,
+      items: [{ entity_id: String(ent.publicId || ent.id), name: ent.name || 'Survey & Paving Machine', state: 'running', enabled: true, core_id: null,
         remaining_ms: 3600000, budget_remaining_credits: 1, can_manage: true }] } });
     const btn = document.querySelector('#hud-hosted-entities .hud-hosting-toggle');
     if (btn && btn.getAttribute('aria-expanded') !== 'true') btn.click();
@@ -350,20 +266,33 @@ function pageFrame(st) {
 
 async function recordView({ name, timeline, viewer, camera, width, height, dsf, keepHud = false }) {
   const outMp4 = path.join(ROOT, `footage/06_runtime_${name}.mp4`);
-  const { browser, page } = await launchSpace({ width, height, dsf });
+  const { browser, page } = await launchSpace('nature', '1');
   try {
     await setupBaseScene(page);
-    await installUiStyle(page, { keepHud });
+    const profile = await page.evaluate(() => {
+      const { g } = window.__rec;
+      g.uiStore.setEmissiveBloomQuality('medium');
+      return {
+        world: new URL(location.href).searchParams.get('world'),
+        lighting: g.sceneRenderer.getLightingQuality(),
+        bloom: g.sceneRenderer.getEmissiveBloomQuality(),
+      };
+    });
+    if (profile.world !== 'nature' || profile.lighting !== 'ultra' || profile.bloom !== 'medium') {
+      throw new Error(`Unexpected capture profile: ${JSON.stringify(profile)}`);
+    }
+    console.log(`[${name}] profile`, JSON.stringify(profile));
     const meta = await installPaver(page);
     console.log(`[${name}] setup`, JSON.stringify(meta));
     console.log(`[${name}] layout`, JSON.stringify(await page.evaluate(() => {
-      const c = window.game?.renderer?.domElement || document.querySelector('canvas');
+      const c = window.__rec.g.sceneRenderer.renderer.domElement;
       const r = c.getBoundingClientRect();
       return { iw: innerWidth, ih: innerHeight, dpr: devicePixelRatio, cw: c.width, ch: c.height, r: [r.x, r.y, r.width, r.height], parent: c.parentElement?.id || c.parentElement?.className, bodyH: document.body.getBoundingClientRect().height };
     })));
     // pre-pave the road laid before this clip (HOST continues from S2)
-    await page.evaluate(pageFrame, { run: timeline.runOffset || 0, dtRun: 0, state: 'stopped', canControl: false });
+    await page.evaluate(pageFrame, { run: timeline.runOffset || 0, speed: PAVER_SPEED, state: 'stopped', canControl: false });
     await new Promise(r => setTimeout(r, 2500));
+    await installUiStyle(page, { keepHud });
     await installFixedTimeCapture(page);
     const total = Math.round(timeline.duration * FPS);
     const evs = (timeline.events[viewer] || []).map(e => ({ ...e, f: Math.round(e.t * FPS) }));
@@ -371,36 +300,42 @@ async function recordView({ name, timeline, viewer, camera, width, height, dsf, 
     const toastText = {
       start: { text: `Entity #${entityNo} started` },
       stop: { text: `Entity #${entityNo} stopped (state reset)` },
-      occupied: { text: 'This entity is occupied by another endpoint', tone: 'warning' },
     };
-    const probeSet = new Set([0.08, 0.3, 0.48, 0.52, 0.66, 0.75, 0.86, 0.97].map(u => Math.round(u * total)));
-    const enc = PROBE ? null : startEncoder(outMp4);
+    const probeFractions = process.env.SPACE_RUNTIME_FAST_PROBE ? (name === 'hosted' ? [0.07, 0.38] : [0.005, 0.08]) : [0.08, 0.3, 0.48, 0.52, 0.66, 0.75, 0.86, 0.97];
+    const probeSet = new Set(probeFractions.map(u => Math.round(u * total)));
+    // Hold Player B's last view once the departure overlay has appeared.
+    const departure = timeline.segments.find(segment => segment.state === 'waiting');
+    const holdFrames = viewer === 'b' && departure
+      ? total - Math.ceil((departure.t + 0.55) * FPS)
+      : 0;
+    const captureFrames = PROBE ? Math.max(...probeSet) + 1 : total - holdFrames;
+    const enc = PROBE ? null : startEncoder(outMp4, holdFrames);
     const client = await page.createCDPSession();
     // headful window chrome can shrink the visible area; lock the emulated viewport like 05_code does
     await client.send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: dsf, mobile: false });
     await new Promise(r => setTimeout(r, 800));
-    let prevRun = timeline.runOffset || 0;
-    for (let f = 0; f < total; f++) {
+    for (let f = 0; f < captureFrames; f++) {
       const t = f / FPS;
       const seg = segAt(timeline, t);
       const run = runTimeAt(timeline, t);
       const viewerName = viewer === 'a' ? 'Player A' : viewer === 'b' ? 'Player B' : 'Player C';
-      const st = { run, dtRun: run - prevRun, state: seg.state, executor: seg.executor,
+      const st = { run, speed: PAVER_SPEED, state: seg.state, executor: seg.executor,
         canControl: seg.state === 'stopped' || seg.state === 'waiting' || seg.state === 'hosted' || seg.executor === viewerName };
-      prevRun = run;
       for (const e of evs) if (e.f === f) {
         if (e.toast) st.toast = toastText[e.toast];
-        if (e.menu) st.menu = camera.menuAt || { x: 0.5, y: 0.42 };
+        if (e.menu) st.menu = camera.menuAt;
         if (e.menuClose) st.menuClose = true;
         if (e.hud) st.hud = true;
       }
       await page.evaluate(pageFrame, st);
       await page.evaluate(async (frameIdx, totalF, camSrc) => {
         const cam = eval(`(${camSrc})`);
-        await window.__rec.stepAndRender(1 / 30, () => {
+        // This local replay advances from the capture frame index.
+        // Draw the staged pose without an independent simulation tick.
+        await window.__rec.stepAndRender(0, () => {
           const p = window.__paver.position.toArray();
           const c = cam(frameIdx / 30, p, frameIdx / totalF);
-          window.__rec.pose(c[0], c[1]);
+          window.__rec.cam(c[0], c[1]);
           const ctl = window.__rec.g.controller;
           ctl.hoveredContraption = null;
           if (ctl.hoveredContraptionHit) ctl.hoveredContraptionHit = null;
@@ -408,13 +343,13 @@ async function recordView({ name, timeline, viewer, camera, width, height, dsf, 
       }, f, total, camera.fn.toString());
       if (PROBE) {
         if (!probeSet.has(f)) continue;
-        const { data } = await client.send('Page.captureScreenshot', { format: 'jpeg', quality: 85, clip: { x: 0, y: 0, width, height, scale: 1 } });
+        const { data } = await client.send('Page.captureScreenshot', { format: 'jpeg', quality: 90, fromSurface: true, clip: { x: 0, y: 0, width, height, scale: 1 } });
         const p = path.join(SCRATCH, `probe_${name}_${String(f).padStart(4, '0')}.jpg`);
         fs.writeFileSync(p, Buffer.from(data, 'base64'));
         console.log(`[${name}] probe ${f} ${seg.state}`, p);
         continue;
       }
-      const { data } = await client.send('Page.captureScreenshot', { format: 'jpeg', quality: 93, clip: { x: 0, y: 0, width, height, scale: 1 } });
+      const { data } = await client.send('Page.captureScreenshot', { format: 'jpeg', quality: 95, fromSurface: true, clip: { x: 0, y: 0, width, height, scale: 1 } });
       await enc.write(Buffer.from(data, 'base64'));
       if ((f + 1) % 150 === 0 || f === total - 1) console.log(`[${name}] frame ${f + 1}/${total}`);
     }
@@ -426,28 +361,31 @@ async function recordView({ name, timeline, viewer, camera, width, height, dsf, 
 
 // Cameras: (t, paverPos, u) -> [camPos, target]
 const camA = (t, p, u) => {
-  // player A walks behind the machine it started
-  const ang = 2.45 + u * 0.3;
-  return [[p[0] + Math.cos(ang) * 19, p[1] + 8.5, p[2] + Math.sin(ang) * 19], [p[0] + 1.5, p[1] + 2.6, p[2]]];
+  const angle = 2.30 + 0.27 * u;
+  return [[p[0] + Math.cos(angle) * 16, p[1] + 6.8, p[2] + Math.sin(angle) * 16],
+    [p[0] - 1, p[1] + 1.45, p[2]]];
 };
 const camB = (t, p, u) => {
-  // player B stands across the lane and turns to follow the machine; leaves at 32.3 s
-  const base = window.__lane;
-  const bx = base.x + 18 + Math.min(t, 32.3) * 0.75, bz = base.z - 20;
-  const leave = Math.max(0, t - 32.3);
-  return [[bx - leave * 3, p[1] + 7 + leave * 1.2, bz - leave * 5], [p[0], p[1] + 2.4, p[2]]];
+  const angle = -0.81 - 0.33 * u;
+  const elapsed = Math.max(0, t - 699 / 30);
+  const uLeave = Math.min(elapsed / 0.5, 1);
+  const leave = 0.5 * uLeave ** 3 * (1 - uLeave / 2) + Math.max(0, elapsed - 0.5);
+  const distance = 17 + leave * 1.8;
+  return [[p[0] + Math.cos(angle) * distance, p[1] + 5.4 + leave * 0.45, p[2] + Math.sin(angle) * distance],
+    [p[0] + 0.6, p[1] + 1.65, p[2]]];
 };
 const camC = (t, p, u) => {
-  const ang = -0.9 + u * 1.0;
-  const r = 20 + u * 6;
-  return [[p[0] + Math.cos(ang) * r, p[1] + 9 + u * 3, p[2] + Math.sin(ang) * r], [p[0] - 1, p[1] + 2.4, p[2]]];
+  const angle = -1.1 - u * 1.11;
+  const r = 15 + u * 4.5;
+  return [[p[0] + Math.cos(angle) * r, p[1] + 5.8 + u * 2.5, p[2] + Math.sin(angle) * r],
+    [p[0] - u * 3.8, p[1] + 1.25, p[2]]];
 };
 
-const half = { width: 960, height: 540, dsf: 2 };
+const viewport = { width: 1920, height: 1080, dsf: 1 };
 const runners = {
-  a: () => recordView({ name: 'view_a', timeline: S2, viewer: 'a', camera: { fn: camA, menuAt: { x: 0.5, y: 0.4 } }, ...half }),
-  b: () => recordView({ name: 'view_b', timeline: S2, viewer: 'b', camera: { fn: camB, menuAt: { x: 0.5, y: 0.36 } }, ...half }),
-  host: () => recordView({ name: 'hosted', timeline: HOST, viewer: 'c', camera: { fn: camC, menuAt: { x: 0.52, y: 0.4 } }, width: 1280, height: 720, dsf: 1.5, keepHud: true }),
+  a: () => recordView({ name: 'view_a', timeline: S2, viewer: 'a', camera: { fn: camA }, ...viewport }),
+  b: () => recordView({ name: 'view_b', timeline: S2, viewer: 'b', camera: { fn: camB }, ...viewport }),
+  host: () => recordView({ name: 'hosted', timeline: HOST, viewer: 'c', camera: { fn: camC, menuAt: { x: 0.73, y: 0.32 } }, ...viewport, keepHud: true }),
 };
 runners.probe = runners.a;
 if (!runners[clipArg]) throw new Error(`unknown clip ${clipArg}`);

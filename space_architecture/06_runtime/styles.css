@@ -444,9 +444,9 @@ html, body {
 
 /* split screen: videos are top-level clips, frames sit above them */
 .pane-video { z-index: 3; object-fit: cover; }
-#vid-a { left: 76px; top: 222px; width: 872px; height: 490px; }
-#vid-b { left: 972px; top: 222px; width: 872px; height: 490px; }
-#vid-h { left: 76px; top: 222px; width: 1110px; height: 624px; }
+.gameplay-a { left: 76px; top: 222px; width: 872px; height: 490px; }
+.gameplay-b { left: 972px; top: 222px; width: 872px; height: 490px; }
+.gameplay-hosted { left: 76px; top: 222px; width: 1110px; height: 624px; }
 .pane { position: absolute; top: 150px; height: 490px; border: 2px solid var(--border-strong); box-shadow: 6px 6px 0 rgba(0,0,0,0.75); }
 .pane.a { left: 0; width: 872px; } .pane.b { left: 896px; width: 872px; }
 .pane.h { left: 0; width: 1110px; height: 624px; }

@@ -544,6 +544,62 @@ html, body {
   font-family: var(--font-mono); font-size: 28px; color: #fff; background: rgba(0,0,0,0.82); border: 1px solid var(--border-strong); white-space: nowrap;
 }
 
+/* Natural-language scripting */
+.agent-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 580px minmax(0, 1fr);
+  gap: 42px;
+  align-items: center;
+}
+.agent-steps {
+  list-style: none;
+  display: grid;
+  gap: 58px;
+  padding: 0;
+  margin: 0;
+}
+.agent-steps li {
+  position: relative;
+  padding: 26px 30px;
+  background: rgba(6,11,8,0.92);
+  border: 2px solid var(--sky-border);
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.75);
+}
+.agent-steps h3 { font-size: 36px; font-weight: 400; margin: 0; color: var(--sky-light); }
+.agent-steps p { font-size: 36px; line-height: 1.45; margin: 18px 0 0; }
+#agent-result { border-color: var(--green-border); }
+#agent-result h3 { color: var(--green-light); }
+#agent-result::before {
+  content: "↓";
+  position: absolute;
+  left: 28px;
+  bottom: calc(100% + 7px);
+  font-size: 38px;
+  color: var(--green);
+}
+.agent-figure {
+  min-width: 0;
+  margin: 0;
+  border: 2px solid var(--border-strong);
+  background: rgba(6,11,8,0.94);
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.75);
+}
+.agent-capture { position: relative; height: 712px; overflow: hidden; }
+.agent-capture img { position: absolute; right: 0; top: 0; height: 100%; width: auto; max-width: none; }
+.agent-focus {
+  position: absolute;
+  top: 5.9%;
+  right: 0.9%;
+  bottom: 1.5%;
+  width: 200px;
+  border: 3px solid var(--green);
+  box-shadow: 0 0 14px rgba(74,222,128,0.45);
+  pointer-events: none;
+}
+.agent-figure figcaption { padding: 14px 20px; font-size: 25px; color: var(--muted); border-top: 1px solid var(--border); }
+
 /* Automation duo */
 .auto { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
 .panel.amber { border-color: var(--amber-border); }

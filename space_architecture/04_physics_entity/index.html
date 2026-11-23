@@ -3,56 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=1920, height=1080">
-  <title>04 物理：从地形到刚体 — Space 架构设计分享</title>
+  <title>04 地形 · 实体 · 组件树 — Space 架构设计分享</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="./styles.css">
   <script src="./vendor/gsap.min.js"></script>
   <script src="./assets/com_track.js"></script>
 </head>
 <body>
-  <div id="root" data-composition-id="root" data-start="0" data-duration="66" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="root" data-start="0" data-duration="83.266667" data-width="1920" data-height="1080">
     <div class="arch-grid"></div>
 
     <audio id="vo" class="clip voiceover-track" src="./audios/04_physics_entity/voice.zh.wav"
-      data-start="0" data-duration="65.85" data-volume="1"></audio>
+      data-start="0" data-duration="83.266667" data-volume="1"></audio>
 
-    <!-- assembly / split clacks (SFX only, not narrated) -->
-    <audio id="sfx-asm" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="22.63" data-duration="0.3" data-volume="0.55"></audio>
-    <audio id="sfx-s1" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="32.8" data-duration="0.3" data-volume="0.4"></audio>
-    <audio id="sfx-s2" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="33.7" data-duration="0.3" data-volume="0.4"></audio>
-    <audio id="sfx-s3" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="34.6" data-duration="0.3" data-volume="0.4"></audio>
-    <audio id="sfx-s4" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="35.5" data-duration="0.3" data-volume="0.4"></audio>
-    <audio id="sfx-s5" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="36.5" data-duration="0.3" data-volume="0.4"></audio>
-    <audio id="sfx-s6" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="37.6" data-duration="0.3" data-volume="0.4"></audio>
-    <audio id="sfx-s7" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="55.05" data-duration="0.3" data-volume="0.4"></audio>
+    <!-- Assembly and component sound cues -->
+    <audio id="sfx-asm" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="16.966666" data-duration="0.3" data-volume="0.55"></audio>
+    <audio id="sfx-s1" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="49.43456" data-duration="0.3" data-volume="0.4"></audio>
+    <audio id="sfx-s2" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="50.365663" data-duration="0.3" data-volume="0.4"></audio>
+    <audio id="sfx-s3" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="51.296767" data-duration="0.3" data-volume="0.4"></audio>
+    <audio id="sfx-s4" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="52.227871" data-duration="0.3" data-volume="0.4"></audio>
+    <audio id="sfx-s5" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="53.26243" data-duration="0.3" data-volume="0.4"></audio>
+    <audio id="sfx-s6" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="54.400446" data-duration="0.3" data-volume="0.4"></audio>
+    <audio id="sfx-s7" class="clip voiceover-track" src="./assets/sfx/clack.wav" data-start="72.366667" data-duration="0.3" data-volume="0.4"></audio>
 
-    <!-- Space footage (each clip stays within its native length) -->
-    <video id="vid-open" class="clip bg-video" src="./footage/04_ab_assemble_physics.mp4"
-      data-start="0" data-duration="3.1" data-media-start="13.2" data-volume="0" muted playsinline></video>
-    <video id="vid-ab" class="clip bg-video" src="./footage/04_ab_assemble_physics.mp4"
-      data-start="18.2" data-duration="13.6" data-media-start="0" data-volume="0" muted playsinline></video>
-    <video id="vid-c" class="clip bg-video" src="./footage/04_c_component_tree.mp4"
-      data-start="31.8" data-duration="14.75" data-media-start="0" data-volume="0" muted playsinline></video>
+    <!-- Space footage -->
+    <video id="vid-open" class="clip bg-video" src="./footage/04_terrain_context.mp4"
+      data-start="0" data-duration="8.233333" data-media-start="0" data-volume="0" muted playsinline></video>
+    <video id="vid-motion" class="clip bg-video" src="./footage/04_motion_context.mp4"
+      data-start="8.233333" data-duration="4.933333" data-media-start="0" data-volume="0" muted playsinline></video>
+    <video id="vid-assemble" class="clip bg-video" src="./footage/04_ab_assemble_physics.mp4"
+      data-start="13.166667" data-duration="10.066667" data-media-start="0.633333" data-volume="0" muted playsinline></video>
+    <video id="vid-physics" class="clip bg-video" src="./footage/04_ab_assemble_physics.mp4"
+      data-start="38.366667" data-duration="10.033333" data-media-start="6.433333" data-volume="0" muted playsinline></video>
+    <video id="vid-c" class="clip bg-video" src="./footage/04_component_tree_retime.mp4"
+      data-start="48.4" data-duration="15.466667" data-media-start="0" data-volume="0" muted playsinline></video>
     <video id="vid-d" class="clip bg-video" src="./footage/04_d_propeller.mp4"
-      data-start="53.75" data-duration="11.95" data-media-start="0" data-volume="0" muted playsinline></video>
+      data-start="71.066667" data-duration="12.2" data-media-start="0" data-volume="0" muted playsinline></video>
 
-    <!-- S1 OPENING (0 – 3.1) -->
-    <section id="s1" class="scene clip" data-start="0" data-duration="3.1">
+    <!-- S1 TERRAIN -->
+    <section id="s1" class="scene clip" data-start="0" data-duration="8.233333">
       <div class="scene-inner">
         <div class="scrim scrim-left-strong"></div>
         <div class="op-stack">
-          <h1 class="op-title">物理：<br><span>从地形到刚体</span></h1>
-          <div class="op-needs">
-            <div id="s1-lane-phys" class="need-chip green"><b>行为 ①</b><span>物理</span></div>
-            <div class="need-chip" style="opacity:0.45"><b>行为 ②</b><span>代码</span></div>
-            <div class="need-chip" style="opacity:0.45"><b>行为 ③</b><span>运行</span></div>
-          </div>
+          <h1 class="op-title">地形 · <span>实体</span> · 组件树</h1>
+        </div>
+        <div id="terrain-grid" class="ov ov-cap" style="left:0; bottom:24px">
+          山体、建筑与雕刻 · <b>固定在世界网格上</b>
         </div>
       </div>
     </section>
 
-    <!-- S2 COMMUNITY MODS (3.0 – 18.25) -->
-    <section id="s2" class="scene clip scene-solid" data-start="3" data-duration="15.25">
+    <!-- Moving entities -->
+    <section id="s-motion" class="scene clip" data-start="8.233333" data-duration="4.933333">
+      <div class="scene-inner">
+        <div id="motion-cap" class="ov ov-cap" style="left:0; bottom:24px">
+          载具和机械 · <b>实体可以自由运动</b>
+        </div>
+      </div>
+    </section>
+
+    <!-- S2 COMMUNITY MODS -->
+    <section id="s2" class="scene clip scene-solid" data-start="23.233333" data-duration="15.133333">
       <div class="scene-inner">
         <div class="scene-header">
           <div class="eyebrow">Minecraft 社区模组</div>
@@ -96,20 +107,30 @@
       </div>
     </section>
 
-    <!-- S3 ASSEMBLE + PHYSICS (18.2 – 31.8) over Space footage -->
-    <section id="s3" class="scene clip" data-start="18.2" data-duration="13.6">
+    <!-- S3 ASSEMBLY -->
+    <section id="s3" class="scene clip" data-start="13.166667" data-duration="10.066667">
       <div class="scene-inner">
         <div id="ab-card1" class="ov ov-card" style="left:0; top:96px; width:520px">
-          <div class="ov-kick">SPACE · 引擎原生物理</div>
+          <div class="ov-kick">SPACE · 地形组装</div>
           <div class="ov-title">框选地形<br>执行<span>组装</span></div>
           <div class="chips">
             <div id="ab-c1" class="chip"><i></i>框选任意一块地形</div>
             <div id="ab-c2" class="chip"><i></i>组装</div>
-            <div id="ab-c3" class="chip"><i></i>成为刚体实体</div>
+            <div id="ab-c3" class="chip"><i></i>成为独立实体</div>
           </div>
         </div>
+        <div id="ab-bridge" class="ov ov-cap" style="left:0; bottom:24px">
+          自由运动的基础 · <b>刚体物理</b>
+        </div>
+      </div>
+    </section>
+
+    <!-- Built-in rigid body physics -->
+    <section id="s-physics" class="scene clip" data-start="38.366667" data-duration="10.033333">
+      <div class="scene-inner">
         <div id="ab-card2" class="ov ov-card amber" style="left:0; top:96px; width:520px; opacity:0">
-          <div class="ov-kick">按方块分布计算</div>
+          <div class="ov-kick">SPACE · 引擎原生物理</div>
+          <div class="ov-title">按方块分布计算</div>
           <div class="chips" style="margin-top:12px">
             <div id="ab-f1" class="chip"><i></i>质心</div>
             <div id="ab-f2" class="chip"><i></i>转动惯量</div>
@@ -129,8 +150,8 @@
     </div>
     <div id="flash" class="flash"></div>
 
-    <!-- S4 SPLIT + COMPONENT TREE (31.8 – 46.55) -->
-    <section id="s4" class="scene clip" data-start="31.8" data-duration="14.75">
+    <!-- S4 COMPONENT TREE -->
+    <section id="s4" class="scene clip" data-start="48.4" data-duration="15.466667">
       <div class="scene-inner">
         <div id="c-card" class="ov ov-card" style="left:0; top:96px; width:470px">
           <div class="ov-kick">选区工具 · 拆分</div>
@@ -175,8 +196,8 @@
       </div>
     </section>
 
-    <!-- S5 GENERIC RIGID BODY (46.5 – 53.8) -->
-    <section id="s5" class="scene clip scene-solid" data-start="46.5" data-duration="7.3">
+    <!-- S5 GENERIC RIGID BODY -->
+    <section id="s5" class="scene clip scene-solid" data-start="63.866667" data-duration="7.2">
       <div class="scene-inner">
         <div class="scene-header">
           <div class="eyebrow">引擎的取舍</div>
@@ -214,8 +235,8 @@
       </div>
     </section>
 
-    <!-- S6 PROPELLER (53.75 – 61.4) -->
-    <section id="s6" class="scene clip" data-start="53.75" data-duration="7.65">
+    <!-- S6 PROPELLER -->
+    <section id="s6" class="scene clip" data-start="71.066667" data-duration="7.6">
       <div class="scene-inner">
         <div id="d-card" class="ov ov-card" style="left:0; top:96px; width:500px">
           <div class="ov-kick">外观 · 用组件树搭</div>
@@ -232,8 +253,8 @@
       </div>
     </section>
 
-    <!-- S7 END QUESTION (61.3 – 66) -->
-    <section id="s7" class="scene clip" data-start="61.3" data-duration="4.7">
+    <!-- S7 END QUESTION -->
+    <section id="s7" class="scene clip" data-start="78.666667" data-duration="4.6">
       <div class="scene-inner">
         <div id="s7-scrim" class="scrim scrim-full"></div>
         <div class="endq">
@@ -248,7 +269,8 @@
 
   <script>
     const tl = gsap.timeline({ paused: true });
-    const TOTAL = 66;
+    const cue = {"intro": 0, "move": 8.233333333333333, "assemble": 13.166666666666666, "mods": 23.233333333333334, "physics": 38.36666666666667, "split": 48.4, "principle": 63.86666666666667, "prop": 71.06666666666666, "question": 78.66666666666667, "total": 83.26666666666667, "assembly": 16.966666, "physicsOffset": 6.433333333333334, "splitRate": 0.96659483, "physicalIntro": 19.27, "distribution": 41.57, "tree": 56.85, "addons": 28.39};
+    const TOTAL = cue.total;
     const pop = (sel, at, from = { y: 24 }) =>
       tl.from(sel, { ...from, opacity: 0, duration: 0.45, ease: "power3.out" }, at);
     const fadeIn = (sel, at, d = 0.4) => tl.to(sel, { opacity: 1, duration: d, ease: "power2.out" }, at);
@@ -262,112 +284,119 @@
       tl.set(inner, { opacity: 0 }, start + dur);
     }
 
-    // S1 opening over the thrust-lift shot
-    tl.from("#s1 .op-title, #s1 .op-needs", { y: 26, opacity: 0, duration: 0.6, stagger: 0.15, ease: "power3.out" }, 0.1);
-    tl.fromTo("#s1-lane-phys", { scale: 1 }, { scale: 1.08, duration: 0.25, yoyo: true, repeat: 1 }, 1.4);
-    tl.to("#s1 > .scene-inner", { opacity: 0, duration: 0.3, ease: "power2.in" }, 2.8);
-    tl.set("#s1 > .scene-inner", { opacity: 0 }, 3.1);
+    scene("s1", cue.intro, cue.move);
+    pop("#s1 .op-title", 0.12, { y: 26 });
+    fadeOut("#s1 .op-title", 3.7);
+    pop("#terrain-grid", 3.95, { y: 14 });
 
-    // S2 Create (preset motion) vs. physics add-ons
-    scene("s2", 3.0, 15.25);
-    pop("#s2-left", 3.15, { x: -40 });
-    tl.fromTo("#s2-bearing", { scale: 1.0 }, { scale: 1.08, duration: 2.6, ease: "none" }, 3.15);
-    pop("#s2-t1", 4.6, { y: 12 });
-    fadeOut("#s2-bearing, #s2-cap-bearing, #s2-src-bearing", 5.2, 0.4); fadeIn("#s2-cart, #s2-cap-cart, #s2-src-cart", 5.2, 0.4);
-    tl.fromTo("#s2-cart", { scale: 1.0 }, { scale: 1.06, duration: 1.8, ease: "none" }, 5.2);
-    pop("#s2-t2", 5.3, { y: 12 }); pop("#s2-t3", 5.95, { y: 12 });
-    fadeOut("#s2-cart, #s2-cap-cart, #s2-src-cart", 6.8, 0.4); fadeIn("#s2-train, #s2-cap-train, #s2-src-train", 6.8, 0.4);
-    tl.fromTo("#s2-train", { scale: 1.0 }, { scale: 1.08, duration: 11.4, ease: "none" }, 6.8);
-    pop("#s2-right", 8.2, { x: 40 });
-    tl.fromTo("#s2-aero2", { scale: 1.0 }, { scale: 1.07, duration: 3.4, ease: "none" }, 8.2);
-    fadeOut("#s2-aero2, #s2-cap-aero2, #s2-src-aero", 11.3, 0.45); fadeIn("#s2-vs, #s2-cap-vs, #s2-src-vs", 11.3, 0.45);
-    tl.fromTo("#s2-vs", { scale: 1.0 }, { scale: 1.07, duration: 3.2, ease: "none" }, 11.3);
-    fadeOut("#s2-vs, #s2-cap-vs, #s2-src-vs", 14.2, 0.45); fadeIn("#s2-aero1, #s2-cap-aero1, #s2-src-aero", 14.2, 0.45);
-    tl.fromTo("#s2-aero1", { scale: 1.0 }, { scale: 1.08, duration: 4.0, ease: "none" }, 14.2);
-    pop("#s2-g1", 14.3, { y: 12 }); pop("#s2-g2", 16.6, { y: 12 });
+    scene("s-motion", cue.move, cue.assemble - cue.move);
+    pop("#motion-cap", cue.move + 0.32, { y: 14 });
 
-    // S3 assemble (clip t=0 at 18.2; assemble at clip 4.43 -> 22.63) then physics
-    scene("s3", 18.2, 13.6);
-    pop("#ab-card1", 18.4, { x: -36 });
-    on("#ab-c1", 19.6);
-    tl.to("#flash", { opacity: 0.85, duration: 0.06, ease: "none" }, 22.52)
-      .to("#flash", { opacity: 0, duration: 0.35, ease: "power2.out" }, 22.62);
-    on("#ab-c2", 22.6);
-    on("#ab-c3", 23.3);
-    fadeOut("#ab-card1", 24.7, 0.3);
-    fadeIn("#ab-card2", 24.95, 0.35);
-    on("#ab-f1", 27.2);
-    on("#ab-f2", 28.0);
-    on("#ab-f3", 29.15);
-    on("#ab-f4", 29.7);
-    on("#ab-f5", 30.3);
-    on("#ab-f6", 30.85);
+    scene("s3", cue.assemble, cue.mods - cue.assemble);
+    pop("#ab-card1", cue.assemble + 0.2, { x: -36 });
+    on("#ab-c1", cue.assemble + 1.0);
+    tl.to("#flash", { opacity: 0.78, duration: 0.06, ease: "none" }, cue.assembly - 0.06)
+      .to("#flash", { opacity: 0, duration: 0.32, ease: "power2.out" }, cue.assembly);
+    on("#ab-c2", cue.assembly);
+    on("#ab-c3", cue.assembly + 0.64);
+    fadeOut("#ab-card1", cue.physicalIntro + 0.6);
+    pop("#ab-bridge", cue.physicalIntro + 1.05, { y: 14 });
 
-    // centre-of-mass marker follows the recorded screen-space track (clip time + 18.2)
-    (function () {
-      const T0 = 18.2, FROM = 27.0, TO = 31.75, STEP = 0.1;
-      const pts = window.__COM_TRACK;
-      const at = (t) => {
-        let i = 0;
-        while (i < pts.length - 1 && pts[i + 1][0] <= t) i++;
-        return pts[i];
-      };
-      let p = at(FROM - T0);
-      tl.set("#com", { x: p[1], y: p[2] }, 0);
-      for (let c = FROM; c < TO - 1e-6; c += STEP) {
-        const q = at(c + STEP - T0);
-        tl.to("#com", { x: q[1], y: q[2], duration: STEP, ease: "none" }, c);
-      }
-      tl.fromTo("#com", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, FROM);
-      tl.to("#arr-g", { opacity: 1, duration: 0.25 }, 29.15);
-      tl.to("#arr-t", { opacity: 1, duration: 0.25 }, 29.7);
-      tl.to("#com", { opacity: 0, duration: 0.25 }, 31.5);
-    })();
+    scene("s2", cue.mods, cue.physics - cue.mods);
+    const mods = offset => cue.mods + offset;
+    const addons = offset => cue.addons + offset;
+    pop("#s2-left", mods(0.15), { x: -40 });
+    tl.fromTo("#s2-bearing", { scale: 1.0 }, { scale: 1.08, duration: 2.1, ease: "none" }, mods(0.15));
+    pop("#s2-t1", mods(1.65), { y: 12 });
+    fadeOut("#s2-bearing, #s2-cap-bearing, #s2-src-bearing", mods(2.2), 0.4);
+    fadeIn("#s2-cart, #s2-cap-cart, #s2-src-cart", mods(2.2), 0.4);
+    tl.fromTo("#s2-cart", { scale: 1.0 }, { scale: 1.06, duration: 1.55, ease: "none" }, mods(2.2));
+    pop("#s2-t2", mods(2.35), { y: 12 });
+    pop("#s2-t3", mods(3.0), { y: 12 });
+    fadeOut("#s2-cart, #s2-cap-cart, #s2-src-cart", mods(3.8), 0.4);
+    fadeIn("#s2-train, #s2-cap-train, #s2-src-train", mods(3.8), 0.4);
+    tl.fromTo("#s2-train", { scale: 1.0 }, { scale: 1.08, duration: 10.5, ease: "none" }, mods(3.8));
+    pop("#s2-right", addons(0.10), { x: 40 });
+    tl.fromTo("#s2-aero2", { scale: 1.0 }, { scale: 1.07, duration: 3.25, ease: "none" }, addons(0.10));
+    fadeOut("#s2-aero2, #s2-cap-aero2, #s2-src-aero", addons(3.15), 0.45);
+    fadeIn("#s2-vs, #s2-cap-vs, #s2-src-vs", addons(3.15), 0.45);
+    tl.fromTo("#s2-vs", { scale: 1.0 }, { scale: 1.07, duration: 2.9, ease: "none" }, addons(3.15));
+    fadeOut("#s2-vs, #s2-cap-vs, #s2-src-vs", addons(6.0), 0.45);
+    fadeIn("#s2-aero1, #s2-cap-aero1, #s2-src-aero", addons(6.0), 0.45);
+    tl.fromTo("#s2-aero1", { scale: 1.0 }, { scale: 1.08, duration: 3.6, ease: "none" }, addons(6.0));
+    pop("#s2-g1", addons(6.1), { y: 12 });
+    pop("#s2-g2", addons(8.2), { y: 12 });
 
-    // S4 split into components (clip t=0 at 31.8)
-    scene("s4", 31.8, 14.75);
-    pop("#c-card", 32.0, { x: -36 });
-    const wn = document.getElementById("c-wn");
-    [32.8, 33.7, 34.6, 35.5].forEach((t, i) => {
+    scene("s-physics", cue.physics, cue.split - cue.physics);
+    fadeIn("#ab-card2", cue.physics + 0.2);
+    [1.25, 2.08, 3.40, 4.04, 4.72, 5.33].forEach((offset, i) => {
+      on("#ab-f" + (i + 1), cue.distribution + offset);
+    });
+
+    const comStart = cue.distribution - 0.02;
+    const comEnd = cue.split - 0.32;
+    const points = window.__COM_TRACK;
+    const pointAt = time => {
+      const mediaTime = time - cue.physics + cue.physicsOffset;
+      let i = 0;
+      while (i < points.length - 2 && points[i + 1][0] < mediaTime) i++;
+      const [first, last] = [points[i], points[i + 1]];
+      const u = Math.min(1, Math.max(0, (mediaTime - first[0]) / (last[0] - first[0])));
+      return { x: first[1] + u * (last[1] - first[1]), y: first[2] + u * (last[2] - first[2]) };
+    };
+    tl.set("#com", pointAt(comStart), 0);
+    for (let t = comStart; t < comEnd; t += 0.1) {
+      const d = Math.min(0.1, comEnd - t);
+      tl.to("#com", { ...pointAt(t + d), duration: d, ease: "none" }, t);
+    }
+    tl.fromTo("#com", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, comStart);
+    fadeIn("#arr-g", cue.distribution + 0.85, 0.25);
+    fadeIn("#arr-t", Math.max(cue.distribution + 1.1, cue.physics + 11.5 - cue.physicsOffset), 0.25);
+    fadeOut("#com", comEnd, 0.25);
+
+    scene("s4", cue.split, cue.principle - cue.split);
+    const split = offset => cue.split + offset / cue.splitRate;
+    pop("#c-card", split(0.2), { x: -36 });
+    [1, 1.9, 2.8, 3.7].forEach((time, i) => {
+      const t = split(time);
       if (i === 0) on("#c-w", t);
-      tl.set(wn, { textContent: "×" + (i + 1) }, t);
+      tl.set("#c-wn", { textContent: "×" + (i + 1) }, t);
       tl.fromTo("#c-w", { scale: 1.06 }, { scale: 1, duration: 0.25 }, t);
     });
-    on("#c-h", 36.5);
-    on("#c-t", 37.6);
-    pop("#tree", 38.7, { x: 36 });
-    tl.from("#t-root", { opacity: 0, duration: 0.3 }, 38.9);
-    tl.from("#t-edges path", { opacity: 0, duration: 0.25, stagger: 0.06 }, 39.5);
-    tl.from("#t-kids > g", { opacity: 0, y: 12, duration: 0.3, stagger: 0.08, ease: "power3.out" }, 39.6);
-    tl.from("#t-mv text", { opacity: 0, duration: 0.3, stagger: 0.15 }, 40.3);
-    pop("#c-cap", 42.4, { y: 20 });
+    on("#c-h", split(4.7));
+    on("#c-t", split(5.8));
+    const tree = Math.max(cue.tree - 0.22, split(6.9));
+    pop("#tree", tree, { x: 36 });
+    tl.from("#t-root", { opacity: 0, duration: 0.3 }, tree + 0.2);
+    tl.from("#t-edges path", { opacity: 0, duration: 0.25, stagger: 0.06 }, tree + 0.65);
+    tl.from("#t-kids > g", { opacity: 0, y: 12, duration: 0.3, stagger: 0.08, ease: "power3.out" }, tree + 0.8);
+    tl.from("#t-mv text", { opacity: 0, duration: 0.3, stagger: 0.15 }, tree + 1.55);
+    pop("#c-cap", tree + 3.0, { y: 20 });
 
-    // S5 generic rigid body physics
-    scene("s5", 46.5, 7.3);
-    pop("#s5 .scene-header", 46.6, { y: -16 });
-    pop("#rb-core", 46.75, { x: -40 });
-    tl.from("#rb-core li", { opacity: 0, x: -16, duration: 0.3, stagger: 0.25 }, 47.2);
-    tl.from(".rb-parts .part", { opacity: 0, y: 24, duration: 0.4, stagger: 0.15, ease: "power3.out" }, 48.4);
-    [["#p1", "#x1", 50.55], ["#p2", "#x2", 51.35], ["#p3", "#x3", 52.05]].forEach(([p, x, t]) => {
-      tl.to(`${p} .strike`, { opacity: 1, duration: 0.25 }, t);
-      tl.fromTo(x, { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, t);
+    scene("s5", cue.principle, cue.prop - cue.principle);
+    const generic = offset => cue.principle + offset;
+    pop("#s5 .scene-header", generic(0.10), { y: -16 });
+    pop("#rb-core", generic(0.25), { x: -40 });
+    tl.from("#rb-core li", { opacity: 0, x: -16, duration: 0.3, stagger: 0.25 }, generic(0.7));
+    tl.from(".rb-parts .part", { opacity: 0, y: 24, duration: 0.4, stagger: 0.15, ease: "power3.out" }, generic(1.9));
+    [[1, 4.05], [2, 4.85], [3, 5.55]].forEach(([n, t]) => {
+      tl.to(`#p${n} .strike`, { opacity: 1, duration: 0.25 }, generic(t));
+      tl.fromTo(`#x${n}`, { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, generic(t));
     });
     tl.set("#x1, #x2, #x3", { opacity: 0 }, 0);
 
-    // S6 propeller (clip t=0 at 53.75; hub split 55.05, blades 56.75-58.55, spin 59.95)
-    scene("s6", 53.75, 7.65);
-    pop("#d-card", 53.95, { x: -36 });
-    on("#d-c1", 55.05);
-    on("#d-c2", 56.75);
-    on("#d-c3", 59.95);
-    pop("#d-cap", 58.9, { y: 20 });
+    scene("s6", cue.prop, cue.question - cue.prop);
+    pop("#d-card", cue.prop + 0.2, { x: -36 });
+    on("#d-c1", cue.prop + 1.3);
+    on("#d-c2", cue.prop + 3.0);
+    on("#d-c3", cue.prop + 6.2);
+    pop("#d-cap", cue.prop + 5.15, { y: 20 });
 
-    // S7 closing question over the spinning propeller
-    tl.fromTo("#s7 > .scene-inner", { opacity: 0 }, { opacity: 1, duration: 0.45 }, 61.3);
-    tl.fromTo("#s7-scrim", { opacity: 0 }, { opacity: 0.75, duration: 0.6 }, 61.3);
-    pop("#s7-q", 61.45, { y: 26 });
-    pop("#s7-n", 63.4, { y: 14 });
-    tl.to("#s7 > .scene-inner", { opacity: 0, duration: 0.4, ease: "power2.in" }, 65.55);
+    tl.fromTo("#s7 > .scene-inner", { opacity: 0 }, { opacity: 1, duration: 0.45 }, cue.question);
+    tl.fromTo("#s7-scrim", { opacity: 0 }, { opacity: 0.75, duration: 0.6 }, cue.question);
+    pop("#s7-q", cue.question + 0.15, { y: 26 });
+    pop("#s7-n", cue.question + 2.1, { y: 14 });
+    fadeOut("#s7 > .scene-inner", cue.total - 0.45, 0.4);
 
     tl.to(".progress-fill", { width: "100%", duration: TOTAL, ease: "none" }, 0);
 

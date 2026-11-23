@@ -9,11 +9,11 @@
   <script src="./vendor/gsap.min.js"></script>
 </head>
 <body>
-  <div id="root" data-composition-id="root" data-start="0" data-duration="110" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="root" data-start="0" data-duration="117" data-width="1920" data-height="1080">
     <div class="arch-grid"></div>
 
     <audio id="vo" class="clip voiceover-track" src="./audios/05_code/voice.zh.wav"
-      data-start="0" data-duration="109.4" data-volume="1"></audio>
+      data-start="0" data-duration="116.4" data-volume="1"></audio>
 
     <!-- Space footage (each clip stays within its native length) -->
     <video id="vid-open" class="clip bg-video" src="./footage/05_code_propeller.mp4"
@@ -25,11 +25,11 @@
     <video id="vid-prop" class="clip bg-video" src="./footage/05_code_propeller.mp4"
       data-start="74.1" data-duration="10.9" data-media-start="0" data-volume="0" muted playsinline></video>
     <video id="vid-paver" class="clip bg-video" src="./footage/05_code_paver.mp4"
-      data-start="97.2" data-duration="4.8" data-media-start="2" data-volume="0" muted playsinline></video>
+      data-start="104.2" data-duration="4.8" data-media-start="2" data-volume="0" muted playsinline></video>
     <video id="vid-radar" class="clip bg-video" src="./footage/05_code_radar.mp4"
-      data-start="102" data-duration="4.95" data-media-start="0.3" data-volume="0" muted playsinline></video>
+      data-start="109" data-duration="4.95" data-media-start="0.3" data-volume="0" muted playsinline></video>
     <video id="vid-paver2" class="clip bg-video" src="./footage/05_code_paver.mp4"
-      data-start="106.95" data-duration="3.05" data-media-start="11.4" data-volume="0" muted playsinline></video>
+      data-start="113.95" data-duration="3.05" data-media-start="11.4" data-volume="0" muted playsinline></video>
 
     <!-- Behaviour HUD -->
     <div id="hud" class="hud">
@@ -139,8 +139,8 @@
             </div>
             <div id="s4-drop" class="drop">
               <span class="lbl">SPACE 不采用</span>
-              <span class="x" id="s4-x1">Create 式传动机制<i class="strike"></i></span>
-              <span class="x" id="s4-x2">红石式控制系统<i class="strike"></i></span>
+              <span class="x" id="s4-x1">红石式控制系统<i class="strike"></i></span>
+              <span class="x" id="s4-x2">Create 式传动机制<i class="strike"></i></span>
             </div>
           </div>
           <div id="s4-sp" class="dcard green">
@@ -217,8 +217,8 @@
       </div>
     </section>
 
-    <!-- S8 SANDBOX (80.75 – 85.05) -->
-    <section id="s8" class="scene clip" data-start="80.75" data-duration="4.3">
+    <!-- S8 SANDBOX -->
+    <section id="s8" class="scene clip" data-start="80.75" data-duration="4.25">
       <div class="scene-inner">
         <div class="scrim scrim-full"></div>
         <div class="sbx">
@@ -235,8 +235,36 @@
       </div>
     </section>
 
-    <!-- S9 AUTOMATION IN MINECRAFT (85.0 – 97.25) -->
-    <section id="s9" class="scene clip scene-solid" data-start="85" data-duration="12.25">
+    <!-- Natural-language scripting -->
+    <section id="s-agent" class="scene clip scene-solid" data-start="85" data-duration="7" aria-labelledby="agent-title">
+      <div class="scene-inner">
+        <header class="scene-header">
+          <h2 id="agent-title" class="scene-title">用自然语言 <span class="hl-green">生成脚本</span></h2>
+        </header>
+        <div class="agent-grid">
+          <ol class="agent-steps">
+            <li id="agent-prompt">
+              <h3>描述想要的行为</h3>
+              <p><q>按下 W 时加速，点击舱门时切换开合。</q></p>
+            </li>
+            <li id="agent-result">
+              <h3><span lang="en">Agent</span> 生成实体脚本</h3>
+            </li>
+          </ol>
+          <figure id="agent-editor" class="agent-figure">
+            <div class="agent-capture">
+              <img src="./assets/stills/space_agent_editor.png" width="1920" height="1080"
+                alt="Space 实体编辑器中的越野车脚本和右侧 AI Assistant 输入区">
+              <div class="agent-focus" aria-hidden="true"></div>
+            </div>
+            <figcaption>实体编辑器 · 右侧 <span lang="en">AI Assistant</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- S9 AUTOMATION IN MINECRAFT -->
+    <section id="s9" class="scene clip scene-solid" data-start="92" data-duration="12.25">
       <div class="scene-inner">
         <div class="scene-header">
           <div class="eyebrow">控制之外</div>
@@ -267,8 +295,8 @@
       </div>
     </section>
 
-    <!-- S10 PAVER (97.2 – 102.0) -->
-    <section id="s10" class="scene clip" data-start="97.2" data-duration="4.8">
+    <!-- S10 PAVER -->
+    <section id="s10" class="scene clip" data-start="104.2" data-duration="4.8">
       <div class="scene-inner">
         <div class="scrim scrim-bottom"></div>
         <div class="lower">
@@ -282,8 +310,8 @@
       </div>
     </section>
 
-    <!-- S11 RADAR (102.0 – 106.95) -->
-    <section id="s11" class="scene clip" data-start="102" data-duration="4.95">
+    <!-- S11 RADAR -->
+    <section id="s11" class="scene clip" data-start="109" data-duration="4.95">
       <div class="scene-inner">
         <div class="scrim scrim-bottom"></div>
         <div class="callouts">
@@ -295,8 +323,8 @@
       </div>
     </section>
 
-    <!-- S12 OUTRO (106.4 – 110) -->
-    <section id="s12" class="scene clip" data-start="106.4" data-duration="3.6">
+    <!-- S12 OUTRO -->
+    <section id="s12" class="scene clip" data-start="113.4" data-duration="3.6">
       <div class="scene-inner">
         <div class="scrim scrim-bottom"></div>
         <div class="outro">
@@ -311,7 +339,7 @@
 
   <script>
     const tl = gsap.timeline({ paused: true });
-    const TOTAL = 110;
+    const TOTAL = 117;
     const pop = (sel, at, from = { y: 24 }) =>
       tl.from(sel, { ...from, opacity: 0, duration: 0.45, ease: "power3.out" }, at);
     const fadeIn = (sel, at, d = 0.4) => tl.to(sel, { opacity: 1, duration: d, ease: "power2.out" }, at);
@@ -335,7 +363,7 @@
     // HUD
     pop("#hud", 0.3, { x: 30 });
     light("#hud-ctl", 1.3);
-    light("#hud-auto", 85.2);
+    light("#hud-auto", 92.2);
 
     // S1 opening
     tl.from("#s1 .op-title", { y: 26, opacity: 0, duration: 0.6, ease: "power3.out" }, 0.1);
@@ -402,34 +430,41 @@
     hl("#p3", 78.2); hl("#p4", 78.2); hl("#p5", 78.4);
 
     // S8 sandbox
-    scene("s8", 80.75, 4.3);
+    scene("s8", 80.75, 4.25);
     pop("#sb1", 80.9, { y: 18 }); pop("#sb2", 81.3, { y: 18 }); pop("#sb3", 81.7, { y: 18 });
     pop("#sb4", 82.7, { y: 14 });
 
+    // Natural-language scripting
+    scene("s-agent", 85, 7);
+    pop("#agent-title", 85.2, { y: 16 });
+    pop("#agent-editor", 85.45, { x: 24 });
+    pop("#agent-prompt", 87.45, { x: -20 });
+    pop("#agent-result", 89.55, { y: 14 });
+
     // S9 automation in Minecraft
-    scene("s9", 85, 12.25);
-    pop("#s9-farm", 87.2, { x: -40 });
-    tl.fromTo("#s9-farm-img", { scale: 1.0 }, { scale: 1.08, duration: 10, ease: "none" }, 87.2);
-    pop("#s9-turtle", 90.7, { x: 40 });
-    tl.fromTo("#s9-turtle-img", { scale: 1.15, transformOrigin: "54% 44%" }, { scale: 1.6, duration: 6.5, ease: "none" }, 90.7);
-    pop("#s9-t1", 92.7, { y: 12 }); pop("#s9-t2", 93.3, { y: 12 }); pop("#s9-t3", 93.9, { y: 12 });
-    pop("#s9-t4", 95.6, { y: 12 });
+    scene("s9", 92, 12.25);
+    pop("#s9-farm", 94.2, { x: -40 });
+    tl.fromTo("#s9-farm-img", { scale: 1.0 }, { scale: 1.08, duration: 10, ease: "none" }, 94.2);
+    pop("#s9-turtle", 97.7, { x: 40 });
+    tl.fromTo("#s9-turtle-img", { scale: 1.15, transformOrigin: "54% 44%" }, { scale: 1.6, duration: 6.5, ease: "none" }, 97.7);
+    pop("#s9-t1", 99.7, { y: 12 }); pop("#s9-t2", 100.3, { y: 12 }); pop("#s9-t3", 100.9, { y: 12 });
+    pop("#s9-t4", 102.6, { y: 12 });
 
     // S10 paver
-    scene("s10", 97.2, 4.8);
-    pop("#s10-head", 97.35, { y: 20 });
-    pop("#s10-k", 99.7, { x: 30 }); pop("#s10-a", 100.3, { x: 30 }); pop("#s10-b", 101.0, { x: 30 });
+    scene("s10", 104.2, 4.8);
+    pop("#s10-head", 104.35, { y: 20 });
+    pop("#s10-k", 106.7, { x: 30 }); pop("#s10-a", 107.3, { x: 30 }); pop("#s10-b", 108, { x: 30 });
 
     // S11 radar -> message -> gate
-    scene("s11", 102, 4.95);
-    pop("#s11-k", 102.2, { x: 30 }); pop("#s11-a", 103.2, { x: 30 });
-    pop("#s11-b", 104.4, { x: 30 }); pop("#s11-c", 105.4, { x: 30 });
+    scene("s11", 109, 4.95);
+    pop("#s11-k", 109.2, { x: 30 }); pop("#s11-a", 110.2, { x: 30 });
+    pop("#s11-b", 111.4, { x: 30 }); pop("#s11-c", 112.4, { x: 30 });
 
     // S12 outro
-    tl.fromTo("#s12 > .scene-inner", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 106.4);
-    pop("#s12 .big", 106.5, { y: 24 });
-    pop("#s12-next", 108.0, { x: -24 });
-    tl.to("#s12 > .scene-inner, #hud", { opacity: 0, duration: 0.4, ease: "power2.in" }, 109.55);
+    tl.fromTo("#s12 > .scene-inner", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 113.4);
+    pop("#s12 .big", 113.5, { y: 24 });
+    pop("#s12-next", 115, { x: -24 });
+    tl.to("#s12 > .scene-inner, #hud", { opacity: 0, duration: 0.4, ease: "power2.in" }, 116.55);
 
     tl.to(".progress-fill", { width: "100%", duration: TOTAL, ease: "none" }, 0);
 

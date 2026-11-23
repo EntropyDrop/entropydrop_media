@@ -1,0 +1,162 @@
+{
+  "clients": 50,
+  "aircraft": 50,
+  "inputHz": 20,
+  "durationSeconds": 20.000645702937618,
+  "presenceConfiguredHz": 10,
+  "webSocketCompression": "permessage-deflate",
+  "observedPresenceMessagesPerClientSecond": 8.249733656137183,
+  "averagePlayersInPresenceSnapshot": 12.757818181818182,
+  "receivedEntityStatePackets": 203487,
+  "receivedTwoBodyAircraftStates": 203487,
+  "clientApplicationRxBytes": 147901002,
+  "clientApplicationTx": {
+    "applicationBytes": 11462235,
+    "playerPosePackets": 20000,
+    "entityPosePackets": 20000
+  },
+  "server": {
+    "ingress": {
+      "bytes": 12336547,
+      "meanMbps": 4.934459490250579,
+      "peakOneSecondMbps": 5.132034217003509
+    },
+    "egress": {
+      "bytes": 40927472,
+      "meanMbps": 16.370460277285442,
+      "peakOneSecondMbps": 17.3872454183808
+    }
+  },
+  "samples": [
+    {
+      "t": 1.001468191971071,
+      "seconds": 1.001468191971071,
+      "ingressMbps": 4.894589802550209,
+      "egressMbps": 14.689457057089388
+    },
+    {
+      "t": 2.0001449750270694,
+      "seconds": 0.9986767830559984,
+      "ingressMbps": 5.041663214190967,
+      "egressMbps": 15.677192326520824
+    },
+    {
+      "t": 2.999901144998148,
+      "seconds": 0.9997561699710786,
+      "ingressMbps": 4.789375793638278,
+      "egressMbps": 15.062904788510222
+    },
+    {
+      "t": 4.0004710130160674,
+      "seconds": 1.0005698680179194,
+      "ingressMbps": 5.022018112492279,
+      "egressMbps": 16.554358200704236
+    },
+    {
+      "t": 5.000954810995609,
+      "seconds": 1.0004837979795411,
+      "ingressMbps": 4.918748319501153,
+      "egressMbps": 16.039632058417553
+    },
+    {
+      "t": 6.0002415450289845,
+      "seconds": 0.999286734033376,
+      "ingressMbps": 4.8923055150221915,
+      "egressMbps": 16.507310102496618
+    },
+    {
+      "t": 7.000090196961537,
+      "seconds": 0.9998486519325525,
+      "ingressMbps": 4.853310539170827,
+      "egressMbps": 16.209213233097675
+    },
+    {
+      "t": 7.999944429961033,
+      "seconds": 0.9998542329994962,
+      "ingressMbps": 4.807828822786433,
+      "egressMbps": 16.07595934437385
+    },
+    {
+      "t": 9.000753069994971,
+      "seconds": 1.000808640033938,
+      "ingressMbps": 4.922947107883607,
+      "egressMbps": 16.22543146654823
+    },
+    {
+      "t": 10.001018741982989,
+      "seconds": 1.0002656719880179,
+      "ingressMbps": 4.949069170954514,
+      "egressMbps": 16.837142842788413
+    },
+    {
+      "t": 11.000155729008839,
+      "seconds": 0.9991369870258495,
+      "ingressMbps": 5.081753619304896,
+      "egressMbps": 17.3872454183808
+    },
+    {
+      "t": 12.000393602997065,
+      "seconds": 1.000237873988226,
+      "ingressMbps": 4.979711456175704,
+      "egressMbps": 17.06276521198886
+    },
+    {
+      "t": 13.00052911695093,
+      "seconds": 1.0001355139538646,
+      "ingressMbps": 4.776208757066847,
+      "egressMbps": 16.035794926026213
+    },
+    {
+      "t": 13.999816774972714,
+      "seconds": 0.9992876580217853,
+      "ingressMbps": 4.975928562795877,
+      "egressMbps": 16.68347634053992
+    },
+    {
+      "t": 15.000748977996409,
+      "seconds": 1.0009322030236945,
+      "ingressMbps": 4.943951233710936,
+      "egressMbps": 17.26970912493541
+    },
+    {
+      "t": 16.000401424942538,
+      "seconds": 0.9996524469461292,
+      "ingressMbps": 4.936211595414539,
+      "egressMbps": 16.8386843361642
+    },
+    {
+      "t": 17.00045711104758,
+      "seconds": 1.0000556861050427,
+      "ingressMbps": 5.132034217003509,
+      "egressMbps": 16.423109461001427
+    },
+    {
+      "t": 18.000165840028785,
+      "seconds": 0.9997087289812043,
+      "ingressMbps": 4.793740277614503,
+      "egressMbps": 16.01061542826734
+    },
+    {
+      "t": 19.000126327038743,
+      "seconds": 0.9999604870099574,
+      "ingressMbps": 5.049679527936905,
+      "egressMbps": 16.893947530380547
+    },
+    {
+      "t": 20.000645702937618,
+      "seconds": 1.0005193758988753,
+      "ingressMbps": 4.928296361647245,
+      "egressMbps": 16.926496785517212
+    }
+  ],
+  "traceSha256": "53f024d9a6d726d01e72b48e8de2334a68fc0d14fbf15ccf7cc3a01e047a21cd",
+  "scope": "50 synthetic WebSocket clients replayed real physics trajectories in one isolated Space world. Linux client-container eth0 wire bytes, reversed to report server directions; compressed WebSocket and TCP overhead. Space AOI enabled, two rigid bodies per aircraft (airframe and rotating propeller). Steady-state sync only; TLS, terrain and asset downloads, login, checkpoint HTTP, and physical Internet uplink utilization are outside this sample.",
+  "execution": {
+    "environment": "isolated development containers on Space server",
+    "realtimeTransport": "Space ASGI /space/ws/v2, binary MessagePack with permessage-deflate",
+    "relayWorkers": 1,
+    "database": "isolated PostgreSQL 15",
+    "admission": "isolated Redis 7, development limit 50",
+    "identitySource": "50 synthetic test identities with unique join tickets"
+  }
+}

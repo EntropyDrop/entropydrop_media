@@ -1,0 +1,945 @@
+{
+  "physicsBudgetMs": 50,
+  "server": {
+    "allocatedPhysicalCores": 64,
+    "cpuset": "64-127"
+  },
+  "engineBaseCommit": "273cd84",
+  "method": {
+    "scope": "Isolated airborne physics with the original chapter 04 model, 64 workers, 32 separated two-plane areas and the same 500 fixed simulation steps. No browser rendering, WebSocket traffic or live world streaming.",
+    "wholeStep": "Wall clock from dispatch to all workers reporting completion.",
+    "workerWall": "Wall clock inside the worker callback.",
+    "workerCpu": "Node process.threadCpuUsage inside the worker callback, excluding other threads.",
+    "cpuPct": "Total cgroup CPU over wall time, divided by 64 allocated physical cores.",
+    "phaseOverlap": "Collision box transforms are counted within broadphase and pair times.",
+    "recordedTraceResolution": "Position, quaternion and velocity components rounded to four decimal places."
+  },
+  "matchingTraceSha256": "4c5bd15577a0e2fc0530e345f0e750f81a3a4482503316ce5cba394d43e45dde",
+  "identicalRecordedContacts": true,
+  "runs": {
+    "originalTerrainAdapter": {
+      "description": "Original empty terrain adapter, with stage timing",
+      "summary": {
+        "players": 64,
+        "cores": 64,
+        "topology": "one Space engine worker per virtual pilot, 32 or fewer separated two-plane flight areas",
+        "simulatedSeconds": 25,
+        "wallSeconds": 29.169334942000003,
+        "tickHzTarget": 20,
+        "realizedHz": 17.141288993876437,
+        "model": {
+          "voxels": 21766,
+          "decorations": 35
+        },
+        "contactEvents": 381,
+        "contactPairTicks": 2585,
+        "pairsWithContact": 11,
+        "tickWallP50Ms": 53.91550400000051,
+        "tickWallP95Ms": 92.37315200000012,
+        "pilotStepP95Ms": 46.130872000001546,
+        "ticksOverBudget": 278,
+        "baselineCoreEquivalents": 4.669391724865466,
+        "averageUsedCores": 46.9652978624294,
+        "averageCpuPct": 73.38327791004595,
+        "oneSecondPeakCpuPct": 92.01527432443916
+      },
+      "profiling": {
+        "terrainMode": "legacy",
+        "sumWorkerWall": 724886.7184030087,
+        "slowWorkerP95Ms": 90.58796900000016,
+        "barrierGapP95Ms": 4.190605999996478,
+        "perPilotCpuMeanMs": 20.920703656249977,
+        "perPilotCpuP95Ms": 44.075,
+        "phases": {
+          "terrain": {
+            "shareOfWorkerWall": 0.272854711866906,
+            "meanMs": 6.180898646437499,
+            "p95Ms": 12.922614999999496
+          },
+          "prepare": {
+            "shareOfWorkerWall": 0.0035330321427912027,
+            "meanMs": 0.08003275237500827,
+            "p95Ms": 0.12942699999621254
+          },
+          "broadphase": {
+            "shareOfWorkerWall": 0.2471034163263776,
+            "meanMs": 5.59756201771876,
+            "p95Ms": 16.671152000000802
+          },
+          "pairs": {
+            "shareOfWorkerWall": 0.4223747553349148,
+            "meanMs": 9.567932822843751,
+            "p95Ms": 26.115365999994538
+          },
+          "worldBoxes": {
+            "shareOfWorkerWall": 0.5001941929544618,
+            "meanMs": 11.330753971718785,
+            "p95Ms": 25.22849899999892
+          }
+        }
+      },
+      "cpuSamples": [
+        {
+          "t": 1.04,
+          "cpuPct": 75.42754296525224,
+          "usedCores": 48.27362749776143,
+          "tick": 11
+        },
+        {
+          "t": 2.06,
+          "cpuPct": 68.21993166920848,
+          "usedCores": 43.660756268293426,
+          "tick": 25
+        },
+        {
+          "t": 3.1,
+          "cpuPct": 84.36721782289126,
+          "usedCores": 53.99501940665041,
+          "tick": 42
+        },
+        {
+          "t": 4.12,
+          "cpuPct": 89.14280574374025,
+          "usedCores": 57.05139567599376,
+          "tick": 67
+        },
+        {
+          "t": 5.16,
+          "cpuPct": 91.70738738317144,
+          "usedCores": 58.69272792522972,
+          "tick": 92
+        },
+        {
+          "t": 6.17,
+          "cpuPct": 92.01527432443916,
+          "usedCores": 58.88977556764107,
+          "tick": 116
+        },
+        {
+          "t": 7.2,
+          "cpuPct": 79.35894736004164,
+          "usedCores": 50.78972631042665,
+          "tick": 133
+        },
+        {
+          "t": 8.27,
+          "cpuPct": 73.82756693334979,
+          "usedCores": 47.24964283734386,
+          "tick": 149
+        },
+        {
+          "t": 9.28,
+          "cpuPct": 78.6869360986917,
+          "usedCores": 50.35963910316269,
+          "tick": 166
+        },
+        {
+          "t": 10.31,
+          "cpuPct": 76.34348604085905,
+          "usedCores": 48.85983106614979,
+          "tick": 184
+        },
+        {
+          "t": 11.38,
+          "cpuPct": 70.11391519889335,
+          "usedCores": 44.872905727291744,
+          "tick": 199
+        },
+        {
+          "t": 12.41,
+          "cpuPct": 50.25843368982853,
+          "usedCores": 32.16539756149026,
+          "tick": 212
+        },
+        {
+          "t": 13.45,
+          "cpuPct": 57.45831750411149,
+          "usedCores": 36.77332320263135,
+          "tick": 226
+        },
+        {
+          "t": 14.53,
+          "cpuPct": 54.03031815866927,
+          "usedCores": 34.57940362154833,
+          "tick": 241
+        },
+        {
+          "t": 15.54,
+          "cpuPct": 72.34857237061526,
+          "usedCores": 46.30308631719377,
+          "tick": 259
+        },
+        {
+          "t": 16.53,
+          "cpuPct": 88.88704855614303,
+          "usedCores": 56.88771107593154,
+          "tick": 278
+        },
+        {
+          "t": 17.55,
+          "cpuPct": 82.56578273911843,
+          "usedCores": 52.842100953035796,
+          "tick": 296
+        },
+        {
+          "t": 18.57,
+          "cpuPct": 72.14885764074326,
+          "usedCores": 46.175268890075685,
+          "tick": 315
+        },
+        {
+          "t": 19.61,
+          "cpuPct": 80.63955830527883,
+          "usedCores": 51.60931731537845,
+          "tick": 331
+        },
+        {
+          "t": 20.62,
+          "cpuPct": 68.71524861881376,
+          "usedCores": 43.97775911604081,
+          "tick": 348
+        },
+        {
+          "t": 21.62,
+          "cpuPct": 71.15895499583313,
+          "usedCores": 45.5417311973332,
+          "tick": 363
+        },
+        {
+          "t": 22.63,
+          "cpuPct": 81.48127863284391,
+          "usedCores": 52.148018325020104,
+          "tick": 386
+        },
+        {
+          "t": 23.65,
+          "cpuPct": 77.85562682260309,
+          "usedCores": 49.827601166465975,
+          "tick": 405
+        },
+        {
+          "t": 24.65,
+          "cpuPct": 55.272621844376516,
+          "usedCores": 35.37447798040097,
+          "tick": 420
+        },
+        {
+          "t": 25.68,
+          "cpuPct": 61.43115878780069,
+          "usedCores": 39.31594162419244,
+          "tick": 437
+        },
+        {
+          "t": 26.69,
+          "cpuPct": 54.58487728471096,
+          "usedCores": 34.93432146221502,
+          "tick": 453
+        },
+        {
+          "t": 27.7,
+          "cpuPct": 63.95621322603427,
+          "usedCores": 40.931976464661936,
+          "tick": 473
+        },
+        {
+          "t": 28.7,
+          "cpuPct": 85.43945374210917,
+          "usedCores": 54.68125039494986,
+          "tick": 491
+        },
+        {
+          "t": 29.17,
+          "cpuPct": 70.19478769484255,
+          "usedCores": 44.92466412469923,
+          "tick": 500
+        }
+      ]
+    },
+    "runtimeTerrainQueries": {
+      "description": "Runtime World terrain queries in an unloaded airspace",
+      "summary": {
+        "players": 64,
+        "cores": 64,
+        "topology": "one Space engine worker per virtual pilot, 32 or fewer separated two-plane flight areas",
+        "simulatedSeconds": 25,
+        "wallSeconds": 28.408868114000004,
+        "tickHzTarget": 20,
+        "realizedHz": 17.60013802709718,
+        "model": {
+          "voxels": 21766,
+          "decorations": 35
+        },
+        "contactEvents": 381,
+        "contactPairTicks": 2585,
+        "pairsWithContact": 11,
+        "tickWallP50Ms": 48.46078699999998,
+        "tickWallP95Ms": 95.93490200000087,
+        "pilotStepP95Ms": 36.61043299999801,
+        "ticksOverBudget": 233,
+        "baselineCoreEquivalents": 3.933504311562469,
+        "averageUsedCores": 44.421358814295765,
+        "averageCpuPct": 69.40837314733713,
+        "oneSecondPeakCpuPct": 87.80811837490762
+      },
+      "profiling": {
+        "terrainMode": "world",
+        "sumWorkerWall": 586811.9123020017,
+        "slowWorkerP95Ms": 93.91916700000002,
+        "barrierGapP95Ms": 4.500620000002527,
+        "perPilotCpuMeanMs": 16.92585524999994,
+        "perPilotCpuP95Ms": 35.846,
+        "phases": {
+          "terrain": {
+            "shareOfWorkerWall": 0.016874813672670293,
+            "meanMs": 0.3094481775312381,
+            "p95Ms": 0.47628400000030524
+          },
+          "prepare": {
+            "shareOfWorkerWall": 0.017329478885504797,
+            "meanMs": 0.3177857701250072,
+            "p95Ms": 0.6328829999984009
+          },
+          "broadphase": {
+            "shareOfWorkerWall": 0.33590140402186874,
+            "meanMs": 6.159717038718752,
+            "p95Ms": 14.313167000000249
+          },
+          "pairs": {
+            "shareOfWorkerWall": 0.5492277103385297,
+            "meanMs": 10.071667593531329,
+            "p95Ms": 26.14451299999928
+          },
+          "worldBoxes": {
+            "shareOfWorkerWall": 0.6783011115359803,
+            "meanMs": 12.438599136781312,
+            "p95Ms": 22.83223999999609
+          }
+        }
+      },
+      "cpuSamples": [
+        {
+          "t": 0.99,
+          "cpuPct": 72.10391324132898,
+          "usedCores": 46.14650447445055,
+          "tick": 16
+        },
+        {
+          "t": 1.98,
+          "cpuPct": 76.7132567425815,
+          "usedCores": 49.09648431525216,
+          "tick": 40
+        },
+        {
+          "t": 2.98,
+          "cpuPct": 73.33240357695622,
+          "usedCores": 46.93273828925198,
+          "tick": 60
+        },
+        {
+          "t": 3.98,
+          "cpuPct": 56.43570250268891,
+          "usedCores": 36.1188496017209,
+          "tick": 80
+        },
+        {
+          "t": 4.98,
+          "cpuPct": 73.65105596965138,
+          "usedCores": 47.13667582057688,
+          "tick": 100
+        },
+        {
+          "t": 5.98,
+          "cpuPct": 83.85112347320216,
+          "usedCores": 53.66471902284938,
+          "tick": 120
+        },
+        {
+          "t": 6.98,
+          "cpuPct": 71.12727927593565,
+          "usedCores": 45.52145873659882,
+          "tick": 137
+        },
+        {
+          "t": 8.01,
+          "cpuPct": 69.82098085013985,
+          "usedCores": 44.6854277440895,
+          "tick": 153
+        },
+        {
+          "t": 9.06,
+          "cpuPct": 80.95758593359041,
+          "usedCores": 51.812854997497865,
+          "tick": 172
+        },
+        {
+          "t": 10.1,
+          "cpuPct": 75.80726993115752,
+          "usedCores": 48.51665275594081,
+          "tick": 189
+        },
+        {
+          "t": 11.19,
+          "cpuPct": 65.93199428202404,
+          "usedCores": 42.19647634049538,
+          "tick": 203
+        },
+        {
+          "t": 12.24,
+          "cpuPct": 47.60270877932535,
+          "usedCores": 30.465733618768223,
+          "tick": 217
+        },
+        {
+          "t": 13.26,
+          "cpuPct": 44.94951374064355,
+          "usedCores": 28.767688794011875,
+          "tick": 233
+        },
+        {
+          "t": 14.28,
+          "cpuPct": 60.59946103998659,
+          "usedCores": 38.78365506559142,
+          "tick": 249
+        },
+        {
+          "t": 15.28,
+          "cpuPct": 77.50533310235764,
+          "usedCores": 49.60341318550889,
+          "tick": 267
+        },
+        {
+          "t": 16.32,
+          "cpuPct": 78.89202439047529,
+          "usedCores": 50.490895609904186,
+          "tick": 287
+        },
+        {
+          "t": 17.35,
+          "cpuPct": 81.55518877112264,
+          "usedCores": 52.19532081351849,
+          "tick": 307
+        },
+        {
+          "t": 18.37,
+          "cpuPct": 73.6201869251237,
+          "usedCores": 47.11691963207917,
+          "tick": 323
+        },
+        {
+          "t": 19.41,
+          "cpuPct": 67.70037034358641,
+          "usedCores": 43.328237019895305,
+          "tick": 338
+        },
+        {
+          "t": 20.44,
+          "cpuPct": 73.5214645795079,
+          "usedCores": 47.05373733088506,
+          "tick": 355
+        },
+        {
+          "t": 21.46,
+          "cpuPct": 61.6889919628232,
+          "usedCores": 39.48095485620685,
+          "tick": 375
+        },
+        {
+          "t": 22.45,
+          "cpuPct": 87.80811837490762,
+          "usedCores": 56.19719575994088,
+          "tick": 395
+        },
+        {
+          "t": 23.51,
+          "cpuPct": 72.53604267514592,
+          "usedCores": 46.42306731209339,
+          "tick": 413
+        },
+        {
+          "t": 24.54,
+          "cpuPct": 50.94280273479498,
+          "usedCores": 32.603393750268786,
+          "tick": 430
+        },
+        {
+          "t": 25.58,
+          "cpuPct": 53.632634319188895,
+          "usedCores": 34.324885964280895,
+          "tick": 446
+        },
+        {
+          "t": 26.6,
+          "cpuPct": 49.48139078603176,
+          "usedCores": 31.668090103060326,
+          "tick": 464
+        },
+        {
+          "t": 27.61,
+          "cpuPct": 81.69066623958349,
+          "usedCores": 52.28202639333344,
+          "tick": 486
+        },
+        {
+          "t": 28.41,
+          "cpuPct": 84.82031281255793,
+          "usedCores": 54.285000200037075,
+          "tick": 500
+        }
+      ]
+    },
+    "collisionBoundsOptimized": {
+      "description": "Runtime terrain queries and exact affine collision bounds",
+      "summary": {
+        "players": 64,
+        "cores": 64,
+        "topology": "one Space engine worker per virtual pilot, 32 or fewer separated two-plane flight areas",
+        "simulatedSeconds": 25,
+        "wallSeconds": 25.725198451999997,
+        "tickHzTarget": 20,
+        "realizedHz": 19.436196029077774,
+        "model": {
+          "voxels": 21766,
+          "decorations": 35
+        },
+        "contactEvents": 381,
+        "contactPairTicks": 2585,
+        "pairsWithContact": 11,
+        "tickWallP50Ms": 40.34213399999862,
+        "tickWallP95Ms": 83.57903199999782,
+        "pilotStepP95Ms": 25.21949499999755,
+        "ticksOverBudget": 164,
+        "baselineCoreEquivalents": 4.965987897050833,
+        "averageUsedCores": 41.769218185232766,
+        "averageCpuPct": 65.2644034144262,
+        "oneSecondPeakCpuPct": 94.15632678247023
+      },
+      "profiling": {
+        "terrainMode": "world",
+        "sumWorkerWall": 302634.06617000053,
+        "slowWorkerP95Ms": 83.20335499999783,
+        "barrierGapP95Ms": 7.832574000000022,
+        "perPilotCpuMeanMs": 8.728159031249975,
+        "perPilotCpuP95Ms": 24.665,
+        "phases": {
+          "terrain": {
+            "shareOfWorkerWall": 0.025207940013314906,
+            "meanMs": 0.2383994183124671,
+            "p95Ms": 0.39851699999780976
+          },
+          "prepare": {
+            "shareOfWorkerWall": 0.038246224744236626,
+            "meanMs": 0.3617065784375006,
+            "p95Ms": 0.6723350000011123
+          },
+          "broadphase": {
+            "shareOfWorkerWall": 0.22240677926585828,
+            "meanMs": 2.103370873531264,
+            "p95Ms": 4.928615000000718
+          },
+          "pairs": {
+            "shareOfWorkerWall": 0.5759369725716618,
+            "meanMs": 5.446817120843814,
+            "p95Ms": 20.611217000012402
+          },
+          "worldBoxes": {
+            "shareOfWorkerWall": 0.4197214908735589,
+            "meanMs": 3.969438170062497,
+            "p95Ms": 7.8894319999926665
+          }
+        }
+      },
+      "cpuSamples": [
+        {
+          "t": 1.01,
+          "cpuPct": 34.870635682492015,
+          "usedCores": 22.317206836794888,
+          "tick": 21
+        },
+        {
+          "t": 2.01,
+          "cpuPct": 59.505398767562504,
+          "usedCores": 38.08345521124,
+          "tick": 41
+        },
+        {
+          "t": 3.01,
+          "cpuPct": 46.11524632663719,
+          "usedCores": 29.5137576490478,
+          "tick": 61
+        },
+        {
+          "t": 4.01,
+          "cpuPct": 28.709273461932096,
+          "usedCores": 18.37393501563654,
+          "tick": 81
+        },
+        {
+          "t": 5.01,
+          "cpuPct": 47.66903204692533,
+          "usedCores": 30.50818051003221,
+          "tick": 101
+        },
+        {
+          "t": 6.02,
+          "cpuPct": 57.69688886889579,
+          "usedCores": 36.926008876093306,
+          "tick": 121
+        },
+        {
+          "t": 7.03,
+          "cpuPct": 73.03497136913634,
+          "usedCores": 46.742381676247255,
+          "tick": 141
+        },
+        {
+          "t": 8.03,
+          "cpuPct": 72.04110258071688,
+          "usedCores": 46.1063056516588,
+          "tick": 160
+        },
+        {
+          "t": 9.04,
+          "cpuPct": 82.64300585859628,
+          "usedCores": 52.89152374950162,
+          "tick": 181
+        },
+        {
+          "t": 10.17,
+          "cpuPct": 66.76881023604338,
+          "usedCores": 42.73203855106776,
+          "tick": 199
+        },
+        {
+          "t": 11.2,
+          "cpuPct": 54.945679071886985,
+          "usedCores": 35.16523460600767,
+          "tick": 214
+        },
+        {
+          "t": 12.2,
+          "cpuPct": 54.37901354626461,
+          "usedCores": 34.80256866960935,
+          "tick": 230
+        },
+        {
+          "t": 13.21,
+          "cpuPct": 61.662376862467426,
+          "usedCores": 39.46392119197915,
+          "tick": 247
+        },
+        {
+          "t": 14.21,
+          "cpuPct": 82.36450772744841,
+          "usedCores": 52.71328494556698,
+          "tick": 270
+        },
+        {
+          "t": 15.2,
+          "cpuPct": 92.13024308986124,
+          "usedCores": 58.963355577511194,
+          "tick": 296
+        },
+        {
+          "t": 16.21,
+          "cpuPct": 78.59792483682237,
+          "usedCores": 50.30267189556632,
+          "tick": 316
+        },
+        {
+          "t": 17.29,
+          "cpuPct": 60.88588654440665,
+          "usedCores": 38.96696738842026,
+          "tick": 333
+        },
+        {
+          "t": 18.3,
+          "cpuPct": 71.29531244859047,
+          "usedCores": 45.6289999670979,
+          "tick": 351
+        },
+        {
+          "t": 19.34,
+          "cpuPct": 59.71733551523688,
+          "usedCores": 38.2190947297516,
+          "tick": 370
+        },
+        {
+          "t": 20.33,
+          "cpuPct": 93.24715251114117,
+          "usedCores": 59.678177607130344,
+          "tick": 397
+        },
+        {
+          "t": 21.37,
+          "cpuPct": 65.12554379256544,
+          "usedCores": 41.68034802724188,
+          "tick": 413
+        },
+        {
+          "t": 22.38,
+          "cpuPct": 47.757211799977185,
+          "usedCores": 30.564615551985398,
+          "tick": 430
+        },
+        {
+          "t": 23.39,
+          "cpuPct": 66.20992264614574,
+          "usedCores": 42.37435049353328,
+          "tick": 448
+        },
+        {
+          "t": 24.38,
+          "cpuPct": 74.85780039147264,
+          "usedCores": 47.90899225054249,
+          "tick": 468
+        },
+        {
+          "t": 25.37,
+          "cpuPct": 94.15632678247023,
+          "usedCores": 60.26004914078095,
+          "tick": 492
+        },
+        {
+          "t": 25.72,
+          "cpuPct": 84.38913015085417,
+          "usedCores": 54.00904329654667,
+          "tick": 500
+        }
+      ]
+    },
+    "tailProfileRepeat": {
+      "description": "Same optimized run with extra timing for over-budget steps",
+      "summary": {
+        "players": 64,
+        "cores": 64,
+        "topology": "one Space engine worker per virtual pilot, 32 or fewer separated two-plane flight areas",
+        "simulatedSeconds": 25,
+        "wallSeconds": 26.607416012,
+        "tickHzTarget": 20,
+        "realizedHz": 18.79175338839739,
+        "model": {
+          "voxels": 21766,
+          "decorations": 35
+        },
+        "contactEvents": 381,
+        "contactPairTicks": 2585,
+        "pairsWithContact": 11,
+        "tickWallP50Ms": 42.002659000001586,
+        "tickWallP95Ms": 85.7804329999999,
+        "pilotStepP95Ms": 27.96134599999641,
+        "ticksOverBudget": 171,
+        "baselineCoreEquivalents": 4.532150008965324,
+        "averageUsedCores": 43.840592242174615,
+        "averageCpuPct": 68.50092537839784,
+        "oneSecondPeakCpuPct": 91.2197177942827
+      },
+      "profiling": {
+        "terrainMode": "world",
+        "sumWorkerWall": 352125.6753450012,
+        "slowWorkerP95Ms": 84.87807700000121,
+        "barrierGapP95Ms": 6.768803999999363,
+        "perPilotCpuMeanMs": 10.077584343749981,
+        "perPilotCpuP95Ms": 26.948,
+        "overBudgetWorkers": {
+          "steps": 171,
+          "medianWallMs": 63.65455099999963,
+          "medianThreadCpuMs": 62.829,
+          "medianWallMinusCpuMs": 0.34541400000225764,
+          "p95WallMinusCpuMs": 2.851521999996706,
+          "contactOnSlowestWorker": 161
+        },
+        "phases": {
+          "terrain": {
+            "shareOfWorkerWall": 0.025236732616253785,
+            "meanMs": 0.277703172374987,
+            "p95Ms": 0.4465390000004845
+          },
+          "prepare": {
+            "shareOfWorkerWall": 0.03610254063849143,
+            "meanMs": 0.3972697344999733,
+            "p95Ms": 0.7577569999994012
+          },
+          "broadphase": {
+            "shareOfWorkerWall": 0.2458013198361574,
+            "meanMs": 2.7047798671249867,
+            "p95Ms": 6.282766999996966
+          },
+          "pairs": {
+            "shareOfWorkerWall": 0.5563256432694595,
+            "meanMs": 6.121766964000021,
+            "p95Ms": 22.08180899999934
+          },
+          "worldBoxes": {
+            "shareOfWorkerWall": 0.4316909840160569,
+            "meanMs": 4.750296227718817,
+            "p95Ms": 9.557850999990478
+          }
+        }
+      },
+      "cpuSamples": [
+        {
+          "t": 1.02,
+          "cpuPct": 39.782893785209204,
+          "usedCores": 25.46105202253389,
+          "tick": 21
+        },
+        {
+          "t": 2.02,
+          "cpuPct": 54.8604791030558,
+          "usedCores": 35.110706625955714,
+          "tick": 41
+        },
+        {
+          "t": 3.01,
+          "cpuPct": 70.08745436533877,
+          "usedCores": 44.855970793816816,
+          "tick": 61
+        },
+        {
+          "t": 4.01,
+          "cpuPct": 56.422143846244985,
+          "usedCores": 36.11017206159679,
+          "tick": 81
+        },
+        {
+          "t": 5.02,
+          "cpuPct": 63.75435721826577,
+          "usedCores": 40.80278861969009,
+          "tick": 101
+        },
+        {
+          "t": 6.02,
+          "cpuPct": 57.474957673224516,
+          "usedCores": 36.78397291086369,
+          "tick": 121
+        },
+        {
+          "t": 7.04,
+          "cpuPct": 65.53444594878354,
+          "usedCores": 41.942045407221464,
+          "tick": 140
+        },
+        {
+          "t": 8.05,
+          "cpuPct": 73.61694579241913,
+          "usedCores": 47.114845307148244,
+          "tick": 156
+        },
+        {
+          "t": 9.07,
+          "cpuPct": 84.42763445045668,
+          "usedCores": 54.033686048292275,
+          "tick": 176
+        },
+        {
+          "t": 10.1,
+          "cpuPct": 85.12122296365142,
+          "usedCores": 54.47758269673691,
+          "tick": 194
+        },
+        {
+          "t": 11.1,
+          "cpuPct": 52.78125514758489,
+          "usedCores": 33.78000329445433,
+          "tick": 206
+        },
+        {
+          "t": 12.12,
+          "cpuPct": 39.36480356158412,
+          "usedCores": 25.193474279413834,
+          "tick": 221
+        },
+        {
+          "t": 13.13,
+          "cpuPct": 60.65244029990154,
+          "usedCores": 38.81756179193699,
+          "tick": 237
+        },
+        {
+          "t": 14.15,
+          "cpuPct": 76.30622796862433,
+          "usedCores": 48.83598589991957,
+          "tick": 259
+        },
+        {
+          "t": 15.17,
+          "cpuPct": 87.0593936416192,
+          "usedCores": 55.71801193063629,
+          "tick": 283
+        },
+        {
+          "t": 16.17,
+          "cpuPct": 88.41784121271228,
+          "usedCores": 56.58741837613586,
+          "tick": 305
+        },
+        {
+          "t": 17.22,
+          "cpuPct": 71.34312253018548,
+          "usedCores": 45.65959841931871,
+          "tick": 323
+        },
+        {
+          "t": 18.26,
+          "cpuPct": 69.60130684689236,
+          "usedCores": 44.54483638201111,
+          "tick": 337
+        },
+        {
+          "t": 19.32,
+          "cpuPct": 71.66021424451368,
+          "usedCores": 45.86253711648876,
+          "tick": 355
+        },
+        {
+          "t": 20.32,
+          "cpuPct": 54.97990996219073,
+          "usedCores": 35.18714237580207,
+          "tick": 377
+        },
+        {
+          "t": 21.36,
+          "cpuPct": 91.2197177942827,
+          "usedCores": 58.380619388340925,
+          "tick": 401
+        },
+        {
+          "t": 22.38,
+          "cpuPct": 79.9921742993461,
+          "usedCores": 51.19499155158151,
+          "tick": 418
+        },
+        {
+          "t": 23.42,
+          "cpuPct": 62.71432984316265,
+          "usedCores": 40.1371710996241,
+          "tick": 436
+        },
+        {
+          "t": 24.47,
+          "cpuPct": 57.664980679349796,
+          "usedCores": 36.90558763478387,
+          "tick": 452
+        },
+        {
+          "t": 25.46,
+          "cpuPct": 71.58404006094321,
+          "usedCores": 45.813785639003655,
+          "tick": 476
+        },
+        {
+          "t": 26.46,
+          "cpuPct": 91.05385652225704,
+          "usedCores": 58.274468174244504,
+          "tick": 496
+        },
+        {
+          "t": 26.61,
+          "cpuPct": 87.84361451426548,
+          "usedCores": 56.219913289129906,
+          "tick": 500
+        }
+      ]
+    }
+  }
+}
