@@ -9,24 +9,28 @@
   <script src="./vendor/gsap.min.js"></script>
 </head>
 <body>
-  <div id="root" data-composition-id="root" data-start="0" data-duration="90.5" data-width="1920" data-height="1080">
+  <div id="root" data-composition-id="root" data-start="0" data-duration="110.166666667" data-width="1920" data-height="1080">
     <div class="arch-grid"></div>
 
     <audio id="vo" class="clip voiceover-track" src="./audios/01_intro/voice.zh.wav"
-      data-start="0" data-duration="90.5" data-volume="1"></audio>
+      data-start="0" data-duration="110.166666667" data-volume="1"></audio>
+
+    <video id="vid-recap" class="clip bg-video" src="./footage/01_intro_recap.mp4"
+      data-start="0" data-duration="19.666666667" data-media-start="0" data-volume="0" muted playsinline
+      aria-label="上期回顾：Space Three Worlds Agent Build"></video>
 
     <!-- Space footage (each clip stays within its native length) -->
     <video id="vid-open" class="clip bg-video" src="./footage/01_intro_aether_flight.mp4"
-      data-start="0" data-duration="7.8" data-media-start="0" data-volume="0" muted playsinline></video>
+      data-start="19.666666667" data-duration="7.8" data-media-start="0" data-volume="0" muted playsinline></video>
     <video id="vid-principle" class="clip bg-video" src="./footage/01_intro_copper_world.mp4"
-      data-start="59.2" data-duration="14.3" data-media-start="0.5" data-volume="0" muted playsinline></video>
+      data-start="78.866666667" data-duration="14.3" data-media-start="0.5" data-volume="0" muted playsinline></video>
     <video id="vid-overview" class="clip bg-video" src="./footage/01_intro_overview.mp4"
-      data-start="73.3" data-duration="13.6" data-media-start="0" data-volume="0" muted playsinline></video>
+      data-start="92.966666667" data-duration="13.6" data-media-start="0" data-volume="0" muted playsinline></video>
     <video id="vid-outro" class="clip bg-video" src="./footage/01_intro_aether_flight.mp4"
-      data-start="86.7" data-duration="3.8" data-media-start="8" data-volume="0" muted playsinline></video>
+      data-start="106.366666667" data-duration="3.8" data-media-start="8" data-volume="0" muted playsinline></video>
 
-    <!-- S1 OPENING (0 – 7.65) -->
-    <section id="s1" class="scene clip" data-start="0" data-duration="7.65">
+    <!-- S1 OPENING AFTER RECAP -->
+    <section id="s1" class="scene clip" data-start="19.666666667" data-duration="7.65">
       <div class="scene-inner">
         <div class="scrim scrim-left-strong"></div>
         <div class="op-stack">
@@ -36,7 +40,7 @@
     </section>
 
     <!-- S2 MINECRAFT VANILLA (7.6 – 23.1) -->
-    <section id="s2" class="scene clip scene-solid" data-start="7.6" data-duration="15.5">
+    <section id="s2" class="scene clip scene-solid" data-start="27.266666667" data-duration="15.5">
       <div class="scene-inner">
         <div class="scene-header">
           <div class="eyebrow">以 Minecraft 为例</div>
@@ -72,7 +76,7 @@
     </section>
 
     <!-- S3 COMMUNITY MODS (23.1 – 40.5) -->
-    <section id="s3" class="scene clip scene-solid" data-start="23.1" data-duration="17.4">
+    <section id="s3" class="scene clip scene-solid" data-start="42.766666667" data-duration="17.4">
       <div class="scene-inner">
         <div class="scene-header">
           <div class="eyebrow">社区模组</div>
@@ -117,7 +121,7 @@
     </section>
 
     <!-- S4 HOST ARCHITECTURE CONSTRAINT (40.5 – 59.3) -->
-    <section id="s4" class="scene clip scene-solid" data-start="40.5" data-duration="18.8">
+    <section id="s4" class="scene clip scene-solid" data-start="60.166666667" data-duration="18.8">
       <div class="scene-inner">
         <div class="scene-header">
           <div class="eyebrow amber">Minecraft 的既有架构</div>
@@ -162,7 +166,7 @@
     </section>
 
     <!-- S5 SPACE PRINCIPLE (59.3 – 73.4) -->
-    <section id="s5" class="scene clip" data-start="59.3" data-duration="14.1">
+    <section id="s5" class="scene clip" data-start="78.966666667" data-duration="14.1">
       <div class="scene-inner">
         <div class="scrim scrim-bottom"></div>
         <div class="pr-wrap">
@@ -186,7 +190,7 @@
     </section>
 
     <!-- S6 DISTRIBUTED COMPUTE (73.4 – 86.75) -->
-    <section id="s6" class="scene clip" data-start="73.4" data-duration="13.35">
+    <section id="s6" class="scene clip" data-start="93.066666667" data-duration="13.35">
       <div class="scene-inner">
         <div class="scrim scrim-full"></div>
         <div class="scene-header" style="position:relative">
@@ -286,7 +290,7 @@
     </section>
 
     <!-- S7 ROADMAP (86.75 – 90.5) -->
-    <section id="s7" class="scene clip" data-start="86.75" data-duration="3.75">
+    <section id="s7" class="scene clip" data-start="106.416666667" data-duration="3.75">
       <div class="scene-inner">
         <div class="scrim scrim-full"></div>
         <div id="s7-road" class="road">
@@ -306,8 +310,7 @@
   </div>
 
   <script>
-    const tl = gsap.timeline({ paused: true });
-    const TOTAL = 90.5;
+    const tl = gsap.timeline();
     const pop = (sel, at, from = { y: 24 }) =>
       tl.from(sel, { ...from, opacity: 0, duration: 0.45, ease: "power3.out" }, at);
     const fadeIn = (sel, at, d = 0.4) => tl.to(sel, { opacity: 1, duration: d, ease: "power2.out" }, at);
@@ -408,7 +411,9 @@
     tl.to("#s7 > .scene-inner", { opacity: 0, duration: 0.35, ease: "power2.in" }, 90.15);
 
     window.__timelines = window.__timelines || {};
-    window.__timelines["root"] = tl;
+    const timeline = gsap.timeline({ paused: true });
+    timeline.add(tl, 19.666666667);
+    window.__timelines["root"] = timeline;
   </script>
 </body>
 </html>
