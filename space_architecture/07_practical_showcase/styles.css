@@ -65,8 +65,6 @@ footer {
   font-size: 22px;
 }
 audio { width: 1px; height: 1px; opacity: 0; pointer-events: none; }
-.progress-track { position: absolute; left: 72px; right: 72px; bottom: 27px; height: 5px; background: #1f3a2c; z-index: 20; }
-.progress-fill { background: var(--green); width: 100%; height: 100%; transform: scaleX(0); transform-origin: left; }
 
 .workload-columns {
   display: grid;

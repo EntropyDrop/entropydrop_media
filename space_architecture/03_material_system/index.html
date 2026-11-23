@@ -89,8 +89,6 @@
         </div>
       </div>
     </section>
-
-    <div class="progress-track"><div class="progress-fill"></div></div>
   </div>
 
   <script>
@@ -179,8 +177,6 @@
     tl.set("#ar-3", { className: "on" }, 21.95);
     fadeOut("#ap-3", 23.1, 0.25);
     tl.fromTo("#recap", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 23.3);
-
-    tl.to(".progress-fill", { width: "100%", duration: TOTAL, ease: "none" }, 0);
 
     window.__timelines = window.__timelines || {};
     window.__timelines["root"] = tl;

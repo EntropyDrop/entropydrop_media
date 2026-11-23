@@ -1,0 +1,8 @@
+file '/Volumes/zxf/entropydrop_media/space_architecture/01_intro/exports/01_intro.mp4'
+file '/Volumes/zxf/entropydrop_media/space_architecture/02_modeling/exports/02_modeling.mp4'
+file '/Volumes/zxf/entropydrop_media/space_architecture/03_material_system/exports/03_material_system.mp4'
+file '/Volumes/zxf/entropydrop_media/space_architecture/04_physics_entity/exports/04_physics_entity.mp4'
+file '/Volumes/zxf/entropydrop_media/space_architecture/05_code/exports/05_code.mp4'
+file '/Volumes/zxf/entropydrop_media/space_architecture/06_runtime/exports/06_runtime.mp4'
+file '/Volumes/zxf/entropydrop_media/space_architecture/07_practical_showcase/exports/07_practical_showcase.mp4'
+file '/Volumes/zxf/entropydrop_media/space_architecture/08_future_vision/exports/08_future_vision.mp4'

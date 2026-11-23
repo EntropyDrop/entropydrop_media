@@ -170,25 +170,6 @@ html, body {
   text-shadow: 1px 1px 0 #000000;
 }
 
-/* Bottom Progress Bar */
-.progress-track {
-  position: absolute;
-  left: 76px;
-  right: 76px;
-  bottom: 20px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(0, 0, 0, 0.6);
-  z-index: 95;
-  overflow: hidden;
-}
-
-.progress-fill {
-  width: 0%;
-  height: 100%;
-  background: linear-gradient(90deg, var(--green-solid), var(--green), var(--sky));
-}
-
 /* Section Eyebrow & Headers */
 .eyebrow {
   display: inline-flex;

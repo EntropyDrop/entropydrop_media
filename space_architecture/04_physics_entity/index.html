@@ -263,8 +263,6 @@
         </div>
       </div>
     </section>
-
-    <div class="progress-track"><div class="progress-fill"></div></div>
   </div>
 
   <script>
@@ -397,8 +395,6 @@
     pop("#s7-q", cue.question + 0.15, { y: 26 });
     pop("#s7-n", cue.question + 2.1, { y: 14 });
     fadeOut("#s7 > .scene-inner", cue.total - 0.45, 0.4);
-
-    tl.to(".progress-fill", { width: "100%", duration: TOTAL, ease: "none" }, 0);
 
     window.__timelines = window.__timelines || {};
     window.__timelines["root"] = tl;

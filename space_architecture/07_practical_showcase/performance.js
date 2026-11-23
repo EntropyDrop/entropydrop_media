@@ -17,6 +17,5 @@ function buildPerformanceTimeline() {
   tl.from('#sync-scene article', { opacity:0, y:12, duration:.42, stagger:.15 }, cue.sync+.12);
   tl.from('#linked-scene article', { opacity:0, y:12, duration:.42, stagger:.10 }, cue.finish+.15);
   tl.from('#linked-conclusion', { opacity:0, y:8, duration:.35 }, cue.finishText);
-  tl.to('.progress-fill', { scaleX:1, duration:cue.total, ease:'none' }, 0);
   return tl;
 }

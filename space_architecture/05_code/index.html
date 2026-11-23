@@ -333,8 +333,6 @@
         </div>
       </div>
     </section>
-
-    <div class="progress-track"><div class="progress-fill"></div></div>
   </div>
 
   <script>
@@ -465,8 +463,6 @@
     pop("#s12 .big", 113.5, { y: 24 });
     pop("#s12-next", 115, { x: -24 });
     tl.to("#s12 > .scene-inner, #hud", { opacity: 0, duration: 0.4, ease: "power2.in" }, 116.55);
-
-    tl.to(".progress-fill", { width: "100%", duration: TOTAL, ease: "none" }, 0);
 
     window.__timelines = window.__timelines || {};
     window.__timelines["root"] = tl;

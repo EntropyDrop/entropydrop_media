@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>08 架构哲学：方块负责形状，代码负责行为 — Space 架构解析</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./vendor/gsap.min.js"></script>
+</head>
+<body>
+  <div id="root" data-composition-id="root" data-start="0" data-duration="23.700" data-width="1920" data-height="1080">
+    <div class="arch-grid"></div>
+
+    <audio id="vo" class="clip voiceover-track" src="./audios/08_future_vision/voice.zh.wav" data-start="0" data-duration="23.700" data-volume="1"></audio>
+
+    <!-- 3 Distinct Worlds kept cleanly separated -->
+    <video id="vid-08-aether" class="clip bg-video" src="./footage/01_intro_aether_flight.mp4" data-start="0" data-duration="6.8" data-media-start="4" data-volume="0" muted playsinline></video>
+    <video id="vid-08-nature" class="clip bg-video" src="./footage/08_vision_nature.mp4" data-start="6.6" data-duration="6.8" data-media-start="2" data-volume="0" muted playsinline></video>
+    <video id="vid-08-copper" class="clip bg-video" src="./footage/01_intro_copper_world.mp4" data-start="13.2" data-duration="6.2" data-media-start="0" data-volume="0" muted playsinline></video>
+    <video id="vid-08-end" class="clip bg-video" src="./footage/08_vision_nature.mp4" data-start="19.0" data-duration="4.700" data-media-start="8" data-volume="0" muted playsinline></video>
+
+    <div class="topbar">
+      <div class="topbar-left">
+        <span class="topbar-tab"><span class="topbar-dot"></span><span>SPACE // EP 08</span></span>
+      </div>
+      <div class="topbar-right"><span>08 架构哲学：方块负责形状，代码负责行为</span></div>
+    </div>
+
+    <!-- SCENE 1: TRI-WORLD RECAP (0.00 - 19.20s) -->
+    <section id="scene-08-recap" class="scene clip" data-start="0" data-duration="19.20">
+      <div class="scene-inner" style="justify-content: space-between;">
+        <div class="scrim-bottom-grad"></div>
+
+        <div id="world-pill-wrap" style="align-self: flex-start; position: relative; z-index: 3;">
+          <div id="tag-aether" class="hud-callout">
+            <span class="kicker">WORLD 01</span>
+            <span>Aether Archipelago · 以太群岛</span>
+          </div>
+          <div id="tag-nature" class="hud-callout green" style="position: absolute; top: 0; left: 0; opacity: 0; visibility: hidden; white-space: nowrap;">
+            <span class="kicker">WORLD 02</span>
+            <span>Nature · 远景森林地形</span>
+          </div>
+          <div id="tag-copper" class="hud-callout amber" style="position: absolute; top: 0; left: 0; opacity: 0; visibility: hidden; white-space: nowrap;">
+            <span class="kicker">WORLD 03</span>
+            <span>Copper Metropolis · 机械铜都</span>
+          </div>
+        </div>
+
+        <div class="space-two-cols" style="margin: 0; position: relative; z-index: 3;">
+          <div id="card-shape" class="space-col-card sky">
+            <div class="space-col-title">造型按尺度分层</div>
+            <div class="tier-flow">
+              <div class="tier-node"><strong>粗体素</strong><span>1 m 地形</span></div>
+              <span class="tier-arrow">→</span>
+              <div class="tier-node"><strong>微体素</strong><span>8³ 细节</span></div>
+              <span class="tier-arrow">→</span>
+              <div class="tier-node"><strong>装饰体素</strong><span>自由塑形</span></div>
+            </div>
+          </div>
+
+          <div id="card-behav" class="space-col-card green">
+            <div class="space-col-title">行为交给实体与脚本</div>
+            <div class="tier-flow">
+              <div class="tier-node"><strong>刚体物理</strong><span>质量受力</span></div>
+              <span class="tier-arrow">→</span>
+              <div class="tier-node"><strong>脚本逻辑</strong><span>自动化</span></div>
+              <span class="tier-arrow">→</span>
+              <div class="tier-node"><strong>分布式</strong><span>跨端并发</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 2: SIMPLIFIED END CARD (19.00 - 23.700s) -->
+    <section id="scene-08-closing" class="scene clip" data-start="19.00" data-duration="4.700">
+      <div class="scene-inner" style="justify-content: center; align-items: center;">
+        <div class="scrim-vignette" style="background: rgba(6, 11, 8, 0.88);"></div>
+        <div class="end-card-simple">
+          <h1 class="end-title">Space 体素游戏</h1>
+          <div class="end-links">
+            <div class="end-url">https://entropydrop.com/space/intro</div>
+            <div class="end-url">https://github.com/EntropyDrop/entropydrop_space</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const TOTAL = 23.700;
+
+    tl.set("#scene-08-closing > .scene-inner", { autoAlpha: 0 }, 0);
+    tl.set("#card-shape, #card-behav", { autoAlpha: 0, y: 24 }, 0);
+
+    // Scene 1: Flight & Two Cards Entry
+    tl.to("#card-shape", { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.95);
+    tl.to("#tag-aether", { autoAlpha: 0, duration: 0.22 }, 6.45);
+    tl.to("#tag-nature", { autoAlpha: 1, duration: 0.22 }, 6.60);
+    tl.to("#card-behav", { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 8.46);
+    tl.to("#tag-nature", { autoAlpha: 0, duration: 0.22 }, 13.05);
+    tl.to("#tag-copper", { autoAlpha: 1, duration: 0.22 }, 13.20);
+    tl.to("#scene-08-recap > .scene-inner", { autoAlpha: 0, duration: 0.25 }, 18.90);
+    tl.set("#scene-08-recap > .scene-inner", { autoAlpha: 0 }, 19.19);
+
+    // Scene 2: Clean End Card
+    tl.to(".topbar", { autoAlpha: 0, duration: 0.35 }, 18.90);
+    tl.fromTo("#scene-08-closing > .scene-inner", { autoAlpha: 0, scale: 0.96 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: "power3.out" }, 19.15);
+
+    window.__timelines = window.__timelines || {};
+    window.__timelines["root"] = tl;
+  </script>
+</body>
+</html>
